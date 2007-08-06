@@ -161,7 +161,7 @@ label.selected .arch_eg {
   padding-top: 1ex;
   }
 .search_o_title div {
-  width: 50%;
+  width: 49.5%;
   float:left;
   }
 .search_o_title h3 {
@@ -170,7 +170,7 @@ label.selected .arch_eg {
   }
 .search_o_title h4 {
   font-size: 1em;
-  color: #999 !important;
+  color: #999;
   }
 .description {
   padding-top: 1ex;
@@ -275,7 +275,15 @@ h3 span {
   font-size: 10px !important;
   color: #999 !important;
   }
-
+#contentarea h4 a.blue_over {
+  text-decoration: none;
+  color: #999;
+  border: 0;
+}
+#contentarea h4 a.blue_over:hover {
+  text-decoration: underline;
+  color: #4987b3 ;  
+}
 #paginator {
   margin-top: 2em;
   margin-bottom: 2em;
@@ -291,7 +299,6 @@ h3 span {
 #current_page {
   font-weight: bold;
   }
-
 .next_btn *,
 .prev_btn * {
   background-color: transparent !important;
