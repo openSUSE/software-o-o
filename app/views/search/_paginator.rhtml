@@ -1,0 +1,33 @@
+<% if result.page_count > 1 -%>
+<div id="paginator">
+<% paginator_list(result.page_count, @current_page).each do |page| -%>
+<% case page -%>
+<% when :prev -%>
+<span id="prev" class="prev_btn">
+<%= link_to_remote image_tag("/images/local/left_btn.gif") , :update => 'result', 
+  :url => {:action => :search, :p => @current_page-1, :q => @query, :baseproject => @baseproject},
+  :loading => 'Element.show("ajaxindicator")',
+  :loaded => 'Element.hide("ajaxindicator")'%>
+</span>
+<% when :dots -%>
+<span id="dots">...</span>
+<% when :next -%>
+<span id="next" class="next_btn">
+<%= link_to_remote image_tag("/images/local/right_btn.gif"), :update => 'result', 
+  :url => {:action => :search, :p => @current_page+1, :q => @query, :baseproject => @baseproject},
+  :loading => 'Element.show("ajaxindicator")',
+  :loaded => 'Element.hide("ajaxindicator")'%>
+</span>
+<% else -%>
+<% if page == @current_page -%>
+<span id="current_page"><%= page %></span>
+<% else -%>
+<%= link_to_remote page, :update => 'result', 
+  :url => {:action => :search, :p => page, :q => @query, :baseproject => @baseproject},
+  :loading => 'Element.show("ajaxindicator")',
+  :loaded => 'Element.hide("ajaxindicator")'%>
+<% end -%>
+<% end -%>
+<% end -%>
+</div>
+<% end -%>

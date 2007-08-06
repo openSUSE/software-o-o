@@ -1,0 +1,20 @@
+<div id="search_top_info"><%= @result.pattern_count %> collections and <%=h @result.binary_count%> binaries from <%=h @result.length %> source packages</div>
+<div id="permalink">
+  <%= link_to "Permanent link to this result", :action => :index, :q => @query, :p => @current_page, :baseproject => @baseproject %>
+</div>
+<p>
+<% if @result.empty? -%>
+<p> Nothing found </p>
+<% else -%>
+  <%= render :partial => 'paginator', :locals => {:result => @result} %>
+  <% @result.page(@current_page).each do |item| -%>
+  <% if item.kind_of? Seeker::SearchResult::Pattern -%>
+<%= render :partial => 'pattern_box', :locals => {:item => item} %>
+  <% else -%>
+<%= render :partial => 'result_box', :locals => {:item => item} %>
+  <% end -%>
+  <% end -%>
+  <div id="paginator_bottom">
+  <%= render :partial => 'paginator', :locals => {:result => @result} %>
+  </div>
+<% end -%>

@@ -1,0 +1,13 @@
+<div><%= @result2.pattern_count %> collections and <%=h @result2.binary_count%> binaries in <%=h @result2.length %> packages</div>
+<div id="showdebug" 
+  onclick="Element.toggle('debug')" 
+  onmouseover="Element.setStyle(this,{background: 'darkgrey'})" 
+  onmouseout="Element.setStyle(this,{background: 'lightgrey'})" 
+  style="background:lightgrey; border:1px solid black">Show debugging info</div>
+<% if @result2.empty? -%>
+<p> Nothing found </p>
+<% else -%>
+<% @result2.each do |item| -%>
+<%= render :partial => 'result_box', :locals => {:item => item} %>
+<% end -%>
+<% end -%>

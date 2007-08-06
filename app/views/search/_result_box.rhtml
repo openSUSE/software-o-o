@@ -1,0 +1,46 @@
+<div class="search_o_wrapper">
+  <div class="search_o_title">
+    <div align="left">
+      <h3><%= item.name %></h3>
+    </div>
+    <div align="right">
+      <h4><%= item.project+"/"+item.repository %></h4>
+    </div>
+  </div>
+  <div id="description-<%=item.key%>" class="description">
+    <% @item_key = item.key -%>
+    <% if item.description -%>
+    <% @item_description = item.description -%>
+    <%= render :partial => "description", :locals => {:item => item} %>
+    <% else -%>
+    <%= javascript_tag(remote_function :url => {
+    :action => :update_binary_description, 
+    :item_key => @item_key, 
+    :fname => item.filename,
+    :arch => item.arch,
+    :type => :binary})%>
+    <% end -%>
+  </div>
+  <% item.each do |bin| -%>
+  <% next if bin.arch == "src" -%>
+  <div class="install_btn">
+    <%= link_to "1-Click Install", :controller => 'ymp', :action => 'ymp', :project => bin.project,
+    :repository => bin.repository, :arch => bin.arch, :binary => bin.filename %>
+  </div>
+    <% break -%>
+  <% end -%>
+
+  <div id="pkg_list_wrapper">
+    <h4 >Manual Package Download</h4>
+    <table class="pkg_list">
+      <% item.each do |bin| -%>
+      <tr>
+        <td class="cell1"><%= bin.arch %></td>
+        <td>
+          <a href="http://download.opensuse.org/repositories/<%= bin.filepath %>"><%= bin.filename %></a>
+        </td>
+      </tr> 
+      <% end %>
+    </table>
+  </div>
+</div>

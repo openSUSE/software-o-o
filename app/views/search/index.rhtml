@@ -1,0 +1,29 @@
+<%
+@right_box = :iso
+@page_title = "Get Software from the openSUSE Build Service"
+-%>
+<div class="ajaxindicator_wrapper">
+  <div id="ajaxindicator" align="center" style="display: none;">
+    <b>Searching</b>
+  </div>
+</div>
+<div id="error" style='background:none;'>
+  <% if flash[:error] -%>]
+  <%= flash[:error]%>
+  <% end -%>
+</div>
+<% form_remote_tag(:update => 'result', :url => {:controller => 'search', :action => :search},
+:loading => "Element.show('ajaxindicator')",
+:loaded => "Element.hide('ajaxindicator')") do -%>
+<%= text_field_tag 'q', @query, :size => 40 %>
+<p id="form_control">
+<%= select_tag 'baseproject', options_for_select(baseproject_list_for_select, (@baseproject or default_baseproject)) %>
+<%= submit_tag 'Search' %>
+</p>
+<% end -%>
+
+<div id='result'>
+  <% if @result %>
+    <%= render :partial => 'search_result' %>
+  <% end %>
+</div>
