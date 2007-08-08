@@ -219,7 +219,11 @@ class Seeker < ActiveXML::Base
           bin = self[0]
           info = ::Published.find bin.filename, :view => "fileinfo", :project => @project,
             :repository => @repository, :arch => bin.arch.to_s
-          @description = info.description.to_s
+          if info.has_element? :description
+            @description = info.description.to_s
+          else
+            @description = ""
+          end
         rescue ActiveXML::Transport::NotFoundError
         rescue RuntimeError
           @description = ""
@@ -253,7 +257,11 @@ class Seeker < ActiveXML::Base
         patfname = @filename.split(/.#@type$/)[0]
         begin
           pat = ::Published.find @filename, :project => @project, :repository => @repository, :view => :fileinfo
-          @description = pat.description.to_s
+          if pat.has_element? :description
+            @description = pat.description.to_s
+          else
+            @description = ""
+          end
         rescue ActiveXML::Transport::NotFoundError
         end
         cache.store_description(self, @description)
