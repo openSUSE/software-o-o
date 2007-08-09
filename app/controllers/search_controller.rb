@@ -1,5 +1,8 @@
 class SearchController < ApplicationController
   def index
+    if params[:baseproject]
+      @baseproject = params[:baseproject]
+    end
     if params[:q]
       perform_search
     end
