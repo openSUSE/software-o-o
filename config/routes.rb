@@ -20,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/', :controller => 'main', :action => 'index'
   map.connect 'ymp/:project/:repository/:arch/:binary.ymp',
     :controller => 'ymp', :action => 'ymp'
+  map.connect '/codecs', :controller => 'codecs', :action => 'index'
 
   # Install the default route as the lowest priority.
   map.connect ':controller/:action/:id.:format'

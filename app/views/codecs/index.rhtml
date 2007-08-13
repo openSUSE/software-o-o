@@ -1,0 +1,13 @@
+<%
+@right_box = :search
+@page_title = "Proprietary Multimedia Support in openSUSE"
+-%>
+
+<p>The application you are using (<%=@application%>) has directed you to this page because you tried playing the following proprietary multimedia formats:</p>
+
+<ul>
+<% @missing_codecs.each do | codec | %>
+  <li><%=codec.description%></li>
+<% end %>
+</ul>
+
