@@ -11,8 +11,15 @@ class Seeker < ActiveXML::Base
     def self.search(query, baseproject)
       result = cache.searchresult(query, baseproject)
       return result unless result.nil?
-      xpath = "contains-ic(@name,'#{query}')"
+
+      if query =~ / /
+        xpath = query.split(/ /).map {|part| "contains-ic(@name,'#{part}')"}.join(" and ")
+      else
+        xpath = "contains-ic(@name,'#{query}')"
+      end
+
       if baseproject and not baseproject.empty?
+        xpath = "("+xpath+")"
         xpath << " and path/project='#{baseproject}'"
       end
       bin = Seeker.find :binary, :match => xpath
@@ -21,6 +28,8 @@ class Seeker < ActiveXML::Base
       result.add_patlist(pat)
       result.add_binlist(bin)
       result.sort! {|x,y| y.relevance <=> x.relevance}
+
+
       cache.store_searchresult(query, baseproject, result)
       return result
     end
