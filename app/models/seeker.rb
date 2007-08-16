@@ -174,11 +174,12 @@ class Seeker < ActiveXML::Base
       end
 
       def calculate_relevance
+        quoted_query = Regexp.quote @query
         @relevance_calculated = true
-        @relevance += 15 if name =~/^#@query$/i
-        @relevance += 5 if project =~ /^#@query$/i
-        @relevance += 5 if name =~ /#@query/i
-        @relevance += 2 if project =~ /#@query/i
+        @relevance += 15 if name =~/^#{quoted_query}$/i
+        @relevance += 5 if project =~ /^#{quoted_query}$/i
+        @relevance += 5 if name =~ /#{quoted_query}/i
+        @relevance += 2 if project =~ /#{quoted_query}/i
 
         @relevance -= 10 if project =~ /^home:/
         
