@@ -2,6 +2,26 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define() do
+ActiveRecord::Schema.define(:version => 1) do
+
+  create_table "missing_codecs", :force => true do |t|
+    t.column "visitor_id",        :integer
+    t.column "framework",         :string
+    t.column "framework_version", :string
+    t.column "fourcc",            :string
+  end
+
+  create_table "visitors", :force => true do |t|
+    t.column "created_at",        :datetime
+    t.column "os_release",        :string
+    t.column "application",       :string
+    t.column "language",          :string
+    t.column "client_version",    :string
+    t.column "kernel",            :string
+    t.column "gstreamer_package", :string
+    t.column "xine_package",      :string
+    t.column "user_agent",        :string
+    t.column "ip_address",        :string
+  end
 
 end

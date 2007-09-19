@@ -1,30 +1,21 @@
-class MissingCodec
-  def initialize(a)
-    @framework = a[0]
-    @framework_version = a[1]
-    @application = a[2]
-    @description = a[3]
-    @fourcc = a[4]
-  end
+class MissingCodec < ActiveRecord::Base
+  belongs_to :visitor
+  attr_accessor :description
+  validates_inclusion_of :framework, :in => ['gstreamer', 'xine']
 
-  def framework
-    @framework
-  end
-
-  def framework_version
-    @framework_version
-  end
-
-  def application
-    @application 
+  def self.from_array(a)
+    new(:framework => a[0],
+        :framework_version => a[1],
+        :description => a[3],
+        :fourcc => a[4])
   end
   
-  def description
-    @description 
-  end
-
-  def fourcc
-    @fourcc
+  def display_framework
+    if framework == "gstreamer"
+      return "GStreamer"
+    else
+      return framework.titlecase
+    end
   end
 end
 

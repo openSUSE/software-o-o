@@ -13,7 +13,7 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
   adapter: mysql
-  database: software_development
+  database: opensuse_codecs
   username: root
   password:
   socket: /var/lib/mysql/mysql.sock
@@ -23,14 +23,14 @@ development:
 # Do not set this db to the same as development or production.
 test:
   adapter: mysql
-  database: software_test
+  database: opensuse_codecs
   username: root
   password:
   socket: /var/lib/mysql/mysql.sock
 
 production:
   adapter: mysql
-  database: software_production
+  database: opensuse_codecs
   username: root
   password: 
   socket: /var/lib/mysql/mysql.sock
