@@ -15,9 +15,7 @@ class CodecsController < ApplicationController
       if k.starts_with?("plugin")
         a = v.split("|")
         @visitor.missing_codecs << MissingCodec.from_array(a)
-        if @visitor.application == nil
-          @visitor.application = a[2]
-        end
+        @visitor.application ||= a[2]
       end
     end
 

@@ -31,7 +31,11 @@ end
   <li>Windows Media decoder (<%=wm_framework%>, <%=architecture%>)</li>
 <% end %>
 <% @visitor.missing_codecs.each do | codec | %>
+<% if codec.framework == "gstreamer" && codec.description.include?("MP3") %>
+  <li><p>Fluendo MP3 Decoder</p><div class="install_btn" style="float: none"><a href="http://download.opensuse.org/YaST/gst-fluendo-mp3.ymp">1-Click Install</a></div></li>
+<% else %>
   <li><%=codec.description%> (<%=codec.display_framework%>, <%=architecture%>)</li>
+<% end %>
 <% end %>
 </ul>
 
@@ -49,7 +53,6 @@ Support for proprietary formats and codecs is not shipped out-of-the box in open
 <li><a href="http://opensuse-community.org/Multimedia"><strong>Community Information</strong></a><br />
 <em>Alternate codecs are available by following community instructions, but may require a license.</em></li>
 </ul>
-
 
 <h2 style="margin-top: 1em">Further Information</h2>
 
