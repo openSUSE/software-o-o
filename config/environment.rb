@@ -69,5 +69,5 @@ ActiveXML::Base.config do |conf|
       :pattern => 'rest:///search/published/pattern/id?match=:match',
       :binary => 'rest:///search/published/binary/id?match=:match'
   end
-  conf.transport_for(:project).set_additional_header("X-Username", "obs_read_only")
+  conf.transport_for(:project).set_additional_header("X-Username", ICHAIN_USER)
 end

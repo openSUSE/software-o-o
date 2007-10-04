@@ -21,3 +21,4 @@ config.action_view.debug_rjs                         = true
 config.action_mailer.raise_delivery_errors = false
 
 API_HOST = "gacht.suse.de:3001"
+ICHAIN_USER = "bauersman"

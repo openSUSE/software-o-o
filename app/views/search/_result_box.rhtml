@@ -24,7 +24,7 @@
   <% item.each do |bin| -%>
   <% next if bin.arch == "src" -%>
   <div class="install_btn">
-    <%= link_to "1-Click Install", :controller => 'ymp', :action => 'ymp', :project => bin.project,
+    <%= link_to "1-Click Install", :controller => 'main', :action => 'ymp', :project => bin.project,
     :repository => bin.repository, :arch => bin.arch, :binary => bin.filename %>
   </div>
     <% break -%>

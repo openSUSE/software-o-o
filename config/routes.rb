@@ -18,8 +18,11 @@ ActionController::Routing::Routes.draw do |map|
   # map.connect ':controller/service.wsdl', :action => 'wsdl'
 
   map.connect '/', :controller => 'main', :action => 'index'
+  map.connect 'old/:dist', :controller => 'main', :action => 'old_dist'
+  map.connect 'developer', :controller => 'main', :action => 'developer'
   map.connect 'ymp/:project/:repository/:arch/:binary.ymp',
-    :controller => 'ymp', :action => 'ymp'
+    :controller => 'main', :action => 'ymp'
+
   map.connect '/codecs', :controller => 'codecs', :action => 'index'
 
   # Install the default route as the lowest priority.
