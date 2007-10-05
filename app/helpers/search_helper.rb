@@ -47,7 +47,7 @@ module SearchHelper
   end
 
   def default_baseproject
-    'openSUSE:10.2'
+    'openSUSE:10.3'
   end
 
   def baseproject_list_for_select
