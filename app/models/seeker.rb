@@ -189,6 +189,7 @@ class Seeker < ActiveXML::Base
         @relevance += 5 if project =~ /^#{quoted_query}$/i
         @relevance += 5 if name =~ /#{quoted_query}/i
         @relevance += 2 if project =~ /#{quoted_query}/i
+        @relevance += 1 if project =~ /^openSUSE/i
 
         @relevance -= 10 if project =~ /^home:/
         
