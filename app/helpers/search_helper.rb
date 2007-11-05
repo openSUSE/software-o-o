@@ -58,7 +58,7 @@ module SearchHelper
       ['SUSE Linux 10.1','SUSE:SL-10.1'],
       ['SUSE Linux 10.0','SUSE:SL-10.0'],
       ['SLES/SLED 10','SUSE:SLE-10'],
-      ['SLES 9','SUSE:SLE-9'],
+      ['SLES 9','SUSE:SLES-9'],
       ['Fedora 7','Fedora:7'],
       ['Fedora 6','Fedora:Core6'], 
       ['Mandriva 2007','Mandriva:2007'],
