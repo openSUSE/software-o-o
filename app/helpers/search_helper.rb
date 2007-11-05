@@ -64,6 +64,7 @@ module SearchHelper
       ['Mandriva 2007','Mandriva:2007'],
       ['Mandriva 2006','Mandriva:2006'],
       ['Debian Etch','Debian:Etch'],
+      ['Ubuntu 7.10','Ubuntu:7.10'],
       ['Ubuntu 7.04','Ubuntu:7.04'],
       ['Ubuntu 6.06','Ubuntu:6.06'],
       ['ALL','ALL']
