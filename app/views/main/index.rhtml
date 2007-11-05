@@ -4,6 +4,24 @@
 -%>
               <form action="" name="download">
                <h1>Download openSUSE 10.3</h1>
+               <hr/>
+
+                <div class="helplink">
+                  <a href="help_live.html" onclick="return popup(this.href,'Media','650','250')" title="Popup: Help on Download Media">Help</a>
+                </div>
+
+               <h2 class="font-blue ">Live Version available</h2>
+               <div class="subcolumns" style="margin-bottom: 1em;">
+                 <div class="c50l" style="width: 35%;">
+                   <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-GNOME-Live-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>GNOME</strong> (643MB)</a></div>
+                   <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-KDE-Live-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>KDE</strong> (685MB)</a></div>
+                 </div>
+                 <div class="c50" style="padding-top: 1em; margin-right: 2em;">
+                   <p>
+											Ideal for a first look at openSUSE 10.3 the live version runs on your computer using RAM without touching your hard drive. The live version is available as <a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-GNOME-Live-i386.iso" title="GNOME LiveCD">GNOME</a> or <a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-KDE-Live-i386.iso" title="KDE LiveCD">KDE</a> Live-CD.
+                   </p> 
+                 </div>
+               </div>
                <hr />
                <div id="architecture">
                 <h2>1. Select the Type of Computer</h2>
@@ -58,10 +76,10 @@
                </div>
                <hr />
                <div id="protocol">
-                <h2>3. Choose a Download Method</h2>
                 <div class="helplink">
                   <a href="help_method.html" onclick="return popup(this.href,'Method','750','600')" title="Popup: Help on Download Methods">Help</a>
                 </div>
+                <h2>3. Choose a Download Method</h2>
                 <label for="torrent" id="l_torrent" class="selected" style="display:inline">
                  <input name="protocol" value="torrent" id="torrent" checked="checked" type="radio" onclick="displayDownload()" />
                  BitTorrent
@@ -96,13 +114,12 @@
                  <div class="c50r">
                   <div class="subcr">
                    <div class="media">
-<!--
+<!-- 
                     <h3>Live DVD</h3>
                     <div class="dl_link"><a
                href="http://download.opensuse.org/distribution/10.3/iso/dvd/openSUSE-10.3-GM-LiveDVD.iso"><img
                src="/css/common/images/liDot_media.png" alt="Download"
-               title="Click to Download" />Live DVD (1.7 GB)<br />(no
-               installation, runs from DVD)</a></div>
+               title="Click to Download" />Live DVD (1.7 GB)<br /></div>
 -->
                    </div>
                   </div>
@@ -120,6 +137,12 @@
                     <h3>Base CDs (choose one)</h3>
                     <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-KDE-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-KDE (695 MB)</a></div>
                     <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-GNOME-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-GNOME (665 MB)</a></div>
+                  
+                    <br/>
+
+                    <h3 style="margin-top: 1em;">Live CDs (choose one)</h3>
+                     <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-GNOME-Live-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>GNOME</strong> (643MB)</a></div>
+                     <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-KDE-Live-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>KDE</strong> (685MB)</a></div>
                    </div>
                   </div>
                  </div>
