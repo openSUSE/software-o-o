@@ -20,8 +20,10 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/', :controller => 'main', :action => 'index'
   map.connect 'old/:dist', :controller => 'main', :action => 'old_dist'
   map.connect 'developer', :controller => 'main', :action => 'developer'
+  map.connect 'ymp/:project/:repository/:package.ymp',
+    :controller => 'main', :action => 'ymp_without_arch_and_version'
   map.connect 'ymp/:project/:repository/:arch/:binary.ymp',
-    :controller => 'main', :action => 'ymp'
+    :controller => 'main', :action => 'ymp_with_arch_and_version'
 
   map.connect '/codecs', :controller => 'codecs', :action => 'index'
 
