@@ -12,23 +12,12 @@
     <% if item.description -%>
     <% @item_description = item.description -%>
     <%= render :partial => "description", :locals => {:item => item} %>
-    <% else -%>
-    <%= javascript_tag(remote_function :url => {
-    :action => :update_binary_description, 
-    :item_key => @item_key, 
-    :fname => item.filename,
-    :arch => item.arch,
-    :type => :binary})%>
     <% end -%>
   </div>
-  <% item.each do |bin| -%>
-  <% next if bin.arch == "src" -%>
   <div class="install_btn">
-    <%= link_to "1-Click Install", :controller => 'main', :action => 'ymp', :project => bin.project,
-    :repository => bin.repository, :arch => bin.arch, :binary => bin.filename %>
+    <%= link_to "1-Click Install", :controller => 'main', :action => 'ymp_without_arch_and_version',
+    :project => item.project, :repository => item.repository, :package => item.name %>
   </div>
-    <% break -%>
-  <% end -%>
 
   <div id="pkg_list_wrapper">
     <h4 >Manual Package Download</h4>

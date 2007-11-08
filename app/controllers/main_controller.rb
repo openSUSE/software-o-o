@@ -20,17 +20,27 @@ class MainController < ApplicationController
     end
   end
 
-  def ymp
+  def ymp_with_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
+    res = get_from_api(path)
+    render :text => res.body, :content_type => res.content_type
+  end
+
+  def ymp_without_arch_and_version
+    path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:package]}.ymp?view=ymp"
+    res = get_from_api(path)
+    render :text => res.body, :content_type => res.content_type
+  end
+
+  private
+  def get_from_api(path)
     req = Net::HTTP::Get.new(path)
-    req['x-username'] = "bauersman"
+    req['x-username'] = "obs_read_only"
 
     host, port = API_HOST.split(/:/)
     port ||= 80
     res = Net::HTTP.new(host, port).start do |http|
       http.request(req)
     end
-    
-    render :text => res.body, :content_type => res.content_type
   end
 end
