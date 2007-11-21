@@ -13,7 +13,7 @@ class Seeker < ActiveXML::Base
       return result unless result.nil?
 
       if query =~ / /
-        xpath = query.split(/ /).map {|part| "contains-ic(@name,'#{part}')"}.join(" and ")
+        xpath = query.split(" ").map {|part| "contains-ic(@name,'#{part}')"}.join(" and ")
       else
         xpath = "contains-ic(@name,'#{query}')"
       end

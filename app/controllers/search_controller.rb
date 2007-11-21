@@ -52,8 +52,13 @@ class SearchController < ApplicationController
     @current_page = params[:p].to_i
     @current_page = 1 if @current_page == 0
 
-    if @query.length < 2
-      return false
+    if @query =~ / /
+      #sort by length DESC then alphabetically ASC
+      parts = @query.split(" ").sort_by{|a| [-(a.size),a]}
+      return false if parts[0].length < 2
+      @query = parts.join(" ") 
+    else
+      return false if @query.length < 2
     end
 
     base = @baseproject=="ALL" ? "" : @baseproject
