@@ -243,26 +243,26 @@
            <div class="subcr">
              <% if @right_box == :search -%>
              <div class="orange_box">
-	      <div class="box_top_row">
-	        <div class="box_left"></div>
-	        <div class="box_right"></div>
-	      </div>
-	      <div class="box_title_row">
-	        <div class="box_title">
-	          Get Software
-	        </div>
-	       </div>
-	       <div class="box_content" id="search_os">
-	         <div id="get_software">
+	             <div class="box_top_row">
+	               <div class="box_left"></div>
+	               <div class="box_right"></div>
+	             </div>
+	             <div class="box_title_row">
+	               <div class="box_title">
+	                 Get Software
+	               </div>
+	             </div>
+	           <div class="box_content" id="search_os">
+	           <div id="get_software">
                     <%= link_to "", {:controller => 'search'}, {:class => 'search_form', :style => 'display: block; width: 100%; height: 100px;', :title => "Search Build Service"}  %>
                     Search for and install additional software packages from the openSUSE Build Service.
         	   </div>
-		 </div>
-		 <div class="box_bottom_row">
-		   <div class="box_left"></div>
-		   <div class="box_right"></div>
-		 </div>
-	        </div>
+		       </div>
+		       <div class="box_bottom_row">
+		         <div class="box_left"></div>
+		         <div class="box_right"></div>
+		       </div>
+	         </div>
                 <br />
                 <% else -%>
 
@@ -479,5 +479,13 @@
   </div>
   <script type="text/javascript" src="http://www.novell.com/inc/superstats.js"></script>
   <noscript><img src="https://novellcom.112.2O7.net/b/ss/novellcom/1/G.6--NS/0" height="1" width="1" alt="" /></noscript>
+  <% if @right_box == :search -%>
+  <!--[if lte IE 7]>
+    <script type="text/javascript">
+     alert("Please note that the Internet Explorer (all versions) is not capable of handling\nfiles larger than 4 GB.\n\nThis means that you will not be able to download the DVD images using IE.\n\nPlease use a different browser or a downloadmanager.")
+    </script>
+  <![endif]-->
+  <% end -%>
+
  </body>
 </html>
