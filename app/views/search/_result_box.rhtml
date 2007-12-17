@@ -21,6 +21,9 @@
 
   <div id="pkg_list_wrapper">
     <h4 >Manual Package Download</h4>
+    <div class="obs_link" align="right">
+      <a href="https://build.opensuse.org/project/show?project=<%=item.project%>" alt="<%=item.project%> "title="<%=item.project%>">OBS Project</a>
+    </div>
     <table class="pkg_list">
       <% item.each do |bin| -%>
       <tr>
@@ -31,9 +34,5 @@
       </tr> 
       <% end %>
     </table>
-  </div>
-
-  <div class="obs_link" align="right">
-    <a href="https://build.opensuse.org/project/show?project=<%=item.project%>">OBS Project (<%=item.project%>)</a>
   </div>
 </div>

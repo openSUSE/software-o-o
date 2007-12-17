@@ -154,8 +154,9 @@ label.selected .arch_eg {
   }
 .search_o_title {
   display: block;
-  height: auto;
-  overflow: auto;
+  height: 1em;
+  /*height: auto;*/
+  /*overflow: auto;*/
 
   border-top: 1px solid #CCC;
   padding-top: 1ex;
@@ -208,12 +209,17 @@ label.selected .arch_eg {
   text-decoration: none!important;
   background: transparent url('images/small_btn.png') no-repeat scroll top left; 
 }
+
+#obs_link {
+  
+}
+
 .description h4 {color: #999;}
 
 #pkg_list_wrapper {
   display: block;
   clear: both;
-  margin-top: 5em;
+  /*margin-top: 5em;*/
   }
 .pkg_list {
   width: 95%;
@@ -225,6 +231,9 @@ label.selected .arch_eg {
   }
 #pkg_list_wrapper h4 {
   color: #999;
+  display: block;
+  width: 20em;
+  float: left;
   } 
 #download_os,
 #get_software {
