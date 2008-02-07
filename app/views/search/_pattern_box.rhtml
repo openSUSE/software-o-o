@@ -13,7 +13,7 @@
     <% @item_description = item.description -%>
     <%= render :partial => "description", :locals => {:item => item} %>
     <% else -%>
-    <%= javascript_tag(remote_function :url => {
+    <%= javascript_tag remote_function(:url => {
     :action => :update_pattern_description, 
     :item_key => @item_key, 
     :fname => item.filename, 

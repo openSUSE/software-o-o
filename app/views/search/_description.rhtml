@@ -1,5 +1,5 @@
 <% if @item_description -%>
-<% @item_description = prepare_desc(h @item_description)-%>
+<% @item_description = prepare_desc h(@item_description)-%>
 <div id="description-txt-short-<%=@item_key%>" class="description-txt">
   <% if @item_description.to_s.size > 160 %>
   <%= shorten_description(@item_description, 150) %>
