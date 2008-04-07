@@ -55,8 +55,6 @@ module SearchHelper
       ['openSUSE Factory','openSUSE:Factory'],
       ['openSUSE 10.3','openSUSE:10.3'],
       ['openSUSE 10.2','openSUSE:10.2'],
-      ['SUSE Linux 10.1','SUSE:SL-10.1'],
-      ['SUSE Linux 10.0','SUSE:SL-10.0'],
       ['SLES/SLED 10','SUSE:SLE-10'],
       ['SLES 9','SUSE:SLES-9'],
       ['Fedora 8','Fedora:8'],
