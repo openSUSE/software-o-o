@@ -62,6 +62,7 @@ module SearchHelper
       ['Fedora 6','Fedora:Core6'], 
       ['RHEL 5','RedHat:RHEL-5'], 
       ['CentOS 5','CentOS:CentOS-5'], 
+      ['Mandriva 2008','Mandriva:2008'],
       ['Mandriva 2007','Mandriva:2007'],
       ['Mandriva 2006','Mandriva:2006'],
       ['Debian Etch','Debian:Etch'],
