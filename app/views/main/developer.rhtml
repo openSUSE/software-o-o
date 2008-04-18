@@ -9,7 +9,7 @@
                  <div class="c33l">
                   <div class="subcl">
                    <label for="i386" id="l_i386" class="selected">
-                    <input name="arch" value="i386" id="i386" checked="checked" type="radio" onclick="displayDownload()" />
+                    <input name="arch" value="i386" id="i386" checked="checked" type="radio" onclick="displayDownload(); document.getElementById('l_cd').style.visibility = 'visible';" />
                      32 Bit PC<br />
                     <span class="arch_eg">x86: Computers with e.g. AMD&reg; Sempron or Intel&reg; Celeron&trade;, almost all desktop computers dating 2004 or earlier. This version also runs on 64bit PCs.</span>
                    </label>
@@ -18,7 +18,7 @@
                  <div class="c33l">
                   <div class="subc">
                    <label for="x86_64" id="l_x86_64" class="">
-                    <input name="arch" value="x86_64" id="x86_64" type="radio" onclick="displayDownload()" />
+                    <input name="arch" value="x86_64" id="x86_64" type="radio" onclick="displayDownload(); document.getElementById('l_cd').style.visibility = 'visible';" />
                     64 Bit PC<br />
                     <span class="arch_eg">x86-64: Most new computers with e.g. AMD&reg;: Opteron&trade;, Turion&trade; 64, Athlon&trade; 64, or Intel&reg;: Core&trade;2, Pentium&reg; 4 6xx, Pentium&reg; D CPUs</span>
                    </label>
@@ -27,7 +27,7 @@
                  <div class="c33r">
                   <div class="subcr">
                    <label for="ppc" id="l_ppc" class="">
-                    <input name="arch" value="ppc" id="ppc" type="radio" onclick="displayDownload()" />
+                    <input name="arch" value="ppc" id="ppc" type="radio" onclick="displayDownload(); document.getElementById('l_cd').style.visibility = 'hidden';" />
                      PowerPC<br />
                     <span class="arch_eg">ppc: e.g. Apple&reg; Computers before 2006 with non-Intel&reg; CPU, IBM&reg; eSeries&trade;, IBM&reg; pSeries&trade;</span>
                    </label>
@@ -111,11 +111,11 @@
                  <div class="c50l">
                   <div class="subcl">
                    <div class="media">
-                    <h3>Base CD GNOME</h3>
-                      <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/cd/openSUSE-11.0-Alpha3-GNOME-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />1-CD Installation with GNOME</a></div>
+                    <h3>Installable Live CD GNOME</h3>
+                      <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/cd/openSUSE-11.0-Alpha3-GNOME-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD Installation with GNOME</a></div>
                       <br/>
-                    <h3>Base CD KDE</h3>
-                      <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/cd/openSUSE-11.0-Alpha3-KDE-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />1-CD Installation with KDE</a></div>
+                    <h3>Installable Live CD KDE</h3>
+                      <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/cd/openSUSE-11.0-Alpha3-KDE-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD Installation with KDE</a></div>
                    </div>
                   </div>
                  </div>
@@ -175,10 +175,10 @@
                  <div class="c50l">
                   <div class="subc">
                    <div class="media">
-                    <h3>Base CD GNOME</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/torrent/openSUSE-11.0-Alpha3-GNOME-i386.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />1-CD Installation with GNOME</a></div>
-                    <h3>Base CD KDE</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/torrent/openSUSE-11.0-Alpha3-KDE-i386.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />1-CD Installation with KDE</a></div>
+                    <h3>Installable Live CD GNOME</h3>
+                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/torrent/openSUSE-11.0-Alpha3-GNOME-i386.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD Installation with GNOME</a></div>
+                    <h3>Installable Live CD KDE</h3>
+                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/torrent/openSUSE-11.0-Alpha3-KDE-i386.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD Installation with KDE</a></div>
                    </div>
                   </div>
                  </div>
@@ -227,11 +227,11 @@
                  <div class="c50l">
                   <div class="subcl">
                    <div class="media">
-                    <h3>Base CD GNOME</h3>
-                      <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/cd/openSUSE-11.0-Alpha3-GNOME-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />1-CD Installation with GNOME</a></div>
+                    <h3>Installable Live CD GNOME</h3>
+                      <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/cd/openSUSE-11.0-Alpha3-GNOME-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD with GNOME (Installable|Live)</a></div>
                       <br/>
-                     <h3>Base CD KDE</h3> 
-                      <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/cd/openSUSE-11.0-Alpha3-KDE-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />1-CD Installation with KDE</a></div>
+                     <h3>Installable Live CD KDE</h3> 
+                      <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/cd/openSUSE-11.0-Alpha3-KDE-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD with KDE (Installable|Live)</a></div>
                    </div>
                   </div>
                  </div>
@@ -292,10 +292,10 @@
                  <div class="c50l">
                   <div class="subc">
                    <div class="media">
-                    <h3>Base CD GNOME</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/torrent/openSUSE-11.0-Alpha3-GNOME-x86_64.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />1-CD Installation with GNOME</a></div>
-                    <h3>Base CD KDE</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/torrent/openSUSE-11.0-Alpha3-KDE-x86_64.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />1-CD Installation with KDE</a></div>
+                    <h3>Installable Live CD GNOME</h3>
+                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/torrent/openSUSE-11.0-Alpha3-GNOME-x86_64.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD Installation with GNOME</a></div>
+                    <h3>Installable Live CD KDE</h3>
+                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/torrent/openSUSE-11.0-Alpha3-KDE-x86_64.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD Installation with KDE</a></div>
                    </div>
                   </div>
                  </div>
@@ -329,11 +329,11 @@
                  <div class="c50l">
                   <div class="subcl">
                    <div class="media">
-                    <h3>Base CD GNOME</h3>
-                      <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/cd/openSUSE-11.0-Alpha3-GNOME-ppc.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />1-CD Installation with GNOME</a></div>
+                    <h3>Installable Live CD GNOME</h3>
+                      <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/cd/openSUSE-11.0-Alpha3-GNOME-ppc.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD Installation with GNOME</a></div>
                       <br/>
-                     <h3>Base CD KDE</h3> 
-                      <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/cd/openSUSE-11.0-Alpha3-KDE-ppc.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />1-CD Installation with KDE</a></div>
+                     <h3>Installable Live CD KDE</h3> 
+                      <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0-Alpha3/iso/cd/openSUSE-11.0-Alpha3-KDE-ppc.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD Installation with KDE</a></div>
                    </div>
                   </div>
                  </div>
