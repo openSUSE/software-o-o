@@ -27,7 +27,7 @@ class MainController < ApplicationController
   end
 
   def ymp_without_arch_and_version
-    path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:package]}.ymp?view=ymp"
+    path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:package]}?view=ymp"
     res = get_from_api(path)
     render :text => res.body, :content_type => res.content_type
   end
