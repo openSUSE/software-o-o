@@ -10,15 +10,6 @@ class MainController < ApplicationController
   def developer
   end
 
-  def promodvd
-  end
-
-  def promo_submit
-    #TODO: reject when not all mandatory fields are filled
-    #
-    Promomailer.deliver_promo_order params[:order]
-  end
-
   def old_dist
     dist = params[:dist]
     begin
