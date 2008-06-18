@@ -60,7 +60,6 @@ module SearchHelper
       ['SLES 9','SUSE:SLES-9'],
       ['Fedora 9','Fedora:9'],
       ['Fedora 8','Fedora:8'],
-      ['Fedora 7','Fedora:7'],
       ['RHEL 5','RedHat:RHEL-5'], 
       ['CentOS 5','CentOS:CentOS-5'], 
       ['Mandriva 2008','Mandriva:2008'],
