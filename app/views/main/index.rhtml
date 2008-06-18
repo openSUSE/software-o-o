@@ -2,27 +2,21 @@
 @right_box = :search 
 @page_title = "Get openSUSE Distribution"
 -%>
+
+              <script type="text/javascript">
+                // EULA and Release Notes
+                var eula_rn = '<br/><a href="http://download.opensuse.org/distribution/11.0/repo/oss/EULA.txt"EULA>Eula</a> (End User License Agreement)' + '<br/><a href="httr://www.suse.de/relnotes/i386/openSUSE/11.0/RELEASE-NOTES.en.html">Release Notes</a> (latest information)<br/>';
+                //document.write(eula_rn);
+              </script>
+
               <form action="" name="download">
-               <h1>Download openSUSE 10.3</h1>
+               <h1>Download openSUSE 11.0</h1>
                <hr/>
 
                 <div class="helplink">
                   <a href="help_live.html" onclick="return popup(this.href,'Media','650','250')" title="Popup: Help on Download Media">Help</a>
                 </div>
 
-               <h2 class="font-blue ">Live Version available</h2>
-               <div class="subcolumns" style="margin-bottom: 1em;">
-                 <div class="c50l" style="width: 35%;">
-                   <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-GNOME-Live-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>GNOME</strong> (643MB)</a></div>
-                   <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-KDE-Live-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>KDE</strong> (685MB)</a></div>
-                 </div>
-                 <div class="c50" style="padding-top: 1em; margin-right: 2em;">
-                   <p>
-											Ideal for a first look at openSUSE 10.3 the live version runs on your computer using RAM without touching your hard drive. The live version is available as <a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-GNOME-Live-i386.iso" title="GNOME LiveCD">GNOME</a> or <a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-KDE-Live-i386.iso" title="KDE LiveCD">KDE</a> Live-CD.
-                   </p> 
-                 </div>
-               </div>
-               <hr />
                <div id="architecture">
                 <h2>1. Select the Type of Computer</h2>
                 <div class="subcolumns">
@@ -67,7 +61,7 @@
                 </label>
                 <label for="cd" id="l_cd" class="">
                  <input name="media_type" value="cd" id="cd" type="radio" onclick="toggleBitTorrent (); displayDownload()" />
-                 CD
+                 LiveCD
                 </label>
                 <label for="net" id="l_net" class="">
                  <input name="media_type" value="net" id="net" type="radio" onclick="toggleBitTorrent (); displayDownload();" onchange="" />
@@ -97,75 +91,84 @@
                 To download a file, right-click on the link and choose "Save as" from the pop-up menu.
                 <br />
                 In case of problems with the download, please <a href="http://en.opensuse.org/Download_Help">refer to the Download Help</a>.
-               </p> 
+                </p>
                <!-- i386 and DVD via http -->
                <div id="i386dvdhttp" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>x86</strong> on <strong>DVD</strong> via <strong>http</strong></span></h3>
+                <h3><span class="media_description">openSUSE 11.0 for <strong>x86</strong> on <strong>DVD</strong> via <strong>http</strong></span></h3>
                 <div class="subcolumns">
                  <div class="c50l">
-		  <div class="subcl">
+                  <div class="subcl">
                    <div class="media">
                     <h3>Installation</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/dvd/openSUSE-10.3-GM-DVD-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD (4.1 GB)</a></div>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-Addon-Lang-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages (617 MB)</a> (optional)</div>
+                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/dvd/openSUSE-11.0-DVD-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD (4.1 GB)</a></div>
+                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/cd/openSUSE-11.0-Addon-Lang-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages (617 MB)</a> (optional)</div>
                    </div>
                   </div>
                  </div>
                  <div class="c50r">
                   <div class="subcr">
                    <div class="media">
-<!-- 
-                    <h3>Live DVD</h3>
-                    <div class="dl_link"><a
-               href="http://download.opensuse.org/distribution/10.3/iso/dvd/openSUSE-10.3-GM-LiveDVD.iso"><img
-               src="/css/common/images/liDot_media.png" alt="Download"
-               title="Click to Download" />Live DVD (1.7 GB)<br /></div>
--->
                    </div>
                   </div>
                  </div>
                 </div>
-                <p><a href="http://download.opensuse.org/distribution/10.3/iso/dvd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)</p>
+                <p>
+                <a href="http://download.opensuse.org/distribution/11.0/iso/dvd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only) <br/>
+                <script type="text/javascript">
+                  document.write(eula_rn);
+                </script>
+                
+                </p>
                </div>
                <!-- i386 and CD via http -->
                <div id="i386cdhttp" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>x86</strong> on <strong>CD</strong> via <strong>http</strong></span></h3>
+                <h3><span class="media_description">openSUSE 11.0 for <strong>x86</strong> on <strong>CD</strong> via <strong>http</strong></span></h3>
                 <div class="subcolumns">
                  <div class="c50l">
                   <div class="subcl">
                    <div class="media">
-                    <h3>Base CDs (choose one)</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-KDE-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-KDE (695 MB)</a></div>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-GNOME-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-GNOME (665 MB)</a></div>
-                  
-                    <br/>
-
-                    <h3 style="margin-top: 1em;">Live CDs (choose one)</h3>
-                     <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-GNOME-Live-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>GNOME</strong> (643MB)</a></div>
-                     <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-KDE-Live-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>KDE</strong> (685MB)</a></div>
+                    <h3>Live CDs (choose one)</h3>
+                    <div class="dl_link">
+                      <a href="http://download.opensuse.org/distribution/11.0/iso/cd/openSUSE-11.0-KDE4-LiveCD-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-KDE (695 MB)</a>
+                    </div>
+                    <div class="dl_link">
+                      <a href="http://download.opensuse.org/distribution/11.0/iso/cd/openSUSE-11.0-GNOME-LiveCD-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-GNOME (665 MB)</a>
+                    </div>
                    </div>
                   </div>
                  </div>
                  <div class="c50l">
                   <div class="subc">
-                   <div class="media">
+                    <div class="media">
+                      
                    <h3>Add-On CD (optional)</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-Addon-NonOss-BiArch.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Non-Open Source Software (476 MB)</a></div>
+                   <div class="dl_link">
+                     <a href="http://download.opensuse.org/distribution/11.0/iso/cd/openSUSE-11.0-Addon-Lang-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages  (476 MB)</a>
+                   </div>
+                   
  		   </div>
                   </div>
                  </div>
                 </div>
-                <p><a href="http://download.opensuse.org/distribution/10.3/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)</p>
+                <p>
+                <a href="http://download.opensuse.org/distribution/11.0/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)<br/>
+                <script type="text/javascript">
+                  document.write(eula_rn);
+                </script>
+                </p>
+
                </div>
                <!-- i386 and Network via http -->
                <div id="i386nethttp" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>x86</strong>, <strong>Network Installation</strong></span></h3>
+                <h3><span class="media_description">openSUSE 11.0 for <strong>x86</strong>, <strong>Network Installation</strong></span></h3>
                 <div class="subcolumns">
                  <div class="c50l">
                   <div class="subc">
                    <div class="media">
                     <h3>Boot CD</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-i386-mini.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Mini CD (73 MB)</a></div>
+                    <div class="dl_link">
+                      <a href="http://download.opensuse.org/distribution/11.0/iso/cd/openSUSE-11.0-NET-i386.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Mini CD (73 MB)</a>
+                    </div>
                    </div>
                   </div>
                  </div>
@@ -174,39 +177,53 @@
                    <div class="media">
                     <h3>Repositories</h3>
                     <p>
-                      <a href="http://download.opensuse.org/distribution/10.3/repo/oss/">Installation Repository</a> (needed)<br />
-                     <a href="http://download.opensuse.org/distribution/10.3/repo/non-oss/">Addon Installation Repository</a> (optional)
+                      <a href="http://download.opensuse.org/distribution/11.0/repo/oss/">Installation Repository</a> (needed)<br />
+                     <a href="http://download.opensuse.org/distribution/11.0/repo/non-oss/">Addon Installation Repository</a> (optional)
                     </p>
                    </div>
                   </div>
                  </div>
                 </div>
-                <p><a href="http://download.opensuse.org/distribution/10.3/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)</p>
+                <p>
+                <a href="http://download.opensuse.org/distribution/11.0/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)
+                <script type="text/javascript">
+                  document.write(eula_rn);
+                </script>
+               </p>
                </div>
                <!-- i386 and DVD via torrent -->
                <div id="i386dvdtorrent" class="show">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>x86</strong> on <strong>DVD</strong> via <strong>BitTorrent</strong></span></h3>
+                <h3><span class="media_description">openSUSE 11.0 for <strong>x86</strong> on <strong>DVD</strong> via <strong>BitTorrent</strong></span></h3>
                 <div class="media">
                  <h3>Installation</h3>
-                 <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-DVD-i386.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD (4.1 GB)</a></div>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-Addon-Lang-i386.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages (617 MB)</a> (optional)</div>
+                 <div class="dl_link">
+                   <a href="http://download.opensuse.org/distribution/11.0/iso/torrent/openSUSE-11.0-DVD-i386.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD (4.1 GB)</a>
+                 </div>
+                 <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/torrent/openSUSE-11.0-Addon-Lang-i386.torrent">
+                     <img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages (617 MB)</a> (optional)
+                 </div>
                 </div>
-                <p><a href="http://download.opensuse.org/distribution/10.3/iso/dvd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)</p>
+                <p>
+                <a href="http://download.opensuse.org/distribution/11.0/iso/dvd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)
+                <script type="text/javascript">
+                  document.write(eula_rn);
+                </script>
+                </p>
                </div>
                <!-- i386 and CD via torrent -->
                <div id="i386cdtorrent" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>x86</strong> on <strong>CD</strong> via <strong>BitTorrent</strong></span></h3>
+                <h3><span class="media_description">openSUSE 11.0 for <strong>x86</strong> on <strong>CD</strong> via <strong>BitTorrent</strong></span></h3>
                 <div class="subcolumns">
                  <div class="c50l">
                   <div class="subcr">
                    <div class="media">
-                    <h3>Base CDs (choose one)</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-KDE-i386.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-KDE (695 MB)</a></div>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-GNOME-i386.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-GNOME (665 MB)</a></div>
-                    <br/>
-                    <h3 style="margin-top: 1em;">Live CDs (choose one)</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-GNOME-Live-i386.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>GNOME</strong> (643MB)</a></div>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-KDE-Live-i386.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>KDE</strong> (685MB)</a></div>
+                    <h3>Live CDs (choose one)</h3>
+                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/torrent/openSUSE-11.0-GNOME-LiveCD-i386torrent">
+                        <img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>GNOME</strong> (643MB)</a>
+                    </div>
+                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/torrent/openSUSE-11.0-KDE4-LiveCD-i386.torrent">
+                        <img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>KDE</strong> (685MB)</a>
+                    </div>
                   </div>
                   </div>
                  </div>
@@ -214,72 +231,90 @@
                   <div class="subcr">
                    <div class="media">
                     <h3>Add-On CD (optional)</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-Addon-NonOss-BiArch.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Non-Open Source Software (476 MB)</a></div>
+                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/torrent/openSUSE-11.0-Addon-Lang-i386.torrent">
+                        <img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages  (476 MB)</a>
+                    </div>
                    </div>
  		  </div>
                  </div>
                 </div>
-                <p><a href="http://download.opensuse.org/distribution/10.3/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)</p>
+                <p>
+                <a href="http://download.opensuse.org/distribution/11.0/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)
+                <script type="text/javascript">
+                  document.write(eula_rn);
+                </script>
+                </p>
                </div>
                <!-- x86_64 and DVD via http -->
                <div id="x86_64dvdhttp" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>x86-64</strong> on <strong>DVD</strong> via <strong>http</strong></span></h3>
+                <h3><span class="media_description">openSUSE 11.0 for <strong>x86-64</strong> on <strong>DVD</strong> via <strong>http</strong></span></h3>
                 <div class="subcolumns">
                  <div class="c50l">
                   <div class="subcl">
                    <div class="media">
                     <h3>Installation</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/dvd/openSUSE-10.3-GM-DVD-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD (4.1 GB)</a></div>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-Addon-Lang-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages (617 MB)</a> (optional)</div>
+                    <div class="dl_link">
+                      <a href="http://download.opensuse.org/distribution/11.0/iso/dvd/openSUSE-11.0-DVD-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD (4.1 GB)</a>
+                    </div>
+                    <div class="dl_link">
+                      <a href="http://download.opensuse.org/distribution/11.0/iso/cd/openSUSE-11.0-Addon-Lang-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages (617 MB)</a> (optional)
+                    </div>
                    </div>
                   </div>
                  </div>
                  <div class="c50r">
                   <div class="subcr">
                    <div class="media">
-<!--
-                    <h3>Live DVD</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/dvd/openSUSE-10.3-GM-LiveDVD.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live DVD (1.7 GB)<br />(no installation, runs from DVD)</a></div>
--->
+
                    </div>
                   </div>
                  </div>
                 </div>
-                <p><a href="http://download.opensuse.org/distribution/10.3/iso/dvd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)</p>
+                <p>
+                <a href="http://download.opensuse.org/distribution/11.0/iso/dvd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)
+                <script type="text/javascript">
+                  document.write(eula_rn);
+                </script>
+                </p>
                </div>
                <!-- x86_64 and CD via http -->
                <div id="x86_64cdhttp" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>x86-64</strong> on <strong>CD</strong> via <strong>http</strong></span></h3>
+                <h3><span class="media_description">openSUSE 11.0 for <strong>x86-64</strong> on <strong>CD</strong> via <strong>http</strong></span></h3>
                 <div class="subcolumns">
                  <div class="c50l">
                   <div class="subcl">
                    <div class="media">
-                    <h3>Base CDs (choose one)</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-KDE-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-KDE (691 MB)</a></div>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-GNOME-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-GNOME (678 MB)</a></div>
+                     <h3>Live CDs (choose one)</h3>
+                     <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/cd/openSUSE-11.0-KDE4-LiveCD-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-KDE (691 MB)</a></div>
+                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/cd/openSUSE-11.0-GNOME-LiveCD-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-GNOME (678 MB)</a></div>
                    </div>
                   </div>
                  </div>
                  <div class="c50r">
                   <div class="subc">
                    <div class="media">
-                    <h3>Add-On CD (optional)</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-Addon-NonOss-BiArch.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Non-Open Source Software (476 MB)</a></div>
+                     <h3>Add-On CD (optional)</h3>
+                 <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/cd/openSUSE-11.0-Addon-Lang-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages  (476 MB)</a></div>
                    </div>
                   </div>
                  </div>
                 </div>
-                <p><a href="http://download.opensuse.org/distribution/10.3/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)</p>
+                <p>
+                <a href="http://download.opensuse.org/distribution/11.0/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)
+                <script type="text/javascript">
+                  document.write(eula_rn);
+                </script>
+                </p>
                </div>
                <!-- x86_64 and Network via http -->
                <div id="x86_64nethttp" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>x86,64</strong>, <strong>Network Installation</strong></span></h3>
+                <h3><span class="media_description">openSUSE 11.0 for <strong>x86,64</strong>, <strong>Network Installation</strong></span></h3>
                 <div class="subcolumns">
                  <div class="c50l">
                   <div class="subc">
                    <div class="media">
-                    <h3>Boot CD</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-x86_64-mini.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Mini CD (61 MB)</a></div>
+                     <h3>Boot CD</h3>
+                     <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/cd/openSUSE-11.0-NET-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Mini CD (61 MB)</a></div>
                    </div>
                   </div>
                  </div>
@@ -288,131 +323,53 @@
                    <div class="media">
                     <h3>Repositories</h3>
                     <p>
-                      <a href="http://download.opensuse.org/distribution/10.3/repo/oss/">Installation Repository</a> (needed)<br />
-                     <a href="http://download.opensuse.org/distribution/10.3/repo/non-oss/">Addon Installation Repository</a> (optional)
-	            </p>
-                   </div>
-                  </div>
-                 </div>
-                </div>
-                <p><a href="http://download.opensuse.org/distribution/10.3/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)</p>
-               </div>
-               <!-- x86_64 and DVD via torrent -->
-               <div id="x86_64dvdtorrent" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>x86-64</strong> on <strong>DVD</strong> via <strong>BitTorrent</strong></span></h3>
-                <div class="media">
-                 <h3>Installation</h3>
-                 <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-DVD-x86_64.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD (4.1 GB)</a></div>
-                     <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-Addon-Lang-x86_64.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages (617 MB)</a> (optional)</div>
-                </div>
-                <p><a href="http://download.opensuse.org/distribution/10.3/iso/dvd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)</p>
-               </div>
-               <!-- 64bit and CD via torrent -->
-               <div id="x86_64cdtorrent" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>x86-64</strong> on <strong>CD</strong> via <strong>BitTorrent</strong></span></h3>
-                <div class="subcolumns">
-                 <div class="c50l">
-                  <div class="subcr">
-                   <div class="media">
-                    <h3>Base CDs (choose one)</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-KDE-x86_64.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-KDE (691 MB)</a></div>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-GNOME-x86_64.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-GNOME (678 MB)</a></div>
-                   </div>
-                  </div>
-                 </div>
-                 <div class="c50r">
-                  <div class="subcr">
-                   <div class="media">
-                    <h3>Add-On CD (optional)</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-Addon-NonOss-BiArch.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Non-Open Source Software (476 MB)</a></div>
-                   </div>
-                  </div>
-                 </div>
-                </div>
-                <p><a href="http://download.opensuse.org/distribution/10.3/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)</p>
-               </div>
-               <!-- PPC and DVD via http -->
-               <div id="ppcdvdhttp" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>PPC</strong> on <strong>DVD</strong> via <strong>http</strong></span></h3>
-                <div class="media">
-                 <h3>Installation</h3>
-                 <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/dvd/openSUSE-10.3-GM-DVD-ppc.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD (4 GB)</a></div>
-                     <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-Addon-Lang-ppc.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages (617 MB)</a></div>
-                </div>
-                <p><a href="http://download.opensuse.org/distribution/10.3/iso/dvd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)</p>
-               </div>
-               <!-- PPC and CD via http -->
-               <div id="ppccdhttp" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>PPC</strong> on <strong>CD</strong> via <strong>http</strong></span></h3>
-<!--
-                <div class="subcolumns">
-                 <div class="c50l">
-                  <div class="subcl">
-                   <div class="media">
-                    <h3>Base CDs (needed)</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-ppc-CD1.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-KDE (700 MB)</a></div>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-ppc-CD2.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-GNOME (700 MB)</a></div>
-                   </div>
-                  </div>
-                 </div>
-                 <div class="c50r">
-                  <div class="subc">
-                   <div class="media">
-                    <h3>Add-On CD (optional)</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-Addon-NonOSS-ppc.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Non-Open Source Software (170 MB)</a></div>
-                   </div>
-                  </div>
-                 </div>
-                </div>
--->
-                <p>Sorry, the PPC version is available on DVD and for network installation only.</p>
-               </div>
-               <!-- PPC and Network via http -->
-               <div id="ppcnethttp" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>x86,64</strong>, <strong>Network Installation</strong></span></h3>
-                <div class="subcolumns">
-                 <div class="c50l">
-                  <div class="subc">
-                   <div class="media">
-                    <h3>Boot CD</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/cd/openSUSE-10.3-GM-ppc-mini.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Mini CD (72 MB)</a><br /></div>
-                   </div>
-                  </div>
-                 </div>
-                 <div class="c50r">
-                  <div class="subc">
-                   <div class="media">
-                    <h3>Repositories</h3>
-                    <p>
-                      <a href="http://download.opensuse.org/distribution/10.3/repo/oss/">Installation Repository</a> (needed)<br />
-                      <a href="http://download.opensuse.org/distribution/10.3/repo/non-oss/">Addon Installation Repository</a> (optional)
+                      <a href="http://download.opensuse.org/distribution/11.0/repo/oss/">Installation Repository</a> (needed)<br />
+                     <a href="http://download.opensuse.org/distribution/11.0/repo/non-oss/">Addon Installation Repository</a> (optional)
                     </p>
                    </div>
                   </div>
                  </div>
                 </div>
-                <p><a href="http://download.opensuse.org/distribution/10.3/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)</p>
+                <p>
+                <a href="http://download.opensuse.org/distribution/11.0/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)
+                <script type="text/javascript">
+                  document.write(eula_rn);
+                </script>
+                </p>
                </div>
-               <!-- PPC and DVD via torrent -->
-               <div id="ppcdvdtorrent" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>PPC</strong> on <strong>DVD</strong> via <strong>BitTorrent</strong></span></h3>
+               <!-- x86_64 and DVD via torrent -->
+               <div id="x86_64dvdtorrent" class="hide">
+                <h3><span class="media_description">openSUSE 11.0 for <strong>x86-64</strong> on <strong>DVD</strong> via <strong>BitTorrent</strong></span></h3>
                 <div class="media">
                  <h3>Installation</h3>
-                 <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-DVD-ppc.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD (4 GB)</a></div>
-                 <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-Addon-Lang-ppc.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages (617 MB)</a></div>
+                 <div class="dl_link">
+                   <a href="http://download.opensuse.org/distribution/11.0/iso/torrent/openSUSE-11.0-DVD-x86_64.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD (4.1 GB)</a>
+                 </div>
+                 <div class="dl_link">
+                   <a href="http://download.opensuse.org/distribution/11.0/iso/torrent/openSUSE-11.0-Addon-Lang-x86_64.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages (617 MB)</a> (optional)
+                 </div>
                 </div>
-                <p><a href="http://download.opensuse.org/distribution/10.3/iso/dvd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)</p>
+                <p>
+                <a href="http://download.opensuse.org/distribution/11.0/iso/dvd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)
+                <script type="text/javascript">
+                  document.write(eula_rn);
+                </script>
+                </p>
                </div>
-               <!-- PPC and CD via torrent -->
-               <div id="ppccdtorrent" class="hide">
-                <h3><span class="media_description">openSUSE 10.3 for <strong>PPC</strong> on <strong>CD</strong> via <strong>BitTorrent</strong></span></h3>
-<!--
+               <!-- x86_64 and CD via torrent -->
+               <div id="x86_64cdtorrent" class="hide">
+                <h3><span class="media_description">openSUSE 11.0 for <strong>x86-64</strong> on <strong>CD</strong> via <strong>BitTorrent</strong></span></h3>
                 <div class="subcolumns">
                  <div class="c50l">
                   <div class="subcr">
                    <div class="media">
-                    <h3>Base CDs (needed)</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-ppc.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Base CDs (3.4 GB)</a></div>
+                    <h3>Live CDs (choose one)</h3>
+                    <div class="dl_link">
+                      <a href="http://download.opensuse.org/distribution/11.0/iso/torrent/openSUSE-11.0-KDE4-LiveCD-x86_64.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-KDE (691 MB)</a>
+                    </div>
+                    <div class="dl_link">
+                      <a href="http://download.opensuse.org/distribution/11.0/iso/torrent/openSUSE-11.0-GNOME-LiveCD-x86_64.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />CD-GNOME (678 MB)</a>
+                    </div>
                    </div>
                   </div>
                  </div>
@@ -420,12 +377,87 @@
                   <div class="subcr">
                    <div class="media">
                     <h3>Add-On CD (optional)</h3>
-                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/10.3/iso/torrent/openSUSE-10.3-GM-Addon-NonOSS-ppc.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Non-Open Source Software (170 MB)</a></div>
+                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/torrent/openSUSE-11.0-Addon-Lang-x86_64.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages  (476 MB)</a></div>
                    </div>
                   </div>
                  </div>
                 </div>
--->
+                <p>
+                <a href="http://download.opensuse.org/distribution/11.0/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)
+                <script type="text/javascript">
+                  document.write(eula_rn);
+                </script>
+                </p>
+               </div>
+               <!-- PPC and DVD via http -->
+               <div id="ppcdvdhttp" class="hide">
+                <h3><span class="media_description">openSUSE 11.0 for <strong>PPC</strong> on <strong>DVD</strong> via <strong>http</strong></span></h3>
+                <div class="media">
+                 <h3>Installation</h3>
+                 <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/dvd/openSUSE-11.0-DVD-ppc.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD (4 GB)</a></div>
+                     <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/cd/openSUSE-11.0-Addon-Lang-ppc.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages (617 MB)</a></div>
+                </div>
+                <p>
+                <a href="http://download.opensuse.org/distribution/11.0/iso/dvd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)
+                <script type="text/javascript">
+                  document.write(eula_rn);
+                </script>
+                </p>
+               </div>
+               <!-- PPC and CD via http -->
+               <div id="ppccdhttp" class="hide">
+                <h3><span class="media_description">openSUSE 11.0 for <strong>PPC</strong> on <strong>CD</strong> via <strong>http</strong></span></h3>
+                <p>Sorry, the PPC version is available on DVD and for network installation only.</p>
+               </div>
+               <!-- PPC and Network via http -->
+               <div id="ppcnethttp" class="hide">
+                <h3><span class="media_description">openSUSE 11.0 for <strong>x86,64</strong>, <strong>Network Installation</strong></span></h3>
+                <div class="subcolumns">
+                 <div class="c50l">
+                  <div class="subc">
+                   <div class="media">
+                    <h3>Boot CD</h3>
+                    <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/cd/openSUSE-11.0-NET-ppc.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Mini CD (72 MB)</a><br /></div>
+                   </div>
+                  </div>
+                 </div>
+                 <div class="c50r">
+                  <div class="subc">
+                   <div class="media">
+                    <h3>Repositories</h3>
+                    <p>
+                      <a href="http://download.opensuse.org/distribution/11.0/repo/oss/">Installation Repository</a> (needed)<br />
+                      <a href="http://download.opensuse.org/distribution/11.0/repo/non-oss/">Addon Installation Repository</a> (optional)
+                    </p>
+                   </div>
+                  </div>
+                 </div>
+                </div>
+                <p>
+                <a href="http://download.opensuse.org/distribution/11.0/iso/cd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)
+                <script type="text/javascript">
+                  document.write(eula_rn);
+                </script>
+                </p>
+               </div>
+               <!-- PPC and DVD via torrent -->
+               <div id="ppcdvdtorrent" class="hide">
+                <h3><span class="media_description">openSUSE 11.0 for <strong>PPC</strong> on <strong>DVD</strong> via <strong>BitTorrent</strong></span></h3>
+                <div class="media">
+                 <h3>Installation</h3>
+                 <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/torrent/openSUSE-11.0-DVD-ppc.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD (4 GB)</a></div>
+                 <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.0/iso/torrent/openSUSE-11.0-Addon-Lang-ppc.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages (617 MB)</a></div>
+                </div>
+                <p>
+                <a href="http://download.opensuse.org/distribution/11.0/iso/dvd/MD5SUMS">md5sums</a> (for checking the integrity of the download, experts only)
+                <script type="text/javascript">
+                  document.write(eula_rn);
+                </script>
+                </p>
+               </div>
+               <!-- PPC and CD via torrent -->
+               <div id="ppccdtorrent" class="hide">
+                <h3><span class="media_description">openSUSE 11.0 for <strong>PPC</strong> on <strong>CD</strong> via <strong>BitTorrent</strong></span></h3>
                 <p>Sorry, the PPC version is available on DVD and for network installation only.</p>
                </div>
               </div>
@@ -439,7 +471,7 @@
                  <dl>
                   <dt>Installation from DVD/CD:</dt>
                   <dd>
-                   <a href="http://www.novell.com/documentation/opensuse103/opensuse103_startup/data/book_opensuse_startup.html">Official openSUSE 10.3 Start-Up guide</a>
+                   <a href="http://www.novell.com/documentation/opensuse103/opensuse103_startup/data/book_opensuse_startup.html">Official openSUSE 11.0 Start-Up guide</a>
                    <br />
                    <a href="http://en.opensuse.org/INSTALL_Local">Step-by-step installation guide</a>
                   </dd>
