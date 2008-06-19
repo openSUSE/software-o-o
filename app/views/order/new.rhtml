@@ -18,7 +18,35 @@
 
 
 <div>
-  Lorem ipsum bla bla bla...
+<p>
+You want to support openSUSE by spreading DVDs? On this page you can order the 
+latest openSUSE PromoDVD. For more information what is on that DVD, please look 
+at the wiki page <a href='http://en.opensuse.org/PromoDVD'>http://en.opensuse.org/PromoDVD</a>.
+</p>
+<p>
+The PromoDVD is not for personal use. We offer them to spread openSUSE at events 
+like LUG meetings, installfests, conferences but also institutions like schools 
+and universities.
+</p>
+<p>
+If the event is over, please provide photos if possible, send a link to 
+opensuse-marketing at opensuse.org. This will also help you to promote it.
+</p>
+<p>
+Before you enter the needed information:
+<ul>
+<li>Enter a <b>brief</b> reason why you need the DVDs. Provide a link.</li>
+<li>One box contains 60 DVDs. I makes no sense to order 50 or 70.</li>
+<li>You can order less than 60</li>
+<li>Shipping needs 2-3 weeks</li>
+<li>We need a realname for screening.</li>
+<li>Use latin characters only.</li>
+<li>The telephonenumber is needed for the parcel service.</li>
+<li>You will neither get an email when we send the DVDs nor if we didn't send them</li>
+<li>Feel free to rerequest DVDs if you didn't receive them in time</li>
+</ul>
+</p>
+ 
   <p>Colored fields are mandatory</p>
 </div>
 
@@ -47,4 +75,12 @@
   <tr><td>Deadline </td><td><%= f.text_field :deadline, :class => "mandatory" %></td></tr>
   <tr><td colspan=2><%= submit_tag %></td></tr>
 </table>
+<p>
+All data is used only for sending DVDs and will not be spreaded to third parties. 
+We store the data to inform the users if a new version is available. All 
+requests have to be screened to fullfill the US export embargo. More information 
+about the embargo and a list of countries at wikipedia 
+<a href='http://en.wikipedia.org/wiki/United_States_embargoes'>http://en.wikipedia.org/wiki/United_States_embargoes</a>.
+
+</p>
 <% end %>
