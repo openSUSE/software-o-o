@@ -1,5 +1,6 @@
 class OrderController < ApplicationController
   session :disabled => false
+  before_filter :require_auth, :except => [:new, :save, :thanks]
 
   def new
     @order = Order.new params[:order]
@@ -17,5 +18,48 @@ class OrderController < ApplicationController
   end
 
   def thanks
+  end
+
+  # admin stuff
+  def require_auth
+    auth = request.env['HTTP_AUTHORIZATION'].to_s.split
+
+    if auth and auth[0] == "Basic"
+      login, pw = Base64.decode64(auth[1]).split(':')[0..1]
+      pw ||= ""
+      if login == "admin" and pw == "secret"
+        @user = session[:admin_user]
+        return true
+      end
+    end
+
+    response.headers["WWW-Authenticate"] = 'basic realm="software.opensuse.org admin login"'
+    render :text => "authentication required", :status => 401
+    return false
+  end
+  private :require_auth
+
+  def admin_index
+    @orders = Order.find :all, :conditions => "isnull(processed_by)"
+  end
+
+  def change_name
+    session[:admin_user] = params[:name]
+    redirect_to :action => :admin_index
+  end
+
+  def logout
+    session[:admin_user] = nil
+    redirect_to :action => :admin_index
+  end
+
+  def process_order
+    @order = Order.find params[:id]
+    @order.processed_at = Time.now
+    @order.processed_by = session[:admin_user]
+
+    @order.save
+    
+    render :partial => 'order', :object => @order
   end
 end

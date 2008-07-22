@@ -1,0 +1,38 @@
+<%
+  # expected locals:
+  #   order : instantiated order model
+%>
+<div class="order" id="inner_order_<%=order.id%>">
+  <table class="nomargin fullwidth">
+    <tr>
+      <td>
+        <ul>
+          <li><b>Order ID:</b> <%= order.id %></li>
+          <li><b>Name:</b> <%= order.name %></li>
+          <li><b>Amount:</b> <%= order.amount %></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><b>Company:</b> <%= order.company %></li>
+          <li><b>Street1:</b> <%= order.street1 %></li>
+          <li><b>City:</b> <%= order.zip+" "+order.city %></li>
+        </ul>
+      </td>
+      <% if not order.processed_by %>
+        <td width="10%" nowrap>
+          <% form_remote_tag :url => "admin/process_order/#{order.id}",
+          :update => {:success => "outer_order_#{order.id}"} do -%>
+            <%= submit_tag "Process" %>
+          <% end -%>
+        </td>
+      <% end -%>
+    </tr>
+  </table>
+  <% if order.processed_by %>
+    <div>
+      Processed by <b><%= order.processed_by %></b>
+      at <%= order.processed_at %>
+    </div>
+  <% end %>
+</div>

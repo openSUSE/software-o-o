@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 4) do
 
   create_table "missing_codecs", :force => true do |t|
     t.integer "visitor_id"
@@ -22,22 +22,24 @@ ActiveRecord::Schema.define(:version => 3) do
   add_index "missing_codecs", ["fourcc"], :name => "fourcc_index"
 
   create_table "orders", :force => true do |t|
-    t.string   "title",      :default => "", :null => false
-    t.string   "name",       :default => "", :null => false
+    t.string   "title",        :null => false
+    t.string   "name",         :null => false
     t.string   "company"
-    t.string   "street1",    :default => "", :null => false
+    t.string   "street1",      :null => false
     t.string   "street2"
-    t.string   "zip",        :default => "", :null => false
-    t.string   "city",       :default => "", :null => false
+    t.string   "zip",          :null => false
+    t.string   "city",         :null => false
     t.string   "county"
-    t.string   "country",    :default => "", :null => false
-    t.string   "phone",      :default => "", :null => false
-    t.string   "email",      :default => "", :null => false
-    t.integer  "amount",                     :null => false
-    t.text     "reason",     :default => "", :null => false
-    t.string   "deadline",   :default => "", :null => false
+    t.string   "country",      :null => false
+    t.string   "phone",        :null => false
+    t.string   "email",        :null => false
+    t.integer  "amount",       :null => false
+    t.text     "reason",       :null => false
+    t.string   "deadline",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "processed_at"
+    t.string   "processed_by"
   end
 
   create_table "visitors", :force => true do |t|
