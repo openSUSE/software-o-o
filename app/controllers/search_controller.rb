@@ -62,7 +62,7 @@ class SearchController < ApplicationController
     end
 
     base = @baseproject=="ALL" ? "" : @baseproject
-    @result = Seeker.prepare_result(@query, base)
+    @result = Seeker.prepare_result(CGI.escape(@query), base)
     return true
   end 
 end
