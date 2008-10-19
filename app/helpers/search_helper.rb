@@ -62,13 +62,11 @@ module SearchHelper
       ['Fedora 8','Fedora:8'],
       ['RHEL 5','RedHat:RHEL-5'], 
       ['CentOS 5','CentOS:CentOS-5'], 
+      ['Mandriva 2009','Mandriva:2009'],
       ['Mandriva 2008','Mandriva:2008'],
-      ['Mandriva 2007','Mandriva:2007'],
-      ['Mandriva 2006','Mandriva:2006'],
       ['Debian Etch','Debian:Etch'],
       ['Ubuntu 8.04','Ubuntu:8.04'],
       ['Ubuntu 7.10','Ubuntu:7.10'],
-      ['Ubuntu 7.04','Ubuntu:7.04'],
       ['Ubuntu 6.06','Ubuntu:6.06'],
       ['ALL','ALL']
     ]
