@@ -66,7 +66,7 @@ module ActiveXML
 
 
 
-    require 'builder'
+    require 'active_support'
     class BSSQL < Abstract
       register_protocol 'bssql'
 
