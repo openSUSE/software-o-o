@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
   after_filter :compress
 
   def compress
-    if (md = self.request.env['HTTP_ACCEPT_ENCODING'].match(/gzip;?(q=([^,]*))?/))
+    enc = self.request.env['HTTP_ACCEPT_ENCODING']
+    if enc and (md = enc.match(/gzip;?(q=([^,]*))?/))
       if md[1].nil? or md[2].to_f > 0.0
         if self.response.headers["Content-Transfer-Encoding"] != 'binary'
           logger.debug "compressing output"
@@ -23,6 +24,7 @@ class ApplicationController < ActionController::Base
             gz.write(self.response.body)
             self.response.body = ostream.string
             self.response.headers['Content-Encoding'] = 'gzip'
+            self.response.headers['Vary'] = 'Accept-Encoding'
           ensure
             gz.close
           end
