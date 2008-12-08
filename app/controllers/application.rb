@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   # Pick a unique cookie name to distinguish our session data from others'
   # session :session_key => '_software_session_id'
   session :disabled => true
+  layout "application_no_js"
 
   def rescue_action_in_public(exception)
     @message = exception.message

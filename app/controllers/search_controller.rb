@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  layout "application"
+
   def index
     if params[:baseproject]
       @baseproject = params[:baseproject]
