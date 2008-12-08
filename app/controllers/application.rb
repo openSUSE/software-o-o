@@ -10,7 +10,12 @@ class ApplicationController < ActionController::Base
   session :disabled => true
   layout "application_no_js"
 
+  after_filter :set_vary_header
   after_filter :compress
+
+  def set_vary_header
+    self.response.headers['Vary'] = 'Accept-Encoding'
+  end
 
   def compress
     enc = self.request.env['HTTP_ACCEPT_ENCODING']
@@ -24,7 +29,6 @@ class ApplicationController < ActionController::Base
             gz.write(self.response.body)
             self.response.body = ostream.string
             self.response.headers['Content-Encoding'] = 'gzip'
-            self.response.headers['Vary'] = 'Accept-Encoding'
           ensure
             gz.close
           end
