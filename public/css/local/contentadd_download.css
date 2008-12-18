@@ -77,14 +77,16 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 5px;
 }
 .media_description {
-    margin: -1em 0 1em;
-    font-weight: normal;
-    color: #999;
-    font-size: 0.8em;
+  margin: -1em 0 1em;
+  font-weight: normal;
+  color: #999;
+  font-size: 0.8em;
 }
 .dl_link {
-    margin: .8em 0 0 31px;
-    text-indent: -31px;
+  margin: 0.8em 0 0 0;
+  margin: 0;
+  padding-bottom:2em;
+  clear: left;
 }
 label.selected .arch_eg {
     font-weight: normal;
@@ -328,4 +330,31 @@ h3 span {
 
 .sum-note { /* for md5sum etc. */
   font-size: 0.8em;
+  margin-left: 31px;
+  margin-bottom: 1em;
+  display: block;
+}
+.sum-note a {
+
+  display: block;
+  float: left;
+  width: 2.5em;
+}
+
+.clear_left {
+  clear: left;
+}
+
+#contentarea a.metalink {
+  display: block;
+  background: transparent url('http://static.opensuse.org/hosts/software.o.o/css/images/metalink-12.png') no-repeat scroll 0 0;
+  width: 12px;
+  height: 12px;
+}
+#contentarea a.metalink span {
+  display: none!important;
+}
+
+#contentarea a.metalink:hover {
+  background-position: 0 -12px;
 }
