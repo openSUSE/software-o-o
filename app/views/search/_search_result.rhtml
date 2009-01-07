@@ -6,10 +6,6 @@
 <p> Nothing found </p>
 <% else -%>
 <%= render :partial => 'paginator', :locals => {:result => @result} %>
-<div id="oneclickhelp">
-  <strong>Using 10.2 or earlier?</strong>
-  <a href="http://en.opensuse.org/Build_Service/End_User_Frontend">Find out how to add the 1-Click Install capability to your system.</a>
-</div>
   <% @result.page(@current_page).each do |item| -%>
   <% if item.kind_of? Seeker::SearchResult::Pattern -%>
 <%= render :partial => 'pattern_box', :locals => {:item => item} %>
