@@ -5,8 +5,8 @@ class SearchController < ApplicationController
     if params[:baseproject]
       @baseproject = params[:baseproject]
 
-      # this can get removed, when 11.1 is released and available in OBS
-      if @baseproject == "openSUSE:11.1"
+      # this can get removed, when 11.2 is released and available in OBS
+      if @baseproject == "openSUSE:11.2"
          @baseproject = "openSUSE:Factory"
       end
 
