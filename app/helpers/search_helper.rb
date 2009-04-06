@@ -56,6 +56,7 @@ module SearchHelper
       ['openSUSE 11.1','openSUSE:11.1'],
       ['openSUSE 11.0','openSUSE:11.0'],
       ['openSUSE 10.3','openSUSE:10.3'],
+      ['SLES/SLED 11','SUSE:SLE-11'],
       ['SLES/SLED 10','SUSE:SLE-10'],
       ['SLES 9','SUSE:SLES-9'],
       ['Fedora 10','Fedora:10'],
