@@ -68,9 +68,9 @@ module SearchHelper
       ['Mandriva 2008','Mandriva:2008'],
       ['Debian 5.0 (Lenny)','Debian:5.0'],
       ['Debian 4.0 (Etch)','Debian:Etch'],
+      ['Ubuntu 9.04','Ubuntu:9.04'],
       ['Ubuntu 8.10','Ubuntu:8.10'],
       ['Ubuntu 8.04','Ubuntu:8.04'],
-      ['Ubuntu 7.10','Ubuntu:7.10'],
       ['Ubuntu 6.06','Ubuntu:6.06'],
       ['ALL','ALL']
     ]
