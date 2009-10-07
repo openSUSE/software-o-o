@@ -14,11 +14,11 @@ config.whiny_nils = true
 # Show full error reports and disable caching
 config.action_controller.consider_all_requests_local = false
 config.action_controller.perform_caching             = false
-config.action_view.cache_template_extensions         = false
 config.action_view.debug_rjs                         = true
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
-API_HOST = "gacht.suse.de:3001"
-ICHAIN_USER = "bauersman"
+API_HOST = "api-internal.opensuse.org"
+ICHAIN_USER = "obs_read_only"
+
