@@ -336,12 +336,13 @@ class Seeker < ActiveXML::Base
       end
 
       def description(item)
-        fname = @desctmpdir+"/"+item.key
+        fname = @desctmpdir + "/" + Digest::MD5.hexdigest(item.key)
         return read(fname, @descexpire)
       end
 
       def searchresult(query, baseproject)
-        fname = @resulttmpdir+"/"+query+"|"+baseproject.to_s
+         key = query + "|" + baseproject.to_s
+        fname = @resulttmpdir + "/" + Digest::MD5.hexdigest(key)
         if str = read(fname, @resultexpire)
           return Marshal.load(str)
         else
@@ -350,12 +351,13 @@ class Seeker < ActiveXML::Base
       end
 
       def store_description(item, desc)
-        fname = @desctmpdir+"/"+item.key
+        fname = @desctmpdir + "/" + Digest::MD5.hexdigest(item.key)
         write(fname, desc)
       end
 
       def store_searchresult(query, baseproject, result)
-        fname = @resulttmpdir+"/"+query+"|"+baseproject.to_s
+        key = query + "|" + baseproject.to_s
+        fname = @resulttmpdir + "/" + Digest::MD5.hexdigest(key)
         write(fname, Marshal.dump(result))
       end
 
