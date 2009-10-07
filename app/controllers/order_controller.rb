@@ -1,5 +1,5 @@
 class OrderController < ApplicationController
-  session :disabled => false
+
   before_filter :require_auth, :except => [:new, :save, :thanks]
 
   def new
@@ -28,7 +28,8 @@ class OrderController < ApplicationController
     if auth and auth[0] == "Basic"
       login, pw = Base64.decode64(auth[1]).split(':')[0..1]
       pw ||= ""
-      if login == "admin" and pw == "secret"
+      # TODO: fix this when we enable the online ordering again
+      if login == "admin" and pw == "secret" and false
         @user = session[:admin_user]
         return true
       end
