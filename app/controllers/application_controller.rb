@@ -5,9 +5,7 @@ require 'stringio'
 require 'zlib'
 
 class ApplicationController < ActionController::Base
-  # Pick a unique cookie name to distinguish our session data from others'
-  # session :session_key => '_software_session_id'
-  session :disabled => true
+
   layout "application_no_js"
 
   after_filter :set_vary_header
