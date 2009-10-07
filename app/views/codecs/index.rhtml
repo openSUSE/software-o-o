@@ -9,7 +9,7 @@ case architecture
 end
 
 @right_box = :search
-@page_title = "Proprietary Multimedia Support in #{os_release_display}"
+@page_title = "Proprietary Multimedia Support in #{h(os_release_display)}"
 
 wm_framework = nil
 @visitor.missing_codecs.each do | codec | 
