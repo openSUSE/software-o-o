@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   layout "application_no_js"
 
   after_filter :set_vary_header
-  after_filter :compress
+  #after_filter :compress
 
   def set_vary_header
     self.response.headers['Vary'] = 'Accept-Encoding'
@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
   def rescue_action_in_public(exception)
     @message = exception.message
     if request.xhr?
-      render :template => "error", :layout => :false, :status => 404
+      render :template => "error", :layout => false, :status => 404
     else
       render :template => 'error', :layout => "application", :status => 404
     end
