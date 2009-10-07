@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 4) do
 
   create_table "missing_codecs", :force => true do |t|
     t.integer "visitor_id"
@@ -40,10 +40,6 @@ ActiveRecord::Schema.define(:version => 0) do
     t.datetime "updated_at"
     t.datetime "processed_at"
     t.string   "processed_by"
-  end
-
-  create_table "schema_info", :id => false, :force => true do |t|
-    t.integer "version"
   end
 
   create_table "visitors", :force => true do |t|
