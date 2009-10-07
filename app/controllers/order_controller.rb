@@ -4,13 +4,14 @@ class OrderController < ApplicationController
 
   def new
     @order = Order.new params[:order]
+    render :template => 'order/pause'
   end
 
   def save
     @order = Order.new params[:order]
     if @order.save
       Promomailer.deliver_promo_order @order
-      redirect_to :action => "thanks"
+      redirect_to "/order/thanks"
     else
       flash[:save_errors] = @order.errors.full_messages
       redirect_to :action => "new", :order => params[:order]
