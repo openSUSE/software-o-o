@@ -23,7 +23,7 @@ class CodecsController < ApplicationController
       last_visitor = Visitor.find(
         :first, 
         :include => :missing_codecs,
-        :conditions => ['created_at > ? AND ip_address = ? AND fourcc IN (?)',
+        :conditions => ['created_at > ? AND ip_address = ? AND missing_codecs.fourcc IN (?)',
           5.minutes.ago, 
           @visitor.ip_address,
           @visitor.missing_codecs.map(&:fourcc)
