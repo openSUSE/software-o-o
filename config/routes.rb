@@ -18,7 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   # map.connect ':controller/service.wsdl', :action => 'wsdl'
 
   map.connect '/', :controller => 'main', :action => 'index'
-  map.connect 'old/:dist', :controller => 'main', :action => 'old_dist'
+  map.connect 'old/:dist', :controller => 'main', :action => 'old_dist', :requirements => { :dist => /[a-zA-Z0-9\-\.]+/ }
   map.connect 'developer', :controller => 'main', :action => 'developer'
   
   map.connect 'promodvd', :controller => 'order', :action => 'new'

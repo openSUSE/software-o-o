@@ -15,7 +15,7 @@ class MainController < ApplicationController
     begin
       render :template => "main/old_#{dist}.rhtml"
     rescue Object
-      @message = "No old page found for dist #{10.2}"
+      @message = "No old page found for dist #{dist}"
       render :template => "error", :status => 404
     end
   end
