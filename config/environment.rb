@@ -10,6 +10,8 @@ RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+require "#{RAILS_ROOT}/lib/common/smartactivexml"
+
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here
   
@@ -26,12 +28,6 @@ Rails::Initializer.run do |config|
   # (by default production uses :info, the others :debug)
   config.log_level = :debug
 
-  # Use the database for sessions instead of the file system
-  # (create the session table with 'rake db:sessions:create')
-  # config.action_controller.session_store = :active_record_store
-  config.action_controller.session = { 
-    :session_key => "_software_session", :secret => "587acbd825888ef96743e3fbc07d1c9d"
-  }
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper, 
   # like if you have constraints or database-specific column types
@@ -46,13 +42,8 @@ Rails::Initializer.run do |config|
   # See Rails::Configuration for more options
 end
 
-# Add new mime types for use in respond_to blocks:
-# Mime::Type.register "text/richtext", :rtf
-# Mime::Type.register "application/x-mobile", :mobile
-
 # Include your application configuration below
 
-require "smartactivexml"
 ActiveXML::Base.config do |conf|
   conf.setup_transport do |map|
     map.default_server :rest, API_HOST
