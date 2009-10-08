@@ -18,16 +18,18 @@ ActionController::Routing::Routes.draw do |map|
   # map.connect ':controller/service.wsdl', :action => 'wsdl'
 
   map.connect '/', :controller => 'main', :action => 'index'
-  map.connect 'old/:dist', :controller => 'main', :action => 'old_dist', :requirements => { :dist => /[a-zA-Z0-9\-\.]+/ }
+  map.connect 'old/:dist', :controller => 'main', :action => 'old_dist', :requirements => { :dist => /[\w\-\.:]+/ }
   map.connect 'developer', :controller => 'main', :action => 'developer'
   
   map.connect 'promodvd', :controller => 'order', :action => 'new'
   map.connect 'promodvd/admin', :controller => 'order', :action => 'admin_index'
   map.connect 'promodvd/admin/:action/:id', :controller => 'order'
   
-  map.connect 'ymp/:project/:repository/:package.ymp',
+  map.connect 'ymp/:project/:repository/:package.ymp', 
+    :requirements => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :package => /[\w\-\.:]+/ },
     :controller => 'main', :action => 'ymp_without_arch_and_version'
   map.connect 'ymp/:project/:repository/:arch/:binary.ymp',
+    :requirements => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :package => /[\w\-\.:]+/ },
     :controller => 'main', :action => 'ymp_with_arch_and_version'
 
   map.connect '/codecs', :controller => 'codecs', :action => 'index'
