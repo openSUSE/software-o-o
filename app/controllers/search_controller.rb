@@ -51,6 +51,7 @@ class SearchController < ApplicationController
   def perform_search
     @query = params[:q]
     @baseproject = params[:baseproject]
+    cookies[:search_baseproject] = { :value => @baseproject, :expires => 1.month.from_now }
     @current_page = params[:p].to_i
     @current_page = 1 if @current_page == 0
 
