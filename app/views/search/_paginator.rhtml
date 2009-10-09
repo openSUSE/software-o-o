@@ -4,10 +4,10 @@
 <% case page -%>
 <% when :prev -%>
 <span id="prev" class="prev_btn">
-<%= link_to_remote image_tag("/images/local/left_btn.gif") , :update => 'result', 
+<%= link_to_remote image_tag("/images/local/left_btn.gif") , :update => 'result',
   :url => {:action => :search, :p => @current_page-1, :q => @query, :baseproject => @baseproject},
   :loading => 'Element.show("ajaxindicator")',
-  :loaded => 'Element.hide("ajaxindicator")'%>
+  :loaded => 'Element.hide("ajaxindicator"); window.scrollTo(0, 0);'%>
 </span>
 <% when :dots -%>
 <span id="dots">...</span>
@@ -16,7 +16,7 @@
 <%= link_to_remote image_tag("/images/local/right_btn.gif"), :update => 'result', 
   :url => {:action => :search, :p => @current_page+1, :q => @query, :baseproject => @baseproject},
   :loading => 'Element.show("ajaxindicator")',
-  :loaded => 'Element.hide("ajaxindicator")'%>
+  :loaded => 'Element.hide("ajaxindicator"); window.scrollTo(0, 0);'%>
 </span>
 <% else -%>
 <% if page == @current_page -%>
@@ -25,7 +25,7 @@
 <%= link_to_remote page, :update => 'result', 
   :url => {:action => :search, :p => page, :q => @query, :baseproject => @baseproject},
   :loading => 'Element.show("ajaxindicator")',
-  :loaded => 'Element.hide("ajaxindicator")'%>
+  :loaded => 'Element.hide("ajaxindicator"); window.scrollTo(0, 0);'%>
 <% end -%>
 <% end -%>
 <% end -%>
