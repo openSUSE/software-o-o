@@ -104,7 +104,7 @@
         </div>
         <div class="box_content">
          <ul class="navlist">
-          <li><a href="http://software.opensuse.org/search">Software Search</a></li>
+          <li><%= link_to 'Software Search', {:controller => "search", :action => "index"} %></li>
           <li><a href="http://en.opensuse.org/Additional_YaST_Package_Repositories">Package Repositories</a></li>
           <li><a href="http://download.opensuse.org/update/">Update Repositories</a></li>
           <li><a href="http://download.opensuse.org/source/distribution/11.1/">Source Repository</a></li>
@@ -130,7 +130,7 @@
          <ul class="navlist">
           <li><a href="http://en.opensuse.org/Mirror_Selection">Mirrors</a></li>
           <li><a href="http://download.opensuse.org/distribution/11.1/iso/">Metalinks</a></li>
-          <li><a href="/developer">Latest Development Version</a></li>
+          <li><%= link_to 'Latest Development Version', {:controller => "main", :action => "developer"} %></li>
           <li><a href="/old/11.0">openSUSE 11.0</a></li>
           <li><a href="/old/10.3">openSUSE 10.3</a></li>
           <li><a href="/expert.html">Expert view</a></li>
