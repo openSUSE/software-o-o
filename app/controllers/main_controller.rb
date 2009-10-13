@@ -4,11 +4,6 @@ class MainController < ApplicationController
   verify :only => :ymp, :params => [:project, :repository, :arch, :binary],
     :redirect_to => :index
 
-  def index
-  end
-
-  def developer
-  end
 
   def old_dist
     dist = params[:dist]
@@ -33,6 +28,7 @@ class MainController < ApplicationController
   end
 
   private
+  
   def get_from_api(path)
     req = Net::HTTP::Get.new(path)
     req['x-username'] = "obs_read_only"
