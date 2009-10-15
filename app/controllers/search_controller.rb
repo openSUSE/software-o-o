@@ -35,11 +35,8 @@ class SearchController < ApplicationController
     @current_page = 1 if @current_page == 0
 
     return false if @query.length < 2
-    if @query =~ / /
-      return false if @query.split(" ").select{|e| e.length < 2 }.size > 0
-
-    end
-
+    return false if @query =~ / / and @query.split(" ").select{|e| e.length < 2 }.size > 0
+    
     base = @baseproject=="ALL" ? "" : @baseproject
     @result = Seeker.prepare_result(CGI.escape(@query).gsub("+", " "), base)
     return true

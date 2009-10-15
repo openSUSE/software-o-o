@@ -44,6 +44,10 @@ end
 
 # Include your application configuration below
 
+# remove static cache files
+FileUtils.rm_f "#{RAILS_ROOT}/public/index.html"
+FileUtils.rm_f "#{RAILS_ROOT}/public/developer.html"
+
 ActiveXML::Base.config do |conf|
   conf.setup_transport do |map|
     map.default_server :rest, API_HOST

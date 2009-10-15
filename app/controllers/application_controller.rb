@@ -12,4 +12,5 @@ class ApplicationController < ActionController::Base
       render :template => 'error', :layout => "application", :status => 404
     end
   end
+  
 end

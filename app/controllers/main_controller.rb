@@ -1,8 +1,12 @@
 require 'net/http'
 
 class MainController < ApplicationController
+
   verify :only => :ymp, :params => [:project, :repository, :arch, :binary],
     :redirect_to => :index
+
+  # these pages are completely static:
+  caches_page :index, :developer
 
 
   def old_dist
