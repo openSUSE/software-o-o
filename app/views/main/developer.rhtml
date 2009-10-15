@@ -2,19 +2,19 @@
 @right_box = :search 
 @page_title = "Get Latest openSUSE Developer Versions"
 
-@directory = "http://download.opensuse.org/distribution/11.2-RC1/"
-isos = {}
-isos["lang-32"] = "Addon-Lang-Build0331-i586"
-isos["lang-64"] = "Addon-Lang-Build0332-x86_64"
-isos["nonoss"] = "Addon-NonOss-BiArch-Build0335-i586-x86_64"
-isos["kde-64"] = "KDE4-LiveCD-Build0336-x86_64"
-isos["kde-32"] = "KDE4-LiveCD-Build0336-i686"
-isos["gnome-64"] = "GNOME-LiveCD-Build0336-x86_64"
-isos["gnome-32"] = "GNOME-LiveCD-Build0336-i686"
-isos["dvd-64"] = "DVD-Build0334-x86_64"
-isos["dvd-32"] = "DVD-Build0331-i586"
-isos["net-32"] = "NET-Build0331-i586"
-isos["net-64"] = "NET-Build0331-x86_64"
+@directory = "http://download.opensuse.org/distribution/11.2-RC1"
+@isos = {}
+@isos["lang-32"] = "Addon-Lang-Build0331-i586"
+@isos["lang-64"] = "Addon-Lang-Build0332-x86_64"
+@isos["nonoss"] = "Addon-NonOss-BiArch-Build0335-i586-x86_64"
+@isos["kde-64"] = "KDE4-LiveCD-Build0336-x86_64"
+@isos["kde-32"] = "KDE4-LiveCD-Build0336-i686"
+@isos["gnome-64"] = "GNOME-LiveCD-Build0336-x86_64"
+@isos["gnome-32"] = "GNOME-LiveCD-Build0336-i686"
+@isos["dvd-64"] = "DVD-Build0334-x86_64"
+@isos["dvd-32"] = "DVD-Build0331-i586"
+@isos["net-32"] = "NET-Build0331-i586"
+@isos["net-64"] = "NET-Build0331-x86_64"
 
 -%>
        <script type="text/javascript">
@@ -101,7 +101,7 @@ isos["net-64"] = "NET-Build0331-x86_64"
             <div class="subcl">
              <div class="media">
               <h3>Installation</h3>
-               <%= render(:partial => "download_link", :locals => { :iso => isos["dvd-32"], :text => "Installation DVD", :torrent => 0 } )%>
+               <%= render(:partial => "download_link", :locals => { :iso => "dvd-32", :text => "Installation DVD", :torrent => 0 } )%>
              </div>
             </div>
            </div>
@@ -109,8 +109,8 @@ isos["net-64"] = "NET-Build0331-x86_64"
             <div class="subcr">
              <div class="media">
                 <h3>Add-On CD (optional)</h3>
-                <%= render(:partial => "download_link", :locals => { :iso => isos["lang-32"], :text => "Extra Languages", :torrent => 0 } )%>	
-                <%= render(:partial => "download_link", :locals => { :iso => isos["nonoss"], :text => "NonOSS CD", :torrent => 0 } )%>
+                <%= render(:partial => "download_link", :locals => { :iso => "lang-32", :text => "Extra Languages", :torrent => 0 } )%>	
+                <%= render(:partial => "download_link", :locals => { :iso => "nonoss", :text => "NonOSS CD", :torrent => 0 } )%>
              </div>
             </div>
            </div>
@@ -130,8 +130,8 @@ isos["net-64"] = "NET-Build0331-x86_64"
             <div class="subcl">
              <div class="media">
               <h3>Live CDs (choose one)</h3>
-              <%= render(:partial => "download_link", :locals => { :iso => isos["kde-32"], :text => "Live CD <strong>KDE</strong>", :torrent => 0 } ) %>	
-              <%= render(:partial => "download_link", :locals => { :iso => isos["gnome-32"], :text => "Live CD <strong>GNOME</strong>", :torrent => 0 } )%>	
+              <%= render(:partial => "download_link", :locals => { :iso => "kde-32", :text => "Live CD <strong>KDE</strong>", :torrent => 0 } ) %>	
+              <%= render(:partial => "download_link", :locals => { :iso => "gnome-32", :text => "Live CD <strong>GNOME</strong>", :torrent => 0 } )%>	
              </div>
             </div>
            </div>
@@ -140,8 +140,8 @@ isos["net-64"] = "NET-Build0331-x86_64"
               <div class="media">
                 
              <h3>Add-On CD (optional)</h3>
-                <%= render(:partial => "download_link", :locals => { :iso => isos["lang-32"], :text => "Extra Languages", :torrent => 0 } )%>	
-                <%= render(:partial => "download_link", :locals => { :iso => isos["nonoss"], :text => "NonOSS CD", :torrent => 0 } )%>	
+                <%= render(:partial => "download_link", :locals => { :iso => "lang-32", :text => "Extra Languages", :torrent => 0 } )%>	
+                <%= render(:partial => "download_link", :locals => { :iso => "nonoss", :text => "NonOSS CD", :torrent => 0 } )%>	
             </div>
             </div>
            </div>
@@ -161,7 +161,7 @@ isos["net-64"] = "NET-Build0331-x86_64"
             <div class="subc">
              <div class="media">
               <h3>Boot CD</h3>
-               <%= render(:partial => "download_link", :locals => { :iso => isos["net-32"], :text => "Mini CD", :torrent => 0 } )%>
+               <%= render(:partial => "download_link", :locals => { :iso => "net-32", :text => "Mini CD", :torrent => 0 } )%>
              </div>
             </div>
            </div>
@@ -191,7 +191,7 @@ isos["net-64"] = "NET-Build0331-x86_64"
                <div class="subc">
             
            <h3>Installation</h3>
-            <%= render(:partial => "download_link", :locals => { :iso => isos["dvd-32"], :text => "Installation DVD", :torrent => 1 } )%>
+            <%= render(:partial => "download_link", :locals => { :iso => "dvd-32", :text => "Installation DVD", :torrent => 1 } )%>
           </div>
           </div>
           </div>
@@ -201,8 +201,8 @@ isos["net-64"] = "NET-Build0331-x86_64"
              <div class="media">
                
             <h3>Add-On CD (optional)</h3>
-            <%= render(:partial => "download_link", :locals => { :iso => isos["lang-32"], :text => "Extra Languages", :torrent => 1 } )%>	
-            <%= render(:partial => "download_link", :locals => { :iso => isos["nonoss"], :text => "NonOSS CD", :torrent => 1 } )%>	
+            <%= render(:partial => "download_link", :locals => { :iso => "lang-32", :text => "Extra Languages", :torrent => 1 } )%>	
+            <%= render(:partial => "download_link", :locals => { :iso => "nonoss", :text => "NonOSS CD", :torrent => 1 } )%>	
            </div>
            </div>
           </div>
@@ -222,8 +222,8 @@ isos["net-64"] = "NET-Build0331-x86_64"
              <div class="media">
               <h3>Live CDs (choose one)</h3>
 
-              <%= render(:partial => "download_link", :locals => { :iso => isos["kde-32"], :text => "Live CD <strong>KDE</strong>", :torrent => 1 } )%>	
-              <%= render(:partial => "download_link", :locals => { :iso => isos["gnome-32"], :text => "Live CD <strong>GNOME</strong>", :torrent => 1 } )%>	
+              <%= render(:partial => "download_link", :locals => { :iso => "kde-32", :text => "Live CD <strong>KDE</strong>", :torrent => 1 } )%>	
+              <%= render(:partial => "download_link", :locals => { :iso => "gnome-32", :text => "Live CD <strong>GNOME</strong>", :torrent => 1 } )%>	
             </div>
             </div>
            </div>
@@ -231,8 +231,8 @@ isos["net-64"] = "NET-Build0331-x86_64"
             <div class="subcr">
              <div class="media">
               <h3>Add-On CD (optional)</h3>
-              <%= render(:partial => "download_link", :locals => { :iso => isos["lang-32"], :text => "Extra Languages", :torrent => 1 } )%>	
-              <%= render(:partial => "download_link", :locals => { :iso => isos["nonoss"], :text => "NonOSS CD", :torrent => 1 } )%>	
+              <%= render(:partial => "download_link", :locals => { :iso => "lang-32", :text => "Extra Languages", :torrent => 1 } )%>	
+              <%= render(:partial => "download_link", :locals => { :iso => "nonoss", :text => "NonOSS CD", :torrent => 1 } )%>	
              </div>
            </div>
            </div>
@@ -251,15 +251,15 @@ isos["net-64"] = "NET-Build0331-x86_64"
             <div class="subcl">
              <div class="media">
               <h3>Installation</h3>
-               <%= render(:partial => "download_link", :locals => { :iso => isos["dvd-64"], :text => "Installation DVD", :torrent => 0 } )%>
+               <%= render(:partial => "download_link", :locals => { :iso => "dvd-64", :text => "Installation DVD", :torrent => 0 } )%>
              </div>
             </div>
            </div>
            <div class="c50r">
             <div class="subcr">
              <div class="media">
-               <%= render(:partial => "download_link", :locals => { :iso => isos["lang-64"], :text => "Extra Languages", :torrent => 0 } )%>	
-               <%= render(:partial => "download_link", :locals => { :iso => isos["nonoss"], :text => "NonOSS CD", :torrent => 0 } )%>	
+               <%= render(:partial => "download_link", :locals => { :iso => "lang-64", :text => "Extra Languages", :torrent => 0 } )%>	
+               <%= render(:partial => "download_link", :locals => { :iso => "nonoss", :text => "NonOSS CD", :torrent => 0 } )%>	
              </div>
             </div>
            </div>
@@ -278,8 +278,8 @@ isos["net-64"] = "NET-Build0331-x86_64"
             <div class="subcl">
              <div class="media">
                <h3>Live CDs (choose one)</h3>
-               <%= render(:partial => "download_link", :locals => { :iso => isos["kde-64"], :text => "Live CD <strong>KDE</strong>", :torrent => 0 } )%>
-               <%= render(:partial => "download_link", :locals => { :iso => isos["gnome-64"], :text => "Live CD <strong>GNOME</strong>", :torrent => 0 } )%>
+               <%= render(:partial => "download_link", :locals => { :iso => "kde-64", :text => "Live CD <strong>KDE</strong>", :torrent => 0 } )%>
+               <%= render(:partial => "download_link", :locals => { :iso => "gnome-64", :text => "Live CD <strong>GNOME</strong>", :torrent => 0 } )%>
              </div>
             </div>
            </div>
@@ -287,8 +287,8 @@ isos["net-64"] = "NET-Build0331-x86_64"
             <div class="subc">
              <div class="media">
                <h3>Add-On CD (optional)</h3>
-                <%= render(:partial => "download_link", :locals => { :iso => isos["lang-64"], :text => "Extra Languages", :torrent => 0 } )%>	
-                <%= render(:partial => "download_link", :locals => { :iso => isos["nonoss"], :text => "NonOSS CD", :torrent => 0 } )%>	
+                <%= render(:partial => "download_link", :locals => { :iso => "lang-64", :text => "Extra Languages", :torrent => 0 } )%>	
+                <%= render(:partial => "download_link", :locals => { :iso => "nonoss", :text => "NonOSS CD", :torrent => 0 } )%>	
              </div>
             </div>
            </div>
@@ -307,7 +307,7 @@ isos["net-64"] = "NET-Build0331-x86_64"
             <div class="subc">
              <div class="media">
                <h3>Boot CD</h3>
-               <%= render(:partial => "download_link", :locals => { :iso => isos["net-64"], :text => "Mini CD", :torrent => 0 } )%>
+               <%= render(:partial => "download_link", :locals => { :iso => "net-64", :text => "Mini CD", :torrent => 0 } )%>
              </div>
             </div>
            </div>
@@ -337,7 +337,7 @@ isos["net-64"] = "NET-Build0331-x86_64"
             <div class="c50l">
              <div class="subc">
            <h3>Installation</h3>
-           <%= render(:partial => "download_link", :locals => { :iso => isos["dvd-64"], :text => "Installation DVD", :torrent => 0 } )%>
+           <%= render(:partial => "download_link", :locals => { :iso => "dvd-64", :text => "Installation DVD", :torrent => 0 } )%>
           </div>
             </div>
           </div>
@@ -347,8 +347,8 @@ isos["net-64"] = "NET-Build0331-x86_64"
              <div class="media">
 
             <h3>Add-On CD (optional)</h3>
-            <%= render(:partial => "download_link", :locals => { :iso => isos["lang-32"], :text => "Extra Languages", :torrent => 0 } )%>	
-            <%= render(:partial => "download_link", :locals => { :iso => isos["nonoss"], :text => "NonOSS CD", :torrent => 0 } )%>	
+            <%= render(:partial => "download_link", :locals => { :iso => "lang-32", :text => "Extra Languages", :torrent => 0 } )%>	
+            <%= render(:partial => "download_link", :locals => { :iso => "nonoss", :text => "NonOSS CD", :torrent => 0 } )%>	
            </div>
            </div>
           </div>
@@ -367,8 +367,8 @@ isos["net-64"] = "NET-Build0331-x86_64"
             <div class="subcr">
              <div class="media">
               <h3>Live CDs (choose one)</h3>
-              <%= render(:partial => "download_link", :locals => { :iso => isos["kde-64"], :text => "Live CD <strong>KDE</strong>", :torrent => 1 } )%>	
-              <%= render(:partial => "download_link", :locals => { :iso => isos["gnome-64"], :text => "Live CD <strong>GNOME</strong>", :torrent => 1 } )%>	
+              <%= render(:partial => "download_link", :locals => { :iso => "kde-64", :text => "Live CD <strong>KDE</strong>", :torrent => 1 } )%>	
+              <%= render(:partial => "download_link", :locals => { :iso => "gnome-64", :text => "Live CD <strong>GNOME</strong>", :torrent => 1 } )%>	
                </div>
               </div>
              </div>
@@ -376,8 +376,8 @@ isos["net-64"] = "NET-Build0331-x86_64"
               <div class="subcr">
                <div class="media">
                 <h3>Add-On CD (optional)</h3>
-                <%= render(:partial => "download_link", :locals => { :iso => isos["lang-64"], :text => "Extra Languages", :torrent => 1 } )%>	
-                <%= render(:partial => "download_link", :locals => { :iso => isos["nonoss"], :text => "NonOSS CD", :torrent => 1 } )%>
+                <%= render(:partial => "download_link", :locals => { :iso => "lang-64", :text => "Extra Languages", :torrent => 1 } )%>	
+                <%= render(:partial => "download_link", :locals => { :iso => "nonoss", :text => "NonOSS CD", :torrent => 1 } )%>
                 </div>
                </div>
               </div>
