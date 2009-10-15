@@ -1,10 +1,11 @@
 <% 
 @right_box = :search 
 @page_title = "Get Latest openSUSE Developer Versions"
+@directory = "http://download.opensuse.org/distribution/11.2-RC1/"
 -%>
        <script type="text/javascript">
           // EULA and Release Notes
-          //document.write(eula_rn);//openSUSE-11.2-RC1-DVD-i586
+          //document.write(eula_rn);
           var eula_rn = '<br/><a href="http://en.opensuse.org/OpenSUSE_EULA">License</a> (End User License Agreement)' + '<br/><a href="http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html">Release Notes</a> (latest information)<br/>';
           var eula_rn_nonoss = '<br/><a href="http://en.opensuse.org/OpenSUSE_EULA">License</a> (End User License Agreement)' + '<br/><a href="http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html">Release Notes</a> (latest information)<br/>';
         </script>
@@ -86,17 +87,7 @@
             <div class="subcl">
              <div class="media">
               <h3>Installation</h3>
-              <div class="dl_link">
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0331-i586.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD</a>
-                <br />
-                <span class="sum-note">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0331-i586.iso.asc">gpg</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0331-i586.iso.md5">md5</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0331-i586.iso.sha1">sha1</a>
-                </span>
-              </div>
-
-              
+               <%= render(:partial => "download_link", :locals => { :iso => "DVD-Build0331-i586", :text => "Installation DVD", :torrent => 0 } )%>
              </div>
             </div>
            </div>
@@ -105,25 +96,8 @@
              <div class="media">
  
                 <h3>Add-On CD (optional)</h3>
-                <div class="dl_link">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages</a>
-                  <br />
-                  <span class="sum-note">
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.asc">gpg</a>
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.md5">md5</a>
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.sha1">sha1</a>
-                  </span>
-                </div>
-                <div class="dl_link">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />NonOSS CD</a>
-                  <br />
-                  <span class="sum-note">
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.asc">gpg</a>
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.md5">md5</a>
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.sha1">sha1</a>
-                  </span>
-               </div>
-               
+                <%= render(:partial => "download_link", :locals => { :iso => "Addon-Lang-Build0331-i586", :text => "Extra Languages", :torrent => 0 } )%>	
+                <%= render(:partial => "download_link", :locals => { :iso => "Addon-NonOss-BiArch-Build0335-i586-x86_64", :text => "NonOSS CD", :torrent => 0 } )%>
              </div>
             </div>
            </div>
@@ -143,25 +117,8 @@
             <div class="subcl">
              <div class="media">
               <h3>Live CDs (choose one)</h3>
-              <div class="dl_link">
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-i686.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>KDE4</strong></a>
-                <br />
-                <span class="sum-note">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-i686.iso.asc">gpg</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-i686.iso.md5">md5</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-i686.iso.sha1">sha1</a>
-                </span>
-              </div>
-
-              <div class="dl_link">
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-i686.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>GNOME</strong></a>
-                <br />
-                <span class="sum-note">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-i686.iso.asc">gpg</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-i686.iso.md5">md5</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-i686.iso.sha1">sha1</a>
-                </span>
-              </div>
+              <%= render(:partial => "download_link", :locals => { :iso => "KDE4-LiveCD-Build0336-i686", :text => "Live CD <strong>KDE</strong>", :torrent => 0 } )%>	
+              <%= render(:partial => "download_link", :locals => { :iso => "GNOME-LiveCD-Build0336-i686", :text => "Live CD <strong>GNOME</strong>", :torrent => 0 } )%>	
              </div>
             </div>
            </div>
@@ -170,24 +127,8 @@
               <div class="media">
                 
              <h3>Add-On CD (optional)</h3>
-             <div class="dl_link">
-               <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages</a>
-               <br />
-               <span class="sum-note">
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.asc">gpg</a>
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.md5">md5</a>
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.sha1">sha1</a>
-               </span>
-             </div>
-              <div class="dl_link">
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />NonOSS CD</a>
-                <br />
-                <span class="sum-note">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.asc">gpg</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.md5">md5</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.sha1">sha1</a>
-                </span>
-             </div>
+                <%= render(:partial => "download_link", :locals => { :iso => "Addon-Lang-Build0331-i586", :text => "Extra Languages", :torrent => 0 } )%>	
+                <%= render(:partial => "download_link", :locals => { :iso => "Addon-NonOss-BiArch-Build0335-i586-x86_64", :text => "NonOSS CD", :torrent => 0 } )%>	
             </div>
             </div>
            </div>
@@ -207,15 +148,7 @@
             <div class="subc">
              <div class="media">
               <h3>Boot CD</h3>
-              <div class="dl_link">
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-NET-Build0331-i586.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Mini CD</a>
-                <br />
-                <span class="sum-note">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-NET-Build0331-i586.iso.asc">gpg</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-NET-Build0331-i586.iso.md5">md5</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-NET-Build0331-i586.iso.sha1">sha1</a>
-                </span>
-              </div>
+               <%= render(:partial => "download_link", :locals => { :iso => "NET-Build0331-i586", :text => "Mini CD", :torrent => 0 } )%>
              </div>
             </div>
            </div>
@@ -245,15 +178,7 @@
                <div class="subc">
             
            <h3>Installation</h3>
-           <div class="dl_link">
-             <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0331-i586.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD</a>
-             <br />
-             <span class="sum-note">
-               <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0331-i586.iso.asc">gpg</a>
-               <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0331-i586.iso.md5">md5</a>
-               <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0331-i586.iso.sha1">sha1</a>
-             </span>
-           </div>
+            <%= render(:partial => "download_link", :locals => { :iso => "DVD-Build0331-i586", :text => "Installation DVD", :torrent => 1 } )%>
           </div>
           </div>
           </div>
@@ -263,24 +188,8 @@
              <div class="media">
                
             <h3>Add-On CD (optional)</h3>
-            <div class="dl_link">
-              <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages</a>
-              <br />
-              <span class="sum-note">
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.asc">gpg</a>
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.md5">md5</a>
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.sha1">sha1</a>
-              </span>
-            </div>
-             <div class="dl_link">
-               <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />NonOSS CD</a>
-               <br />
-               <span class="sum-note">
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.asc">gpg</a>
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.md5">md5</a>
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.sha1">sha1</a>
-               </span>
-            </div>
+            <%= render(:partial => "download_link", :locals => { :iso => "Addon-Lang-Build0331-i586", :text => "Extra Languages", :torrent => 1 } )%>	
+            <%= render(:partial => "download_link", :locals => { :iso => "Addon-NonOss-BiArch-Build0335-i586-x86_64", :text => "NonOSS CD", :torrent => 1 } )%>	
            </div>
            </div>
           </div>
@@ -299,24 +208,9 @@
             <div class="subcr">
              <div class="media">
               <h3>Live CDs (choose one)</h3>
-              <div class="dl_link">
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-i686.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>GNOME</strong></a>
-                <br />
-                <span class="sum-note">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-i686.iso.asc">gpg</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-i686.iso.md5">md5</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-i686.iso.sha1">sha1</a>
-                </span>
-              </div>
-              <div class="dl_link">
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-i686.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>KDE 4</strong></a>
-                <br />
-                <span class="sum-note">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-i686.iso.asc">gpg</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-i686.iso.md5">md5</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-i686.iso.sha1">sha1</a>
-                </span>
-              </div>
+
+              <%= render(:partial => "download_link", :locals => { :iso => "KDE4-LiveCD-Build0336-i686", :text => "Live CD <strong>KDE</strong>", :torrent => 1 } )%>	
+              <%= render(:partial => "download_link", :locals => { :iso => "GNOME-LiveCD-Build0336-i686", :text => "Live CD <strong>GNOME</strong>", :torrent => 1 } )%>	
             </div>
             </div>
            </div>
@@ -324,23 +218,8 @@
             <div class="subcr">
              <div class="media">
               <h3>Add-On CD (optional)</h3>
-              <div class="dl_link"><a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages</a>
-                <br />
-                <span class="sum-note">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.asc">gpg</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.md5">md5</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.sha1">sha1</a>
-                </span>
-              </div>
-               <div class="dl_link">
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />NonOSS CD</a>
-                 <br />
-                 <span class="sum-note">
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.asc">gpg</a>
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.md5">md5</a>
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.sha1">sha1</a>
-                 </span>
-              </div>
+              <%= render(:partial => "download_link", :locals => { :iso => "Addon-Lang-Build0331-i586", :text => "Extra Languages", :torrent => 1 } )%>	
+              <%= render(:partial => "download_link", :locals => { :iso => "Addon-NonOss-BiArch-Build0335-i586-x86_64", :text => "NonOSS CD", :torrent => 1 } )%>	
              </div>
            </div>
            </div>
@@ -359,42 +238,15 @@
             <div class="subcl">
              <div class="media">
               <h3>Installation</h3>
-              <div class="dl_link">
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0334-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD</a>
-                <br />
-                <span class="sum-note">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0334-x86_64.iso.asc">gpg</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0334-x86_64.iso.md5">md5</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0334-x86_64.iso.sha1">sha1</a>
-                </span>
-              </div>
-
+               <%= render(:partial => "download_link", :locals => { :iso => "DVD-Build0334-x86_64", :text => "Installation DVD", :torrent => 0 } )%>
              </div>
             </div>
            </div>
            <div class="c50r">
             <div class="subcr">
              <div class="media">
-               
-               <div class="dl_link">
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0332-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages</a>
-                 <br />
-                 <span class="sum-note">
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0332-x86_64.iso.asc">gpg</a>
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0332-x86_64.iso.md5">md5</a>
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0332-x86_64.iso.sha1">sha1</a>
-                 </span>
-               </div>
-               
-                <div class="dl_link">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />NonOSS CD</a>
-                  <br />
-                  <span class="sum-note">
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.asc">gpg</a>
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.md5">md5</a>
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.sha1">sha1</a>
-                  </span>
-               </div>
+               <%= render(:partial => "download_link", :locals => { :iso => "Addon-Lang-Build0332-x86_64", :text => "Extra Languages", :torrent => 0 } )%>	
+               <%= render(:partial => "download_link", :locals => { :iso => "Addon-NonOss-BiArch-Build0335-i586-x86_64", :text => "NonOSS CD", :torrent => 0 } )%>	
              </div>
             </div>
            </div>
@@ -413,24 +265,8 @@
             <div class="subcl">
              <div class="media">
                <h3>Live CDs (choose one)</h3>
-               <div class="dl_link">
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>KDE 4</strong></a>
-                 <br />
-                 <span class="sum-note">
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-x86_64.iso.asc">gpg</a>
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-x86_64.iso.md5">md5</a>
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-x86_64.iso.sha1">sha1</a>
-                 </span>
-                </div>
-               <div class="dl_link">
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>GNOME</strong></a>
-                 <br />
-                 <span class="sum-note">
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-x86_64.iso.asc">gpg</a>
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-x86_64.iso.md5">md5</a>
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-x86_64.iso.sha1">sha1</a>
-                 </span>
-               </div>
+               <%= render(:partial => "download_link", :locals => { :iso => "KDE4-LiveCD-Build0336-x86_64", :text => "Live CD <strong>KDE</strong>", :torrent => 0 } )%>
+               <%= render(:partial => "download_link", :locals => { :iso => "GNOME-LiveCD-Build0336-x86_64", :text => "Live CD <strong>GNOME</strong>", :torrent => 0 } )%>
              </div>
             </div>
            </div>
@@ -438,26 +274,8 @@
             <div class="subc">
              <div class="media">
                <h3>Add-On CD (optional)</h3>
-               <div class="dl_link">
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0332-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages</a>
-                 <br />
-                 <span class="sum-note">
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0332-x86_64.iso.asc">gpg</a>
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0332-x86_64.iso.md5">md5</a>
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0332-x86_64.iso.sha1">sha1</a>
-                 </span>
-               </div>
-               
-               <div class="dl_link">
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />NonOSS CD</a>
-                   <br />
-                   <span class="sum-note">
-                     <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.asc">gpg</a>
-                     <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.md5">md5</a>
-                     <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.sha1">sha1</a>
-                   </span>
-               </div>
-               
+                <%= render(:partial => "download_link", :locals => { :iso => "Addon-Lang-Build0332-x86_64", :text => "Extra Languages", :torrent => 0 } )%>	
+                <%= render(:partial => "download_link", :locals => { :iso => "Addon-NonOss-BiArch-Build0335-i586-x86_64", :text => "NonOSS CD", :torrent => 0 } )%>	
              </div>
             </div>
            </div>
@@ -476,15 +294,7 @@
             <div class="subc">
              <div class="media">
                <h3>Boot CD</h3>
-               <div class="dl_link">
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-NET-Build0331-x86_64.iso"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Mini CD</a>
-                 <br />
-                 <span class="sum-note">
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-NET-Build0331-x86_64.iso.asc">gpg</a>
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-NET-Build0331-x86_64.iso.md5">md5</a>
-                   <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-NET-Build0331-x86_64.iso.sha1">sha1</a>
-                 </span>
-               </div>
+               <%= render(:partial => "download_link", :locals => { :iso => "NET-Build0331-x86_64", :text => "Mini CD", :torrent => 0 } )%>
              </div>
             </div>
            </div>
@@ -514,15 +324,7 @@
             <div class="c50l">
              <div class="subc">
            <h3>Installation</h3>
-           <div class="dl_link">
-             <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0334-x86_64.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Installation DVD</a>
-             <br />
-             <span class="sum-note">
-               <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0334-x86_64.iso.asc">gpg</a>
-               <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0334-x86_64.iso.md5">md5</a>
-               <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-DVD-Build0334-x86_64.iso.sha1">sha1</a>
-             </span>
-           </div>
+           <%= render(:partial => "download_link", :locals => { :iso => "DVD-Build0334-x86_64", :text => "Installation DVD", :torrent => 0 } )%>
           </div>
             </div>
           </div>
@@ -532,24 +334,8 @@
              <div class="media">
 
             <h3>Add-On CD (optional)</h3>
-            <div class="dl_link">
-              <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages</a>
-              <br />
-              <span class="sum-note">
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.asc">gpg</a>
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.md5">md5</a>
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0331-i586.iso.sha1">sha1</a>
-              </span>
-            </div>
-             <div class="dl_link">
-               <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />NonOSS CD</a>
-               <br />
-               <span class="sum-note">
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.asc">gpg</a>
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.md5">md5</a>
-                 <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.sha1">sha1</a>
-               </span>
-            </div>
+            <%= render(:partial => "download_link", :locals => { :iso => "Addon-Lang-Build0331-i586", :text => "Extra Languages", :torrent => 0 } )%>	
+            <%= render(:partial => "download_link", :locals => { :iso => "Addon-NonOss-BiArch-Build0335-i586-x86_64", :text => "NonOSS CD", :torrent => 0 } )%>	
            </div>
            </div>
           </div>
@@ -568,24 +354,8 @@
             <div class="subcr">
              <div class="media">
               <h3>Live CDs (choose one)</h3>
-              <div class="dl_link">
-                <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-x86_64.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>KDE4</strong></a>
-                <br />
-                <span class="sum-note">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-x86_64.iso.asc">gpg</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-x86_64.iso.md5">md5</a>
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-KDE4-LiveCD-Build0336-x86_64.iso.sha1">sha1</a>
-                </span>
-                </div>
-                <div class="dl_link">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-x86_64.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Live CD <strong>GNOME</strong></a>
-                  <br />
-                  <span class="sum-note">
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-x86_64.iso.asc">gpg</a>
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-x86_64.iso.md5">md5</a>
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-GNOME-LiveCD-Build0336-x86_64.iso.sha1">sha1</a>
-                  </span>
-                </div>
+              <%= render(:partial => "download_link", :locals => { :iso => "KDE4-LiveCD-Build0336-x86_64", :text => "Live CD <strong>KDE</strong>", :torrent => 1 } )%>	
+              <%= render(:partial => "download_link", :locals => { :iso => "GNOME-LiveCD-Build0336-x86_64", :text => "Live CD <strong>GNOME</strong>", :torrent => 1 } )%>	
                </div>
               </div>
              </div>
@@ -593,25 +363,8 @@
               <div class="subcr">
                <div class="media">
                 <h3>Add-On CD (optional)</h3>
-                <div class="dl_link">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0332-x86_64.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />Extra Languages</a>
-                  <br />
-                  <span class="sum-note">
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0332-x86_64.iso.asc">gpg</a>
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0332-x86_64.iso.md5">md5</a>
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-Lang-Build0332-x86_64.iso.sha1">sha1</a>
-                  </span>
-                </div>
-                <div class="dl_link">
-                  <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.torrent"><img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" />NonOSS CD</a>
-                  <br />
-                  <span class="sum-note">
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.asc">gpg</a>
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.md5">md5</a>
-                    <a href="http://download.opensuse.org/distribution/11.2-RC1/iso/openSUSE-Addon-NonOss-BiArch-Build0335-i586-x86_64.iso.sha1">sha1</a>
-                  </span>
-
-
+                <%= render(:partial => "download_link", :locals => { :iso => "Addon-Lang-Build0332-x86_64", :text => "Extra Languages", :torrent => 1 } )%>	
+                <%= render(:partial => "download_link", :locals => { :iso => "Addon-NonOss-BiArch-Build0335-i586-x86_64", :text => "NonOSS CD", :torrent => 1 } )%>
                 </div>
                </div>
               </div>
