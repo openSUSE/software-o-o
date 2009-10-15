@@ -1,0 +1,41 @@
+<%
+  via="http"
+  if arch == "32"
+     myid="i686"
+     archname="x86"
+  else
+     myid="x86_64"
+     archname="x86-64"
+  end
+  myid+="dvd"
+  if torrent == 0 
+     myid+="http"
+  else
+     myid+="torrent" 
+     via="BitTorrent"
+  end
+-%>
+      <div id="<%= myid %>" class="hide">
+	<h3><span class="media_description"><%= @releasename %> for <strong><%= archname %></strong> on <strong>DVD</strong> via <strong>><%= via %></strong></span></h3>
+	<div class="media">
+	  
+	  <div class="c50l">
+	    <div class="subc">
+	      <h3>Installation</h3>
+	      <%= render(:partial => "download_link", :locals => { :iso => "dvd-" + arch, :text => "Installation DVD", :torrent => torrent } )%>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="c50l">
+	  <div class="subc">
+	    <div class="media">
+	      
+	      <h3>Add-On CD (optional)</h3>
+	      <%= render(:partial => "download_link", :locals => { :iso => "lang-" + arch, :text => "Extra Languages", :torrent => torrent } )%>	
+	      <%= render(:partial => "download_link", :locals => { :iso => "nonoss", :text => "NonOSS CD", :torrent => torrent } )%>	
+	    </div>
+	  </div>
+	</div>
+	<%= render(:partial => "eula_link") %>
+      </div>

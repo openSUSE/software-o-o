@@ -1,0 +1,43 @@
+<%
+  via="http"
+  if arch == "32"
+     myid="i686"
+     archname="x86"
+  else
+     myid="x86_64"
+     archname="x86-64"
+  end
+  myid+="cd"
+  if torrent == 0 
+     myid+="http"
+  else
+     myid+="torrent" 
+     via="BitTorrent"
+  end
+-%>
+      <div id="<%= myid %>" class="hide">
+	<h3><span class="media_description"><%= @releasename %> for <strong><%= archname %></strong> on <strong>CD</strong> via <strong><%= via %></strong></span></h3>
+	<div class="subcolumns">
+	  <div class="c50l">
+            <div class="subcl">
+	      <div class="media">
+		<h3>Live CDs (choose one)</h3>
+		<%= render(:partial => "download_link", :locals => { :iso => "kde-" + arch, :text => "Live CD <strong>KDE</strong>", :torrent => torrent } ) %>	
+		<%= render(:partial => "download_link", :locals => { :iso => "gnome-" + arch, :text => "Live CD <strong>GNOME</strong>", :torrent => torrent } )%>	
+	      </div>
+            </div>
+	  </div>
+	  <div class="c50l">
+            <div class="subcr">
+              <div class="media">
+                
+		<h3>Add-On CD (optional)</h3>
+                <%= render(:partial => "download_link", :locals => { :iso => "lang-" + arch, :text => "Extra Languages", :torrent => torrent } )%>	
+                <%= render(:partial => "download_link", :locals => { :iso => "nonoss", :text => "NonOSS CD", :torrent => torrent } )%>	
+	      </div>
+            </div>
+	  </div>
+	</div>
+	<%= render(:partial => "eula_link") %>
+	
+      </div>
