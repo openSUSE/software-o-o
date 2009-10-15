@@ -16,14 +16,8 @@
 @isos["net-32"] = "NET-Build0331-i586"
 @isos["net-64"] = "NET-Build0331-x86_64"
 
+@releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html"
 -%>
-       <script type="text/javascript">
-          // EULA and Release Notes
-          //document.write(eula_rn);
-          var eula_rn = '<br/><a href="http://en.opensuse.org/OpenSUSE_EULA">License</a> (End User License Agreement)' + '<br/><a href="http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html">Release Notes</a> (latest information)<br/>';
-          var eula_rn_nonoss = '<br/><a href="http://en.opensuse.org/OpenSUSE_EULA">License</a> (End User License Agreement)' + '<br/><a href="http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html">Release Notes</a> (latest information)<br/>';
-        </script>
-
         <form action="" name="download">
          <h1>Download openSUSE 11.2-RC1</h1>
          <hr/>
@@ -115,12 +109,8 @@
             </div>
            </div>
           </div>
-          <p>
-          <script type="text/javascript">
-            document.write(eula_rn_nonoss);
-          </script>
-          
-          </p>
+          <%= render(:partial => "eula_link") %>
+
          </div>
          <!-- i686 and CD via http -->
          <div id="i686cdhttp" class="hide">
@@ -146,11 +136,7 @@
             </div>
            </div>
           </div>
-          <p>
-          <script type="text/javascript">
-            document.write(eula_rn);
-          </script>
-          </p>
+          <%= render(:partial => "eula_link") %>
 
          </div>
          <!-- i686 and Network via http -->
@@ -177,11 +163,7 @@
             </div>
            </div>
           </div>
-          <p>
-          <script type="text/javascript">
-            document.write(eula_rn);
-          </script>
-         </p>
+          <%= render(:partial => "eula_link") %>
          </div>
          <!-- i686 and DVD via torrent -->
          <div id="i686dvdtorrent" class="hide">
@@ -206,12 +188,7 @@
            </div>
            </div>
           </div>
-          
-          <p>
-          <script type="text/javascript">
-            document.write(eula_rn_nonoss);
-          </script>
-          </p>
+          <%= render(:partial => "eula_link") %>
          </div>
          <!-- i686 and CD via torrent -->
          <div id="i686cdtorrent" class="hide">
@@ -237,11 +214,7 @@
            </div>
            </div>
           </div>
-          <p>
-          <script type="text/javascript">
-            document.write(eula_rn);
-          </script>
-          </p>
+          <%= render(:partial => "eula_link") %>
          </div>
          <!-- x86_64 and DVD via http -->
          <div id="x86_64dvdhttp" class="hide">
@@ -264,11 +237,7 @@
             </div>
            </div>
           </div>
-          <p>
-          <script type="text/javascript">
-            document.write(eula_rn_nonoss);
-          </script>
-          </p>
+          <%= render(:partial => "eula_link") %>
          </div>
          <!-- x86_64 and CD via http -->
          <div id="x86_64cdhttp" class="hide">
@@ -293,11 +262,7 @@
             </div>
            </div>
           </div>
-          <p>
-          <script type="text/javascript">
-            document.write(eula_rn);
-          </script>
-          </p>
+          <%= render(:partial => "eula_link") %>
          </div>
          <!-- x86_64 and Network via http -->
          <div id="x86_64nethttp" class="hide">
@@ -323,11 +288,7 @@
             </div>
            </div>
           </div>
-          <p>
-          <script type="text/javascript">
-            document.write(eula_rn);
-          </script>
-          </p>
+          <%= render(:partial => "eula_link") %>
          </div>
          <!-- x86_64 and DVD via torrent -->
          <div id="x86_64dvdtorrent" class="hide">
@@ -347,17 +308,12 @@
              <div class="media">
 
             <h3>Add-On CD (optional)</h3>
-            <%= render(:partial => "download_link", :locals => { :iso => "lang-32", :text => "Extra Languages", :torrent => 0 } )%>	
+            <%= render(:partial => "download_link", :locals => { :iso => "lang-64", :text => "Extra Languages", :torrent => 0 } )%>	
             <%= render(:partial => "download_link", :locals => { :iso => "nonoss", :text => "NonOSS CD", :torrent => 0 } )%>	
            </div>
            </div>
           </div>
-          
-          <p>
-          <script type="text/javascript">
-            document.write(eula_rn_nonoss);
-          </script>
-          </p>
+          <%= render(:partial => "eula_link") %>
          </div>
          <!-- x86_64 and CD via torrent -->
          <div id="x86_64cdtorrent" class="hide">
@@ -383,11 +339,7 @@
               </div>
              </div>
             </div>
-            <p>
-            <script type="text/javascript">
-              document.write(eula_rn);
-            </script>
-            </p>
+            <%= render(:partial => "eula_link") %>
            </div>
           
         </div>
