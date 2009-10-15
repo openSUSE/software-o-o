@@ -20,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/', :controller => 'main', :action => 'index'
   map.connect 'old/:dist', :controller => 'main', :action => 'old_dist', :requirements => { :dist => /[\w\-\.:]+/ }
   map.connect 'developer', :controller => 'main', :action => 'developer'
+  map.connect 'developer2', :controller => 'main', :action => 'developer2'
   
   map.connect 'promodvd', :controller => 'order', :action => 'new'
   map.connect 'promodvd/admin', :controller => 'order', :action => 'admin_index'
