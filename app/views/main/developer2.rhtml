@@ -3,110 +3,135 @@
       @page_title = "Download " + @releasename
     -%>
 
-    <form action="" name="download">
-	
       <table>
-      <tr>
-      <td width="70%">
+	<tr>
+	  <td width="70%">
+	    
+	    <div class="helplink">
+	      <a href="help_media.html" onclick="return popup(this.href,'Media','750','600')" title="Popup: Help on Download Media">Help</a>
+	    </div>
+	    <h2>Choose an Installation Medium</h2>
 
-        <div class="helplink">
-          <a href="help_media.html" onclick="return popup(this.href,'Media','750','600')" title="Popup: Help on Download Media">Help</a>
-        </div>
-        <h2>Choose an Installation Medium</h2>
-           <a >
-      <div style="background-color: transparent; background-color: lightgray; border: 2px gray solid; width: 70%; height: 50px; line-height: 10px">
-        <img src="/images/local/dvd_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right"/>
-        DVD is the standard medium for most
-      </div>
-      </a>
-  <br/>
-     <a >
-      <div style="background-color: transparent; background-color: lightgray; border: 2px gray solid; width: 70%; height: 50px; line-height: 10px">
-        <img src="/images/local/gnome_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right"/>
-        Live CD with GNOME desktop
-      </div>
-      </a>
-      <br/>
-      <a >
-      <div style="background-color: transparent; background-color: lightgray; border: 2px gray solid; width: 70%; height: 50px; line-height: 10px">
-        <img src="/images/local/kde_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right"/>
-        Live CD with KDE desktop
-      </div>
-      </a>
-<br/>
-      <a >
-      <div style="background-color: transparent; background-color: lightgray; border: 2px gray solid; width: 70%; height: 50px; line-height: 10px">
-	<img src="/images/local/network_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right"/>
-	Network installation for experts
-      </div>
-      </a>
+	    <form action="/main/change_developer_install">
+	    <button name="medium" value="dvd" style="width: 70%; margin-bottom: 20px; ">
+	      <div style="background-color: transparent; height: 50px; line-height: 10px; text-align: left; <%= if @medium == "dvd" then "color: green" end %>">
+		<p>
+		  <img src="/images/local/dvd_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right"/>
+		  <b>DVD is the standard medium for most</b>
+		</p>
+	      </div>
+	    </button>
+	  </form>
 
-      </td>
-      <td>
-      <div id="architecture">
-	<h4>Type of Computer</h4>
-	<div class="subcolumns">
-	      <label for="i686" id="l_i686" class="selected">
-		<input name="arch" value="i686" id="i686" checked="checked" type="radio" onclick="displayDownload()" />32&nbsp;Bit&nbsp;PC<br />
-		<span class="arch_eg" style="display: none">x86: Computers with e.g. AMD&reg; Sempron or Intel&reg; Celeron&trade;, almost all desktop computers dating 2004 or earlier. This version also runs on 64bit PCs.</span>
+	    <form action="/main/change_developer_install">
+	    <button name="medium" value="gnome" style="width: 70%; margin-bottom: 20px">
+	      <div style="background-color: transparent; height: 50px; line-height: 10px; text-align: left; <%= if @medium == "gnome" then "color: green" end %>">
+		<p>
+		  <img src="/images/local/gnome_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right"/>
+		  <b>Live CD with GNOME desktop</b>
+		</p>
+	      </div>
+	    </button>
+	  </form>
+
+	    <form action="/main/change_developer_install">
+	    <button name="medium" value="kde" style="width: 70%; margin-bottom: 20px">
+	      <div style="background-color: transparent; height: 50px; line-height: 10px; text-align: left; <%= if @medium == "kde" then "color: green" end %>">
+		<p>
+		  <img src="/images/local/kde_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right"/>
+		  <b>Live CD with KDE desktop</b>
+		</p>
+	      </div>
+	    </button>
+	  </form>
+
+	    <form action="/main/change_developer_install">
+	    <button name="medium" value="net" style="width: 70%; margin-bottom: 20px">
+	      <div style="background-color: transparent; height: 50px; line-height: 10px; text-align: left; <%= if @medium == "net" then "color: green" end %>">
+		<p>
+		  <img src="/images/local/network_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right"/>
+		  <b>Network installation for experts</b>
+		</p>
+	      </div>
+	    </button>
+	  </form>
+	  </td>
+	  <td>
+	    
+	    <form action="download">
+	    <div id="architecture">
+	      <h4>Type of Computer</h4>
+	      <div class="subcolumns">
+		<label for="i686" id="l_i686" class="selected">
+		  <input name="arch" value="i686" id="i686" checked="checked" type="radio" onclick="displayDownload()" />32&nbsp;Bit&nbsp;PC<br />
+		  <span class="arch_eg" style="display: none">x86: Computers with e.g. AMD&reg; Sempron or Intel&reg; Celeron&trade;, almost all desktop computers dating 2004 or earlier. This version also runs on 64bit PCs.</span>
+		</label>
+		<label for="x86_64" id="l_x86_64" class="">
+		  <input name="arch" value="x86_64" id="x86_64" type="radio" onclick="displayDownload()" />
+		  64 Bit PC<br />
+		  <span class="arch_eg" style="display: none">x86-64: Most new computers with e.g. AMD&reg;: Opteron&trade;, Turion&trade; 64, Athlon&trade; 64, or Intel&reg;: Core&trade;2, Pentium&reg; 4 6xx, Pentium&reg; D CPUs</span>
+		</label>
+	      </div>
+	    </div>
+	    <div id="protocol">
+	      <div class="helplink">
+		<a href="help_method.html" onclick="return popup(this.href,'Method','750','600')" title="Popup: Help on Download Methods">Help</a>
+	      </div>
+	      <h4>Download Method</h4>
+	      <label for="http" id="l_http" class="selected">
+		<input name="protocol" value="http" id="http" checked="checked" type="radio" onclick="displayDownload()" />
+		Direct Link
+	      </label> <br/>
+	      <label for="torrent" id="l_torrent" class="">
+		<input name="protocol" value="torrent" id="torrent" type="radio" onclick="displayDownload()" />
+		BitTorrent
 	      </label>
-	      <label for="x86_64" id="l_x86_64" class="">
-		<input name="arch" value="x86_64" id="x86_64" type="radio" onclick="displayDownload()" />
-		64 Bit PC<br />
-		<span class="arch_eg" style="display: none">x86-64: Most new computers with e.g. AMD&reg;: Opteron&trade;, Turion&trade; 64, Athlon&trade; 64, or Intel&reg;: Core&trade;2, Pentium&reg; 4 6xx, Pentium&reg; D CPUs</span>
+	      <br/>
+	      <label for="metalink" id="l_metalink" class="">
+		<input name="protocol" value="metalink" id="metalink" type="radio" onclick="displayDownload()" />
+		Metalink
 	      </label>
+	      <br/>
+	      <label for="mirror" id="l_mirror" class="">
+		<input name="protocol" value="mirror" id="mirror" type="radio" onclick="displayDownload()" />
+		Pick Mirror
+	      </label>
+
+	    </div>
+	    <div style="text-align: top; ">
+	      <input type="image" src="/images/local/download-icon.png" alt="Download" style="width: 250px"/>
+	      <input type="hidden" name="medium" value="<%= @medium %>"/>
+	      <input type="hidden" name="release" value="developer"/>	    
+	    </div>
+	  </form>
+	  </td></tr></table>
+      </form>
+
+      <div id="download_links" style="clear: right;">
+	<h2>4. Start Download Here</h2>
+	<p class="info_text">
+	  To download a file, right-click on the link and choose "Save as" from the pop-up menu.
+	  <br />
+	  In case of problems with the download, please <a href="http://en.opensuse.org/Download_Help">refer to the Download Help</a>.
+	</p>
+
+	<div id="script_only" class="hide">
+	  <%= render(:partial => "dvd_block", :locals => { :torrent => 0, :arch => "32" } ) %>
+	  <%= render(:partial => "livecd_block", :locals => { :torrent => 0, :arch => "32" } ) %>
+	  <%= render(:partial => "net_block", :locals => { :torrent => 0, :arch => "32" }) %>
+	  
+	  <%= render(:partial => "dvd_block", :locals => { :torrent => 0, :arch => "64" }) %>
+	  <%= render(:partial => "livecd_block", :locals => { :torrent => 0, :arch => "64" }) %>
+	  <%= render(:partial => "net_block", :locals => { :torrent => 0, :arch => "64" }) %>
+	  
+	  <%= render(:partial => "dvd_block", :locals => { :torrent => 1, :arch => "32" }) %>
+	  <%= render(:partial => "livecd_block", :locals => { :torrent => 1, :arch => "32" }) %>
+	  
+	  <%= render(:partial => "dvd_block", :locals => { :torrent => 1, :arch => "64" }) %>
+	  <%= render(:partial => "livecd_block", :locals => { :torrent => 1, :arch => "64" }) %>
 	</div>
-      </div>
-      <div id="protocol">
-	<div class="helplink">
-	  <a href="help_method.html" onclick="return popup(this.href,'Method','750','600')" title="Popup: Help on Download Methods">Help</a>
-	</div>
-	<h4>Download Method</h4>
-	<label for="http" id="l_http" class="selected">
-	  <input name="protocol" value="http" id="http" checked="checked" type="radio" onclick="displayDownload()" />
-	  Standard (http)
-	</label> <br/>
-	<label for="torrent" id="l_torrent" class="">
-	  <input name="protocol" value="torrent" id="torrent" type="radio" onclick="displayDownload()" />
-	  BitTorrent
-	</label>
-        <br/>
-        <label for="metalink" id="l_metalink" class="">
-          <input name="protocol" value="metalink" id="metalink" type="radio" onclick="displayDownload()" />
-          Metalink
-        </label>
 
       </div>
-      <div style="text-align: top; ">
-      <img src="/images/local/download-icon.png" width="250"/>
-      </div>
-
-     </td></tr></table>
-    </form>
-
-    <div id="download_links" style="clear: right;">
-      <h2>4. Start Download Here</h2>
-      <p class="info_text">
-	To download a file, right-click on the link and choose "Save as" from the pop-up menu.
-	<br />
-	In case of problems with the download, please <a href="http://en.opensuse.org/Download_Help">refer to the Download Help</a>.
-      </p>
-
-      <%= render(:partial => "dvd_block", :locals => { :torrent => 0, :arch => "32" } ) %>
-      <%= render(:partial => "livecd_block", :locals => { :torrent => 0, :arch => "32" } ) %>
-      <%= render(:partial => "net_block", :locals => { :torrent => 0, :arch => "32" }) %>
-
-      <%= render(:partial => "dvd_block", :locals => { :torrent => 0, :arch => "64" }) %>
-      <%= render(:partial => "livecd_block", :locals => { :torrent => 0, :arch => "64" }) %>
-      <%= render(:partial => "net_block", :locals => { :torrent => 0, :arch => "64" }) %>
-
-      <%= render(:partial => "dvd_block", :locals => { :torrent => 1, :arch => "32" }) %>
-      <%= render(:partial => "livecd_block", :locals => { :torrent => 1, :arch => "32" }) %>
-    
-      <%= render(:partial => "dvd_block", :locals => { :torrent => 1, :arch => "64" }) %>
-      <%= render(:partial => "livecd_block", :locals => { :torrent => 1, :arch => "64" }) %>
-    
-    </div>
     <hr />
     <div id="download_help" class="info_text">
       <h2>5. How to Proceed</h2>

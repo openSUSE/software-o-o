@@ -49,6 +49,7 @@ class MainController < ApplicationController
       @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html"
       @releasename = "openSUSE 11.2-RC1"
       @repourl = "http://download.opensuse.org/distribution/11.2"
+      @medium = "dvd"
   end
 
   def developer
@@ -59,6 +60,39 @@ class MainController < ApplicationController
   def developer2
       set_developer
       render :template => "main/developer2"
+  end
+
+  def change_developer_install
+    set_developer
+    @medium = params[:medium]
+    render :template => "main/developer2"
+  end
+
+  def download
+    if params[:release] == "developer"
+      set_developer
+    end
+ 
+    medium = params[:medium]
+
+    if params[:arch] == "i686"
+        medium += "-32"
+    else
+        medium += "-64"
+    end
+
+    suffix = ".iso"
+    
+    case
+    when params[:protocol] == "torrent"
+      suffix = ".iso.torrent"
+    when params[:protocol] == "mirror"
+      suffix = ".iso?mirrorlist"
+    when params[:protocol] == "metalink"
+      suffix = ".iso.metalink"
+    end
+    redirect_to @directory + "/iso/openSUSE-" + @isos[medium] + suffix
+
   end
 
   private
