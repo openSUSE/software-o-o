@@ -3,6 +3,10 @@
       @page_title = "Download " + @releasename
     -%>
 
+        <style>
+	.hidden { display: none; }
+	</style>
+
 	<script language="javascript">  
           var mymedium = "<%= @medium %>";
 
@@ -35,6 +39,7 @@
 
 	  $(function() { 
           changeiso();
+	  $('.helplink').show();
 
           $('.changeiso').click(function(){  
                 changeiso(); 
@@ -49,6 +54,8 @@
 		window.location = mylink;
 		return false;
           });
+	  $('#help_64').click(function() { $("#arch_64").fadeIn("slow"); $("#link_64").hide();});
+          $('#help_32').click(function() { $("#arch_32").fadeIn("slow"); $("#link_32").hide();});
 	  });
         </script>  
       <table>
@@ -71,14 +78,15 @@
 	    <div id="architecture">
 	      <h4>Type of Computer</h4>
 	      <div class="subcolumns">
-		<label for="i686" id="l_i686" class="selected">
-		  <input name="arch" value="i686" id="i686" checked="checked" type="radio" class="changeiso" />32&nbsp;Bit&nbsp;PC<br />
-		  <span class="arch_eg" style="display: none">x86: Computers with e.g. AMD&reg; Sempron or Intel&reg; Celeron&trade;, almost all desktop computers dating 2004 or earlier. This version also runs on 64bit PCs.</span>
+		<label for="i686" id="l_i686">
+		  <input name="arch" value="i686" id="i686" checked="checked" type="radio" class="changeiso" />32&nbsp;Bit&nbsp;PC 
+                    <span class="hidden helplink" id="link_32">(<a href="#" id="help_32">Help</a>)</span><br />
+		  <span id="arch_32" class="hidden">x86: Computers with e.g. AMD&reg; Sempron or Intel&reg; Celeron&trade;, almost all desktop computers dating 2004 or earlier. This version also runs on 64bit PCs.</span>
 		</label>
 		<label for="x86_64" id="l_x86_64" class="">
 		  <input name="arch" value="x86_64" id="x86_64" type="radio" class="changeiso" />
-		  64 Bit PC<br />
-		  <span class="arch_eg" style="display: none">x86-64: Most new computers with e.g. AMD&reg;: Opteron&trade;, Turion&trade; 64, Athlon&trade; 64, or Intel&reg;: Core&trade;2, Pentium&reg; 4 6xx, Pentium&reg; D CPUs</span>
+		  64 Bit PC <span class="hidden helplink" id="link_64">(<a href="#" id="help_64">Help</a>)</span><br />
+		  <span id="arch_64" class="hidden">x86-64: Most new computers with e.g. AMD&reg;: Opteron&trade;, Turion&trade; 64, Athlon&trade; 64, or Intel&reg;: Core&trade;2, Pentium&reg; 4 6xx, Pentium&reg; D CPUs</span>
 		</label>
 	      </div>
 	    </div>
