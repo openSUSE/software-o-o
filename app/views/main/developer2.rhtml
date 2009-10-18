@@ -3,6 +3,54 @@
       @page_title = "Download " + @releasename
     -%>
 
+	<script language="javascript">  
+          var mymedium = "<%= @medium %>";
+
+          var mylink = '';
+          var directory = "<%= @directory %>";
+	  var isos = new Array();
+          <% @isos.each { |key, value| %>
+               <%= "isos['#{key}'] = '#{value}';" %>
+          <% } %>
+
+          function changeiso () {
+		mylink = mymedium;
+		if ($('#i686').attr('checked')) {
+			mylink += "-32";
+		} else { 
+			mylink += "-64";
+		}
+		mylink = directory + "/iso/openSUSE-" + isos[mylink] + ".iso";
+		if ($('#p_torrent').attr('checked')) {
+			mylink += ".torrent";
+                }
+                if ($('#p_metalink').attr('checked')) {
+                        mylink += ".metalink";
+                }
+                if ($('#p_mirror').attr('checked')) {
+                        mylink += "?mirrorlist";
+                }
+		$('#downloadtext').html(mylink);
+          }
+
+	  $(function() { 
+          changeiso();
+
+          $('.changeiso').click(function(){  
+                changeiso(); 
+                return true; });
+
+	  $('button.changeiso').click(function(){  
+		mymedium = this.id.substr(3);
+		changeiso();
+		return false; });
+
+	  $('#download').click(function() { 
+		window.location = mylink;
+		return false;
+          });
+	  });
+        </script>  
       <table>
 	<tr>
 	  <td width="70%">
@@ -12,62 +60,23 @@
 	    </div>
 	    <h2>Choose an Installation Medium</h2>
 
-	    <form action="/main/change_developer_install">
-	    <button name="medium" value="dvd" style="width: 70%; margin-bottom: 20px; ">
-	      <div style="background-color: transparent; height: 50px; line-height: 10px; text-align: left; <%= if @medium == "dvd" then "color: green" end %>">
-		<p>
-		  <img src="/images/local/dvd_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right"/>
-		  <b>DVD is the standard medium for most</b>
-		</p>
-	      </div>
-	    </button>
-	  </form>
-
-	    <form action="/main/change_developer_install">
-	    <button name="medium" value="gnome" style="width: 70%; margin-bottom: 20px">
-	      <div style="background-color: transparent; height: 50px; line-height: 10px; text-align: left; <%= if @medium == "gnome" then "color: green" end %>">
-		<p>
-		  <img src="/images/local/gnome_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right"/>
-		  <b>Live CD with GNOME desktop</b>
-		</p>
-	      </div>
-	    </button>
-	  </form>
-
-	    <form action="/main/change_developer_install">
-	    <button name="medium" value="kde" style="width: 70%; margin-bottom: 20px">
-	      <div style="background-color: transparent; height: 50px; line-height: 10px; text-align: left; <%= if @medium == "kde" then "color: green" end %>">
-		<p>
-		  <img src="/images/local/kde_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right"/>
-		  <b>Live CD with KDE desktop</b>
-		</p>
-	      </div>
-	    </button>
-	  </form>
-
-	    <form action="/main/change_developer_install">
-	    <button name="medium" value="net" style="width: 70%; margin-bottom: 20px">
-	      <div style="background-color: transparent; height: 50px; line-height: 10px; text-align: left; <%= if @medium == "net" then "color: green" end %>">
-		<p>
-		  <img src="/images/local/network_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right"/>
-		  <b>Network installation for experts</b>
-		</p>
-	      </div>
-	    </button>
-	  </form>
+            <%= render(:partial => "change_install", :locals => { :medium => "dvd", :comment => "DVD is the standard medium for most" }) %>
+            <%= render(:partial => "change_install", :locals => { :medium => "gnome", :comment => "Live CD with GNOME desktop" }) %>
+            <%= render(:partial => "change_install", :locals => { :medium => "kde", :comment => "Live CD with KDE desktop" }) %>
+            <%= render(:partial => "change_install", :locals => { :medium => "net", :comment => "Network installation for experts" }) %>
 	  </td>
 	  <td>
 	    
-	    <form action="download">
+	    <form action="/main/download">
 	    <div id="architecture">
 	      <h4>Type of Computer</h4>
 	      <div class="subcolumns">
 		<label for="i686" id="l_i686" class="selected">
-		  <input name="arch" value="i686" id="i686" checked="checked" type="radio" onclick="displayDownload()" />32&nbsp;Bit&nbsp;PC<br />
+		  <input name="arch" value="i686" id="i686" checked="checked" type="radio" class="changeiso" />32&nbsp;Bit&nbsp;PC<br />
 		  <span class="arch_eg" style="display: none">x86: Computers with e.g. AMD&reg; Sempron or Intel&reg; Celeron&trade;, almost all desktop computers dating 2004 or earlier. This version also runs on 64bit PCs.</span>
 		</label>
 		<label for="x86_64" id="l_x86_64" class="">
-		  <input name="arch" value="x86_64" id="x86_64" type="radio" onclick="displayDownload()" />
+		  <input name="arch" value="x86_64" id="x86_64" type="radio" class="changeiso" />
 		  64 Bit PC<br />
 		  <span class="arch_eg" style="display: none">x86-64: Most new computers with e.g. AMD&reg;: Opteron&trade;, Turion&trade; 64, Athlon&trade; 64, or Intel&reg;: Core&trade;2, Pentium&reg; 4 6xx, Pentium&reg; D CPUs</span>
 		</label>
@@ -78,28 +87,27 @@
 		<a href="help_method.html" onclick="return popup(this.href,'Method','750','600')" title="Popup: Help on Download Methods">Help</a>
 	      </div>
 	      <h4>Download Method</h4>
-	      <label for="http" id="l_http" class="selected">
-		<input name="protocol" value="http" id="http" checked="checked" type="radio" onclick="displayDownload()" />
-		Direct Link
-	      </label> <br/>
-	      <label for="torrent" id="l_torrent" class="">
-		<input name="protocol" value="torrent" id="torrent" type="radio" onclick="displayDownload()" />
-		BitTorrent
+	      <label>
+		<input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/>Direct Link
+	      </label>
+              <br/>
+	      <label>
+		<input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/>BitTorrent
 	      </label>
 	      <br/>
-	      <label for="metalink" id="l_metalink" class="">
-		<input name="protocol" value="metalink" id="metalink" type="radio" onclick="displayDownload()" />
-		Metalink
+	      <label>
+		<input id="p_metalink" name="protocol" value="metalink" type="radio" class="changeiso"/>Metalink
 	      </label>
 	      <br/>
-	      <label for="mirror" id="l_mirror" class="">
-		<input name="protocol" value="mirror" id="mirror" type="radio" onclick="displayDownload()" />
-		Pick Mirror
+	      <label>
+		<input id="p_mirror" name="protocol" value="mirror" type="radio" class="changeiso"/>Pick Mirror
 	      </label>
-
 	    </div>
 	    <div style="text-align: top; ">
-	      <input type="image" src="/images/local/download-icon.png" alt="Download" style="width: 250px"/>
+              <div>
+	         <input type="image" src="/images/local/download-icon.png" alt="Download" style="width: 250px" id="download"/>
+	         <span id="downloadtext"></span>
+              </div>
 	      <input type="hidden" name="medium" value="<%= @medium %>"/>
 	      <input type="hidden" name="release" value="developer"/>	    
 	    </div>
