@@ -7,7 +7,7 @@ class MainController < ApplicationController
     :redirect_to => :index
 
   # these pages are completely static:
-  caches_page :index, "developer/en", "developer/xxx"
+  caches_page :index, :developer, "developer2/en", "developer2/xxx"
 
   def old_dist
     dist = params[:dist]
