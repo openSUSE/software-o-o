@@ -7,7 +7,7 @@ class MainController < ApplicationController
     :redirect_to => :index
 
   # these pages are completely static:
-  caches_page :index, :developer
+  caches_page :index, "developer/en", "developer/xxx"
 
   def old_dist
     dist = params[:dist]
@@ -62,7 +62,9 @@ class MainController < ApplicationController
       available = %w{en de xxx}
 
       if params[:lang].nil?
-      	@lang = request.compatible_language_from(available)
+      	#@lang = request.compatible_language_from(available)
+	redirect_to "/developer2/" + request.compatible_language_from(available)
+	return
       else 
         @lang = params[:lang][0]
       end
