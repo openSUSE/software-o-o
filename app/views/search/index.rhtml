@@ -13,8 +13,8 @@
   <% end -%>
 </div>
 <% form_remote_tag(:update => 'result', :url => {:controller => 'search', :action => :search},
-:loading => "Element.show('ajaxindicator')",
-:loaded => "Element.hide('ajaxindicator')") do -%>
+:loading => "$('#ajaxindicator').show()",
+:loaded => "$('#ajaxindicator').hide()") do -%>
 <%= text_field_tag 'q', @query, :size => 40 %>
 <p id="form_control">
 <%= select_tag 'baseproject', options_for_select(baseproject_list_for_select, (@baseproject or default_baseproject)) %>

@@ -3,6 +3,10 @@
       @page_title = "Get Latest openSUSE Developer Versions"
 
     -%>
+    <script language="JavaScript" type="text/javascript" src="http://static.opensuse.org/hosts/software.o.o/javascript/download.js"></script>
+    <script language="JavaScript">
+	$(function() { downloadShow(); window.onunload=popup_close; displayDownload(); });
+    </script>
 
     <div id="script_only" class="hide">
     <form action="" name="download">
