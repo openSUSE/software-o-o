@@ -32,46 +32,46 @@ class MainController < ApplicationController
   end
 
   def set_developer
-      @isos = {}
-      @directory = "http://download.opensuse.org/distribution/11.2-RC1"
-      @isos["lang-32"] = "Addon-Lang-Build0331-i586"
-      @isos["lang-64"] = "Addon-Lang-Build0332-x86_64"
-      @isos["nonoss"] = "Addon-NonOss-BiArch-Build0335-i586-x86_64"
-      @isos["kde-64"] = "KDE4-LiveCD-Build0336-x86_64"
-      @isos["kde-32"] = "KDE4-LiveCD-Build0336-i686"
-      @isos["gnome-64"] = "GNOME-LiveCD-Build0336-x86_64"
-      @isos["gnome-32"] = "GNOME-LiveCD-Build0336-i686"
-      @isos["dvd-64"] = "DVD-Build0334-x86_64"
-      @isos["dvd-32"] = "DVD-Build0331-i586"
-      @isos["net-32"] = "NET-Build0331-i586"
-      @isos["net-64"] = "NET-Build0331-x86_64"
+    @isos = {}
+    @directory = "http://download.opensuse.org/distribution/11.2-RC1"
+    @isos["lang-32"] = "Addon-Lang-Build0331-i586"
+    @isos["lang-64"] = "Addon-Lang-Build0332-x86_64"
+    @isos["nonoss"] = "Addon-NonOss-BiArch-Build0335-i586-x86_64"
+    @isos["kde-64"] = "KDE4-LiveCD-Build0336-x86_64"
+    @isos["kde-32"] = "KDE4-LiveCD-Build0336-i686"
+    @isos["gnome-64"] = "GNOME-LiveCD-Build0336-x86_64"
+    @isos["gnome-32"] = "GNOME-LiveCD-Build0336-i686"
+    @isos["dvd-64"] = "DVD-Build0334-x86_64"
+    @isos["dvd-32"] = "DVD-Build0331-i586"
+    @isos["net-32"] = "NET-Build0331-i586"
+    @isos["net-64"] = "NET-Build0331-x86_64"
 
-      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html"
-      @releasename = "openSUSE 11.2-RC1"
-      @repourl = "http://download.opensuse.org/distribution/11.2"
-      @medium = "dvd"
+    @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html"
+    @releasename = "openSUSE 11.2-RC1"
+    @repourl = "http://download.opensuse.org/distribution/11.2"
+    @medium = "dvd"
   end
 
   def developer
-      set_developer
-      render :template => "main/developer"
+    set_developer
+    render :template => "main/developer"
   end
 
   def developer2
       puts request.user_preferred_languages
       available = %w{en xxx da pt_BR}
 
-      if params[:lang].nil?
-      	#@lang = request.compatible_language_from(available)
-	redirect_to "/developer2/" + request.compatible_language_from(available)
-	return
-      else 
-        @lang = params[:lang][0]
-      end
-      GetText.locale = @lang
+    if params[:lang].nil?
+      #@lang = request.compatible_language_from(available)
+      redirect_to "/developer2/" + request.compatible_language_from(available)
+      return
+    else
+      @lang = params[:lang][0]
+    end
+    GetText.locale = @lang
 
-      set_developer
-      render :template => "main/developer2"
+    set_developer
+    render :template => "main/developer2"
   end
 
   def change_developer_install
@@ -88,9 +88,9 @@ class MainController < ApplicationController
     medium = params[:medium]
 
     if params[:arch] == "i686"
-        medium += "-32"
+      medium += "-32"
     else
-        medium += "-64"
+      medium += "-64"
     end
 
     suffix = ".iso"

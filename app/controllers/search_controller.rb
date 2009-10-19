@@ -4,12 +4,6 @@ class SearchController < ApplicationController
   def index
     if params[:baseproject]
       @baseproject = params[:baseproject]
-
-      # this can get removed, when 11.2 is released and available in OBS
-      if @baseproject == "openSUSE:11.2"
-         @baseproject = "openSUSE:Factory"
-      end
-
     end
     if params[:q]
       perform_search

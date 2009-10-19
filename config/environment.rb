@@ -40,6 +40,9 @@ Rails::Initializer.run do |config|
   # config.active_record.default_timezone = :utc
   
   # See Rails::Configuration for more options
+
+  config.gem 'gettext_rails'
+
 end
 
 # Include your application configuration below
