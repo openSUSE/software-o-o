@@ -20,26 +20,33 @@
 
           function changeiso () {
 		mylink = mymedium;
+		var arch_suffix = "-64";
 		if ($('#i686').attr('checked')) {
-			mylink += "-32";
-		} else { 
-			mylink += "-64";
+			arch_suffix = "-32";
 		}
-		myiso = directory + "/iso/openSUSE-" + isos[mylink] + ".iso";
+		myiso = directory + "/iso/openSUSE-" + isos[mylink + arch_suffix] + ".iso";
                 mylink = myiso;
+		var download_suffix = '';
 		if ($('#p_torrent').attr('checked')) {
-			mylink += ".torrent";
+			download_suffix = ".torrent";
                 }
                 if ($('#p_metalink').attr('checked')) {
-                        mylink += ".metalink";
+                        download_suffix = ".metalink";
                 }
                 if ($('#p_mirror').attr('checked')) {
-                        mylink += "?mirrorlist";
+                        download_suffix = "?mirrorlist";
                 }
 	        $('#sig_gpg').attr("href", myiso + ".asc");
 		$('#sig_md5').attr("href", myiso + ".md5");
 		$('#sig_sha1').attr("href", myiso + ".sha1");
-		$('#downloadtext').html(mylink);
+		$('#downloadtext').html(mylink + download_suffix);
+
+		var langiso = directory + "/iso/openSUSE-" + isos['lang' + arch_suffix] + ".iso";
+		$('#md5_lang').attr('href', langiso + ".md5");
+		$('#sha1_lang').attr('href', langiso + ".sha1");
+		$('#gpg_lang').attr('href', langiso + ".asc");
+		$('#iso_lang').attr('href', langiso + download_suffix);
+		$('#iso_nonoss').attr('href', directory + "/iso/openSUSE-" + isos['nonoss'] + ".iso" + download_suffix);
           }
 
 	  $(function() { 
@@ -100,21 +107,13 @@
 		<a href="help_method.html" onclick="return popup(this.href,'Method','750','600')" title="Popup: Help on Download Methods">Help</a>
 	      </div>
 	      <h4>Download Method</h4>
-	      <label>
-		<input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/>Direct Link
-	      </label>
+	      <label><input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/>Direct Link</label>
               <br/>
-	      <label>
-		<input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/>BitTorrent
-	      </label>
+	      <label><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/>BitTorrent</label>
 	      <br/>
-	      <label>
-		<input id="p_metalink" name="protocol" value="metalink" type="radio" class="changeiso"/>Metalink
-	      </label>
+	      <label><input id="p_metalink" name="protocol" value="metalink" type="radio" class="changeiso"/>Metalink</label>
 	      <br/>
-	      <label>
-		<input id="p_mirror" name="protocol" value="mirror" type="radio" class="changeiso"/>Pick Mirror
-	      </label>
+	      <label><input id="p_mirror" name="protocol" value="mirror" type="radio" class="changeiso"/>Pick Mirror</label>
 	    </div>
 	    <div style="text-align: top; ">
               <div>
@@ -160,22 +159,26 @@
 	  <li><a id="sig_sha1" href="#">sha1 checksum</a> is the less known but more secure checksum than md5.</li>
           </ul>
 
-	<div id="script_only" class="hide">
-	  <%= render(:partial => "dvd_block", :locals => { :torrent => 0, :arch => "32" } ) %>
-	  <%= render(:partial => "livecd_block", :locals => { :torrent => 0, :arch => "32" } ) %>
-	  <%= render(:partial => "net_block", :locals => { :torrent => 0, :arch => "32" }) %>
-	  
-	  <%= render(:partial => "dvd_block", :locals => { :torrent => 0, :arch => "64" }) %>
-	  <%= render(:partial => "livecd_block", :locals => { :torrent => 0, :arch => "64" }) %>
-	  <%= render(:partial => "net_block", :locals => { :torrent => 0, :arch => "64" }) %>
-	  
-	  <%= render(:partial => "dvd_block", :locals => { :torrent => 1, :arch => "32" }) %>
-	  <%= render(:partial => "livecd_block", :locals => { :torrent => 1, :arch => "32" }) %>
-	  
-	  <%= render(:partial => "dvd_block", :locals => { :torrent => 1, :arch => "64" }) %>
-	  <%= render(:partial => "livecd_block", :locals => { :torrent => 1, :arch => "64" }) %>
-	</div>
-
+	<h3>Add-On Downloads (optional)</h3>
+	<p>
+            <div class="media">
+		<table><tr>
+		<noscript>
+		<td>
+		<%= render(:partial => "download_link2", :locals => { :id => "lang32", :iso => "lang-32", :text => "Extra Languages (32 Bit)" } ) %>
+		</td><td>
+		<%= render(:partial => "download_link2", :locals => { :id => "lang64", :iso => "lang-64", :text => "Extra Languages (64 Bit)" } ) %>
+		</td>
+		</noscript>
+	      <td class="hidden script_only">
+		 <%= render(:partial => "download_link2", :locals => { :id => "lang", :iso => "lang-32", :text => "Extra Languages" } ) %>
+              </td>
+              <td>
+                 <%= render(:partial => "download_link2", :locals => { :id => "nonoss", :iso => "nonoss", :text => "NonOSS CD"} )%>
+              </td>
+              </tr></table>
+            </div>
+	</p>
       </div>
     <div id="download_help" class="info_text">
       <h3>How to Proceed</h3>
@@ -198,3 +201,8 @@
 	</li>
       </ol>
     </div>
+    <div id="download_help" class="info_text">
+    <h3>Additional Information</h3>
+    <%= render(:partial => "eula_link") %>
+    </div> 
+
