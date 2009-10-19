@@ -195,9 +195,11 @@ module ActionView
 			def build_callbacks(options)
 				callbacks = {}
 				options[:beforeSend] = '';
-				[:uninitialized,:loading,:loaded].each do |key|
+				[:uninitialized,:loading].each do |key|
 					options[:beforeSend] << (options[key].last == ';' ? options.delete(key) : options.delete(key) << ';') if options[key]
 				end
+                                options[:complete] = options.delete(:loaded) if options[:loaded]
+
 				options.delete(:beforeSend) if options[:beforeSend].blank?
 				options[:error] = options.delete(:failure) if options[:failure]
 				if options[:update]
