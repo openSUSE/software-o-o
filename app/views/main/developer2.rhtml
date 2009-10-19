@@ -11,6 +11,7 @@
           var mymedium = "<%= @medium %>";
 
           var mylink = '';
+          var myiso = '';
           var directory = "<%= @directory %>";
 	  var isos = new Array();
           <% @isos.each { |key, value| %>
@@ -24,7 +25,8 @@
 		} else { 
 			mylink += "-64";
 		}
-		mylink = directory + "/iso/openSUSE-" + isos[mylink] + ".iso";
+		myiso = directory + "/iso/openSUSE-" + isos[mylink] + ".iso";
+                mylink = myiso;
 		if ($('#p_torrent').attr('checked')) {
 			mylink += ".torrent";
                 }
@@ -34,12 +36,16 @@
                 if ($('#p_mirror').attr('checked')) {
                         mylink += "?mirrorlist";
                 }
+	        $('#sig_gpg').attr("href", myiso + ".asc");
+		$('#sig_md5').attr("href", myiso + ".md5");
+		$('#sig_sha1').attr("href", myiso + ".sha1");
 		$('#downloadtext').html(mylink);
           }
 
 	  $(function() { 
           changeiso();
 	  $('.helplink').show();
+          $('.script_only').show();
 
           $('.changeiso').click(function(){  
                 changeiso(); 
@@ -66,7 +72,6 @@
 	      <a href="help_media.html" onclick="return popup(this.href,'Media','750','600')" title="Popup: Help on Download Media">Help</a>
 	    </div>
 	    <h2>Choose an Installation Medium</h2>
-
             <%= render(:partial => "change_install", :locals => { :medium => "dvd", :comment => "DVD is the standard medium for most" }) %>
             <%= render(:partial => "change_install", :locals => { :medium => "gnome", :comment => "Live CD with GNOME desktop" }) %>
             <%= render(:partial => "change_install", :locals => { :medium => "kde", :comment => "Live CD with KDE desktop" }) %>
@@ -80,12 +85,12 @@
 	      <div class="subcolumns">
 		<label for="i686" id="l_i686">
 		  <input name="arch" value="i686" id="i686" checked="checked" type="radio" class="changeiso" />32&nbsp;Bit&nbsp;PC 
-                    <span class="hidden helplink" id="link_32">(<a href="#" id="help_32">Help</a>)</span><br />
+                    <span class="hidden helplink" id="link_32"><a href="#" id="help_32">Help</a></span><br />
 		  <span id="arch_32" class="hidden">x86: Computers with e.g. AMD&reg; Sempron or Intel&reg; Celeron&trade;, almost all desktop computers dating 2004 or earlier. This version also runs on 64bit PCs.</span>
 		</label>
 		<label for="x86_64" id="l_x86_64" class="">
 		  <input name="arch" value="x86_64" id="x86_64" type="radio" class="changeiso" />
-		  64 Bit PC <span class="hidden helplink" id="link_64">(<a href="#" id="help_64">Help</a>)</span><br />
+		  64 Bit PC <span class="hidden helplink" id="link_64"><a href="#" id="help_64">Help</a></span><br />
 		  <span id="arch_64" class="hidden">x86-64: Most new computers with e.g. AMD&reg;: Opteron&trade;, Turion&trade; 64, Athlon&trade; 64, or Intel&reg;: Core&trade;2, Pentium&reg; 4 6xx, Pentium&reg; D CPUs</span>
 		</label>
 	      </div>
@@ -123,13 +128,37 @@
 	  </td></tr></table>
       </form>
 
+      <hr/>
+
       <div id="download_links" style="clear: right;">
-	<h2>4. Start Download Here</h2>
+	<h2>Need help?</h2>
 	<p class="info_text">
-	  To download a file, right-click on the link and choose "Save as" from the pop-up menu.
-	  <br />
+	  To download a medium, choose from the installation ways, possibly change the architecture and the download way and choose "Save file". 
 	  In case of problems with the download, please <a href="http://en.opensuse.org/Download_Help">refer to the Download Help</a>.
 	</p>
+
+        <h3>Verify your download (optional)</h3>
+	<p> 
+	 Many applications can verify the checksum of a download. To verify your download can be important as it verifies you really have
+         got the ISO file you wanted to download and not some broken version. We offer three different checksums:
+	 </p>
+         <noscript>
+         <dl>
+          <dt>gpg signature</dt>
+          <dd>offers the most security as you can verify who signed it. It should be <tt>79C1 79B2 E1C8 20C1 890F  9994 A84E DAE8 9C80 0ACA</tt>.
+		(<a id="sig_gpg" href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.asc">32 Bit</a> or <a id="sig_gpg" href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.asc">64 Bit</a>)
+   	  </dd>
+          <dt>md5 checksum</dt>
+          <dd>is still the most commonly used checksum. Many ISO burners display it right before burning. (<a id="sig_md5" href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.md5">32 Bit</a> or <a id="sig_md5" href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.md5">64 Bit</a>)</dd>
+          <dt>sha1 checksum</dt>
+          <dd>is the less known but more secure checksum than md5. (<a id="sig_sha1" href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.sha1">32 Bit</a> or <a id="sig_sha1" href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.sha1">64 Bit</a>)</dd>
+          </dl>
+         </noscript>
+         <ul class="hidden script_only">
+          <li><a id="sig_gpg" href="#">gpg signature</a> offers the most security as you can verify who signed it. It should be <tt>79C1 79B2 E1C8 20C1 890F  9994 A84E DAE8 9C80 0ACA</tt>.</li>
+	  <li><a id="sig_md5" href="#">md5 checksum</a> is still the most commonly used checksum. Many ISO burners display it right before burning.</li>
+	  <li><a id="sig_sha1" href="#">sha1 checksum</a> is the less known but more secure checksum than md5.</li>
+          </ul>
 
 	<div id="script_only" class="hide">
 	  <%= render(:partial => "dvd_block", :locals => { :torrent => 0, :arch => "32" } ) %>
@@ -148,9 +177,8 @@
 	</div>
 
       </div>
-    <hr />
     <div id="download_help" class="info_text">
-      <h2>5. How to Proceed</h2>
+      <h3>How to Proceed</h3>
       <ol style="list-style-type:lower-latin">
 	<li>After having successfully downloaded the ISO image(s), burn the image(s) with your favorite burning application to a DVD or CD. Please do <em>not</em> burn a data DVD/CD, but rather choose the option to burn an ISO image. <a href="http://en.opensuse.org/Download_Help#Burn_the_ISO_Image.28s.29">More information</a></li>
 	<li>Boot from the DVD or CD. In case your computer does not automatically boot from CD/DVD, open the BIOS setup to allow booting from CD or DVD.</li>
