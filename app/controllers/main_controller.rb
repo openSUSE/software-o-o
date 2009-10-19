@@ -59,7 +59,7 @@ class MainController < ApplicationController
 
   def developer2
       puts request.user_preferred_languages
-      available = %w{en de xxx}
+      available = %w{en xxx da pt_BR}
 
       if params[:lang].nil?
       	#@lang = request.compatible_language_from(available)
