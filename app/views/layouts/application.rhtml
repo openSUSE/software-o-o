@@ -49,14 +49,14 @@
         </div>
         <div class="box_content">
         <ul class="navlist">
-          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_download.png)"><a href="http://software.opensuse.org/">Get Software</a></li>
-          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_wiki.png)"><a href="http://en.opensuse.org/">Wiki</a></li>
-          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_build.png)"><a href="http://build.opensuse.org/">Build Software</a></li>
-          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_community.png)"><a href="http://users.opensuse.org/">User Directory</a></li>  
-          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_wiki.png)"><a href="http://features.opensuse.org/">Features</a></li>
-          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_wiki.png)"><a href="http://news.opensuse.org/">News</a></li>
-          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_wiki.png)"><a href="http://forums.opensuse.org">Forums</a></li>
-          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_wiki.png)"><a href="http://shop.opensuse.org/">Shop</a></li>
+          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_download.png)"><a href="http://software.opensuse.org/"><%=_("Get Software")%></a></li>
+          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_wiki.png)"><a href="http://en.opensuse.org/"><%=_("Wiki")%></a></li>
+          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_build.png)"><a href="http://build.opensuse.org/"><%=_("Build Software")%></a></li>
+          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_community.png)"><a href="http://users.opensuse.org/"><%=_("User Directory")%></a></li>  
+          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_wiki.png)"><a href="http://features.opensuse.org/"><%=_("Features")%></a></li>
+          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_wiki.png)"><a href="http://news.opensuse.org/"><%=_("News")%></a></li>
+          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_wiki.png)"><a href="http://forums.opensuse.org"><%=_("Forums")%></a></li>
+          <li style="list-style-image: url(http://static.opensuse.org/c/css/common/images/liDot_wiki.png)"><a href="http://shop.opensuse.org/"><%=_("Shop")%></a></li>
          </ul>
         </div>
         <div class="box_bottom_row">
@@ -74,15 +74,15 @@
         </div>
         <div class="box_title_row">
          <div class="box_title">
-          Getting Help
+          <%=_("Getting Help")%>
          </div>
         </div>
         <div class="box_content">
          <ul class="navlist">
-          <li><a href="http://en.opensuse.org/Download_Help">Download Help</a></li>
-          <li><a href="http://en.opensuse.org/Download_Help#Burn_the_ISO_Image.28s.29">Burn CD/DVD Image(s)</a></li>
-          <li><a href="http://en.opensuse.org/Installation">Installation Guides</a></li>
-          <li><a href="http://www.novell.com/documentation/opensuse111/">Official Manuals</a></li>
+          <li><a href="http://en.opensuse.org/Download_Help"><%=_("Download Help")%></a></li>
+          <li><a href="http://en.opensuse.org/Download_Help#Burn_the_ISO_Image.28s.29"><%=_("Burn CD/DVD Image(s)")%></a></li>
+          <li><a href="http://en.opensuse.org/Installation"><%=_("Installation Guides")%></a></li>
+          <li><a href="http://www.novell.com/documentation/opensuse111/"><%=_("Official Manuals")%></a></li>
          </ul>
         </div>
         <div class="box_bottom_row">
@@ -98,15 +98,15 @@
         </div>
         <div class="box_title_row">
          <div class="box_title">
-          Software
+          <%=_("Software")%>
          </div>
         </div>
         <div class="box_content">
          <ul class="navlist">
-          <li><%= link_to 'Software Search', {:controller => "search", :action => "index"} %></li>
-          <li><a href="http://en.opensuse.org/Additional_YaST_Package_Repositories">Package Repositories</a></li>
-          <li><a href="http://download.opensuse.org/update/">Update Repositories</a></li>
-          <li><a href="http://download.opensuse.org/source/distribution/11.1/">Source Repository</a></li>
+          <li><%= link_to _('Software Search'), {:controller => "search", :action => "index"} %></li>
+          <li><a href="http://en.opensuse.org/Additional_YaST_Package_Repositories"><%=_("Package Repositories")%></a></li>
+          <li><a href="http://download.opensuse.org/update/"><%=_("Update Repositories")%></a></li>
+          <li><a href="http://download.opensuse.org/source/distribution/11.1/"><%=_("Source Repository")%></a></li>
         </ul>
         </div>
         <div class="box_bottom_row">
@@ -122,17 +122,17 @@
         </div>
         <div class="box_title_row">
          <div class="box_title">
-          Other Options
+          <%=_("Other Options")%>
          </div>
         </div>
         <div class="box_content">
          <ul class="navlist">
-          <li><a href="http://en.opensuse.org/Mirror_Selection">Mirrors</a></li>
-          <li><a href="http://download.opensuse.org/distribution/11.1/iso/">Metalinks</a></li>
-          <li><%= link_to 'Latest Development Version', {:controller => "main", :action => "developer"} %></li>
+          <li><a href="http://en.opensuse.org/Mirror_Selection"><%=_("Mirrors")%></a></li>
+          <li><a href="http://download.opensuse.org/distribution/11.1/iso/"><%=_("Metalinks")%></a></li>
+          <li><%= link_to _('Latest Development Version'), {:controller => "main", :action => "developer"} %></li>
           <li><a href="/old/11.0">openSUSE 11.0</a></li>
           <li><a href="/old/10.3">openSUSE 10.3</a></li>
-          <li><a href="/expert.html">Expert view</a></li>
+          <li><a href="/expert.html"><%=_("Expert view")%></a></li>
          </ul>
         </div>
         <div class="box_bottom_row">
@@ -180,7 +180,7 @@
         <div class="box_content_row">
          <div class="box_content" id="banner_content">
           <div id="slogan">
-     <img src="http://static.opensuse.org/hosts/software.o.o/images/get.png" alt="Get it" />
+     <img src="http://static.opensuse.org/hosts/software.o.o/images/get.png" alt="><%=_("Get it")%>" />
           </div>
          </div>
         </div>
@@ -255,13 +255,13 @@
                </div>
                <div class="box_title_row">
                  <div class="box_title">
-                   Package Search
+                   <%=_("Package Search")%>
                  </div>
                </div>
              <div class="box_content" id="search_os">
              <div id="get_software">
-                    <%= link_to "", {:controller => 'search'}, {:class => 'search_form', :style => 'display: block; width: 100%; height: 100px;', :title => "Search Build Service"}  %>
-                    Search for and install additional software packages from the openSUSE Build Service.
+                    <%= link_to "", {:controller => 'search'}, {:class => 'search_form', :style => 'display: block; width: 100%; height: 100px;', :title => _("Search Build Service")}  %>
+                    <%=_("Search for and install additional software packages from the openSUSE Build Service.")%>
              </div>
            </div>
            <div class="box_bottom_row">
@@ -279,7 +279,7 @@
         </div>
         <div class="box_title_row">
           <div class="box_title">
-            Get openSUSE
+             <%=_("Get openSUSE")%>
           </div>
          </div>
          <div class="box_content" id="get_os">
@@ -301,18 +301,18 @@
              </div>
              <div class="box_title_row">
               <div class="box_title">
-              Sponsored by
+              <%=_("Sponsored by")%>
               </div>
              </div>
              <div class="box_content" id="platin_sponsor">
               <div style="text-align: center; padding: 7px 0; overflow: hidden;">
                 
-                <p style="color: #ccc; font-size: 0.8em;">Gold Sponsor</p>
+                <p style="color: #ccc; font-size: 0.8em;"><%=_("Gold Sponsor")%></p>
                 <p>
-                  <a href="http://en.opensuse.org/Sponsors"><img src="http://static.opensuse.org/c/images/common/Amd.png" title="Sponsored by AMD" alt="Sponsored by AMD"/></a>
-                  <a href="http://en.opensuse.org/Sponsors"><img title="Sponsored by: IP Exchange" alt="Sponsored by: IP Exchange" src="http://static.opensuse.org/c/images/common/Ip-exchange.gif"/></a>
+                  <a href="http://en.opensuse.org/Sponsors"><img src="http://static.opensuse.org/c/images/common/Amd.png" title="<%=_("Sponsored by AMD")%>" alt="<%=_("Sponsored by AMD")%>"/></a>
+                  <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: IP Exchange")%>" alt="<%=_("Sponsored by: IP Exchange")%>" src="http://static.opensuse.org/c/images/common/Ip-exchange.gif"/></a>
                 </p>
-                <p style="color: #ccc; font-size: 0.8em;">Silver Sponsor</p>
+                <p style="color: #ccc; font-size: 0.8em;"><%=_("Silver Sponsor")%></p>
                 <p>
                   <a class="external text" rel="nofollow" title="http://en.opensuse.org/Sponsors" href="http://en.opensuse.org/Sponsors"><img alt="B1-systems.jpg" src="http://static.opensuse.org/c/images/common/B1-systems-1.jpg"/></a>
                 </p>
@@ -332,20 +332,20 @@
              </div>
              <div class="box_title_row">
               <div class="box_title">
-               Buy openSUSE
+               <%=_("Buy openSUSE")%>
               </div>
              </div>
              <div class="box_content" id="buy">
                <div style="text-align: center; padding: 15px 0;">
-                 <a href="http://en.opensuse.org/Buy_openSUSE"><img src="http://static.opensuse.org/c/images/common/openSUSE11.1_Box.jpg" title="Buy openSUSE 11.1" alt="Buy openSUSE 11.1"/></a>
+                 <a href="http://en.opensuse.org/Buy_openSUSE"><img src="http://static.opensuse.org/c/images/common/openSUSE11.1_Box.jpg" title="<%=_("Buy openSUSE 11.1")%>" alt="<%=_("Buy openSUSE 11.1")%>"/></a>
                </div>
                <p>
-                 <strong><a href="http://en.opensuse.org/Buy_openSUSE" title="Buy openSUSE" style="text-decoration: none;">Buy openSUSE 11.1!</a></strong>
+                 <strong><a href="http://en.opensuse.org/Buy_openSUSE" title="Buy openSUSE" style="text-decoration: none;"><%=_("Buy openSUSE 11.1!")%></a></strong>
                  <!-- <br />
                  <strong style="color: #690;">Receive free shipment for USA till Jan 5!</strong>-->
                </p>
-               For users new to Linux, the supported version of openSUSE may be the best choice&mdash;you'll get complete end-user documentation, installable media for 32 Bit and 64 Bit systems, plus 90 days of end-user installation support.
-               openSUSE 11.1 is available at several <a href="http://en.opensuse.org/Buy_openSUSE">online</a> shops or at local resellers.
+               <%=_("For users new to Linux, the supported version of openSUSE may be the best choice&mdash;you'll get complete end-user documentation, installable media for 32 Bit and 64 Bit systems, plus 90 days of end-user installation support.")%>
+               <%=_("openSUSE 11.1 is available at several <a href=\"http://en.opensuse.org/Buy_openSUSE\">online</a> shops or at local resellers.")%>
              </div>
              <div class="box_bottom_row">
               <div class="box_left"></div>

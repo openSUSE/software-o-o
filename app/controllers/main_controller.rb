@@ -1,4 +1,5 @@
 require 'net/http'
+require 'gettext_rails'
 
 class MainController < ApplicationController
 
@@ -7,7 +8,6 @@ class MainController < ApplicationController
 
   # these pages are completely static:
   caches_page :index, :developer
-
 
   def old_dist
     dist = params[:dist]
@@ -58,6 +58,16 @@ class MainController < ApplicationController
   end
 
   def developer2
+      puts request.user_preferred_languages
+      available = %w{en de xxx}
+
+      if params[:lang].nil?
+      	@lang = request.compatible_language_from(available)
+      else 
+        @lang = params[:lang][0]
+      end
+      GetText.locale = @lang
+
       set_developer
       render :template => "main/developer2"
   end
