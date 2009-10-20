@@ -5,6 +5,7 @@
 desc "Create mo-files for L10n"
 task :makemo do
 require 'gettext/utils'
+system("cd $MY_LCN_CHECKOUT && svn up")
 files = Dir.glob(ENV["MY_LCN_CHECKOUT"] + "/*/po/software-opensuse-org*.po")
 files.each { |file| 
   lang=File.basename(file, ".po").split('.')[1]
