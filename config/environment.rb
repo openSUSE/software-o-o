@@ -70,3 +70,8 @@ ActiveXML::Base.config do |conf|
   end
   conf.transport_for(:project).set_additional_header("X-Username", ICHAIN_USER)
 end
+
+LANGUAGES = %w{en}
+Dir.glob("locale/*/LC_MESSAGES/software.mo").each { |file|
+   LANGUAGES << file.split('/')[1]
+}

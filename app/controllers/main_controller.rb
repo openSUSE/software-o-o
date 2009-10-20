@@ -59,11 +59,9 @@ class MainController < ApplicationController
 
   def developer2
     puts request.user_preferred_languages
-    available = %w{en xxx da pt_BR hu}
-
+   
     if params[:lang].nil?
-      #@lang = request.compatible_language_from(available)
-      redirect_to "/developer2/" + request.compatible_language_from(available)
+      redirect_to "/developer2/" + request.compatible_language_from(LANGUAGES)
       return
     else
       @lang = params[:lang][0]
