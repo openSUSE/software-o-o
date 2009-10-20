@@ -59,7 +59,7 @@
         </div>
         <div style="text-align: top; ">
           <div>
-            <input type="image" src="/images/local/download-icon.png" alt="<%=_("Download")%>" style="width: 250px" id="download">
+            <input type="image" src="/images/local/download-icon.png" alt="<%=_("Download")%>" style="width: 250px" id="download"/>
             <span id="downloadtext-out"></span>
           </div>
           <input type="hidden" name="medium" value="<%= @medium %>"/>
@@ -78,7 +78,7 @@
   </p>
 
   <h3><%=_("Verify your download (optional)")%></h3>
-  <p>
+  <p class="info_text">
     <%=_("Many applications can verify the checksum of a download. To verify your download can be important as it verifies you really have got the ISO file you wanted to download and not some broken version. We offer three different checksums:")%>
   </p>
   <noscript>
@@ -100,8 +100,7 @@
   </ul>
 
   <h3><%=_("Add-On Downloads (optional)")%></h3>
-  <p>
-    <div class="media">
+  <p class="media">
       <table><tr>
           <noscript>
             <td>
@@ -117,7 +116,6 @@
             <%= render(:partial => "download_link2", :locals => { :id => "nonoss", :iso => "nonoss", :text => _("NonOSS CD") } )%>
           </td>
       </tr></table>
-    </div>
   </p>
 </div>
 <div id="download_help" class="info_text">
@@ -142,7 +140,7 @@
     </li>
   </ol>
 </div>
-<div id="download_help" class="info_text">
+<div class="info_text">
   <h3><%=_("Additional Information")%></h3>
   <%= render(:partial => "eula_link") %>
 </div> 
