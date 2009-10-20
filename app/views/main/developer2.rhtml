@@ -1,6 +1,6 @@
     <% 
       @right_box = :search 
-      @page_title = _("Download ") + @releasename
+      @page_title = _("Download %s") % @releasename
     -%>
 
         <style>
@@ -93,8 +93,8 @@
 	      <div class="subcolumns">
 		<label for="i686" id="l_i686">
 		  <input name="arch" value="i686" id="i686" checked="checked" type="radio" class="changeiso" /><%=_("32&nbsp;Bit&nbsp;PC")%>
-                    <span class="hidden helplink" id="link_32"><a href="#" id="help_32"><%= _("Help") %></a></span><br />
-		  <span id="arch_32" class="hidden"><%=_("x86: Computers with e.g. AMD&reg; Sempron or Intel&reg; Celeron&trade;, almost all desktop computers dating 2004 or earlier. This version also runs on 64bit PCs.")%></span>
+                    <span class="hidden helplink" id="link_32"><a href="#" id="help_32"><%= h(_("Help")) %></a></span><br />
+		  <span id="arch_32" class="hidden"><%= _("x86: Computers with e.g. AMD&reg; Sempron or Intel&reg; Celeron&trade;, almost all desktop computers dating 2004 or earlier. This version also runs on 64bit PCs.")%></span>
 		</label>
 		<label for="x86_64" id="l_x86_64" class="">
 		  <input name="arch" value="x86_64" id="x86_64" type="radio" class="changeiso" /><%=_("64 Bit PC")%> 
@@ -196,7 +196,7 @@
             </dd>
             <dt><%=_("Network Installation")%></dt>
             <dd>
-	      <a href="http://en.opensuse.org/INSTALL_Internet"><%=_("Internet Installation")%></a>
+	      <%= '<a href="%s">%s</a>' % [h(_("http://en.opensuse.org/INSTALL_Internet")) , h(_("Internet Installation"))] %>
             </dd>
 	  </dl>
 	</li>
