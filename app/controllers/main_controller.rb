@@ -58,10 +58,7 @@ class MainController < ApplicationController
   end
 
   def developer2
-    request.user_preferred_languages.each { |l| puts "user " + l }
-   
-    puts LANGUAGES
-    puts "ready", request.compatible_language_from(LANGUAGES)
+    
     if params[:lang].nil?
       lang = request.compatible_language_from(LANGUAGES) || "en"
       redirect_to "/developer2/" + lang
