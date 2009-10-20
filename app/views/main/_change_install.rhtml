@@ -1,8 +1,8 @@
 <form action="/main/change_developer_install">
-  <button name="medium" value="<%= medium %>" id="ci_<%= medium %>"style="width: 70%; margin-bottom: 20px" class="changeiso">
+  <button name="medium" value="<%= medium %>" id="ci_<%= medium %>" style="width: 70%; margin-bottom: 20px" class="changeiso">
     <div style="background-color: transparent; height: 50px; line-height: 10px; text-align: left; <%= if @medium == medium then "color: green" end %>">
       <p>
-        <img src="/images/local/<%= medium %>_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right"/>
+        <img src="/images/local/<%= medium %>_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right" alt=""/>
         <b><%= comment %></b>
       </p>
     </div>
