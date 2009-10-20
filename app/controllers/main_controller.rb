@@ -7,7 +7,7 @@ class MainController < ApplicationController
     :redirect_to => :index
 
   # these pages are completely static:
-  caches_page :index, :developer, :developer2
+  caches_page :index, :developer, :developer2, :developer_download_js
 
   def old_dist
     dist = params[:dist]
@@ -58,8 +58,8 @@ class MainController < ApplicationController
   end
 
   def developer2
-      puts request.user_preferred_languages
-      available = %w{en xxx da pt_BR}
+    puts request.user_preferred_languages
+    available = %w{en xxx da pt_BR hu}
 
     if params[:lang].nil?
       #@lang = request.compatible_language_from(available)
@@ -78,6 +78,11 @@ class MainController < ApplicationController
     set_developer
     @medium = params[:medium]
     render :template => "main/developer2"
+  end
+
+  def developer_download_js
+    set_developer
+    render :template => "main/download", :content_type => 'text/javascript', :layout => false
   end
 
   def download

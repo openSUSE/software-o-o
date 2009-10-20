@@ -1,14 +1,14 @@
- <div class="dl_link">
-     <% if torrent == 1 %>
-       <a href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.torrent">
-     <% else %>
-       <a href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso">
-     <% end %>
-     <img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" /><%= text %></a>
-      <br />
-      <span class="sum-note">
-      <a href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.asc">gpg</a>
-      <a href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.md5">md5</a>
-      <a href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.sha1">sha1</a>
-      </span>
- </div>
+<div class="dl_link">
+  <% if torrent == 1 %>
+    <a href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.torrent">
+  <% else %>
+    <a href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso">
+    <% end %>
+  <img src="/css/common/images/liDot_media.png" alt="Download" title="Click to Download" /><%= text %></a>
+  <br />
+  <span class="sum-note">
+    <a href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.asc">gpg</a>
+    <a href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.md5">md5</a>
+    <a href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.sha1">sha1</a>
+  </span>
+</div>

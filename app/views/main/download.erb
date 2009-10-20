@@ -1,0 +1,63 @@
+var mymedium = "<%= @medium %>";
+
+var mylink = '';
+var myiso = '';
+var directory = "<%= @directory %>";
+var isos = new Array();
+<% @isos.each { |key, value| %>
+  <%= "isos['#{key}'] = '#{value}';" %>
+<% } %>
+
+function changeiso () {
+mylink = mymedium;
+var arch_suffix = "-64";
+if ($('#i686').attr('checked')) {
+arch_suffix = "-32";
+}
+myiso = directory + "/iso/openSUSE-" + isos[mylink + arch_suffix] + ".iso";
+mylink = myiso;
+var download_suffix = '';
+if ($('#p_torrent').attr('checked')) {
+download_suffix = ".torrent";
+}
+if ($('#p_metalink').attr('checked')) {
+download_suffix = ".metalink";
+}
+if ($('#p_mirror').attr('checked')) {
+download_suffix = "?mirrorlist";
+}
+$('#sig_gpg').attr("href", myiso + ".asc");
+$('#sig_md5').attr("href", myiso + ".md5");
+$('#sig_sha1').attr("href", myiso + ".sha1");
+mylink += download_suffix;
+$('#downloadtext').html(mylink);
+
+var langiso = directory + "/iso/openSUSE-" + isos['lang' + arch_suffix] + ".iso";
+$('#md5_lang').attr('href', langiso + ".md5");
+$('#sha1_lang').attr('href', langiso + ".sha1");
+$('#gpg_lang').attr('href', langiso + ".asc");
+$('#iso_lang').attr('href', langiso + download_suffix);
+$('#iso_nonoss').attr('href', directory + "/iso/openSUSE-" + isos['nonoss'] + ".iso" + download_suffix);
+}
+
+$(function() {
+changeiso();
+$('.helplink').show();
+$('.script_only').show();
+
+$('.changeiso').click(function(){
+changeiso();
+return true; });
+
+$('button.changeiso').click(function(){
+mymedium = this.id.substr(3);
+changeiso();
+return false; });
+
+$('#download').click(function() {
+  window.location = mylink;
+  return false;
+});
+$('#help_64').click(function() { $("#arch_64").fadeIn("slow"); $("#link_64").hide();});
+$('#help_32').click(function() { $("#arch_32").fadeIn("slow"); $("#link_32").hide();});
+});
