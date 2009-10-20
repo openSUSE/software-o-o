@@ -75,4 +75,3 @@ LANGUAGES = %w{en}
 Dir.glob("locale/*/LC_MESSAGES/software.mo").each { |file|
    LANGUAGES << file.split('/')[1]
 }
-LANGUAGES.each { |l| puts "lang " + l }
