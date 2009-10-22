@@ -53,6 +53,7 @@ module SearchHelper
   def baseproject_list_for_select
     [
       ['openSUSE Factory','openSUSE:Factory'],
+      ['openSUSE 11.2','openSUSE:11.2'],
       ['openSUSE 11.1','openSUSE:11.1'],
       ['openSUSE 11.0','openSUSE:11.0'],
       ['SLES/SLED 11','SUSE:SLE-11'],
