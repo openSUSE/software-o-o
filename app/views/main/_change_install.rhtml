@@ -1,11 +1,24 @@
-<form action="/main/change_developer_install">
-  <button name="medium" value="<%= medium %>" id="ci_<%= medium %>" style="width: 70%; margin-bottom: 20px" class="changeiso">
+<noscript>
+  <form action="/main/change_developer_install">
+  <button name="medium" value="<%= medium %>" id="ci_<%= medium %>" style="width: 250px; margin-bottom: 20px" class="changeiso">
     <div style="background-color: transparent; height: 50px; line-height: 10px; text-align: left; <%= if @medium == medium then "color: green" end %>">
       <p>
-        <img src="/images/local/<%= medium %>_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right" alt=""/>
-        <b><%= comment %></b>
+	<img src="/images/local/<%= medium %>_icon.png" style="width: 20x; height: 20px; margin: 10px; clear: right" alt=""/>
+	<b><%= shorttext %></b>
       </p>
     </div>
   </button>
-</form>
+  </form>
+</noscript>
+
+<div id="ci_<%= medium %>" style="min-height: 80px; margin-bottom: 20px; background: lightgray; border: 1px solid blue; margin-left: 3%" class="hidden changeiso script_only">
+  <img src="/images/local/<%= medium %>_icon.png" style="width: 64x; height: 64px; margin: 10px; float: left" alt="" id="icon_<%= medium %>"
+  <%= if @medium == medium then "class='icon_selected'" else "class='icon_unselected'" end %>
+  >
+  <div style="padding-top: 15px; padding-bottom: 15px; margin-right: 20px">
+    <b><%= shorttext %></b>
+    <br/>
+    <span style="font: -1"><%= longtext %></span>
+  </div>
+</div>
 

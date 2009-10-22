@@ -5,6 +5,28 @@
 
 <style type="text/css">
   .hidden { display: none; }
+  .help_icon { margin-left: 10px; }
+  #download_button {
+	/* http://static.opensuse.org/hosts/software.o.o/css/images/get_it128.png */
+	margin-top: 3em;
+	padding: .5em;
+        width: 15em;
+	color: white;
+	text-shadow: 1px 1px 1px #000;
+        border: solid thin #882d13;
+	-webkit-border-radius: .7em;
+	-moz-border-radius: .7em;
+	border-radius: .7em;
+	-webkit-box-shadow: 2px 2px 3px #999;
+	box-shadow: 2px 2px 2px #bbb;
+	background-color: #ce401c;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#e9ede8), to(#ce401c),color-stop(0.4, #8c1b0b));
+   }
+   .icon_unselected {
+      opacity : 0.3;
+      filter: alpha(opacity=30); 
+   }
+   .icon_selected { opacity: 1; }
 </style>
 
 <script language="javascript" type="text/javascript" src="/developer2/download.js"></script>
@@ -13,42 +35,25 @@
   var mymedium = "<%= @medium %>";
 </script>
 
-<table>
-  <tr>
-    <td width="70%">
+<div style="margin-top: 1em; padding: 0">
 
-      <div class="helplink">
-        <a href="help_media.html" onclick="return popup(this.href,'Media','750','600')" title="<%= _("Popup: Help on Download Media") %>"><%= _("Help") %></a>
-      </div>
-      <h2><%= _("Choose an Installation Medium") %></h2>
-      <%= render(:partial => "change_install", :locals => { :medium => "dvd", :comment => _("DVD is the standard medium for most") }) %>
-      <%= render(:partial => "change_install", :locals => { :medium => "gnome", :comment => _("Live CD with GNOME desktop") }) %>
-      <%= render(:partial => "change_install", :locals => { :medium => "kde", :comment => _("Live CD with KDE desktop") }) %>
-      <%= render(:partial => "change_install", :locals => { :medium => "net", :comment => _("Network installation for experts") }) %>
-    </td>
-    <td>
-
+<div style="float: right; width: 14em;">
       <form action="/main/download">
         <div id="architecture">
-          <h4><%= _("Type of Computer") %></h4>
+          <h4><%= _("Type of Computer") %><img src="/images/local/info.png" id="help_arch" class="help_icon"/></h4>
           <div class="subcolumns">
             <label for="i686" id="l_i686">
               <input name="arch" value="i686" id="i686" checked="checked" type="radio" class="changeiso" /><%=_("32&nbsp;Bit&nbsp;PC")%>
-              <span class="hidden helplink" id="link_32"><a href="#" id="help_32"><%= h(_("Help")) %></a></span><br />
-              <span id="arch_32" class="hidden"><%= _("x86: Computers with e.g. AMD&reg; Sempron or Intel&reg; Celeron&trade;, almost all desktop computers dating 2004 or earlier. This version also runs on 64bit PCs.")%></span>
+              <span id="arch_32" class="hidden"><br/><%= _("x86: Computers with e.g. AMD&reg; Sempron or Intel&reg; Celeron&trade;, almost all desktop computers dating 2004 or earlier. This version also runs on 64bit PCs.")%></span>
             </label>
             <label for="x86_64" id="l_x86_64" class="">
               <input name="arch" value="x86_64" id="x86_64" type="radio" class="changeiso" /><%=_("64 Bit PC")%>
-              <span class="hidden helplink" id="link_64"><a href="#" id="help_64"><%= _("Help")%></a></span><br />
-              <span id="arch_64" class="hidden"><%=_("x86-64: Most new computers with e.g. AMD&reg;: Opteron&trade;, Turion&trade; 64, Athlon&trade; 64, or Intel&reg;: Core&trade;2, Pentium&reg; 4 6xx, Pentium&reg; D CPUs.")%></span>
+              <span id="arch_64" class="hidden"><br/><%=_("x86-64: Most new computers with e.g. AMD&reg;: Opteron&trade;, Turion&trade; 64, Athlon&trade; 64, or Intel&reg;: Core&trade;2, Pentium&reg; 4 6xx, Pentium&reg; D CPUs.")%></span>
             </label>
           </div>
         </div>
         <div id="protocol">
-          <div class="helplink">
-            <a href="help_method.html" onclick="return popup(this.href,'Method','750','600')" title="<%=_("Popup: Help on Download Methods")%>"><%=_("Help")%></a>
-          </div>
-          <h4><%=_("Download Method")%></h4>
+          <h4><%=_("Download Method")%><img src="/images/local/info.png" id="help_download" class="help_icon"/></h4>
           <label><input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/><%=_("Direct Link")%></label>
           <br/>
           <label><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/><%=_("BitTorrent")%></label>
@@ -58,19 +63,28 @@
           <label><input id="p_mirror" name="protocol" value="mirror" type="radio" class="changeiso"/><%=_("Pick Mirror")%></label>
         </div>
         <div style="text-align: top; ">
-          <div>
-            <input type="image" src="/images/local/download-icon.png" alt="<%=_("Download")%>" style="width: 250px" id="download"/>
-            <span id="downloadtext-out"></span>
-          </div>
+	  <input type="submit" id="download" value="<%= _("Download") %>" class="noscript"/>
+	  <button href="/" class="script_only" id="download_button">Download</a>
           <input type="hidden" name="medium" value="<%= @medium %>"/>
           <input type="hidden" name="release" value="developer"/>
         </div>
       </form>
-</td></tr></table>
+</div>
 
-<hr/>
+<div style="padding: 0; margin-right: 17em">
+      <h4 style="margin-bottom: 15px"><%= _("Installation Medium") %></h4>
+	  <%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD"), 
+	  :longtext => _("The DVD contains a large collection of packages including GNOME, KDE, Xfce and it has tons of development tools. You can also update previous openSUSE releases with it.") }) %>
+      <%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("This CD contains a live session of the GNOME desktop. It can be installed as is and also works when deployed on an USB stick.") }) %>
+      <%= render(:partial => "change_install", :locals => { :medium => "kde", :shorttext => _("Live KDE"), :longtext => _("This CD contains a live session of the GNOME desktop. It can be installed as is and also works when deployed on an USB stick.") }) %>
+      <%= render(:partial => "change_install", :locals => { :medium => "net", :shorttext => _("Network"), :longtext => _("Only the bare minimum to start the installation is on this CD (only around 100MB). The rest will be downloaded from our online repositories to give you the full set of packages to install and upgrade from.") }) %>
+</div>
 
-<div id="download_links" style="clear: right;">
+</div>
+
+<hr style="clear: both"/>
+
+<div id="download_links">
   <h2><%=_("Need help?")%></h2>
   <p class="info_text">
     <%=_("To download a medium, choose from the installation ways, possibly change the architecture and the download way and choose \"Save file\".")%>
@@ -84,7 +98,7 @@
   <noscript>
     <dl>
       <dt><%=_("gpg signature")%></dt>
-      <dd><%=_("offers the most security as you can verify who signed it. It should be")%> <tt>79C1 79B2 E1C8 20C1 890F  9994 A84E DAE8 9C80 0ACA</tt>.
+      <dd><%=_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % "79C1 79B2 E1C8 20C1 890F  9994 A84E DAE8 9C80 0ACA" %>
         (<a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.asc">32 Bit</a> or <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.asc">64 Bit</a>)
       </dd>
       <dt><%=_("md5 checksum")%></dt>
@@ -94,21 +108,20 @@
     </dl>
   </noscript>
   <ul class="hidden script_only">
-    <li><a id="sig_gpg" href="#"><%=_("gpg signature")%></a> <%=_("offers the most security as you can verify who signed it. It should be .")%><tt>79C1 79B2 E1C8 20C1 890F  9994 A84E DAE8 9C80 0ACA</tt>.</li>
-    <li><a id="sig_md5" href="#"><%=_("md5 checksum")%></a> <%=_("is still the most commonly used checksum. Many ISO burners display it right before burning..")%></li>
-    <li><a id="sig_sha1" href="#"><%=_("sha1 checksum")%></a> <%=_("is the less known but more secure checksum than md5..")%></li>
+    <li><a id="sig_gpg" href="#"><%=_("gpg signature")%></a> <%=_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % "79C1 79B2 E1C8 20C1 890F  9994 A84E DAE8 9C80 0ACA" %></li>
+    <li><a id="sig_md5" href="#"><%=_("md5 checksum")%></a> <%=_("is still the most commonly used checksum. Many ISO burners display it right before burning.")%></li>
+    <li><a id="sig_sha1" href="#"><%=_("sha1 checksum")%></a> <%=_("is the less known but more secure checksum than md5.")%></li>
   </ul>
 
   <h3><%=_("Add-On Downloads (optional)")%></h3>
   <p class="media">
       <table><tr>
-          <noscript>
-            <td>
-              <%= render(:partial => "download_link2", :locals => { :id => "lang32", :iso => "lang-32", :text => _("Extra Languages (32 Bit)") } ) %>
-            </td><td>
-              <%= render(:partial => "download_link2", :locals => { :id => "lang64", :iso => "lang-64", :text => _("Extra Languages (64 Bit)") } ) %>
-            </td>
-          </noscript>
+	  <td class="noscript">
+	    <%= render(:partial => "download_link2", :locals => { :id => "lang32", :iso => "lang-32", :text => _("Extra Languages (32 Bit)") } ) %>
+	  </td>
+	  <td class="noscript">
+	    <%= render(:partial => "download_link2", :locals => { :id => "lang64", :iso => "lang-64", :text => _("Extra Languages (64 Bit)") } ) %>
+	  </td>
           <td class="hidden script_only">
             <%= render(:partial => "download_link2", :locals => { :id => "lang", :iso => "lang-32", :text => _("Extra Languages") } ) %>
           </td>

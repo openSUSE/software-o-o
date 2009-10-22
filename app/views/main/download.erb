@@ -9,55 +9,106 @@ var isos = new Array();
 <% } %>
 
 function changeiso () {
-mylink = mymedium;
-var arch_suffix = "-64";
-if ($('#i686').attr('checked')) {
-arch_suffix = "-32";
-}
-myiso = directory + "/iso/openSUSE-" + isos[mylink + arch_suffix] + ".iso";
-mylink = myiso;
-var download_suffix = '';
-if ($('#p_torrent').attr('checked')) {
-download_suffix = ".torrent";
-}
-if ($('#p_metalink').attr('checked')) {
-download_suffix = ".metalink";
-}
-if ($('#p_mirror').attr('checked')) {
-download_suffix = "?mirrorlist";
-}
-$('#sig_gpg').attr("href", myiso + ".asc");
-$('#sig_md5').attr("href", myiso + ".md5");
-$('#sig_sha1').attr("href", myiso + ".sha1");
-mylink += download_suffix;
-$('#downloadtext').html(mylink);
+  mylink = mymedium;
+  var arch_suffix = "-64";
+  if ($('#i686').attr('checked')) {
+    arch_suffix = "-32";
+  }
+  myiso = directory + "/iso/openSUSE-" + isos[mylink + arch_suffix] + ".iso";
+  mylink = myiso;
+  var download_suffix = '';
+  if ($('#p_torrent').attr('checked')) {
+    download_suffix = ".torrent";
+  }
+  if ($('#p_metalink').attr('checked')) {
+    download_suffix = ".metalink";
+  }
+  if ($('#p_mirror').attr('checked')) {
+    download_suffix = "?mirrorlist";
+  }
+  $('#sig_gpg').attr("href", myiso + ".asc");
+  $('#sig_md5').attr("href", myiso + ".md5");
+  $('#sig_sha1').attr("href", myiso + ".sha1");
+  mylink += download_suffix;
 
-var langiso = directory + "/iso/openSUSE-" + isos['lang' + arch_suffix] + ".iso";
-$('#md5_lang').attr('href', langiso + ".md5");
-$('#sha1_lang').attr('href', langiso + ".sha1");
-$('#gpg_lang').attr('href', langiso + ".asc");
-$('#iso_lang').attr('href', langiso + download_suffix);
-$('#iso_nonoss').attr('href', directory + "/iso/openSUSE-" + isos['nonoss'] + ".iso" + download_suffix);
+  var langiso = directory + "/iso/openSUSE-" + isos['lang' + arch_suffix] + ".iso";
+  $('#md5_lang').attr('href', langiso + ".md5");
+  $('#sha1_lang').attr('href', langiso + ".sha1");
+  $('#gpg_lang').attr('href', langiso + ".asc");
+  $('#iso_lang').attr('href', langiso + download_suffix);
+  $('#iso_nonoss').attr('href', directory + "/iso/openSUSE-" + isos['nonoss'] + ".iso" + download_suffix);
+
+  $('#icon_' + mymedium).addClass('icon_selected').removeClass('icon_unselected');
+
+  $('#download_button').html("Download " + mymedium);
+}
+
+function unselectOld() {
+  $('#icon_' + mymedium).removeClass('icon_selected').addClass('icon_unselected');
+}
+
+function resizeBoxes() {
+  var curmax = $('#ci_gnome').height();
+  curmax = Math.max(curmax, $('#ci_kde').height());
+  curmax = Math.max(curmax, $('#ci_net').height());
+  curmax = Math.max(curmax, $('#ci_dvd').height());
+  var curwidth = $('#ci_gnome').width();
+  $('#ci_gnome').height(curmax).width(curwidth);
+  $('#ci_kde').height(curmax).width(curwidth);
+  $('#ci_net').height(curmax).width(curwidth);
+  $('#ci_dvd').height(curmax).width(curwidth);
 }
 
 $(function() {
-changeiso();
-$('.helplink').show();
-$('.script_only').show();
+    changeiso();
+    $('.helplink').show();
+    $('.script_only').show();
+    $('.noscript').hide();
 
-$('.changeiso').click(function(){
-changeiso();
-return true; });
+    $('.changeiso').click(function(){
+			    changeiso();
+			    return true; 
+			  });
+    $('div.changeiso').click(function(){
+				  unselectOld();
+				  mymedium = this.id.substr(3);
+				  changeiso();
+				  return false; 
+				});
+    $('button.changeiso').click(function(){
+				  unselectOld();
+				  mymedium = this.id.substr(3);
+				  changeiso();
+				  return false; 
+				});
+    $('#download_button').click(function() {
+			   window.location = mylink;
+			   return false;
+			 });
+    $('#help_64').click(function() { 
+			  $("#arch_64").fadeIn("slow"); 
+			  $("#link_64").hide();
+			});
+    $('#help_32').click(function() { 
+			  $("#arch_32").fadeIn("slow"); 
+			  $("#link_32").hide();
+			});
+    $("#help_arch").hover(function(){
+			    $("#arch_64").fadeIn();  // Other effects can be used to show the Tooltip
+			    $("#arch_32").fadeIn();  // Other effects can be used to show the Tooltip
+			  },
+			  function() {
+			    $("#arch_64").fadeOut();
+			    $("#arch_32").fadeOut();
+			  });
 
-$('button.changeiso').click(function(){
-mymedium = this.id.substr(3);
-changeiso();
-return false; });
+    var resizeTimer = null;
+    
+    $(window).bind('resize', function() {
+		     if (resizeTimer) clearTimeout(resizeTimer);
+		     resizeTimer = setTimeout(resizeBoxes, 100);
+		   });
 
-$('#download').click(function() {
-  window.location = mylink;
-  return false;
-});
-$('#help_64').click(function() { $("#arch_64").fadeIn("slow"); $("#link_64").hide();});
-$('#help_32').click(function() { $("#arch_32").fadeIn("slow"); $("#link_32").hide();});
-});
+    resizeBoxes();
+
+  });
