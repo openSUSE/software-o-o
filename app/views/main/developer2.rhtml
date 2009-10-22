@@ -74,10 +74,10 @@
 <div style="padding: 0; margin-right: 17em">
       <h4 style="margin-bottom: 15px"><%= _("Installation Medium") %></h4>
 	  <%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD"), 
-	  :longtext => _("The DVD contains a large collection of packages including GNOME, KDE, Xfce and it has tons of development tools. You can also update previous openSUSE releases with it.") }) %>
+	  :longtext => _("The DVD contains a large collection of software to install or upgrade GNOME, KDE or Xfce.") }) %>
       <%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("This CD contains a live session of the GNOME desktop. It can be installed as is and also works when deployed on an USB stick.") }) %>
       <%= render(:partial => "change_install", :locals => { :medium => "kde", :shorttext => _("Live KDE"), :longtext => _("This CD contains a live session of the GNOME desktop. It can be installed as is and also works when deployed on an USB stick.") }) %>
-      <%= render(:partial => "change_install", :locals => { :medium => "net", :shorttext => _("Network"), :longtext => _("Only the bare minimum to start the installation is on this CD (only around 100MB). The rest will be downloaded from our online repositories to give you the full set of packages to install and upgrade from.") }) %>
+      <%= render(:partial => "change_install", :locals => { :medium => "net", :shorttext => _("Network"), :longtext => _("The smallest medium (around 100MB) downloads installation system and software from the online repositories.") }) %>
 </div>
 
 </div>
