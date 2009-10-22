@@ -10,7 +10,7 @@
 	/* http://static.opensuse.org/hosts/software.o.o/css/images/get_it128.png */
 	margin-top: 3em;
 	padding: .5em;
-        width: 15em;
+        width: 10em;
 	color: white;
 	text-shadow: 1px 1px 1px #000;
         border: solid thin #882d13;
@@ -75,8 +75,8 @@
       <h4 style="margin-bottom: 15px"><%= _("Installation Medium") %></h4>
 	  <%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD"), 
 	  :longtext => _("The DVD contains a large collection of software to install or upgrade GNOME, KDE or Xfce.") }) %>
-      <%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("This CD contains a live session of the GNOME desktop. It can be installed as is and also works when deployed on an USB stick.") }) %>
-      <%= render(:partial => "change_install", :locals => { :medium => "kde", :shorttext => _("Live KDE"), :longtext => _("This CD contains a live session of the GNOME desktop. It can be installed as is and also works when deployed on an USB stick.") }) %>
+      <%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("A GNOME desktop you can run from CD or from USB stick. Can be installed as is.") }) %>
+      <%= render(:partial => "change_install", :locals => { :medium => "kde", :shorttext => _("Live KDE"), :longtext => _("A KDE desktop you can run from CD or from USB stick. Can be installed as is.") }) %>
       <%= render(:partial => "change_install", :locals => { :medium => "net", :shorttext => _("Network"), :longtext => _("The smallest medium (around 100MB) downloads installation system and software from the online repositories.") }) %>
 </div>
 
