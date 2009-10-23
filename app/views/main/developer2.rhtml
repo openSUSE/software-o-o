@@ -65,12 +65,11 @@
           <label><input id="p_mirror" name="protocol" value="mirror" type="radio" class="changeiso"/><%=_("Pick Mirror")%></label>
         </div>
         <div style="text-align: top; ">
-	  <input type="submit" id="download" value="<%= _("Download") %>" class="noscript"/>
-	  <button href="/" class="script_only" id="download_button">Download</button>
-          <span class="hidden" id="download_kde">Download&nbsp;KDE</span>
-	  <span class="hidden" id="download_gnome">Download&nbsp;GNOME</span>
-          <span class="hidden" id="download_dvd">Download&nbsp;DVD</span>
-          <span class="hidden" id="download_net">Download&nbsp;Network</span
+	  <button id="download_button"><%= _("Download") %></button>
+          <span class="hidden" id="download_kde"><%= _("Download&nbsp;KDE") %></span>
+	  <span class="hidden" id="download_gnome"><%= _("Download&nbsp;GNOME") %></span>
+          <span class="hidden" id="download_dvd"><%= _("Download&nbsp;DVD") %></span>
+          <span class="hidden" id="download_net"><%= _("Download&nbsp;Network") %></span
           <input type="hidden" name="medium" value="<%= @medium %>"/>
           <input type="hidden" name="release" value="developer"/>
         </div>
