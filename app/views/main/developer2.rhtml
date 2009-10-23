@@ -8,9 +8,11 @@
   .help_icon { margin-left: 10px; }
   #download_button {
 	/* http://static.opensuse.org/hosts/software.o.o/css/images/get_it128.png */
+        margin-left: 10%;
+        margin-right: 10%;
 	margin-top: 3em;
 	padding: .5em;
-        width: 10em;
+        width: 80%;
 	color: white;
 	text-shadow: 1px 1px 1px #000;
         border: solid thin #882d13;
@@ -64,7 +66,11 @@
         </div>
         <div style="text-align: top; ">
 	  <input type="submit" id="download" value="<%= _("Download") %>" class="noscript"/>
-	  <button href="/" class="script_only" id="download_button">Download</a>
+	  <button href="/" class="script_only" id="download_button">Download</button>
+          <span class="hidden" id="download_kde">Download&nbsp;KDE</span>
+	  <span class="hidden" id="download_gnome">Download&nbsp;GNOME</span>
+          <span class="hidden" id="download_dvd">Download&nbsp;DVD</span>
+          <span class="hidden" id="download_net">Download&nbsp;Network</span
           <input type="hidden" name="medium" value="<%= @medium %>"/>
           <input type="hidden" name="release" value="developer"/>
         </div>
