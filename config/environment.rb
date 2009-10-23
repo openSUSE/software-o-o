@@ -72,6 +72,6 @@ ActiveXML::Base.config do |conf|
 end
 
 LANGUAGES = %w{en}
-Dir.glob("locale/*/LC_MESSAGES/software.mo").each { |file|
-   LANGUAGES << file.split('/')[1]
+Dir.glob("#{RAILS_ROOT}/locale/*/LC_MESSAGES/software.mo").each { |file|
+   LANGUAGES << file.split('/')[0]
 }
