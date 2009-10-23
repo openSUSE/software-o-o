@@ -3,34 +3,6 @@
 @page_title = _("Download %s") % @releasename
 -%>
 
-<style type="text/css">
-  .hidden { display: none; }
-  .help_icon { margin-left: 10px; }
-  #download_button {
-	/* http://static.opensuse.org/hosts/software.o.o/css/images/get_it128.png */
-        margin-left: 10%;
-        margin-right: 10%;
-	margin-top: 3em;
-	padding: .5em;
-        width: 80%;
-	color: white;
-	text-shadow: 1px 1px 1px #000;
-        border: solid thin #882d13;
-	-webkit-border-radius: .7em;
-	-moz-border-radius: .7em;
-	border-radius: .7em;
-	-webkit-box-shadow: 2px 2px 3px #999;
-	box-shadow: 2px 2px 2px #bbb;
-	background-color: #ce401c;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#e9ede8), to(#ce401c),color-stop(0.4, #8c1b0b));
-   }
-   .icon_unselected {
-      opacity : 0.3;
-      filter: alpha(opacity=30); 
-   }
-   .icon_selected { opacity: 1; }
-</style>
-
 <script language="javascript" type="text/javascript" src="/developer2/download.js"></script>
 <script language="javascript" type="text/javascript">
   // overwrite in case of changed installation medium
@@ -42,7 +14,7 @@
 <div style="float: right; width: 14em;">
       <form action="/main/download">
         <div id="architecture">
-          <h4><%= _("Type of Computer") %><img src="/images/local/info.png" id="help_arch" class="help_icon"/></h4>
+          <h4><%= _("Type of Computer") %><img src="/images/local/info.png" id="help_arch" class="help_icon" alt="?"/></h4>
           <div class="subcolumns">
             <label for="i686" id="l_i686">
               <input name="arch" value="i686" id="i686" checked="checked" type="radio" class="changeiso" /><%=_("32&nbsp;Bit&nbsp;PC")%>
@@ -55,7 +27,7 @@
           </div>
         </div>
         <div id="protocol">
-          <h4><%=_("Download Method")%><img src="/images/local/info.png" id="help_download" class="help_icon"/></h4>
+          <h4><%=_("Download Method")%><img src="/images/local/info.png" id="help_download" class="help_icon" alt="?"/></h4>
           <label><input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/><%=_("Direct Link")%></label>
           <br/>
           <label><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/><%=_("BitTorrent")%></label>
@@ -65,13 +37,15 @@
           <label><input id="p_mirror" name="protocol" value="mirror" type="radio" class="changeiso"/><%=_("Pick Mirror")%></label>
         </div>
         <div style="text-align: top; ">
+          <p>
 	  <button id="download_button"><%= _("Download") %></button>
           <span class="hidden" id="download_kde"><%= _("Download&nbsp;KDE") %></span>
 	  <span class="hidden" id="download_gnome"><%= _("Download&nbsp;GNOME") %></span>
           <span class="hidden" id="download_dvd"><%= _("Download&nbsp;DVD") %></span>
-          <span class="hidden" id="download_net"><%= _("Download&nbsp;Network") %></span
+          <span class="hidden" id="download_net"><%= _("Download&nbsp;Network") %></span>
           <input type="hidden" name="medium" value="<%= @medium %>"/>
           <input type="hidden" name="release" value="developer"/>
+          </p>
         </div>
       </form>
 </div>
@@ -119,8 +93,7 @@
   </ul>
 
   <h3><%=_("Add-On Downloads (optional)")%></h3>
-  <p class="media">
-      <table><tr>
+   <table><tr>
 	  <td class="noscript">
 	    <%= render(:partial => "download_link2", :locals => { :id => "lang32", :iso => "lang-32", :text => _("Extra Languages (32 Bit)") } ) %>
 	  </td>
@@ -134,7 +107,6 @@
             <%= render(:partial => "download_link2", :locals => { :id => "nonoss", :iso => "nonoss", :text => _("NonOSS CD") } )%>
           </td>
       </tr></table>
-  </p>
 </div>
 <div id="download_help" class="info_text">
   <h3><%=_("How to Proceed")%></h3>
