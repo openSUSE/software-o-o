@@ -11,31 +11,63 @@
 
 <div style="margin-top: 1em; padding: 0">
 
+<div id="popup" style="display: none;">
+<a href="#" id="popup_close" style="display: block; float: right; padding: 10px">Close</a>
+<div id="popup_content"></div>
+</div>
+
 <div style="float: right; width: 14em;">
       <form action="/main/download">
-        <div id="architecture">
+        <div>
           <h4><%= _("Type of Computer") %><img src="/images/local/info.png" id="help_arch" class="help_icon" alt="?"/></h4>
-          <div class="subcolumns">
-            <label for="i686" id="l_i686">
-              <input name="arch" value="i686" id="i686" checked="checked" type="radio" class="changeiso" /><%=_("32&nbsp;Bit&nbsp;PC")%>
-              <span id="arch_32" class="hidden"><br/><%= _("x86: Computers with e.g. AMD&reg; Sempron or Intel&reg; Celeron&trade;, almost all desktop computers dating 2004 or earlier. This version also runs on 64bit PCs.")%></span>
-            </label>
-            <label for="x86_64" id="l_x86_64" class="">
-              <input name="arch" value="x86_64" id="x86_64" type="radio" class="changeiso" /><%=_("64 Bit PC")%>
-              <span id="arch_64" class="hidden"><br/><%=_("x86-64: Most new computers with e.g. AMD&reg;: Opteron&trade;, Turion&trade; 64, Athlon&trade; 64, or Intel&reg;: Core&trade;2, Pentium&reg; 4 6xx, Pentium&reg; D CPUs.")%></span>
-            </label>
+          <div>
+            <label class="l_change"><input name="arch" value="i686" checked="checked" type="radio" class="changeiso" /><%=_("32&nbsp;Bit&nbsp;PC")%></label>
+            <label class="l_change"><input name="arch" value="x86_64" type="radio" class="changeiso" /><%=_("64 Bit PC")%></label>
+            <div id="help_arch_content" class="hidden">
+              <h2><%=_("Help on Type of Computer")%></h2>
+              <p>
+              <%= _("openSUSE only supports PCs with 32 Bits and 64 Bits.") %>
+              </p>
+              <h3><%=_("64 Bit PC")%></h3>
+              <p>
+              <%= _("Most new computers support <a href=\"http://en.wikipedia.org/wiki/X86-64\">x86-64</a> (also known as AMD64 and Intel64), but some laptop processors and netbook processors do not support it. So you need to check wikipedia if you want to be sure your computer supports it.") %>
+              </p>
+              <h3><%=_("32 Bit PC")%></h3>
+              <p>
+              <%= _("This version runs on all PCs including those that support 64 Bit. If you have more than 3GB you should prefer the 64 Bit version though. openSUSE does not support processors before Pentium - the live CDs even support only i686 (Pentium Pro and later).") %>
+              </p>
+            </div>
           </div>
         </div>
-        <div id="protocol">
-          <h4><%=_("Download Method")%><img src="/images/local/info.png" id="help_download" class="help_icon" alt="?"/></h4>
-          <label><input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/><%=_("Direct Link")%></label>
-          <br/>
-          <label><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/><%=_("BitTorrent")%></label>
-          <br/>
-          <label><input id="p_metalink" name="protocol" value="metalink" type="radio" class="changeiso"/><%=_("Metalink")%></label>
-          <br/>
-          <label><input id="p_mirror" name="protocol" value="mirror" type="radio" class="changeiso"/><%=_("Pick Mirror")%></label>
-        </div>
+        <div>
+          <h4><%=_("Download Method")%><img src="/images/local/info.png" id="help_method" class="help_icon" alt="?"/></h4>
+          <label class="l_change"><input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/><%=_("Direct Link")%></label>
+          <label class="l_change"><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/><%=_("BitTorrent")%></label>
+          <label class="l_change"><input id="p_metalink" name="protocol" value="metalink" type="radio" class="changeiso"/><%=_("Metalink")%></label>
+          <label class="l_change"><input id="p_mirror" name="protocol" value="mirror" type="radio" class="changeiso"/><%=_("Pick Mirror")%></label>
+   <div class="hidden" id="help_method_content">
+   <h2><%=_("Help on Download Method")%></h2>
+   <p>
+     <%=_("openSUSE is available via http (direct link) or BitTorrent. The CD for network installation is only vailable via http.")%>
+   </p>
+   <h3><%=_("Direct Link")%></h3>
+   <p>
+    <%=_("When downloading images other than the CD for network installation, it is <i>strongly</i> recommended to use a proper download manager to reduce the risk of corrupted data.")%>
+   </p>
+   <h3><%=_("BitTorrent")%></h3>
+   <p>
+    <%=_("Using BitTorrent is recommended on slow links, especially when downloading the DVD image. BitTorrent downloads have several benefits, the clients protect against data corruption and you help relieving the load on the servers by participating in the upload - if enough people participate it will also be faster than the centralized servers - for everybody. Whatsmore, it allows you to stop the download at any time and resume it later. More informarmation is available at <a href=\"http://en.opensuse.org/BitTorrent_and_openSUSE\">BitTorrent and openSUSE</a>.")%>
+   </p>
+   <h3><%=_("Metalink")%></h3>
+   <p>
+    <%=_("<a href=\"http://en.opensuse.org/Metalink\">Metalink</a> is an open standard that bundles the various ways (FTP/HTTP/BitTorrent) to get files into one format for easier downloads. This makes it good for downloading ISOs; particularly for people who can't use P2P because of restrictions from their ISP or University. It can deliver very fast download speeds since most clients support multiple connections, to multiple mirrors, automatically. In addition, it can do automatic error detection, and correction. It needs a special client to handle it though.")%>
+   </p>
+   <h3><%=_("Pick Mirror")%></h3>
+   <p>
+     <%=_("If you want to use a direct link but live in a place in the world where our download redirector has not enough information to redirect to the fastest mirror, you can pick a mirror yourself.")%>
+   </p>
+  </div>
+  </div>
         <div>
           <p>
 	  <button id="download_button"><%= _("Download") %></button>
@@ -52,11 +84,11 @@
 
 <div style="padding: 0; margin-right: 17em">
       <h4 style="margin-bottom: 15px"><%= _("Installation Medium") %></h4>
-	  <%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD"), 
-	  :longtext => _("The DVD contains a large collection of software to install or upgrade GNOME, KDE or Xfce.") }) %>
-      <%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("A GNOME desktop you can run from CD or from USB stick. Can be installed as is.") }) %>
-      <%= render(:partial => "change_install", :locals => { :medium => "kde", :shorttext => _("Live KDE"), :longtext => _("A KDE desktop you can run from CD or from USB stick. Can be installed as is.") }) %>
-      <%= render(:partial => "change_install", :locals => { :medium => "net", :shorttext => _("Network"), :longtext => _("The smallest medium (around 100MB), it downloads installation system and software from the online repositories.") }) %>
+       <%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD"), 
+	  :longtext => _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") }) %>
+      <%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("A GNOME desktop you can run from CD or from USB stick. Can be installed as is (no upgrade).") }) %>
+      <%= render(:partial => "change_install", :locals => { :medium => "kde", :shorttext => _("Live KDE"), :longtext => _("A KDE desktop you can run from CD or from USB stick. Can be installed as is (no upgrade).") }) %>
+      <%= render(:partial => "change_install", :locals => { :medium => "net", :shorttext => _("Network"), :longtext => _("Downloads the installation system and all packages from online repositories.  Suitable for installation or upgrade.") }) %>
 </div>
 
 </div>
@@ -64,13 +96,15 @@
 <hr style="clear: both"/>
 
 <div id="download_links">
-  <h2><%=_("Need help?")%></h2>
   <p class="info_text">
-    <%=_("To download a medium, choose from the installation ways, possibly change the architecture and the download way and choose \"Save file\".")%>
-    <%=_("In case of problems with the download, please <a href=\"http://en.opensuse.org/Download_Help\">refer to the Download Help</a>.")%>
+  <%=_("Choose an installation medium by clicking it and hit the Download button to start the download. Optionally choose your computer type or an alternative download method.") %>
+  </p>
+  <h3><%=_("Need help?")%></h3>
+  <p>
+  <%= _("More information on downloading openSUSE is available from the <a href=\"http://en.opensuse.org/Download_Help\">Download Help.</a>") %>
   </p>
 
-  <h3><%=_("Verify your download (optional)")%></h3>
+  <h3><%=_("Verify your download (optional, for experts)")%></h3>
   <p class="info_text">
     <%=_("Many applications can verify the checksum of a download. To verify your download can be important as it verifies you really have got the ISO file you wanted to download and not some broken version. We offer three different checksums:")%>
   </p>

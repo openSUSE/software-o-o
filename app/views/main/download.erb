@@ -41,7 +41,9 @@ function changeiso () {
   $('#icon_' + mymedium).addClass('icon_selected').removeClass('icon_unselected');
 
   $('#download_button').html( $('#download_' + mymedium).html());
+
 }
+
 
 function unselectOld() {
   $('#icon_' + mymedium).removeClass('icon_selected').addClass('icon_unselected');
@@ -85,23 +87,18 @@ $(function() {
 			   window.location = mylink;
 			   return false;
 			 });
-    $('#help_64').click(function() { 
-			  $("#arch_64").fadeIn("slow"); 
-			  $("#link_64").hide();
-			});
-    $('#help_32').click(function() { 
-			  $("#arch_32").fadeIn("slow"); 
-			  $("#link_32").hide();
-			});
-    $("#help_arch").hover(function(){
-			    $("#arch_64").fadeIn();  // Other effects can be used to show the Tooltip
-			    $("#arch_32").fadeIn();  // Other effects can be used to show the Tooltip
-			  },
-			  function() {
-			    $("#arch_64").fadeOut();
-			    $("#arch_32").fadeOut();
+    $("#help_arch").click(function(){
+			    $('#popup_content').html($('#help_arch_content').html());
+			    $("#popup").fadeIn('fast');  // Other effects can be used to show the Tooltip
 			  });
-
+    $("#help_method").click(function(){
+                            $('#popup_content').html($('#help_method_content').html());
+                            $("#popup").fadeIn('fast');  // Other effects can be used to show the Tooltip
+                          });
+    $('#popup_close').click(function() {
+			 $("#popup").fadeOut('fast');
+			 return false;
+                          });
     var resizeTimer = null;
     
     $(window).bind('resize', function() {
