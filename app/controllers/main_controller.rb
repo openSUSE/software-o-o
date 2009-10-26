@@ -31,6 +31,11 @@ class MainController < ApplicationController
     render :text => res.body, :content_type => res.content_type
   end
 
+  def index
+    GetText.locale = "en"
+    render :template => "main/index"
+  end
+
   def set_developer
     @isos = {}
     @directory = "http://download.opensuse.org/distribution/11.2-RC1"
@@ -53,6 +58,7 @@ class MainController < ApplicationController
   end
 
   def developer
+    GetText.locale = "en"
     set_developer
     render :template => "main/developer"
   end
