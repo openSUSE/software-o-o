@@ -1,10 +1,10 @@
 <%
 @right_box = :iso
-@page_title = "Get Software from the openSUSE Build Service"
+@page_title = _("Get Software from the openSUSE Build Service")
 -%>
 <div class="ajaxindicator_wrapper">
   <div id="ajaxindicator" align="center" style="display: none;">
-    <strong>Searching</strong>
+    <strong><%= _("Searching") %></strong>
   </div>
 </div>
 <div id="error" style='background:none;'>
@@ -18,7 +18,7 @@
 <%= text_field_tag 'q', @query, :size => 40 %>
 <p id="form_control">
 <%= select_tag 'baseproject', options_for_select(baseproject_list_for_select, (@baseproject or default_baseproject)) %>
-<%= submit_tag 'Search' %>
+<%= submit_tag _('Search') %>
 </p>
 <% end -%>
 

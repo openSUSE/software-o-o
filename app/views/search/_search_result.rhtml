@@ -1,9 +1,9 @@
-<div id="search_top_info"><%= @result.pattern_count %> collections and <%=h @result.binary_count%> binaries from <%=h @result.length %> source packages</div>
+<div id="search_top_info"><%= _("%d collections and %d binaries from %d source packages") % [ @result.pattern_count, @result.binary_count, @result.length ] %></div>
 <div id="permalink">
-  <%= link_to "Permanent link to this result", :action => :index, :q => @query, :p => @current_page, :baseproject => @baseproject %>
+  <%= link_to _("Permanent link to this result"), :action => :index, :q => @query, :p => @current_page, :baseproject => @baseproject %>
 </div>
 <% if @result.empty? -%>
-<p> Nothing found </p>
+<p> <%= _("Nothing found") %> </p>
 <% else -%>
 <%= render :partial => 'paginator', :locals => {:result => @result} %>
   <% @result.page(@current_page).each do |item| -%>

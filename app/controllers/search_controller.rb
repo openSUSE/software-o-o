@@ -2,6 +2,13 @@ class SearchController < ApplicationController
   layout "application"
 
   def index
+    if params[:lang].nil?
+      lang = request.compatible_language_from(LANGUAGES) || "en"
+    else
+      lang = params[:lang][0]
+    end
+    GetText.locale = lang
+
     if params[:baseproject]
       @baseproject = params[:baseproject]
     end
