@@ -19,7 +19,7 @@
 <div style="float: right; width: 14em;">
       <form action="/main/download">
         <div>
-          <h4><%= _("Type of Computer") %><img src="/images/local/info.png" id="help_arch" class="help_icon" alt="?"/></h4>
+          <h4><%= _("Type of Computer") %><img src="/images/local/help-browser.png" id="help_arch" class="help_icon" alt="?"/></h4>
           <div>
             <label class="l_change"><input id="i686" name="arch" value="i686" checked="checked" type="radio" class="changeiso" /><%=_("32&nbsp;Bit&nbsp;PC")%></label>
             <label class="l_change"><input id="x86_64" name="arch" value="x86_64" type="radio" class="changeiso" /><%=_("64 Bit PC")%></label>
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div>
-          <h4><%=_("Download Method")%><img src="/images/local/info.png" id="help_method" class="help_icon" alt="?"/></h4>
+          <h4><%=_("Download Method")%><img src="/images/local/help-browser.png" id="help_method" class="help_icon" alt="?"/></h4>
           <label class="l_change"><input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/><%=_("Direct Link")%></label>
           <label class="l_change <%= if @medium == 'net': "notavailable" end %>" id="l_torrent"><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/><%=_("BitTorrent")%></label>
           <label class="l_change"><input id="p_metalink" name="protocol" value="metalink" type="radio" class="changeiso"/><%=_("Metalink")%></label>
