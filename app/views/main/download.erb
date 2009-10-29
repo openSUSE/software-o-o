@@ -42,6 +42,17 @@ function changeiso () {
 
   $('#download_button').html( $('#download_' + mymedium).html());
 
+  if (mymedium == 'net') {
+     $('#l_torrent').addClass('notavailable');
+     $('#p_torrent').attr('disabled', 'disabled');
+     if ($('#p_torrent').attr('checked')) {
+	$('#p_torrent').attr('checked', '');
+	$('#p_http').attr('checked', 'checked');
+     }
+  } else {
+     $('#l_torrent').removeClass('notavailable');
+     $('#p_torrent').attr('disabled', '');
+  }
 }
 
 

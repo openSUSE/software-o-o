@@ -42,7 +42,7 @@
         <div>
           <h4><%=_("Download Method")%><img src="/images/local/info.png" id="help_method" class="help_icon" alt="?"/></h4>
           <label class="l_change"><input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/><%=_("Direct Link")%></label>
-          <label class="l_change"><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/><%=_("BitTorrent")%></label>
+          <label class="l_change <%= if @medium == 'net': "notavailable" end %>" id="l_torrent"><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/><%=_("BitTorrent")%></label>
           <label class="l_change"><input id="p_metalink" name="protocol" value="metalink" type="radio" class="changeiso"/><%=_("Metalink")%></label>
           <label class="l_change"><input id="p_mirror" name="protocol" value="mirror" type="radio" class="changeiso"/><%=_("Pick Mirror")%></label>
    <div class="hidden" id="help_method_content">

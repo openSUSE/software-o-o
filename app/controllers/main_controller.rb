@@ -100,7 +100,9 @@ class MainController < ApplicationController
     
     case
     when params[:protocol] == "torrent"
-      suffix = ".iso.torrent"
+      if params[:medium] != "net"
+          suffix = ".iso.torrent"
+      end
     when params[:protocol] == "mirror"
       suffix = ".iso?mirrorlist"
     when params[:protocol] == "metalink"
