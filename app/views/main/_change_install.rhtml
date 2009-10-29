@@ -11,7 +11,7 @@
   </form>
 </noscript>
 
-<div id="ci_<%= medium %>" class="hidden changeiso script_only">
+<div id="ci_<%= medium %>" class="hidden changeiso script_only <%= if @medium == medium then "medium_selected'" else "medium_unselected'" end %> ">
   <img src="/images/local/<%= medium %>_icon.png" alt="" id="icon_<%= medium %>"
   <%= if @medium == medium then "class='icon_selected'" else "class='icon_unselected'" end %>
   />

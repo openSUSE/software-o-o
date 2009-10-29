@@ -38,7 +38,8 @@ function changeiso () {
   $('#iso_lang').attr('href', langiso + download_suffix);
   $('#iso_nonoss').attr('href', directory + "/iso/openSUSE-" + isos['nonoss'] + ".iso" + download_suffix);
 
-  $('#icon_' + mymedium).addClass('icon_selected').removeClass('icon_unselected');
+  $('#icon_' + mymedium).addClass('icon_selected').removeClass('icon_unselected').parent('div').addClass("medium_selected").removeClass('medium_unselected');
+  // $('#icon_' + mymedium).addClass('icon_selected').removeClass('icon_unselected');
 
   $('#download_button').html( $('#download_' + mymedium).html());
 
@@ -57,7 +58,8 @@ function changeiso () {
 
 
 function unselectOld() {
-  $('#icon_' + mymedium).removeClass('icon_selected').addClass('icon_unselected');
+  // $('#icon_' + mymedium).removeClass('icon_selected').addClass('icon_unselected');
+  $('#icon_' + mymedium).removeClass('icon_selected').addClass('icon_unselected').parent('div').addClass("medium_unselected").removeClass('medium_selected');
 }
 
 function resizeBoxes() {
