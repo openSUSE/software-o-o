@@ -3,7 +3,7 @@
 @page_title = _("Download %s") % @releasename
 -%>
 
-<script language="javascript" type="text/javascript" src="/developer/download.js"></script>
+<script language="javascript" type="text/javascript" src="/<%= @release %>/download.js"></script>
 <script language="javascript" type="text/javascript">
   // overwrite in case of changed installation medium
   var mymedium = "<%= @medium %>";
@@ -78,7 +78,7 @@
             <span class="hidden" id="download_dvd"><%= _("Download&nbsp;DVD") %></span>
             <span class="hidden" id="download_net"><%= _("Download&nbsp;Network") %></span>
             <input type="hidden" name="medium" value="<%= @medium %>"/>
-            <input type="hidden" name="release" value="developer"/>
+            <input type="hidden" name="release" value="<%= @release %>"/>
           </p>
         </div>
       </form>

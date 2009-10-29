@@ -7,17 +7,7 @@ class MainController < ApplicationController
     :redirect_to => :index
 
   # these pages are completely static:
-  caches_page :index, :developer, :developer_download_js
-
-  def old_dist
-    dist = params[:dist]
-    begin
-      render :template => "main/old_#{dist}.rhtml"
-    rescue Object
-      @message = "No old page found for dist #{dist}"
-      render :template => "error", :status => 404
-    end
-  end
+  caches_page :index, :developer, "111", "1112"
 
   def ymp_with_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
@@ -36,58 +26,98 @@ class MainController < ApplicationController
     render :template => "main/index"
   end
 
-  def set_developer
-    @isos = {}
-    @directory = "http://download.opensuse.org/distribution/11.2-RC2"
-    @isos["lang-32"] = "Addon-Lang-Build0339-i586"
-    @isos["lang-64"] = "Addon-Lang-Build0339-x86_64"
-    @isos["nonoss"] = "Addon-NonOss-BiArch-Build0339-i586-x86_64"
-    @isos["kde-64"] = "KDE4-LiveCD-Build0339-x86_64"
-    @isos["kde-32"] = "KDE4-LiveCD-Build0339-i686"
-    @isos["gnome-64"] = "GNOME-LiveCD-Build0339-x86_64"
-    @isos["gnome-32"] = "GNOME-LiveCD-Build0339-i686"
-    @isos["dvd-64"] = "DVD-Build0339-x86_64"
-    @isos["dvd-32"] = "DVD-Build0339-i586"
-    @isos["net-32"] = "NET-Build0339-i586"
-    @isos["net-64"] = "NET-Build0339-x86_64"
+  def set_release(release)
+    if release == "111"
+       @isos = {}
+       @directory = "http://download.opensuse.org/distribution/11.1"
+       @isos["lang-32"] = "11.1-Addon-Lang-i586"
+       @isos["lang-64"] = "11.1-Addon-Lang-x86_64"
+       @isos["nonoss"] = "11.1-Addon-NonOss-BiArch-i586-x86_64"
+       @isos["kde-64"] = "11.1-KDE4-LiveCD-x86_64"
+       @isos["kde-32"] = "11.1-KDE4-LiveCD-i686"
+       @isos["gnome-64"] = "11.1-GNOME-LiveCD-x86_64"
+       @isos["gnome-32"] = "11.1-GNOME-LiveCD-i686"
+       @isos["dvd-64"] = "11.1-DVD-x86_64"
+       @isos["dvd-32"] = "11.1-DVD-i586"
+       @isos["net-32"] = "11.1-NET-i586"
+       @isos["net-64"] = "11.1-NET-x86_64"
 
-    @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html"
-    @releasename = "openSUSE 11.2-RC2"
-    @repourl = "http://download.opensuse.org/distribution/11.2"
-    @medium = "dvd"
+       @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.1/RELEASE-NOTES.en.html"
+       @releasename = "openSUSE 11.1"
+       @repourl = "http://download.opensuse.org/distribution/11.1"
+       @medium = "dvd"
+    elsif release == "112"
+       @isos = {}
+       @directory = "http://download.opensuse.org/distribution/11.2"
+       @isos["lang-32"] = "11.2-Addon-Lang-i586"
+       @isos["lang-64"] = "11.2-Addon-Lang-x86_64"
+       @isos["nonoss"] = "11.2-Addon-NonOss-BiArch-i586-x86_64"
+       @isos["kde-64"] = "11.2-KDE4-LiveCD-x86_64"
+       @isos["kde-32"] = "11.2-KDE4-LiveCD-i686"
+       @isos["gnome-64"] = "11.2-GNOME-LiveCD-x86_64"
+       @isos["gnome-32"] = "11.2-GNOME-LiveCD-i686"
+       @isos["dvd-64"] = "11.2-DVD-x86_64"
+       @isos["dvd-32"] = "11.2-DVD-i586"
+       @isos["net-32"] = "11.2-NET-i586"
+       @isos["net-64"] = "11.2-NET-x86_64"
+
+       @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html"
+       @releasename = "openSUSE 11.2"
+       @repourl = "http://download.opensuse.org/distribution/11.2"
+       @medium = "dvd"
+    elsif release == "developer"
+       @isos = {}
+       @directory = "http://download.opensuse.org/distribution/11.2-RC2"
+       @isos["lang-32"] = "Addon-Lang-Build0339-i586"
+       @isos["lang-64"] = "Addon-Lang-Build0339-x86_64"
+       @isos["nonoss"] = "Addon-NonOss-BiArch-Build0339-i586-x86_64"
+       @isos["kde-64"] = "KDE4-LiveCD-Build0339-x86_64"
+       @isos["kde-32"] = "KDE4-LiveCD-Build0339-i686"
+       @isos["gnome-64"] = "GNOME-LiveCD-Build0339-x86_64"
+       @isos["gnome-32"] = "GNOME-LiveCD-Build0339-i686"
+       @isos["dvd-64"] = "DVD-Build0339-x86_64"
+       @isos["dvd-32"] = "DVD-Build0339-i586"
+       @isos["net-32"] = "NET-Build0339-i586"
+       @isos["net-64"] = "NET-Build0339-x86_64"
+
+       @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html"
+       @releasename = "openSUSE 11.2-RC2"
+       @repourl = "http://download.opensuse.org/distribution/11.2"
+       @medium = "dvd"
+    end
+    @release = release
   end
 
   def developer
-    
     if params[:lang].nil?
       lang = request.compatible_language_from(LANGUAGES) || "en"
-      redirect_to "/developer/" + lang
-      return
     else
-      @lang = params[:lang][0]
+      lang = params[:lang][0]
     end
+    redirect_to "/developer/" + lang
+  end
+   
+  def release
+    @lang = params[:lang][0]
     GetText.locale = @lang
 
-    set_developer
+    set_release(params[:release])
     render :template => "main/developer2"
   end
 
   def change_developer_install
-    set_developer
+    set_release("developer")
     @medium = params[:medium]
     render :template => "main/developer2"
   end
 
-  def developer_download_js
-    set_developer
+  def download_js
+    set_release(params[:release])
     render :template => "main/download", :content_type => 'text/javascript', :layout => false
   end
 
   def download
-    if params[:release] == "developer"
-      set_developer
-    end
- 
+    set_release(params[:release])
     medium = params[:medium]
 
     if params[:arch] == "i686"

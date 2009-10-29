@@ -18,10 +18,9 @@ ActionController::Routing::Routes.draw do |map|
   # map.connect ':controller/service.wsdl', :action => 'wsdl'
 
   map.connect '/', :controller => 'main', :action => 'index'
-  map.connect 'old/:dist', :controller => 'main', :action => 'old_dist', :requirements => { :dist => /[\w\-\.:]+/ }
   map.connect 'developer', :controller => 'main', :action => 'developer'
-  map.connect 'developer/download.js', :controller => 'main', :action => 'developer_download_js'
-  map.connect 'developer/:lang', :controller => 'main', :action => 'developer'
+  map.connect ':release/download.js', :controller => 'main', :action => 'download_js'
+  map.connect ':release/:lang', :controller => 'main', :action => 'release'
 
   map.connect 'promodvd', :controller => 'order', :action => 'new'
   map.connect 'promodvd/admin', :controller => 'order', :action => 'admin_index'

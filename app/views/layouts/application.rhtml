@@ -130,7 +130,11 @@
          <ul class="navlist">
           <li><a href="http://en.opensuse.org/Mirror_Selection"><%=_("Mirrors")%></a></li>
           <li><a href="http://download.opensuse.org/distribution/11.1/iso/"><%=_("Metalinks")%></a></li>
-          <li><%= link_to _('Development Version'), {:controller => "main", :action => "developer"} %></li>
+          <% if @release != "developer" %>
+             <li><%= link_to _('Development Version'), {:controller => "main", :action => "developer", :lang => @lang } %></li>
+          <% else %>
+             <li><%= link_to _('Released Version'), {:controller => "main", :action => "index", :lang => @lang } %></li>
+          <% end %>
          </ul>
         </div>
         <div class="box_bottom_row">
