@@ -19,9 +19,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect '/', :controller => 'main', :action => 'index'
   map.connect 'developer', :controller => 'main', :action => 'developer'
-  map.connect '/main/:action', :controller => 'main'
   map.connect ':release/download.js', :controller => 'main', :action => 'download_js'
-  map.connect ':release/:lang', :controller => 'main', :action => 'release'
+  map.connect '112/:lang', :controller => 'main', :action => 'release', :release => "112"
+  map.connect '111/:lang', :controller => 'main', :action => 'release', :release => "111"
+  map.connect 'developer/:lang', :controller => 'main', :action => 'release', :release => "developer"
 
   map.connect 'promodvd', :controller => 'order', :action => 'new'
   map.connect 'promodvd/admin', :controller => 'order', :action => 'admin_index'
