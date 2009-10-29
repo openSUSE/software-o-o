@@ -49,8 +49,7 @@ end
 
 # remove static cache files
 FileUtils.rm_f "#{RAILS_ROOT}/public/index.html"
-FileUtils.rm_f "#{RAILS_ROOT}/public/developer.html"
-FileUtils.rm_rf "#{RAILS_ROOT}/public/developer2"
+FileUtils.rm_rf "#{RAILS_ROOT}/public/developer"
 
 ActiveXML::Base.config do |conf|
   conf.setup_transport do |map|
