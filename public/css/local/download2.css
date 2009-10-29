@@ -1,39 +1,71 @@
-.hidden { display: none; }
-.help_icon { margin-left: 10px; }
+#iso-wrapper {
+  padding: 0;
+  margin-right: 17em
+}
+  #iso-wrapper h4 {
+    margin-bottom: 15px
+  }
+  #iso-wrapper div.changeiso {
+    border: 5px solid transparent;
+    min-height: 70px;
+    margin-bottom: 10px;
+    background: #D3D3D3 ;
+    margin-left: 3%;
+  }
+    #iso-wrapper div.changeiso div {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      margin-right: 20px;
+    }
+    #iso-wrapper div.changeiso img { /* Icon */
+/*      width: 64px;
+      height: 64px;*/
+      margin: 10px;
+      float: left;
+    }
+
 #download_button {
-        /* http://static.opensuse.org/hosts/software.o.o/css/images/get_it128.png */
-        margin-left: 10%;
-        margin-right: 10%;
-        margin-top: 3em;
-        padding: .5em;
-        width: 80%;
-        color: white;
-        font-size: 1em;
-        text-shadow: 1px 1px 1px #000;
-        border: solid thin #882d13;
-        -webkit-border-radius: .7em;
-        -moz-border-radius: .7em;
-        border-radius: .7em;
-        -webkit-box-shadow: 2px 2px 3px #999;
-        box-shadow: 2px 2px 2px #bbb;
-        background-color: #ce401c;
-        background-image: -webkit-gradient(linear, left top, left bottom, from(#e9ede8), to(#ce401c),color-stop(0.4, #8c1b0b));
+  /* http://static.opensuse.org/hosts/software.o.o/css/images/get_it128.png */
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 3em;
+  padding: .5em;
+  width: 80%;
+  color: white;
+  font-size: 1em;
+  text-shadow: 1px 1px 1px #000;
+  border: solid thin #882d13;
+  -webkit-border-radius: .7em;
+  -moz-border-radius: .7em;
+  border-radius: .7em;
+  -webkit-box-shadow: 2px 2px 3px #999;
+  -moz-box-shadow: 2px 2px 2px #bbb;
+  box-shadow: 2px 2px 2px #bbb;
+  background-color: #ce401c;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e9ede8), to(#ce401c),color-stop(0.4, #8c1b0b));
 }
+
 .icon_unselected {
-      opacity : 0.3;
-      filter: alpha(opacity=30);
+  opacity: 0.3;
+  -moz-opacity: 0.3;
+  filter:alpha(opacity=30);
 }
+
 .icon_selected { opacity: 1; }
 .l_change { display: block; margin-bottom: .5em; }}
 
 #popup {
-padding: 0.5em;
-width: 70%;
-margin: 0 auto;
-border: 3px solid #000000;
-background: #ffffff;
-position: absolute;
-left: 0px;
-z-index: 2;
+  padding: 0.5em;
+  width: 70%;
+  margin: 0 auto;
+  border: 3px solid #000000;
+  background: #ffffff;
+  position: absolute;
+  left: 0px;
+  z-index: 2;
 }
+
+/* Helper Styles */
+.hidden { display: none; }
+.help_icon { margin-left: 10px; }
 .notavailable { color: gray; }
