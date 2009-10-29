@@ -70,13 +70,15 @@
   </div>
         <div>
           <p>
-	  <button id="download_button"><%= _("Download") %></button>
-          <span class="hidden" id="download_kde"><%= _("Download&nbsp;KDE") %></span>
-	  <span class="hidden" id="download_gnome"><%= _("Download&nbsp;GNOME") %></span>
-          <span class="hidden" id="download_dvd"><%= _("Download&nbsp;DVD") %></span>
-          <span class="hidden" id="download_net"><%= _("Download&nbsp;Network") %></span>
-          <input type="hidden" name="medium" value="<%= @medium %>"/>
-          <input type="hidden" name="release" value="developer"/>
+            <button id="download_button">
+              <%= _("Download") %>
+            </button>
+            <span class="hidden" id="download_kde"><span id="download-icon"> </span><%= _("Download&nbsp;KDE") %></span>
+            <span class="hidden" id="download_gnome"><%= _("Download&nbsp;GNOME") %></span>
+            <span class="hidden" id="download_dvd"><%= _("Download&nbsp;DVD") %></span>
+            <span class="hidden" id="download_net"><%= _("Download&nbsp;Network") %></span>
+            <input type="hidden" name="medium" value="<%= @medium %>"/>
+            <input type="hidden" name="release" value="developer"/>
           </p>
         </div>
       </form>
@@ -127,12 +129,12 @@
 
   <h3><%=_("Add-On Downloads (optional)")%></h3>
    <table><tr>
-	  <td class="noscript">
-	    <%= render(:partial => "download_link2", :locals => { :id => "lang32", :iso => "lang-32", :text => _("Extra Languages (32 Bit)") } ) %>
-	  </td>
-	  <td class="noscript">
-	    <%= render(:partial => "download_link2", :locals => { :id => "lang64", :iso => "lang-64", :text => _("Extra Languages (64 Bit)") } ) %>
-	  </td>
+    <td class="noscript">
+      <%= render(:partial => "download_link2", :locals => { :id => "lang32", :iso => "lang-32", :text => _("Extra Languages (32 Bit)") } ) %>
+    </td>
+    <td class="noscript">
+      <%= render(:partial => "download_link2", :locals => { :id => "lang64", :iso => "lang-64", :text => _("Extra Languages (64 Bit)") } ) %>
+    </td>
           <td class="hidden script_only">
             <%= render(:partial => "download_link2", :locals => { :id => "lang", :iso => "lang-32", :text => _("Extra Languages") } ) %>
           </td>

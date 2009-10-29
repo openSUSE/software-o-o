@@ -41,7 +41,8 @@ function changeiso () {
   $('#icon_' + mymedium).addClass('icon_selected').removeClass('icon_unselected').parent('div').addClass("medium_selected").removeClass('medium_unselected');
   // $('#icon_' + mymedium).addClass('icon_selected').removeClass('icon_unselected');
 
-  $('#download_button').html( $('#download_' + mymedium).html());
+  // $('#download_button').html($('#download_' + mymedium).html());
+  $('#download_button').html($('#download_' + mymedium).html());
 
   if (mymedium == 'net') {
      $('#l_torrent').addClass('notavailable');
