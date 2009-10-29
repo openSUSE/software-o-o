@@ -102,13 +102,13 @@ class MainController < ApplicationController
     GetText.locale = @lang
 
     set_release(params[:release])
-    render :template => "main/developer2"
+    render :template => "main/release"
   end
 
-  def change_developer_install
-    set_release("developer")
+  def change_install
+    set_release(params[:release])
     @medium = params[:medium]
-    render :template => "main/developer2"
+    render :template => "main/release"
   end
 
   def download_js

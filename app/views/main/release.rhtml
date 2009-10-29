@@ -130,16 +130,16 @@
   <h3><%=_("Add-On Downloads (optional)")%></h3>
    <table><tr>
     <td class="noscript">
-      <%= render(:partial => "download_link2", :locals => { :id => "lang32", :iso => "lang-32", :text => _("Extra Languages (32 Bit)") } ) %>
+      <%= render(:partial => "download_link", :locals => { :id => "lang32", :iso => "lang-32", :text => _("Extra Languages (32 Bit)") } ) %>
     </td>
     <td class="noscript">
-      <%= render(:partial => "download_link2", :locals => { :id => "lang64", :iso => "lang-64", :text => _("Extra Languages (64 Bit)") } ) %>
+      <%= render(:partial => "download_link", :locals => { :id => "lang64", :iso => "lang-64", :text => _("Extra Languages (64 Bit)") } ) %>
     </td>
           <td class="hidden script_only">
-            <%= render(:partial => "download_link2", :locals => { :id => "lang", :iso => "lang-32", :text => _("Extra Languages") } ) %>
+            <%= render(:partial => "download_link", :locals => { :id => "lang", :iso => "lang-32", :text => _("Extra Languages") } ) %>
           </td>
           <td>
-            <%= render(:partial => "download_link2", :locals => { :id => "nonoss", :iso => "nonoss", :text => _("NonOSS CD") } )%>
+            <%= render(:partial => "download_link", :locals => { :id => "nonoss", :iso => "nonoss", :text => _("NonOSS CD") } )%>
           </td>
       </tr></table>
 </div>

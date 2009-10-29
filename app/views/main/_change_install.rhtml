@@ -1,5 +1,7 @@
 <noscript>
-  <form action="/main/change_developer_install">
+  <% form_tag(:controller => "main", :action => 'change_install') do -%>
+  <input name="release" value="<%= @release %>" type="hidden" />
+  <input name="lang" value="<%= @lang %>" type="hidden"/>
   <button name="medium" value="<%= medium %>" style="width: 250px; margin-bottom: 20px" class="changeiso">
     <div style="background-color: transparent; height: 50px; line-height: 10px; text-align: left; <%= if @medium == medium then "color: green" end %>">
       <p>
@@ -8,7 +10,7 @@
       </p>
     </div>
   </button>
-  </form>
+  <% end %>
 </noscript>
 
 <div id="ci_<%= medium %>" class="hidden changeiso script_only <%= if @medium == medium then "medium_selected'" else "medium_unselected'" end %> ">
