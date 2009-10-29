@@ -7,7 +7,7 @@ class MainController < ApplicationController
     :redirect_to => :index
 
   # these pages are completely static:
-  caches_page :index, :developer, :developer2, :developer_download_js
+  caches_page :index, :developer, :developer_download_js
 
   def old_dist
     dist = params[:dist]
@@ -38,36 +38,30 @@ class MainController < ApplicationController
 
   def set_developer
     @isos = {}
-    @directory = "http://download.opensuse.org/distribution/11.2-RC1"
-    @isos["lang-32"] = "Addon-Lang-Build0331-i586"
-    @isos["lang-64"] = "Addon-Lang-Build0332-x86_64"
-    @isos["nonoss"] = "Addon-NonOss-BiArch-Build0335-i586-x86_64"
-    @isos["kde-64"] = "KDE4-LiveCD-Build0336-x86_64"
-    @isos["kde-32"] = "KDE4-LiveCD-Build0336-i686"
-    @isos["gnome-64"] = "GNOME-LiveCD-Build0336-x86_64"
-    @isos["gnome-32"] = "GNOME-LiveCD-Build0336-i686"
-    @isos["dvd-64"] = "DVD-Build0334-x86_64"
-    @isos["dvd-32"] = "DVD-Build0331-i586"
-    @isos["net-32"] = "NET-Build0331-i586"
-    @isos["net-64"] = "NET-Build0331-x86_64"
+    @directory = "http://download.opensuse.org/distribution/11.2-RC2"
+    @isos["lang-32"] = "Addon-Lang-Build0339-i586"
+    @isos["lang-64"] = "Addon-Lang-Build0339-x86_64"
+    @isos["nonoss"] = "Addon-NonOss-BiArch-Build0339-i586-x86_64"
+    @isos["kde-64"] = "KDE4-LiveCD-Build0339-x86_64"
+    @isos["kde-32"] = "KDE4-LiveCD-Build0339-i686"
+    @isos["gnome-64"] = "GNOME-LiveCD-Build0339-x86_64"
+    @isos["gnome-32"] = "GNOME-LiveCD-Build0339-i686"
+    @isos["dvd-64"] = "DVD-Build0339-x86_64"
+    @isos["dvd-32"] = "DVD-Build0339-i586"
+    @isos["net-32"] = "NET-Build0339-i586"
+    @isos["net-64"] = "NET-Build0339-x86_64"
 
     @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html"
-    @releasename = "openSUSE 11.2-RC1"
+    @releasename = "openSUSE 11.2-RC2"
     @repourl = "http://download.opensuse.org/distribution/11.2"
     @medium = "dvd"
   end
 
   def developer
-    GetText.locale = "en"
-    set_developer
-    render :template => "main/developer"
-  end
-
-  def developer2
     
     if params[:lang].nil?
       lang = request.compatible_language_from(LANGUAGES) || "en"
-      redirect_to "/developer2/" + lang
+      redirect_to "/developer/" + lang
       return
     else
       @lang = params[:lang][0]
