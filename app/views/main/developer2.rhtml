@@ -21,8 +21,8 @@
         <div>
           <h4><%= _("Type of Computer") %><img src="/images/local/info.png" id="help_arch" class="help_icon" alt="?"/></h4>
           <div>
-            <label class="l_change"><input name="arch" value="i686" checked="checked" type="radio" class="changeiso" /><%=_("32&nbsp;Bit&nbsp;PC")%></label>
-            <label class="l_change"><input name="arch" value="x86_64" type="radio" class="changeiso" /><%=_("64 Bit PC")%></label>
+            <label class="l_change"><input id="i686" name="arch" value="i686" checked="checked" type="radio" class="changeiso" /><%=_("32&nbsp;Bit&nbsp;PC")%></label>
+            <label class="l_change"><input id="x86_64" name="arch" value="x86_64" type="radio" class="changeiso" /><%=_("64 Bit PC")%></label>
             <div id="help_arch_content" class="hidden">
               <h2><%=_("Help on Type of Computer")%></h2>
               <p>
