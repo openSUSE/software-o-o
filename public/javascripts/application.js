@@ -15,7 +15,12 @@ function toggleAllDebugDivs() {
   divs.each(Element.toggle);
 }
 
-function toggleLongDesc(id) {
-  Element.toggle("description-txt-short-"+id);
-  Element.toggle("description-txt-long-"+id);
-}
+function updateToggles()                                                                                               
+{                                                                                                                      
+    $('.descriptiontoggle').click(function(){                                                                          
+                var theobj = $(this).parents(".description");                                                          
+                $(theobj).children('.description-short').toggle();                                                     
+                $(theobj).children('.description-long').toggle();                                                      
+                return false;                                                                                          
+       });                                                                                                             
+};  

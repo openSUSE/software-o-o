@@ -1,17 +1,17 @@
 <% if @item_description -%>
 <% @item_description = prepare_desc h(@item_description)-%>
-<div id="description-txt-short-<%=@item_key%>" class="description-txt">
+<div class="description-txt description-short">
   <% if @item_description.to_s.size > 160 %>
   <%= shorten_description(@item_description, 150) %>
-  <br/><a href="javascript:toggleLongDesc('<%=@item_key%>')">[more]</a>
+  <br/><a href="#" class="descriptiontoggle">[more]</a>
   <% else %>
   <%= @item_description %>
   <% end %>
 </div>
 <% if @item_description.to_s.size > 160 -%>
-<div id="description-txt-long-<%=@item_key%>" class="description-txt" style="display:none">
+<div class="description-txt description-long" style="display:none">
   <%= @item_description %>
-  <br/><a href="javascript:toggleLongDesc('<%=@item_key%>')">[less]</a>
+  <br/><a href="#" class="descriptiontoggle"'>[less]</a>
 </div>
 <% end -%>
 <% end -%>
