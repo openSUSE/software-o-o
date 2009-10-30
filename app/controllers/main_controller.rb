@@ -7,7 +7,7 @@ class MainController < ApplicationController
     :redirect_to => :index
 
   # these pages are completely static:
-  caches_page :index, :developer, "111", "1112"
+  caches_page :release, :download_js
 
   def ymp_with_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
@@ -19,11 +19,6 @@ class MainController < ApplicationController
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:package]}?view=ymp"
     res = get_from_api(path)
     render :text => res.body, :content_type => res.content_type
-  end
-
-  def index
-    GetText.locale = "en"
-    render :template => "main/index"
   end
 
   def set_release(release)
@@ -97,6 +92,19 @@ class MainController < ApplicationController
     redirect_to "/developer/" + lang
   end
    
+  def index
+    #GetText.locale = "en"
+    #render :template => "main/index"
+    #return
+
+    if params[:lang].nil?
+      lang = request.compatible_language_from(LANGUAGES) || "en"
+    else
+      lang = params[:lang][0]
+    end
+    redirect_to "/111/" + lang
+  end
+
   def release
     @lang = params[:lang][0]
     GetText.locale = @lang
