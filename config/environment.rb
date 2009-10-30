@@ -48,8 +48,10 @@ end
 # Include your application configuration below
 
 # remove static cache files
-FileUtils.rm_f "#{RAILS_ROOT}/public/index.html"
-FileUtils.rm_rf "#{RAILS_ROOT}/public/developer"
+%w{developer 111 1112}.each { |release|
+   FileUtils.rm_rf "#{RAILS_ROOT}/public/" + release
+}
+
 
 ActiveXML::Base.config do |conf|
   conf.setup_transport do |map|
