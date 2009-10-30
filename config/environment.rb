@@ -48,7 +48,7 @@ end
 # Include your application configuration below
 
 # remove static cache files
-%w{developer 111 1112}.each { |release|
+%w{developer 111 112}.each { |release|
    FileUtils.rm_rf "#{RAILS_ROOT}/public/" + release
 }
 
