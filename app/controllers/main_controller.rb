@@ -83,26 +83,30 @@ class MainController < ApplicationController
     @release = release
   end
 
-  def developer
+  def redirectit(release)
     if params[:lang].nil?
       lang = request.compatible_language_from(LANGUAGES) || "en"
     else
       lang = params[:lang][0]
     end
-    redirect_to "/developer/" + lang
+    notice = nil
+    url = "/%s/%s" % [release, lang]
+    if request.user_agent.index('Mozilla/5.0 (compatible; Konqueror/3')
+	notice = _("Konqueror of KDE 3 is unfortunately unmaintained and its javascript implementation contains bugs that make it impossible to use with this page. Please make sure you have javascript disabled before you <a href='%s'>continue</a>.") % url
+    end
+    if notice
+       render :template => "main/redirect_with_notice", :locals => { :notice => notice }
+    else
+       redirect_to url
+    end
+  end
+
+  def developer
+    redirectit("developer")
   end
    
   def index
-    #GetText.locale = "en"
-    #render :template => "main/index"
-    #return
-
-    if params[:lang].nil?
-      lang = request.compatible_language_from(LANGUAGES) || "en"
-    else
-      lang = params[:lang][0]
-    end
-    redirect_to "/111/" + lang
+    redirectit("111")
   end
 
   def release
@@ -116,6 +120,7 @@ class MainController < ApplicationController
   def change_install
     set_release(params[:release])
     @medium = params[:medium]
+    @lang = params[:lang]
     render :template => "main/release"
   end
 
