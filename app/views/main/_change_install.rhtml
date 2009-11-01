@@ -1,5 +1,5 @@
 <noscript>
-  <% form_tag(:controller => "main", :action => 'change_install') do -%>
+  <% form_tag(:controller => "main", :action => 'change_install', :method => "get") do -%>
   <input name="release" value="<%= @release %>" type="hidden" />
   <input name="lang" value="<%= @lang %>" type="hidden"/>
   <button name="medium" value="<%= medium %>" style="width: 250px; margin-bottom: 20px" class="changeiso">
