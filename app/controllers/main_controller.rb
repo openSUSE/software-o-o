@@ -110,7 +110,7 @@ class MainController < ApplicationController
   end
 
   def release
-    @lang = params[:lang][0]
+    @lang = params[:lang][0].gsub(/\-/, '_')
     GetText.locale = @lang
 
     set_release(params[:release])

@@ -9,7 +9,7 @@ system("cd $MY_LCN_CHECKOUT && svn up")
 files = Dir.glob(ENV["MY_LCN_CHECKOUT"] + "/*/po/software-opensuse-org*.po")
 files.each { |file| 
   lang=File.basename(file, ".po").split('.')[1]
-  ilang=lang.gsub(/_/, '-')
+  ilang=lang
   #puts "msgfmt -o locale/%s/LC_MESSAGES/software.mo '%s'" % [lang, file]
   res=''
   IO.popen( "LC_ALL=C msgfmt --statistics -o messages.mo '%s' 2>&1" % file ) { |f| res=f.gets }

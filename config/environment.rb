@@ -74,5 +74,7 @@ end
 
 LANGUAGES = %w{en}
 Dir.glob("#{RAILS_ROOT}/locale/*/LC_MESSAGES/software.mo").each { |file|
-   LANGUAGES << file.gsub(/^.*locale\/([^\/]*)\/.*$/, '\\1')
+   lang = file.gsub(/^.*locale\/([^\/]*)\/.*$/, '\\1')
+   lang = lang.gsub(/_/,'-')
+   LANGUAGES << lang
 }
