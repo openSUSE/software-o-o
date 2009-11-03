@@ -129,6 +129,10 @@ class MainController < ApplicationController
     render :template => "main/download", :content_type => 'text/javascript', :layout => false
   end
 
+  def show_request
+    render :template => "main/testrequest", :layout => false
+  end
+
   def download
     set_release(params[:release])
     medium = params[:medium]
