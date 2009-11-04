@@ -14,7 +14,7 @@ class OrderController < ApplicationController
       redirect_to "/order/thanks"
     else
       flash[:save_errors] = @order.errors.full_messages
-      redirect_to :action => "new", :order => params[:order]
+      redirect_to :action => "new", :order => @order
     end
   end
 
