@@ -64,6 +64,7 @@ module SearchHelper
       ['RHEL 5','RedHat:RHEL-5'], 
       ['RHEL 4','RedHat:RHEL-4'], 
       ['CentOS 5','CentOS:CentOS-5'], 
+      ['Mandriva 2010','Mandriva:2010'],
       ['Mandriva 2009.1','Mandriva:2009.1'],
       ['Mandriva 2009','Mandriva:2009'],
       ['Debian 5.0 (Lenny)','Debian:5.0'],
