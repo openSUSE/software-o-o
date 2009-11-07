@@ -42,9 +42,9 @@ module HttpAcceptLanguage
   #
   def compatible_language_from(array)
     user_preferred_languages.map do |x|
-      x = x.to_s.split("-")[0]
+      # x = x.to_s.split("-")[0]
       array.find do |y|
-        y.to_s.split("-")[0] == x
+        y == x
       end
     end.compact.first
   end
