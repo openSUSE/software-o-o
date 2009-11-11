@@ -107,7 +107,7 @@
           <li><%= link_to _('Software Search'), {:controller => "search", :action => "index"} %></li>
           <li><a href="http://en.opensuse.org/Additional_YaST_Package_Repositories"><%=_("Package Repositories")%></a></li>
           <li><a href="http://download.opensuse.org/update/"><%=_("Update Repositories")%></a></li>
-          <li><a href="http://download.opensuse.org/source/distribution/11.1/"><%=_("Source Repository")%></a></li>
+          <li><a href="http://download.opensuse.org/source/distribution/11.2/"><%=_("Source Repository")%></a></li>
         </ul>
         </div>
         <div class="box_bottom_row">
@@ -129,7 +129,6 @@
         <div class="box_content">
          <ul class="navlist">
           <li><a href="http://en.opensuse.org/Mirror_Selection"><%=_("Mirrors")%></a></li>
-          <li><a href="http://download.opensuse.org/distribution/11.1/iso/"><%=_("Metalinks")%></a></li>
           <% if @release != "developer" %>
              <li><%= link_to _('Development Version'), {:controller => "main", :action => "developer", :lang => @lang } %></li>
           <% else %>
@@ -342,7 +341,7 @@
                  <a href="<%= _("http://en.opensuse.org/Buy_openSUSE") %>"><img src="http://static.opensuse.org/c/images/common/openSUSE11.2_Box.jpg" title="<%=_("Buy openSUSE 11.2")%>" alt="<%=_("Buy openSUSE 11.2")%>"/></a>
                </div>
                <p style="text-align: center">
-                <a href="<%= _("http://en.opensuse.org/Buy_openSUSE") %>" title="Buy openSUSE" style="text-decoration: none; font-weight: bold"><%=_("Buy openSUSE 11.2!<br /> ")%></a>
+                <a href="<%= _("http://en.opensuse.org/Buy_openSUSE") %>" title="Buy openSUSE" style="text-decoration: none; font-weight: bold"><%=_("Buy openSUSE 11.2!")%></a>
                </p>
              </div>
              <div class="box_bottom_row">
