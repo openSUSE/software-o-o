@@ -339,18 +339,11 @@
              </div>
              <div class="box_content" id="buy">
                <div style="text-align: center; padding: 15px 0;">
-                 <a href="http://en.opensuse.org/Buy_openSUSE"><img src="http://static.opensuse.org/c/images/common/openSUSE11.2_Box.jpg" title="<%=_("Buy openSUSE 11.2")%>" alt="<%=_("Buy openSUSE 11.2")%>"/></a>
+                 <a href="<%= _("http://en.opensuse.org/Buy_openSUSE") %>"><img src="http://static.opensuse.org/c/images/common/openSUSE11.2_Box.jpg" title="<%=_("Buy openSUSE 11.2")%>" alt="<%=_("Buy openSUSE 11.2")%>"/></a>
                </div>
-               <p>
-                 <strong><a href="http://en.opensuse.org/Buy_openSUSE" title="Buy openSUSE" style="text-decoration: none;"><%=_("Buy openSUSE 11.2!<br /> ")%></a></strong>
-                 <span style="font-size: 11px;"><%= _("Only available for german speaking countries.") %></span>
+               <p style="text-align: center">
+                <a href="<%= _("http://en.opensuse.org/Buy_openSUSE") %>" title="Buy openSUSE" style="text-decoration: none; font-weight: bold"><%=_("Buy openSUSE 11.2!<br /> ")%></a>
                </p>
-               <!-- "For users new to Linux, the supported version of openSUSE may be the best choice&mdash;you'll get complete end-user documentation, installable media for 32 Bit and 64 Bit systems, plus 90 days of end-user installation support.")
-               "openSUSE 11.2 is available at several <a href=\"http://en.opensuse.org/Buy_openSUSE\">online</a> shops or at local resellers.") -->
-               <%=_("<p style='font-size: 12px;'>F&uuml;r alle Linux-Benutzer, die Hilfe bei der Installation
-               sch&auml;tzen.</p><p style='font-size: 12px;'> Die Version beinhaltet ein vollst&auml;ndiges Handbuch sowie alle
-               Installationsmedien f&uuml;r intel-kompatible Rechner (x86 und x86_64).</p><p style='font-size: 12px;'>Mit
-               kostenlosem  Installationssupport f&uuml;r 90 Tage.</p>")%>
              </div>
              <div class="box_bottom_row">
               <div class="box_left"></div>
