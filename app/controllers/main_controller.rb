@@ -107,7 +107,7 @@ class MainController < ApplicationController
   end
    
   def index
-    redirectit("111")
+    redirectit("112")
   end
 
   def release
