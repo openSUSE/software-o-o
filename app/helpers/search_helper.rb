@@ -47,7 +47,7 @@ module SearchHelper
   end
 
   def default_baseproject
-    cookies[:search_baseproject] || 'openSUSE:11.1'
+    cookies[:search_baseproject] || 'openSUSE:11.2'
   end
 
   def baseproject_list_for_select
