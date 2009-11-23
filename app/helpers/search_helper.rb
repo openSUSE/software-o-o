@@ -59,6 +59,7 @@ module SearchHelper
       ['SLES/SLED 11','SUSE:SLE-11'],
       ['SLES/SLED 10','SUSE:SLE-10'],
       ['SLES 9','SUSE:SLES-9'],
+      ['Fedora 12','Fedora:12'],
       ['Fedora 11','Fedora:11'],
       ['Fedora 10','Fedora:10'],
       ['RHEL 5','RedHat:RHEL-5'], 
