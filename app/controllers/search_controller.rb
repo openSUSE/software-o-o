@@ -19,7 +19,8 @@ class SearchController < ApplicationController
 
   def search
     if perform_search
-      render :partial => "search_result"
+      render :partial => "search_result" if request.xhr?
+      render "_search_result" if !request.xhr?
     else
       render :text => "Search strings must have at least 2 characters."
     end
