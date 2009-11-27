@@ -1,9 +1,9 @@
 class Seeker < ActiveXML::Base
   def size
     len = data.children.length
-    if len == 1 and data.children[0].kind_of? XML::Smart::Dom::Text
-      return 0
-    end
+    #if len == 1 and data.children[0].kind_of? XML::Smart::Dom::Text
+    #  return 0
+    #end
     return len
   end
 
