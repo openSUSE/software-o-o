@@ -143,24 +143,24 @@
        </div>
        <br />
        <!-- End custom navigation -->
-       <!-- Begin Language navigation noscript -->
-       <noscript>
+
        <div class="orange_box" id="p-lang">
         <div class="box_top_row">
          <div class="box_left"></div>
          <div class="box_right"></div>
         </div>
-<!-- temporary disabled until translations exist
+
         <div class="box_title_row">
          <div class="box_title">
-          In other languages 
+          <%= _("In other languages") %>
          </div>
         </div>
--->
+
         <div class="box_content">
          <ul class="navlist">
-          <li><a href="#">Deutsch</a></li>
-          <li><a href="#">Français</a></li>
+          <li><%= link_to 'Deutsch', :action => :index, :lang => 'de' %></li>
+          <li><%= link_to "English", :action => :index, :lang => 'en' %></li>
+          <li><%= link_to 'Français', :action => :index, :lang => 'fr' %></li>
          </ul>
         </div>
         <div class="box_bottom_row">
@@ -169,8 +169,7 @@
         </div>
        </div>
        <br />
-       </noscript>
-       <!-- End Language navigation noscript -->
+
       </div>
      </div>
      <!-- End left column -->
