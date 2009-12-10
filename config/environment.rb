@@ -41,7 +41,7 @@ Rails::Initializer.run do |config|
   
   # See Rails::Configuration for more options
 
-  #config.gem 'libxml-ruby'
+  config.gem 'libxml-ruby'
   config.gem 'gettext_rails'
 
 end
