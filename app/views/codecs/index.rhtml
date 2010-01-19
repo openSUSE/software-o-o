@@ -31,7 +31,7 @@ end
   <li>Windows Media decoder (<%= h(wm_framework) %>, <%= h(architecture) %>)</li>
 <% end %>
 <% @visitor.missing_codecs.each do | codec | %>
-<% if codec.framework == "gstreamer" && codec.description.include?("MP3") %>
+<% if codec.framework.downcase.include?("gstreamer") && codec.description.downcase.include?("mp3") %>
   <li><p>Fluendo MP3 Decoder</p><div class="install_btn" style="float: none"><a href="http://download.opensuse.org/YaST/gst-fluendo-mp3.ymp">1-Click Install</a></div></li>
 <% else %>
   <li><%= h(codec.description) %> (<%= h(codec.display_framework) %>, <%= h(architecture) %>)</li>
