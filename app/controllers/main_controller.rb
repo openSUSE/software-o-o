@@ -91,7 +91,7 @@ class MainController < ApplicationController
     end
     notice = nil
     url = "/%s/%s" % [release, lang]
-    if request.user_agent.index('Mozilla/5.0 (compatible; Konqueror/3')
+    if request.user_agent && request.user_agent.index('Mozilla/5.0 (compatible; Konqueror/3')
 	notice = _("Konqueror of KDE 3 is unfortunately unmaintained and its javascript implementation contains bugs that make it impossible to use with this page. Please make sure you have javascript disabled before you <a href='%s'>continue</a>.") % url
     end
     if notice
