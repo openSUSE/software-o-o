@@ -16,7 +16,7 @@ development:
   database: software_development
   username: root
   password:
-  socket: /var/lib/mysql/mysql.sock
+  socket: 
 
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
@@ -26,11 +26,11 @@ test:
   database: software_test
   username: root
   password:
-  socket: /var/lib/mysql/mysql.sock
+  socket: 
 
 production:
   adapter: mysql
   database: software_production
   username: root
   password: 
-  socket: /var/lib/mysql/mysql.sock
+  socket: 
