@@ -13,6 +13,8 @@ files.each { |file|
   #puts "msgfmt -o locale/%s/LC_MESSAGES/software.mo '%s'" % [lang, file]
   res=''
   IO.popen( "LC_ALL=C msgfmt --statistics -o messages.mo '%s' 2>&1" % file ) { |f| res=f.gets }
+  #puts "#{lang}: #{res}"
+  # copy only if it contains non-fuzzy translations
   if res =~ /^\w* translated messages.$/
     #puts res
     FileUtils.mkdir_p "locale/" + ilang + "/LC_MESSAGES"

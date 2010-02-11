@@ -1,12 +1,14 @@
+== How to update the translations for software.o.o:
 
-snv co http://svn.berlios.de/svnroot/repos/opensuse-i18n/trunk/lcn
+The translation files are stored in the i18n repo on berlios: 
+
+svn co http://svn.berlios.de/svnroot/repos/opensuse-i18n/trunk/lcn/
 export MY_LCN_CHECKOUT=<path to lcn files>
-
+cd $MY_LCN_CHECKOUT && ./configure
 
 To update the .mo files with those from the lcn repo:
 rake makemo
 # use git add for new files
 
-To update the .po file with new strings used in the code: 
-rake updatepo
-
+To update the .mo files with those from the lcn repo (only those without fuzzy translations will be copied): 
+rake makemo
