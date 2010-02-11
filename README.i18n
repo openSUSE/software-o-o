@@ -1,11 +1,12 @@
 
-
-snv co ...
+snv co http://svn.berlios.de/svnroot/repos/opensuse-i18n/trunk/lcn
 export MY_LCN_CHECKOUT=<path to lcn files>
 
+
+To update the .mo files with those from the lcn repo:
+rake makemo
+# use git add for new files
 
 To update the .po file with new strings used in the code: 
 rake updatepo
 
-To update the .mo files with those from the lcn repo: 
-rake makemo
