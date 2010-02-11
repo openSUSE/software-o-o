@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(:version => 4) do
     t.string  "fourcc"
   end
 
-  add_index "missing_codecs", ["visitor_id"], :name => "visitor_id_index"
   add_index "missing_codecs", ["fourcc"], :name => "fourcc_index"
+  add_index "missing_codecs", ["visitor_id"], :name => "visitor_id_index"
 
   create_table "orders", :force => true do |t|
     t.string   "title",        :null => false
