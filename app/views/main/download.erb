@@ -55,6 +55,22 @@ function changeiso () {
      $('#l_torrent').removeClass('notavailable');
      $('#p_torrent').attr('disabled', '');
   }
+
+  if ( mymedium == "derivatives"){
+    //mylink="http://www.opensuse-education.org/download/ISOs/openSUSE-Edu-li-f-e-11.2-latest-i686.iso";
+    mylink = "http://en.opensuse.org/Derivatives";
+
+//	$('#l_x86_64').addClass('notavailable');
+//    $('#x86_64').attr('disabled', 'disabled');
+//   if ($('#x86_64').attr('checked')) {
+//		$('#x86_64').attr('checked', '');
+//		$('#i686').attr('checked', 'checked');
+//    }
+//  }
+//  else {
+//     $('#l_x86_64').removeClass('notavailable');
+//     $('#x86_64').attr('disabled', '');
+  }
 }
 
 
@@ -68,11 +84,13 @@ function resizeBoxes() {
   curmax = Math.max(curmax, $('#ci_kde').height());
   curmax = Math.max(curmax, $('#ci_net').height());
   curmax = Math.max(curmax, $('#ci_dvd').height());
+  curmax = Math.max(curmax, $('#ci_edu').height());
   var curwidth = $('#ci_gnome').width();
   $('#ci_gnome').height(curmax).width(curwidth);
   $('#ci_kde').height(curmax).width(curwidth);
   $('#ci_net').height(curmax).width(curwidth);
   $('#ci_dvd').height(curmax).width(curwidth);
+  $('#ci_edu').height(curmax).width(curwidth);
 }
 
 $(function() {
@@ -89,6 +107,13 @@ $(function() {
 				  unselectOld();
 				  mymedium = this.id.substr(3);
 				  changeiso();
+			      $(this).parent().trigger('click');
+				  if ( mymedium == "derivatives"){
+				      $(this).parent().next().append($('#derivativesDiv'));
+				  }
+				  else {
+				      $(this).parent().next().append($('#downloadForm'));
+				  }
 				  return false; 
 				});
     $('button.changeiso').click(function(){
@@ -101,18 +126,7 @@ $(function() {
 			   window.location = mylink;
 			   return false;
 			 });
-    $("#help_arch").click(function(){
-			    $('#popup_content').html($('#help_arch_content').html());
-			    $("#popup").fadeIn('fast');  // Other effects can be used to show the Tooltip
-			  });
-    $("#help_method").click(function(){
-                            $('#popup_content').html($('#help_method_content').html());
-                            $("#popup").fadeIn('fast');  // Other effects can be used to show the Tooltip
-                          });
-    $('#popup_close').click(function() {
-			 $("#popup").fadeOut('fast');
-			 return false;
-                          });
+
     var resizeTimer = null;
     
     $(window).bind('resize', function() {
@@ -121,5 +135,41 @@ $(function() {
 		   });
 
     resizeBoxes();
+	$("#downloaderAccordion").accordion();
+	$("#help_method_content").dialog({
+				bgiframe: true,
+				autoOpen:false,
+				width: "80%",
+				draggable: false,
+				resizable: false,
+				title: 'openSUSE Download Help',
+				modal: true,
+				buttons: {
+					Ok: function() {
+						$(this).dialog('close');
+					}
+				}
+			});
+	$("#help_arch_content").dialog({
+				bgiframe: true,
+				autoOpen:false,
+				width: "80%",
+				draggable: false,
+				resizable: false,
+				title: 'openSUSE Download Help',
+				modal: true,
+				buttons: {
+					Ok: function() {
+						$(this).dialog('close');
+					}
+				}
+			});			
 
-  });
+	$("#downloadMethodHelpPopup").click( function (){
+		$("#help_method_content").dialog('open');
+	});			
+
+	$("#architectureTypeHelpPopup").click( function (){
+		$("#help_arch_content").dialog('open');
+	});				
+});

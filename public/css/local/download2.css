@@ -1,13 +1,15 @@
 #iso-wrapper {
   padding: 0;
-  margin-right: 17em
+  margin-right: 0em;
 }
   #iso-wrapper h4 {
-    margin-bottom: 15px
+    margin-top: 4px;
+    float:left
   }
   #iso-wrapper div.changeiso {
-    border: 5px solid #ccc;
-    min-height: 70px;
+    border: 2px solid #ccc;
+    min-height: 35px;
+    height:60px;
     margin-bottom: 10px;
     color: #999;
     
@@ -25,17 +27,18 @@
     box-shadow: 0px 1px 4px #999;
     color: #333;
   }
-    #iso-wrapper div.changeiso div {
-      padding-top: 15px;
-      padding-bottom: 15px;
-      margin-right: 20px;
-    }
-    #iso-wrapper div.changeiso img { /* Icon */
-      margin: 10px;
-      float: left;
-    }
+	#iso-wrapper div.changeiso div {
+	  padding-top: 5px;
+	  padding-bottom: 2px;
+	  margin-right: 15px;
+	}
+	#iso-wrapper div.changeiso img { /* Icon */
+	  margin: 5px 5px 0px 3px;
+	  float: left;
+	  height :48px;	
+	}
 
-#download_button {
+.download_buttonClass {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -khtml-border-radius: 5px;
@@ -47,10 +50,10 @@
   border: 2px solid #4987B3;
   color: #444 !important;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
-  padding: 3px 10px;
-  padding: 10px 10px;
+  padding: 3px 3px;
+  padding: 3px 3px;
   text-decoration: none;
   text-shadow: 0 -1px 0 #999999;
   text-shadow: 0 -1px 0 #fff;
@@ -60,7 +63,7 @@
   overflow: visible;
   
   margin-left: 3px;
-  margin-top: 2em;
+  margin-top: 0em;
   -moz-box-shadow: 0px 1px 2px #999;
   -webkit-box-shadow: 0px 1px 2px #999;
   box-shadow: 0px 1px 2px #999;
@@ -87,7 +90,7 @@ box-shadow: 0px 1px 2px #ccc;
 }
 
 .icon_selected { opacity: 1; }
-.l_change { display: block; margin-bottom: .5em; }}
+form div .l_change { display: block; margin-bottom: .5em; float:left;}}
 
 #popup {
   padding: 0.5em;
@@ -102,5 +105,13 @@ box-shadow: 0px 1px 2px #ccc;
 
 /* Helper Styles */
 .hidden { display: none; }
-.help_icon { margin-left: 10px; }
+.help_icon { margin-right: 10px; }
 .notavailable { color: gray; }
+
+#downloadButtonDiv {
+float:right;
+}
+
+#iso-wrapper form {
+margin-left:20px;
+}
