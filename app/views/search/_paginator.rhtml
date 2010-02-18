@@ -4,7 +4,7 @@
 <% case page -%>
 <% when :prev -%>
 <span id="prev" class="prev_btn">
-<%= link_to_remote image_tag("/images/local/left_btn.gif") , :update => 'result',
+<%= link_to_remote image_tag("/images/left_btn.gif") , :update => 'result',
   :url => {:action => :search, :p => @current_page-1, :q => @query, :baseproject => @baseproject},
   :loading => '$("#ajaxindicator").show();',
   :loaded => '$("#ajaxindicator").hide(); window.scrollTo(0, 0);'%>
@@ -13,7 +13,7 @@
 <span id="dots">...</span>
 <% when :next -%>
 <span id="next" class="next_btn">
-<%= link_to_remote image_tag("/images/local/right_btn.gif"), :update => 'result', 
+<%= link_to_remote image_tag("/images/right_btn.gif"), :update => 'result', 
   :url => {:action => :search, :p => @current_page+1, :q => @query, :baseproject => @baseproject},
   :loading => '$("#ajaxindicator").show();',
   :loaded => '$("#ajaxindicator").hide(); window.scrollTo(0, 0);'%>
