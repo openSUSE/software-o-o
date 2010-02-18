@@ -1,6 +1,10 @@
 #iso-wrapper {
   padding: 0;
-  margin-right: 0em;
+  margin-right: 0;
+}
+
+#iso-wrapper h3 {
+  margin-left: 15px;
 }
 
 #iso-wrapper h4 {
@@ -11,7 +15,7 @@
 #iso-wrapper div.changeiso {
   border: 2px solid #ccc;
   min-height: 35px;
-  height:60px;
+  height: 60px;
   margin-bottom: 10px;
   color: #999;
   cursor: pointer;
@@ -37,7 +41,7 @@
 #iso-wrapper div.changeiso img { /* Icon */
   margin: 5px 5px 0px 3px;
   float: left;
-  height :48px;	
+  height :48px;
 }
 
 .download_buttonClass {
@@ -46,16 +50,13 @@
   -khtml-border-radius: 5px;
   border-radius: 5px;
   background: #fff url('/images/gradient-light-short.png') repeat-x scroll 0 0;
-  border: 2px solid #ccc;
   border: 2px solid #4987B3;
   color: #444 !important;
   cursor: pointer;
   font-size: 12px;
   font-weight: bold;
-  padding: 3px 3px;
-  padding: 3px 3px;
+  padding: 3px;
   text-decoration: none;
-  text-shadow: 0 -1px 0 #999999;
   text-shadow: 0 -1px 0 #fff;
   width: auto !important;
   max-width: 98%;
@@ -66,13 +67,18 @@
   -moz-box-shadow: 0px 1px 2px #999;
   -webkit-box-shadow: 0px 1px 2px #999;
   box-shadow: 0px 1px 2px #999;
+  margin-right: 4px;
 }
 
-#download_button:hover {
+.download_buttonClass:hover {
   color: #4987B3 !important;
   -moz-box-shadow: 0px 1px 2px #ccc;
   -webkit-box-shadow: 0px 1px 2px #ccc;
   box-shadow: 0px 1px 2px #ccc;
+}
+
+#downloadButtonDiv {
+  float:right;
 }
 
 .icon_unselected {
@@ -100,12 +106,9 @@ form div .l_change { display: block; margin-bottom: .5em; float:left;}}
 .help_icon { margin-right: 10px; }
 .notavailable { color: gray; }
 
-#downloadButtonDiv {
-float:right;
-}
-
 #iso-wrapper form {
-margin-left:20px;
+  margin-left: 20px;
+  height: 140px;
 }
 
 .navlist {
@@ -123,4 +126,9 @@ margin-left:20px;
 #get_software {
   padding: 15px 0 0;
   background: url('/images/get_pack.png') no-repeat top;
+}
+
+#derivativesDiv {
+  margin-left: 15px;
+  margin-bottom: 50px;
 }

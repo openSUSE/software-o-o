@@ -15,12 +15,12 @@ function toggleAllDebugDivs() {
   divs.each(Element.toggle);
 }
 
-function updateToggles()                                                                                               
-{                                                                                                                      
-    $('.descriptiontoggle').click(function(){                                                                          
-                var theobj = $(this).parents(".description");                                                          
-                $(theobj).children('.description-short').toggle();                                                     
-                $(theobj).children('.description-long').toggle();                                                      
-                return false;                                                                                          
-       });                                                                                                             
-};  
+function updateToggles()
+{
+    $('.descriptiontoggle').click(function(){
+                var theobj = $(this).parents(".description");
+                $(theobj).children('.description-short').toggle();
+                $(theobj).children('.description-long').toggle();
+                return false;
+       });
+};
