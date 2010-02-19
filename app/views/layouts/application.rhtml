@@ -29,55 +29,20 @@
     </div>
   </div>
 
-  <div id="content" class="container_16 ui-oo-content-wrapper">
-    <div class="grid_3 alpha">
+  <div id="content" class="container_12 ui-oo-content-wrapper">
+    <div class="grid_9 alpha">
 
-      <div class="ui-oo-box-shadow grid_3 alpha">
-         <h2 class="box-header"><%=_("Getting Help")%></h2>
-         <ul class="navlist">
-           <li><a href="http://en.opensuse.org/Download_Help"><%=_("Download Help")%></a></li>
-           <li><a href="http://en.opensuse.org/Download_Help#Burn_the_ISO_Image.28s.29"><%=_("Burn CD/DVD Image(s)")%></a></li>
-           <li><a href="http://en.opensuse.org/Installation"><%=_("Installation Guides")%></a></li>
-           <li><a href="http://www.novell.com/documentation/opensuse112/"><%=_("Official Manuals")%></a></li>
-        </ul>
-      </div>
-
-      <div class="ui-oo-box-shadow grid_3 alpha">
-         <h2 class="box-header"><%=_("Software")%></h2>
-         <ul class="navlist">
-           <li><%= link_to _('Software Search'), {:controller => "search", :action => "index"} %></li>
-           <li><a href="http://en.opensuse.org/Additional_YaST_Package_Repositories"><%=_("Package Repositories")%></a></li>
-           <li><a href="http://download.opensuse.org/update/"><%=_("Update Repositories")%></a></li>
-           <li><a href="http://download.opensuse.org/source/distribution/11.2/"><%=_("Source Repository")%></a></li>
-         </ul>
-      </div>
-
-      <div class="ui-oo-box-shadow grid_3 alpha">
-         <h2 class="box-header"><%=_("Other Options")%></h2>
-         <ul class="navlist">
-           <li><a href="http://en.opensuse.org/Mirror_Selection"><%=_("Mirrors")%></a></li>
-           <% if @release != "developer" %>
-             <li><%= link_to _('Development Version'), {:controller => "main", :action => "developer", :lang => @lang } %></li>
-           <% else %>
-              <li><%= link_to _('Released Version'), {:controller => "main", :action => "index", :lang => @lang } %></li>
-           <% end %>
-         </ul>
-      </div>
-
-      <div class="ui-oo-box-shadow grid_3 alpha">
-        <h2 class="box-header"><%= _("In other languages") %></h2>
-        <ul class="navlist">
-          <li><%= link_to 'Deutsch', :action => :index, :lang => 'de' %></li>
-          <li><%= link_to "English", :action => :index, :lang => 'en' %></li>
-          <li><%= link_to 'Français', :action => :index, :lang => 'fr' %></li>
-        </ul>
-      </div>
-
-    </div>
-    <div class="grid_10">
-
-      <div class="ui-oo-box-shadow grid_10">
-        <h2 class="box-header"><%= @page_title %></h2>
+      <div class="ui-oo-box-shadow grid_9">
+        <h2 class="box-header">
+          <div style="float: left;"><%= @page_title -%></div>
+          <div style="float: right; padding-right: 10px;">
+          <% if @release != "developer" -%>
+            <%= _('switch to') -%> <%= link_to _('Development Version'), {:controller => "main", :action => "developer", :lang => @lang } -%>
+          <% else -%>
+            <%= _('switch to') -%> <%= link_to _('Released Version'), {:controller => "main", :action => "index", :lang => @lang } -%>
+          <% end -%>
+          </div>
+        </h2>
         <div>
         <%= @content_for_layout %>
         </div>
@@ -85,6 +50,15 @@
 
     </div>
     <div class="grid_3 omega">
+
+      <div class="ui-oo-box-shadow grid_3 omega">
+        <h2 class="box-header"><%= _("Language") %></h2>
+        <div style="text-align: center;">
+          <%= link_to image_tag('/images/flag_en.png', :alt => 'English'), :action => :index, :lang => 'en' %>
+          <%= link_to image_tag('/images/flag_de.png', :alt => 'Deutsch'), :action => :index, :lang => 'de' %>
+          <%= link_to image_tag('/images/flag_fr.png', :alt => 'Français'), :action => :index, :lang => 'fr' %>
+        </div>
+      </div>
 
       <div class="ui-oo-box-shadow grid_3 omega">
         <% if @right_box == :search -%>
@@ -102,15 +76,25 @@
       </div>
 
       <div class="ui-oo-box-shadow grid_3 omega">
+         <h2 class="box-header"><%=_("Getting Help")%></h2>
+         <ul class="navlist">
+           <li><a href="http://en.opensuse.org/Download_Help"><%=_("Download Help")%></a></li>
+           <li><a href="http://en.opensuse.org/Download_Help#Burn_the_ISO_Image.28s.29"><%=_("Burn CD/DVD Image(s)")%></a></li>
+           <li><a href="http://en.opensuse.org/Installation"><%=_("Installation Guides")%></a></li>
+           <li><a href="http://www.novell.com/documentation/opensuse112/"><%=_("Official Manuals")%></a></li>
+        </ul>
+      </div>
+
+      <div class="ui-oo-box-shadow grid_3 omega">
         <h2 class="box-header"><%=_("Sponsored by")%></h2>
         <!--<p style="color: #ccc; font-size: 0.8em; text-align: center;"><%=_("Platinum Sponsor")%></p>-->
         <p style="color: #ccc; font-size: 0.8em; text-align: center;"><%=_("Gold Sponsor")%></p>
-        <p>
+        <p style="text-align: center;>
           <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by AMD")%>" alt="<%=_("Sponsored by AMD")%>" src="http://static.opensuse.org/c/images/common/Amd.png"/></a>
           <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: IP Exchange")%>" alt="<%=_("Sponsored by: IP Exchange")%>" src="http://static.opensuse.org/c/images/common/Ip-exchange.gif"/></a>
         </p>
         <p style="color: #ccc; font-size: 0.8em; text-align: center;"><%=_("Silver Sponsor")%></p>
-        <p>
+        <p style="text-align: center;">
           <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: B1 Systems")%>" alt="<%=_("Sponsored by: B1 Systems")%>" src="http://static.opensuse.org/c/images/common/B1-systems-1.jpg"/></a>
         </p>
         <!--<p style="color: #ccc; font-size: 0.8em; text-align: center;"><%=_("Bronze Sponsor")%></p>-->
@@ -118,10 +102,10 @@
 
       <div class="ui-oo-box-shadow grid_3 omega">
         <h2 class="box-header"><%=_("Buy openSUSE")%></h2>
-          <div style="text-align: center; padding: 15px 0;">
+          <div style="text-align: center; padding-left: 16px;">
             <a href="<%= _("http://en.opensuse.org/Buy_openSUSE") %>"><img src="http://static.opensuse.org/c/images/common/openSUSE11.2_Box.jpg" title="<%=_("Buy openSUSE 11.2")%>" alt="<%=_("Buy openSUSE 11.2")%>"/></a>
           </div>
-          <p style="text-align: center">
+          <p style="text-align: center;">
             <a href="<%= _("http://en.opensuse.org/Buy_openSUSE") %>" title="Buy openSUSE" style="text-decoration: none; font-weight: bold"><%=_("Buy openSUSE 11.2!")%></a>
           </p>
       </div>

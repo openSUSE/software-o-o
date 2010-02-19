@@ -24,12 +24,12 @@
 
 <div id="downloaderAccordion">
 
-	<h3><%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD"), :longtext => _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") }) %></h3>
+	<h3><%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD"), :longtext => _("Contains a large collection of software for desktop or server use.<br/>Suitable for installation or upgrade.") }) %></h3>
 	<div>
 		      <form id="downloadForm" action="/main/download">
 			 <div id="downloadMethodDiv">
 			  <h4><img id="downloadMethodHelpPopup" src="/images/help-browser.png" id="help_method" class="help_icon" alt="?"/><%=_("Download Method")%></h4>
-				<br/>				
+				<br/>
 				<br/>
 				<div style="float:left">
 				  <label class="l_change"><input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/><%=_("Direct Link")%></label>
@@ -84,38 +84,33 @@
 			  </div>
 			</div>
 			<div id="downloadButtonDiv">
-			  <p>
-			    <button class="download_buttonClass"id="download_button">
+			    <button class="download_buttonClass" id="download_button">
 			      <%= _("Download") %>
 			    </button>
-			    <span class="hidden" id="download_kde"><span id="download-icon"> </span><%= _("Download&nbsp;KDE") %></span>
+			    <span class="hidden" id="download_kde"><%= _("Download&nbsp;KDE") %></span>
 			    <span class="hidden" id="download_gnome"><%= _("Download&nbsp;GNOME") %></span>
 			    <span class="hidden" id="download_dvd"><%= _("Download&nbsp;DVD") %></span>
 			    <span class="hidden" id="download_net"><%= _("Download&nbsp;Network") %></span>
-			    <span class="hidden" id="download_derivatives"><%= _("Download&nbsp;Derivative(s)") %></span>
 			    <input type="hidden" name="medium" value="<%= @medium %>"/>
 			    <input type="hidden" name="release" value="<%= @release %>"/>
-			  </p>
 			</div>
 		      </form>
 	</div>
-	<h3><%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("A GNOME desktop you can run from CD or from USB stick. Can be installed as is (no upgrade).") }) %></h3>
+	<h3><%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("A GNOME desktop you can run from CD or from USB stick.<br/>Can be installed as is (no upgrade).") }) %></h3>
 	<div>
 	</div>
-	<h3><%= render(:partial => "change_install", :locals => { :medium => "kde", :shorttext => _("Live KDE"), :longtext => _("A KDE desktop you can run from CD or from USB stick. Can be installed as is (no upgrade).") }) %>
-</h3>
+	<h3><%= render(:partial => "change_install", :locals => { :medium => "kde", :shorttext => _("Live KDE"), :longtext => _("A KDE desktop you can run from CD or from USB stick.<br/>Can be installed as is (no upgrade).") }) %></h3>
 	<div>
 	</div>
-	<h3><%= render(:partial => "change_install", :locals => { :medium => "net", :shorttext => _("Network"), :longtext => _("Downloads the installation system and all packages from online repositories.  Suitable for installation or upgrade.") }) %>
-</h3>
+	<h3><%= render(:partial => "change_install", :locals => { :medium => "net", :shorttext => _("Network"), :longtext => _("Downloads the installation system and all packages from online repositories.<br/>Suitable for installation or upgrade.") }) %></h3>
 	<div>
 	</div>
-	<h3><%= render(:partial => "change_install", :locals => { :medium => "derivatives", :shorttext => _("openSUSE Derivatives"), :longtext => _("Get one of the specialized distribution built on openSUSE.") }) %>
-</h3>
+	<h3><%= render(:partial => "change_install", :locals => { :medium => "derivatives", :shorttext => _("openSUSE Derivatives"), :longtext => _("Get one of the specialized distribution built on openSUSE.") }) %></h3>
 	<div>
 		<div id="derivativesDiv">
 		Some of the live distributions based on openSUSE. Those interested in trying to build their own derivatives can take a look at <a href="http://susestudio.com/">SUSE Studio</a>.
-        <br/><a class="download_buttonClass" href="http://en.opensuse.org/Derivatives" style="text-decoration:none;padding-left:6px;float:right" > openSUSE Derivatives </a>
+		<br/>
+		<a class="download_buttonClass" href="http://en.opensuse.org/Derivatives" style="text-decoration:none;padding:6px;padding-bottom:4px;float:right" >see Derivatives on wiki</a>
 		</div>
 	</div>
 
@@ -157,24 +152,17 @@
   </ul>
 
   <h3><%=_("Add-On Downloads (optional)")%></h3>
-   <table><tr>
-    <td class="noscript">
-      <%= render(:partial => "download_link", :locals => { :id => "lang32", :iso => "lang-32", :text => _("Extra Languages (32 Bit)") } ) %>
-    </td>
-    <td class="noscript">
-      <%= render(:partial => "download_link", :locals => { :id => "lang64", :iso => "lang-64", :text => _("Extra Languages (64 Bit)") } ) %>
-    </td>
-          <td class="hidden script_only">
-            <%= render(:partial => "download_link", :locals => { :id => "lang", :iso => "lang-32", :text => _("Extra Languages") } ) %>
-          </td>
-          <td>
-            <%= render(:partial => "download_link", :locals => { :id => "nonoss", :iso => "nonoss", :text => _("NonOSS CD") } )%>
-          </td>
-      </tr></table>
+  <ul id="addon_downloads">
+    <li class="noscript"><%= render(:partial => "download_link", :locals => { :id => "lang32", :iso => "lang-32", :text => _("Extra Languages (32 Bit)") } ) %></li>
+    <li class="noscript"><%= render(:partial => "download_link", :locals => { :id => "lang64", :iso => "lang-64", :text => _("Extra Languages (64 Bit)") } ) %></li>
+    <li class="hidden script_only"><%= render(:partial => "download_link", :locals => { :id => "lang", :iso => "lang-32", :text => _("Extra Languages") } ) %></li>
+    <li><%= render(:partial => "download_link", :locals => { :id => "nonoss", :iso => "nonoss", :text => _("NonOSS CD") } )%></li>
+  </ul>
 </div>
+
 <div id="download_help" class="info_text">
   <h3><%=_("How to Proceed")%></h3>
-  <ol style="list-style-type:lower-latin">
+  <ol id="howtoproceed" style="list-style-type:lower-latin">
     <li><%=_("After having successfully downloaded the ISO image(s), burn the image(s) with your favorite burning application to a DVD or CD. Please do <em>not</em> burn a data DVD/CD, but rather choose the option to burn an ISO image.")%>
     <a href="<%= _("http://en.opensuse.org/Download_Help#Burn_the_ISO_Image.28s.29")%>"><%=_("More information")%></a></li>
     <li><%=_("Boot from the DVD or CD. In case your computer does not automatically boot from CD/DVD, open the BIOS setup to allow booting from CD or DVD.")%></li>
