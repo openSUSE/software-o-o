@@ -1,19 +1,11 @@
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
 
-require 'memory_profiler'
-
 class ApplicationController < ActionController::Base
 
-  @memory = 0
-  before_filter :memory
-  after_filter :logit
+  after_filter :check_memory
 
   init_gettext('software')
-
-  def initialize
-    MemoryProfiler.start :string_debug => false
-  end
 
   def rescue_action_in_public(exception)
     @message = exception.message
@@ -24,13 +16,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def memory
-    @memory = `ps -o rss= -p #{$$}`.to_i
-  end
-
-  def logit
-    mu = `ps -o rss= -p #{$$}`.to_i
-    logger.debug "Request took #{mu-@memory} - now #{mu}"
+ private
+  def check_memory
+    mu = get_memory
+    if mu > 80000
+      logger.error 'Memory limit reached, ending process'
+      `kill -1 #{$$}`
+    end
   end
   
+  def get_memory
+    `ps -o rss= -p #{$$}`.to_i
+  end
+
 end
