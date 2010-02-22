@@ -20,12 +20,9 @@
       </a>
       <ul id="global-navigation">
         <li><a href="http://software.opensuse.org/">Software</a></li>
+        <li><a href="http://build.opensuse.org/">Build</a></li>
         <li><a href="http://wiki.opensuse.org/">Wiki</a></li>
       </ul>
-      <form id="global-search-form" action="" method="post" accept-charset="utf-8">
-        <input type="text" name="q" value="search" id="search" />
-        <input type="submit" value="Search" class="hidden" accesskey="" />
-      </form>
     </div>
   </div>
 
@@ -35,13 +32,15 @@
       <div class="ui-oo-box-shadow grid_9">
         <h2 class="box-header">
           <div style="float: left;"><%= @page_title -%></div>
-          <div style="float: right; padding-right: 10px;">
-          <% if @release != "developer" -%>
-            <%= _('switch to') -%> <%= link_to _('Development Version'), {:controller => "main", :action => "developer", :lang => @lang } -%>
-          <% else -%>
-            <%= _('switch to') -%> <%= link_to _('Released Version'), {:controller => "main", :action => "index", :lang => @lang } -%>
+          <% if @right_box == :search -%>
+            <div style="float: right; padding-right: 10px;">
+            <% if @release != "developer" -%>
+              <%= _('switch to') -%> <%= link_to _('Development Version'), {:controller => "main", :action => "developer", :lang => @lang } -%>
+            <% else -%>
+              <%= _('switch to') -%> <%= link_to _('Released Version'), {:controller => "main", :action => "index", :lang => @lang } -%>
+            <% end -%>
+            </div>
           <% end -%>
-          </div>
         </h2>
         <div>
         <%= @content_for_layout %>
