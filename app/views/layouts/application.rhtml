@@ -53,9 +53,22 @@
       <div class="ui-oo-box-shadow grid_3 omega">
         <h2 class="box-header"><%= _("Language") %></h2>
         <div style="text-align: center;">
-          <%= link_to image_tag('/images/flag_en.png', :alt => 'English'), :action => :index, :lang => 'en' %>
-          <%= link_to image_tag('/images/flag_de.png', :alt => 'Deutsch'), :action => :index, :lang => 'de' %>
-          <%= link_to image_tag('/images/flag_fr.png', :alt => 'Français'), :action => :index, :lang => 'fr' %>
+          <%= %w[bg cs da de en es fi fr].map{ |i|
+                link_to(image_tag("/images/lang_#{i}.png", :alt => "#{i}"), :action => :index, :lang => "#{i}") + "\n"
+              }
+          %>
+        </div>
+        <div style="text-align: center;">
+          <%= %w[hu it ja ko lt nb nl pl].map{ |i|
+                link_to(image_tag("/images/lang_#{i}.png", :alt => "#{i}"), :action => :index, :lang => "#{i}") + "\n"
+              }
+          %>
+        </div>
+        <div style="text-align: center;">
+          <%= %w[pt_BR ru sk uk wa zh_TW].map{ |i|
+                link_to(image_tag("/images/lang_#{i}.png", :alt => "#{i}"), :action => :index, :lang => "#{i}") + "\n"
+              }
+          %>
         </div>
       </div>
 
@@ -63,13 +76,13 @@
         <% if @right_box == :search -%>
           <h2 class="box-header"><%=_("Package Search")%></h2>
           <div id="get_software">
-            <%= link_to "", {:controller => 'search'}, {:class => 'search_form', :style => 'display: block; width: 100%; height: 100px;', :title => _("Search Build Service")}  %>
+            <%= link_to "", {:controller => 'search', :lang => @lang}, {:class => 'search_form', :style => 'display: block; width: 100%; height: 100px;', :title => _("Search Build Service")}  %>
             <%=_("Search for and install additional software packages from the openSUSE Build Service.") %>
           </div>
         <% else -%>
           <h2 class="box-header"><%=_("Get openSUSE")%></h2>
           <div id="download_os">
-            <%= link_to "", {:controller => 'main', :action => :index}, {:class => 'download_os_link', :style => 'display: block; width: 100%; height: 100px;'}  %>
+            <%= link_to "", {:controller => 'main', :action => :index, :lang => @lang}, {:class => 'download_os_link', :style => 'display: block; width: 100%; height: 100px;'}  %>
           </div>
         <% end -%>
       </div>

@@ -7,6 +7,7 @@ class SearchController < ApplicationController
     else
       lang = params[:lang][0]
     end
+    @lang = lang
     GetText.locale = lang
 
     if params[:baseproject]
