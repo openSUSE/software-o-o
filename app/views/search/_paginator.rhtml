@@ -22,7 +22,7 @@
 <% if page == @current_page -%>
 <span id="current_page"><%= page %></span>
 <% else -%>
-<%= link_to_remote page, :update => 'result', 
+<%= link_to_remote page, :update => 'result',
   :url => {:action => :search, :p => page, :q => @query, :baseproject => @baseproject},
   :loading => '$("#ajaxindicator").show();',
   :loaded => '$("#ajaxindicator").hide(); window.scrollTo(0, 0);'%>

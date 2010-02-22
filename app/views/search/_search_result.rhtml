@@ -1,6 +1,8 @@
+<div id="search_results_top">
 <div id="search_top_info"><%= _("%d collections and %d binaries from %d source packages") % [ @result.pattern_count, @result.binary_count, @result.length ] %></div>
 <div id="permalink">
   <%= link_to _("Permanent link to this result"), :action => :index, :q => @query, :p => @current_page, :baseproject => @baseproject %>
+</div>
 </div>
 <% if @result.empty? -%>
 <p> <%= _("Nothing found") %> </p>
