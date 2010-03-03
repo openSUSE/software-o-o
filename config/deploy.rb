@@ -18,6 +18,13 @@ server "buildserviceapi.suse.de", :app, :web, :db, :primary => true
 # via the :deploy_to variable:
 set :deploy_to, "/srv/www/vhosts/opensuse.org/#{application}"
 
+# set variables for different target deployments
+task :stage do
+  set :deploy_to, "/srv/www/vhosts/opensuse.org/stage/#{application}"
+  set :runit_name, "software_stage"
+  set :branch, "derivates"
+end
+
 
 ssh_options[:forward_agent] = true
 default_run_options[:pty] = true
@@ -43,6 +50,8 @@ namespace :config do
     run "ln -s #{shared_path}/production.rb #{release_path}/config/environments/"
     run "rm -f #{release_path}/config/database.yml"
     run "ln -s #{shared_path}/database.yml #{release_path}/config/database.yml"
+    run "rm -f #{release_path}/config/options.yml"
+    run "ln -s #{shared_path}/options.yml #{release_path}/config/options.yml"
     run "rm -r #{release_path}/tmp/cache"
     run "ln -s #{shared_path}/software.o.o.cache #{release_path}/tmp/cache"
   end
