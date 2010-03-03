@@ -1,5 +1,5 @@
 <a id="iso_<%= id %>" href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso">
-  <img src="/images/dot_media.png" alt="Download" title="Click to Download" />
+  <%= image_tag "/images/dot_media.png", :alt => _("Download"), :title => _("Click to Download") %>
 </a>
 <a id="iso_<%= id %>" href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso"><%= text -%></a>
 

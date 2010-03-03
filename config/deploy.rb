@@ -9,6 +9,7 @@ set :branch, "master"
 set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
 set :migrate_target, :current
+set :runit_name, "software"
 
 set :deploy_notification_to, ['tschmidt@suse.de', 'coolo@suse.de']
 server "buildserviceapi.suse.de", :app, :web, :db, :primary => true
@@ -50,8 +51,6 @@ namespace :config do
     run "ln -s #{shared_path}/production.rb #{release_path}/config/environments/"
     run "rm -f #{release_path}/config/database.yml"
     run "ln -s #{shared_path}/database.yml #{release_path}/config/database.yml"
-    run "rm -f #{release_path}/config/options.yml"
-    run "ln -s #{shared_path}/options.yml #{release_path}/config/options.yml"
     run "rm -r #{release_path}/tmp/cache"
     run "ln -s #{shared_path}/software.o.o.cache #{release_path}/tmp/cache"
   end
@@ -65,15 +64,15 @@ end
 # server restarting
 namespace :deploy do
   task :start do
-    run "sv start /service/software-*"
+    run "sv start /service/#{runit_name}-*"
   end
 
   task :restart do
-    run "sv 1 /service/software-*"
+    run "sv 1 /service/#{runit_name}-*"
   end
 
   task :stop do
-    run "sv stop /service/software-*"
+    run "sv stop /service/#{runit_name}-*"
   end
 
 

@@ -4,9 +4,7 @@
   <title>Software.openSUSE.org</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-  <link href="/css/ui.dialog.css" rel="stylesheet" type="text/css"/>
-  <link href="/css/style.css" rel="stylesheet" type="text/css"/>
-  <link href="/css/software.css" rel="stylesheet" type="text/css"/>
+  <%= stylesheet_link_tag "/css/ui.dialog.css", "/css/style.css", "/css/software.css" %>
   <link href="http://static.opensuse.org/hosts/software.o.o/images/favicon.ico" rel="shortcut icon" />
   <%= javascript_include_tag "jquery-1.4.1.min.js", "jquery-ui-1.7.2.js", "jrails.js", "application.js"  %>
   <script language="JavaScript" type="text/javascript" src="http://static.opensuse.org/c/javascript/common/langsel.js"></script>
@@ -16,12 +14,12 @@
   <div id="header">
     <div id="header-content" class="container_12">
       <a id="header-logo" href="#home">
-        <img src="/images/header-logo.png" width="46" height="26" alt="Header Logo" />
+        <%= image_tag '/images/header-logo.png', :width => 46, :height => 26, :alt => _("Header Logo") %>
       </a>
       <ul id="global-navigation">
-        <li><a href="http://software.opensuse.org/">Software</a></li>
-        <li><a href="http://build.opensuse.org/">Build</a></li>
-        <li><a href="http://wiki.opensuse.org/">Wiki</a></li>
+        <li><a href="http://software.opensuse.org/"><%= _("Software") %></a></li>
+        <li><a href="http://build.opensuse.org/"><%= _("Build") %></a></li>
+        <li><a href="http://wiki.opensuse.org/"><%= _("Wiki") %></a></li>
       </ul>
     </div>
   </div>
@@ -54,19 +52,19 @@
         <h2 class="box-header"><%= _("Language") %></h2>
         <div style="text-align: center;">
           <%= %w[bg cs da de en es fi fr].map{ |i|
-                link_to(image_tag("/images/lang_#{i}.png", :alt => "#{i}"), :action => :index, :lang => "#{i}") + "\n"
+                link_to(image_tag("/images/lang_#{i}.png", :alt => "#{i}"), :controller => :main, :action => :index, :lang => "#{i}") + "\n"
               }
           %>
         </div>
         <div style="text-align: center;">
           <%= %w[hu it ja ko lt nb nl pl].map{ |i|
-                link_to(image_tag("/images/lang_#{i}.png", :alt => "#{i}"), :action => :index, :lang => "#{i}") + "\n"
+                link_to(image_tag("/images/lang_#{i}.png", :alt => "#{i}"), :controller => :main, :action => :index, :lang => "#{i}") + "\n"
               }
           %>
         </div>
         <div style="text-align: center;">
           <%= %w[pt_BR ru sk uk wa zh_TW].map{ |i|
-                link_to(image_tag("/images/lang_#{i}.png", :alt => "#{i}"), :action => :index, :lang => "#{i}") + "\n"
+                link_to(image_tag("/images/lang_#{i}.png", :alt => "#{i}"), :controller => :main, :action => :index, :lang => "#{i}") + "\n"
               }
           %>
         </div>
