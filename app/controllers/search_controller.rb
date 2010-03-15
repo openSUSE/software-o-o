@@ -10,8 +10,8 @@ class SearchController < ApplicationController
     @lang = lang
     GetText.locale = lang
 
-    if params[:baseproject]
-      @baseproject = params[:baseproject]
+    if params[:project]
+      @project = params[:project]
     end
     if params[:q]
       perform_search
@@ -35,23 +35,23 @@ class SearchController < ApplicationController
   end
 
   private
-  
+
   def perform_search
     @query = params[:q]
-    @baseproject = params[:baseproject]
-    cookies[:search_baseproject] = { :value => @baseproject, :expires => 1.month.from_now }
+    @project = params[:project]
+    cookies[:search_project] = { :value => @project, :expires => 1.month.from_now }
     @current_page = params[:p].to_i
     @current_page = 1 if @current_page == 0
 
     return false if @query.length < 2
     return false if @query =~ / / and @query.split(" ").select{|e| e.length < 2 }.size > 0
-    
-    base = @baseproject=="ALL" ? "" : @baseproject
+
+    base = @project=="ALL" ? "" : @project
     @result = Seeker.prepare_result(CGI.escape(@query).gsub("+", " "), base)
     if @current_page == 1 and @result.length > 1 # ignore sub pages
       SearchHistory.create :query => @query, :base => @baseproject, :patterns => @result.pattern_count, 
                            :binaries => @result.binary_count, :count => @result.length
     end
     return true
-  end 
+  end
 end

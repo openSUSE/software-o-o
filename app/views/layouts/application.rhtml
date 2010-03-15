@@ -27,7 +27,23 @@
   <div id="content" class="container_12 ui-oo-content-wrapper">
     <div class="grid_9 alpha">
 
-      <div class="ui-oo-box-shadow grid_9">
+      <div class="ui-oo-box-shadow grid_9 alpha">
+        <h2 class="box-header"><%=_("Package Search")%></h2>
+        <div id="get_software">
+            <p><%=_("Search and install software packages from the openSUSE Build Service:") %></p>
+            <div id="search_form">
+              <% form_tag ( {:controller => 'search'}, :method => :get ) do %>
+                <%= text_field_tag 'q', @query, :size => 40 %>
+                <div id="form_control">
+                  <%= select_tag 'project', options_for_select(baseproject_list_for_select, (@baseproject or default_baseproject)) %>
+                  <%= submit_tag _('Search'), :name => nil, :class => 'download_buttonClass' %>
+                </div>
+            <% end -%>
+            </div>
+        </div>
+      </div>
+
+      <div class="ui-oo-box-shadow grid_9 alpha">
         <h2 class="box-header">
           <div style="float: left;"><%= @page_title -%></div>
           <% if @right_box == :search -%>
@@ -71,27 +87,13 @@
       </div>
 
       <div class="ui-oo-box-shadow grid_3 omega">
-        <% if @right_box == :search -%>
-          <h2 class="box-header"><%=_("Package Search")%></h2>
-          <div id="get_software">
-            <%= link_to "", {:controller => 'search', :lang => @lang}, {:class => 'search_form', :style => 'display: block; width: 100%; height: 100px;', :title => _("Search Build Service")}  %>
-            <%=_("Search for and install additional software packages from the openSUSE Build Service.") %>
-          </div>
-        <% else -%>
-          <h2 class="box-header"><%=_("Get openSUSE")%></h2>
-          <div id="download_os">
-            <%= link_to "", {:controller => 'main', :action => :index, :lang => @lang}, {:class => 'download_os_link', :style => 'display: block; width: 100%; height: 100px;'}  %>
-          </div>
-        <% end -%>
-      </div>
-
-      <div class="ui-oo-box-shadow grid_3 omega">
          <h2 class="box-header"><%=_("Getting Help")%></h2>
          <ul class="navlist">
            <li><a href="http://en.opensuse.org/Download_Help"><%=_("Download Help")%></a></li>
            <li><a href="http://en.opensuse.org/Download_Help#Burn_the_ISO_Image.28s.29"><%=_("Burn CD/DVD Image(s)")%></a></li>
            <li><a href="http://en.opensuse.org/Installation"><%=_("Installation Guides")%></a></li>
            <li><a href="http://www.novell.com/documentation/opensuse112/"><%=_("Official Manuals")%></a></li>
+           <li><a href="http://en.opensuse.org/Additional_YaST_Package_Repositories"><%=_("Package Repositories")%></a></li>
         </ul>
       </div>
 

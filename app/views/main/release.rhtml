@@ -15,7 +15,6 @@
 <a href="#" id="popup_close" style="display: block; float: right; padding: 10px">Close</a>
 <div id="popup_content"></div>
 </div>
-
 <div style="float: right; width: 14em;">
 </div>
 
@@ -130,7 +129,7 @@
   </p>
 
   <h3><%=_("Verify your download (optional, for experts)")%></h3>
-  <p class="info_text">
+  <p class="justify">
     <%=_("Many applications can verify the checksum of a download. To verify your download can be important as it verifies you really have got the ISO file you wanted to download and not some broken version. We offer three different checksums:")%>
   </p>
   <noscript>
@@ -156,9 +155,12 @@
     <li class="noscript"><%= render(:partial => "download_link", :locals => { :id => "lang32", :iso => "lang-32", :text => _("Extra Languages (32 Bit)") } ) %></li>
     <li class="noscript"><%= render(:partial => "download_link", :locals => { :id => "lang64", :iso => "lang-64", :text => _("Extra Languages (64 Bit)") } ) %></li>
     <li class="hidden script_only"><%= render(:partial => "download_link", :locals => { :id => "lang", :iso => "lang-32", :text => _("Extra Languages") } ) %></li>
-    <li><%= render(:partial => "download_link", :locals => { :id => "nonoss", :iso => "nonoss", :text => _("NonOSS CD") } )%></li>
+    <li><p class="justify"><%=_('Live CDs contain only four languages (English, German, Russian and Italian). If you want to have support for remaining languages you need to download it from the Internet during the installation or any time after it. If you have easy access to the Internet or if you use DVD containing all languages, you do not need this CD.')%></p></li>
+    <li><%= render(:partial => "download_link", :locals => { :id => "nonoss", :iso => "nonoss", :text => _("NonOSS CD") } )%>
+    <li><p class="justify"><%=_('This CD contains free software distributed under proprietary licence not allowing its inclusion to main installation media together with free open-source software. All software from this CD could be downloaded from NON-OSS repository.')%></p></li>
   </ul>
 </div>
+
 
 <div id="download_help" class="info_text">
   <h3><%=_("How to Proceed")%></h3>
