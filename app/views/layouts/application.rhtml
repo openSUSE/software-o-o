@@ -35,7 +35,7 @@
               <% form_tag ( {:controller => 'search'}, :method => :get ) do %>
                 <%= text_field_tag 'q', @query, :size => 40 %>
                 <div id="form_control">
-                  <%= select_tag 'project', options_for_select(baseproject_list_for_select, (@baseproject or default_baseproject)) %>
+                  <%= select_tag 'baseproject', options_for_select(baseproject_list_for_select, (@baseproject or default_baseproject)) %>
                   <%= submit_tag _('Search'), :name => nil, :class => 'download_buttonClass' %>
                 </div>
             <% end -%>
