@@ -4,30 +4,33 @@
   <title>Software.openSUSE.org</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-  <%= stylesheet_link_tag "/css/ui.dialog.css", "/css/style.css", "/css/software.css" %>
+  <%= stylesheet_link_tag "/css/ui.dialog.css", "/themes/bento/css/style.css", "/css/software.css" %>
   <link href="http://static.opensuse.org/hosts/software.o.o/images/favicon.ico" rel="shortcut icon" />
-  <%= javascript_include_tag "jquery-1.4.1.min.js", "jquery-ui-1.7.2.js", "jrails.js", "application.js"  %>
-  <script language="JavaScript" type="text/javascript" src="http://static.opensuse.org/c/javascript/common/langsel.js"></script>
+  <%= javascript_include_tag "http://static.opensuse.org/themes/bento/js/jquery.js", "jquery-ui-1.7.2.js", "jrails.js", "application.js"  %>
+  <%= javascript_include_tag "http://static.opensuse.org/c/javascript/common/langsel.js" %>
+  <%= javascript_include_tag "/themes/bento/js/l10n/global-navigation-data-" + @lang + ".js", "/themes/bento/js/global-navigation.js" %>
+  <%= javascript_include_tag "http://www.google-analytics.com/ga.js" %>
  </head>
  <body>
 
   <div id="header">
     <div id="header-content" class="container_12">
       <a id="header-logo" href="#home">
-        <%= image_tag '/images/header-logo.png', :width => 46, :height => 26, :alt => _("Header Logo") %>
+        <%= image_tag '/themes/bento/images/header-logo.png', :width => 46, :height => 26, :alt => _("Header Logo") %>
       </a>
       <ul id="global-navigation">
-        <li><a href="http://software.opensuse.org/"><%= _("Software") %></a></li>
-        <li><a href="http://build.opensuse.org/"><%= _("Build") %></a></li>
-        <li><a href="http://wiki.opensuse.org/"><%= _("Wiki") %></a></li>
+        <li id="item-downloads"><a href="http://opensuse.org/sitemap#downloads"><%= _("Downloads") %></a></li>
+        <li id="item-support"><a href="http://opensuse.org/sitemap#support"><%= _("Support") %></a></li>
+        <li id="item-community"><a href="http://opensuse.org/sitemap#community"><%= _("Community") %></a></li>
+        <li id="item-development"><a href="http://opensuse.org/sitemap#development"><%= _("Development") %></a></li>
       </ul>
     </div>
   </div>
 
-  <div id="content" class="container_12 ui-oo-content-wrapper">
+  <div id="content" class="container_12 content-wrapper">
     <div class="grid_9 alpha">
 
-      <div class="ui-oo-box-shadow grid_9 alpha">
+      <div class="box box-shadow grid_9 alpha">
         <h2 class="box-header"><%=_("Package Search")%></h2>
         <div id="get_software">
             <p><%=_("Search and install software packages from the openSUSE Build Service:") %></p>
@@ -43,7 +46,7 @@
         </div>
       </div>
 
-      <div class="ui-oo-box-shadow grid_9 alpha">
+      <div class="box box-shadow grid_9 alpha">
         <h2 class="box-header">
           <div style="float: left;"><%= @page_title -%></div>
           <% if @right_box == :search -%>
@@ -64,7 +67,7 @@
     </div>
     <div class="grid_3 omega">
 
-      <div class="ui-oo-box-shadow grid_3 omega">
+      <div class="box box-shadow grid_3 omega">
         <h2 class="box-header"><%= _("Language") %></h2>
         <div style="text-align: center;">
           <%= %w[bg cs da de en es fi fr].map{ |i|
@@ -86,7 +89,7 @@
         </div>
       </div>
 
-      <div class="ui-oo-box-shadow grid_3 omega">
+      <div class="box box-shadow grid_3 omega">
          <h2 class="box-header"><%=_("Getting Help")%></h2>
          <ul class="navlist">
            <li><a href="http://en.opensuse.org/Download_Help"><%=_("Download Help")%></a></li>
@@ -97,7 +100,7 @@
         </ul>
       </div>
 
-      <div class="ui-oo-box-shadow grid_3 omega">
+      <div class="box box-shadow grid_3 omega">
         <h2 class="box-header"><%=_("Sponsored by")%></h2>
         <!--<p style="color: #ccc; font-size: 0.8em; text-align: center;"><%=_("Platinum Sponsor")%></p>-->
         <p style="color: #ccc; font-size: 0.8em; text-align: center;"><%=_("Gold Sponsor")%></p>
@@ -112,7 +115,7 @@
         <!--<p style="color: #ccc; font-size: 0.8em; text-align: center;"><%=_("Bronze Sponsor")%></p>-->
       </div>
 
-      <div class="ui-oo-box-shadow grid_3 omega">
+      <div class="box box-shadow grid_3 omega">
         <h2 class="box-header"><%=_("Buy openSUSE")%></h2>
           <div style="text-align: center; padding-left: 16px;">
             <a href="<%= _("http://en.opensuse.org/Buy_openSUSE") %>"><img src="http://static.opensuse.org/c/images/common/openSUSE11.2_Box.jpg" title="<%=_("Buy openSUSE 11.2")%>" alt="<%=_("Buy openSUSE 11.2")%>"/></a>
@@ -129,7 +132,7 @@
   <div id="footer" class="container_12">
     <div id="footer-content" class="grid_12">
     </div>
-    <div id="footer-legal" class="ui-oo-border-top grid_12">
+    <div id="footer-legal" class="border-top grid_12">
       <a href="http://en.opensuse.org/openSUSE:About">About openSUSE</a> |
       <a href="http://en.opensuse.org/openSUSE:General_disclaimer">Legal information</a> |
       <a href="mailto:webmaster@opensuse.org">Feedback</a>
