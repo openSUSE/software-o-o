@@ -240,7 +240,7 @@ class Seeker < ActiveXML::Base
             @description = ""
           end
         rescue ActiveXML::Transport::NotFoundError
-        rescue RuntimeError
+        rescue 
           @description = ""
         end
         cache.store_description(self, @description)
@@ -269,7 +269,6 @@ class Seeker < ActiveXML::Base
       def update_description
         @description = cache.description(self)
         return unless @description.nil?
-        patfname = @filename.split(/.#@type$/)[0]
         begin
           pat = ::Published.find @filename, :project => @project, :repository => @repository, :view => :fileinfo
           if pat.has_element? :description
@@ -277,7 +276,8 @@ class Seeker < ActiveXML::Base
           else
             @description = ""
           end
-        rescue ActiveXML::Transport::NotFoundError
+        rescue
+          @description = ""
         end
         cache.store_description(self, @description)
         return @description
