@@ -79,3 +79,4 @@ Dir.glob("#{RAILS_ROOT}/locale/*/LC_MESSAGES/software.mo").each { |file|
    lang = lang.gsub(/_/,'-')
    LANGUAGES << lang
 }
+USE_STATIC = true
