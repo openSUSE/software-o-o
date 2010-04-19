@@ -25,18 +25,18 @@
 
 	<h3><%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD"), :longtext => _("Contains a large collection of software for desktop or server use.<br/>Suitable for installation or upgrade.") }) %></h3>
 	<div>
-		      <form id="downloadForm" action="/main/download">
+    <form id="downloadForm" action="/main/download">
 			 <div id="downloadMethodDiv">
-			  <h4><%= image_tag '/images/help-browser.png', :id => "downloadMethodHelpPopup", :class => "help_icon", :alt => "?" %><%=_("Download Method")%></h4>
-				<br/>
-				<br/>
-				<div style="float:left">
+			  <h4><%=_("Download Method")%> <%= image_tag '/images/help-browser.png', :id => "downloadMethodHelpPopup", :class => "help_icon", :alt => "?" %></h4>
+
+				<div>
 				  <label class="l_change"><input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/><%=_("Direct Link")%></label>
 				  <label class="l_change <%= if @medium == 'net': "notavailable" end %>" id="l_torrent"><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/><%=_("BitTorrent")%></label>
 				  <label class="l_change"><input id="p_metalink" name="protocol" value="metalink" type="radio" class="changeiso"/><%=_("Metalink")%></label>
 				  <label class="l_change"><input id="p_mirror" name="protocol" value="mirror" type="radio" class="changeiso"/><%=_("Pick Mirror")%></label>
 				</div>
-			   <div class="hidden" id="help_method_content">
+				
+			  <div class="hidden" id="help_method_content">
 				   <h2><%=_("Help on Download Method")%></h2>
 				   <p>
 					 <%=_("openSUSE is available via http (direct link) or BitTorrent. The CD for network installation is only vailable via http.")%>
@@ -58,11 +58,11 @@
 					 <%=_("If you want to use a direct link but live in a place in the world where our download redirector has not enough information to redirect to the fastest mirror, you can pick a mirror yourself.")%>
 				   </p>
 			   </div>
-	        </div>
-			<br/>
-			<br/>
-			<div id="TypeOfComputerDiv" style="display:block;float:left">
-			  <h4><%= image_tag '/images/help-browser.png', :id => "architectureTypeHelpPopup", :class=>"help_icon", :alt=>"?" %><%= _("Type of Computer") %></h4><br/>
+	      </div>
+
+			<div id="TypeOfComputerDiv">
+			  <h4><%= _("Type of Computer") %> <%= image_tag '/images/help-browser.png', :id => "architectureTypeHelpPopup", :class=>"help_icon", :alt=>"?" %></h4>
+			  
 			  <div>
 			    <label id="l_i686" class="l_change"><input id="i686" name="arch" value="i686" checked="checked" type="radio" class="changeiso" /><%=_("32&nbsp;Bit&nbsp;PC")%></label>
 			    <label id="l_x86_64" class="l_change"><input id="x86_64" name="arch" value="x86_64" type="radio" class="changeiso" /><%=_("64 Bit PC")%></label>
@@ -81,18 +81,22 @@
 			      </p>
 			    </div>
 			  </div>
+			  
+			  <div id="downloadButtonDiv">
+  			    <button class="download_buttonClass" id="download_button">
+  			      <%= _("Download") %>
+  			    </button>
+  			    <span class="hidden" id="download_kde"><%= _("Download&nbsp;KDE") %></span>
+  			    <span class="hidden" id="download_gnome"><%= _("Download&nbsp;GNOME") %></span>
+  			    <span class="hidden" id="download_dvd"><%= _("Download&nbsp;DVD") %></span>
+  			    <span class="hidden" id="download_net"><%= _("Download&nbsp;Network") %></span>
+  			    <input type="hidden" name="medium" value="<%= @medium %>"/>
+  			    <input type="hidden" name="release" value="<%= @release %>"/>
+  			</div>
+			  
 			</div>
-			<div id="downloadButtonDiv">
-			    <button class="download_buttonClass" id="download_button">
-			      <%= _("Download") %>
-			    </button>
-			    <span class="hidden" id="download_kde"><%= _("Download&nbsp;KDE") %></span>
-			    <span class="hidden" id="download_gnome"><%= _("Download&nbsp;GNOME") %></span>
-			    <span class="hidden" id="download_dvd"><%= _("Download&nbsp;DVD") %></span>
-			    <span class="hidden" id="download_net"><%= _("Download&nbsp;Network") %></span>
-			    <input type="hidden" name="medium" value="<%= @medium %>"/>
-			    <input type="hidden" name="release" value="<%= @release %>"/>
-			</div>
+			
+
 		      </form>
 	</div>
 	<h3><%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("A GNOME desktop you can run from CD or from USB stick.<br/>Can be installed as is (no upgrade).") }) %></h3>
