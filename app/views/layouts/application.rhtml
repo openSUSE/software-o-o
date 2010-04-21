@@ -35,7 +35,7 @@
         <div id="get_software">
             <p><%=_("Search and install software packages from the openSUSE Build Service:") %></p>
             <div id="search_form">
-              <% form_tag ( {:controller => 'search'}, :method => :get ) do %>
+              <% form_tag( {:controller => 'search'}, :method => :get ) do %>
                 <%= text_field_tag 'q', @query, :size => 40 %>
                 <div id="form_control">
                   <%= select_tag 'baseproject', options_for_select(baseproject_list_for_select, (@baseproject or default_baseproject)) %>
