@@ -11,12 +11,16 @@ class MainController < ApplicationController
 
   def ymp_with_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
+    DownloadHistory.create :query => params[:query], :base => params[:base],
+                           :ymp => path
     res = get_from_api(path)
     render :text => res.body, :content_type => res.content_type
   end
 
   def ymp_without_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:package]}?view=ymp"
+    DownloadHistory.create :query => params[:query], :base => params[:base],
+                           :ymp => path
     res = get_from_api(path)
     render :text => res.body, :content_type => res.content_type
   end

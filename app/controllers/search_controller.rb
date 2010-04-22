@@ -27,6 +27,12 @@ class SearchController < ApplicationController
   end
 
 
+  def download
+     DownloadHistory.create :query => params[:query], :base => params[:base], 
+                            :file => params[:file]              
+     redirect_to "http://download.opensuse.org/repositories/" + params[:file]
+  end
+
   private
   
   def perform_search
@@ -41,6 +47,10 @@ class SearchController < ApplicationController
     
     base = @baseproject=="ALL" ? "" : @baseproject
     @result = Seeker.prepare_result(CGI.escape(@query).gsub("+", " "), base)
+    if @current_page == 1 and @result.length > 1 # ignore sub pages
+      SearchHistory.create :query => @query, :base => @baseproject, :patterns => @result.pattern_count, 
+                           :binaries => @result.binary_count, :count => @result.length
+    end
     return true
   end 
 end

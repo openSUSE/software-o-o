@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 4) do
+ActiveRecord::Schema.define(:version => 20100422141748) do
+
+  create_table "download_histories", :force => true do |t|
+    t.string   "base"
+    t.string   "query"
+    t.string   "file"
+    t.string   "ymp"
+    t.datetime "created_at"
+  end
 
   create_table "missing_codecs", :force => true do |t|
     t.integer "visitor_id"
@@ -40,6 +48,16 @@ ActiveRecord::Schema.define(:version => 4) do
     t.datetime "updated_at"
     t.datetime "processed_at"
     t.string   "processed_by"
+  end
+
+  create_table "search_histories", :force => true do |t|
+    t.string   "base"
+    t.string   "query"
+    t.integer  "count"
+    t.integer  "binaries"
+    t.integer  "patterns"
+    t.string   "download"
+    t.datetime "created_at"
   end
 
   create_table "visitors", :force => true do |t|

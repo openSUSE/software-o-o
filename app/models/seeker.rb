@@ -81,8 +81,9 @@ class Seeker < ActiveXML::Base
 
     def add_binlist(binlist)
       @index = Hash.new
-      @binary_count = binlist.size
+      @binary_count = 0
       binlist.each_binary do |bin|
+        @binary_count += 1
         fragment = Fragment.new(bin)
         fragment.fragment_type = :binary
         add_fragment(fragment)
@@ -91,8 +92,9 @@ class Seeker < ActiveXML::Base
 
     def add_patlist(patlist)
       @index = Hash.new
-      @pattern_count = patlist.size
+      @pattern_count = 0
       patlist.each_pattern do |pat|
+        @pattern_count += 1
         fragment = Fragment.new(pat)
         fragment.fragment_type = :pattern
         add_fragment(fragment)
@@ -341,7 +343,7 @@ class Seeker < ActiveXML::Base
       end
 
       def searchresult(query, baseproject)
-         key = query + "|" + baseproject.to_s
+        key = query + "|" + baseproject.to_s
         fname = @resulttmpdir + "/" + Digest::MD5.hexdigest(key)
         if str = read(fname, @resultexpire)
           return Marshal.load(str)

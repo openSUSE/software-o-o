@@ -4,7 +4,11 @@
       <h3 class="blue_txt"><%= item.name %> <span sytle="font-size: 10px;"><%= _("[Software collection]") %></span></h3>
     </div>
     <div align="right">
-      <h4><a class="blue_over" href="http://download.opensuse.org/repositories/<%= item.project.gsub(/:/,':/')+"/"+item.repository %>"><%= item.project+"/"+item.repository %></a></h4>
+      <h4>
+        <%= link_to item.project+"/"+item.repository, 
+            { :action => :download, :file => item.project.gsub(/:/,':/')+"/"+item.repository, :query => @query, :base => @baseproject },
+            { :class => "blue_over" } %>
+      </h4>
     </div>
   </div>
   <div id="description-<%=item.key%>" class="description">
@@ -21,7 +25,7 @@
     <% end -%>
   </div>
   <div class="install_btn">
-    <a href="http://download.opensuse.org/repositories/<%=item.filepath%>" target="">1-Click Install</a>
+    <%= link_to _("1-Click Install"), :action => :download, :file => item.filepath, :query => @query, :base => @baseproject %>
   </div>
   <div id="pkg_list_wrapper">
     <div class="obs_link" align="right">
