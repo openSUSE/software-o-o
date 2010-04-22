@@ -16,4 +16,17 @@ module ApplicationHelper
     super(source)
   end
 
+  def setup_baseproject
+    if @baseproject
+      scr = "setCookie('search_baseproject','#{@baseproject}');\n"
+    else
+      scr = "var p = getCookie('search_baseproject'); if (p) { $(\"#baseproject option[value='\" + p + \"']\").attr('selected', 'selected'); }\n"
+    end
+    "<script type=\"text/javascript\">\n" +
+    "//<![CDATA[\n" +
+    scr +
+    "//]]>\n" +
+    "</script>\n"
+  end
+
 end

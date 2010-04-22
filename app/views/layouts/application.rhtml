@@ -15,7 +15,7 @@
 
   <div id="header">
     <div id="header-content" class="container_12">
-      <a id="header-logo" href="#home">
+      <a id="header-logo" href="/">
         <%= image_tag '/themes/bento/images/header-logo.png', :width => 46, :height => 26, :alt => _("Header Logo") %>
       </a>
       <ul id="global-navigation">
@@ -45,6 +45,8 @@
             </div>
         </div>
       </div>
+
+      <%= setup_baseproject %>
 
       <div class="box box-shadow grid_9 alpha">
         <h2 class="box-header">
