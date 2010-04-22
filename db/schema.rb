@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(:version => 20100422141748) do
     t.integer  "count"
     t.integer  "binaries"
     t.integer  "patterns"
-    t.string   "download"
     t.datetime "created_at"
   end
 
