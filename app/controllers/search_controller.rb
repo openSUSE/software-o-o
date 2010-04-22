@@ -27,7 +27,6 @@ class SearchController < ApplicationController
     end
   end
 
-
   def download
      DownloadHistory.create :query => params[:query], :base => params[:base], 
                             :file => params[:file]              
