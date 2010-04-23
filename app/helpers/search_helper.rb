@@ -80,4 +80,24 @@ module SearchHelper
       ['ALL','ALL']
     ]
   end
+
+  def top_downloads
+    list=DownloadHistory.find :all, :conditions => "query IS NOT NULL"
+    queries=Hash.new
+    list.each do |s|
+      s = s.query.strip.downcase
+      queries[s] ||= 0
+      queries[s] += 1
+    end
+
+    queries = queries.to_a.sort { |x,y| y[1] <=> x[1] }
+    top10 = Array.new
+    count = 0
+    queries.each do |q,c|
+      top10 << q
+      break if count > 15
+      count += 1
+    end
+    return top10
+  end
 end

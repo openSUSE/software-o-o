@@ -26,17 +26,17 @@ function changeiso () {
   if ($('#p_mirror').attr('checked')) {
     download_suffix = "?mirrorlist";
   }
-  $('#sig_gpg').attr("href", myiso + ".asc");
-  $('#sig_md5').attr("href", myiso + ".md5");
-  $('#sig_sha1').attr("href", myiso + ".sha1");
+  $('.sig_gpg').attr("href", myiso + ".asc");
+  $('.sig_md5').attr("href", myiso + ".md5");
+  $('.sig_sha1').attr("href", myiso + ".sha1");
   mylink += download_suffix;
 
   var langiso = directory + "/iso/openSUSE-" + isos['lang' + arch_suffix] + ".iso";
-  $('#md5_lang').attr('href', langiso + ".md5");
-  $('#sha1_lang').attr('href', langiso + ".sha1");
-  $('#gpg_lang').attr('href', langiso + ".asc");
-  $('#iso_lang').attr('href', langiso + download_suffix);
-  $('#iso_nonoss').attr('href', directory + "/iso/openSUSE-" + isos['nonoss'] + ".iso" + download_suffix);
+  $('.md5_lang').attr('href', langiso + ".md5");
+  $('.sha1_lang').attr('href', langiso + ".sha1");
+  $('.gpg_lang').attr('href', langiso + ".asc");
+  $('.iso_lang').attr('href', langiso + download_suffix);
+  $('.iso_nonoss').attr('href', directory + "/iso/openSUSE-" + isos['nonoss'] + ".iso" + download_suffix);
 
   $('#icon_' + mymedium).addClass('icon_selected').removeClass('icon_unselected').parent('div').addClass("medium_selected").removeClass('medium_unselected');
   // $('#icon_' + mymedium).addClass('icon_selected').removeClass('icon_unselected');

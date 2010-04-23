@@ -1,8 +1,8 @@
-<a id="iso_<%= id %>" href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso">
+<a class="iso_<%= id %>" href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso">
   <%= image_tag "/images/dot_media.png", :alt => _("Download"), :title => _("Click to Download") %>
 </a>
-<a id="iso_<%= id %>" href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso"><%= text -%></a>
+<a class="iso_<%= id %>" href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso"><%= text -%></a>
 
-(<a id="gpg_<%= id %>" href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.asc">gpg</a> |
-<a id="md5_<%= id %>" href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.md5">md5</a> |
-<a id="sha1_<%= id %>" href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.sha1">sha1</a>)
+(<a class="gpg_<%= id %>" href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.asc">gpg</a> |
+<a class="md5_<%= id %>" href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.md5">md5</a> |
+<a class="sha1_<%= id %>" href="<%= @directory %>/iso/openSUSE-<%= @isos[iso] %>.iso.sha1">sha1</a>)

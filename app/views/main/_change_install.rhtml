@@ -1,25 +1,27 @@
-<noscript>
-  <% form_tag(:controller => "main", :action => 'change_install', :method => "get") do -%>
-  <input name="release" value="<%= @release %>" type="hidden" />
-  <input name="lang" value="<%= @lang %>" type="hidden"/>
-  <button name="medium" value="<%= medium %>" style="width: 250px; margin-bottom: 20px" class="changeiso">
-    <div style="background-color: transparent; height: 50px; line-height: 10px; text-align: left; <%= if @medium == medium then "color: green" end %>">
-      <p>
-  <%= image_tag "/images/" + medium + "_icon.png", :style=>"width: 20px; height: 20px; margin: 10px; clear: right", :alt=>"" %>
-  <b><%= shorttext %></b>
-      </p>
+<div class="medium_wrapper">
+  <noscript>
+    <% form_tag(:controller => "main", :action => 'change_install', :method => "get") do -%>
+      <input name="release" value="<%= @release %>" type="hidden" />
+      <input name="lang" value="<%= @lang %>" type="hidden"/>
+      <button name="medium" value="<%= medium %>" style="width: 250px; margin-bottom: 20px" class="changeiso">
+        <div style="background-color: transparent; height: 50px; line-height: 10px; text-align: left; <%= if @medium == medium then "color: green" end %>">
+          <p>
+            <%= image_tag "/images/" + medium + "_icon.png", :style=>"width: 20px; height: 20px; margin: 10px; clear: right", :alt=>"" %>
+            <b><%= shorttext %></b>
+          </p>
+        </div>
+      </button>
+    <% end %>
+  </noscript>
+
+  <div id="ci_<%= medium %>" class="hidden changeiso script_only <%= if @medium == medium then "medium_selected'" else "medium_unselected'" end %> ">
+    <%= if @medium == medium then iclass='icon_selected' else iclass='icon_unselected' end
+    image_tag("/images/" + medium + "_icon.png", :alt => "", :id => "icon_" + medium, :class => iclass) %>
+    <div>
+      <span style="font-size: 120%; font-weight: bold"><%= shorttext %></span>
+      <br/>
+      <span style="font-size: 90%; font-weight: 500"><%= longtext %></span>
     </div>
-  </button>
-  <% end %>
-</noscript>
-
-<div id="ci_<%= medium %>" class="hidden changeiso script_only <%= if @medium == medium then "medium_selected'" else "medium_unselected'" end %> ">
-  <%= if @medium == medium then iclass='icon_selected' else iclass='icon_unselected' end
-      image_tag("/images/" + medium + "_icon.png", :alt => "", :id => "icon_" + medium, :class => iclass) %>
-  <div>
-    <span style="font-size: 120%"><%= shorttext %></span>
-    <br/>
-    <span style="font-size: 90%"><%= longtext %></span>
   </div>
-</div>
 
+</div>
