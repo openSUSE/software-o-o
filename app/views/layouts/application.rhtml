@@ -12,15 +12,6 @@
     <%= javascript_include_tag "http://static.opensuse.org/c/javascript/common/langsel.js" %>
     <%= javascript_include_tag "/themes/bento/js/l10n/global-navigation-data-" + @lang + ".js", "/themes/bento/js/global-navigation.js" %>
     <%= javascript_include_tag "http://www.google-analytics.com/ga.js" %>
-    <script type="text/javascript">
-  //<![CDATA[
-   try {
-   var pageTracker = _gat._getTracker("UA-3367212-3");
-   pageTracker._setDomainName(".opensuse.org");
-   pageTracker._trackPageview();
-   } catch(err) {}
-   //]]>
-    </script>
   </head>
   <body>
 
@@ -81,11 +72,15 @@
       <div class="grid_3 omega">
 
         <div class="box box-shadow grid_3 omega">
-          <h2 class="box-header centered"><%= _("Top Queries") %></h2>
+          <h2 class="box-header centered"><%= _("Popular Software") %></h2>
 
           <p>
-            <% top_downloads.each do |query| -%>
-              <a class="nowrap"><%= query %></a>
+            <% 
+              top1=top_downloads[0][:count]
+              top10=top_downloads[-1][:count]
+              top_downloads.each do |query| -%>
+                <% queryclass=((Float(query[:count] - top10) / (top1 - top10)) * 5).round %>
+              <a class=<%= "'nowrap query query_#{queryclass}'>" + query[:query] %></a>
             <% end -%>
           </p>
         </div>

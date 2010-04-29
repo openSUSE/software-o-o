@@ -91,13 +91,13 @@ module SearchHelper
     end
 
     queries = queries.to_a.sort { |x,y| y[1] <=> x[1] }
-    top10 = Array.new
+    tops = Array.new
     count = 0
     queries.each do |q,c|
-      top10 << q
+      tops << { :query => q, :count => c}
       break if count > 15
       count += 1
     end
-    return top10
+    return tops
   end
 end
