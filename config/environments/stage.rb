@@ -13,6 +13,8 @@ config.action_controller.perform_caching             = true
 config.action_view.cache_template_loading            = true
 config.action_controller.relative_url_root           = "/stage"
 
+config.cache_store = :compressed_mem_cache_store, 'localhost:11211', {:namespace => 'software-stage'}
+
 # Disable database access, if backend is not accessible
 #config.frameworks -= [ :active_record ]
 

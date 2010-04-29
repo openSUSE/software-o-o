@@ -44,6 +44,8 @@ Rails::Initializer.run do |config|
   config.gem 'libxml-ruby'
   config.gem 'gettext_rails'
 
+  config.cache_store = :compressed_mem_cache_store, 'localhost:11211', {:namespace => 'software'}
+
 end
 
 # Include your application configuration below

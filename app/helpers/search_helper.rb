@@ -82,22 +82,24 @@ module SearchHelper
   end
 
   def top_downloads
-    list=DownloadHistory.find :all, :conditions => "query IS NOT NULL"
-    queries=Hash.new
-    list.each do |s|
-      s = s.query.strip.downcase
-      queries[s] ||= 0
-      queries[s] += 1
-    end
+    Rails.cache.fetch('top_downloads', :expires_in => 12.hours) do
+      list=DownloadHistory.find :all, :conditions => "query IS NOT NULL"
+      queries=Hash.new
+      list.each do |s|
+        s = s.query.strip.downcase
+        queries[s] ||= 0
+        queries[s] += 1
+      end
 
-    queries = queries.to_a.sort { |x,y| y[1] <=> x[1] }
-    tops = Array.new
-    count = 0
-    queries.each do |q,c|
-      tops << { :query => q, :count => c}
-      break if count > 15
-      count += 1
+      queries = queries.to_a.sort { |x,y| y[1] <=> x[1] }
+      tops = Array.new
+      count = 0
+      queries.each do |q,c|
+        tops << { :query => q, :count => c}
+        break if count > 15
+        count += 1
+      end
+      tops
     end
-    return tops
   end
 end
