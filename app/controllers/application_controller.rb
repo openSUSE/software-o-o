@@ -3,8 +3,6 @@
 
 class ApplicationController < ActionController::Base
 
-  after_filter :check_memory
-
   init_gettext('software')
 
   def rescue_action_in_public(exception)
@@ -14,19 +12,6 @@ class ApplicationController < ActionController::Base
     else
       render :template => 'error', :layout => "application", :status => 404
     end
-  end
-
- private
-  def check_memory
-    mu = get_memory
-    if mu > 80000
-      logger.error 'Memory limit reached, ending process'
-      `kill -1 #{$$}`
-    end
-  end
-  
-  def get_memory
-    `ps -o rss= -p #{$$}`.to_i
   end
 
 end
