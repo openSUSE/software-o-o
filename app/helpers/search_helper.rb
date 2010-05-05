@@ -83,12 +83,12 @@ module SearchHelper
 
   def top_downloads
     Rails.cache.fetch('top_downloads', :expires_in => 12.hours) do
-      list=DownloadHistory.find :all, :conditions => "query IS NOT NULL"
+      list=ActiveRecord::Base.connection.execute('select query, count(*) as c from download_histories where query is NOT NULL group by query order by c desc limit 200;')
       queries=Hash.new
-      list.each do |s|
-        s = s.query.strip.downcase
+      list.each do |entry|
+        s = entry[0].strip.downcase
         queries[s] ||= 0
-        queries[s] += 1
+        queries[s] += entry[1].to_i
       end
 
       queries = queries.to_a.sort { |x,y| y[1] <=> x[1] }
