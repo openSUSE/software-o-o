@@ -68,7 +68,7 @@ namespace :deploy do
   end
 
   task :restart do
-    run "sv 1 /service/#{runit_name}-*"
+    run "for i in /service/#{runit_name}-*; do sv restart $i; sleep 3; done"
   end
 
   task :stop do
