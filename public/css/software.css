@@ -23,9 +23,9 @@
 }
 
 #iso-wrapper div.changeiso:hover {
-  border: 2px solid #536A84;
-  color: #666;
+  border: 2px solid #690;
 }
+/*
 #iso-wrapper div.changeiso:hover .icon_unselected  {
   opacity: 0.7;
   -moz-opacity: 0.7;
@@ -33,6 +33,14 @@
 }
 
 #iso-wrapper div.medium_selected {
+  border-color: #4987B3;
+  -moz-box-shadow: 0px 1px 4px #999;
+  -webkit-box-shadow: 0px 1px 4px #999;
+  box-shadow: 0px 1px 4px #999;
+  color: #333;
+}*/
+
+#iso-wrapper div.changeiso {
   border-color: #4987B3;
   -moz-box-shadow: 0px 1px 4px #999;
   -webkit-box-shadow: 0px 1px 4px #999;
@@ -47,56 +55,43 @@
 }
 
 #iso-wrapper div.changeiso img { /* Icon */
-  margin: 5px 5px 0px 3px;
+  margin: 5px 15px 0 7px;
   float: left;
-  height :48px;
+  height: 48px;
 }
 
 .download_buttonClass {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -khtml-border-radius: 5px;
-  border-radius: 5px;
-  background: #fff url('../images/gradient-light-short.png') repeat-x scroll 0 0;
-  border: 2px solid #4987B3;
-  color: #444 !important;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 3px;
-  text-decoration: none;
-  text-shadow: 0 -1px 0 #fff;
-  width: auto !important;
-  max-width: 98%;
-  position: relative;
-  overflow: visible;
-  margin-left: 3px;
-  margin-top: 0em;
-  -moz-box-shadow: 0px 1px 2px #999;
-  -webkit-box-shadow: 0px 1px 2px #999;
-  box-shadow: 0px 1px 2px #999;
-  margin-right: 4px;
+  -moz-box-shadow: 0px 1px 2px #ccc;
+  -webkit-box-shadow: 0px 1px 2px #ccc;
+  box-shadow: 0px 1px 2px #ccc;
+/*  border-color: #690;
+  color: #690;*/
+  color: #069;
+  background-color: #eee;
+}
+
+.download_buttonClass {
+  border-width: 2px;
 }
 
 .download_buttonClass:hover {
-  color: #4987B3 !important;
   -moz-box-shadow: 0px 1px 2px #ccc;
   -webkit-box-shadow: 0px 1px 2px #ccc;
   box-shadow: 0px 1px 2px #ccc;
 }
 
 #downloadButtonDiv {
-  float:right;
+  float: right;
 }
 
 .icon_unselected {
-  opacity: 0.5;
+/*  opacity: 0.5;
   -moz-opacity: 0.5;
-  filter:alpha(opacity=50);
+  filter:alpha(opacity=50);*/
 }
 
 .icon_selected { opacity: 1; }
-form div .l_change { display: block; margin-bottom: .5em; float:left;}}
+form div .l_change { display: block; margin-bottom: .5em; float:left;}
 
 #popup {
   padding: 0.5em;
@@ -318,7 +313,7 @@ p.justify {
 }
 
 .ui-accordion-content {
-  padding-bottom: 1em;
+  padding-bottom: 2em;
 }
 
 #downloadMethodDiv,
