@@ -18,12 +18,14 @@ server "buildserviceapi.suse.de", :app, :web, :db, :primary => true
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
 set :deploy_to, "/srv/www/vhosts/opensuse.org/#{application}"
+set :static, "software.o.o"
 
 # set variables for different target deployments
 task :stage do
   set :deploy_to, "/srv/www/vhosts/opensuse.org/stage/#{application}"
   set :runit_name, "software_stage"
   set :branch, "derivates"
+  set :static, "software.o.o-stage/stage"
 end
 
 
@@ -37,6 +39,7 @@ set :user, "root"
 set :runner, "root"
 
 after "deploy:update_code", "config:symlink_shared_config"
+after "deploy:update_code", "config:sync_static"
 after "deploy:symlink", "config:permissions"
 after "deploy:finalize_update", "deploy:notify"
 
@@ -58,6 +61,11 @@ namespace :config do
   desc "Set permissions"
   task :permissions do
     run "chown -R lighttpd #{current_path}/db #{current_path}/tmp #{current_path}/tmp/cache/ #{current_path}/log #{current_path}/public"
+  end
+
+  desc "Sync public to static.o.o"
+  task :sync_static do
+    `rsync  --delete-after --exclude=themes -av public/ -e 'ssh -p2212' proxy-opensuse.suse.de:/srv/www/vhosts/static.opensuse.org/hosts/#{static}`
   end
 end
 

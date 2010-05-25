@@ -3,10 +3,11 @@
 @page_title = _("Download %s") % @releasename
 -%>
 
-<%= javascript_include_tag "/" + @release + "/download.js" %>
-<script language="javascript" type="text/javascript">
+<script language="javascript" type="text/javascript" src="<%= url_for(:controller => :main, :action => "download_js", :release => @release) %>">
+//<![CDATA[
   // overwrite in case of changed installation medium
   var mymedium = "<%= @medium %>";
+//]]>
 </script>
 
 <div style="margin-top: 1em; padding: 0">

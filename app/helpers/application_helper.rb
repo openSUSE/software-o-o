@@ -6,12 +6,18 @@ module ApplicationHelper
   def theme_prefix
     return @@theme_prefix if @@theme_prefix
     @@theme_prefix = '/themes'
+    if ActionController::Base.relative_url_root
+      @@theme_prefix = ActionController::Base.relative_url_root + @@theme_prefix
+    end
     @@theme_prefix
   end
 
   def compute_asset_host(source)
-    if USE_STATIC and source.slice(0, theme_prefix.length) == theme_prefix
-      return "https://static.opensuse.org"
+    if defined? USE_STATIC
+      if source.slice(0, theme_prefix.length) == theme_prefix
+        return "https://static.opensuse.org"
+      end
+      return "https://static.opensuse.org/hosts/#{USE_STATIC}"
     end
     super(source)
   end

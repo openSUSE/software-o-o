@@ -27,9 +27,4 @@ config.cache_store = :compressed_mem_cache_store, 'localhost:11211', {:namespace
 API_HOST = "api-internal.opensuse.org"
 ICHAIN_USER = "obs_read_only"
 
-ActionController::Base.asset_host = Proc.new { |source, request|
-  if source =~ %r{/themes} or source =~ %r{/stage/themes}
-     "#{request.protocol}static.opensuse.org"
-  end
-}
-
+USE_STATIC = "software.o.o-stage"

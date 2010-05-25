@@ -24,9 +24,5 @@ config.action_view.cache_template_loading            = true
 API_HOST = "api-internal.opensuse.org"
 ICHAIN_USER = "obs_read_only"
 
-ActionController::Base.asset_host = Proc.new { |source, request|
-  if source =~ %r{/themes}
-     "#{request.protocol}static.opensuse.org"
-  end
-}
+USE_STATIC = "software.o.o"
 
