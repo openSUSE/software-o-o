@@ -5,7 +5,7 @@
     </div>
     <div align="right">
         <%= link_to item.project+"/"+item.repository,
-            { :action => :download, :file => item.project.gsub(/:/,':/')+"/"+item.repository, :query => @query, :base => @baseproject },
+            "http://download.opensuse.org/repositories/"+item.project.gsub(/:/,':/')+"/"+item.repository,
             { :class => "blue_over" } %>
     </div>
   </div>
