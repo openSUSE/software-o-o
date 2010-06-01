@@ -2,6 +2,16 @@
 @page_title = _("Search Results")
 -%>
 
+
+<% content_for :ready_function do %>
+    $('.descriptiontoggle').click(function(){
+                var theobj = $(this).parents(".description");
+                $(theobj).children('.description-short').toggle();
+                $(theobj).children('.description-long').toggle();
+                return false;
+       });
+<% end %>
+
 <div id='result'>
   <% if @result %>
     <%= render :partial => 'search_result' %>
