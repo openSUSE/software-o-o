@@ -1,3 +1,5 @@
+require 'md5'
+
 class Seeker < ActiveXML::Base
   def size
     len = data.children.length
@@ -8,24 +10,20 @@ class Seeker < ActiveXML::Base
   end
 
   def self.prepare_result(query, baseproject=nil)
-    return SearchResult.search(query, baseproject)
+    cache_key = 'searchresult_' + MD5::md5( query ).to_s
+    cache_key += '_' + MD5::md5( baseproject ).to_s if baseproject
+      Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
+        SearchResult.search(query, baseproject)
+      end
   end
+
 
   class SearchResult < Array
     def self.search(query, baseproject)
-      result = cache.searchresult(query, baseproject)
-      return result unless result.nil?
 
-      if query =~ / /
-        xpath = query.split(" ").map {|part| "contains-ic(@name,'#{part}')"}.join(" and ")
-      else
-        xpath = "contains-ic(@name,'#{query}')"
-      end
+      xpath = query.split(" ").map {|part| "contains-ic(@name,'#{part}')"}.join(" and ")
+      xpath = "(#{xpath}) and path/project='#{baseproject}'" if !baseproject.blank?
 
-      if baseproject and not baseproject.empty?
-        xpath = "("+xpath+")"
-        xpath << " and path/project='#{baseproject}'"
-      end
       bin = Seeker.find :binary, :match => xpath
       pat = Seeker.find :pattern, :match => xpath
       result = new(query)
@@ -33,8 +31,6 @@ class Seeker < ActiveXML::Base
       result.add_binlist(bin)
       result.sort! {|x,y| y.relevance <=> x.relevance}
 
-
-      cache.store_searchresult(query, baseproject, result)
       return result
     end
 
@@ -74,8 +70,7 @@ class Seeker < ActiveXML::Base
     end
 
     def page_count
-      logger.debug "[SearchResult] calculating page_count: self.length: #{self.length}, @page_length: #@page_length"
-      l = self.length or 1
+      #logger.debug "[SearchResult] calculating page_count: self.length: #{self.length}, @page_length: #@page_length"
       ((self.length-1)/@page_length)+1
     end
 

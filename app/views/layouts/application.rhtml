@@ -89,12 +89,12 @@
           <h2 class="box-header centered"><%= _("Popular Software") %></h2>
 
           <p>
-            <% 
-              top1=top_downloads[0][:count]
-              top10=top_downloads[-1][:count]
-              top_downloads.each do |query| -%>
+            <% top = top_downloads
+              top1=top[0][:count]
+              top10=top[-1][:count]
+              top.each do |query| -%>
                 <% queryclass=((Float(query[:count] - top10) / (top1 - top10)) * 5).round %>
-              <a class=<%= "'nowrap query query_#{queryclass}'>" + query[:query] %></a>
+              <a class='<%= "nowrap query query_#{queryclass}"%>'><%= query[:query] %></a>
             <% end -%>
           </p>
         </div>
