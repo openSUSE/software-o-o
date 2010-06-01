@@ -11,6 +11,7 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 require "#{RAILS_ROOT}/lib/common/libxmlactivexml"
+require 'custom_logger'
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here
@@ -43,6 +44,8 @@ Rails::Initializer.run do |config|
 
   config.gem 'libxml-ruby'
   config.gem 'gettext_rails'
+
+  config.logger = NiceLogger.new(config.log_path)
 
   config.cache_store = :compressed_mem_cache_store, 'localhost:11211', {:namespace => 'software'}
 
