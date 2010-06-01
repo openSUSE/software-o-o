@@ -24,8 +24,6 @@
     /* ]]> */
     </script>
 
-
-
   </head>
   <body>
 
@@ -35,10 +33,10 @@
           <%= image_tag '/themes/bento/images/header-logo.png', :width => 46, :height => 26, :alt => _("Header Logo") %>
         </a>
         <ul id="global-navigation">
-          <li id="item-downloads"><a href="http://opensuse.org/sitemap#downloads"><%= _("Downloads") %></a></li>
-          <li id="item-support"><a href="http://opensuse.org/sitemap#support"><%= _("Support") %></a></li>
-          <li id="item-community"><a href="http://opensuse.org/sitemap#community"><%= _("Community") %></a></li>
-          <li id="item-development"><a href="http://opensuse.org/sitemap#development"><%= _("Development") %></a></li>
+          <li id="item-downloads"><a href="http://en.opensuse.org/Sitemap#downloads"><%= _("Downloads") %></a></li>
+          <li id="item-support"><a href="http://en.opensuse.org/Sitemap#support"><%= _("Support") %></a></li>
+          <li id="item-community"><a href="http://en.opensuse.org/Sitemap#community"><%= _("Community") %></a></li>
+          <li id="item-development"><a href="http://en.opensuse.org/Sitemap#development"><%= _("Development") %></a></li>
         </ul>
       </div>
     </div>
@@ -54,7 +52,7 @@
               <% form_tag( {:controller => 'search'}, :method => :get ) do %>
                 <%= text_field_tag 'q', @query, :size => 40 %>
                 <div id="form_control">
-                  <%= select_tag 'baseproject', options_for_select(baseproject_list_for_select, (@baseproject or default_baseproject)) %>
+                  <%= select_tag 'baseproject', options_for_select(@distributions, (@baseproject or default_baseproject)) %>
                   <%= submit_tag _('Search'), :name => nil %>
                 </div>
               <% end -%>

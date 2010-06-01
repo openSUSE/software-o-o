@@ -3,6 +3,8 @@
 
 class ApplicationController < ActionController::Base
 
+  before_filter :set_distributions
+
   init_gettext('software')
 
   def rescue_action_in_public(exception)
@@ -13,5 +15,42 @@ class ApplicationController < ActionController::Base
       render :template => 'error', :layout => "application", :status => 404
     end
   end
+
+  private
+
+  def set_distributions
+    @distributions = Rails.cache.fetch('distributions', :expires_in => 120.minutes) do
+      load_distributions
+    end
+  end
+
+
+  # load available distributions
+  def load_distributions
+    uri = URI.parse("http://#{API_HOST}/distributions")
+    request = Net::HTTP::Get.new(uri.path)
+    logger.debug "Loading distributions from #{uri}"
+    @distributions = Array.new
+    begin
+      Net::HTTP.start(uri.host, uri.port) do |http|
+        http.read_timeout = 5
+        response = http.request(request)
+        unless( response.kind_of? Net::HTTPSuccess )
+          logger.error "Cannot load distributions: '#{response.code}', message: \n#{response.body}"
+        else
+          doc = REXML::Document.new response.body
+          doc.elements.each("distributions/distribution") { |element|
+            dist = [element.elements['name'].text, element.elements['project'].text]
+            @distributions << dist
+          }
+        end
+      end
+    rescue Exception => e
+      logger.error "Error while loading distributions from '#{uri}': " + e.to_s
+    end
+    @distributions << ["ALL", 'ALL']
+    return @distributions
+  end
+
 
 end
