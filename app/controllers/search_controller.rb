@@ -42,7 +42,7 @@ class SearchController < ApplicationController
       SearchHistory.create :query => @query, :base => @baseproject, :patterns => @result.pattern_count, 
                            :binaries => @result.binary_count, :count => @result.length
     end
-    rescue ActiveXML::Transport::Error => e
+    rescue => e
       @search_error, code, api_exception = ActiveXML::Transport.extract_error_message e
       logger.error "Cannot perform search: #{@search_error}"
     end

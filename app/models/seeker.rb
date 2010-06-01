@@ -21,7 +21,13 @@ class Seeker < ActiveXML::Base
   class SearchResult < Array
     def self.search(query, baseproject)
 
-      xpath = query.split(" ").map {|part| "contains-ic(@name,'#{part}')"}.join(" and ")
+      words = query.split(" ").select {|part| !part.match(/[0-9_.-]+/) }
+      versions = query.split(" ").select {|part| part.match(/[0-9_.-]+/) }
+      #logger.debug "#{words.inspect} #{versions.inspect} "
+      raise "Please provide a valid search term" if words.blank?
+
+      xpath = "contains-ic(@name, " + words.map{|word| "'#{word}'"}.join(", ") + ")"
+      xpath += ' and ' + versions.map {|part| "contains-ic(@version,'#{part}')"}.join(" and ") if !versions.blank?
       xpath = "(#{xpath}) and path/project='#{baseproject}'" if !baseproject.blank?
 
       bin = Seeker.find :binary, :match => xpath
@@ -42,7 +48,7 @@ class Seeker < ActiveXML::Base
       "<Seeker::Searchresult ##{object_id} @length=#{size}>"
     end
 
-    def logger
+    def self.logger
       RAILS_DEFAULT_LOGGER
     end
 
