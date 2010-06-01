@@ -21,9 +21,9 @@ class Seeker < ActiveXML::Base
   class SearchResult < Array
     def self.search(query, baseproject)
 
-      words = query.split(" ").select {|part| !part.match(/[0-9_.-]+/) }
-      versions = query.split(" ").select {|part| part.match(/[0-9_.-]+/) }
-      #logger.debug "#{words.inspect} #{versions.inspect} "
+      words = query.split(" ").select {|part| !part.match(/^[0-9_\.-]+$/) }
+      versions = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
+      logger.debug "splitted words and version: #{words.inspect} #{versions.inspect} "
       raise "Please provide a valid search term" if words.blank?
 
       xpath = "contains-ic(@name, " + words.map{|word| "'#{word}'"}.join(", ") + ")"
