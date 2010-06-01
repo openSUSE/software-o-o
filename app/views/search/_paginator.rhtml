@@ -14,7 +14,7 @@
 </span>
 <% else -%>
 <% if page == @current_page -%>
-<span id="current_page"><%= page %></span>
+<span id="current_page"><b><%= page %></b></span>
 <% else -%>
 <%= link_to page, :action => :index, :p => page, :q => @query, :baseproject => @baseproject %>
 <% end -%>
