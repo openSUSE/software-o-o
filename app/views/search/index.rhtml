@@ -1,17 +1,17 @@
-<%
-@page_title = _("Search Results")
--%>
+<% @page_title = _("Search Results") -%>
 
 
 <% content_for :ready_function do %>
-    $('.descriptiontoggle').click(function(){
-                var theobj = $(this).parents(".description");
-                $(theobj).children('.description-short').toggle();
-                $(theobj).children('.description-long').toggle();
-                return false;
-       });
+  $('.descriptiontoggle').click(function(){
+  var theobj = $(this).parents(".description");
+  $(theobj).children('.description-short').toggle();
+  $(theobj).children('.description-long').toggle();
+  return false;
+  });
 <% end %>
 
-<div id='result'>
-  <%= render :partial => 'search_result' %>
-</div>
+<% if @result -%>
+  <div id='result'>
+    <%= render :partial => 'search_result' %>
+  </div>
+<% end %>

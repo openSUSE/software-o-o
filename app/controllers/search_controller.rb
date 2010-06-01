@@ -31,8 +31,9 @@ class SearchController < ApplicationController
     @current_page = params[:p].to_i
     @current_page = 1 if @current_page == 0
 
-    return false if @query.length < 2
-    return false if @query =~ / / and @query.split(" ").select{|e| e.length < 2 }.size > 0
+    if @query.split(" ").select{|e| e.length < 2 }.size > 0
+      flash.now[:error] = 'Please use a search string of at least 2 characters' and return
+    end
 
     base = @baseproject=="ALL" ? "" : @baseproject
     begin
@@ -42,9 +43,11 @@ class SearchController < ApplicationController
           :binaries => @result.binary_count, :count => @result.length
       end
     rescue => e
-      @search_error, code, api_exception = ActiveXML::Transport.extract_error_message e
-      logger.error "Cannot perform search: #{@search_error}"
+      search_error, code, api_exception = ActiveXML::Transport.extract_error_message e
+      logger.error _("Could not perform search: ") + search_error
+      flash.now[:error] = _("Could not perform search: ") + search_error and return
     end
+    flash.now[:warn] = _("Please be more precise in your search, search limit reached.") if @result.length >= 1000
     return true
   end
 
