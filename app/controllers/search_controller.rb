@@ -36,10 +36,15 @@ class SearchController < ApplicationController
     return false if @query =~ / / and @query.split(" ").select{|e| e.length < 2 }.size > 0
 
     base = @baseproject=="ALL" ? "" : @baseproject
+    begin
     @result = Seeker.prepare_result(CGI.escape(@query).gsub("+", " "), base)
     if @current_page == 1 and @result.length > 1 # ignore sub pages
       SearchHistory.create :query => @query, :base => @baseproject, :patterns => @result.pattern_count, 
                            :binaries => @result.binary_count, :count => @result.length
+    end
+    rescue ActiveXML::Transport::Error => e
+      @search_error, code, api_exception = ActiveXML::Transport.extract_error_message e
+      logger.error "Cannot perform search: #{@search_error}"
     end
     return true
   end

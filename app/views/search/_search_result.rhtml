@@ -1,5 +1,7 @@
 <div id="search_results_top">
-  <% if @result.empty? -%>
+  <% if @search_error -%>
+    <div id="nothing_found"><%= _("Could not perform search: ") + @search_error %></div>
+  <% elsif @result.blank? -%>
     <div id="nothing_found"><%= _("No packages found that matched your query") %></div>
   <% else -%>
     <div id="search_top_info"><%= _("%d collections and %d binaries from %d source packages") % [ @result.pattern_count, @result.binary_count, @result.length ] %></div>
