@@ -27,7 +27,7 @@ class Seeker < ActiveXML::Base
       raise "Please provide a valid search term" if words.blank?
 
       xpath = "contains-ic(@name, " + words.map{|word| "'#{word}'"}.join(", ") + ")"
-      xpath += ' and ' + versions.map {|part| "contains-ic(@version,'#{part}')"}.join(" and ") if !versions.blank?
+      xpath += ' and ' + versions.map {|part| "starts-with(@version,'#{part}')"}.join(" and ") if !versions.blank?
       xpath = "(#{xpath}) and path/project='#{baseproject}'" if !baseproject.blank?
 
       bin = Seeker.find :binary, :match => xpath
