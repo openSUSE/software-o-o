@@ -4,6 +4,7 @@
 class ApplicationController < ActionController::Base
 
   before_filter :set_distributions
+  before_filter :set_language
 
   init_gettext('software')
 
@@ -17,6 +18,17 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def set_language
+    if params[:lang].nil?
+      lang = request.compatible_language_from(LANGUAGES) || "en"
+    else
+      lang = params[:lang][0].gsub(/\-/, '_')
+    end
+    @lang = lang
+    GetText.locale = lang
+  end
+
 
   def set_distributions
     @distributions = Rails.cache.fetch('distributions', :expires_in => 120.minutes) do

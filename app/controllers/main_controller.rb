@@ -115,9 +115,6 @@ class MainController < ApplicationController
   end
 
   def release
-    @lang = params[:lang][0].gsub(/\-/, '_')
-    GetText.locale = @lang
-
     set_release(params[:release])
     render :template => "main/release"
   end
@@ -125,7 +122,6 @@ class MainController < ApplicationController
   def change_install
     set_release(params[:release])
     @medium = params[:medium]
-    @lang = params[:lang]
     render :template => "main/release"
   end
 

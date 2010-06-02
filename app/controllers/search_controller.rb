@@ -1,14 +1,6 @@
 class SearchController < ApplicationController
 
   def index
-    if params[:lang].nil?
-      lang = request.compatible_language_from(LANGUAGES) || "en"
-    else
-      lang = params[:lang][0]
-    end
-    @lang = lang
-    GetText.locale = lang
-
     if params[:baseproject]
       @baseproject = params[:baseproject]
     end
@@ -47,6 +39,7 @@ class SearchController < ApplicationController
       logger.error _("Could not perform search: ") + search_error
       flash.now[:error] = _("Could not perform search: ") + search_error and return
     end
+    
     flash.now[:warn] = _("Please be more precise in your search, search limit reached.") if @result.length >= 1000
     return true
   end
