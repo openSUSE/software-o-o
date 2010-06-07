@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_distributions
   before_filter :set_language
+  helper :all # include all helpers, all the time
 
   init_gettext('software')
 
