@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
     @distributions = Array.new
     begin
       Net::HTTP.start(uri.host, uri.port) do |http|
-        http.read_timeout = 5
+        http.read_timeout = 30
         response = http.request(request)
         unless( response.kind_of? Net::HTTPSuccess )
           logger.error "Cannot load distributions: '#{response.code}', message: \n#{response.body}"
@@ -57,11 +57,12 @@ class ApplicationController < ActionController::Base
           }
         end
       end
+      @distributions << ["ALL", 'ALL']
+      return @distributions
     rescue Exception => e
       logger.error "Error while loading distributions from '#{uri}': " + e.to_s
     end
-    @distributions << ["ALL", 'ALL']
-    return @distributions
+    return nil
   end
 
 
