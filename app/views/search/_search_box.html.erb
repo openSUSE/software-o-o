@@ -1,0 +1,33 @@
+
+<div class="box box-shadow">
+  <h2 class="box-header"><%=_("Package Search")%></h2>
+  <div id="get_software">
+    <p><%=_("Search and install software packages from the openSUSE Build Service:") %></p>
+    <div id="search_form">
+      <% form_tag( {:controller => 'search'}, :method => :get ) do %>
+        <%= text_field_tag 'q', @query, :size => 40 %> (<a href="#" class="options_link" id="search_option_toggle">Search options</a>)
+        <div class="form_control">
+          <%= select_tag 'baseproject', options_for_select((@distributions || ["ALL"]), (@baseproject or default_baseproject)) %>
+          <%= submit_tag _('Search'), :name => nil %>
+          
+        </div>
+
+        <div id="search_options" style="display: none">
+          <%= check_box_tag('exclude_filter', "home:", (@exclude_filter == 'home:'), {})  %> Exclude user's home projects
+          <%= check_box_tag('exclude_debuginfo', "true", @exclude_debuginfo, {})  %> Exclude debuginfo packages
+        </div>
+
+        <script>
+          var flip = 0;
+          $("#search_option_toggle").click(function () {
+            $("#search_options").toggle( flip++ % 2 == 0 );
+          });
+        </script>
+
+
+      <% end -%>
+    </div>
+  </div>
+</div>
+
+<%= setup_baseproject %>

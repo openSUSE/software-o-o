@@ -9,17 +9,20 @@ class Seeker < ActiveXML::Base
     return len
   end
 
-  def self.prepare_result(query, baseproject=nil)
-    cache_key = 'searchresult_' + MD5::md5( query ).to_s
-    cache_key += '_' + MD5::md5( baseproject ).to_s if baseproject
-      Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
-        SearchResult.search(query, baseproject)
-      end
+  def self.prepare_result(query, baseproject=nil, exclude_filter=nil, exclude_debuginfo=false)
+    cache_key = query
+    cache_key += "_#{baseproject}" if baseproject
+    cache_key += "_#{exclude_filter}" if exclude_filter
+    cache_key += "_#{exclude_debuginfo}" if exclude_debuginfo
+    cache_key = 'searchresult_' + MD5::md5( cache_key ).to_s
+    Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
+      SearchResult.search(query, baseproject, exclude_filter, exclude_debuginfo)
+    end
   end
 
 
   class SearchResult < Array
-    def self.search(query, baseproject)
+    def self.search(query, baseproject, exclude_filter=nil, exclude_debuginfo=false)
 
       words = query.split(" ").select {|part| !part.match(/^[0-9_\.-]+$/) }
       versions = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
@@ -27,14 +30,20 @@ class Seeker < ActiveXML::Base
       raise "Please provide a valid search term" if words.blank?
 
       xpath = "contains-ic(@name, " + words.map{|word| "'#{word}'"}.join(", ") + ")"
-      xpath += ' and ' + versions.map {|part| "starts-with(@version,'#{part}')"}.join(" and ") if !versions.blank?
-      xpath = "(#{xpath}) and path/project='#{baseproject}'" if !baseproject.blank?
+      xpath += ' and ' + versions.map {|part| "starts-with(@version,'#{part}')"}.join(" and ") unless versions.blank?
+      xpath += " and path/project='#{baseproject}'" unless baseproject.blank?
+      xpath += " and not(contains-ic(@name, '-debuginfo'))" if exclude_debuginfo
+      #xpath += " and not(contains-ic(@project, '#{exclude_filter}'))" unless exclude_filter.blank?
 
       bin = Seeker.find :binary, :match => xpath
       pat = Seeker.find :pattern, :match => xpath
       result = new(query)
       result.add_patlist(pat)
       result.add_binlist(bin)
+
+      # remove this hack when the backend can filter for project names
+      result.reject!{|res| /#{exclude_filter}/.match( res.project ) } unless exclude_filter.blank?
+
       result.sort! {|x,y| y.relevance <=> x.relevance}
 
       return result

@@ -96,12 +96,12 @@ class MainController < ApplicationController
     notice = nil
     url = "%s/%s/%s" % [ActionController::Base.relative_url_root, release, lang]
     if request.user_agent && request.user_agent.index('Mozilla/5.0 (compatible; Konqueror/3')
-	notice = _("Konqueror of KDE 3 is unfortunately unmaintained and its javascript implementation contains bugs that make it impossible to use with this page. Please make sure you have javascript disabled before you <a href='%s'>continue</a>.") % url
+      notice = _("Konqueror of KDE 3 is unfortunately unmaintained and its javascript implementation contains bugs that make it impossible to use with this page. Please make sure you have javascript disabled before you <a href='%s'>continue</a>.") % url
     end
     if notice
-       render :template => "main/redirect_with_notice", :locals => { :notice => notice }
+      render :template => "main/redirect_with_notice", :locals => { :notice => notice }
     else
-       redirect_to url
+      redirect_to url
     end
   end
 
@@ -115,6 +115,8 @@ class MainController < ApplicationController
   end
 
   def release
+    @exclude_debuginfo = true
+    @exclude_filter = 'home:'
     set_release(params[:release])
     render :template => "main/release"
   end
