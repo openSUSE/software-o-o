@@ -12,9 +12,9 @@ class ApplicationController < ActionController::Base
   def rescue_action_in_public(exception)
     @message = exception.message
     if request.xhr?
-      render :template => "error", :layout => false, :status => 404
+      render :template => "error", :layout => false, :status => 400
     else
-      render :template => 'error', :layout => "application", :status => 404
+      render :template => 'error', :layout => "application", :status => 400
     end
   end
 
