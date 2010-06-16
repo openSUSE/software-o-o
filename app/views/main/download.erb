@@ -50,6 +50,7 @@ function changeiso () {
      if ($('#p_torrent').attr('checked')) {
 	$('#p_torrent').attr('checked', '');
 	$('#p_http').attr('checked', 'checked');
+	mylink = myiso;
      }
   } else {
      $('#l_torrent').removeClass('notavailable');
