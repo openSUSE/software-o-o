@@ -17,14 +17,6 @@
           <%= check_box_tag('exclude_debuginfo', "true", @exclude_debuginfo, {})  %> Exclude debuginfo packages
         </div>
 
-        <script>
-          var flip = 0;
-          $("#search_option_toggle").click(function () {
-            $("#search_options").toggle( flip++ % 2 == 0 );
-          });
-        </script>
-
-
       <% end -%>
     </div>
   </div>

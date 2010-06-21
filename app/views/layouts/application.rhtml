@@ -20,6 +20,11 @@
     <%= yield :head_javascript %>
     $(function() {
       <%= yield :ready_function %>
+         
+      var flip = 0;
+      $("#search_option_toggle").click(function () {
+        $("#search_options").toggle( flip++ % 2 == 0 );
+      });
     });
     /* ]]> */
     </script>
@@ -69,7 +74,7 @@
 
     <div id="content" class="container_12 content-wrapper">
       <div class="grid_9 alpha">
-        
+
       <%= render :partial => 'search/search_box' %>
 
         <div class="box box-shadow">
@@ -115,6 +120,7 @@
             <li><a href="http://en.opensuse.org/Installation"><%=_("Installation Guides")%></a></li>
             <li><a href="http://www.novell.com/documentation/opensuse112/"><%=_("Official Manuals")%></a></li>
             <li><a href="http://en.opensuse.org/Additional_YaST_Package_Repositories"><%=_("Package Repositories")%></a></li>
+            <li><a href="http://en.opensuse.org/Bugs"><%=_("Reporting Bugs")%></a></li>
           </ul>
         </div>
 
@@ -153,7 +159,7 @@
       <div id="footer-legal" class="border-top grid_12">
         <a href="http://en.opensuse.org/openSUSE:About">About openSUSE</a> |
         <a href="http://en.opensuse.org/openSUSE:General_disclaimer">Legal information</a> |
-        <a href="mailto:webmaster@opensuse.org">Feedback</a>
+        <a href="mailto:admin@opensuse.org">Feedback</a>
         <br/><br/>
         <a href="http://www.novell.com/linux/"><img src="http://static.opensuse.org/c/images/common/founded_novell.gif" alt="Founded by Novell" /></a>
       </div>
