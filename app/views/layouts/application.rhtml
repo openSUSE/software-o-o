@@ -22,7 +22,7 @@
       <%= yield :ready_function %>
          
       var flip = 0;
-      $("#search_option_toggle").click(function () {
+      $(".options_link").click(function () {
         $("#search_options").toggle( flip++ % 2 == 0 );
       });
     });

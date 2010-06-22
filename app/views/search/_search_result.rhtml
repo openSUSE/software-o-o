@@ -1,6 +1,10 @@
 <div id="search_results_top">
   <% if @result.blank? -%>
-    <div id="nothing_found"><%= _("No packages found that matched your query") %></div>
+    <div id="nothing_found">
+      <%= _("No packages found that matched your query") %>. 
+      <%= _("Maybe you want to extend your search using the ") %><a href="#" class="options_link" id="search_option_toggle">search options</a>.
+    </div>
+
   <% else -%>
     <% @box_title = "#{@page_title}: " + _("%d collections and %d binaries from %d source packages") % [ @result.pattern_count, @result.binary_count, @result.length ] %>
     <%= render :partial => 'paginator', :locals => {:result => @result} %>
