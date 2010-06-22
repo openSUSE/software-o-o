@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 
   def index
-    @exclude_debuginfo = true
+    @exclude_debug = true
     @exclude_filter = 'home:'
     if params[:baseproject]
       @baseproject = params[:baseproject]
@@ -24,7 +24,7 @@ class SearchController < ApplicationController
     @baseproject = params[:baseproject]
     @current_page = params[:p].to_i
     @current_page = 1 if @current_page == 0
-    @exclude_debuginfo = params[:exclude_debuginfo]
+    @exclude_debug = params[:exclude_debug]
     @exclude_filter = params[:exclude_filter]
 
     if @query.split(" ").select{|e| e.length < 2 }.size > 0
@@ -33,7 +33,7 @@ class SearchController < ApplicationController
 
     base = @baseproject=="ALL" ? "" : @baseproject
     begin
-      @result = Seeker.prepare_result(CGI.escape(@query).gsub("+", " "), base, @exclude_filter, @exclude_debuginfo)
+      @result = Seeker.prepare_result(CGI.escape(@query).gsub("+", " "), base, @exclude_filter, @exclude_debug)
       if @current_page == 1 and @result.length > 1 # ignore sub pages
         SearchHistory.create :query => @query, :base => @baseproject, :patterns => @result.pattern_count,
           :binaries => @result.binary_count, :count => @result.length
@@ -44,7 +44,7 @@ class SearchController < ApplicationController
       flash.now[:error] = _("Could not perform search: ") + search_error and return
     end
 
-    flash.now[:warn] = _("Please be more precise in your search, search limit reached.") if @result.length >= 1000
+    flash.now[:warn] = _("Please be more precise in your search, search limit reached.") if @result.binary_count >= 1000
     return true
   end
 

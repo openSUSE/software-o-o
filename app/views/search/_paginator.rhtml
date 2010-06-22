@@ -5,21 +5,21 @@
       when :prev -%>
         <span id="prev" class="prev_btn">
           <%= link_to image_tag("/images/left_btn.gif") ,{:action => :index, :p => @current_page-1, :q => @query, 
-            :baseproject => @baseproject, :exclude_debuginfo => @exclude_debuginfo, :exclude_filter => @exclude_filter} %>
+            :baseproject => @baseproject, :exclude_debug => @exclude_debug, :exclude_filter => @exclude_filter} %>
         </span>
       <% when :dots -%>
         <span id="dots">...</span>
       <% when :next -%>
         <span id="next" class="next_btn">
           <%= link_to image_tag("/images/right_btn.gif"), :action => :index, :p => @current_page+1, 
-            :q => @query, :baseproject => @baseproject, :exclude_debuginfo => @exclude_debuginfo, :exclude_filter => @exclude_filter %>
+            :q => @query, :baseproject => @baseproject, :exclude_debug => @exclude_debug, :exclude_filter => @exclude_filter %>
         </span>
       <% else
         if page == @current_page -%>
           <span id="current_page"><b><%= page %></b></span>
         <% else -%>
           <%= link_to page, :action => :index, :p => page, :q => @query, :baseproject => @baseproject,
-            :exclude_debuginfo => @exclude_debuginfo, :exclude_filter => @exclude_filter %>
+            :exclude_debug => @exclude_debug, :exclude_filter => @exclude_filter %>
         <% end
       end 
     end -%>

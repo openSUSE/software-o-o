@@ -9,20 +9,20 @@ class Seeker < ActiveXML::Base
     return len
   end
 
-  def self.prepare_result(query, baseproject=nil, exclude_filter=nil, exclude_debuginfo=false)
+  def self.prepare_result(query, baseproject=nil, exclude_filter=nil, exclude_debug=false)
     cache_key = query
     cache_key += "_#{baseproject}" if baseproject
     cache_key += "_#{exclude_filter}" if exclude_filter
-    cache_key += "_#{exclude_debuginfo}" if exclude_debuginfo
+    cache_key += "_#{exclude_debug}" if exclude_debug
     cache_key = 'searchresult_' + MD5::md5( cache_key ).to_s
     Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
-      SearchResult.search(query, baseproject, exclude_filter, exclude_debuginfo)
+      SearchResult.search(query, baseproject, exclude_filter, exclude_debug)
     end
   end
 
 
   class SearchResult < Array
-    def self.search(query, baseproject, exclude_filter=nil, exclude_debuginfo=false)
+    def self.search(query, baseproject, exclude_filter=nil, exclude_debug=false)
 
       words = query.split(" ").select {|part| !part.match(/^[0-9_\.-]+$/) }
       versions = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
@@ -32,7 +32,7 @@ class Seeker < ActiveXML::Base
       xpath = "contains-ic(@name, " + words.map{|word| "'#{word}'"}.join(", ") + ")"
       xpath += ' and ' + versions.map {|part| "starts-with(@version,'#{part}')"}.join(" and ") unless versions.blank?
       xpath += " and path/project='#{baseproject}'" unless baseproject.blank?
-      xpath += " and not(contains-ic(@name, '-debuginfo'))" if exclude_debuginfo
+      xpath += " and not(contains-ic(@name, '-debuginfo', '-debugsource')) and not(contains-ic(@name, '-debugsource'))" if exclude_debug
       #xpath += " and not(contains-ic(@project, '#{exclude_filter}'))" unless exclude_filter.blank?
 
       bin = Seeker.find :binary, :match => xpath
@@ -233,6 +233,7 @@ class Seeker < ActiveXML::Base
       end
       
       def calculate_specific_relevance
+        @relevance -= 10 if name =~ /-debugsource$/
         @relevance -= 10 if name =~ /-debuginfo$/
         @relevance -= 3 if name =~ /-devel$/
         @relevance -= 3 if name =~ /-doc$/

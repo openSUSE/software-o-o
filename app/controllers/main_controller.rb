@@ -115,7 +115,7 @@ class MainController < ApplicationController
   end
 
   def release
-    @exclude_debuginfo = true
+    @exclude_debug = true
     @exclude_filter = 'home:'
     set_release(params[:release])
     render :template => "main/release"
