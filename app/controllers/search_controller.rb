@@ -26,6 +26,7 @@ class SearchController < ApplicationController
     @current_page = 1 if @current_page == 0
     @exclude_debug = params[:exclude_debug]
     @exclude_filter = params[:exclude_filter]
+    @project = params[:project]
 
     if @query.split(" ").select{|e| e.length < 2 }.size > 0
       flash.now[:error] = 'Please use a search string of at least 2 characters' and return
@@ -33,7 +34,7 @@ class SearchController < ApplicationController
 
     base = @baseproject=="ALL" ? "" : @baseproject
     begin
-      @result = Seeker.prepare_result(CGI.escape(@query).gsub("+", " "), base, @exclude_filter, @exclude_debug)
+      @result = Seeker.prepare_result(CGI.escape(@query).gsub("+", " "), base, @project, @exclude_filter, @exclude_debug)
       if @current_page == 1 and @result.length > 1 # ignore sub pages
         SearchHistory.create :query => @query, :base => @baseproject, :patterns => @result.pattern_count,
           :binaries => @result.binary_count, :count => @result.length

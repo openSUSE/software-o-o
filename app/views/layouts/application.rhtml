@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <title>Software.openSUSE.org</title>
+    <title><%= "software.opensuse.org: " + @page_title %></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Script-Type" content="text/javascript"/>
     <meta http-equiv="Content-Style-Type" content="text/css"/>
@@ -79,12 +79,12 @@
 
         <div class="box box-shadow">
           <h2 class="box-header">
-            <span class="alignleft"><%= @page_title -%></span>
+            <span class="alignleft"><%= @box_title || @page_title -%></span>
             <% if @right_box == :search -%>
               <span class="alignright" style="padding-right: 10px">
-                <% if @release != "developer" -%>
+                <% if !@release.blank? and @release != "developer" -%>
                   <%= _('switch to') -%> <%= link_to _('Development Version'), {:controller => "main", :action => "developer", :lang => @lang } -%>
-                <% else -%>
+                <% elsif !@release.blank? -%>
                   <%= _('switch to') -%> <%= link_to _('Released Version'), {:controller => "main", :action => "index", :lang => @lang } -%>
                 <% end -%>
               </span>

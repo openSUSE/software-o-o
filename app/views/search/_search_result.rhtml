@@ -2,7 +2,7 @@
   <% if @result.blank? -%>
     <div id="nothing_found"><%= _("No packages found that matched your query") %></div>
   <% else -%>
-    <div id="search_top_info"><%= _("%d collections and %d binaries from %d source packages") % [ @result.pattern_count, @result.binary_count, @result.length ] %></div>
+    <% @box_title = "#{@page_title}: " + _("%d collections and %d binaries from %d source packages") % [ @result.pattern_count, @result.binary_count, @result.length ] %>
     <%= render :partial => 'paginator', :locals => {:result => @result} %>
     <% @result.page(@current_page).each do |item| -%>
       <% if item.kind_of? Seeker::SearchResult::Pattern -%>

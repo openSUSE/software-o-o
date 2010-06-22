@@ -9,20 +9,21 @@ class Seeker < ActiveXML::Base
     return len
   end
 
-  def self.prepare_result(query, baseproject=nil, exclude_filter=nil, exclude_debug=false)
+  def self.prepare_result(query, baseproject=nil, project=nil, exclude_filter=nil, exclude_debug=false)
     cache_key = query
     cache_key += "_#{baseproject}" if baseproject
     cache_key += "_#{exclude_filter}" if exclude_filter
     cache_key += "_#{exclude_debug}" if exclude_debug
+    cache_key += "_#{project}" if project
     cache_key = 'searchresult_' + MD5::md5( cache_key ).to_s
     Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
-      SearchResult.search(query, baseproject, exclude_filter, exclude_debug)
+      SearchResult.search(query, baseproject, project, exclude_filter, exclude_debug)
     end
   end
 
 
   class SearchResult < Array
-    def self.search(query, baseproject, exclude_filter=nil, exclude_debug=false)
+    def self.search(query, baseproject, project=nil, exclude_filter=nil, exclude_debug=false)
 
       words = query.split(" ").select {|part| !part.match(/^[0-9_\.-]+$/) }
       versions = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
@@ -32,7 +33,8 @@ class Seeker < ActiveXML::Base
       xpath = "contains-ic(@name, " + words.map{|word| "'#{word}'"}.join(", ") + ")"
       xpath += ' and ' + versions.map {|part| "starts-with(@version,'#{part}')"}.join(" and ") unless versions.blank?
       xpath += " and path/project='#{baseproject}'" unless baseproject.blank?
-      xpath += " and not(contains-ic(@name, '-debuginfo', '-debugsource')) and not(contains-ic(@name, '-debugsource'))" if exclude_debug
+      xpath += " and @project = '#{project}' " unless project.blank?
+      xpath += " and not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource'))" if exclude_debug
       #xpath += " and not(contains-ic(@project, '#{exclude_filter}'))" unless exclude_filter.blank?
 
       bin = Seeker.find :binary, :match => xpath

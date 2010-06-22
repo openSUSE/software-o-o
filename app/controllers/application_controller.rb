@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
           }
         end
       end
-      @distributions << ["ALL", 'ALL']
+      @distributions << ["ALL Distributions", 'ALL']
       return @distributions
     rescue Exception => e
       logger.error "Error while loading distributions from '#{uri}': " + e.to_s
