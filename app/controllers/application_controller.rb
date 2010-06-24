@@ -22,13 +22,14 @@ class ApplicationController < ActionController::Base
   private
 
   def set_language
-    if params[:lang].nil?
-      lang = request.compatible_language_from(LANGUAGES) || "en"
+    if cookies[:lang]
+      @lang = cookies[:lang]
+    elsif params[:lang]
+      @lang = params[:lang][0].gsub(/\-/, '_')
     else
-      lang = params[:lang][0].gsub(/\-/, '_')
+      @lang = request.compatible_language_from(LANGUAGES) || "en"
     end
-    @lang = lang
-    GetText.locale = lang
+    GetText.locale = @lang
   end
 
 
