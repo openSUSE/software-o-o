@@ -6,9 +6,10 @@ svn co http://svn.berlios.de/svnroot/repos/opensuse-i18n/trunk/lcn/
 export MY_LCN_CHECKOUT=<path to lcn files>
 cd $MY_LCN_CHECKOUT && ./configure
 
-To update the .mo files with those from the lcn repo:
-rake makemo
-# use git add for new files
+If there are new strings in the software.o.o code, use: 
+> rake updatepo
+to update the pot file in the lcn checkout.
 
-To update the .mo files with those from the lcn repo (only those without fuzzy translations will be copied): 
-rake makemo
+To update the .mo files in software.o.o with those from the lcn repo (only those without fuzzy translations will be copied): 
+> rake makemo
+and use git add for new files
