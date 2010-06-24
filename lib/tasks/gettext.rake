@@ -29,7 +29,7 @@ end
 desc "Update pot/po files to match new version."
 task :updatepo do
 require 'gettext/utils'
-files = Dir.glob("{app,lib}/**/*.{rb,rhtml}")
+files = Dir.glob("{app,lib}/**/*.{rb,rhtml,erb}")
 GetText.rgettext(files, "tmp.pot")
 system("cd $MY_LCN_CHECKOUT && svn up")
 system("msgmerge -o $MY_LCN_CHECKOUT/50-pot/software-opensuse-org.pot $MY_LCN_CHECKOUT/50-pot/software-opensuse-org.pot tmp.pot")
