@@ -26,7 +26,8 @@ class ApplicationController < ActionController::Base
       @lang = cookies[:lang]
     elsif params[:lang]
       @lang = params[:lang][0].gsub(/\-/, '_')
-    else
+    end
+    if !@lang || !LANGUAGES.include?( @lang )
       @lang = request.compatible_language_from(LANGUAGES) || "en"
     end
     GetText.locale = @lang
