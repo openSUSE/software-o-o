@@ -2,7 +2,7 @@
 <div class="box box-shadow">
   <h2 class="box-header"><%=_("Package Search")%></h2>
   <div id="get_software">
-    <p><%= _("Search and install software packages from the openSUSE Build Service:") %></p>
+    <p><%= _("Search and install software packages from the <a href=\"http://build.opensuse.org\">openSUSE Build Service</a>:") %></p>
     <div id="search_form">
       <% form_tag( {:controller => 'search'}, :method => :get ) do %>
         <%= text_field_tag 'q', @query, :size => 40 %> (<a href="#" class="options_link" id="search_option_toggle"><%= _('Search options') %></a>)
