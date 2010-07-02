@@ -204,13 +204,12 @@ class Seeker < ActiveXML::Base
         quoted_query = Regexp.quote @query
         @relevance_calculated = true
         @relevance += 15 if name =~/^#{quoted_query}$/i
+        @relevance += 5 if name =~/^#{quoted_query}/i
+        @relevance += 15 if project =~ /^openSUSE:/i
         @relevance += 5 if project =~ /^#{quoted_query}$/i
-        @relevance += 5 if name =~ /#{quoted_query}/i
-        @relevance += 2 if project =~ /#{quoted_query}/i
-        @relevance += 1 if project =~ /^openSUSE/i
-
+        @relevance += 2 if project =~ /^#{quoted_query}/i
+        @relevance -= 5 if project =~ /unstable/i
         @relevance -= 10 if project =~ /^home:/
-        
         calculate_specific_relevance
       end
 
