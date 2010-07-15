@@ -125,8 +125,8 @@ class MainController < ApplicationController
   end
 
   def developer
-    redirectit("developer")
-    #redirect_to "http://en.opensuse.org/Factory"
+    #redirectit("developer")
+    redirect_to "http://en.opensuse.org/Portal:Factory"
   end
    
   def index
