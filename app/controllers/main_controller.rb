@@ -107,13 +107,8 @@ class MainController < ApplicationController
   end
 
   def redirectit(release)
-    if params[:lang].nil?
-      lang = request.compatible_language_from(LANGUAGES) || "en"
-    else
-      lang = params[:lang][0]
-    end
     notice = nil
-    url = "%s/%s/%s" % [ActionController::Base.relative_url_root, release, lang]
+    url = "%s/%s/%s" % [ActionController::Base.relative_url_root, release, @lang]
     if request.user_agent && request.user_agent.index('Mozilla/5.0 (compatible; Konqueror/3')
       notice = _("Konqueror of KDE 3 is unfortunately unmaintained and its javascript implementation contains bugs that make it impossible to use with this page. Please make sure you have javascript disabled before you <a href='%s'>continue</a>.") % url
     end
