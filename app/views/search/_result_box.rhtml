@@ -16,10 +16,13 @@
     <%= render :partial => "description", :locals => {:item => item} %>
     <% end -%>
   </div>
+  <% #hide one click install for .deb packages, see #622511 %>
+  <% unless item.filename =~ /\.deb$/ %>
   <div class="install_btn">
     <%= link_to _("1-Click Install"), :controller => 'main', :action => 'ymp_without_arch_and_version',
     :project => item.project, :repository => item.repository, :package => item.name, :query => @query, :base => @baseproject %>
   </div>
+  <% end %>
 
   <div id="pkg_list_wrapper">
     <h4><%= _("Manual Package Download") %></h4>
