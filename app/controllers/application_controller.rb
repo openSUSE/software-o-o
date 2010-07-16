@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     end
     @lang.gsub!(/_/, '-') if @lang
     if !@lang || !LANGUAGES.include?( @lang )
-      @lang = request.compatible_language_from(LANGUAGES) || "en"
+      @lang = request.compatible_language_from(LANGUAGES).dup || "en"
     end
     @lang.gsub!(/-/, '_')
     GetText.locale = @lang
