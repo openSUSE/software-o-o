@@ -41,7 +41,7 @@
   </p>
   <h3><%=_("Need help?")%></h3>
   <p>
-    <%= _("More information on downloading openSUSE is available from the <a href=\"http://en.opensuse.org/Download_Help\">Download Help.</a>") %>
+    <%= _("More information on downloading openSUSE is available from the <a href=\"http://en.opensuse.org/SDB:Download_help\">Download Help.</a>") %>
   </p>
 
   <h3><%=_("Verify your download (optional, for experts)")%></h3>
@@ -82,7 +82,7 @@
   <h3><%=_("How to Proceed")%></h3>
   <ol id="howtoproceed" style="list-style-type:lower-latin">
     <li><%=_("After having successfully downloaded the ISO image(s), burn the image(s) with your favorite burning application to a DVD or CD. Please do <em>not</em> burn a data DVD/CD, but rather choose the option to burn an ISO image.")%>
-    <a href="<%= _("http://en.opensuse.org/Download_Help#Burn_the_ISO_Image.28s.29")%>"><%=_("More information")%></a></li>
+    <a href="<%= _("http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29")%>"><%=_("More information")%></a></li>
     <li><%=_("Boot from the DVD or CD. In case your computer does not automatically boot from CD/DVD, open the BIOS setup to allow booting from CD or DVD.")%></li>
     <li><%=_("Instructions are available as follows:")%>
       <dl>
@@ -90,11 +90,11 @@
         <dd>
           <a href="http://www.novell.com/documentation/opensuse112/book_opensuse_startup/?page=/documentation/opensuse112/book_opensuse_startup/data/book_opensuse_startup.html"><%=_("Official %s Start-Up guide") % @releasename %></a>
           <br />
-          <a href="<%= _("http://en.opensuse.org/INSTALL_Local")%>"><%=_("Step-by-step installation guide")%></a>
+          <a href="<%= _("http://en.opensuse.org/SDB:Installation_help")%>"><%=_("Step-by-step installation guide")%></a>
         </dd>
         <dt><%=_("Network Installation")%></dt>
         <dd>
-          <%= '<a href="%s">%s</a>' % [h(_("http://en.opensuse.org/INSTALL_Internet")) , h(_("Internet Installation"))] %>
+          <%= '<a href="%s">%s</a>' % [h(_("http://en.opensuse.org/SDB:Network_installation")) , h(_("Internet Installation"))] %>
         </dd>
       </dl>
     </li>
