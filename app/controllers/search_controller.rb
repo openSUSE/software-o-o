@@ -41,8 +41,13 @@ class SearchController < ApplicationController
       end
     rescue => e
       search_error, code, api_exception = ActiveXML::Transport.extract_error_message e
-      logger.error _("Could not perform search: ") + search_error
-      flash.now[:error] = _("Could not perform search: ") + search_error and return
+      if code == "413"
+        flash.now[:error] = _("Please be more precise in your search, search limit reached.")
+      else
+        logger.error _("Could not perform search: ") + search_error
+        flash.now[:error] = _("Could not perform search: ") + search_error
+      end
+      return
     end
 
     flash.now[:warn] = _("Please be more precise in your search, search limit reached.") if @result.binary_count >= 1000
