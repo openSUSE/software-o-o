@@ -27,15 +27,18 @@ class Seeker < ActiveXML::Base
 
       words = query.split(" ").select {|part| !part.match(/^[0-9_\.-]+$/) }
       versions = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
-      logger.debug "splitted words and version: #{words.inspect} #{versions.inspect} "
+      logger.debug "splitted words and version: #{words.inspect} #{versions.inspect}"
       raise "Please provide a valid search term" if words.blank?
 
-      xpath = "contains-ic(@name, " + words.map{|word| "'#{word}'"}.join(", ") + ")"
+      xpath = "contains-ic(@name, " + words.select{|word| !word.match(/^%22.+%22$/) }.map{|word| "'#{word}'"}.join(", ") + ")"
+      words.select{|word| word.match(/^%22.+%22$/) }.map{|word| word.gsub( "%22", "" ) }.each do |word|
+        xpath = "@name = '#{word}' "
+      end
       xpath += ' and ' + versions.map {|part| "starts-with(@version,'#{part}')"}.join(" and ") unless versions.blank?
       xpath += " and path/project='#{baseproject}'" unless baseproject.blank?
       xpath += " and @project = '#{project}' " unless project.blank?
       xpath += " and not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource'))" if exclude_debug
-      #xpath += " and not(contains-ic(@project, '#{exclude_filter}'))" unless exclude_filter.blank?
+      xpath += " and not(contains-ic(@project, '#{exclude_filter}'))" unless exclude_filter.blank?
 
       bin = Seeker.find :binary, :match => xpath
       pat = Seeker.find :pattern, :match => xpath

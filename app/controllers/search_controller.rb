@@ -29,7 +29,7 @@ class SearchController < ApplicationController
     @project = params[:project]
 
     if @query.split(" ").select{|e| e.length < 2 }.size > 0
-      flash.now[:error] = 'Please use a search string of at least 2 characters' and return
+      flash.now[:error] = _("Please use search strings of at least 2 characters") and return
     end
 
     base = @baseproject=="ALL" ? "" : @baseproject
