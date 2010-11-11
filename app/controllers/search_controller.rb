@@ -42,7 +42,12 @@ class SearchController < ApplicationController
     rescue => e
       search_error, code, api_exception = ActiveXML::Transport.extract_error_message e
       if code == "413"
-        flash.now[:error] = _("Please be more precise in your search, search limit reached.")
+        @result = Seeker.prepare_result(CGI.escape("\"#{@query}\"").gsub("+", " "), base, @project, @exclude_filter, @exclude_debug)
+        unless @result.blank?
+          flash.now[:note] = _("Switched to exact match due to too many hits on substring search.")
+        else
+          flash.now[:error] = _("Please be more precise in your search, search limit reached.")
+        end
       else
         logger.error _("Could not perform search: ") + search_error
         flash.now[:error] = _("Could not perform search: ") + search_error
