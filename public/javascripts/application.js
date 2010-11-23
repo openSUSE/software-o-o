@@ -39,12 +39,6 @@ function submitquery() {
 }
 
 $(function() {
-  try {
-    var pageTracker = _gat._getTracker("UA-3367212-3");
-    pageTracker._setDomainName(".opensuse.org");
-    pageTracker._trackPageview();
-  } catch(err) {}
-  
   $(".query").click(submitquery);
 });
 
