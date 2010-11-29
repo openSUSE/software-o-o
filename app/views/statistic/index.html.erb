@@ -1,0 +1,33 @@
+<% @page_title = _("Statistics") -%>
+
+<h2><%= _("Search Statistics:") %></h2>
+
+<h3><%= _("Top searches:") %></h3>
+
+<ol>
+<% top = @top_searches -%>
+<% top.each do |item| -%>
+  <li><%= h item[:query] %> (<%= h item[:count] %>)</li>
+<% end -%>
+</ol>
+
+<h3><%= _("Top searches without hits:") %></h3>
+
+<ol>
+<% top = @failed_searches -%>
+<% top.each do |item| -%>
+  <li><%= h item[:query] %> (<%= h item[:count] %>)</li>
+<% end -%>
+</ol>
+
+
+<h2><%= _("Download Statistics:") %></h2>
+
+<h3><%= _("Top downloads:") %></h3>
+
+<ol>
+<% top = top_downloads -%>
+<% top.each do |item| -%>
+  <li><%= h item[:query] %> (<%= h item[:count] %>)</li>
+<% end -%>
+</ol>
