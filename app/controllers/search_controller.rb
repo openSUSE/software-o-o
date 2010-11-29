@@ -35,7 +35,7 @@ class SearchController < ApplicationController
     base = @baseproject=="ALL" ? "" : @baseproject
     begin
       @result = Seeker.prepare_result(CGI.escape(@query).gsub("+", " "), base, @project, @exclude_filter, @exclude_debug)
-      if @current_page == 1 and @result.length > 1 # ignore sub pages
+      if @current_page == 1 # ignore sub pages
         SearchHistory.create :query => @query, :base => @baseproject, :patterns => @result.pattern_count,
           :binaries => @result.binary_count, :count => @result.length
       end

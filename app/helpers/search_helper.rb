@@ -52,24 +52,15 @@ module SearchHelper
 
 
   def top_downloads
+    time_limit = DateTime.parse 3.months.ago.to_s
     Rails.cache.fetch('top_downloads', :expires_in => 12.hours) do
-      list=ActiveRecord::Base.connection.execute('select query, count(*) as c from download_histories where query is NOT NULL group by query order by c desc limit 200;')
-      queries=Hash.new
-      list.each do |entry|
-        s = entry[0].strip.downcase
-        queries[s] ||= 0
-        queries[s] += entry[1].to_i
+      result = ActiveRecord::Base.connection.execute("select query, count(*) as c from download_histories where query is NOT NULL AND created_at > '#{time_limit}' group by query order by c desc limit 15")
+      top = Array.new
+      result.each do |entry|
+        top << { :query => entry[0].strip.downcase, :count => entry[1].to_i}
       end
-
-      queries = queries.to_a.sort { |x,y| y[1] <=> x[1] }
-      tops = Array.new
-      count = 0
-      queries.each do |q,c|
-        tops << { :query => q, :count => c}
-        break if count > 15
-        count += 1
-      end
-      tops
+      top
     end
   end
+
 end

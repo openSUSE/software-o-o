@@ -104,12 +104,14 @@
 
           <p>
             <% top = top_downloads
-            top1=top[0][:count]
-            top10=top[-1][:count]
-            top.each do |query| -%>
-              <% queryclass=((Float(query[:count] - top10) / (top1 - top10)) * 5).round %>
-              <a class='<%= "nowrap query query_#{queryclass}"%>'><%= query[:query] %></a>
-            <% end -%>
+            if !top.blank?
+              top1=top[0][:count]
+              top10=top[-1][:count]
+              top.each do |query| -%>
+                <% queryclass=((Float(query[:count] - top10) / (top1 - top10)) * 5).round %>
+                <a class='<%= "nowrap query query_#{queryclass}"%>'><%= query[:query] %></a>
+              <% end
+            end -%>
           </p>
         </div>
 

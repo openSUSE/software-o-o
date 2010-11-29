@@ -3,12 +3,19 @@
 
 class ApplicationController < ActionController::Base
 
-  before_filter :set_distributions
   before_filter :set_language
+  before_filter :set_distributions
+  
   helper :all # include all helpers, all the time
   require "rexml/document"
 
   init_gettext('software')
+
+  protected
+
+  def rescue_action_locally( exception )
+    rescue_action_in_public( exception )
+  end
 
   def rescue_action_in_public(exception)
     @message = exception.message
@@ -18,8 +25,6 @@ class ApplicationController < ActionController::Base
       render :template => 'error', :layout => "application", :status => 400
     end
   end
-
-  private
 
   def set_language
     if cookies[:lang]
