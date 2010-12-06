@@ -25,6 +25,7 @@ class Seeker < ActiveXML::Base
   class SearchResult < Array
     def self.search(query, baseproject, project=nil, exclude_filter=nil, exclude_debug=false)
 
+      query = query.gsub(/['"()]/, "")
       words = query.split(" ").select {|part| !part.match(/^[0-9_\.-]+$/) }
       versions = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
       logger.debug "splitted words and version: #{words.inspect} #{versions.inspect}"
@@ -39,7 +40,7 @@ class Seeker < ActiveXML::Base
       xpath += " and @project = '#{project}' " unless project.blank?
       xpath += " and not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource'))" if exclude_debug
       xpath += " and not(contains-ic(@project, '#{exclude_filter}'))" unless exclude_filter.blank?
-
+ 
       bin = Seeker.find :binary, :match => xpath
       pat = Seeker.find :pattern, :match => xpath
       result = new(query)

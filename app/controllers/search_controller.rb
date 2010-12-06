@@ -34,7 +34,7 @@ class SearchController < ApplicationController
 
     base = @baseproject=="ALL" ? "" : @baseproject
     begin
-      @result = Seeker.prepare_result(CGI.escape(@query).gsub("+", " "), base, @project, @exclude_filter, @exclude_debug)
+      @result = Seeker.prepare_result(@query, base, @project, @exclude_filter, @exclude_debug)
       if @current_page == 1 # ignore sub pages
         SearchHistory.create :query => @query, :base => @baseproject, :patterns => @result.pattern_count,
           :binaries => @result.binary_count, :count => @result.length
@@ -42,7 +42,7 @@ class SearchController < ApplicationController
     rescue => e
       search_error, code, api_exception = ActiveXML::Transport.extract_error_message e
       if code == "413"
-        @result = Seeker.prepare_result(CGI.escape("\"#{@query}\"").gsub("+", " "), base, @project, @exclude_filter, @exclude_debug)
+        @result = Seeker.prepare_result(@query, base, @project, @exclude_filter, @exclude_debug)
         unless @result.blank?
           flash.now[:note] = _("Switched to exact match due to too many hits on substring search.")
         else
