@@ -101,7 +101,6 @@
 
         <div class="box box-shadow">
           <h2 class="box-header centered"><%= _("Popular Software") %></h2>
-
           <p>
             <% top = top_downloads
             if !top.blank?
@@ -114,6 +113,7 @@
             end -%>
           </p>
         </div>
+
 
         <div class="box box-shadow">
           <h2 class="box-header centered"><%=_("Getting Help")%></h2>
@@ -160,6 +160,15 @@
             <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: B1 Systems")%>" alt="<%=_("Sponsored by: B1 Systems")%>" src="http://static.opensuse.org/c/images/common/B1-systems-1.jpg"/></a>
           </p>
           <!--<p class="centered" style="color: #ccc; font-size: 0.8em"><%=_("Bronze Sponsor")%></p>-->
+        </div>
+
+        <div class="box box-shadow">
+          <h2 class="box-header centered"><%= _("Language") %></h2>
+          <div style="text-align: center;">
+            <% LANGUAGES.each do |lang| %>
+              <%= link_to(image_tag("/images/lang/lang_#{lang}.png", :alt => "#{lang}"), :controller => :main, :action => :index, :lang => "#{lang}") %>
+            <% end -%>
+          </div>
         </div>
 
       </div>
