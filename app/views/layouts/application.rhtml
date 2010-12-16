@@ -47,30 +47,8 @@
       </div>
     </div>
 
-    <% unless flash.empty? %>
-      <div id="flash-messages" class="container_16" >
-        <% if flash[:success] or flash[:note] %>
-          <div class="grid_16 alpha omega">
-            <div class="ui-state-highlight ui-corner-all">
-              <p>
-                <span class="ui-icon ui-icon-info"/>
-                <%=h flash[:success] %><%=h flash[:note] %>
-              </p>
-            </div>
-          </div>
-        <% end %>
-
-        <% if flash[:warn] or flash[:error] %>
-          <div class="grid_16 alpha omega">
-            <div class="ui-state-error ui-corner-all">
-              <p>
-                <span class="ui-icon ui-icon-alert" />
-                <%=h flash[:warn] %><%=h flash[:error] %>
-              </p>
-            </div>
-          </div>
-        <% end %>
-      </div>
+    <% unless flash.blank? %>
+      <%= render(:partial => "layouts/flash", :object => flash) %>
     <% end %>
 
     <div id="content" class="container_12 content-wrapper">
