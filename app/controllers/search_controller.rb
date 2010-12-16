@@ -8,6 +8,7 @@ class SearchController < ApplicationController
     end
     if params[:q]
       perform_search
+      set_default_message
     end
   end
 
@@ -57,6 +58,13 @@ class SearchController < ApplicationController
 
     flash.now[:warn] = _("Please be more precise in your search, search limit reached.") if @result.binary_count >= 1000
     return true
+  end
+
+
+  def set_default_message
+    if DEFAULT_SEARCHES[params[:q]]
+      flash.now[:note] = DEFAULT_SEARCHES[params[:q]]
+    end
   end
 
 end

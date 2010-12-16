@@ -58,7 +58,6 @@ end
    FileUtils.rm_rf "#{RAILS_ROOT}/public/" + release
 }
 
-
 ActiveXML::Base.config do |conf|
   conf.setup_transport do |map|
     map.default_server :rest, API_HOST
