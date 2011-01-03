@@ -142,6 +142,7 @@
 
         <div class="box box-shadow">
           <h2 class="box-header centered"><%= _("Language") %></h2>
+          <% # flags are from: http://www.famfamfam.com/lab/icons/flags/ %>
           <div style="text-align: center;">
             <% LANGUAGES.each do |lang| %>
               <%= link_to(image_tag("/images/lang/lang_#{lang}.png", :alt => "#{lang}"), :controller => :main, :action => :index, :lang => "#{lang}") %>

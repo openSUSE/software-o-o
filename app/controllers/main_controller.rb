@@ -170,7 +170,7 @@ class MainController < ApplicationController
     when params[:protocol] == "mirror"
       suffix = ".iso?mirrorlist"
     when params[:protocol] == "metalink"
-      suffix = ".iso.metalink"
+      suffix = ".iso.meta4"
     end
     redirect_to @directory + "/iso/openSUSE-" + @isos[medium] + suffix
 
