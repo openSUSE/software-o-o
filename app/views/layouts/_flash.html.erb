@@ -31,7 +31,7 @@
           body = sanitize body, :tags => %w(a b p ul li br u), :attributes => %w(href title)
           %>
 
-          <div class="<%= flash_header %> ui-corner-all">
+          <div class="<%= flash_header %> ui-corner-all" style="margin-bottom: 5px;">
             <p>
               <span class="ui-icon <%= flash_icon %>"/>
               <%= body %>
