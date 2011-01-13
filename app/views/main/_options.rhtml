@@ -4,7 +4,7 @@
       <h4><%=_("Download Method")%> <%= image_tag '/images/help-browser.png', :id => "downloadMethodHelpPopup", :class => "help_icon", :alt => "?" %></h4>
       <div>
         <label class="l_change"><input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/><%=_("Direct Link")%></label>
-        <label class="l_change <%= if @medium == 'net': "notavailable" end %>" id="l_torrent"><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/><%=_("BitTorrent")%></label>
+        <label class="l_change" id="l_torrent"><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/><%=_("BitTorrent")%></label>
         <label class="l_change"><input id="p_metalink" name="protocol" value="metalink" type="radio" class="changeiso"/><%=_("Metalink")%></label>
         <label class="l_change"><input id="p_mirror" name="protocol" value="mirror" type="radio" class="changeiso"/><%=_("Pick Mirror")%></label>
       </div>
@@ -63,12 +63,19 @@
         <span class="hidden" id="download_gnome"><%= _("Download&nbsp;GNOME") %></span>
         <span class="hidden" id="download_dvd"><%= _("Download&nbsp;DVD") %></span>
         <span class="hidden" id="download_net"><%= _("Download&nbsp;Network") %></span>
-        <input type="hidden" name="medium" value="<%= @medium %>"/>
         <input type="hidden" name="release" value="<%= @release %>"/>
       </div>
 
     </div>
 
+
+    <div id="docLinksDiv">
+      <h4><%= _("Documentation") %></h4>
+      <ul style="float: left; padding: 0px; margin-top: 0px; ">
+        <li><%= _("<a href=\"http://doc.opensuse.org/products/opensuse/openSUSE/opensuse-installquick/\">Installation quickstart</a>") %></li>
+        <li><%= _("<a href=\"http://doc.opensuse.org/products/opensuse/openSUSE/opensuse-startup/\">openSUSE startup guide</a>") %></li>
+      </ul>
+    </div>
 
   </form>
 </div>
