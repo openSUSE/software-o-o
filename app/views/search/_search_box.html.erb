@@ -14,7 +14,7 @@
         </div>
 
         <div id="search_options" style="display: none">
-          <%= check_box_tag('exclude_filter', "home:", (@exclude_filter == 'home:'), {})  %> <%= _("Exclude user's home projects") %>
+          <%= check_box_tag('include_home', "true", (@include_home == 'true'), {})  %> <%= _("Include user's home projects") %>
           <%= check_box_tag('exclude_debug', "true", @exclude_debug, {})  %> <%= _('Exclude debug packages') %>
         </div>
 

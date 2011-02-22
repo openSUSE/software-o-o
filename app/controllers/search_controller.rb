@@ -2,7 +2,7 @@ class SearchController < ApplicationController
 
   def index
     @exclude_debug = true
-    @exclude_filter = 'home:'
+    @include_home = 'true'
     if params[:baseproject]
       @baseproject = params[:baseproject]
     end
@@ -25,8 +25,11 @@ class SearchController < ApplicationController
     @baseproject = params[:baseproject]
     @current_page = params[:p].to_i
     @current_page = 1 if @current_page == 0
+
     @exclude_debug = params[:exclude_debug]
-    @exclude_filter = params[:exclude_filter]
+    @include_home = params[:include_home]
+    exclude_filter = 'home:' if params[:include_home].nil?
+
     @project = params[:project]
 
     if @query.split(" ").select{|e| e.length < 2 }.size > 0
@@ -35,7 +38,7 @@ class SearchController < ApplicationController
 
     base = @baseproject=="ALL" ? "" : @baseproject
     begin
-      @result = Seeker.prepare_result(@query, base, @project, @exclude_filter, @exclude_debug)
+      @result = Seeker.prepare_result(@query, base, @project, exclude_filter, @exclude_debug)
       if @current_page == 1 # ignore sub pages
         SearchHistory.create :query => @query, :base => @baseproject, :patterns => @result.pattern_count,
           :binaries => @result.binary_count, :count => @result.length
@@ -44,7 +47,7 @@ class SearchController < ApplicationController
       search_error, code, api_exception = ActiveXML::Transport.extract_error_message e
       if code == "413"
         logger.debug("Too many hits, trying exact match for: #{@query}")
-        @result = Seeker.prepare_result(CGI.escape("\"#{@query}\""), base, @project, @exclude_filter, @exclude_debug)
+        @result = Seeker.prepare_result(CGI.escape("\"#{@query}\""), base, @project, exclude_filter, @exclude_debug)
         unless @result.blank?
           @query = "\"#{@query}\""
           flash.now[:note] = _("Switched to exact match due to too many hits on substring search.")
