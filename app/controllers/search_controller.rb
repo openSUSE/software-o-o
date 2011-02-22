@@ -2,7 +2,7 @@ class SearchController < ApplicationController
 
   def index
     @exclude_debug = true
-    @include_home = 'true'
+    @include_home = 'false'
     if params[:baseproject]
       @baseproject = params[:baseproject]
     end
