@@ -15,9 +15,9 @@ module ApplicationHelper
   def compute_asset_host(source)
     if defined? USE_STATIC
       if source.slice(0, theme_prefix.length) == theme_prefix
-        return "https://static.opensuse.org"
+        return "http://static.opensuse.org"
       end
-      return "https://static.opensuse.org/hosts/#{USE_STATIC}"
+      return "http://static.opensuse.org/hosts/#{USE_STATIC}"
     end
     super(source)
   end
