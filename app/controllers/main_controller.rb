@@ -83,7 +83,7 @@ class MainController < ApplicationController
        @releasename = "openSUSE 11.3"
        @repourl = "http://download.opensuse.org/distribution/11.3"
        @medium = "dvd"
-    elsif release == "113"
+    elsif release == "114"
        @isos = {}
        @directory = "http://download.opensuse.org/distribution/11.4"
        @isos["lang-32"] = "11.4-Addon-Lang-i586"
@@ -98,7 +98,7 @@ class MainController < ApplicationController
        @isos["net-32"] = "11.4-NET-i586"
        @isos["net-64"] = "11.4-NET-x86_64"
 
-       @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.4444/RELEASE-NOTES.en.html"
+       @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.4/RELEASE-NOTES.en.html"
        @releasename = "openSUSE 11.4"
        @repourl = "http://download.opensuse.org/distribution/11.4"
        @medium = "dvd"
@@ -149,7 +149,7 @@ class MainController < ApplicationController
 
   def release
     @exclude_debug = true
-    @exclude_filter = 'home:'
+    @include_home = 'false'
     set_release(params[:release])
     render :template => "main/release"
   end
