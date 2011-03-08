@@ -1,347 +1,83 @@
-#iso-wrapper {
-  padding: 0;
-  margin-right: 0;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-#iso-wrapper h4 {
-  margin-top: 4px;
-  float:left
-}
-
-#iso-wrapper div.changeiso {
-  border: 2px solid #7C92A4;
-  min-height: 50px;
-  margin-bottom: 10px;
-  color: #999;
-  cursor: pointer;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  background: #ffffff url('../images/gradien-light-grey.png') repeat-x scroll bottom left;
-}
-
-#iso-wrapper div.changeiso:hover {
-  border: 2px solid #690;
-}
-/*
-#iso-wrapper div.changeiso:hover .icon_unselected  {
-  opacity: 0.7;
-  -moz-opacity: 0.7;
-  filter:alpha(opacity=70);
-}
-
-#iso-wrapper div.medium_selected {
-  border-color: #4987B3;
-  -moz-box-shadow: 0px 1px 4px #999;
-  -webkit-box-shadow: 0px 1px 4px #999;
-  box-shadow: 0px 1px 4px #999;
-  color: #333;
-}*/
-
-#iso-wrapper div.changeiso {
-  border-color: #4987B3;
-  -moz-box-shadow: 0px 1px 4px #999;
-  -webkit-box-shadow: 0px 1px 4px #999;
-  box-shadow: 0px 1px 4px #999;
-  color: #333;
-}
-
-#iso-wrapper div.changeiso div {
-  padding-top: 5px;
-  padding-bottom: 2px;
-  margin-right: 15px;
-  min-height: 55px;
-}
-
-#iso-wrapper div.changeiso img { /* Icon */
-  margin: 5px 15px 0 7px;
-  float: left;
-  height: 48px;
-}
-
-.download_buttonClass {
-  -moz-box-shadow: 0px 1px 2px #ccc;
-  -webkit-box-shadow: 0px 1px 2px #ccc;
-  box-shadow: 0px 1px 2px #ccc;
-/*  border-color: #690;
-  color: #690;*/
-  color: #069;
-  background-color: #eee;
-}
-
-.download_buttonClass {
-  border-width: 2px;
-}
-
-.download_buttonClass:hover {
-  -moz-box-shadow: 0px 1px 2px #ccc;
-  -webkit-box-shadow: 0px 1px 2px #ccc;
-  box-shadow: 0px 1px 2px #ccc;
-}
-
-.icon_unselected {
-/*  opacity: 0.5;
-  -moz-opacity: 0.5;
-  filter:alpha(opacity=50);*/
-}
-
-.icon_selected { opacity: 1; }
-form div .l_change { display: block; margin-bottom: .5em; float:left;}
-
-#popup {
-  padding: 0.5em;
-  width: 70%;
-  margin: 0 auto;
-  border: 3px solid #000000;
-  background: #ffffff;
-  position: absolute;
-  left: 0px;
-  z-index: 2;
-}
-
-/* Helper Styles */
-.hidden { display: none; }
-.help_icon { margin-right: 10px; }
-.notavailable { color: gray; }
-
-#iso-wrapper form {
-  margin-left: 20px;
-}
-
-.navlist {
-  margin-left: -4px;
-}
-
-#download_os,
-#get_software {
-  padding: 7px 0;
-  text-align: center;
-  overflow: hidden;
-  background: url('../images/get_it128.png') no-repeat center;
-}
-
-#get_software {
-  padding-left: 120px;
-  padding-right: 20px;
-  background: url('../images/get_pack.png') no-repeat 10px -10px;
-  min-height: 90px;
-}
-
-#derivativesDiv {
-  margin-left: 15px;
-  margin-bottom: 50px;
-}
-
-ul#addon_downloads li {
-  display: block;
-  vertical-align: middle;
-}
-
-ol#howtoproceed li {
-  margin: 12px;
-}
-
-ol#howtoproceed dt {
-  font-weight: bold;
-  margin-left: 24px;
-}
-
-ol#howtoproceed dd {
-  margin-left: 48px;
-}
-
-#search_form {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.form_control {
-  margin-top: 10px;
-}
-
-#ajaxindicator {
-  color: #999;
-  background: url('http://static.opensuse.org/c/images/common/spinner_16.gif') no-repeat 0;
-  padding-left: 20px;
-  width: 80px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#search_short {
-  text-align: center;
-}
-
-.search_o_wrapper {
-  border: 10px solid #fcfcfc;
-  height: auto;
-  clear: both;
-}
-
-.search_o_title {
-  display: block;
-  height: 1em;
-  border-top: 1px solid #CCC;
-  padding-top: 1ex;
-}
-
-.search_o_title div {
-  width: 49.5%;
-  float:left;
-}
-
-.search_o_title h3 {
-  font-size: 1.2em;
-  color: #F59F1A;
-}
-
-.search_o_title h4 {
-  font-size: 1em;
-  color: #999;
-}
-
-.description {
-  padding-top: 1ex;
-}
-
-.description .description-txt {
-  width: 70%;
-  float: left;
-  margin-bottom: 1em;
-}
-
-.install_btn {
-  float: right;
-  min-width: 135px;
-  height: 38px;
-  text-align: center;
-  background: transparent url(http://static.opensuse.org/hosts/software.o.o/css/images/inst_btn.png) no-repeat scroll top left;
-  white-space: nowrap;
-}
-
-.install_btn a {
-  display: block;
-  height: 38px;
-  line-height: 36px;
-  margin-left: 32px;
-  text-decoration: none !important;
-}
-
-.small_btn {
-  float: left;
-  width: 75px;
-  height: 22px;
-  margin-top: 3px;
-  padding-top: 2px;
-  text-align: center;
-  text-decoration: none;
-  text-decoration: none!important;
-  background: transparent url(http://static.opensuse.org/hosts/software.o.o/css/images/small_btn.png) no-repeat scroll top left; 
-}
-
-.description h4 {
-  color: #999;
-}
-
-#pkg_list_wrapper {
-  display: block;
-  clear: both;
-}
-
-.pkg_list {
-  width: 95%;
-  clear: both;
-}
-
-.pkg_list td {
-  padding: 4px;
-}
-
-.pkg_list .cell1 {
-  width: 20px;
-  font-weight: bold;
-}
-
-#pkg_list_wrapper h4 {
-  color: #999;
-  display: block;
-  width: 20em;
-  float: left;
-}
-
-#paginator_bottom {
-  border-top: 1px solid #ccc;
-  margin: 8px;
-}
-
-#search_results_top {
-  margin: 8px;
-}
-
-#paginator {
-  padding: 16px;
-  text-align: center;
-  clear: both;
-}
-
-#permalink {
-  padding-top: 8px;
-  float: right;
-}
-
-#search_top_info {
-  padding-top: 8px;
-  float: left;
-}
-
-p.justify {
-  text-align: justify;
-}
-
-#nothing_found {
-  clear: both;
-  text-align: center;
-  padding: 20px;
-  font-weight: bold;
-}
-
-.ui-accordion-content {
-  padding-bottom: 2em;
-}
-
-#downloadMethodDiv,
-#TypeOfComputerDiv,
-#downloadButtonDiv {
-  float: left;
-/*  overflow: hidden;*/
-}
-
-#downloadButtonDiv {
-  clear: both;
-  margin-top: 1em;
-}
-  #downloadMethodDiv label,
-  #TypeOfComputerDiv label {
-    display: block;
-    clear: left;
-  }
-  #downloadMethodDiv div,
-  #TypeOfComputerDiv div {
-    margin-left: 1em;
-  }
-
-#downloadMethodDiv {
-  
-}
-#TypeOfComputerDiv {
-  
-}
-
-.query_5 { font-size: 130%; }
-.query_4 { font-size: 119%; }
-.query_3 { font-size: 108%; }
-.query_2 { font-size: 97%; }
-.query_1 { font-size: 86%; }
-.query_0 { font-size: 75%; }
-
+.ui-dialog{position:relative;padding:.2em;width:300px;}
+.ui-dialog .ui-dialog-titlebar{padding:.5em .3em .3em 1em;position:relative;}
+.ui-dialog .ui-dialog-title{float:left;margin:.1em 0 .2em;}
+.ui-dialog .ui-dialog-titlebar-close{position:absolute;right:.3em;top:50%;width:19px;margin:-10px 0 0 0;padding:1px;height:18px;}
+.ui-dialog .ui-dialog-titlebar-close span{display:block;margin:0 1px 4px -20px;}
+.ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus{padding:0;}
+.ui-dialog .ui-dialog-content{border:0;padding:.5em 1em;background:none;overflow:auto;zoom:1;}
+.ui-dialog .ui-dialog-buttonpane{text-align:left;border-width:1px 0 0 0;background-image:none;margin:.5em 0 0 0;padding:.3em 1em .5em .4em;}
+.ui-dialog .ui-dialog-buttonpane button{float:right;margin:.5em .4em .5em 0;cursor:pointer;padding:.2em .6em .3em .6em;line-height:1.4em;width:auto;overflow:visible;}
+.ui-dialog{border:1px solid #dddddd;background:#eeeeee 50% top repeat-x;color:#333333;}
+.ui-corner-all{-moz-border-radius:4px;-webkit-border-radius:4px;}
+.ui-widget{font-size:1.1em;}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button{font-size:1em;}
+.ui-widget-header{border:1px solid #e78f08;background:#f6a828;color:#ffffff;font-weight:bold;}
+.ui-widget-header a{color:#ffffff;}
+.ui-helper-clearfix{display:inline-block;}
+.ui-helper-clearfix{display:block;}
+#iso-wrapper{padding:0;margin-right:0;padding-left:15px;padding-right:15px;}
+#iso-wrapper h4{margin-top:4px;float:left}
+#iso-wrapper div.changeiso{border:2px solid #7C92A4;min-height:50px;margin-bottom:10px;color:#999;cursor:pointer;-moz-border-radius:5px;-webkit-border-radius:5px;background:#ffffff url('../images/gradien-light-grey.png') repeat-x scroll bottom left;}
+#iso-wrapper div.changeiso:hover{border:2px solid #690;}
+#iso-wrapper div.changeiso{border-color:#4987B3;-moz-box-shadow:0px 1px 4px #999;-webkit-box-shadow:0px 1px 4px #999;box-shadow:0px 1px 4px #999;color:#333;}
+#iso-wrapper div.changeiso div{padding-top:5px;padding-bottom:2px;margin-right:15px;min-height:55px;}
+#iso-wrapper div.changeiso img{margin:5px 15px 0 7px;float:left;height:48px;}
+.download_buttonClass{-moz-box-shadow:0px 1px 2px #ccc;-webkit-box-shadow:0px 1px 2px #ccc;box-shadow:0px 1px 2px #ccc;color:#069;background-color:#eee;}
+.download_buttonClass{border-width:2px;}
+.download_buttonClass:hover{-moz-box-shadow:0px 1px 2px #ccc;-webkit-box-shadow:0px 1px 2px #ccc;box-shadow:0px 1px 2px #ccc;}
+.icon_unselected{}
+.icon_selected{opacity:1;}
+form div .l_change{display:block;margin-bottom:.5em;float:left;}
+#popup{padding:0.5em;width:70%;margin:0 auto;border:3px solid #000000;background:#ffffff;position:absolute;left:0px;z-index:2;}
+.hidden{display:none;}
+.help_icon{margin-right:10px;}
+.notavailable{color:gray;}
+#iso-wrapper form{margin-left:20px;}
+.navlist{margin-left:-4px;}
+#download_os, #get_software{padding:7px 0;text-align:center;overflow:hidden;background:url('../images/get_it128.png') no-repeat center;}
+#get_software{padding-left:120px;padding-right:20px;background:url('../images/get_pack.png') no-repeat 10px -10px;min-height:90px;}
+#derivativesDiv{margin-left:15px;margin-bottom:50px;}
+ul#addon_downloads li{display:block;vertical-align:middle;}
+ol#howtoproceed li{margin:12px;}
+ol#howtoproceed dt{font-weight:bold;margin-left:24px;}
+ol#howtoproceed dd{margin-left:48px;}
+#search_form{margin-left:auto;margin-right:auto;}
+.form_control{margin-top:10px;}
+#ajaxindicator{color:#999;background:url('http://static.opensuse.org/c/images/common/spinner_16.gif') no-repeat 0;padding-left:20px;width:80px;margin-left:auto;margin-right:auto;}
+#search_short{text-align:center;}
+.search_o_wrapper{border:10px solid #fcfcfc;height:auto;clear:both;}
+.search_o_title{display:block;height:1em;border-top:1px solid #CCC;padding-top:1ex;}
+.search_o_title div{width:49.5%;float:left;}
+.search_o_title h3{font-size:1.2em;color:#F59F1A;}
+.search_o_title h4{font-size:1em;color:#999;}
+.description{padding-top:1ex;}
+.description .description-txt{width:70%;float:left;margin-bottom:1em;}
+.install_btn{float:right;min-width:135px;height:38px;text-align:center;background:transparent url(http://static.opensuse.org/hosts/software.o.o/css/images/inst_btn.png) no-repeat scroll top left;white-space:nowrap;}
+.install_btn a{display:block;height:38px;line-height:36px;margin-left:32px;text-decoration:none !important;}
+.small_btn{float:left;width:75px;height:22px;margin-top:3px;padding-top:2px;text-align:center;text-decoration:none;text-decoration:none!important;background:transparent url(http://static.opensuse.org/hosts/software.o.o/css/images/small_btn.png) no-repeat scroll top left;}
+.description h4{color:#999;}
+#pkg_list_wrapper{display:block;clear:both;}
+.pkg_list{width:95%;clear:both;}
+.pkg_list td{padding:4px;}
+.pkg_list .cell1{width:20px;font-weight:bold;}
+#pkg_list_wrapper h4{color:#999;display:block;width:20em;float:left;}
+#paginator_bottom{border-top:1px solid #ccc;margin:8px;}
+#search_results_top{margin:8px;}
+#paginator{padding:16px;text-align:center;clear:both;}
+#permalink{padding-top:8px;float:right;}
+#search_top_info{padding-top:8px;float:left;}
+p.justify{text-align:justify;}
+#nothing_found{clear:both;text-align:center;padding:20px;font-weight:bold;}
+.ui-accordion-content{padding-bottom:2em;}
+#downloadMethodDiv, #TypeOfComputerDiv, #downloadButtonDiv{float:left;}
+#downloadButtonDiv{clear:both;margin-top:1em;}
+#downloadMethodDiv label, #TypeOfComputerDiv label{display:block;clear:left;}
+#downloadMethodDiv div, #TypeOfComputerDiv div{margin-left:1em;}
+#downloadMethodDiv{}
+#TypeOfComputerDiv{}
+.query_5{font-size:130%;}
+.query_4{font-size:119%;}
+.query_3{font-size:108%;}
+.query_2{font-size:97%;}
+.query_1{font-size:86%;}
+.query_0{font-size:75%;}

@@ -8,7 +8,7 @@
 
     <link rel="search" type="application/opensearchdescription+xml" title="openSUSE Software" href="/search_software.xml" />
 
-    <%= stylesheet_link_tag "/css/ui.dialog.css", "/themes/bento/css/style.css", "/css/software.css" %>
+    <%= stylesheet_link_tag "/themes/bento/css/style.css", "/css/software.css" %>
     <link href="http://static.opensuse.org/themes/bento/images/favicon.png" rel="shortcut icon" />
     <%= javascript_include_tag "http://static.opensuse.org/themes/bento/js/jquery.js", "jquery-ui-1.7.2.js", "jrails.js", "application.js"  %>
     <%= javascript_include_tag "/themes/bento/js/l10n/global-navigation-data-#{@lang}.js", "/themes/bento/js/global-navigation.js" %>
@@ -128,14 +128,14 @@
         <div class="box box-shadow">
           <h2 class="box-header centered"><%=_("Countdown")%></h2>
           <div class="centered">
-            <img src="http://counter.opensuse.org/11.4/small" title="<%=_("openSUSE Countdown")%>" alt="<%=_("openSUSE Countdown")%>"/>
+            <img src="http://counter.opensuse.org/11.4/small" title="<%=_("openSUSE Countdown")%>" alt="<%=_("openSUSE Countdown")%>" width="130" height="130"/>
           </div>
         </div>
 
         <div class="box box-shadow">
           <h2 class="box-header aligncenter"><%=_("Buy openSUSE")%></h2>
           <div class="centered">
-            <a href="<%= _("http://en.opensuse.org/Buy_openSUSE") %>"><img src="http://en.opensuse.org/images/4/4c/OpenSUSE11.3_Box.png" title="<%=_("Buy openSUSE 11.3")%>" alt="<%=_("Buy openSUSE 11.3")%>"/></a>
+            <a href="<%= _("http://en.opensuse.org/Buy_openSUSE") %>"><img src="http://en.opensuse.org/images/4/4c/OpenSUSE11.3_Box.png" title="<%=_("Buy openSUSE 11.3")%>" alt="<%=_("Buy openSUSE 11.3")%>"  width="130" height="165"/></a>
           </div>
           <p class="centered">
             <a href="<%= _("http://en.opensuse.org/Buy_openSUSE") %>" title="Buy openSUSE" style="text-decoration: none; font-weight: bold"><%=_("Buy openSUSE 11.3!")%></a>
@@ -147,12 +147,12 @@
           <!--<p class="centered" style="color: #ccc; font-size: 0.8em"><%=_("Platinum Sponsor")%></p>-->
           <p class="centered" style="color: #ccc; font-size: 0.8em;"><%=_("Gold Sponsor")%></p>
           <p class="centered">
-            <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by AMD")%>" alt="<%=_("Sponsored by AMD")%>" src="http://static.opensuse.org/c/images/common/Amd.png"/></a>
-            <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: IP Exchange")%>" alt="<%=_("Sponsored by: IP Exchange")%>" src="http://static.opensuse.org/c/images/common/Ip-exchange.gif"/></a>
+            <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by AMD")%>" alt="<%=_("Sponsored by AMD")%>" src="http://static.opensuse.org/c/images/common/Amd.png" width="136" height="66"/></a>
+            <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: IP Exchange")%>" alt="<%=_("Sponsored by: IP Exchange")%>" src="http://static.opensuse.org/c/images/common/Ip-exchange.gif" width="180" height="85"/></a>
           </p>
           <p class="centered" style="color: #ccc; font-size: 0.8em;"><%=_("Silver Sponsor")%></p>
           <p class="centered">
-            <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: B1 Systems")%>" alt="<%=_("Sponsored by: B1 Systems")%>" src="http://static.opensuse.org/c/images/common/B1-systems-1.jpg"/></a>
+            <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: B1 Systems")%>" alt="<%=_("Sponsored by: B1 Systems")%>" src="http://static.opensuse.org/c/images/common/B1-systems-1.jpg" width="100" height="100"/></a>
           </p>
           <!--<p class="centered" style="color: #ccc; font-size: 0.8em"><%=_("Bronze Sponsor")%></p>-->
         </div>
@@ -162,7 +162,8 @@
           <% # flags are from: http://www.famfamfam.com/lab/icons/flags/ -%>
           <p class="centered">
             <% LANGUAGES.each do |lang| %>
-              <%= link_to(image_tag("/images/lang/lang_#{lang}.png", :alt => "#{lang}"), :controller => :main, :action => :index, :lang => "#{lang}") %>
+              <%= link_to(image_tag("/images/lang/lang_#{lang}.png", :alt => "#{lang}", :width => 16, :height => 11),
+                :controller => :main, :action => :index, :lang => "#{lang}") %>
             <% end -%>
           </p>
         </div>
@@ -179,7 +180,7 @@
         <a href="http://en.opensuse.org/Terms_of_site">Legal information</a> |
         <a href="mailto:admin@opensuse.org">Feedback</a>
         <br/><br/>
-        <a href="http://www.novell.com/linux/"><img src="http://static.opensuse.org/c/images/common/founded_novell.gif" alt="Founded by Novell" /></a>
+        <a href="http://www.novell.com/linux/"><img src="http://static.opensuse.org/c/images/common/founded_novell.gif" alt="Founded by Novell" width="139" height="18" /></a>
       </div>
     </div>
 
