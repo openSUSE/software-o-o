@@ -1,7 +1,7 @@
 <div>
   <form id="downloadForm" action="/main/download" style="height: 10em">
     <div id="downloadMethodDiv">
-      <h4><%=_("Download Method")%> <%= image_tag '/images/help-browser.png', :id => "downloadMethodHelpPopup", :class => "help_icon", :alt => "?" %></h4>
+      <h4><%=_("Download Method")%> <%= image_tag '/images/help-browser.png', :id => "downloadMethodHelpPopup", :class => "help_icon", :alt => "?", :width => 16, :height => 16 %></h4>
       <div>
         <label class="l_change"><input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/><%=_("Direct Link")%></label>
         <label class="l_change" id="l_torrent"><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/><%=_("BitTorrent")%></label>
@@ -34,7 +34,7 @@
     </div>
 
     <div id="TypeOfComputerDiv">
-      <h4><%= _("Type of Computer") %> <%= image_tag '/images/help-browser.png', :id => "architectureTypeHelpPopup", :class=>"help_icon", :alt=>"?" %></h4>
+      <h4><%= _("Type of Computer") %> <%= image_tag '/images/help-browser.png', :id => "architectureTypeHelpPopup", :class=>"help_icon", :alt=>"?", :width => 16, :height => 16 %></h4>
 
       <div>
         <label id="l_i686" class="l_change"><input id="i686" name="arch" value="i686" checked="checked" type="radio" class="changeiso" /><%=_("32&nbsp;Bit&nbsp;PC")%></label>
