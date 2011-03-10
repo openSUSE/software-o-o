@@ -39,6 +39,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect '/codecs', :controller => 'codecs', :action => 'index'
 
+  map.connect ':release', :controller => 'main', :action => 'release'
+
   # Install the default route as the lowest priority.
   map.connect ':controller/:action/:id.:format'
   map.connect ':controller/:action/:id'
