@@ -52,7 +52,7 @@
     <%=_("We offer three different checksums:")%>
   </p>
   <noscript>
-    <dl>
+    <dl style="margin: 15px;">
       <dt><%=_("gpg signature")%></dt>
       <dd><%=_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % "79C1 79B2 E1C8 20C1 890F  9994 A84E DAE8 9C80 0ACA" %>
         (<a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.asc">32 Bit</a> or <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.asc">64 Bit</a>)
