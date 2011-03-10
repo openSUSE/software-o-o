@@ -20,7 +20,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/', :controller => 'main', :action => 'index'
   map.connect 'developer', :controller => 'main', :action => 'developer'
   map.connect ':release/download.js', :controller => 'main', :action => 'download_js'
+  map.connect '114', :controller => 'main', :action => 'release', :release => "114"
   map.connect '114/:lang', :controller => 'main', :action => 'release', :release => "114"
+  map.connect '113', :controller => 'main', :action => 'release', :release => "113"
   map.connect '113/:lang', :controller => 'main', :action => 'release', :release => "113"
   map.connect '112/:lang', :controller => 'main', :action => 'release', :release => "112"
   map.connect '111/:lang', :controller => 'main', :action => 'release', :release => "111"
@@ -38,8 +40,6 @@ ActionController::Routing::Routes.draw do |map|
     :controller => 'main', :action => 'ymp_with_arch_and_version'
 
   map.connect '/codecs', :controller => 'codecs', :action => 'index'
-
-  map.connect ':release', :controller => 'main', :action => 'release'
 
   # Install the default route as the lowest priority.
   map.connect ':controller/:action/:id.:format'
