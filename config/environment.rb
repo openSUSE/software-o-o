@@ -44,6 +44,7 @@ Rails::Initializer.run do |config|
 
   config.gem 'libxml-ruby'
   config.gem 'gettext_rails'
+  config.gem 'daemons'
   config.gem 'delayed_job'
 
   config.logger = NiceLogger.new(config.log_path)

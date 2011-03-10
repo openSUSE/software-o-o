@@ -75,14 +75,17 @@ end
 namespace :deploy do
   task :start do
     run "sv start /service/#{runit_name}-*"
+    run "sv start /service/delayed_job_software"
   end
 
   task :restart do
     run "for i in /service/#{runit_name}-*; do sv restart $i; sleep 3; done"
+    run "sv restart /service/delayed_job_software"
   end
 
   task :stop do
     run "sv stop /service/#{runit_name}-*"
+    run "sv stop /service/delayed_job_software"
   end
 
 

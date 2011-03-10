@@ -1,3 +1,5 @@
+require 'workers/search_helper_job'
+
 module SearchHelper
   def shorten_description(text, chars)
     text.sub /^(.{0,#{chars}}\b).*/m, '\1'
@@ -53,23 +55,10 @@ module SearchHelper
   def top_downloads
     r = Rails.cache.read('top_downloads')
     
-    r = top_downloads_update unless r
+    # it's possible we will have to enqueue one on cold caches
+    Delayed::Job.enqueue SearchHelperJob.new unless r
 
     return r
-  end
-
-  def top_downloads_update
-    time_limit = DateTime.parse 3.months.ago.to_s
-    result = ActiveRecord::Base.connection.execute("select query, count(*) as c from download_histories where query is NOT NULL AND created_at > '#{time_limit}' group by query order by c desc limit 15")
-
-    top = Array.new
-    result.each do |entry|
-      top << { :query => entry[0].strip.downcase, :count => entry[1].to_i}
-    end
-
-    Rails.cache.write('top_downloads', top)
-
-    return top
   end
 
 end

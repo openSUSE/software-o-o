@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20110227150000) do
     t.datetime "created_at"
   end
 
+  add_index "download_histories", ["query"], :name => "index_download_histories_on_query"
+
   create_table "missing_codecs", :force => true do |t|
     t.integer "visitor_id"
     t.string  "framework"
