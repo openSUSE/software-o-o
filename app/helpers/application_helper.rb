@@ -35,4 +35,11 @@ module ApplicationHelper
     "</script>\n"
   end
 
+  def top_downloads
+    r = Rails.cache.read('top_downloads')
+    # it's possible we will have to enqueue one on cold caches
+    Delayed::Job.enqueue SearchHelperJob.new unless r
+    return r
+  end
+
 end
