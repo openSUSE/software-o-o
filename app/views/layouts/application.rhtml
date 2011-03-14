@@ -74,7 +74,7 @@
     <div id="content" class="container_12 content-wrapper">
       <div class="grid_9 alpha">
 
-        <%= render :partial => 'search/search_box' %>
+        <%= render :partial => 'search/search_box' unless @hide_search_box %>
 
         <div class="box box-shadow">
           <h2 class="box-header">

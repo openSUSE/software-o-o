@@ -27,9 +27,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '111/:lang', :controller => 'main', :action => 'release', :release => "111"
   map.connect 'developer/:lang', :controller => 'main', :action => 'release', :release => "developer"
 
-  map.connect 'promodvd', :controller => 'order', :action => 'new'
-  map.connect 'promodvd/admin', :controller => 'order', :action => 'admin_index'
-  map.connect 'promodvd/admin/:action/:id', :controller => 'order'
+  map.connect 'promodvd', :controller => 'order', :action => 'pause'
   
   map.connect 'ymp/:project/:repository/:package.ymp', 
     :requirements => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :package => /[\w\-\.:]+/ },
