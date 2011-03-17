@@ -1,5 +1,11 @@
 class OrderController < ApplicationController
 
+
+  def list
+    @orders = Order.find :all
+  end
+
+
   def pause
   end
 

@@ -1,6 +1,6 @@
 <%
 @hide_search_box = true
-@page_title = "Order Promo DVD copies"
+@page_title = "Order Promo DVD copies for your next events"
 -%>
 <style type="text/css">
   table#promoformtbl *.mandatory {
@@ -9,47 +9,105 @@
 </style>
 
 <div>
-  <p>
-    You want to support openSUSE by spreading DVDs? On this page you can order the
-    latest openSUSE PromoDVD. For more information what is on that DVD, please look
-    at the wiki page <a href='http://en.opensuse.org/openSUSE:Ambassador_kit#If_you_need_promo_DVDs_and_other_promotional_material'>http://en.opensuse.org/openSUSE:Ambassador_kit</a>.
+
+  <p> Join the fast-growing community putting openSUSE into more
+    hands by ordering the latest openSUSE PromoDVD for your group,
+    non-profit organization or event.
+  </p>
+
+  <p> Promo DVDs help to increase awareness and visibility of openSUSE
+    at events like LUG meetings, installfests, and conferences.  We also
+    ship to schools and universities or for any other training purposes.
   </p>
   <p>
-    We offer them to spread openSUSE at events like LUG meetings, installfests,
-    conferences but also institutions like schools and universities or for
-    training purposes. For personal use please use software.opensuse.org and
-    download your version.
+    For more information on what is in the promotional DVD, please see
+    <a href="http://en.opensuse.org/openSUSE:Ambassador_kit">the
+      wiki</a>.
   </p>
-  <p>
-    When the event is over, please provide photos if possible, send a link to
-    opensuse-marketing at opensuse.org. This will also help you to promote it.
+
+  <h2>About your event:</h2>
+
+  <p> 
+    Keep us informed about your upcoming event and we'll help you
+    promote it.  After your event is completed, let us know and we might
+    feature you on openSUSE News.  (Hint!  We love photos.  Take lots of
+    them!)  You can contact us at <a
+      href="mailto:opensuse-marketing@opensuse.org">opensuse-marketing@opensuse.org</a>
+    to discuss promotion and/or other ways we can assist you.
+  </p>
+
+  <h2>Before You Place an Order:</h2>
+
+  <p> 
+
+    <b>Personal Use:</b> Unfortunately, due to the cost and time
+    involved in shipping and handling, we can only send in bulk.  We are
+    unable to respond to requests for DVDs for personal use for any
+    reason (including your terrible internet connection). To get a DVD
+    for yourself, please visit <a
+      href="http://software.opensuse.org">software.opensuse.org</a>.  If
+    your connection is too slow, contact your <a
+      href="http://en.opensuse.org/openSUSE:Ambassadors_list">local
+      Ambassador</a> for an event in your area where you can get a free
+    copy.  And, if you don't have a local Ambassador, consider becoming
+    one.  We'd love to have you in our community.
   </p>
 
   <p>
-    Because of the vast amount of request we can't process:
+    <b>Commercial Use and Resale:</b> These PromoDVDs are not
+    for resale.  If you wish to sell openSUSE Boxed versions, please
+    visit <a href="http://www.open-slx.de">open-SLX</a>.
   </p>
-  <ul style="margin-left: 15px; ">
-    <li>We can't send out single DVDs.</li>
-    <li>It's <b>not</b> for personal use.</li>
-    <li>It's <b>not</b> for your company to try out.</li>
-    <li>yes, offical DVDs look better, but this is no reason.</li>
-    <li>We are sorry about your slow internet connection, but we will still not send DVDs for personal use.</li>
+
+  <p>
+    <b>In Summary:</b> We will not fill requests for the following:
+
+  <ul>
+    <li> single DVD requests </li>
+    <li>requests for reselling PromoDVDs</li>
+    <li>requests for samples for your company</li>
+    <li>Requests for DVDs due to slow internet connections</li>
   </ul>
+</p>
 
-  <p>
-    Before you enter the needed information:
-  </p>
-  <ul style="margin-left: 15px; ">
-    <li>Please enter a <b>brief</b> reason why you need the DVDs and Provide a link of the event/purpose.</li>
-    <li>Shipping may take 2-3 weeks</li>
-    <li>Please provide a real name for screening.</li>
-    <li>Use latin characters only.</li>
-    <li>Your phone number is needed for the parcel service.</li>
-    <li>We try to keep you informed about the status of the shipment</li>
-  </ul>
+<p>
+  We will try to fill requests for:
+<ul>
+  <li>DVDs for Free Software Day activities</li>
+  <li>openSUSE promotion at events and college fairs</li>
+  <li>LUGS and Linux conference stalls/booths</li>
+  <li> educational groups, community groups, or non-traditional events where you will talk about openSUSE</li>
+  <li>any event that has 100 or more expected attendees.</li>
+  <li>other reasons not listed but may be considered at our discretion</li>
+</ul>
+</p>
 
+<p> 
+  You may also order in larger quantities if you have several events planned in the near future.
+  Not sure if your event  or group qualifies? Just go ahead and fill out the form, we'll let you  know. Or contact <a href="mailto:promodvds@opensuse.org">promodvds@opensuse.org</a> directly.
+</p>
 
-  <p>Colored fields are mandatory</p>
+<h2>Filling Out the Order Form</h2>
+
+<p>
+  Help us to quickly respond to your request by filling out the form
+  as accurately as possible.
+</p>
+
+<ul>
+  <li>Please enter a brief reason why you need the DVDs and Provide a link of the event/purpose.</li>
+  <li>We  might have posters and other promotional material (in English only) and  T-Shirts. If you want some, please state that and we supply based on  availability.</li>
+  <li> Shipping may take 2-3 weeks depending on your location and customs requirements</li>
+  <li>Please provide a real name for screening.</li>
+  <li>Use latin characters (letters and numbers) only.</li>
+  <li>Your phone number is needed for the parcel service.</li>
+</ul>
+
+<p>
+  We try to keep you informed about the status of the shipment
+</p>
+
+<p>Colored fields are mandatory</p>
 </div>
 
 
@@ -67,7 +125,8 @@
     <tr><td>Phone number </td><td><%= f.text_field :phone, :class => "mandatory" %></td></tr>
     <tr><td>E-Mail Address </td><td><%= f.text_field :email, :class => "mandatory" %></td></tr>
     <tr><td>Amount of DVDs </td><td><%= f.text_field :amount, :class => "mandatory" %></td></tr>
-    <tr><td>Reason </td><td><%= f.text_area :reason, :class => "mandatory" %></td></tr>
+    <tr><td>What additional promotional material do you need (if available)?  </td><td><%= f.text_field :material %></td></tr>
+    <tr><td>Reason (please include URL to event) </td><td><%= f.text_area :reason, :class => "mandatory" %></td></tr>
     <tr><td>Deadline </td><td><%= f.text_field :deadline, :class => "mandatory" %></td></tr>
     <tr><td colspan=2><%= submit_tag %></td></tr>
   </table>

@@ -1,6 +1,6 @@
 *<%=@order[:amount]%>* to <%=@order[:name]%> <<%=@order[:email]%>>
 
 Details:
-<% %w(title name company street1 street2 zip city county country phone email amount reason deadline).each do |k| %>
+<% %w(title name company street1 street2 zip city county country phone email amount material reason deadline).each do |k| %>
 <%= sprintf "%10s | %s", k, @order[k] %>
 <% end %>
