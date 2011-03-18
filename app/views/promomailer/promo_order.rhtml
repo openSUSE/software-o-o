@@ -1,11 +1,13 @@
 *<%=@order[:amount]%>* PromoDVDs to <%=@order[:name]%> <<%=@order[:email]%>>
 
 CSV:
-<%= @order.attributes.keys.join(', ') %>
-<%= @order.attributes.values.each{|v| v.to_s.gsub!(",", "-") }.join(', ') %>
+<% attributes = %w( title name company street1 street2 zip city county country phone email amount material reason deadline created_at ) -%>
+<%= attributes.join(', ') %>
+<%= attributes.map{|a| @order[a].to_s.gsub(",", "-")}.join(', ') %>
 
 Pretty print:
 <%=@order[:title]%> <%=@order[:name]%>
+<%=@order[:company]%>
 <%=@order[:street1]%>
 <%=@order[:street2]%>
 <%=@order[:zip]%> *<%=@order[:city]%>*
