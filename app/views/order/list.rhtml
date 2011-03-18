@@ -10,6 +10,6 @@
 <p>
 <% @orders.each do |order| %>
   <%=  order.id %>: <%= link_to order.name, order.email %> from <%= order.country %>,
-  amount: <%=  order.amount %>, deadline: <%= order.deadline %> (<%= order.created_at %>)<br/>
+  amount: <%=  order.amount %>, deadline: <%= order.deadline %> (<%= fuzzy_time_string( order.created_at.to_s ) %>)<br/>
 <% end -%>
 </p>

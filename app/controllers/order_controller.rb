@@ -2,9 +2,12 @@ class OrderController < ApplicationController
 
 
   def list
-    @orders = Order.find :all
+    @orders = Order.find :all, :limit => 200, :order => "created_at DESC"
   end
 
+  def index
+    redirect_to :action => "pause"
+  end
 
   def pause
   end
