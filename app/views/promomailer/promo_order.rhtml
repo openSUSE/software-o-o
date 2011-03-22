@@ -1,7 +1,7 @@
 *<%=@order[:amount]%>* PromoDVDs to <%=@order[:name]%> <<%=@order[:email]%>>
 
 CSV:
-<% attributes = %w( title name company street1 street2 zip city county country phone email amount material reason deadline created_at ) -%>
+<% attributes = %w( title name company street1 street2 zip city county country phone email amount material deadline created_at reason ) -%>
 <%= attributes.join(', ') %>
 <%= attributes.map{|a| @order[a].to_s.gsub(",", "-")}.join(', ') %>
 
