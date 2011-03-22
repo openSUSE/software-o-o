@@ -7,7 +7,7 @@ class OrderController < ApplicationController
   end
 
   def index
-    redirect_to :action => "pause"
+    redirect_to :action => "new"
   end
 
   def pause
