@@ -3,7 +3,7 @@ class Promomailer < ActionMailer::Base
     # TODO: move to config/environment.rb
     recipients  ["promodvds@opensuse.org", "tschmidt@suse.de"]
     from        "admin@opensuse.org"
-    subject     "openSUSE PromoDVD order"
+    subject     "openSUSE PromoDVD order: #{order[:amount]} to #{order[:name]}"
     body        :order => order
   end
 end

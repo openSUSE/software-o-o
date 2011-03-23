@@ -82,7 +82,7 @@
   <li>DVDs for Free Software Day activities</li>
   <li>openSUSE promotion at events and college fairs</li>
   <li>LUGS and Linux conference stalls/booths</li>
-  <li> educational groups, community groups, or non-traditional events where you will talk about openSUSE</li>
+  <li>educational groups, community groups, or non-traditional events where you will talk about openSUSE</li>
   <li>any event that has 100 or more expected attendees</li>
   <li>other reasons not listed but may be considered at our discretion</li>
 </ul>
@@ -114,6 +114,15 @@
   We try to keep you informed about the status of the shipment
 </p>
 
+<p>
+
+  <b>Cost:</b>The PromoDVDs, material and shipment is sponsored by
+  Novell. We cannot take care of <b>customs</b> for you, this is
+  something you might need to pay - depending on the amount of media
+  and your local custom situation.
+
+</p>
+
 <p>Colored fields are mandatory</p>
 </div>
 
@@ -134,7 +143,7 @@
     <tr><td>Amount of DVDs </td><td><%= f.text_field :amount, :class => "mandatory" %></td></tr>
     <tr><td>What additional promotional material do you need (if available)?  </td><td><%= f.text_field :material %></td></tr>
     <tr><td>Reason (please include URL to event) </td><td><%= f.text_area :reason, :class => "mandatory" %></td></tr>
-    <tr><td>Deadline </td><td><%= f.text_field :deadline, :class => "mandatory" %></td></tr>
+    <tr><td>Deadline (use the ISO format YYYY-MM-DD, e.g. 2011-03-31 or NONE) </td><td><%= f.text_field :deadline, :class => "mandatory" %></td></tr>
     <tr><td colspan=2><%= submit_tag %></td></tr>
   </table>
   <p>
