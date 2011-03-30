@@ -127,12 +127,14 @@
           </ul>
         </div>
 
+        <!--
         <div class="box box-shadow">
           <h2 class="box-header centered"><%=_("Countdown")%></h2>
           <div class="centered">
             <img src="http://counter.opensuse.org/11.4/small" title="<%=_("openSUSE Countdown")%>" alt="<%=_("openSUSE Countdown")%>" width="130" height="130"/>
           </div>
         </div>
+        -->
 
         <div class="box box-shadow">
           <h2 class="box-header aligncenter"><%=_("Buy openSUSE")%></h2>
@@ -161,13 +163,14 @@
 
         <div class="box box-shadow">
           <h2 class="box-header centered"><%= _("Language") %></h2>
-          <% # flags are from: http://www.famfamfam.com/lab/icons/flags/ -%>
-          <p class="centered">
+          <form action="<%= url_for :controller => :main, :action => :index %>" method="get" class="centered">
+          <select name="lang" onChange="this.form.submit();">
+            <option value="<%= @lang %>" selected="true"><%= link_to(LANGUAGE_NAMES[@lang] || @lang, :controller => :main, :action => :index, :lang => "#{@lang}") %></option>
             <% LANGUAGES.each do |lang| %>
-              <%= link_to(image_tag("/images/lang/lang_#{lang}.png", :alt => "#{lang}", :width => 16, :height => 11),
-                :controller => :main, :action => :index, :lang => "#{lang}") %>
+            <option value="<%= lang %>"><%= link_to(LANGUAGE_NAMES[lang] || lang, :controller => :main, :action => :index, :lang => "#{lang}") %></option>
             <% end -%>
-          </p>
+          </select>
+            </form>
         </div>
 
       </div>
