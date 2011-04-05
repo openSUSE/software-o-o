@@ -140,7 +140,9 @@ class MainController < ApplicationController
 
   def developer
     #redirectit("developer")
-    redirect_to "http://en.opensuse.org/Portal:Factory"
+    flash[:warn] = "We currently don't have a Factory Snapshot that is more recent than our last openSUSE release. <br/>" +
+      "Please check <a href='http://en.opensuse.org/Portal:Factory'>http://en.opensuse.org/Portal:Factory</a> for more information."
+    redirect_to :action => :index
   end
 
   def index
