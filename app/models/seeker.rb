@@ -43,15 +43,15 @@ class Seeker < ActiveXML::Base
  
       bin = Seeker.find :binary, :match => xpath
       pat = Seeker.find :pattern, :match => xpath
+      raise "Backend not responding" if( bin == nil && pat == nil )
+
       result = new(query)
       result.add_patlist(pat)
       result.add_binlist(bin)
 
       # remove this hack when the backend can filter for project names
       result.reject!{|res| /#{exclude_filter}/.match( res.project ) } unless exclude_filter.blank?
-
       result.sort! {|x,y| y.relevance <=> x.relevance}
-
       return result
     end
 
