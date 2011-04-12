@@ -12,7 +12,7 @@ class MainController < ApplicationController
   def ymp_with_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
     DownloadHistory.create :query => params[:query], :base => params[:base],
-                           :ymp => path
+      :ymp => path
     res = get_from_api(path)
     render :text => res.body, :content_type => res.content_type
   end
@@ -20,130 +20,132 @@ class MainController < ApplicationController
   def ymp_without_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:package]}?view=ymp"
     DownloadHistory.create :query => params[:query], :base => params[:base],
-                           :ymp => path
+      :ymp => path
     res = get_from_api(path)
     render :text => res.body, :content_type => res.content_type
   end
 
   def set_release(release)
     if release == "111"
-       @isos = {}
-       @directory = "http://download.opensuse.org/distribution/11.1"
-       @isos["lang-32"] = "11.1-Addon-Lang-i586"
-       @isos["lang-64"] = "11.1-Addon-Lang-x86_64"
-       @isos["nonoss"] = "11.1-Addon-NonOss-BiArch-i586-x86_64"
-       @isos["kde-64"] = "11.1-KDE4-LiveCD-x86_64"
-       @isos["kde-32"] = "11.1-KDE4-LiveCD-i686"
-       @isos["gnome-64"] = "11.1-GNOME-LiveCD-x86_64"
-       @isos["gnome-32"] = "11.1-GNOME-LiveCD-i686"
-       @isos["dvd-64"] = "11.1-DVD-x86_64"
-       @isos["dvd-32"] = "11.1-DVD-i586"
-       @isos["net-32"] = "11.1-NET-i586"
-       @isos["net-64"] = "11.1-NET-x86_64"
+      @isos = {}
+      @directory = "http://download.opensuse.org/distribution/11.1"
+      @isos["lang-32"] = "11.1-Addon-Lang-i586"
+      @isos["lang-64"] = "11.1-Addon-Lang-x86_64"
+      @isos["nonoss"] = "11.1-Addon-NonOss-BiArch-i586-x86_64"
+      @isos["kde-64"] = "11.1-KDE4-LiveCD-x86_64"
+      @isos["kde-32"] = "11.1-KDE4-LiveCD-i686"
+      @isos["gnome-64"] = "11.1-GNOME-LiveCD-x86_64"
+      @isos["gnome-32"] = "11.1-GNOME-LiveCD-i686"
+      @isos["dvd-64"] = "11.1-DVD-x86_64"
+      @isos["dvd-32"] = "11.1-DVD-i586"
+      @isos["net-32"] = "11.1-NET-i586"
+      @isos["net-64"] = "11.1-NET-x86_64"
 
-       @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.1/RELEASE-NOTES.en.html"
-       @releasename = "openSUSE 11.1"
-       @repourl = "http://download.opensuse.org/distribution/11.1"
-       @medium = "dvd"
+      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.1/RELEASE-NOTES.en.html"
+      @releasename = "openSUSE 11.1"
+      @repourl = "http://download.opensuse.org/distribution/11.1"
+      @medium = "dvd"
     elsif release == "112"
-       @isos = {}
-       @directory = "http://download.opensuse.org/distribution/11.2"
-       @isos["lang-32"] = "11.2-Addon-Lang-i586"
-       @isos["lang-64"] = "11.2-Addon-Lang-x86_64"
-       @isos["nonoss"] = "11.2-Addon-NonOss-BiArch-i586-x86_64"
-       @isos["kde-64"] = "11.2-KDE4-LiveCD-x86_64"
-       @isos["kde-32"] = "11.2-KDE4-LiveCD-i686"
-       @isos["gnome-64"] = "11.2-GNOME-LiveCD-x86_64"
-       @isos["gnome-32"] = "11.2-GNOME-LiveCD-i686"
-       @isos["dvd-64"] = "11.2-DVD-x86_64"
-       @isos["dvd-32"] = "11.2-DVD-i586"
-       @isos["net-32"] = "11.2-NET-i586"
-       @isos["net-64"] = "11.2-NET-x86_64"
+      @isos = {}
+      @directory = "http://download.opensuse.org/distribution/11.2"
+      @isos["lang-32"] = "11.2-Addon-Lang-i586"
+      @isos["lang-64"] = "11.2-Addon-Lang-x86_64"
+      @isos["nonoss"] = "11.2-Addon-NonOss-BiArch-i586-x86_64"
+      @isos["kde-64"] = "11.2-KDE4-LiveCD-x86_64"
+      @isos["kde-32"] = "11.2-KDE4-LiveCD-i686"
+      @isos["gnome-64"] = "11.2-GNOME-LiveCD-x86_64"
+      @isos["gnome-32"] = "11.2-GNOME-LiveCD-i686"
+      @isos["dvd-64"] = "11.2-DVD-x86_64"
+      @isos["dvd-32"] = "11.2-DVD-i586"
+      @isos["net-32"] = "11.2-NET-i586"
+      @isos["net-64"] = "11.2-NET-x86_64"
 
-       @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html"
-       @releasename = "openSUSE 11.2"
-       @repourl = "http://download.opensuse.org/distribution/11.2"
-       @medium = "dvd"
+      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html"
+      @releasename = "openSUSE 11.2"
+      @repourl = "http://download.opensuse.org/distribution/11.2"
+      @medium = "dvd"
     elsif release == "113"
-       @isos = {}
-       @directory = "http://download.opensuse.org/distribution/11.3"
-       @isos["lang-32"] = "11.3-Addon-Lang-i586"
-       @isos["lang-64"] = "11.3-Addon-Lang-x86_64"
-       @isos["nonoss"] = "11.3-Addon-NonOss-BiArch-i586-x86_64"
-       @isos["kde-64"] = "11.3-KDE4-LiveCD-x86_64"
-       @isos["kde-32"] = "11.3-KDE4-LiveCD-i686"
-       @isos["gnome-64"] = "11.3-GNOME-LiveCD-x86_64"
-       @isos["gnome-32"] = "11.3-GNOME-LiveCD-i686"
-       @isos["dvd-64"] = "11.3-DVD-x86_64"
-       @isos["dvd-32"] = "11.3-DVD-i586"
-       @isos["net-32"] = "11.3-NET-i586"
-       @isos["net-64"] = "11.3-NET-x86_64"
+      @isos = {}
+      @directory = "http://download.opensuse.org/distribution/11.3"
+      @isos["lang-32"] = "11.3-Addon-Lang-i586"
+      @isos["lang-64"] = "11.3-Addon-Lang-x86_64"
+      @isos["nonoss"] = "11.3-Addon-NonOss-BiArch-i586-x86_64"
+      @isos["kde-64"] = "11.3-KDE4-LiveCD-x86_64"
+      @isos["kde-32"] = "11.3-KDE4-LiveCD-i686"
+      @isos["gnome-64"] = "11.3-GNOME-LiveCD-x86_64"
+      @isos["gnome-32"] = "11.3-GNOME-LiveCD-i686"
+      @isos["dvd-64"] = "11.3-DVD-x86_64"
+      @isos["dvd-32"] = "11.3-DVD-i586"
+      @isos["net-32"] = "11.3-NET-i586"
+      @isos["net-64"] = "11.3-NET-x86_64"
 
-       @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.3/RELEASE-NOTES.en.html"
-       @releasename = "openSUSE 11.3"
-       @repourl = "http://download.opensuse.org/distribution/11.3"
-       @medium = "dvd"
+      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.3/RELEASE-NOTES.en.html"
+      @releasename = "openSUSE 11.3"
+      @repourl = "http://download.opensuse.org/distribution/11.3"
+      @medium = "dvd"
     elsif release == "114"
-       @isos = {}
-       @directory = "http://download.opensuse.org/distribution/11.4"
-       @isos["lang-32"] = "11.4-Addon-Lang-i586"
-       @isos["lang-64"] = "11.4-Addon-Lang-x86_64"
-       @isos["nonoss"] = "11.4-Addon-NonOss-BiArch-i586-x86_64"
-       @isos["kde-64"] = "11.4-KDE-LiveCD-x86_64"
-       @isos["kde-32"] = "11.4-KDE-LiveCD-i686"
-       @isos["gnome-64"] = "11.4-GNOME-LiveCD-x86_64"
-       @isos["gnome-32"] = "11.4-GNOME-LiveCD-i686"
-       @isos["dvd-64"] = "11.4-DVD-x86_64"
-       @isos["dvd-32"] = "11.4-DVD-i586"
-       @isos["net-32"] = "11.4-NET-i586"
-       @isos["net-64"] = "11.4-NET-x86_64"
+      @isos = {}
+      @directory = "http://download.opensuse.org/distribution/11.4"
+      @isos["lang-32"] = "11.4-Addon-Lang-i586"
+      @isos["lang-64"] = "11.4-Addon-Lang-x86_64"
+      @isos["nonoss"] = "11.4-Addon-NonOss-BiArch-i586-x86_64"
+      @isos["kde-64"] = "11.4-KDE-LiveCD-x86_64"
+      @isos["kde-32"] = "11.4-KDE-LiveCD-i686"
+      @isos["gnome-64"] = "11.4-GNOME-LiveCD-x86_64"
+      @isos["gnome-32"] = "11.4-GNOME-LiveCD-i686"
+      @isos["dvd-64"] = "11.4-DVD-x86_64"
+      @isos["dvd-32"] = "11.4-DVD-i586"
+      @isos["net-32"] = "11.4-NET-i586"
+      @isos["net-64"] = "11.4-NET-x86_64"
 
-       @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.4/RELEASE-NOTES.en.html"
-       @releasename = "openSUSE 11.4"
-       @repourl = "http://download.opensuse.org/distribution/11.4"
-       @medium = "dvd"
+      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.4/RELEASE-NOTES.en.html"
+      @releasename = "openSUSE 11.4"
+      @repourl = "http://download.opensuse.org/distribution/11.4"
+      @medium = "dvd"
     elsif release == "developer"
-       @isos = {}
-       @directory = "http://download.opensuse.org/distribution/11.4-RC2"
-       @isos["lang-32"] = "Addon-Lang-Build0012-i586"
-       @isos["lang-64"] = "Addon-Lang-Build0012-x86_64"
-       @isos["nonoss"] = "Addon-NonOss-BiArch-Build0012-i586-x86_64"
-       @isos["kde-64"] = "KDE-LiveCD-Build0012-x86_64"
-       @isos["kde-32"] = "KDE-LiveCD-Build0012-i686"
-       @isos["gnome-64"] = "GNOME-LiveCD-Build0012-x86_64"
-       @isos["gnome-32"] = "GNOME-LiveCD-Build0012-i686"
-       @isos["dvd-64"] = "DVD-Build0012-x86_64"
-       @isos["dvd-32"] = "DVD-Build0012-i586"
-       @isos["net-32"] = "NET-Build0012-i586"
-       @isos["net-64"] = "NET-Build0012-x86_64"
+      @isos = {}
+      @directory = "http://download.opensuse.org/distribution/11.4-RC2"
+      @isos["lang-32"] = "Addon-Lang-Build0012-i586"
+      @isos["lang-64"] = "Addon-Lang-Build0012-x86_64"
+      @isos["nonoss"] = "Addon-NonOss-BiArch-Build0012-i586-x86_64"
+      @isos["kde-64"] = "KDE-LiveCD-Build0012-x86_64"
+      @isos["kde-32"] = "KDE-LiveCD-Build0012-i686"
+      @isos["gnome-64"] = "GNOME-LiveCD-Build0012-x86_64"
+      @isos["gnome-32"] = "GNOME-LiveCD-Build0012-i686"
+      @isos["dvd-64"] = "DVD-Build0012-x86_64"
+      @isos["dvd-32"] = "DVD-Build0012-i586"
+      @isos["net-32"] = "NET-Build0012-i586"
+      @isos["net-64"] = "NET-Build0012-x86_64"
 
-       @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.4/RELEASE-NOTES.en.html"
-       @releasename = "openSUSE 11.4 RC 2"
-       @repourl = "http://download.opensuse.org/distribution/11.4"
-       @medium = "dvd"
+      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.4/RELEASE-NOTES.en.html"
+      @releasename = "openSUSE 11.4 RC 2"
+      @repourl = "http://download.opensuse.org/distribution/11.4"
+      @medium = "dvd"
     end
     @release = release
   end
 
   def redirectit(release)
-    notice = nil
-    url = "%s/%s/%s" % [ActionController::Base.relative_url_root, release, @lang]
     if request.user_agent && request.user_agent.index('Mozilla/5.0 (compatible; Konqueror/3')
-      notice = _("Konqueror of KDE 3 is unfortunately unmaintained and its javascript implementation contains bugs that make it impossible to use with this page. Please make sure you have javascript disabled before you <a href='%s'>continue</a>.") % url
+      notice = _("Konqueror of KDE 3 is unfortunately unmaintained and its javascript implementation contains bugs that " +
+          "make it impossible to use with this page. Please make sure you have javascript disabled before you " +
+          "<a href='%s'>continue</a>.") % url
+      render :template => "main/redirect_with_notice", :locals => { :notice => notice } and return
     end
-    if notice
-      render :template => "main/redirect_with_notice", :locals => { :notice => notice }
-    else
-      redirect_to url
-    end
+    redirect_to :action => 'release', :release => release, :lang => @lang
   end
+
 
   def developer
     #redirectit("developer")
-    flash[:warn] = "We currently don't have a Factory Snapshot that is more recent than our last openSUSE release. <br/>" +
-      "Please check <a href='http://en.opensuse.org/Portal:Factory'>http://en.opensuse.org/Portal:Factory</a> for more information."
-    redirect_to :action => :index
+    flash.now[:warn] = _("We currently don't have a Factory Snapshot that is more recent than our last openSUSE release. <br/>" +
+      "Please check <a href='http://en.opensuse.org/Portal:Factory'>http://en.opensuse.org/Portal:Factory</a> for more information.")
+    @exclude_debug = true
+    @include_home = 'false'
+    set_release("114")
+    render :template => "main/release"
   end
+
 
   def index
     redirectit("114")
@@ -186,7 +188,7 @@ class MainController < ApplicationController
     case
     when params[:protocol] == "torrent"
       if params[:medium] != "net"
-          suffix = ".iso.torrent"
+        suffix = ".iso.torrent"
       end
     when params[:protocol] == "mirror"
       suffix = ".iso?mirrorlist"
