@@ -58,7 +58,7 @@ namespace :config do
 
   desc "Set permissions"
   task :permissions do
-    run "chown -R ssorun #{current_path}/db #{current_path}/tmp #{current_path}/tmp/cache/ #{current_path}/log #{current_path}/public"
+    run "chown -R soorun #{current_path}/db #{current_path}/tmp #{current_path}/tmp/cache/ #{current_path}/log #{current_path}/public"
   end
 
   desc "Sync public to static.o.o"
