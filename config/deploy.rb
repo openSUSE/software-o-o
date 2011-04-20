@@ -9,7 +9,6 @@ set :branch, "master"
 set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
 set :migrate_target, :current
-set :runit_name, "software"
 
 set :deploy_notification_to, ['tschmidt@suse.de', 'coolo@suse.de']
 server "buildserviceapi.suse.de", :app, :web, :db, :primary => true
@@ -23,7 +22,6 @@ set :static, "software.o.o"
 # set variables for different target deployments
 task :stage do
   set :deploy_to, "/srv/www/vhosts/opensuse.org/stage/#{application}"
-  set :runit_name, "software_stage"
   set :branch, "derivates"
   set :static, "software.o.o-stage/stage"
 end
@@ -60,7 +58,7 @@ namespace :config do
 
   desc "Set permissions"
   task :permissions do
-    run "chown -R lighttpd #{current_path}/db #{current_path}/tmp #{current_path}/tmp/cache/ #{current_path}/log #{current_path}/public"
+    run "chown -R ssorun #{current_path}/db #{current_path}/tmp #{current_path}/tmp/cache/ #{current_path}/log #{current_path}/public"
   end
 
   desc "Sync public to static.o.o"
@@ -73,19 +71,9 @@ end
 
 # server restarting
 namespace :deploy do
-  task :start do
-    run "sv start /service/#{runit_name}-*"
-    run "sv start /service/delayed_job_software"
-  end
-
   task :restart do
-    run "for i in /service/#{runit_name}-*; do sv restart $i; sleep 3; done"
+    run "touch #{current_path}/tmp/restart.txt"
     run "sv restart /service/delayed_job_software"
-  end
-
-  task :stop do
-    run "sv stop /service/#{runit_name}-*"
-    run "sv stop /service/delayed_job_software"
   end
 
 
