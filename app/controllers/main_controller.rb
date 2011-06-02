@@ -118,7 +118,7 @@ class MainController < ApplicationController
       @isos["net-64"] = "NET-Build0032-x86_64"
 
       @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/12.1/RELEASE-NOTES.en.html"
-      @releasename = "openSUSE 11.4 Milestone 1"
+      @releasename = "openSUSE 12.1 Milestone 1"
       @repourl = "http://download.opensuse.org/distribution/12.1"
       @medium = "dvd"
     end
