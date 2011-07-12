@@ -42,7 +42,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/download.html', :controller => 'download', :action => 'html'
   map.connect '/download.js',   :controller => 'download', :action => 'js'
   map.connect '/download.json', :controller => 'download', :action => 'json'
-  map.connect '/download.xml',  :controller => 'download', :action => 'xml'
 
   # Install the default route as the lowest priority.
   map.connect ':controller/:action/:id.:format'

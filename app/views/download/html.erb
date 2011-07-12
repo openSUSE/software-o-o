@@ -1,3 +1,141 @@
-html
-<%= @data %>
-/html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font: 0.8em "DejaVu Sans", "Bitstream Vera Sans", Verdana, sans-serif;
+  margin: 16px;
+  margin-top: 0px;
+  padding: 0;
+}
+.soo_line {
+  color: #480;
+  clear: both;
+  border-bottom: 1px solid #CCC;
+  padding-top: 10px;
+  font-size: 1.1em;
+  display: none;
+}
+.soo_line_visible {
+  display: block;
+}
+.soo_button {
+  display: block;
+  float: left;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 3px 5px;
+  margin: 0 .5em 0 0;
+}
+.soo_button:hover, .soo_button_chosen {
+  border: 1px solid #BE7;
+  background: #EEE;
+}
+.soo_button p {
+  font-size: 0.75em;
+  text-align: center;
+  margin: 0;
+}
+.soo_ymplink, .soo_pkglink {
+  font-size: 0.85em;
+  color: white;
+  display: block;
+  margin: 6px;
+  line-height: 23px;
+  font-weight: bolder;
+  float: left;
+  text-decoration: none;
+  height: 27px;
+  text-align: center;
+}
+.soo_ymplink {
+  background: url('<%= image_path('download/1click.png') %>');
+  width: 112px;
+}
+.soo_pkglink {
+  background: url('<%= image_path('download/pkg.png') %>');
+  width: 72px;
+}
+pre {
+  background: #EEE;
+  border: 1px dotted #888;
+  padding: 4px;
+  margin-left: 2em;
+  font-size: 1.2em;
+  overflow-x: auto;
+}
+pre a {
+  text-decoration: none;
+  color: #008;
+}
+.soo_distro {
+  display: none;
+}
+</style>
+<%= javascript_include_tag "http://static.opensuse.org/themes/bento/js/jquery.js" %>
+<script type="text/javascript">
+$(function(){
+  $('.soo_button').click(function(){
+    $('.soo_line').show();
+    $('.soo_button').removeClass('soo_button_chosen');
+    $(this).addClass('soo_button_chosen');
+    $('.soo_distro').hide();
+    $('.soo_distro_' + $(this).data('distro')).show();
+  });
+});
+</script>
+</head>
+<body>
+
+<div class="soo_box">
+  <p class="soo_line soo_line_visible">Select Your Operating System</p>
+  <% @distros.each do |distro| %>
+  <div class="soo_button" data-distro="<%= distro.downcase %>"><img src="<%= image_path('download/' + distro.downcase + '.png') %>" alt="<%= distro %>" /><p><%= distro %></p></div>
+  <% end %>
+</div>
+
+<div id="soo_ymp" class="soo_box">
+  <p class="soo_line">Install using One Click Install</p>
+  <% @data.select {|k,v| v.has_key?(:ymp)}.each do |k,v| %>
+  <a class="soo_ymplink soo_distro soo_distro_<%= k.gsub(/_.*$/, '').downcase %>" href="<%= v[:ymp] %>"><%= k.gsub('_', ' ') %></a>
+  <% end %>
+</div>
+
+<div id="soo_repo" class="soo_box">
+  <p class="soo_line">Add repository manually</p>
+  <% @data.select {|k,v| v.has_key?(:repo)}.each do |k,v| %>
+  <div class="soo_distro soo_distro_<%= k.gsub(/_.*$/, '').downcase %>">
+  <p>For <strong><%= k.gsub('_', ' ') %></strong> run the following as <strong>root</strong>:</p>
+  <pre><%=
+    case k
+      when /^openSUSE|SLE/
+        "zypper addrepo #{v[:repo]}#{@prj}.repo\nzypper refresh\nzypper install #{@pkg}"
+      when /^Fedora|RHEL|CentOS/
+        "cd /etc/yum/repos.d/\nwget #{v[:repo]}#{@prj}.repo\nyum update\nyum install #{@pkg}"
+      when /^Debian|Ubuntu/
+        "echo 'deb #{v[:repo]} ./' > /etc/apt/sources.list\napt-get update\napt-get install #{@pkg}"
+      when /^Mageia|Mandriva/
+        "urpmi.addmedia #{@prj} #{v[:repo]}\nurpmi.update -a\nurpmi #{@pkg}"
+      else
+        '?'
+    end
+  %></pre>
+  </div>
+  <% end %>
+</div>
+
+<div id="soo_pkg" class="soo_box">
+  <p class="soo_line">Grab binary packages</p>
+  <table>
+  <% @data.select {|k,v| v.has_key?(:pkg)}.each do |k,v| %>
+  <tr class="soo_distro soo_distro_<%= k.gsub(/_.*$/, '').downcase %>"><td>Packages for <strong><%= k.gsub('_', ' ') %></strong>:</td>
+  <% v[:pkg].each do |k,v| %>
+  <td><a class="soo_pkglink" href="<%= v %>"><%= k %></a></td>
+  <% end %>
+  </tr>
+  <% end %>
+  </table>
+</div>
+
+</body>
+</html>
