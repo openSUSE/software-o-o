@@ -3,26 +3,41 @@ class DownloadController < ApplicationController
   verify :params => [:prj, :pkg]
   before_filter :prepare
 
+  # generates fake data
+  def fake_data(data, prj, pkg, flavor, distro, format)
+    data[distro] = { :flavor => flavor,
+      :repo => "http://download.opensuse.org/repositories/#{prj}/#{distro}/",
+      :ymp => "http://software.opensuse.org/ymp/#{prj}/#{distro}/#{pkg}.ymp",
+      :pkg => {
+        :i586 => "http://download.opensuse.org/repositories/#{prj}/#{distro}/i586/#{pkg}-2011.04-1.1.i586.#{format}",
+        :src => "http://download.opensuse.org/repositories/#{prj}/#{distro}/src/#{pkg}-2011.04-1.1.src.#{format}",
+        :x86_64 => "http://download.opensuse.org/repositories/#{prj}/#{distro}/x86_64/#{pkg}-2011.04-1.1.x86_64.#{format}"
+      }
+    }
+  end
+
   def prepare
     @prj = params[:prj]
     @pkg = params[:pkg]
     @data = Hash.new
 
     # add fake data for debug purposes
-    ['openSUSE_11.4', 'openSUSE_11.3', 'Fedora_15', 'Fedora_14', 'Mageia_1', 'Mandriva_2011', 'Debian_6.0', 'Ubuntu_11.04', 'CentOS_5', 'RHEL_5', 'SLE_11'].each do |d|
-      @data[d] =
-        { :repo => "http://download.opensuse.org/repositories/#{@prj}/#{d}/",
-          :ymp => "http://software.opensuse.org/ymp/#{@prj}/#{d}/#{@pkg}.ymp",
-          :pkg => {
-            :i586 => "http://download.opensuse.org/repositories/#{@prj}/#{d}/i586/#{@pkg}-2011.04-1.1.i586.rpm",
-            :src => "http://download.opensuse.org/repositories/#{@prj}/#{d}/src/#{@pkg}-2011.04-1.1.src.rpm",
-            :x86_64 => "http://download.opensuse.org/repositories/#{@prj}/#{d}/x86_64/#{@pkg}-2011.04-1.1.x86_64.rpm"
-          }
-        }
-    end
+    fake_data(@data, @prj, @pkg, 'openSUSE', 'openSUSE_11.4', 'rpm')
+    fake_data(@data, @prj, @pkg, 'openSUSE', 'openSUSE_11.3', 'rpm')
+    fake_data(@data, @prj, @pkg, 'openSUSE', 'KDE_Distro_Stable_openSUSE_11.3', 'rpm')
+    fake_data(@data, @prj, @pkg, 'openSUSE', 'KR46_11.4', 'rpm')
+    fake_data(@data, @prj, @pkg, 'Fedora', 'Fedora_15', 'rpm')
+    fake_data(@data, @prj, @pkg, 'Fedora', 'Fedora_14', 'rpm')
+    fake_data(@data, @prj, @pkg, 'Mageia', 'Mageia_1', 'rpm')
+    fake_data(@data, @prj, @pkg, 'Mandriva', 'Mandriva_2011', 'rpm')
+    fake_data(@data, @prj, @pkg, 'Debian', 'Debian_6.0', 'deb')
+    fake_data(@data, @prj, @pkg, 'Ubuntu', 'Ubuntu_11.04', 'deb')
+    fake_data(@data, @prj, @pkg, 'CentOS', 'CentOS_5', 'rpm')
+    fake_data(@data, @prj, @pkg, 'RHEL', 'RHEL_5', 'rpm')
+    fake_data(@data, @prj, @pkg, 'SLE', 'SLE_11', 'rpm')
 
     # collect distro types from data
-    @distros = @data.keys.collect { |i| i.gsub(/_.*$/, '') }.uniq.sort {|x,y| x.downcase <=> y.downcase }
+    @flavors = @data.values.collect { |i| i[:flavor] }.uniq.sort{|x,y| x.downcase <=> y.downcase }
 
   end
 

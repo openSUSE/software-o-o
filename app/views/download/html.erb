@@ -1,3 +1,11 @@
+<%
+def gradient(top, mid, btm)
+  "  background: #{mid};\n" +
+  "  background: -webkit-gradient(linear, left top, left bottom, from(#{top}), to(#{btm}));\n" +
+  "  background: -moz-linear-gradient(top,  #{top},  #{btm});\n" +
+  "  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{top}', endColorstr='#{btm}');"
+end
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +24,9 @@ body {
   font-size: 1.1em;
   display: none;
 }
+.soo_line span {
+  float: right;
+}
 .soo_line_visible {
   display: block;
 }
@@ -26,10 +37,12 @@ body {
   border: 1px solid transparent;
   padding: 3px 5px;
   margin: 0 .5em 0 0;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
 }
 .soo_button:hover, .soo_button_chosen {
   border: 1px solid #BE7;
-  background: #EEE;
+<%= gradient('#FCFCFC','#F0F0F0','#E4E4E4')%>
 }
 .soo_button p {
   font-size: 0.75em;
@@ -41,20 +54,26 @@ body {
   color: white;
   display: block;
   margin: 6px;
-  line-height: 23px;
+  line-height: 24px;
   font-weight: bolder;
   float: left;
   text-decoration: none;
-  height: 27px;
+  height: 24px;
   text-align: center;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 .soo_ymplink {
-  background: url('<%= image_path('download/1click.png') %>');
-  width: 112px;
+<%= gradient('#9D0','#7B0','#580') %>
+  border: 1px solid #490;
+  min-width: 112px;
 }
 .soo_pkglink {
-  background: url('<%= image_path('download/pkg.png') %>');
-  width: 72px;
+<%= gradient('#09D','#07B','#058') %>
+  border: 1px solid #049;
+  min-width: 64px;
 }
 pre {
   background: #EEE;
@@ -80,7 +99,7 @@ $(function(){
     $('.soo_button').removeClass('soo_button_chosen');
     $(this).addClass('soo_button_chosen');
     $('.soo_distro').hide();
-    $('.soo_distro_' + $(this).data('distro')).show();
+    $('.soo_distro_' + $(this).data('flavor')).show();
   });
 });
 </script>
@@ -89,32 +108,32 @@ $(function(){
 
 <div class="soo_box">
   <p class="soo_line soo_line_visible">Select Your Operating System</p>
-  <% @distros.each do |distro| %>
-  <div class="soo_button" data-distro="<%= distro.downcase %>"><img src="<%= image_path('download/' + distro.downcase + '.png') %>" alt="<%= distro %>" /><p><%= distro %></p></div>
+  <% @flavors.each do |flavor| %>
+  <div class="soo_button" data-flavor="<%= flavor %>"><img src="<%= image_path('download/' + flavor.downcase + '.png') %>" alt="<%= flavor %>" /><p><%= flavor %></p></div>
   <% end %>
 </div>
 
 <div id="soo_ymp" class="soo_box">
-  <p class="soo_line">Install using One Click Install</p>
+  <p class="soo_line">Install using One Click Install<span>V</span></p>
   <% @data.select {|k,v| v.has_key?(:ymp)}.each do |k,v| %>
-  <a class="soo_ymplink soo_distro soo_distro_<%= k.gsub(/_.*$/, '').downcase %>" href="<%= v[:ymp] %>"><%= k.gsub('_', ' ') %></a>
+  <a class="soo_ymplink soo_distro soo_distro_<%= v[:flavor] %>" href="<%= v[:ymp] %>"><%= k.gsub('_', ' ') %></a>
   <% end %>
 </div>
 
 <div id="soo_repo" class="soo_box">
-  <p class="soo_line">Add repository manually</p>
+  <p class="soo_line">Add repository and install manually<span>V</span></p>
   <% @data.select {|k,v| v.has_key?(:repo)}.each do |k,v| %>
-  <div class="soo_distro soo_distro_<%= k.gsub(/_.*$/, '').downcase %>">
+  <div class="soo_distro soo_distro_<%= v[:flavor] %>">
   <p>For <strong><%= k.gsub('_', ' ') %></strong> run the following as <strong>root</strong>:</p>
   <pre><%=
-    case k
-      when /^openSUSE|SLE/
+    case v[:flavor]
+      when 'openSUSE', 'SLE'
         "zypper addrepo #{v[:repo]}#{@prj}.repo\nzypper refresh\nzypper install #{@pkg}"
-      when /^Fedora|RHEL|CentOS/
+      when 'CentOS', 'Fedora', 'RHEL'
         "cd /etc/yum/repos.d/\nwget #{v[:repo]}#{@prj}.repo\nyum update\nyum install #{@pkg}"
-      when /^Debian|Ubuntu/
+      when 'Debian', 'Ubuntu'
         "echo 'deb #{v[:repo]} ./' > /etc/apt/sources.list\napt-get update\napt-get install #{@pkg}"
-      when /^Mageia|Mandriva/
+      when 'Mageia', 'Mandriva'
         "urpmi.addmedia #{@prj} #{v[:repo]}\nurpmi.update -a\nurpmi #{@pkg}"
       else
         '?'
@@ -125,10 +144,10 @@ $(function(){
 </div>
 
 <div id="soo_pkg" class="soo_box">
-  <p class="soo_line">Grab binary packages</p>
+  <p class="soo_line">Grab binary packages directly<span>V</span></p>
   <table>
   <% @data.select {|k,v| v.has_key?(:pkg)}.each do |k,v| %>
-  <tr class="soo_distro soo_distro_<%= k.gsub(/_.*$/, '').downcase %>"><td>Packages for <strong><%= k.gsub('_', ' ') %></strong>:</td>
+  <tr class="soo_distro soo_distro_<%= v[:flavor] %>"><td>Packages for <strong><%= k.gsub('_', ' ') %></strong>:</td>
   <% v[:pkg].each do |k,v| %>
   <td><a class="soo_pkglink" href="<%= v %>"><%= k %></a></td>
   <% end %>
