@@ -101,6 +101,15 @@ $(function(){
     $('.soo_distro').hide();
     $('.soo_distro_' + $(this).data('flavor')).show();
   });
+// try to detect distro via user agent
+  if (navigator.userAgent.indexOf('CentOS') > 0 ) $('#soo_button_CentOS').click();
+  if (navigator.userAgent.indexOf('Debian') > 0 ) $('#soo_button_Debian').click();
+  if (navigator.userAgent.indexOf('Fedora') > 0 ) $('#soo_button_Fedora').click();
+  if (navigator.userAgent.indexOf('Mandriva') > 0 ) $('#soo_button_Mandriva').click();
+  if (navigator.userAgent.indexOf('Mageia') > 0 ) $('#soo_button_Mageia').click();
+  if (navigator.userAgent.indexOf('Red Hat') > 0 ) $('#soo_button_RHEL').click();
+  if (navigator.userAgent.indexOf('SUSE') > 0 ) $('#soo_button_openSUSE').click();
+  if (navigator.userAgent.indexOf('buntu') > 0 ) $('#soo_button_Ubuntu').click();
 });
 </script>
 </head>
@@ -109,7 +118,7 @@ $(function(){
 <div class="soo_box">
   <p class="soo_line soo_line_visible">Select Your Operating System</p>
   <% @flavors.each do |flavor| %>
-  <div class="soo_button" data-flavor="<%= flavor %>"><img src="<%= image_path('download/' + flavor.downcase + '.png') %>" alt="<%= flavor %>" /><p><%= flavor %></p></div>
+  <div class="soo_button" id="soo_button_<%= flavor %>" data-flavor="<%= flavor %>"><img src="<%= image_path('download/' + flavor.downcase + '.png') %>" alt="<%= flavor %>" /><p><%= flavor %></p></div>
   <% end %>
 </div>
 
