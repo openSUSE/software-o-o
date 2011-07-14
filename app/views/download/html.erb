@@ -99,8 +99,14 @@ $(function(){
     $('.soo_button').removeClass('soo_button_chosen');
     $(this).addClass('soo_button_chosen');
     $('.soo_distro').hide();
-    $('.soo_distro_' + $(this).data('flavor')).show();
+    $('.soo_distro_' + $(this).attr('id').replace('soo_button_','')).show();
   });
+
+  $('.soo_line span').click(function(){
+      $('#' + $(this).attr('id').replace('toggle_', '')).toggle();
+      $(this).text( $(this).text() == 'V' ? '>' : 'V');
+  });
+
 // try to detect distro via user agent
   if (navigator.userAgent.indexOf('CentOS') > 0 ) $('#soo_button_CentOS').click();
   if (navigator.userAgent.indexOf('Debian') > 0 ) $('#soo_button_Debian').click();
@@ -118,21 +124,24 @@ $(function(){
 <div class="soo_box">
   <p class="soo_line soo_line_visible">Select Your Operating System</p>
   <% @flavors.each do |flavor| %>
-  <div class="soo_button" id="soo_button_<%= flavor %>" data-flavor="<%= flavor %>"><img src="<%= image_path('download/' + flavor.downcase + '.png') %>" alt="<%= flavor %>" /><p><%= flavor %></p></div>
+  <div class="soo_button" id="soo_button_<%= flavor %>"><img src="<%= image_path('download/' + flavor.downcase + '.png') %>" alt="<%= flavor %>" /><p><%= flavor %></p></div>
   <% end %>
 </div>
 
 <div id="soo_ymp" class="soo_box">
-  <p class="soo_line">Install using One Click Install<span>V</span></p>
+  <p class="soo_line">Install using One Click Install<span id="soo_section_toggle_ymp">V</span></p>
+  <div id="soo_section_ymp">
   <% @data.select {|k,v| v.has_key?(:ymp)}.each do |k,v| %>
   <a class="soo_ymplink soo_distro soo_distro_<%= v[:flavor] %>" href="<%= v[:ymp] %>"><%= k.gsub('_', ' ') %></a>
   <% end %>
+  </div>
 </div>
 
 <div id="soo_repo" class="soo_box">
-  <p class="soo_line">Add repository and install manually<span>V</span></p>
+  <p class="soo_line">Add repository and install manually<span id="soo_section_toggle_repo">V</span></p>
+  <div id="soo_section_repo">
   <% @data.select {|k,v| v.has_key?(:repo)}.each do |k,v| %>
-  <div class="soo_distro soo_distro_<%= v[:flavor] %>">
+  <div class="soo_repoinfo soo_distro soo_distro_<%= v[:flavor] %>">
   <p>For <strong><%= k.gsub('_', ' ') %></strong> run the following as <strong>root</strong>:</p>
   <pre><%=
     case v[:flavor]
@@ -150,19 +159,22 @@ $(function(){
   %></pre>
   </div>
   <% end %>
+  </div>
 </div>
 
 <div id="soo_pkg" class="soo_box">
-  <p class="soo_line">Grab binary packages directly<span>V</span></p>
+  <p class="soo_line">Grab binary packages directly<span id="soo_section_toggle_pkg">V</span></p>
+  <div id="soo_section_pkg">
   <table>
   <% @data.select {|k,v| v.has_key?(:pkg)}.each do |k,v| %>
-  <tr class="soo_distro soo_distro_<%= v[:flavor] %>"><td>Packages for <strong><%= k.gsub('_', ' ') %></strong>:</td>
+  <tr class="soo_pkginfo soo_distro soo_distro_<%= v[:flavor] %>"><td>Packages for <strong><%= k.gsub('_', ' ') %></strong>:</td>
   <% v[:pkg].each do |k,v| %>
   <td><a class="soo_pkglink" href="<%= v %>"><%= k %></a></td>
   <% end %>
   </tr>
   <% end %>
   </table>
+  </div>
 </div>
 
 </body>
