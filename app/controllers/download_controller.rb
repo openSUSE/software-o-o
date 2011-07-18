@@ -11,41 +11,45 @@ class DownloadController < ApplicationController
     if api_result
       @data = Hash.new
       api_result.elements.each("/collection/binary") { |e|
-        distro = e.attributes[:repository]
-        if not data.has_key?(distro)
-          data[distro] = {
+        distro = e.attributes['repository']
+        if not @data.has_key?(distro)
+          @data[distro] = {
             :repo => "http://download.opensuse.org/repositories/#{@prj}/#{distro}/",
             :pkg => Hash.new
           }
-          case e.attributes[:baseproject]
-            when /^openSUSE:/
-              data[distro][:flavor] = 'openSUSE'
-              data[distro][:ymp] = "http://software.opensuse.org/ymp/#{@prj}/#{distro}/#{@pkg}.ymp"
-            when /^SUSE:SLE-/
-              data[distro][:flavor] = 'SLE'
-            when /^Fedora:/
-              data[distro][:flavor] = 'Fedora'
-            when /^RedHat:RHEL-/
-              data[distro][:flavor] = 'RHEL'
-            when /^CentOS:CentOS-/
-              data[distro][:flavor] = 'CentOS'
-            when /^Mandriva:/
-              data[distro][:flavor] = 'Mandriva'
-            when /^Mageia:/
-              data[distro][:flavor] = 'Mageia'
-            when /^Debian:/
-              data[distro][:flavor] = 'Debian'
-            when /^Ubuntu:/
-              data[distro][:flavor] = 'Ubuntu'
+          puts e.attributes['baseproject']
+          case e.attributes['baseproject']
+            when /^(DISCONTINUED:)?openSUSE:/
+              @data[distro][:flavor] = 'openSUSE'
+              @data[distro][:ymp] = "http://software.opensuse.org/ymp/#{@prj}/#{distro}/#{@pkg}.ymp"
+            when /^(DISCONTINUED:)?SUSE:SLE-/
+              @data[distro][:flavor] = 'SLE'
+              @data[distro][:ymp] = "http://software.opensuse.org/ymp/#{@prj}/#{distro}/#{@pkg}.ymp"
+            when /^(DISCONTINUED:)?Fedora:/
+              @data[distro][:flavor] = 'Fedora'
+            when /^(DISCONTINUED:)?RedHat:RHEL-/
+              @data[distro][:flavor] = 'RHEL'
+            when /^(DISCONTINUED:)?ScientificLinux:/
+              @data[distro][:flavor] = 'SL'
+            when /^(DISCONTINUED:)?CentOS:CentOS-/
+              @data[distro][:flavor] = 'CentOS'
+            when /^(DISCONTINUED:)?Mandriva:/
+              @data[distro][:flavor] = 'Mandriva'
+            when /^(DISCONTINUED:)?Mageia:/
+              @data[distro][:flavor] = 'Mageia'
+            when /^(DISCONTINUED:)?Debian:/
+              @data[distro][:flavor] = 'Debian'
+            when /^(DISCONTINUED:)?Ubuntu:/
+              @data[distro][:flavor] = 'Ubuntu'
             else
-              data[distro][:flavor] = 'Unknown'
+              @data[distro][:flavor] = 'Unknown'
           end
         end
-        filename = e.attributes[:filename]
-        filepath = e.attributes[:filepath]
-        data[distro][:pkg][filename] = 'http://download.opensuse.org/repositories/' + filepath
+        filename = e.attributes['filename']
+        filepath = e.attributes['filepath']
+        @data[distro][:pkg][filename] = 'http://download.opensuse.org/repositories/' + filepath
       }
-      # collect distro types from data
+      # collect distro types from @data
       @flavors = @data.values.collect { |i| i[:flavor] }.uniq.sort{|x,y| x.downcase <=> y.downcase }
     else
       head :forbidden

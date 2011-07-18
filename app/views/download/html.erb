@@ -100,7 +100,13 @@ $(function(){
     $('.soo_button').removeClass('soo_button_chosen');
     $(this).addClass('soo_button_chosen');
     $('.soo_distro').hide();
-    $('.soo_distro_' + $(this).attr('id').replace('soo_button_','')).show();
+    var distro = $(this).attr('id').replace('soo_button_','');
+    $('.soo_distro_' + distro).show();
+    if (distro == 'openSUSE' || distro == 'SLE') {
+      $('#soo_ymp').show();
+    } else {
+      $('#soo_ymp').hide();
+    }
   });
 
   $('.soo_line span').click(function(){
@@ -115,6 +121,7 @@ $(function(){
   if (navigator.userAgent.indexOf('Mandriva') > 0 ) $('#soo_button_Mandriva').click();
   if (navigator.userAgent.indexOf('Mageia') > 0 ) $('#soo_button_Mageia').click();
   if (navigator.userAgent.indexOf('Red Hat') > 0 ) $('#soo_button_RHEL').click();
+  if (navigator.userAgent.indexOf('Scientific') > 0 ) $('#soo_button_SL').click();
   if (navigator.userAgent.indexOf('SUSE') > 0 ) $('#soo_button_openSUSE').click();
   if (navigator.userAgent.indexOf('buntu') > 0 ) $('#soo_button_Ubuntu').click();
 });
@@ -133,7 +140,7 @@ $(function(){
   <p class="soo_line">Install using One Click Install<span id="soo_section_toggle_ymp">V</span></p>
   <div id="soo_section_ymp">
   <% @data.select {|k,v| v.has_key?(:ymp)}.each do |k,v| %>
-  <a class="soo_ymplink soo_distro soo_distro_<%= v[:flavor] %>" href="<%= v[:ymp] %>"><%= k.gsub('_', ' ') %></a>
+  <a class="soo_ymplink soo_distro soo_distro_<%= v[:flavor] %>" href="<%= v[:ymp] %>"><%= k.gsub('_', '&nbsp;') %></a>
   <% end %>
   </div>
 </div>
@@ -143,12 +150,12 @@ $(function(){
   <div id="soo_section_repo">
   <% @data.select {|k,v| v.has_key?(:repo)}.each do |k,v| %>
   <div class="soo_repoinfo soo_distro soo_distro_<%= v[:flavor] %>">
-  <p>For <strong><%= k.gsub('_', ' ') %></strong> run the following as <strong>root</strong>:</p>
+  <p>For <strong><%= k.gsub('_', '&nbsp;') %></strong> run the following as <strong>root</strong>:</p>
   <pre><%=
     case v[:flavor]
       when 'openSUSE', 'SLE'
         "zypper addrepo #{v[:repo]}#{@prj}.repo\nzypper refresh\nzypper install #{@pkg}"
-      when 'CentOS', 'Fedora', 'RHEL'
+      when 'CentOS', 'Fedora', 'RHEL', 'SL'
         "cd /etc/yum/repos.d/\nwget #{v[:repo]}#{@prj}.repo\nyum update\nyum install #{@pkg}"
       when 'Debian', 'Ubuntu'
         "echo 'deb #{v[:repo]} ./' > /etc/apt/sources.list\napt-get update\napt-get install #{@pkg}"
@@ -168,10 +175,12 @@ $(function(){
   <div id="soo_section_pkg">
   <table>
   <% @data.select {|k,v| v.has_key?(:pkg)}.each do |k,v| %>
-  <tr class="soo_pkginfo soo_distro soo_distro_<%= v[:flavor] %>"><td>Packages for <strong><%= k.gsub('_', ' ') %></strong>:</td>
+  <tr class="soo_pkginfo soo_distro soo_distro_<%= v[:flavor] %>"><td>Packages for <strong><%= k.gsub('_', '&nbsp;') %></strong>:</td>
+  <td>
   <% v[:pkg].each do |k,v| %>
-  <td><a class="soo_pkglink" href="<%= v %>"><%= k %></a></td>
+  <a class="soo_pkglink" href="<%= v %>"><%= k %></a>
   <% end %>
+  </td>
   </tr>
   <% end %>
   </table>
