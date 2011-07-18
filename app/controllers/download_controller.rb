@@ -61,11 +61,6 @@ class DownloadController < ApplicationController
     render :html, :layout => false
   end
 
-  # /download.js?prj=name&pkg=name
-  def js
-    render :js, :layout => false
-  end
-
   # /download.json?prj=name&pkg=name
   def json
     # needed for rails < 3.0 to support JSONP
