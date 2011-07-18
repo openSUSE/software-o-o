@@ -9,15 +9,15 @@ class DownloadController < ApplicationController
 
     api_result = get_from_api("/search/published/binary/id?match=project='#{@prj}'+and+package='#{@pkg}'")
     if api_result
+      doc = REXML::Document.new api_result.body
       @data = Hash.new
-      api_result.elements.each("/collection/binary") { |e|
+      doc.elements.each("/collection/binary") { |e|
         distro = e.attributes['repository']
         if not @data.has_key?(distro)
           @data[distro] = {
             :repo => "http://download.opensuse.org/repositories/#{@prj}/#{distro}/",
             :pkg => Hash.new
           }
-          puts e.attributes['baseproject']
           case e.attributes['baseproject']
             when /^(DISCONTINUED:)?openSUSE:/
               @data[distro][:flavor] = 'openSUSE'
@@ -70,23 +70,6 @@ class DownloadController < ApplicationController
   def json
     # needed for rails < 3.0 to support JSONP
     render_json @data.to_json
-  end
-
-  private
-
-  def get_from_api(path)
-    begin
-      req = Net::HTTP::Get.new(path)
-      req['x-username'] = ICHAIN_USER
-      host, port = API_HOST.split(/:/)
-      port ||= 80
-      res = Net::HTTP.new(host, port).start do |http|
-        http.request(req)
-      end
-      doc = REXML::Document.new res.body
-    rescue
-      nil
-    end
   end
 
 end

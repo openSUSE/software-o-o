@@ -19,3 +19,7 @@ config.action_mailer.raise_delivery_errors = false
 API_HOST = "api-internal.opensuse.org"
 ICHAIN_USER = "obs_read_only"
 
+# API_HOST = "api.opensuse.org"
+# API_SSL = true
+# BA_USER = "username"
+# BA_PASS = "password"

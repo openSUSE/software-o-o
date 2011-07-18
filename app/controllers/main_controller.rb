@@ -205,16 +205,4 @@ class MainController < ApplicationController
     end
   end
 
-  private
-  
-  def get_from_api(path)
-    req = Net::HTTP::Get.new(path)
-    req['x-username'] = "obs_read_only"
-
-    host, port = API_HOST.split(/:/)
-    port ||= 80
-    res = Net::HTTP.new(host, port).start do |http|
-      http.request(req)
-    end
-  end
 end

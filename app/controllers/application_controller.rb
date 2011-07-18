@@ -1,6 +1,8 @@
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
 
+require 'net/https'
+
 class ApplicationController < ActionController::Base
 
   before_filter :set_language
@@ -97,5 +99,37 @@ class ApplicationController < ActionController::Base
     render({:content_type => :js, :text => response}.merge(options))
   end
 
+  private
+
+  def get_from_api(path)
+    host, port = API_HOST.split(/:/)
+    if defined? API_SSL and API_SSL
+      port ||= 443
+    else
+      port ||= 80
+    end
+    begin
+      http = Net::HTTP.new(host, port)
+      if defined? API_SSL and API_SSL
+        http.use_ssl = true
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      end
+      request = Net::HTTP::Get.new(path)
+      request['x-username'] = ICHAIN_USER if defined? ICHAIN_USER
+      request['x-password'] = ICHAIN_PASS if defined? ICHAIN_PASS
+      request.basic_auth BA_USER, BA_PASS if defined? BA_USER and defined? BA_PASS
+      http.read_timeout = 15
+      response = http.request(request)
+      case response
+        when Net::HTTPSuccess
+          response
+        else
+          raise "Response was: #{response} #{response.body}"
+      end
+    rescue Exception => e
+      logger.error "Error connecting to #{host}:#{port}: #{e.to_s}"
+      return nil
+    end
+  end
 
 end
