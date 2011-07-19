@@ -56,30 +56,20 @@ class ApplicationController < ActionController::Base
 
   # load available distributions
   def load_distributions
-    uri = URI.parse("http://#{API_HOST}/distributions")
-    request = Net::HTTP::Get.new(uri.path)
-    logger.debug "Loading distributions from #{uri}"
     @distributions = Array.new
     begin
-      Net::HTTP.start(uri.host, uri.port) do |http|
-        http.read_timeout = 30
-        response = http.request(request)
-        unless( response.kind_of? Net::HTTPSuccess )
-          logger.error "Cannot load distributions: '#{response.code}', message: \n#{response.body}"
-        else
-          doc = REXML::Document.new response.body
-          doc.elements.each("distributions/distribution") { |element|
-            dist = [element.elements['name'].text, element.elements['project'].text]
-            @distributions << dist
-          }
-        end
-      end
+      response = get_from_api("distributions")
+      doc = REXML::Document.new response.body
+      doc.elements.each("distributions/distribution") { |element|
+        dist = [element.elements['name'].text, element.elements['project'].text]
+        @distributions << dist
+      }
       @distributions << ["ALL Distributions", 'ALL']
-      return @distributions
     rescue Exception => e
-      logger.error "Error while loading distributions from '#{uri}': " + e.to_s
+      logger.error "Error while loading distributions: " + e.to_s
+      @distributions = nil
     end
-    return nil
+    return @distributions
   end
 
   # special version of render json with JSONP capabilities (only needed for rails < 3.0)
@@ -102,32 +92,29 @@ class ApplicationController < ActionController::Base
   private
 
   def get_from_api(path)
-    host, port = API_HOST.split(/:/)
-    if defined? API_SSL and API_SSL
-      port ||= 443
-    else
-      port ||= 80
-    end
+    uri_str = "#{API_HOST}/#{path}".gsub(' ', '%20')
+    uri = URI.parse(uri_str)
+    logger.debug "Loading from api: #{uri_str}"
     begin
-      http = Net::HTTP.new(host, port)
-      if defined? API_SSL and API_SSL
+      http = Net::HTTP.new(uri.host, uri.port)
+      if  uri.scheme == 'https'
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       end
-      request = Net::HTTP::Get.new(path)
-      request['x-username'] = ICHAIN_USER if defined? ICHAIN_USER
-      request['x-password'] = ICHAIN_PASS if defined? ICHAIN_PASS
-      request.basic_auth BA_USER, BA_PASS if defined? BA_USER and defined? BA_PASS
+      request = Net::HTTP::Get.new("#{uri.path}?#{uri.query}")
+      api_user = API_USERNAME if defined? API_USERNAME
+      api_pass = API_PASSWORD if defined? API_PASSWORD
+      request['x-username'] = api_user
+      request.basic_auth  api_user, api_pass unless (api_user.blank? || api_pass.blank?)
       http.read_timeout = 15
       response = http.request(request)
       case response
-        when Net::HTTPSuccess
-          response
-        else
-          raise "Response was: #{response} #{response.body}"
+      when Net::HTTPSuccess then response;
+      else
+        raise "Response was: #{response} #{response.body}"
       end
     rescue Exception => e
-      logger.error "Error connecting to #{host}:#{port}: #{e.to_s}"
+      raise "Error connecting to #{uri_str}: #{e.to_s}"
       return nil
     end
   end

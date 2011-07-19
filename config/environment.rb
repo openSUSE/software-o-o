@@ -42,13 +42,11 @@ Rails::Initializer.run do |config|
   
   # See Rails::Configuration for more options
 
-  config.gem 'libxml-ruby'
+  config.gem 'nokogiri'
   config.gem 'gettext_rails'
   config.gem 'gettext_activerecord'
   config.gem 'daemons'
   config.gem 'delayed_job'
-
-  config.logger = NiceLogger.new(config.log_path)
 
   config.cache_store = :compressed_mem_cache_store, 'localhost:11211', {:namespace => 'software'}
 
@@ -77,7 +75,11 @@ ActiveXML::Base.config do |conf|
       :pattern => 'rest:///search/published/pattern/id?match=:match',
       :binary => 'rest:///search/published/binary/id?match=:match'
   end
-  conf.transport_for(:project).set_additional_header("X-Username", ICHAIN_USER)
+  conf.transport_for( :project ).set_additional_header( "X-Username", API_USERNAME)
+  if defined? API_USERNAME && defined? API_PASSWORD && !API_PASSWORD.blank?
+    conf.transport_for( :project ).login API_USERNAME, API_PASSWORD
+  end
+  conf.transport_for( :project ).set_additional_header( "User-Agent", "software.o.o" )
 end
 
 LANGUAGES = %w{en}

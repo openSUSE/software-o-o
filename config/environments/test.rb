@@ -18,5 +18,7 @@ config.action_controller.perform_caching             = false
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
 
-API_HOST = "api-internal.opensuse.org"
-ICHAIN_USER = "obs_read_only"
+API_HOST = "https://api.opensuse.org"
+# Add your username + password for the api here
+API_USERNAME = "test"
+API_PASSWORD = "test"

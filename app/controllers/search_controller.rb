@@ -55,7 +55,7 @@ class SearchController < ApplicationController
           flash.now[:error] = _("Please be more precise in your search, search limit reached.")
         end
       else
-        logger.error _("Could not perform search: ") + search_error
+        logger.error "Could not perform search: " + search_error + e.to_s
         flash.now[:error] = _("Could not perform search: ") + search_error
       end
       return

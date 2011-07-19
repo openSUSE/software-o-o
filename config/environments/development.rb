@@ -16,10 +16,8 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
-API_HOST = "api-internal.opensuse.org"
-ICHAIN_USER = "obs_read_only"
 
-# API_HOST = "api.opensuse.org"
-# API_SSL = true
-# BA_USER = "username"
-# BA_PASS = "password"
+API_HOST = "https://api.opensuse.org"
+# Add your username + password for the api here
+API_USERNAME = "test"
+API_PASSWORD = "test"

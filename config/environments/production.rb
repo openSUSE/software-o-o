@@ -21,8 +21,10 @@ config.action_view.cache_template_loading            = true
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
 
-API_HOST = "api-internal.opensuse.org"
-ICHAIN_USER = "obs_read_only"
+API_HOST = "https://api.opensuse.org"
+# Add your username + password for the api here
+API_USERNAME = "test"
+API_PASSWORD = "test"
 
 USE_STATIC = "software.o.o"
 
