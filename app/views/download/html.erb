@@ -146,7 +146,7 @@ $(function(){
 <div id="soo_ymp" class="soo_box">
   <p class="soo_line" id="soo_section_toggle_ymp">Install using One Click Install<span></span></p>
   <div id="soo_section_ymp">
-  <% @data.select {|k,v| v.has_key?(:ymp)}.each do |k,v| %>
+  <% @data.select {|k,v| v.has_key?(:ymp)}.version_sort.each do |k,v| %>
   <a class="soo_ymplink soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>" href="<%= v[:ymp] %>"><%= k.gsub('_', '&nbsp;') %></a>
   <% end %>
   </div>
@@ -155,7 +155,7 @@ $(function(){
 <div id="soo_repo" class="soo_box">
   <p class="soo_line" id="soo_section_toggle_repo">Add repository and install manually<span></span></p>
   <div id="soo_section_repo">
-  <% @data.select {|k,v| v.has_key?(:repo)}.each do |k,v| %>
+  <% @data.select {|k,v| v.has_key?(:repo)}.version_sort.each do |k,v| %>
   <div class="soo_repoinfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>">
   <p>For <strong><%= k.gsub('_', '&nbsp;') %></strong> run the following as <strong>root</strong>:</p>
   <pre><%=
@@ -181,10 +181,10 @@ $(function(){
   <p class="soo_line" id="soo_section_toggle_pkg">Grab binary packages directly<span></span></p>
   <div id="soo_section_pkg">
   <table>
-  <% @data.select {|k,v| v.has_key?(:pkg)}.each do |k,v| %>
+  <% @data.select {|k,v| v.has_key?(:pkg)}.version_sort.each do |k,v| %>
   <tr class="soo_pkginfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>"><td>Packages for <strong><%= k.gsub('_', '&nbsp;') %></strong>:</td>
   <td>
-  <% v[:pkg].each do |k,v| %>
+  <% v[:pkg].sort.each do |k,v| %>
   <a class="soo_pkglink" href="<%= v %>"><%= k %></a>
   <% end %>
   </td>
