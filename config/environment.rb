@@ -77,7 +77,7 @@ ActiveXML::Base.config do |conf|
       :binary => 'rest:///search/published/binary/id?match=:match'
   end
   conf.transport_for( :project ).set_additional_header( "X-Username", API_USERNAME)
-  if defined? API_USERNAME && defined? API_PASSWORD && !API_PASSWORD.blank?
+  if defined?( API_USERNAME ) && defined?( API_PASSWORD ) && !API_PASSWORD.blank?
     conf.transport_for( :project ).login API_USERNAME, API_PASSWORD
   end
   conf.transport_for( :project ).set_additional_header( "User-Agent", "software.o.o" )
