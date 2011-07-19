@@ -2,7 +2,7 @@ I installed it on my system the following way:
 
 sudo zypper ar -r http://download.opensuse.org/repositories/devel:/languages:/ruby:/extensions/openSUSE_Factory/devel:languages:ruby:extensions.repo
 sudo zypper in rubygem-actionmailer rubygem-actionpack rubygem-activerecord rubygem-activeresource rubygem-activesupport rubygem-rails
-sudo zypper in rubygem-sqlite3 rubygem-gettext_rails rubygem-libxml-ruby rubygem-delayed_job
+sudo zypper in rubygem-sqlite3 rubygem-gettext_rails rubygem-nokogiri rubygem-delayed_job
 
 cat > config/database.yml <<EOF
 development:

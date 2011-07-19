@@ -1,13 +1,6 @@
 require 'md5'
 
 class Seeker < ActiveXML::Base
-  def size
-    len = data.children.length
-    #if len == 1 and data.children[0].kind_of? XML::Smart::Dom::Text
-    #  return 0
-    #end
-    return len
-  end
 
   def self.prepare_result(query, baseproject=nil, project=nil, exclude_filter=nil, exclude_debug=false)
     cache_key = query
@@ -40,7 +33,7 @@ class Seeker < ActiveXML::Base
       xpath += " and @project = '#{project}' " unless project.blank?
       xpath += " and not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource'))" if exclude_debug
       xpath += " and not(contains-ic(@project, '#{exclude_filter}'))" unless exclude_filter.blank?
- 
+
       bin = Seeker.find :binary, :match => xpath
       pat = Seeker.find :pattern, :match => xpath
       raise "Backend not responding" if( bin == nil && pat == nil )
@@ -306,10 +299,8 @@ class Seeker < ActiveXML::Base
       attr_accessor :fragment_type
 
       def initialize(element)
-        #XXX: xml-backend specific code, change when xml-backends are
-        #XXX: switchable
-        element.data.attributes.each do |attr|
-          self[attr.name] = attr.value
+        %w(project repository name filename filepath arch).each do |att|
+          self[att] = element.value att
         end
       end
 
