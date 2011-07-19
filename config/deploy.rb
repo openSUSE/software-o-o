@@ -22,7 +22,7 @@ set :static, "software.o.o"
 # set variables for different target deployments
 task :stage do
   set :deploy_to, "/srv/www/vhosts/opensuse.org/stage/#{application}"
-  set :branch, "derivates"
+  set :branch, "master"
   set :static, "software.o.o-stage/stage"
 end
 
@@ -52,6 +52,8 @@ namespace :config do
     run "ln -s #{shared_path}/production.rb #{release_path}/config/environments/"
     run "rm -f #{release_path}/config/database.yml"
     run "ln -s #{shared_path}/database.yml #{release_path}/config/database.yml"
+    run "rm -f #{release_path}/config/options.yml"
+    run "ln -s #{shared_path}/options.yml #{release_path}/config/options.yml"
     run "rm -r #{release_path}/tmp/cache"
     run "ln -s #{shared_path}/software.o.o.cache #{release_path}/tmp/cache"
   end

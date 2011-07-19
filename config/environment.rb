@@ -11,7 +11,6 @@ RAILS_GEM_VERSION = '>=2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 require "#{RAILS_ROOT}/lib/common/libxmlactivexml"
-require 'custom_logger'
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here
@@ -53,6 +52,8 @@ Rails::Initializer.run do |config|
 end
 
 # Include your application configuration below
+
+ActionController::Base.relative_url_root = CONFIG['relative_url_root'] if CONFIG['relative_url_root']
 
 # remove static cache files
 %w{developer 112 113 114}.each { |release|
