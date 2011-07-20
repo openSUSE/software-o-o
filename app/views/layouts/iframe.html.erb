@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= javascript_include_tag "http://static.opensuse.org/themes/bento/js/jquery.js" %>
+
+    <%= yield :content_for_head %>
+
+    <script type="text/javascript">
+     /* <![CDATA[ */
+    <%= yield :head_javascript %>
+    $(function() {
+      <%= yield :ready_function %>
+    });
+    /* ]]> */
+    </script>
+
+  </head>
+  <body>
+
+    <%= @content_for_layout %>
+
+  </body>
+</html>
