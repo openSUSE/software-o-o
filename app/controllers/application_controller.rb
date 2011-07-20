@@ -98,6 +98,16 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+  
+
+  def valid_package_name? name
+    name =~ /^[[:alnum:]][-_+\w\.:]*$/
+  end
+
+  def valid_project_name? name
+    name =~ /^[[:alnum:]][-+\w.:]+$/
+  end
+
 
   private
 

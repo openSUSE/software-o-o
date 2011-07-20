@@ -27,6 +27,8 @@ class DownloadController < ApplicationController
 
   def prepare
     required_parameters :prj, :pkg
+    raise "Invalid package name" unless valid_package_name? params[:pkg]
+    raise "Invalid project name" unless valid_project_name? params[:prj]
     @prj = params[:prj]
     @pkg = params[:pkg]
     cache_key = "soo_download_#{@prj}_#{@pkg}"
