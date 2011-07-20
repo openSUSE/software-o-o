@@ -134,7 +134,8 @@ class ApplicationController < ActionController::Base
         raise "Response was: #{response} #{response.body}"
       end
     rescue Exception => e
-      raise "Error connecting to #{uri_str}: #{e.to_s}"
+      logger.error "Error connecting to #{uri_str}: #{e.to_s}"
+      raise "Error connecting to OBS API: #{e.to_s}"
       return nil
     end
   end
