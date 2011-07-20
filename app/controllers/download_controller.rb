@@ -1,9 +1,32 @@
 class DownloadController < ApplicationController
 
-  verify :params => [:prj, :pkg]
   before_filter :prepare
 
+
+  def index
+    @page_title = "Install package #{params[:pkg]}"
+    @hide_search_box = true
+    @box_title = "Install package #{params[:pkg]}"
+    render :html
+  end
+
+  # /download.html?prj=name&pkg=name
+  def iframe
+    render :html, :layout => 'iframe'
+  end
+
+  # /download.json?prj=name&pkg=name
+  def json
+    # needed for rails < 3.0 to support JSONP
+    render_json @data.to_json
+  end
+
+
+
+  private
+
   def prepare
+    required_parameters :prj, :pkg
     @prj = params[:prj]
     @pkg = params[:pkg]
     cache_key = "soo_download_#{@prj}_#{@pkg}"
@@ -63,17 +86,6 @@ class DownloadController < ApplicationController
       # collect distro types from @data
       @flavors = @data.values.collect { |i| i[:flavor] }.uniq.sort{|x,y| x.downcase <=> y.downcase }
     end
-  end
-
-  # /download.html?prj=name&pkg=name
-  def html
-    render :html, :layout => false
-  end
-
-  # /download.json?prj=name&pkg=name
-  def json
-    # needed for rails < 3.0 to support JSONP
-    render_json @data.to_json
   end
 
 end

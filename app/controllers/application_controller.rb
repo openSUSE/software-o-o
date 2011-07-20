@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
 
   init_gettext('software')
 
+  class MissingParameterError < Exception; end
+
   protected
 
   def rescue_action_locally( exception )
@@ -87,6 +89,14 @@ class ApplicationController < ActionController::Base
       end
     end
     render({:content_type => :js, :text => response}.merge(options))
+  end
+
+  def required_parameters(*parameters)
+    parameters.each do |parameter|
+      unless params.include? parameter.to_s
+        raise MissingParameterError, "Required Parameter #{parameter} missing"
+      end
+    end
   end
 
   private

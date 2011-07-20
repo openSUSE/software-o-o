@@ -1,198 +1,191 @@
+
+<script type="text/javascript">
+  $(function(){
+    $('.soo_button').click(function(){
+      $('.soo_line').show();
+      $('.soo_button').removeClass('soo_button_chosen');
+      $(this).addClass('soo_button_chosen');
+      $('.soo_distro').hide();
+      var distro = $(this).attr('id').replace('soo_button_','');
+      $('.soo_distro_' + distro).show();
+      if (distro == 'openSUSE' || distro == 'SLE') {
+        $('#soo_ymp').show();
+        $('#soo_section_ymp').show();  $('#soo_section_toggle_ymp span').text('(hide)');
+        $('#soo_section_repo').hide(); $('#soo_section_toggle_repo span').text('(show)');
+        $('#soo_section_pkg').hide();  $('#soo_section_toggle_pkg span').text('(show)');
+      } else {
+        $('#soo_ymp').hide();
+        $('#soo_section_ymp').hide();  $('#soo_section_toggle_ymp span').text('(show)');
+        $('#soo_section_repo').show(); $('#soo_section_toggle_repo span').text('(hide)');
+        $('#soo_section_pkg').hide();  $('#soo_section_toggle_pkg span').text('(show)');
+      }
+    });
+
+    $('.soo_line').click(function(){
+      $('#' + $(this).attr('id').replace('toggle_', '')).toggle();
+      $(this).children('span').text($(this).children('span').text() == '(hide)' ? '(show)' : '(hide)');
+    });
+
+    // try to detect distro via user agent
+    if (navigator.userAgent.indexOf('CentOS') > 0 ) $('#soo_button_CentOS').click();
+    if (navigator.userAgent.indexOf('Debian') > 0 ) $('#soo_button_Debian').click();
+    if (navigator.userAgent.indexOf('Fedora') > 0 ) $('#soo_button_Fedora').click();
+    if (navigator.userAgent.indexOf('Mandriva') > 0 ) $('#soo_button_Mandriva').click();
+    if (navigator.userAgent.indexOf('Mageia') > 0 ) $('#soo_button_Mageia').click();
+    if (navigator.userAgent.indexOf('Red Hat') > 0 ) $('#soo_button_RHEL').click();
+    if (navigator.userAgent.indexOf('Scientific') > 0 ) $('#soo_button_SL').click();
+    if (navigator.userAgent.indexOf('SUSE') > 0 ) $('#soo_button_openSUSE').click();
+    if (navigator.userAgent.indexOf('buntu') > 0 ) $('#soo_button_Ubuntu').click();
+  });
+</script>
+
 <%
 def gradient(top, mid, btm)
   "  background: #{mid};\n" +
-  "  background: -webkit-gradient(linear, left top, left bottom, from(#{top}), to(#{btm}));\n" +
-  "  background: -moz-linear-gradient(top,  #{top},  #{btm});\n" +
-  "  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{top}', endColorstr='#{btm}');"
+    "  background: -webkit-gradient(linear, left top, left bottom, from(#{top}), to(#{btm}));\n" +
+    "  background: -moz-linear-gradient(top,  #{top},  #{btm});\n" +
+    "  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{top}', endColorstr='#{btm}');"
 end
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-body {
-  font: 0.8em "DejaVu Sans", "Bitstream Vera Sans", Verdana, sans-serif;
-  margin: 16px;
-  margin-top: 0px;
-  padding: 0;
-}
-.soo_line {
-  color: #480;
-  clear: both;
-  border-bottom: 1px solid #CCC;
-  padding-top: 10px;
-  font-size: 1.1em;
-  display: none;
-  cursor: pointer;
-}
-.soo_line span {
-  float: right;
-}
-.soo_line_visible {
-  display: block;
-}
-.soo_button {
-  display: block;
-  float: left;
-  cursor: pointer;
-  border: 1px solid transparent;
-  padding: 3px 5px;
-  margin: 0 .5em 0 0;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-}
-.soo_button:hover, .soo_button_chosen {
-  border: 1px solid #BE7;
-<%= gradient('#FCFCFC','#F0F0F0','#E4E4E4')%>
-}
-.soo_button p {
-  font-size: 0.75em;
-  text-align: center;
-  margin: 0;
-}
-.soo_ymplink, .soo_pkglink {
-  color: white;
-  display: block;
-  margin: 6px;
-  line-height: 24px;
-  font-weight: bolder;
-  float: left;
-  text-decoration: none;
-  height: 24px;
-  text-align: center;
-  -moz-border-radius: 12px;
-  border-radius: 12px;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-.soo_ymplink {
-<%= gradient('#9D0','#7B0','#580') %>
-  border: 1px solid #490;
-  min-width: 112px;
-  font-size: 0.85em;
-}
-.soo_pkglink {
-<%= gradient('#09D','#07B','#058') %>
-  border: 1px solid #049;
-  min-width: 64px;
-  font-size: 0.75em;
-}
-pre {
-  background: #EEE;
-  border: 1px dotted #888;
-  padding: 4px;
-  margin-left: 2em;
-  font-size: 1.2em;
-  overflow-x: auto;
-}
-pre a {
-  text-decoration: none;
-  color: #008;
-}
-.soo_distro {
-  display: none;
-}
+
+<style type="text/css">
+  body {
+    font: 0.8em "DejaVu Sans", "Bitstream Vera Sans", Verdana, sans-serif;
+    margin: 16px;
+    margin-top: 0px;
+    padding: 0;
+  }
+  .soo_line {
+    color: #480;
+    clear: both;
+    border-bottom: 1px solid #CCC;
+    padding-top: 10px;
+    font-size: 1.1em;
+    display: none;
+    cursor: pointer;
+  }
+  .soo_line span {
+    float: right;
+  }
+  .soo_line_visible {
+    display: block;
+  }
+  .soo_button {
+    display: block;
+    float: left;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: 3px 5px;
+    margin: 0 .5em 0 0;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+  }
+  .soo_button:hover, .soo_button_chosen {
+    border: 1px solid #BE7;
+    <%= gradient('#FCFCFC','#F0F0F0','#E4E4E4')%>
+  }
+  .soo_button p {
+    font-size: 0.75em;
+    text-align: center;
+    margin: 0;
+  }
+  .soo_ymplink, .soo_pkglink {
+    color: white !important;
+    display: block;
+    margin: 6px;
+    line-height: 16px;
+    font-weight: bolder;
+    float: left;
+    text-decoration: none;
+    text-align: center;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .soo_ymplink {
+    <%= gradient('#9D0','#7B0','#580') %>
+    border: 1px solid #490;
+    min-width: 112px;
+    font-size: 0.85em;
+  }
+  .soo_pkglink {
+    <%= gradient('#09D','#07B','#058') %>
+    border: 1px solid #049;
+    min-width: 64px;
+    font-size: 0.75em;
+  }
+  pre {
+    background: #EEE;
+    border: 1px dotted #888;
+    padding: 4px;
+    margin-left: 2em;
+    font-size: 1.2em;
+    overflow-x: auto;
+  }
+  pre a {
+    text-decoration: none;
+    color: #008;
+  }
+  .soo_distro {
+    display: none;
+  }
 </style>
-<%= javascript_include_tag "http://static.opensuse.org/themes/bento/js/jquery.js" %>
-<script type="text/javascript">
-$(function(){
-  $('.soo_button').click(function(){
-    $('.soo_line').show();
-    $('.soo_button').removeClass('soo_button_chosen');
-    $(this).addClass('soo_button_chosen');
-    $('.soo_distro').hide();
-    var distro = $(this).attr('id').replace('soo_button_','');
-    $('.soo_distro_' + distro).show();
-    if (distro == 'openSUSE' || distro == 'SLE') {
-      $('#soo_ymp').show();
-      $('#soo_section_ymp').show();  $('#soo_section_toggle_ymp span').text('(hide)');
-      $('#soo_section_repo').hide(); $('#soo_section_toggle_repo span').text('(show)');
-      $('#soo_section_pkg').hide();  $('#soo_section_toggle_pkg span').text('(show)');
-    } else {
-      $('#soo_ymp').hide();
-      $('#soo_section_ymp').hide();  $('#soo_section_toggle_ymp span').text('(show)');
-      $('#soo_section_repo').show(); $('#soo_section_toggle_repo span').text('(hide)');
-      $('#soo_section_pkg').hide();  $('#soo_section_toggle_pkg span').text('(show)');
-    }
-  });
-
-  $('.soo_line').click(function(){
-      $('#' + $(this).attr('id').replace('toggle_', '')).toggle();
-      $(this).children('span').text($(this).children('span').text() == '(hide)' ? '(show)' : '(hide)');
-  });
-
-// try to detect distro via user agent
-  if (navigator.userAgent.indexOf('CentOS') > 0 ) $('#soo_button_CentOS').click();
-  if (navigator.userAgent.indexOf('Debian') > 0 ) $('#soo_button_Debian').click();
-  if (navigator.userAgent.indexOf('Fedora') > 0 ) $('#soo_button_Fedora').click();
-  if (navigator.userAgent.indexOf('Mandriva') > 0 ) $('#soo_button_Mandriva').click();
-  if (navigator.userAgent.indexOf('Mageia') > 0 ) $('#soo_button_Mageia').click();
-  if (navigator.userAgent.indexOf('Red Hat') > 0 ) $('#soo_button_RHEL').click();
-  if (navigator.userAgent.indexOf('Scientific') > 0 ) $('#soo_button_SL').click();
-  if (navigator.userAgent.indexOf('SUSE') > 0 ) $('#soo_button_openSUSE').click();
-  if (navigator.userAgent.indexOf('buntu') > 0 ) $('#soo_button_Ubuntu').click();
-});
-</script>
-</head>
-<body>
 
 <div class="soo_box">
   <p class="soo_line soo_line_visible">Select Your Operating System</p>
   <% @flavors.each do |flavor| %>
-  <div class="soo_button" id="soo_button_<%= flavor %>"><img src="<%= image_path('download/' + flavor.downcase + '.png') %>" alt="<%= flavor %>" /><p><%= flavor %></p></div>
+    <div class="soo_button" id="soo_button_<%= flavor %>"><img src="<%= image_path('download/' + flavor.downcase + '.png') %>" alt="<%= flavor %>" /><p><%= flavor %></p></div>
   <% end %>
 </div>
 
 <div id="soo_ymp" class="soo_box">
   <p class="soo_line" id="soo_section_toggle_ymp">Install using One Click Install<span></span></p>
   <div id="soo_section_ymp">
-  <% @data.select {|k,v| v.has_key?(:ymp)}.version_sort.each do |k,v| %>
-  <a class="soo_ymplink soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>" href="<%= v[:ymp] %>"><%= k.gsub('_', '&nbsp;') %></a>
-  <% end %>
+    <% @data.select {|k,v| v.has_key?(:ymp)}.version_sort.each do |k,v| %>
+      <a class="soo_ymplink soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>" href="<%= v[:ymp] %>"><%= k.gsub('_', '&nbsp;') %></a>
+    <% end %>
   </div>
 </div>
 
 <div id="soo_repo" class="soo_box">
   <p class="soo_line" id="soo_section_toggle_repo">Add repository and install manually<span></span></p>
   <div id="soo_section_repo">
-  <% @data.select {|k,v| v.has_key?(:repo)}.version_sort.each do |k,v| %>
-  <div class="soo_repoinfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>">
-  <p>For <strong><%= k.gsub('_', '&nbsp;') %></strong> run the following as <strong>root</strong>:</p>
-  <pre><%=
-    case v[:flavor]
-      when 'openSUSE', 'SLE'
-        "zypper addrepo #{v[:repo]}#{@prj}.repo\nzypper refresh\nzypper install #{@pkg}"
-      when 'CentOS', 'Fedora', 'RHEL', 'SL'
-        "cd /etc/yum/repos.d/\nwget #{v[:repo]}#{@prj}.repo\nyum update\nyum install #{@pkg}"
-      when 'Debian', 'Ubuntu'
-        "echo 'deb #{v[:repo]} ./' > /etc/apt/sources.list\napt-get update\napt-get install #{@pkg}"
-      when 'Mageia', 'Mandriva'
-        "urpmi.addmedia #{@prj} #{v[:repo]}\nurpmi.update -a\nurpmi #{@pkg}"
-      else
-        '?'
-    end
-  %></pre>
-  </div>
-  <% end %>
+    <% @data.select {|k,v| v.has_key?(:repo)}.version_sort.each do |k,v| %>
+      <div class="soo_repoinfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>">
+        <p>For <strong><%= k.gsub('_', '&nbsp;') %></strong> run the following as <strong>root</strong>:</p>
+        <pre><%=
+          case v[:flavor]
+          when 'openSUSE', 'SLE'
+            "zypper addrepo #{v[:repo]}#{@prj}.repo\nzypper refresh\nzypper install #{@pkg}"
+          when 'CentOS', 'Fedora', 'RHEL', 'SL'
+            "cd /etc/yum/repos.d/\nwget #{v[:repo]}#{@prj}.repo\nyum update\nyum install #{@pkg}"
+          when 'Debian', 'Ubuntu'
+            "echo 'deb #{v[:repo]} ./' > /etc/apt/sources.list\napt-get update\napt-get install #{@pkg}"
+          when 'Mageia', 'Mandriva'
+            "urpmi.addmedia #{@prj} #{v[:repo]}\nurpmi.update -a\nurpmi #{@pkg}"
+          else
+            '?'
+          end
+        %></pre>
+      </div>
+    <% end %>
   </div>
 </div>
 
 <div id="soo_pkg" class="soo_box">
   <p class="soo_line" id="soo_section_toggle_pkg">Grab binary packages directly<span></span></p>
   <div id="soo_section_pkg">
-  <table>
-  <% @data.select {|k,v| v.has_key?(:pkg)}.version_sort.each do |k,v| %>
-  <tr class="soo_pkginfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>"><td>Packages for <strong><%= k.gsub('_', '&nbsp;') %></strong>:</td>
-  <td>
-  <% v[:pkg].sort.each do |k,v| %>
-  <a class="soo_pkglink" href="<%= v %>"><%= k %></a>
-  <% end %>
-  </td>
-  </tr>
-  <% end %>
-  </table>
+    <table>
+      <% @data.select {|k,v| v.has_key?(:pkg)}.version_sort.each do |k,v| %>
+        <tr class="soo_pkginfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>"><td>Packages for <strong><%= k.gsub('_', '&nbsp;') %></strong>:</td>
+          <td>
+            <% v[:pkg].sort.each do |k,v| %>
+              <a class="soo_pkglink" href="<%= v %>"><%= k %></a>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 </div>
-
-</body>
-</html>

@@ -39,7 +39,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect '/codecs', :controller => 'codecs', :action => 'index'
 
-  map.connect '/download.html', :controller => 'download', :action => 'html'
+  map.connect '/download.html', :controller => 'download', :action => 'iframe'
   map.connect '/download.json', :controller => 'download', :action => 'json'
 
   # Install the default route as the lowest priority.
