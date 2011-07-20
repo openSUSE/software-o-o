@@ -134,9 +134,11 @@ end
 
 <div class="soo_box">
   <p class="soo_line soo_line_visible">Select Your Operating System</p>
-  <% @flavors.each do |flavor| %>
+  <div class="soo_flavour_line">
+    <% @flavors.each do |flavor| %>
     <div class="soo_button" id="soo_button_<%= flavor %>"><img src="<%= image_path('download/' + flavor.downcase + '.png') %>" alt="<%= flavor %>" /><p><%= flavor %></p></div>
   <% end %>
+</div>
 </div>
 
 <div id="soo_ymp" class="soo_box">
