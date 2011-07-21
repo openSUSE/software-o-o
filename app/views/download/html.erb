@@ -1,5 +1,5 @@
 <% if @data.empty? %>
-<p>No packages built for <%= @prj %> / <%= @pkg %></p>
+<p>No packages built for <%= @project %> / <%= @package %></p>
 <% else %>
 
 <script type="text/javascript">
@@ -166,13 +166,17 @@ end
         <pre><%=
           case v[:flavor]
           when 'openSUSE', 'SLE'
-            "zypper addrepo #{v[:repo]}#{@prj}.repo\nzypper refresh\nzypper install #{@pkg}"
+            if @package.nil?
+              "zypper addrepo #{v[:repo]}#{@project}.repo\nzypper refresh\nzypper install -t pattern #{@pattern}"
+            else
+              "zypper addrepo #{v[:repo]}#{@project}.repo\nzypper refresh\nzypper install #{@package}"
+            end
           when 'CentOS', 'Fedora', 'RHEL', 'SL'
-            "cd /etc/yum/repos.d/\nwget #{v[:repo]}#{@prj}.repo\nyum install #{@pkg}"
+            "cd /etc/yum/repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
           when 'Debian', 'Ubuntu'
-            "echo 'deb #{v[:repo]} ./' > /etc/apt/sources.list\napt-get update\napt-get install #{@pkg}"
+            "echo 'deb #{v[:repo]} ./' > /etc/apt/sources.list\napt-get update\napt-get install #{@package}"
           when 'Mageia', 'Mandriva'
-            "urpmi.addmedia #{@prj} #{v[:repo]}\nurpmi.update -a\nurpmi #{@pkg}"
+            "urpmi.addmedia #{@project} #{v[:repo]}\nurpmi.update -a\nurpmi #{@package}"
           else
             '?'
           end
@@ -182,6 +186,7 @@ end
   </div>
 </div>
 
+<% if not @package.nil? %>
 <div id="soo_pkg" class="soo_box">
   <p class="soo_line" id="soo_section_toggle_pkg">Grab binary packages directly<span></span></p>
   <div id="soo_section_pkg">
@@ -198,4 +203,6 @@ end
     </table>
   </div>
 </div>
+<% end %>
+
 <% end %>

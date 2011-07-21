@@ -104,6 +104,10 @@ class ApplicationController < ActionController::Base
     name =~ /^[[:alnum:]][-_+\w\.:]*$/
   end
 
+  def valid_pattern_name? name
+    name =~ /^[[:alnum:]][-_+\w\.:]*$/
+  end
+
   def valid_project_name? name
     name =~ /^[[:alnum:]][-+\w.:]+$/
   end
