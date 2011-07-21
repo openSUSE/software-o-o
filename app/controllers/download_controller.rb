@@ -4,9 +4,9 @@ class DownloadController < ApplicationController
 
 
   def index
-    @page_title = "Install package #{params[:pkg]}"
+    @page_title = "Install package #{@prj} / #{@pkg}"
     @hide_search_box = true
-    @box_title = "Install package #{params[:pkg]}"
+    @box_title = @page_title
     render :html, :layout => 'download'
   end
 
