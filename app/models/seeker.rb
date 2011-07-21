@@ -299,7 +299,7 @@ class Seeker < ActiveXML::Base
       attr_accessor :fragment_type
 
       def initialize(element)
-        %w(project repository name filename filepath arch).each do |att|
+        %w(project repository name filename filepath arch type).each do |att|
           self[att] = element.value att
         end
       end
