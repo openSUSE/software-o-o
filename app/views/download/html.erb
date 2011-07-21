@@ -161,7 +161,7 @@ end
           when 'openSUSE', 'SLE'
             "zypper addrepo #{v[:repo]}#{@prj}.repo\nzypper refresh\nzypper install #{@pkg}"
           when 'CentOS', 'Fedora', 'RHEL', 'SL'
-            "cd /etc/yum/repos.d/\nwget #{v[:repo]}#{@prj}.repo\nyum update\nyum install #{@pkg}"
+            "cd /etc/yum/repos.d/\nwget #{v[:repo]}#{@prj}.repo\nyum install #{@pkg}"
           when 'Debian', 'Ubuntu'
             "echo 'deb #{v[:repo]} ./' > /etc/apt/sources.list\napt-get update\napt-get install #{@pkg}"
           when 'Mageia', 'Mandriva'
