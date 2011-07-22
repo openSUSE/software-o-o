@@ -1,13 +1,12 @@
-class MissingCodec < ActiveRecord::Base
-  belongs_to :visitor
-  attr_accessor :description
-  validates_inclusion_of :framework, :in => ['gstreamer', 'xine']
+class MissingCodec 
+  attr_accessor :description, :framework, :framework_version, :description, :fourcc
 
-  def self.from_array(a)
-    new(:framework => a[0],
-        :framework_version => a[1],
-        :description => a[3],
-        :fourcc => a[4])
+  def initialize(a)
+    self.framework = a[0]
+    self.framework_version = a[1]
+    self.description = a[3]
+    self.fourcc = Array.new
+    self.fourcc << a[4]
   end
   
   def display_framework

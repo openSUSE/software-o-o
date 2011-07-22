@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110317161433) do
+ActiveRecord::Schema.define(:version => 20110722151000) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -32,15 +32,7 @@ ActiveRecord::Schema.define(:version => 20110317161433) do
     t.datetime "created_at"
   end
 
-  create_table "missing_codecs", :force => true do |t|
-    t.integer "visitor_id"
-    t.string  "framework"
-    t.string  "framework_version"
-    t.string  "fourcc"
-  end
-
-  add_index "missing_codecs", ["fourcc"], :name => "fourcc_index"
-  add_index "missing_codecs", ["visitor_id"], :name => "visitor_id_index"
+  add_index "download_histories", ["query"], :name => "index_download_histories_on_query"
 
   create_table "orders", :force => true do |t|
     t.string   "title",        :null => false
@@ -72,21 +64,5 @@ ActiveRecord::Schema.define(:version => 20110317161433) do
     t.integer  "patterns"
     t.datetime "created_at"
   end
-
-  create_table "visitors", :force => true do |t|
-    t.datetime "created_at"
-    t.string   "os_release"
-    t.string   "application"
-    t.string   "language"
-    t.string   "client_version"
-    t.string   "kernel"
-    t.string   "gstreamer_package"
-    t.string   "xine_package"
-    t.string   "user_agent"
-    t.string   "ip_address"
-  end
-
-  add_index "visitors", ["created_at"], :name => "created_at_index"
-  add_index "visitors", ["ip_address"], :name => "ip_address_index"
 
 end
