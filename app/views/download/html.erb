@@ -1,5 +1,5 @@
 <% if @data.empty? %>
-<p>No packages built for <%= @project %> / <%= @package %></p>
+<p>No data for <%= @project %> / <%= @package.nil? ? @pattern : @package %></p>
 <% else %>
 
 <script type="text/javascript">
@@ -146,7 +146,7 @@ end
     </div>
   </div>
 <% else %>
-  <p>No download packages found for <%= @pkg %> in project <%= @prj %>.</p>
+  <p>No downloads found for <%= @package.nil? ? @pattern : @package %> in project <%= @project %>.</p>
 <% end %>
 
 <div id="soo_ymp" class="soo_box">
@@ -192,10 +192,10 @@ end
   <p class="soo_line" id="soo_section_toggle_pkg">Grab binary packages directly<span></span></p>
   <div id="soo_section_pkg">
     <table>
-      <% @data.select {|k,v| v.has_key?(:pkg)}.version_sort.each do |k,v| %>
+      <% @data.select {|k,v| v.has_key?(:package)}.version_sort.each do |k,v| %>
         <tr class="soo_pkginfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>"><td>Packages for <strong><%= k.gsub('_', '&nbsp;') %></strong>:</td>
           <td>
-            <% v[:pkg].sort.each do |k,v| %>
+            <% v[:package].sort.each do |k,v| %>
               <a class="soo_pkglink" href="<%= v %>"><%= k %></a>
             <% end %>
           </td>
