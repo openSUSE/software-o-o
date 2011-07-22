@@ -7,7 +7,7 @@ class DownloadController < ApplicationController
     @page_title = "Install package #{params[:pkg]}"
     @hide_search_box = true
     @box_title = "Install package #{params[:pkg]}"
-    render :html
+    render :html, :layout => 'download'
   end
 
   # /download.html?prj=name&pkg=name

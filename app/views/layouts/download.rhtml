@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title><%= "software.opensuse.org: #{@page_title}" %></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+    <meta http-equiv="Content-Style-Type" content="text/css"/>
+
+    <link rel="search" type="application/opensearchdescription+xml" title="openSUSE Software" href="/search_software.xml" />
+
+    <%= stylesheet_link_tag "/themes/bento/css/style.css", "/css/software.css" %>
+    <link href="http://static.opensuse.org/themes/bento/images/favicon.png" rel="shortcut icon" />
+    <%= javascript_include_tag "http://static.opensuse.org/themes/bento/js/jquery.js", "jquery-ui-1.7.2.js", "jrails.js", "application.js"  %>
+    <%= javascript_include_tag "/themes/bento/js/l10n/global-navigation-data-#{@lang}.js", "/themes/bento/js/global-navigation.js" %>
+
+    <%= yield :content_for_head %>
+
+    <script type="text/javascript">
+      /* <![CDATA[ */
+<%= yield :head_javascript %>
+  $(function() {
+<%= yield :ready_function %>
+  });
+  /* ]]> */
+    </script>
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      (function(){
+        var u=(("https:" == document.location.protocol) ? "https://beans.opensuse.org/piwik/" : "http://beans.opensuse.org/piwik/");
+        _paq.push(['setSiteId', 19]);
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['trackPageView']);
+        _paq.push([ 'setDomains', ["*.opensuse.org"]]);
+        var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript';
+        g.defer=true;
+        g.async=true;
+        g.src=u+'piwik.js';
+        s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+
+  </head>
+  <body>
+
+    <div id="header">
+      <div id="header-content" class="container_12">
+        <a id="header-logo" href="/">
+          <%= image_tag '/themes/bento/images/header-logo.png', :width => 46, :height => 26, :alt => _("Header Logo") %>
+        </a>
+        <ul id="global-navigation">
+          <li id="item-downloads"><a href="http://en.opensuse.org/openSUSE:Browse#downloads"><%= _("Downloads") %></a></li>
+          <li id="item-support"><a href="http://en.opensuse.org/openSUSE:Browse#support"><%= _("Support") %></a></li>
+          <li id="item-community"><a href="http://en.opensuse.org/openSUSE:Browse#community"><%= _("Community") %></a></li>
+          <li id="item-development"><a href="http://en.opensuse.org/openSUSE:Browse#development"><%= _("Development") %></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <% unless flash.blank? %>
+      <%= render(:partial => "layouts/flash", :object => flash) %>
+    <% end %>
+
+    <div id="content" class="container_12 content-wrapper">
+      <div class="grid_12 alpha">
+
+
+        <div class="box box-shadow">
+          <h2 class="box-header">
+            <span class="alignleft"><%= @box_title || @page_title -%></span>
+          </h2>
+          <div>
+            <%= @content_for_layout %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="footer" class="container_12">
+      <div id="footer-content" class="grid_12">
+      </div>
+      <div id="footer-legal" class="border-top grid_12">
+        <a href="http://en.opensuse.org/Portal:Project">About openSUSE</a> |
+        <a href="http://en.opensuse.org/Terms_of_site">Legal information</a> |
+        <a href="mailto:admin@opensuse.org">Feedback</a>
+      </div>
+    </div>
+
+  </body>
+</html>
