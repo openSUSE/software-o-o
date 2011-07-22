@@ -44,15 +44,19 @@ class DownloadController < ApplicationController
         api_result = get_from_api("/search/published/binary/id?match=project='#{@project}'+and+package='#{@package}'")
         xpath = "/collection/binary"
       else
-# TODO: fix filtering
 #        api_result = get_from_api("/search/published/pattern/id?match=project='#{@project}'+and+filename='#{@pattern}.ymp'")
+# TODO: workaround - the line above does not return a thing - see http://lists.opensuse.org/opensuse-buildservice/2011-07/msg00088.html
         api_result = get_from_api("/search/published/pattern/id?match=project='#{@project}'")
+# END
         xpath = "/collection/pattern"
       end
       if api_result
         doc = REXML::Document.new api_result.body
         data = Hash.new
         doc.elements.each(xpath) { |e|
+# TODO: workaround - filter by filename here - see comment few lines above for explanation
+          next if not @pattern.nil? and e.attributes['filename'] != "#{@pattern}.ymp"
+# END
           distro = e.attributes['repository']
           if not data.has_key?(distro)
             data[distro] = {
