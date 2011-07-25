@@ -53,19 +53,21 @@ end
 
 <style type="text/css">
   body {
-    background: #fff;
+    background: <%= defined?(@bcolor) ? @bcolor : '#fff' %>;
+    color: <%= defined?(@fcolor) ? @fcolor : '#000' %>;
     font: 0.8em "DejaVu Sans", "Bitstream Vera Sans", Verdana, sans-serif;
     margin: 16px;
     margin-top: 0px;
     padding: 0;
   }
   a {
-    color: #00f;
+    color: <%= defined?(@acolor) ? @acolor : '#00f' %>;
   }
   .soo_line {
-    color: #480;
+    color: <%= defined?(@hcolor) ? @hcolor : '#480' %>;
     clear: both;
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid rgb(128,128,128);
+    border-bottom: 1px solid rgba(128,128,128,0.25);
     padding-top: 10px;
     font-size: 1.1em;
     display: none;
@@ -88,8 +90,10 @@ end
     border-radius: 8px;
   }
   .soo_button:hover, .soo_button_chosen {
-    border: 1px solid #BE7;
-    <%= gradient('#FCFCFC','#F0F0F0','#E4E4E4')%>
+    border: 1px solid rgb(128,128,128);
+    border: 1px solid rgba(128,128,128,0.25);
+    background: rgb(128,128,128);
+    background: rgba(128,128,128,0.1);
   }
   .soo_button p {
     font-size: 0.75em;
@@ -115,8 +119,9 @@ end
     font-size: 0.85em;
   }
   pre {
-    background: #EEE;
-    border: 1px dotted #888;
+    background: rgb(128,128,128);
+    background: rgba(128,128,128,0.1);
+    border: 1px dotted #808080;
     padding: 4px;
     margin-left: 2em;
     font-size: 1.2em;
