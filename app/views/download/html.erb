@@ -178,7 +178,7 @@ end
           when 'CentOS', 'Fedora', 'RHEL', 'SL'
             "cd /etc/yum/repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
           when 'Debian'
-            "echo 'deb #{v[:repo]} .' > /etc/apt/sources.list\napt-get update\napt-get install #{@package}"
+            "echo 'deb #{v[:repo]} .' >> /etc/apt/sources.list\napt-get update\napt-get install #{@package}"
           when 'Ubuntu'
             "apt-add-repository deb #{v[:repo]} .\napt-get update\napt-get install #{@package}"
           when 'Mageia', 'Mandriva'
