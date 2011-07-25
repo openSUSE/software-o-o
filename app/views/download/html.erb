@@ -59,6 +59,9 @@ end
     margin-top: 0px;
     padding: 0;
   }
+  a {
+    color: #00f;
+  }
   .soo_line {
     color: #480;
     clear: both;
@@ -93,11 +96,11 @@ end
     text-align: center;
     margin: 0;
   }
-  .soo_ymplink, .soo_pkglink {
+  .soo_ymplink {
     color: white !important;
     display: block;
     margin: 6px;
-    line-height: 16px;
+    line-height: 20px;
     font-weight: bolder;
     float: left;
     text-decoration: none;
@@ -106,18 +109,10 @@ end
     border-radius: 12px;
     padding-left: 8px;
     padding-right: 8px;
-  }
-  .soo_ymplink {
     <%= gradient('#9D0','#7B0','#580') %>
     border: 1px solid #490;
     min-width: 112px;
     font-size: 0.85em;
-  }
-  .soo_pkglink {
-    <%= gradient('#09D','#07B','#058') %>
-    border: 1px solid #049;
-    min-width: 64px;
-    font-size: 0.75em;
   }
   pre {
     background: #EEE;
@@ -133,6 +128,9 @@ end
   }
   .soo_distro {
     display: none;
+  }
+  li {
+    margin: 6px;
   }
 </style>
 
@@ -196,11 +194,11 @@ end
     <table>
       <% @data.select {|k,v| v.has_key?(:package)}.version_sort.each do |k,v| %>
         <tr class="soo_pkginfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>"><td>Packages for <strong><%= k.gsub('_', '&nbsp;') %></strong>:</td>
-          <td>
+          <td><ul>
             <% v[:package].sort.each do |k,v| %>
-              <a class="soo_pkglink" href="<%= v %>"><%= k %></a>
+              <li><a href="<%= v %>"><%= k %></a></li>
             <% end %>
-          </td>
+          </ul></td>
         </tr>
       <% end %>
     </table>
