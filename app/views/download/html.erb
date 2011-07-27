@@ -1,5 +1,5 @@
 <% if @data.empty? %>
-<p>No data for <%= @project %> / <%= @package.nil? ? @pattern : @package %></p>
+<p><%= _("No data for %s / %s") % [ @project, @package.nil? ? @pattern : @package] %></p>
 <% else %>
 
 <script type="text/javascript">
@@ -141,7 +141,7 @@ end
 
 <% unless @flavors.blank? %>
   <div class="soo_box">
-    <p class="soo_line soo_line_visible">Select Your Operating System</p>
+    <p class="soo_line soo_line_visible"><%= _("Select Your Operating System") %></p>
     <div class="soo_flavour_line">
       <% @flavors.each do |flavor| %>
         <div class="soo_button" id="soo_button_<%= flavor %>"><img src="<%= image_path('download/' + flavor.downcase + '.png') %>" alt="<%= flavor %>" /><p><%= flavor %></p></div>
@@ -149,11 +149,11 @@ end
     </div>
   </div>
 <% else %>
-  <p>No downloads found for <%= @package.nil? ? @pattern : @package %> in project <%= @project %>.</p>
+  <p><%= _("No downloads found for %s in project %s") % [ @package.nil? ? @pattern : @package, @project] %>.</p>
 <% end %>
 
 <div id="soo_ymp" class="soo_box">
-  <p class="soo_line" id="soo_section_toggle_ymp">Install using One Click Install<span></span></p>
+  <p class="soo_line" id="soo_section_toggle_ymp"><%= _("Install using One Click Install") %><span></span></p>
   <div id="soo_section_ymp">
     <% @data.select {|k,v| v.has_key?(:ymp)}.version_sort.each do |k,v| %>
       <a class="soo_ymplink soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>" href="<%= v[:ymp] %>"><%= k.gsub('_', '&nbsp;') %></a>
@@ -162,11 +162,11 @@ end
 </div>
 
 <div id="soo_repo" class="soo_box">
-  <p class="soo_line" id="soo_section_toggle_repo">Add repository and install manually<span></span></p>
+  <p class="soo_line" id="soo_section_toggle_repo"><%= _("Add repository and install manually") %><span></span></p>
   <div id="soo_section_repo">
     <% @data.select {|k,v| v.has_key?(:repo)}.version_sort.each do |k,v| %>
       <div class="soo_repoinfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>">
-        <p>For <strong><%= k.gsub('_', '&nbsp;') %></strong> run the following as <strong>root</strong>:</p>
+        <p><%= _("For <strong>%s</strong> run the following as <strong>root</strong>:") % k.gsub('_', '&nbsp;') %></p>
         <pre><%=
           case v[:flavor]
           when 'openSUSE', 'SLE'
@@ -194,11 +194,12 @@ end
 
 <% if not @package.nil? %>
 <div id="soo_pkg" class="soo_box">
-  <p class="soo_line" id="soo_section_toggle_pkg">Grab binary packages directly<span></span></p>
+  <p class="soo_line" id="soo_section_toggle_pkg"><%= _("Grab binary packages directly") %><span></span></p>
   <div id="soo_section_pkg">
     <table>
       <% @data.select {|k,v| v.has_key?(:package)}.version_sort.each do |k,v| %>
-        <tr class="soo_pkginfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>"><td>Packages for <strong><%= k.gsub('_', '&nbsp;') %></strong>:</td>
+        <tr class="soo_pkginfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>">
+          <td><%= _("Packages for %s:") % ["<strong>" + k.gsub('_', '&nbsp;') + "</strong>"] %></td>
           <td><ul>
             <% v[:package].sort.each do |k,v| %>
               <li><a href="<%= v %>"><%= k %></a></li>
