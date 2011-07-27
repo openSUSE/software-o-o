@@ -3,6 +3,8 @@
 <% else %>
 
 <script type="text/javascript">
+  var hidetext = '<%= _("(hide)") %>';
+  var showtext = '<%= _("(show)") %>';
   $(function(){
     $('.soo_button').click(function(){
       $('.soo_line').show();
@@ -13,20 +15,20 @@
       $('.soo_distro_' + distro).show();
       if (distro == 'openSUSE' || distro == 'SLE') {
         $('#soo_ymp').show();
-        $('#soo_section_ymp').show();  $('#soo_section_toggle_ymp span').text('(hide)');
-        $('#soo_section_repo').hide(); $('#soo_section_toggle_repo span').text('(show)');
-        $('#soo_section_pkg').hide();  $('#soo_section_toggle_pkg span').text('(show)');
+        $('#soo_section_ymp').show();  $('#soo_section_toggle_ymp span').text(hidetext);
+        $('#soo_section_repo').hide(); $('#soo_section_toggle_repo span').text(showtext);
+        $('#soo_section_pkg').hide();  $('#soo_section_toggle_pkg span').text(showtext);
       } else {
         $('#soo_ymp').hide();
-        $('#soo_section_ymp').hide();  $('#soo_section_toggle_ymp span').text('(show)');
-        $('#soo_section_repo').show(); $('#soo_section_toggle_repo span').text('(hide)');
-        $('#soo_section_pkg').hide();  $('#soo_section_toggle_pkg span').text('(show)');
+        $('#soo_section_ymp').hide();  $('#soo_section_toggle_ymp span').text(showtext);
+        $('#soo_section_repo').show(); $('#soo_section_toggle_repo span').text(hidetext);
+        $('#soo_section_pkg').hide();  $('#soo_section_toggle_pkg span').text(showtext);
       }
     });
 
     $('.soo_line').click(function(){
       $('#' + $(this).attr('id').replace('toggle_', '')).toggle();
-      $(this).children('span').text($(this).children('span').text() == '(hide)' ? '(show)' : '(hide)');
+      $(this).children('span').text($(this).children('span').text() == hidetext ? showtext : hidetext);
     });
 
     // try to detect distro via user agent
