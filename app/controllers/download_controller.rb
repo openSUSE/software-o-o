@@ -4,9 +4,9 @@ class DownloadController < ApplicationController
 
   def index
     if @package
-      @page_title = "Install package #{@project} / #{@package}"
+      @page_title = _("Install package %s / %s") % [@project, @package]
     else
-      @page_title = "Install pattern #{@project} / #{@pattern}"
+      @page_title = _("Install pattern %s / %s") % [@project, @pattern]
     end
     @box_title  = @page_title
     @hide_search_box = true
