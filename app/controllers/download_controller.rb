@@ -17,19 +17,19 @@ class DownloadController < ApplicationController
   # /download.html?project=name&pattern=name
   def iframe
     if params[:acolor]
-      raise "Invalid acolor value (has to be 000-fff)" unless params[:acolor] =~ /^[0-9a-f]{3}$/
+      raise "Invalid acolor value (has to be 000-fff)" unless params[:acolor] =~ /^[0-9a-f]{3}([0-9a-f]{3})?$/
       @acolor = '#' + params[:acolor]
     end
     if params[:bcolor]
-      raise "Invalid bcolor value (has to be 000-fff)" unless params[:bcolor] =~ /^[0-9a-f]{3}$/
+      raise "Invalid bcolor value (has to be 000-fff)" unless params[:bcolor] =~ /^[0-9a-f]{3}([0-9a-f]{3})?$/
       @bcolor = '#' + params[:bcolor]
     end
     if params[:fcolor]
-      raise "Invalid fcolor value (has to be 000-fff)" unless params[:fcolor] =~ /^[0-9a-f]{3}$/
+      raise "Invalid fcolor value (has to be 000-fff)" unless params[:fcolor] =~ /^[0-9a-f]{3}([0-9a-f]{3})?$/
       @fcolor = '#' + params[:fcolor]
     end
     if params[:hcolor]
-      raise "Invalid hcolor value (has to be 000-fff)" unless params[:hcolor] =~ /^[0-9a-f]{3}$/
+      raise "Invalid hcolor value (has to be 000-fff)" unless params[:hcolor] =~ /^[0-9a-f]{3}([0-9a-f]{3})?$/
       @hcolor = '#' + params[:hcolor]
     end
     render :html, :layout => 'iframe'
