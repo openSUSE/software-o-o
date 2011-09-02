@@ -112,7 +112,7 @@ class MainController < ApplicationController
       @isos["kde-32"] = "KDE-LiveCD-Build0250-i686"
       @isos["gnome-64"] = "GNOME-LiveCD-Build0250-x86_64"
       @isos["gnome-32"] = "GNOME-LiveCD-Build0250-i686"
-      @isos["dvd-64"] = "DVD-Build0137-x86_64"
+      @isos["dvd-64"] = "DVD-Build0250-x86_64"
       @isos["dvd-32"] = "DVD-Build0250-i586"
       @isos["net-32"] = "NET-Build0250-i586"
       @isos["net-64"] = "NET-Build0250-x86_64"
