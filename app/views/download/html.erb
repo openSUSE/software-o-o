@@ -55,8 +55,8 @@ end
 
 <style type="text/css">
   body {
-    <%= defined?(@bcolor) ? "background: #{@bcolor};" %>
-    <%= defined?(@fcolor) ? "color: #{@fcolor};" %>
+    <%= "background: #{@bcolor};" if defined?(@bcolor) %>
+    <%= "color: #{@fcolor};" if defined?(@fcolor) %>
     font: 0.8em "DejaVu Sans", "Bitstream Vera Sans", Verdana, sans-serif;
     margin: 16px;
     margin-top: 0px;
