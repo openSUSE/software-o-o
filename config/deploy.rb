@@ -4,7 +4,7 @@ set :application, "software"
 
 # git settings
 set :scm, :git
-set :repository,  "git://gitorious.org/opensuse/software-o-o.git"
+set :repository,  "git://github.com/openSUSE/software-o-o.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
