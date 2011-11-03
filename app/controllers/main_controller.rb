@@ -104,7 +104,7 @@ class MainController < ApplicationController
       @medium = "dvd"
     elsif release == "developer"
       @isos = {}
-      @directory = "http://download.opensuse.org/distribution/12.1-RC22"
+      @directory = "http://download.opensuse.org/distribution/12.1-RC2"
       @isos["lang-32"] = "Addon-Lang-Build0025-i586"
       @isos["lang-64"] = "Addon-Lang-Build0025-x86_64"
       @isos["nonoss"] = "Addon-NonOss-BiArch-Build0025-i586-x86_64"
