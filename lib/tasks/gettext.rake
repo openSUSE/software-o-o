@@ -15,8 +15,9 @@ task :makemo do
     IO.popen( "LC_ALL=C msgfmt --statistics -o messages.mo '%s' 2>&1" % file ) { |f| res=f.gets }
     #puts "#{lang}: #{res}"
     # copy only if it contains non-fuzzy translations
-    if res =~ /^\w* translated messages.$/
-      #puts res
+    res = begin Integer(/^(\w*) translated messages/.match(res)[1]) rescue 0 end
+    if res > 100
+      puts res.inspect
       FileUtils.mkdir_p "locale/" + ilang + "/LC_MESSAGES"
       puts "take %s into %s" % [lang, ilang]
       FileUtils.mv "messages.mo", "locale/%s/LC_MESSAGES/software.mo" % ilang
