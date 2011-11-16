@@ -26,45 +26,7 @@ class MainController < ApplicationController
   end
 
   def set_release(release)
-    if release == "111"
-      @isos = {}
-      @directory = "http://download.opensuse.org/distribution/11.1"
-      @isos["lang-32"] = "11.1-Addon-Lang-i586"
-      @isos["lang-64"] = "11.1-Addon-Lang-x86_64"
-      @isos["nonoss"] = "11.1-Addon-NonOss-BiArch-i586-x86_64"
-      @isos["kde-64"] = "11.1-KDE4-LiveCD-x86_64"
-      @isos["kde-32"] = "11.1-KDE4-LiveCD-i686"
-      @isos["gnome-64"] = "11.1-GNOME-LiveCD-x86_64"
-      @isos["gnome-32"] = "11.1-GNOME-LiveCD-i686"
-      @isos["dvd-64"] = "11.1-DVD-x86_64"
-      @isos["dvd-32"] = "11.1-DVD-i586"
-      @isos["net-32"] = "11.1-NET-i586"
-      @isos["net-64"] = "11.1-NET-x86_64"
-
-      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.1/RELEASE-NOTES.en.html"
-      @releasename = "openSUSE 11.1"
-      @repourl = "http://download.opensuse.org/distribution/11.1"
-      @medium = "dvd"
-    elsif release == "112"
-      @isos = {}
-      @directory = "http://download.opensuse.org/distribution/11.2"
-      @isos["lang-32"] = "11.2-Addon-Lang-i586"
-      @isos["lang-64"] = "11.2-Addon-Lang-x86_64"
-      @isos["nonoss"] = "11.2-Addon-NonOss-BiArch-i586-x86_64"
-      @isos["kde-64"] = "11.2-KDE4-LiveCD-x86_64"
-      @isos["kde-32"] = "11.2-KDE4-LiveCD-i686"
-      @isos["gnome-64"] = "11.2-GNOME-LiveCD-x86_64"
-      @isos["gnome-32"] = "11.2-GNOME-LiveCD-i686"
-      @isos["dvd-64"] = "11.2-DVD-x86_64"
-      @isos["dvd-32"] = "11.2-DVD-i586"
-      @isos["net-32"] = "11.2-NET-i586"
-      @isos["net-64"] = "11.2-NET-x86_64"
-
-      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.2/RELEASE-NOTES.en.html"
-      @releasename = "openSUSE 11.2"
-      @repourl = "http://download.opensuse.org/distribution/11.2"
-      @medium = "dvd"
-    elsif release == "113"
+    if release == "113"
       @isos = {}
       @directory = "http://download.opensuse.org/distribution/11.3"
       @isos["lang-32"] = "11.3-Addon-Lang-i586"
@@ -104,7 +66,7 @@ class MainController < ApplicationController
       @medium = "dvd"
     elsif release == "121"
       @isos = {}
-      @directory = "http://download.opensuse.org/distribution/11.4"
+      @directory = "http://download.opensuse.org/distribution/12.1"
       @isos["lang-32"] = "12.1-Addon-Lang-i586"
       @isos["lang-64"] = "12.1-Addon-Lang-x86_64"
       @isos["nonoss"] = "12.1-Addon-NonOss-BiArch-i586-x86_64"
@@ -167,7 +129,7 @@ class MainController < ApplicationController
 
 
   def index
-    redirectit("114")
+    redirectit("121")
   end
 
   def release
