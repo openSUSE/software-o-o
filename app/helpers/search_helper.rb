@@ -49,7 +49,7 @@ module SearchHelper
   end
 
   def default_baseproject
-    'openSUSE:11.4'
+    'openSUSE:12.1'
   end
 
 end
