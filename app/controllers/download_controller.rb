@@ -1,131 +1,179 @@
 class DownloadController < ApplicationController
 
-  before_filter :prepare
+  before_filter :set_colors
+  before_filter :set_parameters
 
-  def index
-    if @package
-      @page_title = _("Install package %s / %s") % [@project, @package]
-    else
-      @page_title = _("Install pattern %s / %s") % [@project, @pattern]
-    end
-    @box_title  = @page_title
-    @hide_search_box = true
-    render :html, :layout => 'download'
-  end
 
-  # /download.html?project=name&package=name
-  # /download.html?project=name&pattern=name
-  def iframe
-    if params[:acolor]
-      raise "Invalid acolor value (has to be 000-fff or 000000-ffffff)" unless params[:acolor] =~ /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
-      @acolor = '#' + params[:acolor]
-    end
-    if params[:bcolor]
-      raise "Invalid bcolor value (has to be 000-fff or 000000-ffffff)" unless params[:bcolor] =~ /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
-      @bcolor = '#' + params[:bcolor]
-    end
-    if params[:fcolor]
-      raise "Invalid fcolor value (has to be 000-fff or 000000-ffffff)" unless params[:fcolor] =~ /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
-      @fcolor = '#' + params[:fcolor]
-    end
-    if params[:hcolor]
-      raise "Invalid hcolor value (has to be 000-fff or 000000-ffffff)" unless params[:hcolor] =~ /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
-      @hcolor = '#' + params[:hcolor]
-    end
-    render :html, :layout => 'iframe'
-  end
-
-  # /download.json?project=name&package=name
-  # /download.json?project=name&pattern=name
-  def json
-    # needed for rails < 3.0 to support JSONP
-    render_json @data.to_json
-  end
-
-  private
-
-  def prepare
+  def appliance
     required_parameters :project
-    raise "Invalid project name" unless valid_project_name? params[:project]
-    raise "Invalid package name" unless params[:package].nil? or valid_package_name? params[:package]
-    raise "Invalid pattern name" unless params[:pattern].nil? or valid_pattern_name? params[:pattern]
+    @project = params[:project]
+    # TODO: no clear way to fetch appliances. we need a /search/published/appliance
+
+    cache_key = "soo_download_appliances_#{@project}"
+    @data = Rails.cache.fetch(cache_key, :expires_in => 1.second) do
+      api_result_images = get_from_api("/published/#{@project}/images")
+      api_result_iso = get_from_api("/published/#{@project}/images/iso")
+      xpath = "/directory/entry"
+      if api_result_images
+        doc = REXML::Document.new api_result_images.body
+
+        logger.debug api_result_images
+        logger.debug api_result_iso
+        data = Hash.new
+        
+        doc.elements.each(xpath) do |e|
+          filename = e.attributes['name']
+          if (File.extname(filename) == '.bz2')
+
+            data[filename] = {:flavor => get_image_type( filename )}
+
+          end
+
+        end
+        data
+      else
+        nil
+      end
+
+
+    end
+    set_flavours
+    @page_title = _("Download appliance from %s") % [@project]
+    render_page :appliance
+  end
+
+  def package
+    required_parameters :project, :package
     @project = params[:project]
     @package = params[:package]
-    @pattern = params[:pattern]
-    raise "Provide package or pattern parameter" if @package.nil? and @pattern.nil?
-    cache_key = "soo_download_#{@project}_#{@package}_#{@pattern}"
 
-    @data = Rails.cache.fetch(cache_key, :expires_in => 2.hours) do
-      if not @package.nil?
-        api_result = get_from_api("/search/published/binary/id?match=project='#{@project}'+and+package='#{@package}'")
-        xpath = "/collection/binary"
-      else
-#        api_result = get_from_api("/search/published/pattern/id?match=project='#{@project}'+and+filename='#{@pattern}.ymp'")
-# TODO: workaround - the line above does not return a thing - see http://lists.opensuse.org/opensuse-buildservice/2011-07/msg00088.html
-        api_result = get_from_api("/search/published/pattern/id?match=project='#{@project}'")
-# END
-        xpath = "/collection/pattern"
-      end
+    cache_key = "soo_download_#{@project}_#{@package}"
+    @data = Rails.cache.fetch(cache_key, :expires_in => 1.second) do
+      api_result = get_from_api("/search/published/binary/id?match=project='#{@project}'+and+package='#{@package}'")
+      xpath = "/collection/binary"
       if api_result
         doc = REXML::Document.new api_result.body
         data = Hash.new
-        doc.elements.each(xpath) { |e|
-# TODO: workaround - filter by filename here - see comment few lines above for explanation
-          next if not @pattern.nil? and e.attributes['filename'] != "#{@pattern}.ymp"
-# END
+        doc.elements.each(xpath) do |e|
           distro = e.attributes['repository']
           if not data.has_key?(distro)
             data[distro] = {
               :repo => "http://download.opensuse.org/repositories/#{@project}/#{distro}/",
               :package => Hash.new
             }
+            data[distro][:flavor] = set_distro_flavor e.attributes['baseproject']
             case e.attributes['baseproject']
-              when /^(DISCONTINUED:)?openSUSE:/
-                data[distro][:flavor] = 'openSUSE'
-                if not @package.nil?
-                  data[distro][:ymp] = "http://software.opensuse.org/ymp/#{@project}/#{distro}/#{@package}.ymp"
-                else
-                  data[distro][:ymp] = "http://download.opensuse.org/repositories/" + e.attributes['filepath']
-                end
-              when /^(DISCONTINUED:)?SUSE:SLE-/
-                data[distro][:flavor] = 'SLE'
-                if not @package.nil?
-                  data[distro][:ymp] = "http://software.opensuse.org/ymp/#{@project}/#{distro}/#{@package}.ymp"
-                else
-                  data[distro][:ymp] = "http://download.opensuse.org/repositories/" + e.attributes['filepath']
-                end
-              when /^(DISCONTINUED:)?Fedora:/
-                data[distro][:flavor] = 'Fedora'
-              when /^(DISCONTINUED:)?RedHat:RHEL-/
-                data[distro][:flavor] = 'RHEL'
-              when /^(DISCONTINUED:)?ScientificLinux:/
-                data[distro][:flavor] = 'SL'
-              when /^(DISCONTINUED:)?CentOS:CentOS-/
-                data[distro][:flavor] = 'CentOS'
-              when /^(DISCONTINUED:)?Mandriva:/
-                data[distro][:flavor] = 'Mandriva'
-              when /^(DISCONTINUED:)?Mageia:/
-                data[distro][:flavor] = 'Mageia'
-              when /^(DISCONTINUED:)?Debian:/
-                data[distro][:flavor] = 'Debian'
-              when /^(DISCONTINUED:)?Ubuntu:/
-                data[distro][:flavor] = 'Ubuntu'
-              else
-                data[distro][:flavor] = 'Unknown'
+            when /^(DISCONTINUED:)?openSUSE:/, /^(DISCONTINUED:)?SUSE:SLE-/
+              data[distro][:ymp] = "http://software.opensuse.org/ymp/#{@project}/#{distro}/#{@package}.ymp"
             end
           end
-          if not @package.nil?
-            filename = e.attributes['filename']
-            filepath = e.attributes['filepath']
-            data[distro][:package][filename] = 'http://download.opensuse.org/repositories/' + filepath
-          end
-        }
+          filename = e.attributes['filename']
+          filepath = e.attributes['filepath']
+          data[distro][:package][filename] = 'http://download.opensuse.org/repositories/' + filepath
+        end
         data
       else
         nil
       end
     end
+    set_flavours
+    @page_title = _("Install package %s / %s") % [@project, @package]
+    render_page :package
+  end
 
+
+  
+  def pattern
+    required_parameters :project, :pattern
+    @project = params[:project]
+    @pattern = params[:pattern]
+
+    cache_key = "soo_download_#{@project}_#{@pattern}"
+    @data = Rails.cache.fetch(cache_key, :expires_in => 1.second) do
+
+      # api_result = get_from_api("/search/published/pattern/id?match=project='#{@project}'+and+filename='#{@pattern}.ymp'")
+      # TODO: workaround - the line above does not return a thing - see http://lists.opensuse.org/opensuse-buildservice/2011-07/msg00088.html
+      # so we search for all files of the project and filter for *.ymp below
+      api_result = get_from_api("/search/published/pattern/id?match=project='#{@project}'")
+      xpath = "/collection/pattern"
+      #logger.debug doc
+
+      if api_result
+        doc = REXML::Document.new api_result.body
+        data = Hash.new
+        doc.elements.each(xpath) do |e|
+          next if e.attributes['filename'] != "#{@pattern}.ymp"
+          distro = e.attributes['repository']
+          if not data.has_key?(distro)
+            data[distro] = {
+              :repo => "http://download.opensuse.org/repositories/#{@project}/#{distro}/",
+              :package => Hash.new
+            }
+            data[distro][:flavor] = set_distro_flavor e.attributes['baseproject']
+            case e.attributes['baseproject']
+            when /^(DISCONTINUED:)?openSUSE:/, /^(DISCONTINUED:)?SUSE:SLE-/
+              data[distro][:ymp] = "http://download.opensuse.org/repositories/" + e.attributes['filepath']
+            end
+          end
+        end
+        data
+      else
+        nil
+      end
+    end
+    set_flavours
+    @page_title = _("Install pattern %s / %s") % [@project, @pattern]
+    render_page :package
+  end
+
+
+  private
+
+  def set_parameters
+    @hide_search_box = true
+  end
+
+
+  def render_page page_template
+    @box_title  = @page_title
+    respond_to do |format|
+      format.html { render page_template, :layout => 'download' }
+      format.iframe  { render page_template, :layout => 'iframe.html' }
+      # needed for rails < 3.0 to support JSONP
+      format.json { render_json @data.to_json }
+    end
+  end
+
+
+  def set_distro_flavor distro
+    case distro
+    when /^(DISCONTINUED:)?openSUSE:/
+      'openSUSE'
+    when /^(DISCONTINUED:)?SUSE:SLE-/
+      'SLE'
+    when /^(DISCONTINUED:)?Fedora:/
+      'Fedora'
+    when /^(DISCONTINUED:)?RedHat:RHEL-/
+      'RHEL'
+    when /^(DISCONTINUED:)?ScientificLinux:/
+      'SL'
+    when /^(DISCONTINUED:)?CentOS:CentOS-/
+      'CentOS'
+    when /^(DISCONTINUED:)?Mandriva:/
+      'Mandriva'
+    when /^(DISCONTINUED:)?Mageia:/
+      'Mageia'
+    when /^(DISCONTINUED:)?Debian:/
+      'Debian'
+    when /^(DISCONTINUED:)?Ubuntu:/
+      'Ubuntu'
+    else
+      'Unknown'
+    end
+  end
+
+
+  def set_flavours
     if @data.nil?
       head :forbidden
     else
@@ -133,5 +181,43 @@ class DownloadController < ApplicationController
       @flavors = @data.values.collect { |i| i[:flavor] }.uniq.sort{|x,y| x.downcase <=> y.downcase }
     end
   end
+
+  def get_image_type filename
+    case filename
+    when /raw\.bz2$/
+      'Raw'
+    when /vmx\.tar\.bz2$/
+      'VMWare'
+    when /pxe\.tar\.bz2$/
+      'PXE'
+    else
+      'Unknown'
+    end
+  end
+
+
+  def set_colors
+    if params[:acolor]
+      raise "Invalid acolor value (has to be 000-fff or 000000-ffffff)" unless valid_color? params[:acolor]
+      @acolor = '#' + params[:acolor]
+    end
+    if params[:bcolor]
+      raise "Invalid bcolor value (has to be 000-fff or 000000-ffffff)" unless valid_color? params[:bcolor]
+      @bcolor = '#' + params[:bcolor]
+    end
+    if params[:fcolor]
+      raise "Invalid fcolor value (has to be 000-fff or 000000-ffffff)" unless valid_color? params[:fcolor]
+      @fcolor = '#' + params[:fcolor]
+    end
+    if params[:hcolor]
+      raise "Invalid hcolor value (has to be 000-fff or 000000-ffffff)" unless valid_color? params[:hcolor]
+      @hcolor = '#' + params[:hcolor]
+    end
+  end
+
+  def valid_color? color
+    color =~ /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
+  end
+
 
 end

@@ -38,8 +38,11 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect '/codecs', :controller => 'codecs', :action => 'index'
 
-  map.connect '/download.html', :controller => 'download', :action => 'iframe'
-  map.connect '/download.json', :controller => 'download', :action => 'json'
+  # compatibility routes for old download implementation
+  map.connect '/download', :controller => 'download', :action => :package
+  map.connect '/download.:format', :controller => 'download', :action => :package
+
+  map.connect '/download/:action.:format', :controller => 'download'
 
   # Install the default route as the lowest priority.
   map.connect ':controller/:action/:id.:format'
