@@ -41,6 +41,8 @@ ActionController::Routing::Routes.draw do |map|
   # compatibility routes for old download implementation
   map.connect '/download', :controller => 'download', :action => :package
   map.connect '/download.:format', :controller => 'download', :action => :package
+  map.connect '/download/iframe', :controller => 'download', :action => :package, :format => 'iframe'
+  map.connect '/download/json', :controller => 'download', :action => :package, :format => 'json'
 
   map.connect '/download/:action.:format', :controller => 'download'
 
