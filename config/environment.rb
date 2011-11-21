@@ -56,7 +56,7 @@ end
 ActionController::Base.relative_url_root = CONFIG['relative_url_root'] if CONFIG['relative_url_root']
 
 # remove static cache files
-%w{developer 112 113 114}.each { |release|
+%w{developer 112 113 114 121}.each { |release|
    FileUtils.rm_rf "#{RAILS_ROOT}/public/" + release
 }
 
