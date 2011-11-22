@@ -12,21 +12,15 @@ class DownloadController < ApplicationController
     cache_key = "soo_download_appliances_#{@project}"
     @data = Rails.cache.fetch(cache_key, :expires_in => 1.second) do
       api_result_images = get_from_api("/published/#{@project}/images")
-      api_result_iso = get_from_api("/published/#{@project}/images/iso")
+      #api_result_iso = get_from_api("/published/#{@project}/images/iso")
       xpath = "/directory/entry"
       if api_result_images
         doc = REXML::Document.new api_result_images.body
-
-        logger.debug api_result_images
-        logger.debug api_result_iso
-        data = Hash.new
-        
+        data = Hash.new 
         doc.elements.each(xpath) do |e|
           filename = e.attributes['name']
           if (File.extname(filename) == '.bz2')
-
             data[filename] = {:flavor => get_image_type( filename )}
-
           end
 
         end
@@ -184,7 +178,7 @@ class DownloadController < ApplicationController
 
   def get_image_type filename
     case filename
-    when /raw\.bz2$/
+    when /raw\.bz2$/, /raw\.tar\.bz2$/
       'Raw'
     when /vmx\.tar\.bz2$/
       'VMWare'
