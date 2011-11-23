@@ -1,0 +1,63 @@
+<%
+@box_title  = @page_title = "OBS Download page"
+
+%>
+
+<h2>Using OBS download pages</h2>
+
+<p>Welcome to the OBS download page. This page offers a simple way to show your users the latest
+  builds of your packages and appliances by either embedding its output as an iframe in your project homepage,
+  or by creating a download page for you.</p>
+
+<h3>Creating a download page for a package</h3>
+
+<p>Just create a link to </p>
+<pre>http://software.opensuse.org/download/package?project=<b>&lt;projectname&gt;</b>&amp;package=<b>&lt;packagename&gt;</b></pre>
+<p>for example: <a href="http://software.opensuse.org/download/package?project=openSUSE:Tools&amp;package=osc">http://software.opensuse.org/download/package?project=openSUSE:Tools&amp;package=osc</a>.
+</p>
+
+<p>To embed this page as an iframe in the download section of your project homepage, you can use this code: </p>
+
+<pre>
+&lt;iframe src="http://software.opensuse.org/download/package.iframe?project=<b>&lt;projectname&gt;</b>&amp;package=<b>&lt;packagename&gt;</b>"&gt;&lt;/iframe&gt;
+</pre>
+
+<p>Which will result in an output like this: </p>
+
+<iframe src="http://software.opensuse.org/download/package.iframe?project=openSUSE:Tools&amp;package=osc" width="100%" ></iframe>
+
+<h3>Creating a download page for a pattern</h3>
+
+<p>Linking to a pattern is similar to the way described above for a package, just change the url to use <i>pattern</i>:</p>
+
+<pre>http://software.opensuse.org/download/pattern?project=<b>&lt;projectname&gt;</b>&amp;pattern=<b>&lt;patternname&gt;</b></pre>
+
+<h3>Creating a download page for an appliance</h3>
+
+<p>If your OBS project is building appliances, you can also link to those with: </p>
+
+<pre>http://software.opensuse.org/download/appliance?project=<b>&lt;projectname&gt;</b></pre>
+
+<p>To embed an iframe showing the appliances of your project, use this code: </p>
+
+<pre>
+&lt;iframe src="http://software.opensuse.org/download/appliance.iframe?project=<b>&lt;projectname&gt;</b>"&gt;&lt;/iframe&gt;
+</pre>
+
+<p>Which will result in an output like this: </p>
+
+<iframe src="http://software.opensuse.org/download/appliance.iframe?project=openSUSE:Tools" width="100%" ></iframe> <!--/raw-->
+
+<h2>Advanced options</h2>
+
+<p><b>JSON output:</b> You can also request the data in json format by using .json as output format, for example:
+  <a href="http://software.opensuse.org/download/package.json?project=openSUSE:Tools&amp;package=obs-server">http://software.opensuse.org/download/package.json?project=openSUSE:Tools&amp;package=obs-server</a>.
+  </p>
+
+  <p>
+  <b>Theming: </b>
+  To customize the theming of the download page, you have multiple options to change the colors.
+  Use the parameters <b>bcolor</b>, <b>fcolor</b>, <b>hcolor</b> and <b>acolor</b> to set the different colors. <br/>
+  Example: <a href="http://software.opensuse.org/download/appliance.iframe?project=openSUSE:Tools&amp;fcolor=607890&amp;hcolor=607890&amp;acolor=607890&bcolor=123">http://software.opensuse.org/download/appliance?project=openSUSE:Tools&amp;fcolor=607890&amp;hcolor=607890&amp;acolor=607890&amp;bcolor=123</a>
+  
+  </p>

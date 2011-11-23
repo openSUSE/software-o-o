@@ -3,6 +3,9 @@ class DownloadController < ApplicationController
   before_filter :set_colors
   before_filter :set_parameters
 
+  # display documentation
+  def doc
+  end
 
   def appliance
     required_parameters :project
@@ -10,7 +13,7 @@ class DownloadController < ApplicationController
     # TODO: no clear way to fetch appliances. we need a /search/published/appliance
 
     cache_key = "soo_download_appliances_#{@project}"
-    @data = Rails.cache.fetch(cache_key, :expires_in => 1.second) do
+    @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
       api_result_images = get_from_api("/published/#{@project}/images")
       #api_result_iso = get_from_api("/published/#{@project}/images/iso")
       xpath = "/directory/entry"
@@ -28,8 +31,6 @@ class DownloadController < ApplicationController
       else
         nil
       end
-
-
     end
     set_flavours
     @page_title = _("Download appliance from %s") % [@project]
@@ -37,12 +38,13 @@ class DownloadController < ApplicationController
   end
 
   def package
+    redirect_to :action => :doc  and return if !params[:project] && !params[:package]
     required_parameters :project, :package
     @project = params[:project]
     @package = params[:package]
 
     cache_key = "soo_download_#{@project}_#{@package}"
-    @data = Rails.cache.fetch(cache_key, :expires_in => 1.second) do
+    @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
       api_result = get_from_api("/search/published/binary/id?match=project='#{@project}'+and+package='#{@package}'")
       xpath = "/collection/binary"
       if api_result
@@ -83,7 +85,7 @@ class DownloadController < ApplicationController
     @pattern = params[:pattern]
 
     cache_key = "soo_download_#{@project}_#{@pattern}"
-    @data = Rails.cache.fetch(cache_key, :expires_in => 1.second) do
+    @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
 
       # api_result = get_from_api("/search/published/pattern/id?match=project='#{@project}'+and+filename='#{@pattern}.ymp'")
       # TODO: workaround - the line above does not return a thing - see http://lists.opensuse.org/opensuse-buildservice/2011-07/msg00088.html
