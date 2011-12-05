@@ -92,7 +92,7 @@ end
               "zypper addrepo #{v[:repo]}#{@project}.repo\nzypper refresh\nzypper install #{@package}"
             end
           when 'CentOS', 'Fedora', 'RHEL', 'SL'
-            "cd /etc/yum/repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
+            "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
           when 'Debian', 'Ubuntu'
             "echo 'deb #{v[:repo]} /' >> /etc/apt/sources.list\napt-get update\napt-get install #{@package}"
 # don't use apt-add-repository wrapper for Ubuntu for now, because it adds source repo which we don't provide
