@@ -125,7 +125,7 @@
     <tr><td>Country</td><td><%= f.text_field :country, :class => "mandatory" %></td></tr>
     <tr><td>Phone number (<em>needed only for the parcel service</em>)</td><td><%= f.text_field :phone, :class => "mandatory" %></td></tr>
     <tr><td>E-Mail Address</td><td><%= f.text_field :email, :class => "mandatory" %></td></tr>
-    <tr><td>Amount of DVDs. Use multiplies of 100. You may also order in larger quantities if you have several events planned in the near future.</td><td><%= f.text_field :amount, :class => "mandatory" %></td></tr>
+    <tr><td>Total Amount of DVDs (since we have a package size of 100, please round to 100s). You may also order in larger quantities if you have several events planned in the near future.</td><td><%= f.text_field :amount, :class => "mandatory" %></td></tr>
     <tr><td>We have posters, t-shirts and other promotional material (in English only). If you want some, please state that and we supply them based on availability. Which additional promotional material could you need?</td><td><%= f.text_field :material %></td></tr>
     <tr><td>Deadline (ISO format YYYY-MM-DD, e.g. 2011-03-31 or NONE). Shipping may take 2-3 weeks depending on your location and customs requirements.</td><td><%= f.text_field :deadline, :class => "mandatory" %></td></tr>
     <tr><td colspan=2><%= submit_tag("Send request now") %></td></tr>
