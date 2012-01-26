@@ -19,5 +19,5 @@ config.action_mailer.raise_delivery_errors = false
 
 API_HOST = "https://api.opensuse.org"
 # Add your username + password for the api here
-API_USERNAME = "test"
-API_PASSWORD = "test"
+API_USERNAME = "digitaltomm"
+API_PASSWORD = "#master"

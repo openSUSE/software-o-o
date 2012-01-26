@@ -50,7 +50,6 @@ class SearchController < ApplicationController
         @query = @query.split(" ").map{|x| "\"#{CGI.escape(x)}\""}.join(" ")
         @result = Seeker.prepare_result(@query, base, @project, exclude_filter, @exclude_debug)
         unless @result.blank?
-          @query = "\"#{@query}\""
           flash.now[:note] = _("Switched to exact match due to too many hits on substring search.")
         else
           flash.now[:error] = _("Please be more precise in your search, search limit reached.")
