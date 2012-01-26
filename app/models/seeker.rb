@@ -18,15 +18,16 @@ class Seeker < ActiveXML::Base
   class SearchResult < Array
     def self.search(query, baseproject, project=nil, exclude_filter=nil, exclude_debug=false)
 
-      query = query.gsub(/['"()]/, "")
+      
       words = query.split(" ").select {|part| !part.match(/^[0-9_\.-]+$/) }
       versrel = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
       logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
       raise "Please provide a valid search term" if words.blank?
 
-      xpath = "contains-ic(@name, " + words.select{|word| !word.match(/^%22.+%22$/) }.map{|word| "'#{word}'"}.join(", ") + ")"
-      words.select{|word| word.match(/^%22.+%22$/) }.map{|word| word.gsub( "%22", "" ) }.each do |word|
-        xpath = "@name = '#{word}' "
+      xpath = "contains-ic(@name, " + words.select{|word| 
+        !word.match(/^".+"$/) }.map{|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ") + ")"
+      words.select{|word| word.match(/^".+"$/) }.map{|word| word.gsub( "\"", "" ) }.each do |word|
+        xpath = "@name = '#{word.gsub(/['"()]/, "")}' "
       end
       xpath += ' and ' + versrel.map {|part| "starts-with(@versrel,'#{part}')"}.join(" and ") unless versrel.blank?
       xpath += " and path/project='#{baseproject}'" unless baseproject.blank?

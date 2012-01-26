@@ -47,7 +47,8 @@ class SearchController < ApplicationController
       search_error, code, api_exception = ActiveXML::Transport.extract_error_message e
       if code == "413"
         logger.debug("Too many hits, trying exact match for: #{@query}")
-        @result = Seeker.prepare_result(CGI.escape("\"#{@query}\""), base, @project, exclude_filter, @exclude_debug)
+        @query = @query.split(" ").map{|x| "\"#{CGI.escape(x)}\""}.join(" ")
+        @result = Seeker.prepare_result(@query, base, @project, exclude_filter, @exclude_debug)
         unless @result.blank?
           @query = "\"#{@query}\""
           flash.now[:note] = _("Switched to exact match due to too many hits on substring search.")
