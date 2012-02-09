@@ -208,6 +208,7 @@ class Seeker < ActiveXML::Base
         @relevance += 2 if project =~ /^#{quoted_query}/i
         @relevance -= 5 if project =~ /unstable/i
         @relevance -= 10 if project =~ /^home:/
+        @relevance -= 20 if project =~ /^openSUSE:Maintenance/i
         calculate_specific_relevance
       end
 
