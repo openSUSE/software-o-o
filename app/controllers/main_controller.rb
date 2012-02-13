@@ -85,22 +85,22 @@ class MainController < ApplicationController
       @medium = "dvd"
     elsif release == "developer"
       @isos = {}
-      @directory = "http://download.opensuse.org/distribution/12.1-RC2"
-      @isos["lang-32"] = "Addon-Lang-Build0025-i586"
-      @isos["lang-64"] = "Addon-Lang-Build0025-x86_64"
-      @isos["nonoss"] = "Addon-NonOss-BiArch-Build0025-i586-x86_64"
-      @isos["kde-64"] = "KDE-LiveCD-Build0025-x86_64"
-      @isos["kde-32"] = "KDE-LiveCD-Build0025-i686"
-      @isos["gnome-64"] = "GNOME-LiveCD-Build0025-x86_64"
-      @isos["gnome-32"] = "GNOME-LiveCD-Build0025-i686"
-      @isos["dvd-64"] = "DVD-Build0025-x86_64"
-      @isos["dvd-32"] = "DVD-Build0025-i586"
-      @isos["net-32"] = "NET-Build0025-i586"
-      @isos["net-64"] = "NET-Build0025-x86_64"
+      @directory = "http://download.opensuse.org/distribution/12.2-Milestone1"
+      @isos["lang-32"] = "Addon-Lang-Build0151-i586"
+      @isos["lang-64"] = "Addon-Lang-Build0151-x86_64"
+      @isos["nonoss"] = "Addon-NonOss-BiArch-Build0151-i586-x86_64"
+      @isos["kde-64"] = "KDE-LiveCD-Build0151-x86_64"
+      @isos["kde-32"] = "KDE-LiveCD-Build0151-i686"
+      @isos["gnome-64"] = "GNOME-LiveCD-Build0151-x86_64"
+      @isos["gnome-32"] = "GNOME-LiveCD-Build0151-i686"
+      @isos["dvd-64"] = "DVD-Build0151-x86_64"
+      @isos["dvd-32"] = "DVD-Build0151-i586"
+      @isos["net-32"] = "NET-Build0151-i586"
+      @isos["net-64"] = "NET-Build0151-x86_64"
 
-      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/12.1/RELEASE-NOTES.en.html"
-      @releasename = "openSUSE 12.1 RC 2"
-      @repourl = "http://download.opensuse.org/distribution/12.1"
+      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/12.2/RELEASE-NOTES.en.html"
+      @releasename = "openSUSE 12.2 Milestone 1"
+      @repourl = "http://download.opensuse.org/distribution/12.2"
       @medium = "dvd"
     end
     @release = release
@@ -118,7 +118,7 @@ class MainController < ApplicationController
 
 
   def developer
-    #redirectit("developer") and return
+    redirectit("developer") and return
     flash.now[:warn] = _("We currently don't have a Factory Snapshot that is more recent than our last openSUSE release. <br/>" +
       "Please check <a href='http://en.opensuse.org/Portal:Factory'>http://en.opensuse.org/Portal:Factory</a> for more information.")
     @exclude_debug = true
