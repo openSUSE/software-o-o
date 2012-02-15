@@ -21,62 +21,68 @@ end
 
 -%>
 
-<p style="font-size: 120%">
-  <% if @visitor.missing_codecs.length > 0 %>
-    <% if @visitor.application %><%= h(@visitor.application.titlecase) %><% else %>The application you are using<% end %> requires the following additional proprietary third-party software to support the content you have attempted to play:
-  </p>
+<div class="box box-shadow">
+  <h2 class="box-header"><span class="alignleft"><%= @page_title -%></span></h2>
+  <div>
 
-  <ul class="navlist" style="margin-bottom: 1.5em">
-    <% if wm_framework  %>
-      <li>Windows Media decoder (<%= h(wm_framework) %>, <%= h(architecture) %>)</li>
+    <p style="font-size: 120%">
+      <% if @visitor.missing_codecs.length > 0 %>
+        <% if @visitor.application %><%= h(@visitor.application.titlecase) %><% else %>The application you are using<% end %> requires the following additional proprietary third-party software to support the content you have attempted to play:
+      </p>
+
+      <ul class="navlist" style="margin-bottom: 1.5em">
+        <% if wm_framework  %>
+          <li>Windows Media decoder (<%= h(wm_framework) %>, <%= h(architecture) %>)</li>
+        <% end %>
+        <% @visitor.missing_codecs.each do | codec | %>
+          <% if (@visitor.os_release && (@visitor.os_release.include?('11.0') || @visitor.os_release.include?('11.1') || @visitor.os_release.include?('10.3'))) &&
+              codec.framework.downcase.include?("gstreamer") && codec.description.downcase.include?("mp3") %>
+            <li><p>Fluendo MP3 Decoder</p><div class="install_btn" style="float: none"><a href="http://download.opensuse.org/YaST/gst-fluendo-mp3.ymp">1-Click Install</a></div></li>
+          <% else %>
+            <li><%= h(codec.description) %> (<%= h(codec.display_framework) %>, <%= h(architecture) %>)</li>
+          <% end %>
+        <% end %>
+      </ul>
+
+      <p style="font-size: 120%">The following links may assist you in obtaining the necessary software:</p>
+
+    <% else %>
+      Support for proprietary formats and codecs is not shipped out-of-the box in openSUSE. Please follow the links below for more information on obtaining the necessary software required to play proprietary multimedia content.
+      </p>
     <% end %>
-    <% @visitor.missing_codecs.each do | codec | %>
-      <% if (@visitor.os_release && (@visitor.os_release.include?('11.0') || @visitor.os_release.include?('11.1') || @visitor.os_release.include?('10.3'))) &&
-          codec.framework.downcase.include?("gstreamer") && codec.description.downcase.include?("mp3") %>
-        <li><p>Fluendo MP3 Decoder</p><div class="install_btn" style="float: none"><a href="http://download.opensuse.org/YaST/gst-fluendo-mp3.ymp">1-Click Install</a></div></li>
-      <% else %>
-        <li><%= h(codec.description) %> (<%= h(codec.display_framework) %>, <%= h(architecture) %>)</li>
-      <% end %>
-    <% end %>
-  </ul>
 
-  <p style="font-size: 120%">The following links may assist you in obtaining the necessary software:</p>
+    <ul class="navlist">
+      <li style="margin-bottom: 1em"><a href="https://shop.fluendo.com/?referrer=opensuse"><strong>Fluendo Webshop</strong></a><br />
+        <em>Fluendo provides high quality codecs for the GStreamer multimedia framework.</em></li>
 
-<% else %>
-  Support for proprietary formats and codecs is not shipped out-of-the box in openSUSE. Please follow the links below for more information on obtaining the necessary software required to play proprietary multimedia content.
-  </p>
-<% end %>
+      <li><a href="http://opensuse-community.org/Multimedia"><strong>Community Information</strong></a><br />
+        <em>Alternate codecs are available by following community instructions, but may require a license.</em></li>
+    </ul>
 
-<ul class="navlist">
-  <li style="margin-bottom: 1em"><a href="https://shop.fluendo.com/?referrer=opensuse"><strong>Fluendo Webshop</strong></a><br />
-    <em>Fluendo provides high quality codecs for the GStreamer multimedia framework.</em></li>
+    <h2 style="margin-top: 1em">Further Information</h2>
 
-  <li><a href="http://opensuse-community.org/Multimedia"><strong>Community Information</strong></a><br />
-    <em>Alternate codecs are available by following community instructions, but may require a license.</em></li>
-</ul>
+    <p>For more information about why some formats and codecs are restricted and why they don't ship out-of-the-box on openSUSE,
+      please read about <a href="http://en.opensuse.org/Restricted_formats">Restricted Formats</a>.</p>
 
-<h2 style="margin-top: 1em">Further Information</h2>
+    <div class="orange_box" style="margin: 3em 0 1em 0">
+      <div class="box_top_row">
+        <div class="box_left"></div>
+        <div class="box_right"></div>
+      </div>
+      <div class="box_title_row">
+        <div class="box_title"><p>Disclaimer / Warning</p></div>
+      </div>
+      <div class="box_content" style="font-size: 80%">
+        <p>The links above allow you to leave the openSUSE site. The linked sites are not under the control of Novell
+          and Novell is not responsible for the contents of any linked site or any link contained in a linked site,
+          or any changes or updates to such sites. Novell is providing these links to you only as a convenience, and
+          the inclusion of any link does not imply endorsement by Novell of any linked site.</p>
+      </div>
+      <div class="box_bottom_row">
+        <div class="box_left"></div>
+        <div class="box_right"></div>
+      </div>
+    </div>
 
-<p>For more information about why some formats and codecs are restricted and why they don't ship out-of-the-box on openSUSE, 
-  please read about <a href="http://en.opensuse.org/Restricted_formats">Restricted Formats</a>.</p>
-
-<div class="orange_box" style="margin: 3em 0 1em 0">
-  <div class="box_top_row">
-    <div class="box_left"></div>
-    <div class="box_right"></div>
-  </div>
-  <div class="box_title_row">
-    <div class="box_title"><p>Disclaimer / Warning</p></div>
-  </div>
-  <div class="box_content" style="font-size: 80%">
-    <p>The links above allow you to leave the openSUSE site. The linked sites are not under the control of Novell
-      and Novell is not responsible for the contents of any linked site or any link contained in a linked site,
-      or any changes or updates to such sites. Novell is providing these links to you only as a convenience, and
-      the inclusion of any link does not imply endorsement by Novell of any linked site.</p>
-  </div>
-  <div class="box_bottom_row">
-    <div class="box_left"></div>
-    <div class="box_right"></div>
   </div>
 </div>
-
