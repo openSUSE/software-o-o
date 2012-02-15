@@ -26,6 +26,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '113/:lang', :controller => 'main', :action => 'release', :release => "113"
   map.connect 'developer/:lang', :controller => 'main', :action => 'release', :release => "developer"
 
+  map.connect 'package/:package', :controller => 'package', :action => 'show'
+
   map.connect 'promodvd', :controller => 'order', :action => 'new'
   map.connect 'promodvds', :controller => 'order', :action => 'new'
   
