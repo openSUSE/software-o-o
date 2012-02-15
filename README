@@ -1,8 +1,10 @@
-I installed it on my system the following way:
+Install:
 
-sudo zypper ar -r http://download.opensuse.org/repositories/devel:/languages:/ruby:/extensions/openSUSE_Factory/devel:languages:ruby:extensions.repo
-sudo zypper in rubygem-actionmailer rubygem-actionpack rubygem-activerecord rubygem-activeresource rubygem-activesupport rubygem-rails
-sudo zypper in rubygem-sqlite3 rubygem-gettext_rails rubygem-nokogiri rubygem-delayed_job
+sudo zypper in rubygem-rails-2_3 rubygem-sqlite3 rubygem-gettext_rails rubygem-nokogiri memcached
+
+Additional gems either from devel:languages:ruby:extensions (incompatible atm) or rubygems:
+daemons, mongrel, ruby-debug, delayed_job (1.8.4)
+
 
 cat > config/database.yml <<EOF
 development:
@@ -13,5 +15,8 @@ development:
 EOF
 
 rake db:migrate
+
+git submodule init
+git submodule update
 
 ./script/server
