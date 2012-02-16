@@ -11,7 +11,17 @@
 <% end %>
 
 <% if @result -%>
-  <div id='result'>
-    <%= render :partial => 'search_result' %>
+
+  <div class="box box-shadow">
+    <h2 class="box-header">
+      <span class="alignleft"><%= @page_title -%></span></h2>
+    <div>
+
+      <div id='result'>
+        <%= render :partial => 'search_result' %>
+      </div>
+
+    </div>
   </div>
+
 <% end %>
