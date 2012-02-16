@@ -49,10 +49,6 @@ class Seeker < ActiveXML::Base
       return result
     end
 
-    def self.cache
-      @cache ||= Cache.new
-    end
-
     def inspect
       "<Seeker::Searchresult ##{object_id} @length=#{size}>"
     end
@@ -147,15 +143,12 @@ class Seeker < ActiveXML::Base
       attr_reader :description
       attr_reader :short_description
       attr_reader :relevance
+      attr_reader :baseproject
 
       def initialize(key, query)
         @key = key
         @query = query
         @relevance = 0
-      end
-
-      def cache
-        SearchResult.cache
       end
 
       def inspect
@@ -190,6 +183,7 @@ class Seeker < ActiveXML::Base
         @project = element.project
         @repository = element.repository
         @name = element.name
+        @baseproject = element.baseproject
         cache_specific_data(element)
         @data_cached = true
       end
@@ -240,10 +234,9 @@ class Seeker < ActiveXML::Base
       end
 
       def update_description
-        @description = cache.description(self)
-        return unless @description.nil?
-        return if self.empty?
-        begin
+        cache_key = "desc_bin_" + @filename + "_" + @project + "_" + @repository
+        Rails.cache.fetch(cache_key, :expires_in => 6.hours) do
+         begin
           bin = self[0]
           info = ::Published.find bin.filename, :view => "fileinfo", :project => @project,
             :repository => @repository, :arch => bin.arch.to_s
@@ -253,12 +246,17 @@ class Seeker < ActiveXML::Base
             @description = ""
           end
         rescue ActiveXML::Transport::NotFoundError
-        rescue 
+        rescue
           @description = ""
         end
-        cache.store_description(self, @description)
-        return @description
       end
+    end
+
+      def version
+        # example filename: xchat-2.8.8-57.1.i586.rpm
+        @filename.match(/[0-9][-0-9.]*[0-9]/)[0]
+      end
+      
     end
 
     class Pattern < Item
@@ -280,9 +278,9 @@ class Seeker < ActiveXML::Base
       end
 
       def update_description
-        @description = cache.description(self)
-        return unless @description.nil?
-        begin
+        cache_key = "desc_pat_" + @filename + "_" + @project + "_" + @repository
+        Rails.cache.fetch(cache_key, :expires_in => 6.hours) do
+         begin
           pat = ::Published.find @filename, :project => @project, :repository => @repository, :view => :fileinfo
           if pat.has_element? :description
             @description = pat.description.to_s
@@ -292,16 +290,17 @@ class Seeker < ActiveXML::Base
         rescue
           @description = ""
         end
-        cache.store_description(self, @description)
-        return @description
+         @description
+        end
       end
+
     end
 
     class Fragment < Hash
       attr_accessor :fragment_type
 
       def initialize(element)
-        %w(project repository name filename filepath arch type).each do |att|
+        %w(project repository name filename filepath arch type baseproject type).each do |att|
           self[att] = element.value att
         end
       end
@@ -331,71 +330,5 @@ class Seeker < ActiveXML::Base
       end
     end
 
-    class Cache
-      attr_accessor :active
-      def initialize
-        tmpdir = RAILS_ROOT+"/tmp/cache"
-        @desctmpdir = tmpdir+"/_descriptions"
-        @resulttmpdir = tmpdir+"/_searchresults"
-        @descexpire = 600.0
-        @resultexpire = 300.0
-        @active = true
-      end
-
-      def logger
-        RAILS_DEFAULT_LOGGER
-      end
-
-      def description(item)
-        fname = @desctmpdir + "/" + Digest::MD5.hexdigest(item.key)
-        return read(fname, @descexpire)
-      end
-
-      def searchresult(query, baseproject)
-        key = query + "|" + baseproject.to_s
-        fname = @resulttmpdir + "/" + Digest::MD5.hexdigest(key)
-        if str = read(fname, @resultexpire)
-          return Marshal.load(str)
-        else
-          return nil
-        end
-      end
-
-      def store_description(item, desc)
-        fname = @desctmpdir + "/" + Digest::MD5.hexdigest(item.key)
-        write(fname, desc)
-      end
-
-      def store_searchresult(query, baseproject, result)
-        key = query + "|" + baseproject.to_s
-        fname = @resulttmpdir + "/" + Digest::MD5.hexdigest(key)
-        write(fname, Marshal.dump(result))
-      end
-
-      private
-      def read(fname, exp_time_sec)
-        return nil unless @active
-        begin
-          stat = File::stat(fname)
-        rescue Errno::ENOENT
-          return nil
-        end
-
-        if (Time.now-stat.mtime) < exp_time_sec
-          logger.debug "[Seeker::SearchResult::Cache] reading #{fname} from cache"
-          return File.read(fname)
-        else
-          return nil
-        end
-      end
-
-      def write(fname, data)
-        return unless @active
-        File.open(fname,"w") do |f|
-          logger.debug "[Seeker::SearchResult::Cache] writing #{fname} to cache"
-          f.write data
-        end
-      end
-    end
   end
 end
