@@ -184,6 +184,8 @@ class Seeker < ActiveXML::Base
         @repository = element.repository
         @name = element.name
         @baseproject = element.baseproject
+        @version = element.version
+        @release = element.release
         cache_specific_data(element)
         @data_cached = true
       end
@@ -215,6 +217,8 @@ class Seeker < ActiveXML::Base
       attr_reader :arch_hash
       attr_reader :filename
       attr_reader :arch
+      attr_reader :version
+      attr_reader :release
 
       def initialize(key, query)
         super(key, query)
@@ -236,25 +240,20 @@ class Seeker < ActiveXML::Base
       def update_description
         cache_key = "desc_bin_" + @filename + "_" + @project + "_" + @repository
         Rails.cache.fetch(cache_key, :expires_in => 6.hours) do
-         begin
-          bin = self[0]
-          info = ::Published.find bin.filename, :view => "fileinfo", :project => @project,
-            :repository => @repository, :arch => bin.arch.to_s
-          if info.has_element? :description
-            @description = info.description.to_s
-          else
+          begin
+            bin = self[0]
+            info = ::Published.find bin.filename, :view => "fileinfo", :project => @project,
+              :repository => @repository, :arch => bin.arch.to_s
+            if info.has_element? :description
+              @description = info.description.to_s
+            else
+              @description = ""
+            end
+          rescue ActiveXML::Transport::NotFoundError
+          rescue
             @description = ""
           end
-        rescue ActiveXML::Transport::NotFoundError
-        rescue
-          @description = ""
         end
-      end
-    end
-
-      def version
-        # example filename: xchat-2.8.8-57.1.i586.rpm
-        @filename.match(/[0-9][-0-9.]*[0-9]/)[0]
       end
       
     end
@@ -280,17 +279,17 @@ class Seeker < ActiveXML::Base
       def update_description
         cache_key = "desc_pat_" + @filename + "_" + @project + "_" + @repository
         Rails.cache.fetch(cache_key, :expires_in => 6.hours) do
-         begin
-          pat = ::Published.find @filename, :project => @project, :repository => @repository, :view => :fileinfo
-          if pat.has_element? :description
-            @description = pat.description.to_s
-          else
+          begin
+            pat = ::Published.find @filename, :project => @project, :repository => @repository, :view => :fileinfo
+            if pat.has_element? :description
+              @description = pat.description.to_s
+            else
+              @description = ""
+            end
+          rescue
             @description = ""
           end
-        rescue
-          @description = ""
-        end
-         @description
+          @description
         end
       end
 
@@ -300,7 +299,7 @@ class Seeker < ActiveXML::Base
       attr_accessor :fragment_type
 
       def initialize(element)
-        %w(project repository name filename filepath arch type baseproject type).each do |att|
+        %w(project repository name filename filepath arch type baseproject type version release).each do |att|
           self[att] = element.value att
         end
       end
