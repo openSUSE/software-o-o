@@ -75,13 +75,12 @@ class Seeker < ActiveXML::Base
       return [] if idx > page_count
       page = self[@page_length*(idx-1),@page_length]
       page.each do |item|
-        item.update_description
+        item.description
       end
       return page
     end
 
     def page_count
-      #logger.debug "[SearchResult] calculating page_count: self.length: #{self.length}, @page_length: #@page_length"
       ((self.length-1)/@page_length)+1
     end
 
@@ -173,7 +172,7 @@ class Seeker < ActiveXML::Base
         return out
       end
 
-      def update_description
+      def description
         # implement in derived classes
       end
       
@@ -237,22 +236,18 @@ class Seeker < ActiveXML::Base
         @relevance -= 3 if name =~ /-doc$/
       end
 
-      def update_description
+      def description
         cache_key = "desc_bin_" + @filename + "_" + @project + "_" + @repository
         Rails.cache.fetch(cache_key, :expires_in => 6.hours) do
           begin
-            bin = self[0]
-            info = ::Published.find bin.filename, :view => "fileinfo", :project => @project,
-              :repository => @repository, :arch => bin.arch.to_s
-            if info.has_element? :description
-              @description = info.description.to_s
-            else
-              @description = ""
-            end
-          rescue ActiveXML::Transport::NotFoundError
-          rescue
             @description = ""
+            bin = self[0]
+            info = ::Published.find bin.filename, :view => :fileinfo, :project => @project,
+              :repository => @repository, :arch => bin.arch.to_s
+            @description = info.description.to_s if info.has_element? :description
+          rescue
           end
+          @description
         end
       end
       
@@ -276,18 +271,14 @@ class Seeker < ActiveXML::Base
         @type = element.type.to_s
       end
 
-      def update_description
+      def description
         cache_key = "desc_pat_" + @filename + "_" + @project + "_" + @repository
         Rails.cache.fetch(cache_key, :expires_in => 6.hours) do
+          @description = ""
           begin
             pat = ::Published.find @filename, :project => @project, :repository => @repository, :view => :fileinfo
-            if pat.has_element? :description
-              @description = pat.description.to_s
-            else
-              @description = ""
-            end
+            @description = pat.description.to_s if pat.has_element? :description
           rescue
-            @description = ""
           end
           @description
         end
