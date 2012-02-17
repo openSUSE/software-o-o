@@ -7,4 +7,101 @@
 <% @hide_side_box = true -%>
 <% @hide_search_box = true -%>
 
-<%= @pkgname %>
+<div class="box box-shadow">
+  <h2 class="box-header">
+    <span class="alignleft"><%= @page_title -%></span></h2>
+  <div>
+
+
+    <% if @packages.blank? %>
+
+      <p>Package not found...</p>
+
+    <% else %>
+
+      <div style="float: right; margin: 15px;">
+        <%= image_tag @screenshot_thumb %>
+      </div>
+
+      <h2><%= @pkgname %></h2>
+
+
+      <p style="white-space: pre-line; ">
+        <% if @description_package.blank? %>
+          No description found...
+        <% else %>
+          <%= @description_package.description.strip -%>
+          <i>(from <%= @description_package.project %>)</i>
+        <% end %>
+      </p>
+      <div style="clear: both"/>
+
+      <% default_repo = @packages.select{|s| s.project == (@baseproject or default_baseproject)}.first %>
+
+      <% if default_repo %>
+        <p>
+        <h3>Version <b><%= default_repo.first.version %></b> for <%= @distributions.select{|d| d.last == default_repo.first.project}.first.first %></h3>
+        <div class="install_pkg_btn">
+          <%= link_to _("1-Click Install"), :controller => 'main', :action => 'ymp_without_arch_and_version',
+            :project => default_repo.first.project, :repository => default_repo.first.repository, :package => @pkgname, :base => default_repo.first.baseproject %>
+        </div>
+        (<a href="#" onclick="$('#pkg_versions').toggle();">show all available versions</a>)
+        </p>
+
+      <% end %>
+
+      <div id="pkg_versions">
+        <h3>Available versions</h3>
+
+        <% @distributions.reject{|d| d.first == 'ALL'}.each do |distro| -%>
+
+          <% if @packages.select{|s| s.baseproject == distro.last}.size > 0 %>
+
+            <p><b><%= distro.first %></b><br/>
+
+              <% versions = @packages.select{|s| s.baseproject == distro.last}.flatten.group_by(&:version)
+
+              versions.each do |version| -%>
+
+                <b><%= version.first %></b><br/>
+
+                <% unless version.last.select{|v| v.project == distro.last}.blank? %>
+
+                  official download for:
+                  <% version.last.select{|v| v.project == distro.last}.each do |bin| %>
+                    <%= bin.arch %>
+                  <% end %>
+                <% end %>
+                <br/>
+
+                <% unless version.last.select{|v| v.project != distro.last}.blank? %>
+
+                  <i>more versions are available from unsupported repositories: </i><br/>
+
+                  <% version.last.select{|v| v.project != distro.last}.group_by(&:project).each do |result| %>
+
+                    <i><%= link_to result.first, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>: </i>
+
+                    <% result.last.each do |bin| %>
+
+                      <i><%= link_to bin.arch, "http://download.opensuse.org/repositories/" + bin.filepath %> </i>
+
+                    <% end -%>
+                    <br/>
+
+                  <% end -%>
+
+                <% end -%>
+
+              <% end -%>
+            </p>
+
+          <% end -%>
+
+        <% end -%>
+
+      <% end %>
+    </div>
+
+  </div>
+</div>
