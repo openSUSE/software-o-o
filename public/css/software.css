@@ -88,18 +88,18 @@ body {margin: 0 !important; }
     font-family: 'Droid Sans';
     font-style: normal;
     font-weight: normal;
-    src: url('../themes/bento/fonts/DroidSans.eot') format('embedded-opentype'),
+    src: url('http://static.opensuse.org/themes/bento/fonts/DroidSans.eot') format('embedded-opentype'),
         local('Droid Sans'), local('DroidSans'),
-        url('../themes/bento/fonts/DroidSans.ttf') format('truetype');
+        url('http://static.opensuse.org/themes/bento/fonts/DroidSans.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Droid Sans';
     font-style: normal;
     font-weight: bold;
-    src: url('../themes/bento/fonts/DroidSans-Bold.eot') format('embedded-opentype'),
+    src: url('http://static.opensuse.org/themes/bento/fonts/DroidSans-Bold.eot') format('embedded-opentype'),
         local('Droid Sans Bold'), local('DroidSans-Bold'),
-        url('../themes/bento/fonts/DroidSans-Bold.ttf') format('truetype');
+        url('http://static.opensuse.org/themes/bento/fonts/DroidSans-Bold.ttf') format('truetype');
 }
 
 @font-face {
@@ -107,7 +107,7 @@ body {margin: 0 !important; }
     font-style: monospaced;
     font-weight: normal;
     src: local('Droid Sans Mono'), local('DroidSans-Mono'),
-        url('../themes/bento/fonts/DroidSansMono.ttf') format('truetype');
+        url('http://static.opensuse.org/themes/bento/fonts/DroidSansMono.ttf') format('truetype');
 }
 
 body {
@@ -117,4 +117,17 @@ body {
 
 .ui-state-error p, .ui-state-highlight p {
     margin-bottom: 10px;
+}
+
+.install_pkg_btn {
+    background: url("http://static.opensuse.org/hosts/software.o.o/images/inst_btn.png") no-repeat scroll left top transparent;
+    height: 38px;
+    width: 135px;
+    white-space: nowrap;
+}
+
+.install_pkg_btn a {
+    margin-left: 45px;
+    margin-top: 10px;
+    position: absolute;
 }
