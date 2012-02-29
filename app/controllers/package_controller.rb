@@ -7,7 +7,13 @@ class PackageController < ApplicationController
     @pkgname = params[:package]
     raise MissingParameterError, "Invalid parameter package" unless valid_package_name? @pkgname
 
+    @baseproject = "openSUSE:Factory"
+
     @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
+    @default_project = @baseproject || @template.default_baseproject
+    @default_project_name = @distributions.select{|d| d[:project] == @default_project}.first[:name]
+    @default_repo = @distributions.select{|d| d[:project] == @default_project}.first[:repository]
+    @default_package = @packages.select{|s| s.project == (@default_project)}.first
 
     # TODO: released projects don't give info over the api...
     @packages.each do |package|
@@ -23,7 +29,12 @@ class PackageController < ApplicationController
     @screenshot_thumb = "http://screenshots.debian.net/thumbnail/" + @pkgname
 
     # Fetch appstream data for app
-    #Appdata.find :project => "test", :repo => "test", :arch => "test", :pkgname => @pkgname
+    appdata = Appdata.find_cached :prj => @default_project, :repo => @default_repo, :arch => "i586", :pkgname => @pkgname
+
+
+
+    #TODO: fetch icon: app-data-icons.tar.gz
+
 
 
 
