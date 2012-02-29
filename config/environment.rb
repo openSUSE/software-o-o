@@ -63,26 +63,19 @@ ActionController::Base.relative_url_root = CONFIG['relative_url_root'] if CONFIG
 ActiveXML::Base.config do |conf|
   conf.setup_transport do |map|
     map.default_server :rest, API_HOST
-    map.connect :project, 'rest:///source/:name/_meta',
-      :all => 'rest:///source/'
-    map.connect :package, 'rest:///source/:project/:name/_meta',
-      :all => 'rest:///source/:project/'
-    map.connect :pattern, 'rest:///source/:project/_pattern/:name',
-      :all => 'rest:///source/:project/_pattern'
-    map.connect :published,'rest:///published/:project/:repository/:arch/:name?:view'
+    map.connect :published, 'rest:///published/:project/:repository/:arch/:name?:view'
     map.connect :seeker, 'rest:///search?match=:match',
       :project => 'rest:///search/project/id?match=:match',
       :package => 'rest:///search/package/id?match=:match',
       :pattern => 'rest:///search/published/pattern/id?match=:match',
       :binary => 'rest:///search/published/binary/id?match=:match'
-    map.connect :distributions,'rest:///distributions'
-    map.connect :appdata,'rest:///build/:project/:repo/:arch/:pkgname/appdata.xml'
+    map.connect :appdata, 'rest:///build/:prj/:repo/:arch/:pkgname/appdata.xml'
   end
-  conf.transport_for( :project ).set_additional_header( "X-Username", API_USERNAME)
+  conf.transport_for( :published ).set_additional_header( "X-Username", API_USERNAME)
   if defined?( API_USERNAME ) && defined?( API_PASSWORD ) && !API_PASSWORD.blank?
-    conf.transport_for( :project ).login API_USERNAME, API_PASSWORD
+    conf.transport_for( :published ).login API_USERNAME, API_PASSWORD
   end
-  conf.transport_for( :project ).set_additional_header( "User-Agent", "software.o.o" )
+  conf.transport_for( :published ).set_additional_header( "User-Agent", "software.o.o" )
 end
 
 LANGUAGES = %w{en}
