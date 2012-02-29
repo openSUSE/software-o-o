@@ -58,15 +58,19 @@ class ApplicationController < ActionController::Base
 
   # load available distributions
   def load_distributions
+    logger.debug "Loading distributions"
     @distributions = Array.new
     begin
       response = get_from_api("distributions")
       doc = REXML::Document.new response.body
       doc.elements.each("distributions/distribution") { |element|
-        dist = [element.elements['name'].text, element.elements['project'].text]
+        dist = Hash[:name => element.elements['name'].text, :project => element.elements['project'].text,
+          :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text, 
+          :icon => element.elements['icon'].attributes["url"] ]
         @distributions << dist
+        logger.debug "Added Distribution: #{dist}"
       }
-      @distributions << ["ALL Distributions", 'ALL']
+      @distributions << Hash[:name => "ALL Distributions", :project => 'ALL' ]
     rescue Exception => e
       logger.error "Error while loading distributions: " + e.to_s
       @distributions = nil
