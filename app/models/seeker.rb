@@ -218,6 +218,12 @@ class Seeker < ActiveXML::Base
       attr_reader :arch
       attr_reader :version
       attr_reader :release
+      attr_reader :description
+      attr_reader :summary
+      attr_reader :size
+      attr_reader :mtime
+      attr_reader :requires
+      attr_reader :provides
 
       def initialize(key, query)
         super(key, query)
@@ -228,7 +234,24 @@ class Seeker < ActiveXML::Base
         @filename = element.filename
         @arch = element.arch
       end
-      
+
+      def load_extra_data
+        unless @description
+          @description = ""
+          bin = self[0]
+          info = ::Published.find_cached bin.filename, :view => :fileinfo, :project => @project,
+            :repository => @repository, :arch => bin.arch.to_s, :expires_in => 6.hour
+          if info
+            @description = info.description.to_s if info.has_element? :description
+            @summary = info.summary.to_s if info.has_element? :summary
+            @size = info.size.to_s if info.has_element? :size
+            @mtime = info.mtime.to_s if info.has_element? :mtime
+            @requires = info.each_requires.map{|r| r.text} if info.has_element? :requires
+            @provides = info.each_provides.map{|r| r.text} if info.has_element? :provides
+          end
+        end
+      end
+
       def calculate_specific_relevance
         @relevance -= 10 if name =~ /-debugsource$/
         @relevance -= 10 if name =~ /-debuginfo$/
@@ -237,18 +260,33 @@ class Seeker < ActiveXML::Base
       end
 
       def description
-        cache_key = "desc_bin_" + @filename + "_" + @project + "_" + @repository
-        Rails.cache.fetch(cache_key, :expires_in => 6.hours) do
-          begin
-            @description = ""
-            bin = self[0]
-            info = ::Published.find bin.filename, :view => :fileinfo, :project => @project,
-              :repository => @repository, :arch => bin.arch.to_s
-            @description = info.description.to_s if info.has_element? :description
-          rescue
-          end
-          @description
-        end
+        load_extra_data
+        @description
+      end
+
+      def summary
+        load_extra_data
+        @summary
+      end
+
+      def requires
+        load_extra_data
+        @requires
+      end
+
+      def provides
+        load_extra_data
+        @provides
+      end
+
+      def mtime
+        load_extra_data
+        @mtime
+      end
+
+      def size
+        load_extra_data
+        @size
       end
       
     end
