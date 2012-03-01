@@ -69,7 +69,7 @@ ActiveXML::Base.config do |conf|
       :package => 'rest:///search/package/id?match=:match',
       :pattern => 'rest:///search/published/pattern/id?match=:match',
       :binary => 'rest:///search/published/binary/id?match=:match'
-    map.connect :appdata, 'rest:///build/:prj/:repo/:arch/:pkgname/appdata.xml'
+    map.connect :appdata, 'rest:///build/:prj/:repo/:arch/:pkgname/:appdata'
   end
   conf.transport_for( :published ).set_additional_header( "X-Username", API_USERNAME)
   if defined?( API_USERNAME ) && defined?( API_PASSWORD ) && !API_PASSWORD.blank?
