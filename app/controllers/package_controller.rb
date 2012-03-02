@@ -26,13 +26,18 @@ class PackageController < ApplicationController
     end
 
     # TODO: released projects don't give info over the api... (bnc#749828)
-    @packages.each do |package|
-      unless package.description.blank?
-        @description_package = package
-        logger.debug "Found package description in: #{package.project}"
-        break
+    cache_key = "description_package_#{@pkgname}"
+    @description_package =  Rails.cache.fetch(cache_key, :expires_in => 3.hours) do
+      @packages.each do |package|
+        @description_package = nil
+        unless package.description.blank?
+          @description_package = package
+          logger.debug "Found package info in: #{package.project}"
+          break
+        end
+        logger.debug "No package info in: #{package.project}"
       end
-      logger.debug "No package description in: #{package.project}"
+      @description_package
     end
 
     #TODO: get distro spezific screenshot, cache from debshots etc.
