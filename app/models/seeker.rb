@@ -175,6 +175,10 @@ class Seeker < ActiveXML::Base
       def description
         # implement in derived classes
       end
+
+      def logger
+        RAILS_DEFAULT_LOGGER
+      end
       
       private
 
@@ -239,8 +243,12 @@ class Seeker < ActiveXML::Base
         unless @description
           @description = ""
           bin = self[0]
-          info = ::Published.find_cached bin.filename, :view => :fileinfo, :project => @project,
-            :repository => @repository, :arch => bin.arch.to_s, :expires_in => 6.hour
+          begin
+            info = ::Published.find_cached bin.filename, :view => :fileinfo, :project => @project,
+              :repository => @repository, :arch => bin.arch.to_s, :expires_in => 6.hour
+          rescue => e
+            logger.error "Error fetching info for binary: #{e.message}"
+          end
           if info
             @description = info.description.to_s if info.has_element? :description
             @summary = info.summary.to_s if info.has_element? :summary
