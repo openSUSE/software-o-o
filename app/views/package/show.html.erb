@@ -1,9 +1,3 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
-
-
 <% @hide_side_box = true -%>
 <% @hide_search_box = true -%>
 
@@ -16,111 +10,139 @@
       <p>Package <%= @pkgname %> not found...</p>
     <% else %>
 
-      <div style="float: right; margin: 15px;">
-        <%= image_tag @screenshot_thumb %>
-      </div>
+      <!-- Main Content -->
 
-      <h2><%= @name || @pkgname %></h2>
-
-      <% if @description_package.blank? %>
-        No description found...
-      <% else %>
-        <h3><%=  @description_package.summary %></h3>
-        <p style="white-space: pre-line; ">
-          <%= @description_package.description.strip -%>
-          <i>(from <%= @description_package.project %>)</i>
-        </p>
-      <% end %>
-
-      <div style="clear: both"/>
-
-      <% if @default_package %>
-        <p>
-        <h3>Version <b><%= @default_package.version %></b> for <%= @distributions.select{|d| d[:project] == @default_package.project}.first[:name] %></h3>
-        <div class="install_pkg_btn">
-          <%= link_to _("1-Click Install"), :controller => 'main', :action => 'ymp_without_arch_and_version',
-            :project => @default_package.project, :repository => @default_package.repository, :package => @pkgname, :base => @default_package.baseproject %>
-        </div>
-        (<a href="#" onclick="$('#pkg_versions').toggle();">show all available versions</a>)
-        </p>
-
-      <% end %>
-
-      <% official_projects = @distributions.map{|d| d[:project]} %>
-
-      <div id="pkg_versions">
-        <h3>Available versions</h3>
-
-        <% @distributions.each do |distro| -%>
-
-          <% if @packages.select{|s| s.baseproject == distro[:project]}.size > 0 %>
-
-            <h3><%= distro[:name] %></h3>
-            <p>
-
-              official packages: <br/>
-              <% official = @packages.select{|s| s.project == distro[:project]} %>
-              <% official.flatten.group_by(&:version).each do |version| -%>
-                <% version.last.group_by(&:project).each do |result| %>
-                  <i><%= link_to result.first, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>: </i>
-                  <%= version.first %>
-                  <% result.last.each do |bin| %>
-                    <i><%= link_to bin.arch, "http://download.opensuse.org/repositories/" + bin.filepath  %> </i>
-                  <% end %>
-                  <br/>
-                <% end -%>
-              <% end -%>
-
-
-              update packages: <br/>
-              <% update = @packages.select{|s| s.project == "#{distro[:project]}:Update"} %>
-              <% update.flatten.group_by(&:version).each do |version| -%>
-                <% version.last.group_by(&:project).each do |result| %>
-                  <i><%= link_to result.first, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>: </i>
-                  <%= version.first %>
-                  <% result.last.each do |bin| %>
-                    <i><%= link_to bin.arch, "http://download.opensuse.org/repositories/" + bin.filepath  %> </i>
-                  <% end %>
-                  <br/>
-                <% end -%>
-              <% end -%>
-
-
-              devel packages: <br/>
-              <% devel = @packages.reject{|s| official_projects.include?( s.project ) || s.project.match( /^home\:/ ) } %>
-              <% devel.flatten.group_by(&:version).each do |version| -%>
-                <% version.last.group_by(&:project).each do |result| %>
-                  <i><%= link_to result.first, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>: </i>
-                  <%= version.first %>
-                  <% result.last.each do |bin| %>
-                    <i><%= link_to bin.arch, "http://download.opensuse.org/repositories/" + bin.filepath  %> </i>
-                  <% end %>
-                  <br/>
-                <% end -%>
-              <% end -%>
-
-
-              home packages: <br/>
-              <% home = @packages.select{|s| s.project.match( /^home\:/ )} %>
-              <% home.flatten.group_by(&:version).each do |version| -%>
-                <% version.last.group_by(&:project).each do |result| %>
-                  <i><%= link_to result.first, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>: </i>
-                  <%= version.first %>
-                  <% result.last.each do |bin| %>
-                    <i><%= link_to bin.arch, "http://download.opensuse.org/repositories/" + bin.filepath  %> </i>
-                  <% end %>
-                  <br/>
-                <% end -%>
-              <% end -%>
-
-            </p>
-
+      <!-- Sidebar -->
+      <div id="pkg-aside" class="pkg-aside grid_3 alpha">
+        <ul>
+          <li><%= image_tag @screenshot_thumb %></li>
+          <% unless @appcategories.blank? %>
+            <li>
+              <strong>Category</strong>
+            </li>
+            <% @appcategories.each do |cat| -%>
+              <li><%= cat %></li>
+            <% end -%>
           <% end -%>
-
-        <% end -%>
+        </ul>
       </div>
+      <!-- End Sidebar -->
 
-    <% end %>
+      <!-- Main Column -->
+      <div id="pkg-content" class="grid_9 alpha omega">
 
-  </div>
+        <div id="pkg-description">
+          <h1><%= @name || @pkgname %></h1>
+          <div class="app-screenshot">
+            <%= image_tag @screenshot_thumb %>
+          </div>
+          <% if @description_package.blank? %>
+            <p>No description found...</p>
+          <% else %>
+            <h3><%=  @description_package.summary %></h3>
+            <p style="white-space: pre-line; ">
+              <%= @description_package.description.strip -%>
+              <i>(from <%= @description_package.project %>)</i>
+            </p>
+          <% end %>
+
+          <% unless @default_package.blank? %>
+          <% url = url_for :controller => 'main', :action => 'ymp_without_arch_and_version',
+            :project => @default_package.project, :repository => @default_package.repository, :package => @pkgname, :base => @default_package.baseproject %>
+          <a id="one-click-button" href="<%= url %>">
+            <%= image_tag "download-arrow.png", :width => "36", :height => "36", :alt => "Download Arrow" %>
+            <strong>Direct Install</strong><br/>
+            <em><%= @distributions.select{|d| d[:project] == @default_package.project}.first[:name] %>,
+              Version <%= @default_package.version %>, <%= number_to_human_size @description_package.size %></em>
+          </a>
+            <% end -%>
+        </div>
+
+        <div id="pkg-options">
+          <ul>
+
+            <% @distributions.each do |distro| -%>
+              <% if @packages.select{|s| s.baseproject == distro[:project]}.size > 0 %>
+
+                <li>
+                  <a href="#"><%= distro[:name] %></a>
+
+                  <ul>
+
+
+                    <% official = @packages.select{|s| s.project == distro[:project]} %>
+                    <% official.flatten.group_by(&:version).each do |version| -%>
+                      <% version.last.group_by(&:project).each do |result| %>
+                        <li>release: <i><%= link_to result.first, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>: </i>
+                          <%= version.first %>
+                          <% result.last.each do |bin| %>
+                            <i><%= link_to human_arch( bin.arch ), "http://download.opensuse.org/repositories/" + bin.filepath  %> </i>
+                          <% end %>
+                        </li>
+                      <% end -%>
+                    <% end -%>
+
+
+                    <% update = @packages.select{|s| s.project == "#{distro[:project]}:Update"} %>
+                    <% update.flatten.group_by(&:version).each do |version| -%>
+                      <% version.last.group_by(&:project).each do |result| %>
+                        <li>update: <i><%= link_to result.first, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>: </i>
+                          <%= version.first %>
+                          <% result.last.each do |bin| %>
+                            <i><%= link_to human_arch( bin.arch ), "http://download.opensuse.org/repositories/" + bin.filepath  %> </i>
+                          <% end %>
+                        </li>
+                      <% end -%>
+                    <% end -%>
+
+
+                    <% official_projects = @distributions.map{|d| d[:project]} %>
+                    <% devel = @packages.select{|s| s.baseproject == distro[:project] } %>
+                    <% devel = devel.reject{|s| official_projects.include?( s.project ) || s.project.match( /^home\:/ ) } %>
+                    <% devel.flatten.group_by(&:project).each do |result| %>
+                      <li><i><%= link_to result.first, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>: </i>
+        <%# only use the latest version, obs bug: outdated version still listed. %>
+                        <% version = result.last.map{|r| r.version }.max %>
+                        <%= version %>
+                        <% result.last.select{|r| r.version == version}.each do |bin| %>
+                          <i><%= link_to human_arch( bin.arch ), "http://download.opensuse.org/repositories/" + bin.filepath  %> </i>
+                        <% end %>
+                      </li>
+                    <% end -%>
+
+
+                    <% home = @packages.select{|s| s.baseproject == distro[:project] } %>
+                    <% home = home.select{|s| s.project.match( /^home\:/ )} %>
+                    <% home.flatten.group_by(&:project).each do |result| %>
+                        <li><i><%= link_to result.first, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>: </i>
+        <%# only use the latest version, obs bug: outdated version still listed. %>
+                        <% version = result.last.map{|r| r.version }.max %>
+                        <%= version %>
+                        <% result.last.select{|r| r.version == version}.each do |bin| %>
+                          <i><%= link_to human_arch( bin.arch ), "http://download.opensuse.org/repositories/" + bin.filepath  %> </i>
+                        <% end %>
+                        </li>
+                      <% end -%>
+
+
+                  </ul>
+
+
+                </li>
+
+              <% end -%>
+            <% end -%>
+
+          </ul>
+        </div>
+
+      </div>
+      <!-- End of Main Column -->
+
+      <div class="clearfix"></div>
+
+    </div>
+    <!-- End of Main Content -->
+
+  <% end -%>
 </div>
