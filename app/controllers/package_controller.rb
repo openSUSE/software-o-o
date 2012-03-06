@@ -42,6 +42,7 @@ class PackageController < ApplicationController
 
     #TODO: get distro spezific screenshot, cache from debshots etc.
     @screenshot_thumb = "http://screenshots.debian.net/thumbnail/" + @pkgname
+    @screenshot = "http://screenshots.debian.net/screenshot/" + @pkgname
 
   end
 

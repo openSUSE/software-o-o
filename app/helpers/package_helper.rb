@@ -19,5 +19,8 @@ module PackageHelper
     end
   end
 
- 
+   def shorten_project(text, chars)
+     text.length > chars ? text[0,chars] + "..." : text
+  end
+
 end

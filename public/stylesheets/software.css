@@ -136,50 +136,50 @@ body {
 /* Appstream Styles
   ========================================================================= */
 
-  .app-screenshot {
+.app-screenshot {
     float: left;
     margin-right: 25px;
     border: 1px solid white;
     box-shadow: 0 1px 2px #999;
     -moz-box-shadow: 0 1px 2px #999;
     -webkit-box-shadow: 0 1px 2px #999;
-  }
+}
 
-    .app-screenshot ~ p, .app-screenshot ~ a#one-click-button { /* If screenshot is available sibling <p> get left margin.*/
-      margin-left: 200px;
-    }
+.app-screenshot ~ p, .app-screenshot ~ a#one-click-button { /* If screenshot is available sibling <p> get left margin.*/
+                                                            margin-left: 200px;
+}
 
-  #pkg-aside {}
-  #pkg-aside ul, #pkg-options ul {
+#pkg-aside {}
+#pkg-aside ul, #pkg-options ul {
     list-style: none outside;
     margin: 0;
-  }
+}
 
-  .pkg-aside {}
+#pkg-info {
 
-  #pkg-info {
-
-  }
-  #pkg-info li {
+}
+#pkg-info li {
     margin-bottom: 1.5em;
     margin-left: 1em;
-  }
-  #pkg-info strong {
+}
+#pkg-info strong {
     color: #999;
     display: block;
     font-size: 0.9em;
     font-weight: normal;
     letter-spacing: 0.1em;
     line-height: 2em;
-  }
-  #pkg-info span {
+}
+#pkg-info span {
 
-  }
+}
 
-  .pkg-content {}
-  #pkg-description {}
+.pkg-content {}
+#pkg-description h1, #pkg-description h3{
+    margin-left: 0px;
+}
 
-  #one-click-button {
+#one-click-button {
     color: white;
     display: block;
 
@@ -204,111 +204,111 @@ body {
     -webkit-box-shadow: 0 1px 2px #999;
 
     padding: 10px;
+    width: 280px;
 
-    width: 250px;
-
-  }
-  #one-click-button strong,
-  #one-click-button em {
+}
+#one-click-button strong,
+#one-click-button em {
     margin-left: 10px;
-  }
-  #one-click-button:hover,
-  #one-click-button:focus {
+    white-space: nowrap;
+}
+#one-click-button:hover,
+#one-click-button:focus {
     text-decoration: none;
     border-color: #069;
-  }
-    #one-click-button strong {
-      font-size: 1.5em;
-      letter-spacing: 0.1em;
-      text-shadow: #999 0px 1px 2px;
-    }
-    #one-click-button em {
-      font-size: 0.8em;
-      font-style: normal;
-    }
-    #one-click-button img {
-      float: left;
-    }
-  #pkg-options {
+}
+#one-click-button strong {
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-shadow: #999 0px 1px 2px;
+}
+#one-click-button em {
+    font-size: 0.8em;
+    font-style: normal;
+}
+#one-click-button img {
+    float: left;
+}
+#pkg-options {
     margin-top: 3em;
-  }
-    #pkg-options > ul {
-      width: 95%;
-    }
-    #pkg-options > ul > li {
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
-    }
-    #pkg-options a:hover {
-      text-decoration: none;
-    }
-    #pkg-options > ul > li > a {
-      display: block;
-      width: 100%;
-      background: transparent url('images/toggle-arrow.png') no-repeat scroll 99% -14px;
-    }
-        #pkg-options > ul > li > a:hover,
-        #pkg-options > ul > li > a:focus,
-        #pkg-options > ul > li > a.active {
-          background-position: 99% 0;
-        }
-        #pkg-options > ul > li > a.active {
-          border-bottom: 1px solid #eee;
-        }
-    #pkg-options .pkg-options-details {
-      overflow: hidden;
-      padding: 0;
-    }
-    #pkg-options .pkg-options-details ul * {
-      margin: 0;
-    }
-    #pkg-options .pkg-options-details > li {
-      overflow: hidden;
-      clear: both;
-      border-top: 1px solid #eee;
-      padding: 5px 0 0px;
-    }
-    #pkg-options .pkg-options-details > li:first-child {
-      border-top: 0;
-    }
+}
+#pkg-options > ul {
+    width: 95%;
+}
+#pkg-options > ul > li {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+#pkg-options a:hover {
+    text-decoration: none;
+}
+#pkg-options > ul > li > a {
+    display: block;
+    width: 100%;
+    background: transparent url('images/toggle-arrow.png') no-repeat scroll 99% -14px;
+}
+#pkg-options > ul > li > a:hover,
+#pkg-options > ul > li > a:focus,
+#pkg-options > ul > li > a.active {
+    background-position: 99% 0;
+}
+#pkg-options > ul > li > a.active {
+    border-bottom: 1px solid #eee;
+}
+#pkg-options .pkg-options-details {
+    overflow: hidden;
+    padding: 0;
+}
+#pkg-options .pkg-options-details ul * {
+    margin: 0;
+}
+#pkg-options .pkg-options-details > li {
+    overflow: hidden;
+    clear: both;
+    border-top: 1px solid #eee;
+    padding: 5px 0 0px;
+}
+#pkg-options .pkg-options-details > li:first-child {
+    border-top: 0;
+}
 
-    #pkg-options .pkg-options-details li * {
-      float: left;
-    }
-    #pkg-options .pkg-options-details a {
-      color: #666;
-      padding: 1px 0;
-    }
-    #pkg-options .pkg-options-details a:hover,
-    #pkg-options .pkg-options-details a:focus {
-      color: #690;
-    }
-    .hidden {
-      display: hidden;
-    }
-    #pkg-options  li a.pkg-options-one-click {
-      float: right;
-      font-weight: bold;
-      color: #690;
-    }
-    #pkg-options  li a.pkg-options-one-click:hover,
-    #pkg-options  li a.pkg-options-one-click:focus {
-      color: #069;
-    }
-    #pkg-options .pkg-options-details > li > a:first-child {
-      display: block;
-      width: 15em;
-    }
-  #pkg-options .pkg-typ-options li {
+#pkg-options .pkg-options-details li * {
+    float: left;
+}
+#pkg-options .pkg-options-details a {
+    color: #666;
+    padding: 1px 0;
+}
+#pkg-options .pkg-options-details a:hover,
+#pkg-options .pkg-options-details a:focus {
+    color: #690;
+}
+.hidden {
+    display: hidden;
+}
+#pkg-options  li a.pkg-options-one-click {
+    float: right;
+    font-weight: bold;
+    color: #690;
+}
+#pkg-options  li a.pkg-options-one-click:hover,
+#pkg-options  li a.pkg-options-one-click:focus {
+    color: #069;
+}
+#pkg-options .pkg-options-details > li > a:first-child {
+    display: block;
+    width: 15em;
+}
+#pkg-options .pkg-typ-options li {
     margin-right: 1em;
-  }
-  #pkg-options .pkg-typ-options a {
+}
+#pkg-options .pkg-typ-options a {
     padding: 1px 6px 1px 5px;
-  }
-  #pkg-options .pkg-typ-options a.selected {
+}
+#pkg-options .pkg-typ-options a.selected, #pkg-options .pkg-typ-options a:hover
+, #pkg-options .pkg-typ-options a:focus{
     background-color: #ddd;
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-
-  }
+}

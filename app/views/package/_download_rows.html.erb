@@ -4,14 +4,13 @@
     <% if  result.first == distro[:project] %>
     <% name = "release" %>
     <% elsif result.first == "#{distro[:project]}:Update" %>
-    <% name = "update" %>
+    <% name = "<b>update</b>" %>
     <% else %>
-    <% name = result.first %>
+    <% name = shorten_project result.first, 25 %>
     <% end -%>
     
-    <i><%= link_to name, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>: </i>
-  <%# only use the latest version, obs bug: outdated version still listed. %>
-    <% version_release = result.last.map{|r| "#{r.version}.#{r.release}" }.max %>
+    <%= link_to name, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>
+  <%# only use the latest version, obs bug: some outdated versions still listed. %>
     <% version = result.last.map{|r| r.version }.max %>
     <% release = result.last.select{|r| r.version == version }.map{|v| v.release.sub(".", "").to_i}.max %>
     <ul class="pkg-typ-options">

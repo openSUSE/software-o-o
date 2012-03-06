@@ -1,6 +1,11 @@
 <% @hide_side_box = true -%>
 <% @hide_search_box = true -%>
 
+  <% content_for :content_for_head do %>
+    <%= javascript_include_tag "slimbox2" %>
+    <%= stylesheet_link_tag "slimbox2/slimbox2.css" %>
+  <% end %>
+
 <div class="box box-shadow">
   <h2 class="box-header">
     <span class="alignleft"><%= @page_title -%></span></h2>
@@ -13,15 +18,15 @@
       <!-- Main Content -->
 
       <!-- Sidebar -->
-      <div id="pkg-aside" class="pkg-aside grid_3 alpha">
+      <div id="pkg-aside" class="pkg-aside grid_3 omega">
         <ul>
-          <li><%= image_tag @screenshot_thumb %></li>
+          <li><%# = image_tag @screenshot_thumb %></li>
           <% unless @appcategories.blank? %>
             <li>
-              <strong>Category</strong>
+              <strong><%=  @appcategories.size > 1 ? _("Categories") : _("Category") %></strong>
             </li>
             <% @appcategories.each do |cat| -%>
-              <li><%= cat %></li>
+              <li><%= link_to cat, "#" %></li>
             <% end -%>
           <% end -%>
         </ul>
@@ -33,18 +38,20 @@
 
         <div id="pkg-description">
           <h1><%= @name || @pkgname %></h1>
+          <% unless @description_package.blank? %>
+          <h3><%=  @description_package.summary %></h3>
+           <% end -%>
           <div class="app-screenshot">
-            <%= image_tag @screenshot_thumb %>
+            <%= link_to( image_tag( @screenshot_thumb, :width => 160 ), @screenshot, { :rel => "lightbox", :title => "Screenshot" } ) %>
           </div>
           <% if @description_package.blank? %>
             <p>No description found...</p>
           <% else %>
-            <h3><%=  @description_package.summary %></h3>
             <p style="white-space: pre-line; ">
               <%= @description_package.description.strip -%>
-              <i>(from <%= @description_package.project %>)</i>
+             <!-- <i>(from <%= @description_package.project %>)</i> -->
             </p>
-          <% end %>
+          <% end -%>
 
           <% unless @default_package.blank? %>
             <% url = url_for :controller => 'main', :action => 'ymp_without_arch_and_version',
@@ -58,15 +65,15 @@
           <% end -%>
         </div>
 
+
         <div id="pkg-options">
           <ul>
-
             <% @distributions.each do |distro| -%>
               <% if @packages.select{|s| s.baseproject == distro[:project]}.size > 0 %>
 
                 <li>
-                  <a href="#" onclick="$('#dist_<%= distro[:dist_id] %>').toggle(); return false;" class="<%= distro[:project] == @default_package.project ? "active" : "inactive" %>"><%= distro[:name] %></a>
-                  <ul class="pkg-options-details  <%= "hidden" if distro[:project] != @default_package.project %>" id="dist_<%= distro[:dist_id] %>" >
+                  <a href="#" onclick="$('#dist_<%= distro[:dist_id] %>').toggle(); return false;" ><%= distro[:name] %></a>
+                  <ul class="pkg-options-details  hidden" id="dist_<%= distro[:dist_id] %>" >
 
                     <% official = @packages.select{|s| s.project == distro[:project]} %>
                     <%= render :partial => 'download_rows', :locals => {:packages => official, :distro => distro} %>
@@ -76,7 +83,8 @@
 
                     <% official_projects = @distributions.map{|d| d[:project]} %>
                     <% devel = @packages.select{|s| s.baseproject == distro[:project] } %>
-                    <% devel = devel.reject{|s| official_projects.include?( s.project ) || s.project.match( /^home\:/ ) || s.project.match( /#{distro[:project]}\:Update/ ) } %>
+                    <% devel = devel.reject{|s| official_projects.include?( s.project ) || s.project.match( /^home\:/ ) || s.project.match( /#{distro[:project]}\:Update/ ) ||
+                      s.project.match( /openSUSE\:Maintenance\:/ ) } %>
                     <%= render :partial => 'download_rows', :locals => {:packages => devel, :distro => distro} %>
 
 
