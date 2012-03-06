@@ -156,6 +156,26 @@ body {
   }
 
   .pkg-aside {}
+
+  #pkg-info {
+
+  }
+  #pkg-info li {
+    margin-bottom: 1.5em;
+    margin-left: 1em;
+  }
+  #pkg-info strong {
+    color: #999;
+    display: block;
+    font-size: 0.9em;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    line-height: 2em;
+  }
+  #pkg-info span {
+
+  }
+
   .pkg-content {}
   #pkg-description {}
 
@@ -212,25 +232,83 @@ body {
   #pkg-options {
     margin-top: 3em;
   }
-  #pkg-options ul {
-    width: 95%;
+    #pkg-options > ul {
+      width: 95%;
+    }
+    #pkg-options > ul > li {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    #pkg-options a:hover {
+      text-decoration: none;
+    }
+    #pkg-options > ul > li > a {
+      display: block;
+      width: 100%;
+      background: transparent url('images/toggle-arrow.png') no-repeat scroll 99% -14px;
+    }
+        #pkg-options > ul > li > a:hover,
+        #pkg-options > ul > li > a:focus,
+        #pkg-options > ul > li > a.active {
+          background-position: 99% 0;
+        }
+        #pkg-options > ul > li > a.active {
+          border-bottom: 1px solid #eee;
+        }
+    #pkg-options .pkg-options-details {
+      overflow: hidden;
+      padding: 0;
+    }
+    #pkg-options .pkg-options-details ul * {
+      margin: 0;
+    }
+    #pkg-options .pkg-options-details > li {
+      overflow: hidden;
+      clear: both;
+      border-top: 1px solid #eee;
+      padding: 5px 0 0px;
+    }
+    #pkg-options .pkg-options-details > li:first-child {
+      border-top: 0;
+    }
+
+    #pkg-options .pkg-options-details li * {
+      float: left;
+    }
+    #pkg-options .pkg-options-details a {
+      color: #666;
+      padding: 1px 0;
+    }
+    #pkg-options .pkg-options-details a:hover,
+    #pkg-options .pkg-options-details a:focus {
+      color: #690;
+    }
+    .hidden {
+      display: hidden;
+    }
+    #pkg-options  li a.pkg-options-one-click {
+      float: right;
+      font-weight: bold;
+      color: #690;
+    }
+    #pkg-options  li a.pkg-options-one-click:hover,
+    #pkg-options  li a.pkg-options-one-click:focus {
+      color: #069;
+    }
+    #pkg-options .pkg-options-details > li > a:first-child {
+      display: block;
+      width: 15em;
+    }
+  #pkg-options .pkg-typ-options li {
+    margin-right: 1em;
   }
-  #pkg-options > ul > li > a {
-    display: block;
-    width: 100%;
-    background: transparent url('toggle-arrow.png') no-repeat scroll 90% -14px;
+  #pkg-options .pkg-typ-options a {
+    padding: 1px 6px 1px 5px;
   }
-      #pkg-options > ul > li > a:hover,
-      #pkg-options > ul > li > a:focus,
-      #pkg-options > ul > li > a.active {
-        background-position: 90% 0;
-      }
-      #pkg-options > ul > li > a.active {
-        border-bottom: 1px solid #eee;
-        padding-bottom: 2px;
-      }
-  #pkg-options > ul > li {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
+  #pkg-options .pkg-typ-options a.selected {
+    background-color: #ddd;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+
   }
-  

@@ -1,0 +1,29 @@
+
+<% packages.flatten.group_by(&:project).each do |result| %>
+  <li>
+    <% if  result.first == distro[:project] %>
+    <% name = "release" %>
+    <% elsif result.first == "#{distro[:project]}:Update" %>
+    <% name = "update" %>
+    <% else %>
+    <% name = result.first %>
+    <% end -%>
+    
+    <i><%= link_to name, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>: </i>
+  <%# only use the latest version, obs bug: outdated version still listed. %>
+    <% version_release = result.last.map{|r| "#{r.version}.#{r.release}" }.max %>
+    <% version = result.last.map{|r| r.version }.max %>
+    <% release = result.last.select{|r| r.version == version }.map{|v| v.release.sub(".", "").to_i}.max %>
+    <ul class="pkg-typ-options">
+      <li><%= version %></li>
+      <% result.last.select{|r| r.version == version && r.release.sub(".", "").to_i == release }.each do |bin| %>
+        <li><%= link_to human_arch( bin.arch ), "http://download.opensuse.org/repositories/" + bin.filepath  %> </li>
+      <% end %>
+    </ul>
+    <% if distro[:project].match(/SUSE/) %>
+    <% url = url_for :controller => 'main', :action => 'ymp_without_arch_and_version',
+              :project => result.first, :repository => result.last.first.repository, :package => @pkgname, :base => result.last.first.baseproject %>
+    <a class="pkg-options-one-click" href="<%= url %>">1 Click Install</a>
+    <% end %>
+  </li>
+<% end -%>

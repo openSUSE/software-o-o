@@ -4,7 +4,11 @@ module PackageHelper
     case arch
     when "i586"
       "32 Bit"
+    when "i386"
+      "32 Bit"
     when "x86_64"
+      "64 Bit"
+    when  "amd64"
       "64 Bit"
     when "src"
       "Source"
