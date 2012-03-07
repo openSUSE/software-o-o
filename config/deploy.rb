@@ -38,7 +38,7 @@ set :runner, "root"
 
 after "deploy:update_code", "config:symlink_shared_config"
 after "deploy:update_code", "config:sync_static"
-after "deploy:symlink", "config:permissions"
+after "deploy:create_symlink", "config:permissions"
 after "deploy:finalize_update", "deploy:notify"
 
 after :deploy, 'deploy:cleanup' # only keep 5 releases
