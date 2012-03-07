@@ -17,22 +17,6 @@
 
       <!-- Main Content -->
 
-      <!-- Sidebar -->
-      <div id="pkg-aside" class="pkg-aside grid_3 omega" style="display: none;">
-        <ul>
-          <li><%# = image_tag @screenshot_thumb %></li>
-          <% unless @appcategories.blank? %>
-            <li>
-              <strong><%=  @appcategories.size > 1 ? _("Categories") : _("Category") %></strong>
-            </li>
-            <% @appcategories.each do |cat| -%>
-              <li><%= link_to cat, "#" %></li>
-            <% end -%>
-          <% end -%>
-        </ul>
-      </div>
-      <!-- End Sidebar -->
-
       <!-- Main Column -->
       <div id="pkg-content" class="grid_10 prefix_1 suffix_1">
 
