@@ -312,3 +312,27 @@ body {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
 }
+
+
+#pkg-categorie-note { /* Categorie under first H1 */
+  color: #999;
+  margin: -2em 0 2em;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+}
+#pkg-categorie-note strong {
+  font-weight: normal;
+}
+#pkg-categorie-note a {
+  font-weight: bold;
+  color: #999;
+}
+#pkg-categorie-note a:hover {
+  color: #690;
+}
+#pkg-categorie-note a:after { /* place ", " after each <a> */
+  content: ", ";
+}
+#pkg-categorie-note a:last-child:after { /* Don't place it after the last <a>*/
+  content: none;
+}

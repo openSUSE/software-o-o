@@ -39,6 +39,17 @@
         <div id="pkg-description">
           <h1><%= @name || @pkgname %></h1>
           <% unless @description_package.blank? %>
+          
+          <% unless @appcategories.blank? %>
+              <p id="pkg-categorie-note">
+                <strong><%=  @appcategories.size > 1 ? _("Categories") : _("Category") %>:</strong>
+
+            <% @appcategories.each do |cat| -%>
+              <%= link_to cat, "#" %>
+            <% end -%>
+            </p>
+          <% end -%>
+          
           <h3><%=  @description_package.summary %></h3>
            <% end -%>
           <div class="app-screenshot">
