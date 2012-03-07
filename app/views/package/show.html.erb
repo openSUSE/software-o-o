@@ -18,7 +18,7 @@
       <!-- Main Content -->
 
       <!-- Sidebar -->
-      <div id="pkg-aside" class="pkg-aside grid_3 omega">
+      <div id="pkg-aside" class="pkg-aside grid_3 omega" style="display: none;">
         <ul>
           <li><%# = image_tag @screenshot_thumb %></li>
           <% unless @appcategories.blank? %>
@@ -34,7 +34,7 @@
       <!-- End Sidebar -->
 
       <!-- Main Column -->
-      <div id="pkg-content" class="grid_9 alpha omega">
+      <div id="pkg-content" class="grid_10 prefix_1 suffix_1">
 
         <div id="pkg-description">
           <h1><%= @name || @pkgname %></h1>
