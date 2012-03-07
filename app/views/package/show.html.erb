@@ -17,28 +17,23 @@
 
       <!-- Main Content -->
 
-      <!-- Sidebar -->
-      <div id="pkg-aside" class="pkg-aside grid_3 omega">
-        <ul>
-          <li><%# = image_tag @screenshot_thumb %></li>
-          <% unless @appcategories.blank? %>
-            <li>
-              <strong><%=  @appcategories.size > 1 ? _("Categories") : _("Category") %></strong>
-            </li>
-            <% @appcategories.each do |cat| -%>
-              <li><%= link_to cat, "#" %></li>
-            <% end -%>
-          <% end -%>
-        </ul>
-      </div>
-      <!-- End Sidebar -->
-
       <!-- Main Column -->
-      <div id="pkg-content" class="grid_9 alpha omega">
+      <div id="pkg-content" class="grid_10 prefix_1 suffix_1">
 
         <div id="pkg-description">
           <h1><%= @name || @pkgname %></h1>
           <% unless @description_package.blank? %>
+          
+          <% unless @appcategories.blank? %>
+              <p id="pkg-categorie-note">
+                <strong><%=  @appcategories.size > 1 ? _("Categories") : _("Category") %>:</strong>
+
+            <% @appcategories.each do |cat| -%>
+              <%= link_to cat, "#" %>
+            <% end -%>
+            </p>
+          <% end -%>
+          
           <h3><%=  @description_package.summary %></h3>
            <% end -%>
           <div class="app-screenshot">
@@ -47,7 +42,8 @@
           <% if @description_package.blank? %>
             <p>No description found...</p>
           <% else %>
-            <p style="white-space: pre-line; ">
+            <!-- <p style="white-space: pre-line; "> -->
+            <p>
               <%= @description_package.description.strip -%>
              <!-- <i>(from <%= @description_package.project %>)</i> -->
             </p>
