@@ -42,7 +42,8 @@
           <% if @description_package.blank? %>
             <p>No description found...</p>
           <% else %>
-            <p style="white-space: pre-line; ">
+            <!-- <p style="white-space: pre-line; "> -->
+            <p>
               <%= @description_package.description.strip -%>
              <!-- <i>(from <%= @description_package.project %>)</i> -->
             </p>
