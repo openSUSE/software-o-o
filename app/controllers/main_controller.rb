@@ -135,6 +135,7 @@ class MainController < ApplicationController
   def release
     @exclude_debug = true
     @include_home = 'false'
+    flash.now[:info] = _("Please note that this is not the latest openSUSE release. You can get the latest version <a href='/'>here</a>. ") if params[:outdated]
     set_release(params[:release])
     render :template => "main/release"
   end

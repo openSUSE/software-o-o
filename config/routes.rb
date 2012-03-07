@@ -22,8 +22,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':release/download.js', :controller => 'main', :action => 'download_js'
   map.connect '121', :controller => 'main', :action => :index
   map.connect '121/:lang', :controller => 'main', :action => 'release', :release => "121"
-  map.connect '114/:lang', :controller => 'main', :action => 'release', :release => "114"
-  map.connect '113/:lang', :controller => 'main', :action => 'release', :release => "113"
+  map.connect '114/:lang', :controller => 'main', :action => 'release', :release => "114", :outdated => true
+  map.connect '113/:lang', :controller => 'main', :action => 'release', :release => "113", :outdated => true
   map.connect 'developer/:lang', :controller => 'main', :action => 'release', :release => "developer"
 
   map.connect 'package/:package', :controller => 'package', :action => 'show'
