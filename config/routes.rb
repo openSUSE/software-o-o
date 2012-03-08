@@ -26,7 +26,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '113/:lang', :controller => 'main', :action => 'release', :release => "113", :outdated => true
   map.connect 'developer/:lang', :controller => 'main', :action => 'release', :release => "developer"
 
-  map.connect 'package/:package', :controller => 'package', :action => 'show'
+  map.connect 'package/:package', :controller => 'package', :action => 'show', :requirements => { :package => /[\w\-\.:]+/ }
   map.connect 'packages', :controller => 'package', :action => 'list'
 
   map.connect 'promodvd', :controller => 'order', :action => 'new'
