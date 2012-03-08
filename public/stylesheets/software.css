@@ -149,8 +149,15 @@ body {
                                                             margin-left: 200px;
 }
 
-#pkg-aside {}
-#pkg-aside ul, #pkg-options ul {
+.box-header a.pkg-backlink {
+  font-weight: normal;
+  text-shadow: none;
+  color: #666;
+}
+
+/*#pkg-aside {}*/
+/*#pkg-aside ul,*/
+#pkg-options ul {
     list-style: none outside;
     margin: 0;
 }
@@ -204,7 +211,6 @@ body {
     -webkit-box-shadow: 0 1px 2px #999;
 
     padding: 10px;
-/*    width: 280px;*/
     width: 300px;
 
 }
@@ -237,7 +243,6 @@ body {
     width: 95%;
 }
 #pkg-options > ul > li {
-    border-bottom: 1px solid #ccc;
     padding-bottom: 5px;
 }
 #pkg-options a:hover {
@@ -247,6 +252,8 @@ body {
     display: block;
     width: 100%;
     background: transparent url('images/toggle-arrow.png') no-repeat scroll 99% -14px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
 }
 #pkg-options > ul > li > a:hover,
 #pkg-options > ul > li > a:focus,
@@ -272,7 +279,6 @@ body {
 #pkg-options .pkg-options-details > li:first-child {
     border-top: 0;
 }
-
 #pkg-options .pkg-options-details li * {
     float: left;
 }
@@ -283,6 +289,15 @@ body {
 #pkg-options .pkg-options-details a:hover,
 #pkg-options .pkg-options-details a:focus {
     color: #690;
+}
+#pkg-options .pkg-options-details > li > a:first-child {
+    display: block;
+    width: 15em;
+}
+#pkg-options .pkg-options-details li a.trigger-show-more {
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 .hidden {
     display: hidden;
@@ -296,13 +311,14 @@ body {
 #pkg-options  li a.pkg-options-one-click:focus {
     color: #069;
 }
-#pkg-options .pkg-options-details > li > a:first-child {
-    display: block;
-    width: 15em;
-}
+
 #pkg-options .pkg-typ-options li {
     margin-right: 1em;
 }
+  #pkg-options .pkg-typ-options li:first-child {
+    width: 5em;
+  }
+
 #pkg-options .pkg-typ-options a {
     padding: 1px 6px 1px 5px;
 }
