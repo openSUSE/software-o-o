@@ -1,0 +1,45 @@
+<% content_for :ready_function do %>
+
+$("#search_form").keyup(function() {
+
+if ($("#search_form").val().length > 2) {
+    $.ajax({ url: "<%= url_for :controller => :search, :action => :searchresult %>",
+  cache: true,
+  data: {q: $("#search_form").val() },
+  beforeSend: function() {
+     $('#search-loader').show();
+  },
+  complete: function(){
+     $('#search-loader').hide();
+  },
+  success: function(html){
+    $("#search_result_container").html(html);
+    $('#msg').html("");
+  },
+  error: function(jqXHR, textStatus, errorThrown) {
+ $('#msg').html(textStatus + errorThrown);
+  },
+
+
+});
+
+ } else {
+ $('#msg').html("Please enter more than 2 characters");
+ }
+
+})
+
+<% end -%>
+
+
+<div class="box box-shadow grid_12 pkg-search-box">
+
+<% form_tag( {:controller => 'search', :action => :searchresult}, :method => :get ) do %>
+  <%= text_field_tag 'q', @search_term, :size => 40, :id => "search_form" %>
+  <%= submit_tag _('Search'), :name => nil, :class => "search-go-button" %>
+<% end -%>
+
+</div>
+
+<div id='search-loader' class="hidden"> updating search results... <%= image_tag "ajax-loader.gif" %></div>
+<div id='msg'></div>

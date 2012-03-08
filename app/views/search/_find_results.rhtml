@@ -1,0 +1,17 @@
+
+
+<div class="box box-shadow grid_12">
+  <div class="box-header"> </div>
+
+  <% @result.each do |package| %>
+
+    <p> <%= image_tag(  "http://screenshots.debian.net/thumbnail/" + package[:name], :height => 50 )  %>
+    <%= link_to highlight(package[:name], @search_term), :controller => :package, :action => :show, :package => package[:name]  %>
+
+     <%  if package[:description_package]  %>
+     <i><%= highlight(package[:description_package].summary, @search_term) %></i>
+     <% end %>
+    </p>
+  <% end %>
+  <div class="box-footer"> </div>
+</div>

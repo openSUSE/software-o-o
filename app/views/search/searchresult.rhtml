@@ -5,19 +5,14 @@
 <% content_for :content_for_head do %>
 <% end %>
 
-  <div class="box box-shadow grid_12 pkg-search-box">
-    <%= render :partial => 'search_form' %>
-  </div>
-  <div class="box box-shadow grid_12">
-    <div class="box-header"> </div>
-    <% @result.each do |package| %>
-    
-    <%= image_tag(  "http://screenshots.debian.net/thumbnail/" + package[:name], :width => 160 )  %>
-    <p><%= link_to highlight(package[:name], @search_term), :controller => :package, :action => :show, :package => package[:name]  %>
-    
-    (<%= highlight(package[:description_package].summary, @search_term) if package[:description_package]  %>)
-    </p>
-    <% end %>
-    <div class="box-footer"> </div>
-  </div>
+
+<%= render :partial => 'find_form' %>
+
+<div id="search_result_container">
+  <%= render :partial => 'find_results' %>
+</div>
+
+
+
+
 

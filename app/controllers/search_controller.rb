@@ -30,7 +30,9 @@ class SearchController < ApplicationController
     @packages = Seeker.prepare_result("#{params[:q]}", nil, nil, nil, nil)
     @packagenames = @packages.map{|p| p.name}.uniq
     @result = @packagenames.map{|p| {:name => p, :description_package => Rails.cache.read( "description_package_#{p}" ) } }
-      
+    if request.xhr?
+      render :partial => 'find_results' and return
+    end
   end
 
 
