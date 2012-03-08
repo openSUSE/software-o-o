@@ -1,0 +1,28 @@
+<% content_for :ready_function do %>
+  $(function() {
+                  var cache = {}, lastXhr;
+                  $( "#search_form" ).autocomplete({
+                          minLength: 2,
+                          source: function( request, response ) {
+                                  var term = request.term;
+                                  if ( term in cache ) {
+                                          response( cache[ term ] );
+                                          return;
+                                  }
+                                  lastXhr = $.getJSON( "<%= url_for :controller => :search, :action => :autocomplete %>", request, function( data, status, xhr ) {
+                                          cache[ term ] = data;
+                                          if ( xhr === lastXhr ) {
+                                                  response( data );
+                                          }
+                                  });
+                          }
+                  });
+          });
+<% end -%>
+
+
+
+<% form_tag( {:controller => 'search', :action => :searchresult}, :method => :get ) do %>
+  <%= text_field_tag 'q', @query, :size => 40, :id => "search_form" %>
+  <%= submit_tag _('Search'), :name => nil %>
+<% end -%>

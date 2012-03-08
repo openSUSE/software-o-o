@@ -18,6 +18,22 @@ class SearchController < ApplicationController
     redirect_to "http://download.opensuse.org/repositories/" + params[:file]
   end
 
+  def autocomplete
+    packages = Seeker.prepare_result("#{params[:term]}", nil, nil, nil, nil)
+    packagenames = packages.map{|p| p.name}.uniq.sort
+    logger.debug "Found #{packagenames.size} package names for autocomplete"
+    render :json => packagenames
+  end
+
+  def searchresult
+    @search_term = params[:q]
+    @packages = Seeker.prepare_result("#{params[:q]}", nil, nil, nil, nil)
+    @packagenames = @packages.map{|p| p.name}.uniq
+    @result = @packagenames.map{|p| {:name => p, :description_package => Rails.cache.read( "description_package_#{p}" ) } }
+      
+  end
+
+
   private
 
   def perform_search

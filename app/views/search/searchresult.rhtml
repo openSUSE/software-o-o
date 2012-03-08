@@ -1,0 +1,19 @@
+<% @page_title = _("Search") -%>
+<% @hide_side_box = true -%>
+<% @hide_search_box = true -%>
+
+<% content_for :content_for_head do %>
+<% end %>
+
+
+<%= render :partial => 'search_form' %>
+
+
+<% @result.each do |package| %>
+
+<%= image_tag(  "http://screenshots.debian.net/thumbnail/" + package[:name], :width => 160 )  %>
+<p><%= link_to highlight(package[:name], @search_term), :controller => :package, :action => :show, :package => package[:name]  %>
+
+(<%= highlight(package[:description_package].summary, @search_term) if package[:description_package]  %>)
+</p>
+<% end %>
