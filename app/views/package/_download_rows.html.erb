@@ -6,7 +6,7 @@
     <% elsif result.first == "#{distro[:project]}:Update" %>
     <% name = "<b>update</b>" %>
     <% else %>
-    <% name = shorten_project result.first, 25 %>
+    <% name = shorten result.first, 25 %>
     <% end -%>
     
     <%= link_to name, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>
@@ -14,7 +14,7 @@
     <% version = result.last.map{|r| r.version }.max %>
     <% release = result.last.select{|r| r.version == version }.map{|v| v.release.sub(".", "").to_i}.max %>
     <ul class="pkg-typ-options">
-      <li><%= version %></li>
+      <li><%= shorten version, 12 %></li>
       <% result.last.select{|r| r.version == version && r.release.sub(".", "").to_i == release }.each do |bin| %>
         <li><%= link_to human_arch( bin.arch ), "http://download.opensuse.org/repositories/" + bin.filepath  %> </li>
       <% end %>

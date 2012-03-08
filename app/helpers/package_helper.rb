@@ -19,8 +19,21 @@ module PackageHelper
     end
   end
 
-   def shorten_project(text, chars)
+   def shorten(text, chars)
      text.length > chars ? text[0,chars] + "..." : text
   end
+
+   def prepare_desc txt
+     txt = txt.gsub(/[\n][\n]+/, "\n\n")
+     txt = create_links txt
+     txt
+   end
+
+  def create_links (txt)
+    txt = txt.gsub(/(https?:\/\/[-_A-Za-z0-9\/\(\)\[\]:,.;?&+@#%=~|]+[^),. <"'\n\r])/m, '<a href="\1">\1</a> ')
+    txt
+  end
+
+
 
 end
