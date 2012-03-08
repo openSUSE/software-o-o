@@ -24,5 +24,5 @@
 
 <% form_tag( {:controller => 'search', :action => :searchresult}, :method => :get ) do %>
   <%= text_field_tag 'q', @query, :size => 40, :id => "search_form" %>
-  <%= submit_tag _('Search'), :name => nil %>
+  <%= submit_tag _('Search'), :name => nil, :class => "search-go-button" %>
 <% end -%>
