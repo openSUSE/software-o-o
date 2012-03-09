@@ -163,9 +163,18 @@ body {
   ul#search-result-list {
     list-style: none outside;
   }
+  ul#search-result-list li {
+    padding: 0.5em;
+  }
   ul#search-result-list li:nth-child(even) {
     background-color: #eee;
   }
+  
+    ul#search-result-list li img {
+      box-shadow: 0 1px 2px #999;
+      -moz-box-shadow: 0 1px 2px #999;
+      -webkit-box-shadow: 0 1px 2px #999;
+    }
 
   input[type="submit"].search-go-button {
     background: #9c0; /* Old browsers */
