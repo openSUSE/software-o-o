@@ -7,6 +7,7 @@ class PackageController < ApplicationController
     @pkgname = params[:package]
     raise MissingParameterError, "Invalid parameter package" unless valid_package_name? @pkgname
 
+    @search_term = params[:search_term]
     @base_appdata_project = "openSUSE:Factory"
 
     @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
@@ -41,7 +42,6 @@ class PackageController < ApplicationController
     end
 
     #TODO: get distro spezific screenshot, cache from debshots etc.
-    @screenshot_thumb = "http://screenshots.debian.net/thumbnail/" + @pkgname
     @screenshot = "http://screenshots.debian.net/screenshot/" + @pkgname
 
   end
