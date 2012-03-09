@@ -29,6 +29,8 @@ class SearchController < ApplicationController
     }
     if request.xhr?
       render :partial => 'find_results' and return
+    else
+      render 'find'
     end
   end
 

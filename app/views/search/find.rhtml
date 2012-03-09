@@ -5,4 +5,10 @@
 <% content_for :content_for_head do %>
 <% end %>
 
- <%= render :partial => 'search_form' %>
+<%= render :partial => 'find_form' %>
+
+<div id="search_result_container">
+  <% unless @result.blank? %>
+    <%= render :partial => 'find_results' %>
+  <% end %>
+</div>
