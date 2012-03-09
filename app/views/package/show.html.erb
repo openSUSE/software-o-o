@@ -6,6 +6,20 @@
     <%= stylesheet_link_tag "slimbox2/slimbox2.css" %>
   <% end %>
 
+<script type="text/javascript">
+  function toggle_dist(distname){
+    if( $('#dist_' + distname).is(':visible') ) {
+      $('#dist_' + distname).hide();
+      $('#dist_home_' + distname).hide();
+      $('#distro-toggle-' + distname).removeClass("active");
+    } else {
+      $('#dist_' + distname).show();
+      $('#distro-toggle-' + distname).addClass("active");
+    }
+  }
+</script>
+
+
 <div class="box box-shadow">
   <h2 class="box-header">
     <a class="pkg-backlink" href="#">Back to search</a></h2>
@@ -37,16 +51,13 @@
           <h3><%=  @description_package.summary %></h3>
            <% end -%>
           <div class="app-screenshot">
-            <%= link_to( image_tag( @screenshot_thumb, :width => 160 ), @screenshot, { :rel => "lightbox", :title => "Screenshot" } ) %>
+            <%= link_to( image_tag( screenshot_thumb_url( @pkgname ), :width => 160 ), @screenshot, { :rel => "lightbox", :title => "Screenshot of  #{@pkgname}" } ) %>
           </div>
           <% if @description_package.blank? %>
             <p>No description found...</p>
           <% else %>
-            <!-- <p style="white-space: pre-line; "> -->
-            <p>
-              <%= @description_package.description.strip -%>
-             <!-- <i>(from <%= @description_package.project %>)</i> -->
-            </p>
+            <p id="pkg-desc"><%= prepare_desc @description_package.description -%>
+-             <!-- <i>(from <%= @description_package.project %>)</i> --></p>
           <% end -%>
 
           <% unless @default_package.blank? %>
@@ -68,7 +79,8 @@
               <% if @packages.select{|s| s.baseproject == distro[:project]}.size > 0 %>
 
                 <li>
-                  <a href="#" onclick="$('#dist_<%= distro[:dist_id] %>').toggle(); return false;" ><%= distro[:name] %></a>
+                  <a href="#" onclick=" toggle_dist('<%= distro[:dist_id] %>'); return false;"
+                     class="distro-toggle" id="distro-toggle-<%= distro[:dist_id] %>"><%= distro[:name] %></a>
                   <ul class="pkg-options-details  hidden" id="dist_<%= distro[:dist_id] %>" >
 
                     <% official = @packages.select{|s| s.project == distro[:project]} %>
