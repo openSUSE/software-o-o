@@ -1,29 +1,15 @@
 <% @hide_side_box = true -%>
 <% @hide_search_box = true -%>
 
-<% content_for :content_for_head do %>
-  <%= javascript_include_tag "slimbox2" %>
-  <%= stylesheet_link_tag "slimbox2/slimbox2.css" %>
-<% end %>
-
-
-<script type="text/javascript">
-  function toggle_dist(distname){
-    if( $('#dist_' + distname).is(':visible') ) {
-      $('#dist_' + distname).hide();
-      $('#dist_home_' + distname).hide();
-      $('#distro-toggle-' + distname).removeClass("active");
-    } else {
-      $('#dist_' + distname).show();
-      $('#distro-toggle-' + distname).addClass("active");
-    }
-  }
-</script>
-
+  <% content_for :content_for_head do %>
+    <%= javascript_include_tag "slimbox2" %>
+    <%= stylesheet_link_tag "slimbox2/slimbox2.css" %>
+  <% end %>
 
 <div class="box box-shadow">
   <h2 class="box-header">
-    <span class="alignleft"><%= @page_title -%></span>            <a class="pkg-backlink" href="#">Back to search</a></h2>
+    <a class="pkg-backlink" href="#">Back to search</a></h2>
+    <span class="alignleft"><%= @page_title -%></span>
   <div>
 
     <% if @packages.blank? %>
@@ -37,27 +23,30 @@
         <div id="pkg-description">
           <h1><%= @name || @pkgname %></h1>
           <% unless @description_package.blank? %>
-
-            <% unless @appcategories.blank? %>
+          
+          <% unless @appcategories.blank? %>
               <p id="pkg-categorie-note">
                 <strong><%=  @appcategories.size > 1 ? _("Categories") : _("Category") %>:</strong>
-                <% @appcategories.each do |cat| -%>
-                  <%= link_to cat, "#" %>
-                <% end -%>
-              </p>
-            <% end -%>
 
-            <h3><%=  @description_package.summary %></h3>
+            <% @appcategories.each do |cat| -%>
+              <%= link_to cat, "#" %>
+            <% end -%>
+            </p>
           <% end -%>
+          
+          <h3><%=  @description_package.summary %></h3>
+           <% end -%>
           <div class="app-screenshot">
-            <%= link_to( image_tag( @screenshot_thumb, :height => 120 ), @screenshot, { :rel => "lightbox", :title => "Screenshot of #{@pkgname}" } ) %>
+            <%= link_to( image_tag( @screenshot_thumb, :width => 160 ), @screenshot, { :rel => "lightbox", :title => "Screenshot" } ) %>
           </div>
           <% if @description_package.blank? %>
             <p>No description found...</p>
           <% else %>
             <!-- <p style="white-space: pre-line; "> -->
-            <p id="pkg-desc"><%= prepare_desc @description_package.description -%>
-             <!-- <i>(from <%= @description_package.project %>)</i> --></p>
+            <p>
+              <%= @description_package.description.strip -%>
+             <!-- <i>(from <%= @description_package.project %>)</i> -->
+            </p>
           <% end -%>
 
           <% unless @default_package.blank? %>
@@ -79,8 +68,7 @@
               <% if @packages.select{|s| s.baseproject == distro[:project]}.size > 0 %>
 
                 <li>
-                  <a href="#" onclick=" toggle_dist('<%= distro[:dist_id] %>'); return false;" 
-                     class="distro-toggle" id="distro-toggle-<%= distro[:dist_id] %>"><%= distro[:name] %></a>
+                  <a href="#" onclick="$('#dist_<%= distro[:dist_id] %>').toggle(); return false;" ><%= distro[:name] %></a>
                   <ul class="pkg-options-details  hidden" id="dist_<%= distro[:dist_id] %>" >
 
                     <% official = @packages.select{|s| s.project == distro[:project]} %>
@@ -92,7 +80,7 @@
                     <% official_projects = @distributions.map{|d| d[:project]} %>
                     <% devel = @packages.select{|s| s.baseproject == distro[:project] } %>
                     <% devel = devel.reject{|s| official_projects.include?( s.project ) || s.project.match( /^home\:/ ) || s.project.match( /#{distro[:project]}\:Update/ ) ||
-                        s.project.match( /openSUSE\:Maintenance\:/ ) } %>
+                      s.project.match( /openSUSE\:Maintenance\:/ ) } %>
                     <%= render :partial => 'download_rows', :locals => {:packages => devel, :distro => distro} %>
 
 
@@ -101,10 +89,10 @@
                     <% unless home.blank? %>
                       <li><a class="trigger-show-more" href="#" onclick="$('#dist_home_<%= distro[:dist_id] %>').toggle(); return false;">Show user packages</a></li>
                     <% end -%>
-                  </ul>
-                  <ul class="pkg-options-details  hidden" id="dist_home_<%= distro[:dist_id] %>" >
-                    <%= render :partial => 'download_rows', :locals => {:packages => home, :distro => distro} %>
-                  </ul>
+                    </ul>
+                    <ul class="pkg-options-details  hidden" id="dist_home_<%= distro[:dist_id] %>" >
+                      <%= render :partial => 'download_rows', :locals => {:packages => home, :distro => distro} %>
+                    </ul>
 
                 </li>
 
