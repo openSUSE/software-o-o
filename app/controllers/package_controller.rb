@@ -49,10 +49,6 @@ class PackageController < ApplicationController
 
  private
 
-  def set_beta_warning
-    flash.now[:info] = "This is an alpha version of the new package search, part of " +
-      "the <a href='https://trello.com/board/appstream/4f156e1c9ce0824a2e1b8831'>current boosters sprint</a>!"
-  end
 
 
 end

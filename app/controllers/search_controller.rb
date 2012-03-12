@@ -1,5 +1,7 @@
 class SearchController < ApplicationController
 
+  before_filter :set_beta_warning, :only => [:find, :searchresult]
+
   def index
     @exclude_debug = true
     @include_home = 'false'
@@ -20,7 +22,19 @@ class SearchController < ApplicationController
 
   def searchresult
     @search_term = params[:q]
-    @packages = Seeker.prepare_result("#{params[:q]}", nil, nil, nil, nil)
+    begin
+      @packages = Seeker.prepare_result("#{@search_term}", nil, nil, nil, nil)
+    rescue => e
+      search_error, code, api_exception = ActiveXML::Transport.extract_error_message e
+      if code == "413"
+        logger.debug("Too many hits, trying exact match for: #{@search_term}")
+        @search_term = @search_term.split(" ").map{|x| "\"#{CGI.escape(x)}\""}.join(" ")
+        @packages = Seeker.prepare_result("#{@search_term}", nil, nil, nil, nil)
+      end
+    end
+    # only show hits from our base distributions right now
+     @packages = @packages.select{|p| @distributions.map{|d| d[:project]}.include? p.baseproject }
+
     @packagenames = @packages.map{|p| p.name}.uniq.sort_by {|x| x.length}
     @result = @packagenames.map{|p| {
         :name => p,
