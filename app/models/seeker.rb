@@ -243,7 +243,7 @@ class Seeker < ActiveXML::Base
           bin = self[0]
           begin
             info = ::Published.find_cached bin.filename, :view => :fileinfo, :project => @project,
-              :repository => @repository, :arch => bin.arch.to_s, :expires_in => 6.hour
+              :repository => @repository, :arch => bin.arch.to_s, :expires_in => 6.hours
           rescue => e
             logger.error "Error fetching info for binary: #{e.message}"
           end
@@ -334,7 +334,7 @@ class Seeker < ActiveXML::Base
       attr_accessor :fragment_type
 
       def initialize(element)
-        %w(project repository name filename filepath arch type baseproject type version release).each do |att|
+        %w(project repository name filename filepath arch type baseproject type version release package).each do |att|
           self[att] = element.value att
         end
       end

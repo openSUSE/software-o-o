@@ -2,14 +2,14 @@
 <% packages.flatten.group_by(&:project).each do |result| %>
   <li>
     <% if  result.first == distro[:project] %>
-    <% name = "release" %>
+      <% name = "release" %>
     <% elsif result.first == "#{distro[:project]}:Update" %>
-    <% name = "<b>update</b>" %>
+      <% name = "<b>update</b>" %>
     <% else %>
-    <% name = shorten result.first, 25 %>
+      <% name = shorten result.first, 25 %>
     <% end -%>
-    
-    <%= link_to name, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{@pkgname}" %>
+
+    <%= link_to name, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{result.last.first.package}" %>
   <%# only use the latest version, obs bug: some outdated versions still listed. %>
     <% version = result.last.map{|r| r.version }.max %>
     <% release = result.last.select{|r| r.version == version }.map{|v| v.release.sub(".", "").to_i}.max %>
@@ -20,9 +20,9 @@
       <% end %>
     </ul>
     <% if distro[:project].match(/SUSE/) %>
-    <% url = url_for :controller => 'main', :action => 'ymp_without_arch_and_version',
-              :project => result.first, :repository => result.last.first.repository, :package => @pkgname, :base => result.last.first.baseproject %>
-    <a class="pkg-options-one-click" href="<%= url %>">1 Click Install</a>
+      <% url = url_for :controller => 'main', :action => 'ymp_without_arch_and_version',
+        :project => result.first, :repository => result.last.first.repository, :package => @pkgname, :base => result.last.first.baseproject %>
+      <a class="pkg-options-one-click" href="<%= url %>">1 Click Install</a>
     <% end %>
   </li>
 <% end -%>
