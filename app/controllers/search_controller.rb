@@ -34,6 +34,8 @@ class SearchController < ApplicationController
     end
     # only show hits from our base distributions right now
      @packages = @packages.select{|p| @distributions.map{|d| d[:project]}.include? p.baseproject }
+    # only show rpms
+    @packages = @packages.select{|p| p.first.type == 'rpm'}
 
     @packagenames = @packages.map{|p| p.name}.uniq.sort_by {|x| x.length}
     @result = @packagenames.map{|p| {

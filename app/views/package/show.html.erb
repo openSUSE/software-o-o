@@ -59,8 +59,8 @@
           <% if @description_package.blank? %>
             <p>No description found...</p>
           <% else %>
-            <p id="pkg-desc"><%= prepare_desc @description_package.description -%>
-    -             <!-- <i>(from <%= @description_package.project %>)</i> --></p>
+            <p id="pkg-desc"><%= prepare_desc @description_package.description -%></p>
+                 <!-- <i>(from <%= @description_package.project %>)</i> -->
           <% end -%>
 
           <% unless @default_package.blank? %>
@@ -116,18 +116,23 @@
 
             <% #get extra distributions that are not in the default distribution list %>
             <% @extra_packages = @packages.reject{|p| @distributions.map{|d| d[:project]}.include? p.baseproject } %>
-            <% @extra_dists = @extra_packages.map{|p| p.baseproject}.uniq.map{|d| {:project => d}} %>
+            <% @extra_dists = @extra_packages.map{|p| p.baseproject}.uniq.map{|d| {:project => d}}.reject{|d| d[:project].nil?} %>
 
-            <%  @extra_dists.reject{|d| d[:project].nil?}.each do |distro| -%>
-              <li>
-                <a href="#" onclick=" toggle_dist('<%= escape_for_id distro[:project] %>'); return false;"
-                   class="distro-toggle" id="distro-toggle-<%= escape_for_id distro[:project] %>"><%= distro[:project] %></a>
-                   <% pks = @extra_packages.select{|s| s.baseproject == distro[:project] } %>
-                 <ul class="pkg-options-details  hidden" id="dist_<%= escape_for_id distro[:project] %>" >
-                   <%= render :partial => 'download_rows', :locals => {:packages => pks, :distro => distro} %>
-                   </ul>
-              </li>
+            <% unless @extra_dists.blank?  %>
+
+              <a id="show-extra-dists" href="#" onclick="$('.extra-dists').toggle(); return false;">Show more packages for unsupported distributions</a>
+                <%  @extra_dists.each do |distro| -%>
+                  <li class="extra-dists hidden">
+                    <a href="#" onclick=" toggle_dist('<%= escape_for_id distro[:project] %>'); return false;"
+                       class="distro-toggle" id="distro-toggle-<%= escape_for_id distro[:project] %>"><%= distro[:project] %></a>
+                       <% pks = @extra_packages.select{|s| s.baseproject == distro[:project] } %>
+                    <ul class="pkg-options-details  hidden" id="dist_<%= escape_for_id distro[:project] %>" >
+                      <%= render :partial => 'download_rows', :locals => {:packages => pks, :distro => distro} %>
+                    </ul>
+                  </li>
+                <% end %>
             <% end %>
+
           </ul>
         </div>
 
