@@ -54,7 +54,7 @@
             <h3><%=  @description_package.summary %></h3>
           <% end -%>
           <div class="app-screenshot">
-            <%= link_to( image_tag( screenshot_thumb_url( @pkgname ), :width => 160 ), @screenshot, { :rel => "lightbox", :title => "Screenshot of  #{@pkgname}" } ) %>
+            <%= link_to( image_tag( screenshot_thumb_url( @pkgname ), :height => 120 ), @screenshot, { :rel => "lightbox", :title => "Screenshot of  #{@pkgname}" } ) %>
           </div>
           <% if @description_package.blank? %>
             <p>No description found...</p>

@@ -19,13 +19,13 @@
 
         <li>
           <div class="app-screenshot">
-            <%= image_tag(  screenshot_thumb_url( package[:name] ), :width => 80 )  %>
+            <%= image_tag(  screenshot_thumb_url( package[:name] ), :height => 75 )  %>
           </div>
           <div class="search-result-txt">
           <h3><%= link_to highlight(package[:name], @search_term), :controller => :package, :action => :show, :package => package[:name], :search_term => @search_term  %></h3>
 
           <%  if desc_package = package[:description_package]  %>
-            <i><%= highlight(desc_package.summary, @search_term) %></i>
+          <p><i><%= highlight(desc_package.summary, @search_term) %></i></p>
           <% end %>
 
           <% devel_pack_match = [package[:name] + "-devel", package[:name] + "-doc", package[:name] + "-debuginfo", package[:name] + "-debugsource"] -%>
