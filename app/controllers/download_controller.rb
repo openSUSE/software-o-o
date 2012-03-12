@@ -14,8 +14,8 @@ class DownloadController < ApplicationController
 
     cache_key = "soo_download_appliances_#{@project}"
     @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
-      api_result_images = get_from_api("/published/#{@project}/images")
-      #api_result_iso = get_from_api("/published/#{@project}/images/iso")
+      api_result_images = ApiConnect::get("/published/#{@project}/images")
+      #api_result_iso = ApiConnect::get("/published/#{@project}/images/iso")
       xpath = "/directory/entry"
       if api_result_images
         doc = REXML::Document.new api_result_images.body
@@ -45,7 +45,7 @@ class DownloadController < ApplicationController
 
     cache_key = "soo_download_#{@project}_#{@package}"
     @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
-      api_result = get_from_api("/search/published/binary/id?match=project='#{@project}'+and+package='#{@package}'")
+      api_result = ApiConnect::get("/search/published/binary/id?match=project='#{@project}'+and+package='#{@package}'")
       xpath = "/collection/binary"
       if api_result
         doc = REXML::Document.new api_result.body
@@ -87,10 +87,10 @@ class DownloadController < ApplicationController
     cache_key = "soo_download_#{@project}_#{@pattern}"
     @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
 
-      # api_result = get_from_api("/search/published/pattern/id?match=project='#{@project}'+and+filename='#{@pattern}.ymp'")
+      # api_result = ApiConnect::get("/search/published/pattern/id?match=project='#{@project}'+and+filename='#{@pattern}.ymp'")
       # TODO: workaround - the line above does not return a thing - see http://lists.opensuse.org/opensuse-buildservice/2011-07/msg00088.html
       # so we search for all files of the project and filter for *.ymp below
-      api_result = get_from_api("/search/published/pattern/id?match=project='#{@project}'")
+      api_result = ApiConnect::get("/search/published/pattern/id?match=project='#{@project}'")
       xpath = "/collection/pattern"
       #logger.debug doc
 

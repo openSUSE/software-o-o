@@ -13,7 +13,7 @@ class MainController < ApplicationController
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
     DownloadHistory.create :query => params[:query], :base => params[:base],
       :ymp => path
-    res = get_from_api(path)
+    res = ApiConnect::get(path)
     render :text => res.body, :content_type => res.content_type
   end
 
@@ -21,7 +21,7 @@ class MainController < ApplicationController
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:package]}?view=ymp"
     DownloadHistory.create :query => params[:query], :base => params[:base],
       :ymp => path
-    res = get_from_api(path)
+    res = ApiConnect::get(path)
     render :text => res.body, :content_type => res.content_type
   end
 
