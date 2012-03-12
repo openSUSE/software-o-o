@@ -1,8 +1,20 @@
 
+<% if @result.blank? %>
 
-<div class="box box-shadow grid_12">
-  <div class="box-header"> </div>
-  <ul id="search-result-list">
+  <p>No packages found matching your search</p>
+
+<% else %>
+
+  <% if @result.select{|p| p[:name] == @search_term}.size > 0 %>
+
+
+
+  <% end %>
+
+
+  <div class="box box-shadow">
+    <div class="box-header"> </div>
+    <ul id="search-result-list">
       <% @result.each do |package| %>
 
         <li> <%= image_tag(  screenshot_thumb_url( package[:name] ), :height => 50 )  %>
@@ -33,9 +45,10 @@
             <% @result.reject! {|r| r[:name].match(/^#{package[:name]}-/) }  -%>
           <% end -%>
 
-
         </li>
       <% end %>
-  </ul>
-  <div class="box-footer"> </div>
-</div>
+    </ul>
+    <div class="box-footer"> </div>
+  </div>
+
+<% end %>
