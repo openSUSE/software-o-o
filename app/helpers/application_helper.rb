@@ -63,6 +63,9 @@ module ApplicationHelper
     return diff.to_s + " years ago"
   end
 
+  def escape_for_id string
+    string.gsub(/[.:]/, "_")
+  end
 
 end
 
