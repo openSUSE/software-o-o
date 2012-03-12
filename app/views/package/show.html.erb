@@ -118,7 +118,7 @@
             <% @extra_packages = @packages.reject{|p| @distributions.map{|d| d[:project]}.include? p.baseproject } %>
             <% @extra_dists = @extra_packages.map{|p| p.baseproject}.uniq.map{|d| {:project => d}} %>
 
-            <%  @extra_dists.each do |distro| -%>
+            <%  @extra_dists.reject{|d| d[:project].nil?}.each do |distro| -%>
               <li>
                 <a href="#" onclick=" toggle_dist('<%= escape_for_id distro[:project] %>'); return false;"
                    class="distro-toggle" id="distro-toggle-<%= escape_for_id distro[:project] %>"><%= distro[:project] %></a>
