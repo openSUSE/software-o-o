@@ -17,8 +17,12 @@
     <ul id="search-result-list">
       <% @result.each do |package| %>
 
-        <li> <%= image_tag(  screenshot_thumb_url( package[:name] ), :height => 50 )  %>
-          <%= link_to highlight(package[:name], @search_term), :controller => :package, :action => :show, :package => package[:name], :search_term => @search_term  %>
+        <li>
+          <div class="app-screenshot">
+            <%= image_tag(  screenshot_thumb_url( package[:name] ), :width => 80 )  %>
+          </div>
+          <div class="search-result-txt">
+          <h3><%= link_to highlight(package[:name], @search_term), :controller => :package, :action => :show, :package => package[:name], :search_term => @search_term  %></h3>
 
           <%  if desc_package = package[:description_package]  %>
             <i><%= highlight(desc_package.summary, @search_term) %></i>
@@ -29,7 +33,7 @@
           <% unless devel_packages.blank? %>
             <p>Development packages:
               <% devel_packages.each do |subpackage| %>
-                <%= link_to subpackage[:name], :controller => :package, :action => :show, :package => subpackage[:name], :search_term => @search_term  %>
+                <%= link_to subpackage[:name].sub("#{package[:name]}-", ""), :controller => :package, :action => :show, :package => subpackage[:name], :search_term => @search_term  %>
               <% end %>
             </p>
             <% @result.reject! {|r| devel_pack_match.include? r[:name] }  -%>
@@ -39,12 +43,12 @@
           <% unless sub_packages.blank? -%>
             <p>Sub-packages:
               <% sub_packages.each do |subpackage| %>
-                <%= link_to subpackage[:name], :controller => :package, :action => :show, :package => subpackage[:name], :search_term => @search_term  %>
+                <%= link_to subpackage[:name].sub("#{package[:name]}-", ""), :controller => :package, :action => :show, :package => subpackage[:name], :search_term => @search_term  %>
               <% end %>
             </p>
             <% @result.reject! {|r| r[:name].match(/^#{package[:name]}-/) }  -%>
           <% end -%>
-
+          </div>
         </li>
       <% end %>
     </ul>

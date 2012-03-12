@@ -170,6 +170,7 @@ ul#search-result-list {
 }
 ul#search-result-list li {
     padding: 0.5em;
+    min-height: 65px;
 }
 ul#search-result-list li:nth-child(even) {
     background-color: #eee;
@@ -179,6 +180,10 @@ ul#search-result-list li img {
     box-shadow: 0 1px 2px #999;
     -moz-box-shadow: 0 1px 2px #999;
     -webkit-box-shadow: 0 1px 2px #999;
+}
+
+.search-result-txt {
+    padding-left: 100px;
 }
 
 input[type="submit"].search-go-button {
@@ -434,4 +439,11 @@ input[type="submit"].search-go-button {
 }
 #pkg-categorie-note a:last-child:after { /* Don't place it after the last <a>*/
                                          content: none;
+}
+
+#show-extra-dists {
+    display: block;
+    text-align: center;
+    width: 100%;
+    color: #666666;
 }
