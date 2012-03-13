@@ -16,9 +16,13 @@ class PackageController < ApplicationController
     @default_project = @template.default_baseproject
     @default_project_name = @distributions.select{|d| d[:project] == @default_project}.first[:name]
     @default_repo = @distributions.select{|d| d[:project] == @default_project}.first[:repository]
-    @default_package = @packages.select{|s| s.project == (@default_project)}.first
+    if (@packages.select{|s| s.project == "#{@default_project}:Update"}.size >0)
+      @default_package = @packages.select{|s| s.project == "#{@default_project}:Update"}.first
+    else
+      @default_package = @packages.select{|s| s.project == (@default_project)}.first
+    end
 
-    # Fetch appstream data for app (TODO: needs src package name)
+    # Fetch appstream data for app (TODO: needs src package name, not provided by obs for released products)
     appdata = Appdata.find_cached :prj => @base_appdata_project, :repo => @default_repo, :arch => "i586",
       :pkgname => @pkgname, :appdata => "#{@pkgname}-appdata.xml", :expires_in => 1.hour
 
@@ -31,7 +35,7 @@ class PackageController < ApplicationController
     # TODO: released projects don't give info over the api... (bnc#749828)
     cache_key = "description_package_#{@pkgname}"
     @description_package =  Rails.cache.fetch(cache_key, :expires_in => 3.hours) do
-      @packages.each do |package|
+      @packages.select{|p| !@distributions.map{|d| d[:project]}.include? p.project}.each do |package|
         @description_package = nil
         unless package.description.blank?
           @description_package = package

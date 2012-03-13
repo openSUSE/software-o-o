@@ -69,7 +69,7 @@
             <a id="one-click-button" href="<%= url %>">
               <%= image_tag "download-arrow.png", :width => "36", :height => "36", :alt => "Download Arrow" %>
               <strong>Direct Install</strong><br/>
-              <em><%= @distributions.select{|d| d[:project] == @default_package.project}.first[:name] %>,
+              <em><%=  @default_project_name %>,
                 Version <%= @default_package.version %>, <%= number_to_human_size @description_package.size %></em>
             </a>
           <% end -%>
