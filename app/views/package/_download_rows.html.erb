@@ -2,9 +2,9 @@
 <% packages.flatten.group_by(&:project).each do |result| %>
   <li>
     <% if  result.first == distro[:project] %>
-      <% name = "release" %>
+      <% name = "official" %>
     <% elsif result.first == "#{distro[:project]}:Update" %>
-      <% name = "<b>update</b>" %>
+      <% name = "<b>official</b>" %>
     <% else %>
       <% name = shorten result.first, 25 %>
     <% end -%>
