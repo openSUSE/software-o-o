@@ -135,6 +135,7 @@ class Seeker < ActiveXML::Base
       attr_reader :key
       attr_reader :name
       attr_reader :project
+      attr_reader :package
       attr_reader :repository
       attr_reader :ymp_link
       attr_reader :description
@@ -182,6 +183,7 @@ class Seeker < ActiveXML::Base
 
       def cache_data(element)
         @project = element.project
+        @package = element.package
         @repository = element.repository
         @name = element.name
         @baseproject = element.baseproject

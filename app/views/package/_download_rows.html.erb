@@ -9,7 +9,8 @@
       <% name = shorten result.first, 25 %>
     <% end -%>
 
-    <%= link_to name, "https://build.opensuse.org/package/show?project=#{result.first}&package=#{result.last.first.package}" %>
+    <% pkg_link = (result.last.first.package.nil? ? "" : "&package=#{result.last.first.package}") %>
+    <%= link_to name, "https://build.opensuse.org/package/show?project=#{result.first}" + pkg_link %>
   <%# only use the latest version, obs bug: some outdated versions still listed. %>
     <% version = result.last.map{|r| r.version }.max %>
     <% release = result.last.select{|r| r.version == version }.map{|v| v.release.sub(".", "").to_i}.max %>

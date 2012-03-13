@@ -18,7 +18,7 @@ class PackageController < ApplicationController
     @default_repo = @distributions.select{|d| d[:project] == @default_project}.first[:repository]
     @default_package = @packages.select{|s| s.project == (@default_project)}.first
 
-    # Fetch appstream data for app
+    # Fetch appstream data for app (TODO: needs src package name)
     appdata = Appdata.find_cached :prj => @base_appdata_project, :repo => @default_repo, :arch => "i586",
       :pkgname => @pkgname, :appdata => "#{@pkgname}-appdata.xml", :expires_in => 1.hour
 
