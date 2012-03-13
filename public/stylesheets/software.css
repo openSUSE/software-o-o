@@ -214,7 +214,7 @@ input[type="submit"].search-go-button {
     padding: 0.3em;
 }
 
-.app-screenshot {
+.app-screenshot,  .app-screenshot-search {
     float: left;
     margin-right: 25px;
     border: 1px solid white;
@@ -224,7 +224,15 @@ input[type="submit"].search-go-button {
 }
 
 .app-screenshot ~ p, .app-screenshot ~ a#one-click-button { /* If screenshot is available sibling <p> get left margin.*/
-                                                            margin-left: 215px;
+    margin-left: 215px;
+}
+
+.app-screenshot a img {
+    max-width: 190px;
+}
+
+.app-screenshot-search a img, .app-screenshot-search img {
+    max-width: 125px;
 }
 
 .box-header a.pkg-backlink {

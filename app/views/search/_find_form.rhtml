@@ -1,6 +1,6 @@
 <script type="text/javascript">
 
-  var last_search = "<%= CGI::escape( @search_term ) %>";
+  var last_search = "<%= CGI::escape( @search_term || "" ) %>";
 
   function afterDelayedKeyup(selector, action, delay){
     jQuery(selector).keyup(function(){
