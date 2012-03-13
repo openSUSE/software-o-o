@@ -120,7 +120,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_beta_warning
-    flash.now[:info] = "This is an beta version of the new package search, part of " +
+    flash.now[:info] = "This is a beta version of the new package search, part of " +
       "the <a href='https://trello.com/board/appstream/4f156e1c9ce0824a2e1b8831'>current boosters sprint</a>!"
   end
 

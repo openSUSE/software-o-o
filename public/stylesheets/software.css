@@ -167,10 +167,11 @@ body {
 
 ul#search-result-list {
     list-style: none outside;
+    margin-bottom: 25px;
 }
 ul#search-result-list li {
     padding: 0.5em;
-    min-height: 65px;
+    min-height: 80px;
 }
 ul#search-result-list li:nth-child(even) {
     background-color: #eee;
@@ -253,7 +254,7 @@ input[type="submit"].search-go-button {
 #pkg-info strong {
     color: #999;
     display: block;
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: normal;
     letter-spacing: 0.1em;
     line-height: 2em;
@@ -435,16 +436,18 @@ input[type="submit"].search-go-button {
 #pkg-categorie-note a:hover {
     color: #690;
 }
-#pkg-categorie-note a:after { /* place ", " after each <a> */
-                              content: ", ";
-}
-#pkg-categorie-note a:last-child:after { /* Don't place it after the last <a>*/
-                                         content: none;
-}
 
 #show-extra-dists {
     display: block;
     text-align: center;
     width: 100%;
     color: #666666;
+}
+
+.ui-oo-content-wrapper, .content-wrapper {
+    font-size: 0.9em;
+}
+
+#header {
+    font-size: 0.9em;
 }

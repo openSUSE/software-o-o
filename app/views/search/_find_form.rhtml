@@ -15,6 +15,7 @@
     search_term = encodeURI( jQuery.trim( $("#search-form").val() ) );
     if (search_term != last_search) {
       if (search_term.length > 2 ) {
+        $('#search-messages').hide();
         $('#msg').html("");
         last_search = search_term;
         $.ajax({ url: "<%= url_for :controller => :search, :action => :searchresult %>",
@@ -30,21 +31,23 @@
           },
           success: function(html){
             $("#search_result_container").html(html);
-            $('#msg').html("");
+            $('#search-messages').hide();
           },
           error: function(jqXHR, textStatus, errorThrown) {
-            $('#msg').html(textStatus + errorThrown);
+            $('#msg').html("An internal error happened :-(");
+            $('#search-messages').show();
           }
         });
 
       } else {
         $('#msg').html("Please enter more than 2 characters");
+        $('#search-messages').show();
       }
     }
   }
 
   $(function() {
-    afterDelayedKeyup('#search-form',"search()", 600);
+    afterDelayedKeyup('#search-form',"search()", 500);
   });
 
 
@@ -54,12 +57,18 @@
 <div class="box box-shadow pkg-search-box">
 
   <% form_tag( {:controller => 'search', :action => :searchresult}, :method => :get ) do %>
-    <%= text_field_tag 'q', @search_term, :size => 40, :id => "search-form",  :autocomplete => "off" %>
+    <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form",  :autocomplete => "off" %>
     <div id='search-loader' class="hidden"><span id="search-loader-txt"></span> <%= image_tag "ajax-loader.gif" %></div>
     <%= submit_tag _('Search'), :name => nil, :class => "search-go-button" %>
   <% end -%>
-
 </div>
 
+<div class="hidden" id="search-messages" >
+  <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">
+    <p id="msg">
+      <span class="ui-icon ui-icon-info"/>
+      test
+    </p>
+  </div>
+</div>
 
-<div id='msg'></div>

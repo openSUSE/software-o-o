@@ -31,6 +31,7 @@ class SearchController < ApplicationController
         @search_term = @search_term.split(" ").map{|x| "\"#{CGI.escape(x)}\""}.join(" ")
         @packages = Seeker.prepare_result("#{@search_term}", nil, nil, nil, nil)
       end
+      raise e if @packages.nil?
     end
     # only show hits from our base distributions right now
      @packages = @packages.select{|p| @distributions.map{|d| d[:project]}.include? p.baseproject }

@@ -28,7 +28,7 @@ class PackageController < ApplicationController
 
     unless appdata.blank?
       @name = appdata.application.name.text
-      @appcategories = appdata.application.appcategories.each.map{|c| c.text}
+      @appcategories = appdata.application.appcategories.each.map{|c| c.text}.reject{|c| c.match(/^X-SuSE/)}.uniq
       @homepage = appdata.application.url.text
     end
 
