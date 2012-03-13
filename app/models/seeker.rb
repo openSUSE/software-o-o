@@ -22,16 +22,20 @@ class Seeker < ActiveXML::Base
       logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
       raise "Please provide a valid search term" if words.blank?
 
-      xpath = "contains-ic(@name, " + words.select{|word| 
-        !word.match(/^".+"$/) }.map{|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ") + ")"
-      words.select{|word| word.match(/^".+"$/) }.map{|word| word.gsub( "\"", "" ) }.each do |word|
-        xpath = "@name = '#{word.gsub(/['"()]/, "")}' "
+      xpath_items = Array.new
+      substring_words = words.select{|word| !word.match(/^".+"$/) }.map{|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ")
+      unless ( substring_words.blank? )
+         xpath_items << "contains-ic(@name, " + substring_words + ")"
       end
-      xpath += ' and ' + versrel.map {|part| "starts-with(@versrel,'#{part}')"}.join(" and ") unless versrel.blank?
-      xpath += " and path/project='#{baseproject}'" unless baseproject.blank?
-      xpath += " and @project = '#{project}' " unless project.blank?
-      xpath += " and not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource'))" if exclude_debug
-      xpath += " and not(contains-ic(@project, '#{exclude_filter}'))" unless exclude_filter.blank?
+      words.select{|word| word.match(/^".+"$/) }.map{|word| word.gsub( "\"", "" ) }.each do |word|
+        xpath_items << "@name = '#{word.gsub(/['"()]/, "")}' "
+      end
+      xpath_items << "@project = '#{project}' " unless project.blank?
+      xpath_items <<  "path/project='#{baseproject}'" unless baseproject.blank?
+      xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" unless exclude_filter.blank?
+      xpath_items << versrel.map {|part| "starts-with(@versrel,'#{part}')"}.join(" and ") unless versrel.blank?
+      xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource'))" if exclude_debug
+      xpath = xpath_items.join(' and ')
 
       bin = Seeker.find :binary, :match => xpath
       pat = Seeker.find :pattern, :match => xpath
