@@ -21,6 +21,7 @@ class SearchController < ApplicationController
   end
 
   def searchresult
+    required_parameters :q
     @search_term = CGI::unescape( params[:q] )
     begin
       @packages = Seeker.prepare_result("#{@search_term}", nil, nil, nil, nil)
