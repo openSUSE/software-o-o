@@ -22,7 +22,8 @@
     </ul>
     <% if distro[:project].match(/SUSE/) %>
       <% url = url_for :controller => 'main', :action => 'ymp_without_arch_and_version',
-        :project => result.first, :repository => result.last.first.repository, :package => @pkgname, :base => result.last.first.baseproject %>
+        :project => result.first, :repository => result.last.first.repository, :package => @pkgname,
+        :base => result.last.first.baseproject, :query => @pkgname%>
       <a class="pkg-options-one-click" href="<%= url %>">1 Click Install</a>
     <% end %>
   </li>
