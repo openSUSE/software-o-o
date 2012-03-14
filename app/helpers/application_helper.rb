@@ -75,6 +75,7 @@ module Enumerable
        key.gsub(/_SP/, '.') \
           .gsub(/_Factory/, '_100') \
           .gsub(/_Tumbleweed/, '_99') \
+          .gsub(/_Snapshot/, '_98') \
           .split(/_/) \
           .map { |v| v =~ /\A\d+(\.\d+)?\z/ ? -(v.to_f) : v.downcase }
     }

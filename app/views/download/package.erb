@@ -67,10 +67,12 @@ end
 <% else %>
   <p><%= _("No downloads found for %s in project %s") % [ @package.nil? ? @pattern : @package, @project] %>.</p>
 <% end %>
+  <div style="clear: both" />
 
 <div id="soo_ymp" class="soo_box">
   <p class="soo_line" id="soo_section_toggle_ymp"><%= _("Install using One Click Install") %><span></span></p>
   <div id="soo_section_ymp">
+  
     <% @data.select {|k,v| v.has_key?(:ymp)}.version_sort.each do |k,v| %>
       <a class="soo_ymplink soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>" href="<%= v[:ymp] %>"><%= k.gsub('_', '&nbsp;') %></a>
     <% end %>
