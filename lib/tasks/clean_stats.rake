@@ -1,4 +1,3 @@
-
 desc "Remove old download and search stats"
 task(:clean_stats => :environment) do
 

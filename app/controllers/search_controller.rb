@@ -25,17 +25,19 @@ class SearchController < ApplicationController
     @search_term = CGI::unescape( params[:q] )
     begin
       @packages = Seeker.prepare_result("#{@search_term}", nil, nil, nil, nil)
+      SearchHistory.create :query => @search_term, :count => @packages.size
     rescue => e
       search_error, code, api_exception = ActiveXML::Transport.extract_error_message e
       if code == "413"
         logger.debug("Too many hits, trying exact match for: #{@search_term}")
+        SearchHistory.create :query => @search_term, :count => 0
         @search_term = @search_term.split(" ").map{|x| "\"#{CGI.escape(x)}\""}.join(" ")
         @packages = Seeker.prepare_result("#{@search_term}", nil, nil, nil, nil)
       end
       raise e if @packages.nil?
     end
     # only show hits from our base distributions right now
-     @packages = @packages.select{|p| @distributions.map{|d| d[:project]}.include? p.baseproject }
+    @packages = @packages.select{|p| @distributions.map{|d| d[:project]}.include? p.baseproject }
     # only show rpms
     @packages = @packages.select{|p| p.first.type == 'rpm'}
 
