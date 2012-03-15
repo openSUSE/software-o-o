@@ -67,17 +67,36 @@ module ApplicationHelper
     string.gsub(/[.:]/, "_")
   end
 
+  # TODO: released projects don't give info over the api... (bnc#749828)
+  # so we search one from the other projects...
+  def search_for_description pkgname, packages
+    cache_key = "description_package_#{pkgname}"
+    description_package =  Rails.cache.fetch(cache_key, :expires_in => 3.hours) do
+      packages.select{|p| (p.name == pkgname && !@distributions.map{|d| d[:project]}.include?( p.project ) )}.each do |package|
+        description_package = nil
+        unless package.description.blank?
+          description_package = package
+          logger.info "Found package info in: #{package.project}"
+          break
+        end
+        logger.error "No package info in: #{package.project}"
+      end
+      description_package
+    end
+  end
+
+
 end
 
 module Enumerable
   def version_sort
     sort_by { |key,val|
-       key.gsub(/_SP/, '.') \
-          .gsub(/_Factory/, '_100') \
-          .gsub(/_Tumbleweed/, '_99') \
-          .gsub(/_Snapshot/, '_98') \
-          .split(/_/) \
-          .map { |v| v =~ /\A\d+(\.\d+)?\z/ ? -(v.to_f) : v.downcase }
+      key.gsub(/_SP/, '.') \
+        .gsub(/_Factory/, '_100') \
+        .gsub(/_Tumbleweed/, '_99') \
+        .gsub(/_Snapshot/, '_98') \
+        .split(/_/) \
+        .map { |v| v =~ /\A\d+(\.\d+)?\z/ ? -(v.to_f) : v.downcase }
     }
   end
 end

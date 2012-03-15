@@ -84,131 +84,136 @@
   </p>
 </div>
 
+<%= render :partial => 'search/find_form' %>
 
-<div class="box box-shadow">
-  <h2 class="box-header">
-    <% unless @search_term.blank? %>
-      <%= link_to _("Back to search"), {:controller => :search, :action => :searchresult, :q => @search_term}, :class => "pkg-backlink" %>
-    <% end %>
-    <span class="alignleft"><%= @page_title -%></span>
-  </h2>
-  <div>
+<div id="search_result_container">
+  <div class="box box-shadow">
+    <h2 class="box-header">
+      <% unless @search_term.blank? %>
+        <%= link_to _("< Back to search results"), {:controller => :search, :action => :searchresult, :q => @search_term}, :class => "pkg-backlink" %>
+      <% end %>
+      <span class="alignleft"><%= @page_title -%></span>
+    </h2>
+    <div>
 
-    <% if @packages.blank? %>
-      <p>Package <%= @pkgname %> not found...</p>
-    <% else %>
+      <% if @packages.blank? %>
+        <p>Package <%= @pkgname %> not found...</p>
+      <% else %>
 
-      <!-- Main Content -->
+        <!-- Main Content -->
 
-      <!-- Main Column -->
-      <div id="pkg-content" class="grid_10 prefix_1 suffix_1">
-        <div id="pkg-description">
-          <h1><%= @name || @pkgname %></h1>
-          <% unless @description_package.blank? %>
+        <!-- Main Column -->
+        <div id="pkg-content" class="grid_10 prefix_1 suffix_1">
+          <div id="pkg-description">
+            <h1><%= @name || @pkgname %></h1>
+            <% desc_package = search_for_description( @pkgname, @packages ) %>
+            <% unless desc_package.blank? %>
 
-            <% unless @appcategories.blank? %>
-              <p id="pkg-categorie-note">
-                <strong><%=  @appcategories.size > 1 ? _("Categories") : _("Category") %>:</strong>
-                <% @appcategories.each do |cat| -%>
-                  <%= link_to cat, "#" %>
-                <% end -%>
-              </p>
-            <% end -%>
-
-            <h3><%=  @description_package.summary %></h3>
-          <% end -%>
-          <div class="app-screenshot">
-            <%= link_to( image_tag( screenshot_thumb_url( @pkgname ), :height => 120 ), @screenshot, { :rel => "lightbox", :title => "Screenshot of  #{@pkgname}" } ) %>
-          </div>
-          <% if @description_package.blank? %>
-            <p>No description found...</p>
-          <% else %>
-            <p id="pkg-desc"><%= prepare_desc @description_package.description -%></p>
-                 <!-- <i>(from <%= @description_package.project %>)</i> -->
-          <% end -%>
-
-          <% unless @default_package.blank? %>
-            <% url = url_for :controller => 'main', :action => 'ymp_without_arch_and_version',
-              :project => @default_package.project, :repository => @default_package.repository, :package => @pkgname, :base => @default_package.baseproject %>
-            <a id="one-click-button" href="<%= url %>">
-              <%= image_tag "download-arrow.png", :width => "36", :height => "36", :alt => "Download Arrow" %>
-              <strong>Direct Install</strong><br/>
-              <em><%=  @default_project_name %>,
-                Version <%= @default_package.version %>, <%= number_to_human_size @description_package.size %></em>
-            </a>
-            <div id="other-versions-link"><a href="#">Show other versions</a></div>
-          <% end -%>
-        </div>
-
-
-        <div id="pkg-options" class="<%= "hidden" unless @default_package.blank? %>">
-          <ul>
-            <% @distributions.each do |distro| -%>
-              <% if @packages.select{|s| s.baseproject == distro[:project]}.size > 0 %>
-
-                <li>
-                  <a href="#" onclick=" toggle_dist('<%= distro[:dist_id] %>'); return false;"
-                     class="distro-toggle" id="distro-toggle-<%= distro[:dist_id] %>"><%= distro[:name] %></a>
-                  <ul class="pkg-options-details  hidden" id="dist_<%= distro[:dist_id] %>" >
-
-                    <% official = @packages.select{|s| s.project == distro[:project]} %>
-                    <% update = @packages.select{|s| s.project == "#{distro[:project]}:Update"} %>
-
-                    <%= render( :partial => 'download_rows', :locals => {:packages => official, :distro => distro} ) if update.blank? %>
-                    <%= render :partial => 'download_rows', :locals => {:packages => update, :distro => distro} %>
-
-                    <% official_projects = @distributions.map{|d| d[:project]} %>
-                    <% devel = @packages.select{|s| s.baseproject == distro[:project] } %>
-                    <% devel = devel.reject{|s| official_projects.include?( s.project ) || s.project.match( /^home\:/ ) || s.project.match( /#{distro[:project]}\:Update/ ) ||
-                        s.project.match( /openSUSE\:Maintenance\:/ ) } %>
-                    <% home = @packages.select{|s| s.baseproject == distro[:project] } %>
-                    <% home = home.select{|s| s.project.match( /^home\:/ )} %>
-
-                    <% unless home.blank? && devel.blank? %>
-                      <li id="unsupported_link_<%= distro[:dist_id] %>">
-                        <a class="trigger-show-more" href="#" onclick="toggle_unsupported('<%= distro[:dist_id] %>'); return false;">Show unsupported packages</a></li>
-                    <% end -%>
-                  </ul>
-                  <ul class="pkg-options-details  hidden" id="dist_home_<%= distro[:dist_id] %>" >
-                    <%= render :partial => 'download_rows', :locals => {:packages => devel, :distro => distro} %>
-                    <%= render :partial => 'download_rows', :locals => {:packages => home, :distro => distro} %>
-                  </ul>
-
-                </li>
-
+              <% unless @appcategories.blank? %>
+                <p id="pkg-categorie-note">
+                  <strong><%=  @appcategories.size > 1 ? _("Categories") : _("Category") %>:</strong>
+                  <% @appcategories.each do |cat| -%>
+                    <%= link_to cat, "#" %>
+                  <% end -%>
+                </p>
               <% end -%>
+
+              <h3><%=  desc_package.summary %></h3>
+            <% end -%>
+            <div class="app-screenshot">
+              <%= link_to( image_tag( screenshot_thumb_url( @pkgname ), :height => 120 ), @screenshot, { :rel => "lightbox", :title => "Screenshot of  #{@pkgname}" } ) %>
+            </div>
+
+          <% if  desc_package.blank? %>
+              <p>No description found...</p>
+            <% else %>
+              <p id="pkg-desc"><%= prepare_desc desc_package.description -%></p>
+                   <!-- <i>(from <%= desc_package.project %>)</i> -->
             <% end -%>
 
-            <% #get extra distributions that are not in the default distribution list %>
-            <% @extra_packages = @packages.reject{|p| @distributions.map{|d| d[:project]}.include? p.baseproject } %>
-            <% @extra_dists = @extra_packages.map{|p| p.baseproject}.uniq.map{|d| {:project => d}}.reject{|d| d[:project].nil?} %>
+            <% unless @default_package.blank? %>
+              <% url = url_for :controller => 'main', :action => 'ymp_without_arch_and_version',
+                :project => @default_package.project, :repository => @default_package.repository, :package => @pkgname, :base => @default_package.baseproject %>
+              <a id="one-click-button" href="<%= url %>">
+                <%= image_tag "download-arrow.png", :width => "36", :height => "36", :alt => "Download Arrow" %>
+                <strong>Direct Install</strong><br/>
+                <em><%=  @default_project_name %>,
+                  Version <%= @default_package.version %>, <%= number_to_human_size desc_package.size %></em>
+              </a>
+              <div id="other-versions-link"><a href="#">Show other versions</a></div>
+            <% end -%>
+          </div>
 
-            <% unless @extra_dists.blank?  %>
 
-              <a id="show-extra-dists" href="#">Show more packages for unsupported distributions</a>
-              <%  @extra_dists.each do |distro| -%>
-                <li class="extra-dists hidden">
-                  <a href="#" onclick=" toggle_dist('<%= escape_for_id distro[:project] %>'); return false;"
-                     class="distro-toggle" id="distro-toggle-<%= escape_for_id distro[:project] %>"><%= distro[:project] %></a>
-                     <% pks = @extra_packages.select{|s| s.baseproject == distro[:project] } %>
-                  <ul class="pkg-options-details  hidden" id="dist_<%= escape_for_id distro[:project] %>" >
-                    <%= render :partial => 'download_rows', :locals => {:packages => pks, :distro => distro} %>
-                  </ul>
-                </li>
+          <div id="pkg-options" class="<%= "hidden" unless @default_package.blank? %>">
+            <ul>
+              <% @distributions.each do |distro| -%>
+                <% if @packages.select{|s| s.baseproject == distro[:project]}.size > 0 %>
+
+                  <li>
+                    <a href="#" onclick=" toggle_dist('<%= distro[:dist_id] %>'); return false;"
+                       class="distro-toggle" id="distro-toggle-<%= distro[:dist_id] %>"><%= distro[:name] %></a>
+                    <ul class="pkg-options-details  hidden" id="dist_<%= distro[:dist_id] %>" >
+
+                      <% official = @packages.select{|s| s.project == distro[:project]} %>
+                      <% update = @packages.select{|s| s.project == "#{distro[:project]}:Update"} %>
+
+                      <%= render( :partial => 'download_rows', :locals => {:packages => official, :distro => distro} ) if update.blank? %>
+                      <%= render :partial => 'download_rows', :locals => {:packages => update, :distro => distro} %>
+
+                      <% official_projects = @distributions.map{|d| d[:project]} %>
+                      <% devel = @packages.select{|s| s.baseproject == distro[:project] } %>
+                      <% devel = devel.reject{|s| official_projects.include?( s.project ) || s.project.match( /^home\:/ ) || s.project.match( /#{distro[:project]}\:Update/ ) ||
+                          s.project.match( /openSUSE\:Maintenance\:/ ) } %>
+                      <% home = @packages.select{|s| s.baseproject == distro[:project] } %>
+                      <% home = home.select{|s| s.project.match( /^home\:/ )} %>
+
+                      <% unless home.blank? && devel.blank? %>
+                        <li id="unsupported_link_<%= distro[:dist_id] %>">
+                          <a class="trigger-show-more" href="#" onclick="toggle_unsupported('<%= distro[:dist_id] %>'); return false;">Show unsupported packages</a></li>
+                      <% end -%>
+                    </ul>
+                    <ul class="pkg-options-details  hidden" id="dist_home_<%= distro[:dist_id] %>" >
+                      <%= render :partial => 'download_rows', :locals => {:packages => devel, :distro => distro} %>
+                      <%= render :partial => 'download_rows', :locals => {:packages => home, :distro => distro} %>
+                    </ul>
+
+                  </li>
+
+                <% end -%>
+              <% end -%>
+
+              <% #get extra distributions that are not in the default distribution list %>
+              <% @extra_packages = @packages.reject{|p| @distributions.map{|d| d[:project]}.include? p.baseproject } %>
+              <% @extra_dists = @extra_packages.map{|p| p.baseproject}.uniq.map{|d| {:project => d}}.reject{|d| d[:project].nil?} %>
+
+              <% unless @extra_dists.blank?  %>
+
+                <a id="show-extra-dists" href="#">Show more packages for unsupported distributions</a>
+                <%  @extra_dists.each do |distro| -%>
+                  <li class="extra-dists hidden">
+                    <a href="#" onclick=" toggle_dist('<%= escape_for_id distro[:project] %>'); return false;"
+                       class="distro-toggle" id="distro-toggle-<%= escape_for_id distro[:project] %>"><%= distro[:project] %></a>
+                       <% pks = @extra_packages.select{|s| s.baseproject == distro[:project] } %>
+                    <ul class="pkg-options-details  hidden" id="dist_<%= escape_for_id distro[:project] %>" >
+                      <%= render :partial => 'download_rows', :locals => {:packages => pks, :distro => distro} %>
+                    </ul>
+                  </li>
+                <% end %>
               <% end %>
-            <% end %>
 
-          </ul>
+            </ul>
+          </div>
+
         </div>
+
+        <!-- End of Main Column -->
+
+        <div class="clearfix"></div>
 
       </div>
+      <!-- End of Main Content -->
 
-      <!-- End of Main Column -->
-
-      <div class="clearfix"></div>
-
-    </div>
-    <!-- End of Main Content -->
-
-  <% end -%>
+    <% end -%>
+  </div>
 </div>

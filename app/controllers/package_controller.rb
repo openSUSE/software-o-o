@@ -1,6 +1,7 @@
 class PackageController < ApplicationController
 
   before_filter :set_beta_warning
+  before_filter :set_search_options, :only => [:show]
 
   def show
     required_parameters :package
@@ -30,21 +31,6 @@ class PackageController < ApplicationController
       @name = appdata.application.name.text
       @appcategories = appdata.application.appcategories.each.map{|c| c.text}.reject{|c| c.match(/^X-SuSE/)}.uniq
       @homepage = appdata.application.url.text
-    end
-
-    # TODO: released projects don't give info over the api... (bnc#749828)
-    cache_key = "description_package_#{@pkgname}"
-    @description_package =  Rails.cache.fetch(cache_key, :expires_in => 3.hours) do
-      @packages.select{|p| !@distributions.map{|d| d[:project]}.include? p.project}.each do |package|
-        @description_package = nil
-        unless package.description.blank?
-          @description_package = package
-          logger.debug "Found package info in: #{package.project}"
-          break
-        end
-        logger.debug "No package info in: #{package.project}"
-      end
-      @description_package
     end
 
     #TODO: get distro spezific screenshot, cache from debshots etc.
