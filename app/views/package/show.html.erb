@@ -40,7 +40,7 @@
       minWidth: 500,
       modal: true,
       closeText: 'hide',
-      closeOnEscape: false,
+      closeOnEscape: true,
       draggable: false,
       resizable: false,
       title: 'Warning',
@@ -48,8 +48,8 @@
           $(this).dialog("close");
           $('#dist_home_' + current_warning_dist).show();
           $('#unsupported_link_' + current_warning_dist).hide();
-       }
-     }
+        }
+      }
     });
 
     $(".ui-icon-closethick").hide();
@@ -58,7 +58,17 @@
     });
 
     $("#toggle_unsupported_warning").click(function() {
-       $.cookie("skip_unsupported_warning", "true", { path: '/', expires: 365 });
+      $.cookie("skip_unsupported_warning", "true", { path: '/', expires: 365 });
+    });
+
+    $("#other-versions-link").click(function() {
+      $("#pkg-options").slideToggle();
+      $("#other-versions-link").hide();
+    });
+
+    $('#show-extra-dists').click(function() {
+      $('#show-extra-dists').hide();
+      $('.extra-dists').slideToggle();
     });
 
   });
@@ -126,11 +136,12 @@
               <em><%=  @default_project_name %>,
                 Version <%= @default_package.version %>, <%= number_to_human_size @description_package.size %></em>
             </a>
+            <div id="other-versions-link"><a href="#">Show other versions</a></div>
           <% end -%>
         </div>
 
 
-        <div id="pkg-options">
+        <div id="pkg-options" class="<%= "hidden" unless @default_package.blank? %>">
           <ul>
             <% @distributions.each do |distro| -%>
               <% if @packages.select{|s| s.baseproject == distro[:project]}.size > 0 %>
@@ -154,7 +165,8 @@
                     <% home = home.select{|s| s.project.match( /^home\:/ )} %>
 
                     <% unless home.blank? && devel.blank? %>
-                      <li id="unsupported_link_<%= distro[:dist_id] %>"><a class="trigger-show-more" href="#" onclick="toggle_unsupported('<%= distro[:dist_id] %>'); return false;">Show unsupported packages</a></li>
+                      <li id="unsupported_link_<%= distro[:dist_id] %>">
+                        <a class="trigger-show-more" href="#" onclick="toggle_unsupported('<%= distro[:dist_id] %>'); return false;">Show unsupported packages</a></li>
                     <% end -%>
                   </ul>
                   <ul class="pkg-options-details  hidden" id="dist_home_<%= distro[:dist_id] %>" >
@@ -173,7 +185,7 @@
 
             <% unless @extra_dists.blank?  %>
 
-              <a id="show-extra-dists" href="#" onclick="$('.extra-dists').toggle(); return false;">Show more packages for unsupported distributions</a>
+              <a id="show-extra-dists" href="#">Show more packages for unsupported distributions</a>
               <%  @extra_dists.each do |distro| -%>
                 <li class="extra-dists hidden">
                   <a href="#" onclick=" toggle_dist('<%= escape_for_id distro[:project] %>'); return false;"

@@ -29,6 +29,7 @@ class ApiConnect
     end
   end
 
+
   def self.logger
     RAILS_DEFAULT_LOGGER
   end

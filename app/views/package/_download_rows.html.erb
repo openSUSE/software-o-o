@@ -1,10 +1,8 @@
 
 <% packages.flatten.group_by(&:project).each do |result| %>
   <li>
-    <% if  result.first == distro[:project] %>
-      <% name = "official" %>
-    <% elsif result.first == "#{distro[:project]}:Update" %>
-      <% name = "<b>official</b>" %>
+    <% if  result.first == distro[:project] || result.first == "#{distro[:project]}:Update" %>
+      <% name = "official release" %>
     <% else %>
       <% name = shorten result.first, 25 %>
     <% end -%>
@@ -16,9 +14,13 @@
     <% release = result.last.select{|r| r.version == version }.map{|v| v.release.sub(".", "").to_i}.max %>
     <ul class="pkg-typ-options">
       <li><%= shorten version, 12 %></li>
-      <% result.last.select{|r| r.version == version && r.release.sub(".", "").to_i == release }.each do |bin| %>
-        <li><%= link_to human_arch( bin.arch ), "http://download.opensuse.org/repositories/" + bin.filepath  %> </li>
-      <% end %>
+      <% items = result.last.select{|r| r.version == version && r.release.sub(".", "").to_i == release } %>
+      <% archs = items.map{|item| human_arch( item.arch ) }.sort %>
+      <% archs.each do |arch| %>
+        <% items.select{|item| human_arch( item.arch ) == arch}.each do |bin| %>
+          <li><%= link_to human_arch( bin.arch ), "http://download.opensuse.org/repositories/" + bin.filepath  %> </li>
+        <% end -%>
+      <% end -%>
     </ul>
     <% if distro[:project].match(/SUSE/) %>
       <% url = url_for :controller => 'main', :action => 'ymp_without_arch_and_version',

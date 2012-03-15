@@ -52,10 +52,5 @@ class PackageController < ApplicationController
 
   end
 
-
- private
-
-
-
 end
  
