@@ -1,16 +1,15 @@
-
 <% if @result.blank? %>
 
-  <p>No packages found matching your search</p>
+<div id="search-result-error" >
+  <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">
+    <p id="msg">
+      <span class="ui-icon ui-icon-info"/>
+      <%= _("No packages found matching your search") %>
+    </p>
+  </div>
+</div>
 
 <% else %>
-
-  <% if @result.select{|p| p[:name] == @search_term}.size > 0 %>
-
-
-
-  <% end %>
-
 
   <div class="box box-shadow">
     <div class="box-header"> </div>
