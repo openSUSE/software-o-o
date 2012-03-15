@@ -31,18 +31,18 @@
           <% devel_packages = @result.select{|r| devel_pack_match.include? r[:name] } -%>
           <% unless devel_packages.blank? %>
             <p>Development packages:
-              <% devel_packages.each do |subpackage| %>
-                <%= link_to subpackage[:name].sub("#{package[:name]}-", ""), :controller => :package, :action => :show, :package => subpackage[:name], :search_term => @search_term  %>
+              <% devel_packages.map{|pkg| pkg[:name]}.sort.each do |subpackage| %>
+                <%= link_to subpackage.sub("#{package[:name]}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
               <% end %>
             </p>
             <% @result.reject! {|r| devel_pack_match.include? r[:name] }  -%>
           <% end -%>
 
-          <% sub_packages = @result.select{|r| r[:name].match(/^#{package[:name]}-/) } -%>
+          <% sub_packages = @result.map{|pkg| pkg[:name]}.sort.select{|name| name.match(/^#{package[:name]}-/) } -%>
           <% unless sub_packages.blank? -%>
             <p>Sub-packages:
               <% sub_packages.each do |subpackage| %>
-                <%= link_to subpackage[:name].sub("#{package[:name]}-", ""), :controller => :package, :action => :show, :package => subpackage[:name], :search_term => @search_term  %>
+                <%= link_to subpackage.sub("#{package[:name]}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
               <% end %>
             </p>
             <% @result.reject! {|r| r[:name].match(/^#{package[:name]}-/) }  -%>
