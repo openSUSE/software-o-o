@@ -24,6 +24,10 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '121/:lang', :controller => 'main', :action => 'release', :release => "121"
   map.connect '114/:lang', :controller => 'main', :action => 'release', :release => "114", :outdated => true
   map.connect '113/:lang', :controller => 'main', :action => 'release', :release => "113", :outdated => true
+
+  #map unavailable version to the latest release
+  map.connect ':version/:lang', :controller => 'main', :action => 'release', :release => "121", :requirements => { :version => /[\d]+/ }
+
   map.connect 'developer/:lang', :controller => 'main', :action => 'release', :release => "developer"
 
   map.connect 'package/:package', :controller => 'package', :action => 'show', :requirements => { :package => /[\w\-\.:]+/ }

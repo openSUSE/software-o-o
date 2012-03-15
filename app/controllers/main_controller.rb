@@ -13,7 +13,9 @@ class MainController < ApplicationController
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
     DownloadHistory.create :query => params[:query], :base => params[:base],
       :ymp => path
-    res = ApiConnect::get(path)
+    res =  Rails.cache.fetch( Rails.cache.escape_key( "ymp_#{path}"  ), :expires_in => 1.hour) do
+      ApiConnect::get(path)
+    end
     render :text => res.body, :content_type => res.content_type
   end
 
@@ -21,7 +23,9 @@ class MainController < ApplicationController
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:package]}?view=ymp"
     DownloadHistory.create :query => params[:query], :base => params[:base],
       :ymp => path
-    res = ApiConnect::get(path)
+    res =  Rails.cache.fetch( Rails.cache.escape_key( "ymp_#{path}"  ), :expires_in => 1.hour) do
+      ApiConnect::get(path)
+    end
     render :text => res.body, :content_type => res.content_type
   end
 
@@ -120,7 +124,7 @@ class MainController < ApplicationController
   def developer
     redirectit("developer") and return
     flash.now[:warn] = _("We currently don't have a Factory Snapshot that is more recent than our last openSUSE release. <br/>" +
-      "Please check <a href='http://en.opensuse.org/Portal:Factory'>http://en.opensuse.org/Portal:Factory</a> for more information.")
+        "Please check <a href='http://en.opensuse.org/Portal:Factory'>http://en.opensuse.org/Portal:Factory</a> for more information.")
     @exclude_debug = true
     @include_home = 'false'
     set_release("121")
