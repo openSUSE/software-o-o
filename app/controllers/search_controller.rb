@@ -1,6 +1,7 @@
 class SearchController < ApplicationController
 
   before_filter :set_beta_warning, :only => [:find, :searchresult]
+  before_filter :set_search_options, :only => [:find, :searchresult]
 
   def index
     @exclude_debug = true
@@ -20,11 +21,30 @@ class SearchController < ApplicationController
     redirect_to "http://download.opensuse.org/repositories/" + params[:file]
   end
 
+  def set_search_options
+    @search_term = CGI::unescape( params[:q] || "" )
+    @baseproject = cookies[:search_baseproject] unless @distributions.select{|d| d[:project] == cookies[:search_baseproject]}.blank?
+    @baseproject = params[:baseproject] unless @distributions.select{|d| d[:project] == params[:baseproject]}.blank?
+    @search_devel = cookies[:search_devel] unless cookies[:search_devel].blank?
+    @search_devel = params[:search_devel] unless params[:search_devel].blank?
+    @search_unsupported = cookies[:search_unsupported] unless cookies[:search_unsupported] .blank?
+    @search_unsupported = params[:search_unsupported] unless params[:search_unsupported].blank?
+    @search_devel = ( @search_devel == "true" ? true : false )
+    @search_unsupported = ( @search_unsupported == "true" ? true : false )
+    @exclude_debug = @search_devel ? false : true
+    @exclude_filter = @search_unsupported ? nil : 'home:'
+    cookies[:search_devel] = { :value => @search_devel, :expires => 1.year.from_now }
+    cookies[:search_unsupported] = { :value => @search_unsupported, :expires => 1.year.from_now }
+    cookies[:search_baseproject] = { :value => @baseproject, :expires => 1.year.from_now }
+  end
+
+
   def searchresult
     required_parameters :q
-    @search_term = CGI::unescape( params[:q] )
+    
+    base = @baseproject=="ALL" ? "" : @baseproject
     begin
-      @packages = Seeker.prepare_result("#{@search_term}", nil, nil, nil, nil)
+      @packages = Seeker.prepare_result("#{@search_term}", base, nil, @exclude_filter, @exclude_debug)
       SearchHistory.create :query => @search_term, :count => @packages.size
     rescue => e
       search_error, code, api_exception = ActiveXML::Transport.extract_error_message e
@@ -32,10 +52,16 @@ class SearchController < ApplicationController
         logger.debug("Too many hits, trying exact match for: #{@search_term}")
         SearchHistory.create :query => @search_term, :count => 0
         @search_term = @search_term.split(" ").map{|x| "\"#{CGI.escape(x)}\""}.join(" ")
-        @packages = Seeker.prepare_result("#{@search_term}", nil, nil, nil, nil)
+        @packages = Seeker.prepare_result("#{@search_term}", base, nil, @exclude_filter, @exclude_debug)
       end
       raise e if @packages.nil?
     end
+
+    # filter out devel projects on user setting
+    if @exclude_filter
+      @packages = @packages.select{|p| @distributions.map{|d| d[:project]}.include? p.project }
+    end
+
     # only show hits from our base distributions right now
     @packages = @packages.select{|p| @distributions.map{|d| d[:project]}.include? p.baseproject }
     # only show rpms

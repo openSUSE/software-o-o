@@ -49,7 +49,7 @@ module PackageHelper
     when /-debugsource$/
       screenshot_thumb = image_path "file_settings.png"
     else
-      screenshot_thumb = "http://screenshots.debian.net/thumbnail/" + pkgname
+      screenshot_thumb = "http://screenshots.debian.net/thumbnail/" + pkgname.downcase
     end
     screenshot_thumb
   end

@@ -9,7 +9,7 @@ class Seeker < ActiveXML::Base
     cache_key += "_#{exclude_debug}" if exclude_debug
     cache_key += "_#{project}" if project
     cache_key = 'searchresult_' + MD5::md5( cache_key ).to_s
-    Rails.cache.fetch(cache_key, :expires_in => 60.minutes) do
+    Rails.cache.fetch(cache_key, :expires_in => 120.minutes) do
       SearchResult.search(query, baseproject, project, exclude_filter, exclude_debug)
     end
   end
@@ -34,7 +34,7 @@ class Seeker < ActiveXML::Base
       xpath_items <<  "path/project='#{baseproject}'" unless baseproject.blank?
       xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" unless exclude_filter.blank?
       xpath_items << versrel.map {|part| "starts-with(@versrel,'#{part}')"}.join(" and ") unless versrel.blank?
-      xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource'))" if exclude_debug
+      xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) and not(contains-ic(@name, '-devel'))" if exclude_debug
       xpath = xpath_items.join(' and ')
 
       bin = Seeker.find :binary, :match => xpath
