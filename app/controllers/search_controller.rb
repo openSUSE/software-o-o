@@ -23,7 +23,6 @@ class SearchController < ApplicationController
 
   def set_search_options
     @search_term = CGI::unescape( params[:q] || "" )
-    @baseproject = cookies[:search_baseproject] unless @distributions.select{|d| d[:project] == cookies[:search_baseproject]}.blank?
     @baseproject = params[:baseproject] unless @distributions.select{|d| d[:project] == params[:baseproject]}.blank?
     @search_devel = cookies[:search_devel] unless cookies[:search_devel].blank?
     @search_devel = params[:search_devel] unless params[:search_devel].blank?

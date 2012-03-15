@@ -13,7 +13,7 @@ class PackageController < ApplicationController
     @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
     # only show rpms
     @packages = @packages.select{|p| p.first.type == 'rpm'}
-    @default_project = @template.default_baseproject
+    @default_project = @baseproject || @template.default_baseproject
     @default_project_name = @distributions.select{|d| d[:project] == @default_project}.first[:name]
     @default_repo = @distributions.select{|d| d[:project] == @default_project}.first[:repository]
     if (@packages.select{|s| s.project == "#{@default_project}:Update"}.size >0)

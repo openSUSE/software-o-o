@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_language
   before_filter :set_distributions
+  before_filter :set_baseproject
   
   helper :all # include all helpers, all the time
   require "rexml/document"
@@ -53,6 +54,10 @@ class ApplicationController < ActionController::Base
     @distributions = Rails.cache.fetch('distributions', :expires_in => 120.minutes) do
       load_distributions
     end
+  end
+
+  def set_baseproject
+    @baseproject = cookies[:search_baseproject] unless @distributions.select{|d| d[:project] == cookies[:search_baseproject]}.blank?
   end
 
 
