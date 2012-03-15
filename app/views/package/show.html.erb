@@ -104,6 +104,11 @@
 
         <!-- Main Column -->
         <div id="pkg-content" class="grid_10 prefix_1 suffix_1">
+
+          <div class="app-screenshot">
+            <%= link_to( image_tag( screenshot_thumb_url( @pkgname ), :height => 120 ), @screenshot, { :rel => "lightbox", :title => "Screenshot of  #{@pkgname}" } ) %>
+          </div>
+
           <div id="pkg-description">
             <h1><%= @name || @pkgname %></h1>
             <% desc_package = search_for_description( @pkgname, @packages ) %>
@@ -120,11 +125,8 @@
 
               <h3><%=  desc_package.summary %></h3>
             <% end -%>
-            <div class="app-screenshot">
-              <%= link_to( image_tag( screenshot_thumb_url( @pkgname ), :height => 120 ), @screenshot, { :rel => "lightbox", :title => "Screenshot of  #{@pkgname}" } ) %>
-            </div>
 
-          <% if  desc_package.blank? %>
+            <% if  desc_package.blank? %>
               <p>No description found...</p>
             <% else %>
               <p id="pkg-desc"><%= prepare_desc desc_package.description -%></p>
@@ -134,13 +136,15 @@
             <% unless @default_package.blank? %>
               <% url = url_for :controller => 'main', :action => 'ymp_without_arch_and_version',
                 :project => @default_package.project, :repository => @default_package.repository, :package => @pkgname, :base => @default_package.baseproject %>
-              <a id="one-click-button" href="<%= url %>">
-                <%= image_tag "download-arrow.png", :width => "36", :height => "36", :alt => "Download Arrow" %>
-                <strong>Direct Install</strong><br/>
-                <em><%=  @default_project_name %>,
-                  Version <%= @default_package.version %>, <%= number_to_human_size desc_package.size %></em>
-              </a>
-              <div id="other-versions-link"><a href="#">Show other versions</a></div>
+              <div id="one-click-button-box">
+                <a id="one-click-button" href="<%= url %>">
+                  <%= image_tag "download-arrow.png", :width => "36", :height => "36", :alt => "Download Arrow" %>
+                  <strong>Direct Install</strong><br/>
+                  <em><%=  @default_project_name %>,
+                    Version <%= @default_package.version %>, <%= number_to_human_size desc_package.size %></em>
+                </a>
+                <div id="other-versions-link"><a href="#">Show other versions</a></div>
+              </div>
             <% end -%>
           </div>
 

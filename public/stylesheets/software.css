@@ -184,7 +184,7 @@ ul#search-result-list {
 }
 ul#search-result-list li {
     padding: 0.5em;
-    min-height: 80px;
+    min-height: 90px;
 }
 ul#search-result-list li:nth-child(even) {
     background-color: #eee;
@@ -234,6 +234,7 @@ input[type="submit"].search-go-button {
     box-shadow: 0 1px 2px #999;
     -moz-box-shadow: 0 1px 2px #999;
     -webkit-box-shadow: 0 1px 2px #999;
+    margin-top: 0.5em;
 }
 
 .app-screenshot ~ p, .app-screenshot ~ a#one-click-button { /* If screenshot is available sibling <p> get left margin.*/
@@ -285,6 +286,16 @@ input[type="submit"].search-go-button {
 }
 
 .pkg-content {}
+
+
+#pkg-description{
+    margin-left: 190px;
+}
+
+#pkg-description p{
+    margin-left: 0px;
+}
+
 #pkg-description h1, #pkg-description h3{
     margin-left: 0px;
 }
@@ -314,9 +325,12 @@ input[type="submit"].search-go-button {
     -webkit-box-shadow: 0 1px 2px #999;
 
     padding: 10px;
-    width: 300px;
-
 }
+
+#one-click-button-box {
+    width: 340px;
+}
+
 #one-click-button strong,
 #one-click-button em {
     margin-left: 10px;
@@ -481,8 +495,8 @@ select  {
 
 #other-versions-link {
     margin-bottom: 10px;
-    margin-left: 410px;
-    margin-top: 10px;
+    float: right;
+    margin-top: 6px;
     font-size: 80%;
     
 }
