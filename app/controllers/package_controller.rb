@@ -19,6 +19,8 @@ class PackageController < ApplicationController
     @default_repo = @distributions.select{|d| d[:project] == @default_project}.first[:repository]
     if (@packages.select{|s| s.project == "#{@default_project}:Update"}.size >0)
       @default_package = @packages.select{|s| s.project == "#{@default_project}:Update"}.first
+    elsif (@packages.select{|s| s.project == "#{@default_project}:NonFree"}.size >0)
+      @default_package = @packages.select{|s| s.project == "#{@default_project}:NonFree"}.first
     else
       @default_package = @packages.select{|s| s.project == (@default_project)}.first
     end
