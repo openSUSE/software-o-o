@@ -1,3 +1,15 @@
+<% if DEFAULT_SEARCHES[@search_term] %>
+<div id="search-result-error" >
+  <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">
+    <p id="msg">
+      <span class="ui-icon ui-icon-info"/>
+      <%=DEFAULT_SEARCHES[@search_term] %>
+    </p>
+  </div>
+</div>
+<% end %>
+
+
 <% if @result.blank? %>
 
 <div id="search-result-error" >
