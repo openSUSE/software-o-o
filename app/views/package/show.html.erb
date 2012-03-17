@@ -138,7 +138,7 @@
                   <%= image_tag "download-arrow.png", :width => "36", :height => "36", :alt => "Download Arrow" %>
                   <strong>Direct Install</strong><br/>
                   <em><%=  @default_project_name %>,
-                    Version <%= @default_package.version %>, <%= number_to_human_size @default_package.size %></em>
+                    Version <%= @default_package.version %><%= ", #{number_to_human_size desc_package.size}" if desc_package %></em>
                 </a>
                 <div id="other-versions-link"><a href="#">Show other versions</a></div>
               </div>
