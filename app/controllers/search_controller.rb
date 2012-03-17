@@ -42,11 +42,12 @@ class SearchController < ApplicationController
 
     # filter out devel projects on user setting
     if @exclude_filter
-      @packages = @packages.select{|p| @distributions.map{|d| d[:project]}.include? p.project }
+      @packages = @packages.select{|p| (@distributions.map{|d| d[:project]}.include? p.project) ||
+          @distributions.map{|d| "#{d[:project]}:Update"}.include?( p.project ) || @distributions.map{|d| "#{d[:project]}:NonFree"}.include?( p.project ) }
     end
 
-    # only show hits from our base distributions right now
-    @packages = @packages.select{|p| @distributions.map{|d| d[:project]}.include? p.baseproject }
+    # only show hits for our base distributions right now
+    @packages = @packages.select{|p| @distributions.map{|d| d[:project]}.include?( p.baseproject ) }
     # only show rpms
     @packages = @packages.select{|p| p.first.type == 'rpm'}
 
