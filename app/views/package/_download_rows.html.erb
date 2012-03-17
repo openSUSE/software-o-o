@@ -16,7 +16,7 @@
     <% version = result.last.map{|r| r.version }.max %>
     <% release = result.last.select{|r| r.version == version }.map{|v| v.release.sub(".", "").to_i}.max %>
     <ul class="pkg-typ-options">
-      <li><%= shorten version, 12 %></li>
+      <li><%= shorten version, 14 %></li>
       <% items = result.last.select{|r| r.version == version && r.release.sub(".", "").to_i == release } %>
       <% archs = items.map{|item| human_arch( item.arch ) }.uniq.sort %>
       <% archs.each do |arch| %>
