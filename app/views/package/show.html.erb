@@ -64,11 +64,13 @@
     $("#other-versions-link").click(function() {
       $("#pkg-options").slideToggle();
       $("#other-versions-link").hide();
+      return false;
     });
 
     $('#show-extra-dists').click(function() {
       $('#show-extra-dists').hide();
       $('.extra-dists').slideToggle();
+      return false;
     });
 
   });

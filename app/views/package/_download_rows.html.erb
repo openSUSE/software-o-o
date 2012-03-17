@@ -15,7 +15,7 @@
     <ul class="pkg-typ-options">
       <li><%= shorten version, 12 %></li>
       <% items = result.last.select{|r| r.version == version && r.release.sub(".", "").to_i == release } %>
-      <% archs = items.map{|item| human_arch( item.arch ) }.sort %>
+      <% archs = items.map{|item| human_arch( item.arch ) }.uniq.sort %>
       <% archs.each do |arch| %>
         <% items.select{|item| human_arch( item.arch ) == arch}.each do |bin| %>
           <li><%= link_to human_arch( bin.arch ), "http://download.opensuse.org/repositories/" + bin.filepath  %> </li>
