@@ -154,7 +154,7 @@
                   <li>
                     <a href="#" onclick=" toggle_dist('<%= distro[:dist_id] %>'); return false;"
                        class="distro-toggle" id="distro-toggle-<%= distro[:dist_id] %>"><%= distro[:name] %></a>
-                    <ul class="pkg-options-details  hidden" id="dist_<%= distro[:dist_id] %>" >
+                    <ul class="pkg-options-details  <%= "hidden" unless (@default_package.blank? && (distro[:project] == @baseproject ))%>" id="dist_<%= distro[:dist_id] %>" >
 
                       <% official = @packages.select{|s| s.project == distro[:project] || s.project == "#{distro[:project]}:NonFree" } %>
                       <% update = @packages.select{|s| s.project == "#{distro[:project]}:Update"} %>
