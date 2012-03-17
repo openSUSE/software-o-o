@@ -145,7 +145,7 @@ class Seeker < ActiveXML::Base
       attr_reader :description
       attr_reader :short_description
       attr_reader :relevance
-      attr_reader :baseproject
+      attr_accessor :baseproject
 
       def initialize(key, query)
         @key = key

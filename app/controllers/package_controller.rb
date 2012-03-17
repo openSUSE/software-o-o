@@ -38,6 +38,15 @@ class PackageController < ApplicationController
     #TODO: get distro spezific screenshot, cache from debshots etc.
     @screenshot = "http://screenshots.debian.net/screenshot/" + @pkgname.downcase
 
+    #TODO: sort out tumbleweed packages as seperate repo, maybe obs can mark that as seperate baseproject? 
+    @packages.each do |package|
+    if (package.repository == "openSUSE_Tumbleweed") || (package.project == "openSUSE:Tumbleweed")
+      package.baseproject = "openSUSE:Tumbleweed"
+    end
+
+    end
+
+
   end
 
 end
