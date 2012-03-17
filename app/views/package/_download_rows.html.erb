@@ -1,14 +1,17 @@
 
 <% packages.flatten.group_by(&:project).each do |result| %>
   <li>
-    <% if  result.first == distro[:project] || result.first == "#{distro[:project]}:Update" %>
-      <% name = "official release" %>
-    <% else %>
-      <% name = shorten result.first, 25 %>
-    <% end -%>
+    <% if  result.first == distro[:project] || result.first == "#{distro[:project]}:NonFree" 
+      name = "official release"
+    elsif result.first == "#{distro[:project]}:Update"
+      name = "official update" 
+    else
+      name = shorten result.first, 25
+    end
 
-    <% pkg_link = (result.last.first.package.nil? ? "" : "&package=#{result.last.first.package}") %>
+    pkg_link = (result.last.first.package.nil? ? "" : "&package=#{result.last.first.package}") %>
     <%= link_to name, "https://build.opensuse.org/package/show?project=#{result.first}" + pkg_link %>
+
   <%# only use the latest version, obs bug: some outdated versions still listed. %>
     <% version = result.last.map{|r| r.version }.max %>
     <% release = result.last.select{|r| r.version == version }.map{|v| v.release.sub(".", "").to_i}.max %>
