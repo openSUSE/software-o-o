@@ -52,11 +52,7 @@ class SearchController < ApplicationController
     @packages = @packages.select{|p| p.first.type == 'rpm'}
 
     @packagenames = @packages.map{|p| p.name}.uniq.sort_by {|x| x.length}
-    @result = @packagenames.map{|p| {
-        :name => p,
-        :description_package => Rails.cache.read( Rails.cache.escape_key( "description_package_#{p}"  ) )
-      }
-    }
+    @result = @packagenames.map{|p| { :name => p } }
     if request.xhr?
       render :partial => 'find_results' and return
     else
