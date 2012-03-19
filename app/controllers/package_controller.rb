@@ -40,7 +40,7 @@ class PackageController < ApplicationController
 
     #TODO: sort out tumbleweed packages as seperate repo, maybe obs can mark that as seperate baseproject? 
     @packages.each do |package|
-    if (package.repository == "openSUSE_Tumbleweed") || (package.project == "openSUSE:Tumbleweed")
+    if ( package.repository.match(/openSUSE_Tumbleweed/) || (package.project == "openSUSE:Tumbleweed") )
       package.baseproject = "openSUSE:Tumbleweed"
     end
 
