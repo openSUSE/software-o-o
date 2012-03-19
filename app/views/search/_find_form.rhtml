@@ -81,10 +81,10 @@
       <p>
         <%= hidden_field_tag("search_devel", "false") %>
         <%= check_box_tag("search_devel", "true", @search_devel, {:id => "search_devel_checkbox" })  %>
-        <label for="search_devel_checkbox">Show development and debug packages</label><br/>
+        <label for="search_devel_checkbox"><%= _("Show development, language and debug packages") %></label><br/>
         <%= hidden_field_tag("search_unsupported", "false") %>
         <%= check_box_tag("search_unsupported", "true", @search_unsupported, {:id => "search_unsupported_checkbox" })  %>
-        <label for="search_unsupported_checkbox">Show unsupported packages</label><br/>
+        <label for="search_unsupported_checkbox"><%= _("Show unsupported packages") %></label><br/>
         <% @distributions ||= Array.new %>
         &nbsp;Show distribution:&nbsp; 
         <%= select_tag 'baseproject', options_for_select((@distributions.map{|d| [d[:name], d[:project]]} || ["ALL"]), (@baseproject or default_baseproject)) %>
