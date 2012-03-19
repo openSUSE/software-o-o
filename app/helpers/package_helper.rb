@@ -20,7 +20,7 @@ module PackageHelper
   end
 
   def shorten(text, chars)
-    text.length > chars ? text[0,chars] + "..." : text
+    text.length > chars ? text[0,chars-1] + "..." : text
   end
 
   def prepare_desc txt
@@ -37,6 +37,8 @@ module PackageHelper
   def screenshot_thumb_url pkgname
     case pkgname
     when /-devel$/
+      screenshot_thumb =  image_path "file_settings.png"
+    when /-lang$/
       screenshot_thumb =  image_path "file_settings.png"
     when /-debug$/
       screenshot_thumb = image_path "file_settings.png"
