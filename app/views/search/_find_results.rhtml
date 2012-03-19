@@ -44,7 +44,7 @@
           <p><i><%= highlight( desc_package.summary, @search_term) %></i></p>
           <% end -%>
 
-          <% devel_pack_match = [package[:name] + "-devel", package[:name] + "-debuginfo", package[:name] + "-debugsource"] -%>
+          <% devel_pack_match = [package[:name] + "-devel", package[:name] + "-lang", package[:name] + "-debuginfo", package[:name] + "-debugsource"] -%>
           <% devel_packages = @result.select{|r| devel_pack_match.include? r[:name] } -%>
           <% unless devel_packages.blank? %>
             <p>Development packages:

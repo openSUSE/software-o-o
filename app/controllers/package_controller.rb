@@ -1,7 +1,7 @@
 class PackageController < ApplicationController
 
   before_filter :set_beta_warning
-  before_filter :set_search_options, :only => [:show]
+  before_filter :set_search_options, :only => [:show, :categories]
 
   def show
     required_parameters :package
@@ -26,10 +26,14 @@ class PackageController < ApplicationController
     end
 
     # Fetch appstream data for app (TODO: needs src package name, not provided by obs for released products)
-    appdata = Appdata.find_cached :prj => @base_appdata_project, :repo => @default_repo, :arch => "i586",
-      :pkgname => @pkgname, :appdata => "#{@pkgname}-appdata.xml", :expires_in => 1.hour
+    # Also caching unavailability of appdata
+    if Rails.cache.read( "appdata-" + @pkgname).nil?
+      appdata = Appdata.find_cached( :prj => @base_appdata_project, :repo => @default_repo, :arch => "i586",
+        :pkgname => @pkgname, :appdata => "#{@pkgname}-appdata.xml", :expires_in => 3.hours )
+      Rails.cache.write( "appdata-" + @pkgname, "", :expires_in => 3.hours  ) if appdata.nil?
+    end
 
-    unless appdata.blank?
+    if ( !appdata.blank? )
       @name = appdata.application.name.text
       @appcategories = appdata.application.appcategories.each.map{|c| c.text}.reject{|c| c.match(/^X-SuSE/)}.uniq
       @homepage = appdata.application.url.text
@@ -40,14 +44,18 @@ class PackageController < ApplicationController
 
     #TODO: sort out tumbleweed packages as seperate repo, maybe obs can mark that as seperate baseproject? 
     @packages.each do |package|
-    if ( package.repository.match(/openSUSE_Tumbleweed/) || (package.project == "openSUSE:Tumbleweed") )
-      package.baseproject = "openSUSE:Tumbleweed"
-    end
+      if ( package.repository.match(/openSUSE_Tumbleweed/) || (package.project == "openSUSE:Tumbleweed") )
+        package.baseproject = "openSUSE:Tumbleweed"
+      end
 
     end
-
-
   end
+
+
+  def categories
+    Appdata.get_distribution
+  end
+
 
 end
  

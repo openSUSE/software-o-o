@@ -76,10 +76,10 @@ module ApplicationHelper
         description_package = nil
         unless package.description.blank?
           description_package = package
-          logger.info "Found package info in: #{package.project}"
+          logger.info "Found package info for #{pkgname} in: #{package.project}"
           break
         end
-        logger.error "No package info in: #{package.project}"
+        logger.error "No package info for  #{pkgname} in: #{package.project}"
       end
       description_package
     end

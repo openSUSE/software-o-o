@@ -2,6 +2,7 @@ class ApiConnect
 
   def self.get(path)
     uri_str = "#{API_HOST}/#{path}".gsub(' ', '%20')
+    uri_str = path if path.match( /^http/ )
     uri = URI.parse(uri_str)
     logger.debug "Loading from api: #{uri_str}"
     begin

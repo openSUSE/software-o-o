@@ -30,6 +30,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect 'developer/:lang', :controller => 'main', :action => 'release', :release => "developer"
 
+  map.connect 'appstore', :controller => 'package', :action => 'categories'
+  map.connect 'appstore/:category', :controller => 'package', :action => 'categories', :requirements => { :category => /[\w\-\.:]*/ }
+
   map.connect 'package/:package', :controller => 'package', :action => 'show', :requirements => { :package => /[\w\-\.:]+/ }
   map.connect 'packages', :controller => 'package', :action => 'list'
 
@@ -40,7 +43,7 @@ ActionController::Routing::Routes.draw do |map|
     :requirements => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :package => /[\w\-\.:]+/ },
     :controller => 'main', :action => 'ymp_without_arch_and_version'
   map.connect 'ymp/:project/:repository/:arch/:binary.ymp',
-    :requirements => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :package => /[\w\-\.:]+/ },
+    :requirements => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :arch => /[\w\-\.:]+/, :binary => /[\w\-\.:]+/ },
     :controller => 'main', :action => 'ymp_with_arch_and_version'
 
   map.connect '/codecs', :controller => 'codecs', :action => 'index'
