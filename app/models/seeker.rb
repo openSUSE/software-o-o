@@ -23,6 +23,8 @@ class Seeker < ActiveXML::Base
       raise "Please provide a valid search term" if words.blank?
 
       xpath_items = Array.new
+      # use contains-ic to catch project names :Update, :NonFree 
+      xpath_items << "contains-ic(@project, '#{project}')" unless project.blank?
       substring_words = words.select{|word| !word.match(/^".+"$/) }.map{|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ")
       unless ( substring_words.blank? )
          xpath_items << "contains-ic(@name, " + substring_words + ")"
@@ -30,7 +32,6 @@ class Seeker < ActiveXML::Base
       words.select{|word| word.match(/^".+"$/) }.map{|word| word.gsub( "\"", "" ) }.each do |word|
         xpath_items << "@name = '#{word.gsub(/['"()]/, "")}' "
       end
-      xpath_items << "@project = '#{project}' " unless project.blank?
       xpath_items <<  "path/project='#{baseproject}'" unless baseproject.blank?
       xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" unless exclude_filter.blank?
       xpath_items << versrel.map {|part| "starts-with(@versrel,'#{part}')"}.join(" and ") unless versrel.blank?

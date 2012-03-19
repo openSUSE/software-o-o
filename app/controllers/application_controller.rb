@@ -132,7 +132,11 @@ class ApplicationController < ActionController::Base
     @search_devel = ( @search_devel == "true" ? true : false )
     @search_unsupported = ( @search_unsupported == "true" ? true : false )
     @exclude_debug = @search_devel ? false : true
-    @exclude_filter = @search_unsupported ? nil : 'home:'
+    if ( @baseproject != "ALL" && !@search_unsupported)
+      @search_project = @baseproject
+    elsif ( !@search_unsupported )
+      @exclude_filter = 'home:'
+    end
     cookies[:search_devel] = { :value => @search_devel, :expires => 1.year.from_now }
     cookies[:search_unsupported] = { :value => @search_unsupported, :expires => 1.year.from_now }
     cookies[:search_baseproject] = { :value => @baseproject, :expires => 1.year.from_now }
