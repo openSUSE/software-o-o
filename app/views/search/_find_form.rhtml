@@ -42,11 +42,12 @@
           $('#search-messages').show();
         }
       });
-
-    } else {
+    } else if (search_term.length > 0 ) {
       $('#msg').html("Please enter more than 2 characters");
       $('#search-result-error').hide();
       $('#search-messages').show();
+    } else {
+      $('#search-messages').hide();
     }
   }
 

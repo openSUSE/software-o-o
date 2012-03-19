@@ -16,7 +16,11 @@
   <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">
     <p id="msg">
       <span class="ui-icon ui-icon-info"/>
-      <%= _("No packages found matching your search") %>
+      <%= _("No packages found matching your search. ") %>
+      <% unless @search_unsupported %>
+      <br/>
+      <%= _("You could try to extend your search to unsupported packages or search for another base distribution (currently #{@baseproject}).") %>
+      <% end %>
     </p>
   </div>
 </div>
