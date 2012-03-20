@@ -1,26 +1,38 @@
 <% @hide_side_box = true -%>
 <% @hide_search_box = true -%>
 
+<script type="text/javascript">
+  $(function() {
+
+    $('.appstore-category-box').each( function(index) {
+      $(this).delay(100 * index).fadeIn('slow');
+    });
+    
+  });
+
+</script>
+
+<h1>openSUSE APPStore </h1>
+
 <%= render :partial => 'search/find_form' %>
 
 
-<div id="search_result_container">
+<div id="search_result_container" class="appstore-container">
 
 
-    <div class="box box-shadow">
-    <h2 class="box-header">test</h2>
+  <% @appdata[:categories][0..8].each do |cat| %>
+    <% apps = @appdata[:apps].select{|app| app[:categories].include? cat} %>
+    <div class="box box-shadow grid_4 appstore-category-box alpha hidden">
+      <h2 class="box-header"><%=cat  %></h2>
+      <p>
+        <% apps[0..8].each do |app| %>
+          <%= link_to app[:name], :controller => :package, :action => :show, :package => app[:pkgname] %>
+        <% end -%>
+      </p>
+    </div>
+
+  <% end %>
 
 
-openSUSE AppStore
 
-
-
-
-
-
-
-      </div>
-
-
-
-  </div>
+</div>
