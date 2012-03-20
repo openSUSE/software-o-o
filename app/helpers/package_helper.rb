@@ -20,7 +20,7 @@ module PackageHelper
   end
 
   def shorten(text, chars)
-    text.length > chars ? text[0,chars-1] + "..." : text
+    text.length > chars ? text[0,chars-2] + "..." : text
   end
 
   def prepare_desc txt
@@ -49,6 +49,8 @@ module PackageHelper
     when /-debuginfo$/
       screenshot_thumb = image_path "file_settings.png"
     when /-debugsource$/
+      screenshot_thumb = image_path "file_settings.png"
+    when /-kmp-/
       screenshot_thumb = image_path "file_settings.png"
     else
       screenshot_thumb = "http://screenshots.debian.net/thumbnail/" + pkgname.downcase

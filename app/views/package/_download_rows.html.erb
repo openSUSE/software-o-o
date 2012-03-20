@@ -6,7 +6,7 @@
     elsif result.first == "#{distro[:project]}:Update"
       name = "official update" 
     else
-      name = shorten result.first, 24
+      name = shorten result.first, 22
     end
 
     pkg_link = (result.last.first.package.nil? ? "" : "&package=#{result.last.first.package}") %>
@@ -16,7 +16,7 @@
     <% version = result.last.map{|r| r.version }.max %>
     <% release = result.last.select{|r| r.version == version }.map{|v| v.release.sub(".", "").to_i}.max %>
     <ul class="pkg-typ-options">
-      <li><%= shorten version, 18 %></li>
+      <li><%= shorten version, 23 %></li>
       <% items = result.last.select{|r| r.version == version && r.release.sub(".", "").to_i == release } %>
       <% archs = items.map{|item| human_arch( item.arch ) }.uniq.sort %>
      <%  archs << "Source" if archs.delete("Source") %>
