@@ -2,6 +2,7 @@ class PackageController < ApplicationController
 
   before_filter :set_beta_warning
   before_filter :set_search_options, :only => [:show, :categories]
+  before_filter :prepare_appdata
 
   def show
     required_parameters :package
@@ -14,7 +15,7 @@ class PackageController < ApplicationController
 
     @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
     # only show rpms
-    @packages = @packages.select{|p| p.first.type == 'rpm'}
+    @packages = @packages.select{|p| p.first.type != 'ymp'}
     @default_project = @baseproject || @template.default_baseproject
     @default_project_name = @distributions.select{|d| d[:project] == @default_project}.first[:name]
     @default_repo = @distributions.select{|d| d[:project] == @default_project}.first[:repository]
@@ -26,18 +27,11 @@ class PackageController < ApplicationController
       @default_package = @packages.select{|s| s.project == (@default_project)}.first
     end
 
-    # Fetch appstream data for app (TODO: needs src package name, not provided by obs for released products)
-    # Also caching unavailability of appdata
-    if Rails.cache.read( "appdata-" + @pkgname).nil?
-      appdata = Appdata.find_cached( :prj => @base_appdata_project, :repo => @default_repo, :arch => "i586",
-        :pkgname => @pkgname, :appdata => "#{@pkgname}-appdata.xml", :expires_in => 3.hours )
-      Rails.cache.write( "appdata-" + @pkgname, "", :expires_in => 3.hours  ) if appdata.nil?
-    end
-
-    if ( !appdata.blank? )
-      @name = appdata.application.name.text
-      @appcategories = appdata.application.appcategories.each.map{|c| c.text}.reject{|c| c.match(/^X-SuSE/)}.uniq
-      @homepage = appdata.application.url.text if appdata.application.url
+    pkg_appdata = @appdata[:apps].select{|app| app[:pkgname] == @pkgname}
+    if ( !pkg_appdata.first.blank? )
+      @name = pkg_appdata.first[:name]
+      @appcategories = pkg_appdata.first[:categories]
+      @homepage = pkg_appdata.first[:homepage]
     end
 
     #TODO: get distro spezific screenshot, cache from debshots etc.
@@ -53,27 +47,25 @@ class PackageController < ApplicationController
   end
 
 
-  def categories
+  private 
 
+  def prepare_appdata
     @appdata =  Rails.cache.fetch("appdata", :expires_in => 12.hours) do
       data = Hash.new
       data[:apps] = Array.new
       xml = Appdata.get_distribution "factory"
-
       xml.xpath("/applications/application").each do |app|
         appdata = Hash.new
         appdata[:name] = app.xpath('name').text
         appdata[:pkgname] = app.xpath('pkgname').text
         appdata[:categories] = app.xpath('appcategories/appcategory').map{|c| c.text}.reject{|c| c.match(/^X-SuSE/)}.uniq
+        appdata[:homepage] = app.xpath('url').text
         data[:apps] << appdata
       end
-
       data[:categories] = xml.xpath("/applications/application/appcategories/appcategory").
         map{|cat| cat.text}.reject{|c| c.match(/^X-SuSE/)}.uniq
-
       data
     end
-
   end
 
 
