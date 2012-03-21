@@ -72,10 +72,11 @@
 
 <div class="box box-shadow pkg-search-box">
   <% form_tag( {:controller => 'search', :action => :searchresult}, :method => :get ) do %>
+  <h1 id="apps-headline">openSUSE Apps</h1>
     <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form",  :autocomplete => "off" %>
     <div id='search-loader' class="hidden"><span id="search-loader-txt"></span> <%= image_tag "ajax-loader.gif" %></div>
     <%= submit_tag _('Search'), :name => nil, :class => "search-go-button" %>
-    <span id="search-options-link"><%= image_tag "configure_search.png", :width => 32 %></span>
+    <span id="search-options-link"><%= image_tag "configure_search.png", :width => 24, :class =>"search-options-link" %></span>
 
     <div id="search-options" class="hidden">
       <p>

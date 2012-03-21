@@ -165,7 +165,8 @@ body {
     background: white url('images/ajax-loader.gif') no-repeat  2px 3px !important;
 }
 
-#search-options-link {
+.search-options-link {
+    margin: 4px;
 }
 
 #search-options {
@@ -224,7 +225,7 @@ input[type="submit"].search-go-button {
     font-weight: bold;
     margin-left: -6px;
     font-size: 1em;
-    padding: 0.3em;
+    padding: 0.3em 0.3em 0.2em 0.3em;
 }
 
 .app-screenshot,  .app-screenshot-search {
@@ -497,7 +498,7 @@ select  {
     margin-bottom: 10px;
     float: right;
     margin-top: 6px;
-    
+
 }
 
 #other-versions-link a {
@@ -509,5 +510,11 @@ select  {
 }
 
 .appstore-category-box {
-    height: 100px;
+    height: 200px;
+}
+
+#apps-headline {
+    color: #FFFFFF;
+    font-size: 1.5em;
+    text-shadow: 0 2px 4px #DDDDDD;
 }

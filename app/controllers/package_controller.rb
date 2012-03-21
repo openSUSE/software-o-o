@@ -58,12 +58,12 @@ class PackageController < ApplicationController
         appdata = Hash.new
         appdata[:name] = app.xpath('name').text
         appdata[:pkgname] = app.xpath('pkgname').text
-        appdata[:categories] = app.xpath('appcategories/appcategory').map{|c| c.text}.reject{|c| c.match(/^X-SuSE/)}.uniq
+        appdata[:categories] = app.xpath('appcategories/appcategory').map{|c| c.text}.reject{|c| c.match(/^X-/)}.uniq
         appdata[:homepage] = app.xpath('url').text
         data[:apps] << appdata
       end
       data[:categories] = xml.xpath("/applications/application/appcategories/appcategory").
-        map{|cat| cat.text}.reject{|c| c.match(/^X-SuSE/)}.uniq
+        map{|cat| cat.text}.reject{|c| c.match(/^X-/)}.uniq
       data
     end
   end

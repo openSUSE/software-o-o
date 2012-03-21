@@ -12,20 +12,26 @@
 
 </script>
 
-<h1>openSUSE APPStore </h1>
-
 <%= render :partial => 'search/find_form' %>
 
 
+<%
+
+main_categories = ["AudioVideo", "Audio", "Video", "Development", "Education", "Game", "Graphics", "Network", "Office", "Settings", "System", "Utility"]
+
+%>
+
+
+
 <div id="search_result_container" class="appstore-container">
+  <p><%= @appdata[:categories].size %> categories, <%= @appdata[:apps].size %> apps</p>
 
-
-  <% @appdata[:categories][0..8].each do |cat| %>
+  <% main_categories.each do |cat| %>
     <% apps = @appdata[:apps].select{|app| app[:categories].include? cat} %>
     <div class="box box-shadow grid_4 appstore-category-box alpha hidden">
-      <h2 class="box-header"><%=cat  %></h2>
+      <h2 class="box-header"><%=  cat  %> (<%= apps.size %> apps)</h2>
       <p>
-        <% apps[0..8].each do |app| %>
+        <% apps[0..16].each do |app| %>
           <%= link_to app[:name], :controller => :package, :action => :show, :package => app[:pkgname] %>
         <% end -%>
       </p>
