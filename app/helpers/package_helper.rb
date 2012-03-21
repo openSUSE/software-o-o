@@ -26,7 +26,7 @@ module PackageHelper
   def prepare_desc txt
     txt = txt.gsub(/[\n][\n]+/, "\n\n")
     txt = create_links txt
-    txt = txt.sub(/Authors:[\w\W]+/, "")
+    txt = txt.sub(/Authors[:]?[\w\W]+/, "")
     txt
   end
 

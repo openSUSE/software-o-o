@@ -15,30 +15,36 @@
 <%= render :partial => 'search/find_form' %>
 
 
-<%
-
-main_categories = ["AudioVideo", "Audio", "Video", "Development", "Education", "Game", "Graphics", "Network", "Office", "Settings", "System", "Utility"]
-
-%>
-
-
-
 <div id="search_result_container" class="appstore-container">
-  <p><%= @appdata[:categories].size %> categories, <%= @appdata[:apps].size %> apps</p>
 
-  <% main_categories.each do |cat| %>
-    <% apps = @appdata[:apps].select{|app| app[:categories].include? cat} %>
-    <div class="box box-shadow grid_4 appstore-category-box alpha hidden">
-      <h2 class="box-header"><%=  cat  %> (<%= apps.size %> apps)</h2>
+
+  <div class="box box-shadow grid_6 appstore-category-box alpha "
+       style="background: url('/images/categories/games.gif') repeat scroll 0 0 #FFFFFF;">
+    <h2 class="box-header">Games</h2>
+  </div>
+  <% @main_sections = @main_sections.delete_if{|section| section[:name] == "Games" } %>
+  <% @main_sections = @main_sections.delete_if{|section| section[:name] == "Multimedia" } %>
+
+
+  <% @main_sections.each do |section| %>
+    <% apps = @appdata[:apps].select{|app| !(app[:categories] & section[:categories]).blank? } %>
+    <div class="box box-shadow grid_3 appstore-category-box alpha hidden"
+         style="background: url('/images/categories/<%= section[:name].downcase %>_box.png') repeat scroll 0 0 #FFFFFF;">
+      <h2 class="box-header"><%=  section[:name]  %></h2>
       <p>
-        <% apps[0..16].each do |app| %>
-          <%= link_to app[:name], :controller => :package, :action => :show, :package => app[:pkgname] %>
-        <% end -%>
+  <%# apps[0..16].each do |app| %>
+  <%# = link_to app[:name], :controller => :package, :action => :show, :package => app[:pkgname] %>
+  <%# end -%>
       </p>
     </div>
 
   <% end %>
 
+
+  <div class="box box-shadow grid_6 appstore-category-box alpha "
+       style="background: url('/images/categories/multimedia_wide.png') repeat scroll 0 0 #FFFFFF;">
+    <h2 class="box-header">Multimedia</h2>
+  </div>
 
 
 </div>

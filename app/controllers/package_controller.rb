@@ -47,6 +47,18 @@ class PackageController < ApplicationController
   end
 
 
+  def categories
+    @main_sections = [
+      {:name => "Games", :categories => ["Game"]},
+      {:name => "Education", :categories => ["Education"]},
+      {:name => "Development", :categories => ["Development"]},
+      {:name => "Office", :categories => ["Office"]},
+      {:name => "Tools", :categories => [ "Network", "Settings", "System", "Utility"]},
+      {:name => "Multimedia", :categories => ["AudioVideo", "Audio", "Video", "Graphics"]},
+    ]
+  end
+
+
   private 
 
   def prepare_appdata
