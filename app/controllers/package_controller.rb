@@ -2,7 +2,7 @@ class PackageController < ApplicationController
 
   before_filter :set_beta_warning
   before_filter :set_search_options, :only => [:show, :categories]
-  before_filter :prepare_appdata
+  before_filter :prepare_appdata, :set_categories
 
   def show
     required_parameters :package
@@ -48,6 +48,31 @@ class PackageController < ApplicationController
 
 
   def categories
+  end
+
+
+  def category
+    required_parameters :category
+    @category = params[:category]
+    raise MissingParameterError, "Invalid parameter category" unless valid_package_name? @category
+
+    mapping = @main_sections.select{|s| s[:name] == @category }
+    if mapping.blank?
+      categories = [@category]
+    else 
+      categories = mapping.first[:categories]
+    end
+
+    @packagenames = @appdata[:apps].select{|app| !( app[:categories] & categories ).blank? }.
+      map{|p| p[:pkgname]}
+
+    render 'search/find'
+  end
+
+
+  private 
+
+    def set_categories
     @main_sections = [
       {:name => "Games", :categories => ["Game"]},
       {:name => "Education", :categories => ["Education"]},
@@ -58,21 +83,6 @@ class PackageController < ApplicationController
     ]
   end
 
-
-  def category
-
-    @packages = []
-    @packages = Seeker.prepare_result("\"kopete\"", nil, nil, nil, nil)
-
-    @packagenames = @packages.map{|p| p.name}.uniq.sort_by {|x| x.length}
-
-    render 'search/find'
-
-
-  end
-
-
-  private 
 
   def prepare_appdata
     @appdata =  Rails.cache.fetch("appdata", :expires_in => 12.hours) do

@@ -1,3 +1,5 @@
+require 'seeker'
+
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
@@ -69,9 +71,13 @@ module ApplicationHelper
 
   # TODO: released projects don't give info over the api... (bnc#749828)
   # so we search one from the other projects...
-  def search_for_description pkgname, packages
+  def search_for_description pkgname, packages = []
     cache_key = "description_package_#{pkgname}"
     description_package =  Rails.cache.fetch(cache_key, :expires_in => 3.hours) do
+      if packages.blank?
+        packages = Seeker.prepare_result("\"#{pkgname}\"", nil, nil, nil, nil)
+        packages = packages.select{|p| p.first.type != 'ymp'}
+      end
       packages.select{|p| (p.name == pkgname && !@distributions.map{|d| d[:project]}.include?( p.project ) )}.each do |package|
         description_package = nil
         unless package.description.blank?
