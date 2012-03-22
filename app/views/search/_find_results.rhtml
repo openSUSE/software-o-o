@@ -28,13 +28,13 @@
 <% else %>
 
   <div class="box box-shadow">
-    <div class="box-header"> </div>
-    <ul id="search-result-list">
-      <% @result.each do |package| %>
+    <div class="box-header"></div>
+    <div id="search-result-list">
+      <% @result.each_with_index do |package, idx| %>
 
-        <li>
+      <div class="search-result-box <%= "search-result-box-grey" if idx%2 == 0 %>">
           <div class="app-screenshot-search">
-            <%= image_tag(  screenshot_thumb_url( package[:name] ), :height => 75 )  %>
+            <%= link_to( image_tag(  screenshot_thumb_url( package[:name] ), :height => 75 ), :controller => :package, :action => :show, :package => package[:name], :search_term => @search_term  ) %>
           </div>
           <div class="search-result-txt">
           <h3><%= link_to highlight(package[:name], @search_term), :controller => :package, :action => :show, :package => package[:name], :search_term => @search_term  %></h3>
@@ -65,9 +65,10 @@
             <% @result.reject! {|r| r[:name].match(/^#{package[:name]}-/) }  -%>
           <% end -%>
           </div>
-        </li>
+        </div>
       <% end %>
-    </ul>
+      <div style="clear: both; "></div>
+    </div>
     <div class="box-footer"> </div>
   </div>
 

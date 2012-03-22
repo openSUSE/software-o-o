@@ -179,19 +179,24 @@ body {
     font-size: 0.9em;
 }
 
-ul#search-result-list {
-    list-style: none outside;
+#search-result-list {
     margin-bottom: 25px;
 }
-ul#search-result-list li {
-    padding: 0.5em;
-    min-height: 90px;
+
+.search-result-box {
+    min-height: 110px;
+    float: left;
+    width: 440px;
+    margin-left: 13px;
+    margin-bottom: 5px;
+    padding: 5px;
 }
-ul#search-result-list li:nth-child(even) {
+
+.search-result-box-grey {
     background-color: #eee;
 }
 
-ul#search-result-list li img {
+.app-screenshot-search img {
     box-shadow: 0 1px 2px #999;
     -moz-box-shadow: 0 1px 2px #999;
     -webkit-box-shadow: 0 1px 2px #999;

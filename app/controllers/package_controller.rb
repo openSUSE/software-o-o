@@ -8,12 +8,12 @@ class PackageController < ApplicationController
     required_parameters :package
     @pkgname = params[:package]
     raise MissingParameterError, "Invalid parameter package" unless valid_package_name? @pkgname
-    @pkgname.downcase!
-
+    
     @search_term = params[:search_term]
     @base_appdata_project = "openSUSE:Factory"
 
     @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
+    @pkgname.downcase!
     # only show rpms
     @packages = @packages.select{|p| p.first.type != 'ymp'}
     @default_project = @baseproject || @template.default_baseproject
