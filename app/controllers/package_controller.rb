@@ -59,6 +59,19 @@ class PackageController < ApplicationController
   end
 
 
+  def category
+
+    @packages = []
+    @packages = Seeker.prepare_result("\"kopete\"", nil, nil, nil, nil)
+
+    @packagenames = @packages.map{|p| p.name}.uniq.sort_by {|x| x.length}
+
+    render 'search/find'
+
+
+  end
+
+
   private 
 
   def prepare_appdata

@@ -10,7 +10,7 @@
 <% end %>
 
 
-<% if @result.blank? %>
+<% if @packagenames.blank? %>
 
 <div id="search-result-error" >
   <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">
@@ -30,39 +30,39 @@
   <div class="box box-shadow">
     <div class="box-header"></div>
     <div id="search-result-list">
-      <% @result.each_with_index do |package, idx| %>
+      <% @packagenames.each_with_index do |package, idx| %>
 
       <div class="search-result-box <%= "search-result-box-grey" if idx%2 == 0 %>">
           <div class="app-screenshot-search">
-            <%= link_to( image_tag(  screenshot_thumb_url( package[:name] ), :height => 75 ), :controller => :package, :action => :show, :package => package[:name], :search_term => @search_term  ) %>
+            <%= link_to( image_tag(  screenshot_thumb_url( package ), :height => 75 ), :controller => :package, :action => :show, :package => package, :search_term => @search_term  ) %>
           </div>
           <div class="search-result-txt">
-          <h3><%= link_to highlight(package[:name], @search_term), :controller => :package, :action => :show, :package => package[:name], :search_term => @search_term  %></h3>
+          <h3><%= link_to highlight(package, @search_term), :controller => :package, :action => :show, :package => package, :search_term => @search_term  %></h3>
 
-          <% desc_package = search_for_description( package[:name], @packages ) %>
+          <% desc_package = search_for_description( package, @packages ) %>
           <% unless  desc_package.blank? %>
           <p><i><%= highlight( desc_package.summary, @search_term) %></i></p>
           <% end -%>
 
-          <% devel_pack_match = [package[:name] + "-devel", package[:name] + "-lang", package[:name] + "-debuginfo", package[:name] + "-debugsource"] -%>
-          <% devel_packages = @result.select{|r| devel_pack_match.include? r[:name] } -%>
+          <% devel_pack_match = [package + "-devel", package + "-lang", package + "-debuginfo", package + "-debugsource"] -%>
+          <% devel_packages = @packagenames.select{|r| devel_pack_match.include? r } -%>
           <% unless devel_packages.blank? %>
             <p>Development packages:
-              <% devel_packages.map{|pkg| pkg[:name]}.sort.each do |subpackage| %>
-                <%= link_to subpackage.sub("#{package[:name]}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
+              <% devel_packages.sort.each do |subpackage| %>
+                <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
               <% end %>
             </p>
-            <% @result.reject! {|r| devel_pack_match.include? r[:name] }  -%>
+            <% @packagenames.reject! {|r| devel_pack_match.include? r }  -%>
           <% end -%>
 
-          <% sub_packages = @result.map{|pkg| pkg[:name]}.sort.select{|name| name.match(/^#{package[:name]}-/) } -%>
+          <% sub_packages = @packagenames.sort.select{|name| name.match(/^#{package}-/) } -%>
           <% unless sub_packages.blank? -%>
             <p>Sub-packages:
               <% sub_packages.each do |subpackage| %>
-                <%= link_to subpackage.sub("#{package[:name]}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
+                <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
               <% end %>
             </p>
-            <% @result.reject! {|r| r[:name].match(/^#{package[:name]}-/) }  -%>
+            <% @packagenames.reject! {|r| r.match(/^#{package}-/) }  -%>
           <% end -%>
           </div>
         </div>

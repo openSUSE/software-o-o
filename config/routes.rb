@@ -30,11 +30,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect 'developer/:lang', :controller => 'main', :action => 'release', :release => "developer"
 
-  map.connect 'appstore', :controller => 'package', :action => 'categories'
-  map.connect 'appstore/:category', :controller => 'package', :action => 'categories', :requirements => { :category => /[\w\-\.:]*/ }
-
   map.connect 'package/:package', :controller => 'package', :action => 'show', :requirements => { :package => /[\w\-\.:\+]+/ }
-  map.connect 'packages', :controller => 'package', :action => 'list'
+  map.connect 'packages', :controller => 'package', :action => 'categories'
+  map.connect 'appstore', :controller => 'package', :action => 'categories'
+  map.connect 'appstore/:category', :controller => 'package', :action => 'category', :requirements => { :category => /[\w\-\.: ]+/ }
 
   map.connect 'promodvd', :controller => 'order', :action => 'new'
   map.connect 'promodvds', :controller => 'order', :action => 'new'
