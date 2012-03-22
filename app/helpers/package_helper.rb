@@ -44,9 +44,9 @@ module PackageHelper
     when /-debug$/
       screenshot_thumb = image_path "file_settings.png"
     when /-doc$/
-      screenshot_thumb = image_path "file_settings.png"
+      screenshot_thumb = image_path "files.png"
     when /-javadoc$/
-      screenshot_thumb = image_path "file_settings.png"
+      screenshot_thumb = image_path "files.png"
     when /-debuginfo$/
       screenshot_thumb = image_path "file_settings.png"
     when /-debugsource$/
