@@ -120,7 +120,7 @@
                 <p id="pkg-categorie-note">
                   <strong><%=  @appcategories.size > 1 ? _("Categories") : _("Category") %>:</strong>
                   <% @appcategories.each do |cat| -%>
-                    <%= link_to cat, "#" %>
+                    <%= link_to cat, :controller => :package, :action => :category, :category => cat %>
                   <% end -%>
                 </p>
               <% end -%>
