@@ -73,7 +73,7 @@ module ApplicationHelper
   # so we search one from the other projects...
   def search_for_description pkgname, packages = []
     cache_key = "description_package_#{pkgname}"
-    description_package =  Rails.cache.fetch(cache_key, :expires_in => 3.hours) do
+    description_package =  Rails.cache.fetch(cache_key, :expires_in => 12.hours) do
       if packages.blank?
         packages = Seeker.prepare_result("\"#{pkgname}\"", nil, nil, nil, nil)
         packages = packages.select{|p| p.first.type != 'ymp'}

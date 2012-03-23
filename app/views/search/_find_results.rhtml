@@ -38,16 +38,28 @@
     <div class="box-header"></div>
     <div id="search-result-list">
 
-      <% @packagenames[0..80].each_with_index do |package, idx| %>
+      <% @packagenames.each_with_index do |package, idx| %>
+      <% appdata_pkg = @appdata[:apps].select{|a| a[:pkgname] == package} %>
+      <% package_name = package
+      package_name = appdata_pkg.first[:name] unless appdata_pkg.blank? || appdata_pkg.first[:name].blank?
+      %>
         <div class="search-result-box <%= "search-result-box-grey" if( (idx%4 == 0) || ( (idx-3)%4 == 0) )  %> rounded-corner">
           <div class="app-screenshot-search">
             <%= link_to( image_tag(  screenshot_thumb_url( package ), :height => 75 ), :controller => :package, :action => :show, :package => package, :search_term => @search_term  ) %>
           </div>
           <div class="search-result-txt">
-            <h3><%= link_to highlight(package, @search_term), :controller => :package, :action => :show, :package => package, :search_term => @search_term  %></h3>
+            <h3><%= link_to highlight(package_name, @search_term), :controller => :package, :action => :show, :package => package, :search_term => @search_term  %>
 
-            <% appdata_pkg = @appdata[:apps].select{|a| a[:pkgname] == package}
-            if( appdata_pkg.blank? || appdata_pkg.first[:summary].blank? )
+            <div class="search-result-rating hidden">
+            <%= image_tag "star_color.png" %>
+              <%= image_tag "star_color.png" %>
+              <%= image_tag "star_color.png" %>
+              <%= image_tag "star_bw.png" %>
+              <%= image_tag "star_bw.png" %>
+            </div>
+              </h3>
+ 
+            <% if( appdata_pkg.blank? || appdata_pkg.first[:summary].blank? )
               desc_package = search_for_description( package, @packages )
               unless  desc_package.blank?
                 summary = desc_package.summary
@@ -85,7 +97,7 @@
       <div style="clear: both; "></div>
 
       <% if @packagenames.size > 81 %>
-        <div id="show-more-button" class="rounded-corner">
+        <div id="show-more-button" class="rounded-corner hidden">
           <p><a href="#">Show more...</a></p>
         </div>
       <% end %>

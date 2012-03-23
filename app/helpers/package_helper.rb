@@ -39,17 +39,21 @@ module PackageHelper
     case pkgname
     when /-devel$/
       screenshot_thumb =  image_path "file_settings.png"
+    when /-devel-/
+      screenshot_thumb =  image_path "file_settings.png"
     when /-lang$/
       screenshot_thumb =  image_path "file_settings.png"
     when /-debug$/
       screenshot_thumb = image_path "file_settings.png"
     when /-doc$/
       screenshot_thumb = image_path "files.png"
+    when /-help-/
+      screenshot_thumb = image_path "files.png"
     when /-javadoc$/
       screenshot_thumb = image_path "files.png"
-    when /-debuginfo$/
+    when /-debuginfo/
       screenshot_thumb = image_path "file_settings.png"
-    when /-debugsource$/
+    when /-debugsource/
       screenshot_thumb = image_path "file_settings.png"
     when /-kmp-/
       screenshot_thumb = image_path "file_settings.png"
