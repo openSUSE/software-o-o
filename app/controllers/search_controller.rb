@@ -26,7 +26,7 @@ class SearchController < ApplicationController
   def searchresult
     required_parameters :q
     
-    base = @baseproject=="ALL" ? "" : @baseproject
+    base = @baseproject=="ALL" ? "" : @baseproject    
     begin
       @packages = Seeker.prepare_result("#{@search_term}", base, @search_project, @exclude_filter, @exclude_debug)
       SearchHistory.create :query => @search_term, :count => @packages.size

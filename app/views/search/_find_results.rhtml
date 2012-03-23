@@ -10,6 +10,13 @@
 <% end %>
 
 
+<% if @category %>
+  <div class="rounded-corner gey" id="category-header">
+    <span id="category-text"><%= @category %></span>
+  </div>
+<% end %>
+
+
 <% if @packagenames.blank? %>
 
   <div id="search-result-error" >
@@ -30,8 +37,8 @@
   <div class="box box-shadow">
     <div class="box-header"></div>
     <div id="search-result-list">
-      <% @packagenames[0..80].each_with_index do |package, idx| %>
 
+      <% @packagenames[0..80].each_with_index do |package, idx| %>
         <div class="search-result-box <%= "search-result-box-grey" if( (idx%4 == 0) || ( (idx-3)%4 == 0) )  %> rounded-corner">
           <div class="app-screenshot-search">
             <%= link_to( image_tag(  screenshot_thumb_url( package ), :height => 75 ), :controller => :package, :action => :show, :package => package, :search_term => @search_term  ) %>
@@ -78,9 +85,9 @@
       <div style="clear: both; "></div>
 
       <% if @packagenames.size > 81 %>
-      <div id="show-more-button" class="rounded-corner">
-        <p><a href="#">Show more...</a></p>
-      </div>
+        <div id="show-more-button" class="rounded-corner">
+          <p><a href="#">Show more...</a></p>
+        </div>
       <% end %>
 
     </div>
