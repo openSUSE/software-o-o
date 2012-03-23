@@ -146,7 +146,9 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666', endColorstr='#333',GradientType=0 ); /* IE6-9 */
     background: linear-gradient(top, #666 0%,#333 100%); /* W3C */
     text-align: center;
-
+    float: left;
+    height: 90px;
+    margin-left: 10px;
 }
 .pkg-search-box * {
     font-size: 1.2em;
@@ -552,19 +554,20 @@ select  {
 
 #category-header {
     background: none repeat scroll 0 0 #FFFFFF;
-    font-size: 12em;
-    font-weight: bold;
     height: 80px;
     margin: 10px 0;
+     text-align: center;
     overflow: hidden;
-    text-align: center;
 }
 
 #category-text {
+    font-size: 12em;
+    font-weight: bold;
     position: relative;
     top: -0.28em;
     opacity:0.4;
     filter:alpha(opacity=40); /* For IE8 and earlier */
+    
 }
 
 .search-result-rating {

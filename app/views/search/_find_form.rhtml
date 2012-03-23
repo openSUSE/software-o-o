@@ -69,10 +69,14 @@
 
 </script>
 
+  <div class="box box-shadow pkg-search-box" style="width: 300px; ">
+    <h1><%= link_to "openSUSE Apps", {:controller => :package, :action => :categories}, :id => "apps-headline"  %></h1>
+  </div>
 
-<div class="box box-shadow pkg-search-box">
+
+<div class="box box-shadow pkg-search-box" style="width: 600px">
   <% form_tag( {:controller => 'search', :action => :searchresult}, :method => :get ) do %>
-  <h1><%= link_to "openSUSE Apps", {:controller => :package, :action => :categories}, :id => "apps-headline"  %></h1>
+  <h1><%= link_to "Package Search", {:controller => :search, :action => :find}, :id => "apps-headline"  %></h1>
     <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form",  :autocomplete => "off" %>
     <div id='search-loader' class="hidden"><span id="search-loader-txt"></span> <%= image_tag "ajax-loader.gif" %></div>
     <%= submit_tag _('Search'), :name => nil, :class => "search-go-button" %>
@@ -91,10 +95,10 @@
         <%= select_tag 'baseproject', options_for_select((@distributions.map{|d| [d[:name], d[:project]]} || ["ALL"]), (@baseproject or default_baseproject)) %>
       </p>
     </div>
-
   <% end -%>
-
 </div>
+
+<div style="clear:both"/>
 
 <div class="hidden" id="search-messages" >
   <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">

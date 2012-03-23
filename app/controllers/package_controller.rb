@@ -59,7 +59,13 @@ class PackageController < ApplicationController
     mapping = @main_sections.select{|s| s[:name] == @category }
     categories = ( mapping.blank? ? [@category] : mapping.first[:categories] )
 
-    @packagenames = @appdata[:apps].select{|app| !( app[:categories] & categories ).blank? }.map{|p| p[:pkgname]}.uniq
+    app_pkgs = @appdata[:apps].select{|app| !( app[:categories] & categories ).blank? }
+    @packagenames = app_pkgs.map{|p| p[:pkgname]}.uniq
+
+    app_categories = app_pkgs.map{|p| p[:categories]}.flatten
+    @related_categories = app_categories.uniq.map{|c| {:name => c, :weight => app_categories.select {|v| v == c }.size } }
+    @related_categories = @related_categories.sort_by { |c| c[:weight] }.reverse.reject{|c| categories.include? c[:name] }
+    @related_categories = @related_categories.reject{|c| ["GNOME", "KDE", "Qt", "GTK"].include? c[:name] }
 
     render 'search/find'
   end
