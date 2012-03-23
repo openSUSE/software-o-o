@@ -2,6 +2,7 @@ class SearchController < ApplicationController
 
   before_filter :set_beta_warning, :only => [:find, :searchresult]
   before_filter :set_search_options, :only => [:find, :searchresult]
+  before_filter :prepare_appdata, :only => [:find, :searchresult]
 
   def index
     @exclude_debug = true

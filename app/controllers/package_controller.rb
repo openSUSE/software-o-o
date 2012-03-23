@@ -57,14 +57,9 @@ class PackageController < ApplicationController
     raise MissingParameterError, "Invalid parameter category" unless valid_package_name? @category
 
     mapping = @main_sections.select{|s| s[:name] == @category }
-    if mapping.blank?
-      categories = [@category]
-    else 
-      categories = mapping.first[:categories]
-    end
+    categories = ( mapping.blank? ? [@category] : mapping.first[:categories] )
 
-    @packagenames = @appdata[:apps].select{|app| !( app[:categories] & categories ).blank? }.
-      map{|p| p[:pkgname]}
+    @packagenames = @appdata[:apps].select{|app| !( app[:categories] & categories ).blank? }.map{|p| p[:pkgname]}.uniq
 
     render 'search/find'
   end
@@ -72,7 +67,7 @@ class PackageController < ApplicationController
 
   private 
 
-    def set_categories
+  def set_categories
     @main_sections = [
       {:name => "Games", :categories => ["Game"]},
       {:name => "Education", :categories => ["Education"]},
@@ -82,27 +77,6 @@ class PackageController < ApplicationController
       {:name => "Multimedia", :categories => ["AudioVideo", "Audio", "Video", "Graphics"]},
     ]
   end
-
-
-  def prepare_appdata
-    @appdata =  Rails.cache.fetch("appdata", :expires_in => 12.hours) do
-      data = Hash.new
-      data[:apps] = Array.new
-      xml = Appdata.get_distribution "factory"
-      xml.xpath("/applications/application").each do |app|
-        appdata = Hash.new
-        appdata[:name] = app.xpath('name').text
-        appdata[:pkgname] = app.xpath('pkgname').text
-        appdata[:categories] = app.xpath('appcategories/appcategory').map{|c| c.text}.reject{|c| c.match(/^X-/)}.uniq
-        appdata[:homepage] = app.xpath('url').text
-        data[:apps] << appdata
-      end
-      data[:categories] = xml.xpath("/applications/application/appcategories/appcategory").
-        map{|cat| cat.text}.reject{|c| c.match(/^X-/)}.uniq
-      data
-    end
-  end
-
 
 end
  
