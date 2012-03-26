@@ -12,7 +12,7 @@ class PackageController < ApplicationController
     @search_term = params[:search_term]
     @base_appdata_project = "openSUSE:Factory"
 
-    @packages = Seeker.prepare_result("\"#{@pkgname.downcase}\"", nil, nil, nil, nil)
+    @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
     # only show rpms
     @packages = @packages.select{|p| p.first.type != 'ymp'}
     @default_project = @baseproject || @template.default_baseproject
