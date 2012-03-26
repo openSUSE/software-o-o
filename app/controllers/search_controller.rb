@@ -24,8 +24,6 @@ class SearchController < ApplicationController
 
 
   def searchresult
-    required_parameters :q
-    
     base = @baseproject=="ALL" ? "" : @baseproject    
     begin
       @packages = Seeker.prepare_result("#{@search_term}", base, @search_project, @exclude_filter, @exclude_debug)
@@ -42,7 +40,7 @@ class SearchController < ApplicationController
     end
 
     # filter out devel projects on user setting
-    if @exclude_filter
+    unless @search_unsupported
       @packages = @packages.select{|p| (@distributions.map{|d| d[:project]}.include? p.project) ||
           @distributions.map{|d| "#{d[:project]}:Update"}.include?( p.project ) || @distributions.map{|d| "#{d[:project]}:NonFree"}.include?( p.project ) }
     end
@@ -51,8 +49,12 @@ class SearchController < ApplicationController
     @packages = @packages.select{|p| @distributions.map{|d| d[:project]}.include?( p.baseproject ) }
     # only show rpms
     @packages = @packages.select{|p| p.first.type == 'rpm'}
+    @packagenames = @packages.map{|p| p.name}
 
-    @packagenames = @packages.map{|p| p.name}.uniq.sort_by {|x| x.length}
+    #mix in searchresults from appdata, as the api can't search in summary and description atm
+    appdata_hits = @appdata[:apps].select{|a| a[:summary].match(/#{@search_term}/i)}.map{|a| a[:pkgname]}
+    @packagenames = (@packagenames + appdata_hits).uniq.sort_by {|x| x.length}
+
     if request.xhr?
       render :partial => 'find_results' and return
     else
