@@ -461,20 +461,29 @@ input[type="submit"].search-go-button {
 }
 
 
-#pkg-categorie-note { /* Categorie under first H1 */
-                      color: #999;
-                      margin: -2em 0 2em;
-                      font-size: 0.8em;
-                      letter-spacing: 0.1em;
+.pkg-categorie-note { /* Categorie under first H1 */
+  color: #999;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
 }
-#pkg-categorie-note strong {
+
+#pkg-description .pkg-categorie-note {
+    margin: -2em 0 2em;
+}
+
+#related-categories .pkg-categorie-note {
+    margin: 0 0 10px;
+    text-align: center;
+}
+
+.pkg-categorie-note strong {
     font-weight: normal;
 }
-#pkg-categorie-note a {
+.pkg-categorie-note a {
     font-weight: bold;
     color: #999;
 }
-#pkg-categorie-note a:hover {
+.pkg-categorie-note a:hover {
     color: #690;
 }
 
@@ -569,6 +578,11 @@ select  {
     filter:alpha(opacity=40); /* For IE8 and earlier */
     
 }
+
+#related-categories {
+
+}
+
 
 .search-result-rating {
     float: right;

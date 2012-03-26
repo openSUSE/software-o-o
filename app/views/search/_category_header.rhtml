@@ -1,0 +1,15 @@
+
+<div class="rounded-corner gey" id="category-header">
+  <span id="category-text"><%= @category %></span>
+</div>
+
+<% unless @related_categories.blank? %>
+  <div id="related-categories">
+    <p class="pkg-categorie-note">
+      Related categories:
+      <% @related_categories[0..7].each do |cat| %>
+        <%= link_to cat[:name], :controller => :package, :action => :category, :category => cat[:name] %>
+      <% end -%>
+    </p>
+  </div>
+<% end -%>

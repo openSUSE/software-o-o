@@ -117,7 +117,7 @@
             <% desc_package = search_for_description( @pkgname, @packages ) %>
             <% unless desc_package.blank? %>
               <% unless @appcategories.blank? %>
-                <p id="pkg-categorie-note">
+                <p class="pkg-categorie-note">
                   <strong><%=  @appcategories.size > 1 ? _("Categories") : _("Category") %>:</strong>
                   <% @appcategories.each do |cat| -%>
                     <%= link_to cat, :controller => :package, :action => :category, :category => cat %>

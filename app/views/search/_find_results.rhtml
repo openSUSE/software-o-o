@@ -10,11 +10,7 @@
 <% end %>
 
 
-<% if @category %>
-  <div class="rounded-corner gey" id="category-header">
-    <span id="category-text"><%= @category %></span>
-  </div>
-<% end %>
+<%= render :partial => 'search/category_header'  if @category %>
 
 
 <% if @packagenames.blank? %>
@@ -95,18 +91,6 @@
         </div>
       <% end -%>
       <div style="clear: both; "></div>
-
-
-      <% unless @related_categories.blank? %>
-        <div id="related-categories">
-          <p>
-            Related categories:
-            <% @related_categories[0..5].each do |cat| %>
-              <%= link_to cat[:name], :controller => :package, :action => :category, :category => cat[:name] %>
-            <% end -%>
-          </p>
-        </div>
-      <% end -%>
 
 
       <% if @packagenames.size > 81 %>
