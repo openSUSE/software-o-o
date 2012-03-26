@@ -72,7 +72,7 @@ module ApplicationHelper
   # TODO: released projects don't give info over the api... (bnc#749828)
   # so we search one from the other projects...
   def search_for_description pkgname, packages = []
-    cache_key = "description_package_#{pkgname}"
+    cache_key = Rails.cache.escape_key "description_package_#{pkgname.downcase}"
     description_package =  Rails.cache.fetch(cache_key, :expires_in => 12.hours) do
       if packages.blank?
         packages = Seeker.prepare_result("\"#{pkgname}\"", nil, nil, nil, nil)

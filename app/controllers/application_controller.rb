@@ -73,7 +73,7 @@ class ApplicationController < ActionController::Base
           :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text, 
           :icon => element.elements['icon'].attributes["url"], :dist_id => element.attributes['id'].sub(".", "") ]
         @distributions << dist
-        logger.debug "Added Distribution: #{dist}"
+        logger.debug "Added Distribution: #{dist[:name]}"
       }
       @distributions << Hash[:name => "ALL Distributions", :project => 'ALL' ]
     rescue Exception => e

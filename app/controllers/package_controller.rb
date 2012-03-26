@@ -12,8 +12,7 @@ class PackageController < ApplicationController
     @search_term = params[:search_term]
     @base_appdata_project = "openSUSE:Factory"
 
-    @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
-    @pkgname.downcase!
+    @packages = Seeker.prepare_result("\"#{@pkgname.downcase}\"", nil, nil, nil, nil)
     # only show rpms
     @packages = @packages.select{|p| p.first.type != 'ymp'}
     @default_project = @baseproject || @template.default_baseproject
@@ -27,7 +26,7 @@ class PackageController < ApplicationController
       @default_package = @packages.select{|s| s.project == (@default_project)}.first
     end
 
-    pkg_appdata = @appdata[:apps].select{|app| app[:pkgname] == @pkgname}
+    pkg_appdata = @appdata[:apps].select{|app| app[:pkgname].downcase == @pkgname.downcase}
     if ( !pkg_appdata.first.blank? )
       @name = pkg_appdata.first[:name]
       @appcategories = pkg_appdata.first[:categories]
@@ -35,7 +34,7 @@ class PackageController < ApplicationController
     end
 
     #TODO: get distro spezific screenshot, cache from debshots etc.
-    @screenshot = "http://screenshots.debian.net/screenshot/" + @pkgname
+    @screenshot = "http://screenshots.debian.net/screenshot/" + @pkgname.downcase
 
     #TODO: sort out tumbleweed packages as seperate repo, maybe obs can mark that as seperate baseproject? 
     @packages.each do |package|
