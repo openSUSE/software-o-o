@@ -56,7 +56,7 @@ class PackageController < ApplicationController
     @category = params[:category]
     raise MissingParameterError, "Invalid parameter category" unless valid_package_name? @category
 
-    mapping = @main_sections.select{|s| s[:name] == @category }
+    mapping = @main_sections.select{|s| s[:id].downcase == @category.downcase }
     categories = ( mapping.blank? ? [@category] : mapping.first[:categories] )
 
     app_pkgs = @appdata[:apps].select{|app| !( app[:categories].map{|c| c.downcase} & categories.map{|c| c.downcase} ).blank? }
@@ -75,12 +75,12 @@ class PackageController < ApplicationController
 
   def set_categories
     @main_sections = [
-      {:name => "Games", :categories => ["Game"]},
-      {:name => "Education", :categories => ["Education"]},
-      {:name => "Development", :categories => ["Development"]},
-      {:name => "Office", :categories => ["Office"]},
-      {:name => "Tools", :categories => [ "Network", "Settings", "System", "Utility"]},
-      {:name => "Multimedia", :categories => ["AudioVideo", "Audio", "Video", "Graphics"]},
+      {:name => "Games", :id => "Games", :categories => ["Game"]},
+      {:name => "Education & Science", :id => "Education", :categories => ["Education", "Science"]},
+      {:name => "Development", :id => "Development", :categories => ["Development"]},
+      {:name => "Office & Productivity", :id => "Office", :categories => ["Office"]},
+      {:name => "Tools", :id => "Tools", :categories => [ "Network", "Settings", "System", "Utility"]},
+      {:name => "Multimedia", :id => "Multimedia", :categories => ["AudioVideo", "Audio", "Video", "Graphics"]},
     ]
   end
 

@@ -32,9 +32,9 @@
     <% @main_sections.each do |section| %>
       <% apps = @appdata[:apps].select{|app| !(app[:categories] & section[:categories]).blank? } %>
       <div class="box box-shadow grid_3 appstore-category-box alpha hidden"
-           style="background: url('/images/categories/<%= section[:name].downcase %>_box.png') repeat scroll 0 0 #FFFFFF;">
+           style="background: url('/images/categories/<%= section[:id].downcase %>_box.png') repeat scroll 0 0 #FFFFFF;">
         <h2 class="box-header"><%=  section[:name]  %></h2>
-        <%= link_to "", {:controller => :package, :action => :category, :category => section[:name]}, :class => "appstore-category-box-hover" %>
+        <%= link_to "", {:controller => :package, :action => :category, :category => section[:id]}, :class => "appstore-category-box-hover" %>
         <p>
   <%# apps[0..16].each do |app| %>
   <%# = link_to app[:name], :controller => :package, :action => :show, :package => app[:pkgname] %>
