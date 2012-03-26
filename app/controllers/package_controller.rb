@@ -59,7 +59,7 @@ class PackageController < ApplicationController
     mapping = @main_sections.select{|s| s[:name] == @category }
     categories = ( mapping.blank? ? [@category] : mapping.first[:categories] )
 
-    app_pkgs = @appdata[:apps].select{|app| !( app[:categories] & categories ).blank? }
+    app_pkgs = @appdata[:apps].select{|app| !( app[:categories].map{|c| c.downcase} & categories.map{|c| c.downcase} ).blank? }
     @packagenames = app_pkgs.map{|p| p[:pkgname]}.uniq
 
     app_categories = app_pkgs.map{|p| p[:categories]}.flatten
