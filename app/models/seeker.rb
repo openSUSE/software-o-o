@@ -228,6 +228,7 @@ class Seeker < ActiveXML::Base
       attr_reader :version
       attr_reader :release
       attr_reader :description
+      attr_reader :src_package
       attr_reader :summary
       attr_reader :size
       attr_reader :mtime
@@ -256,6 +257,7 @@ class Seeker < ActiveXML::Base
           end
           if info
             @description = info.description.to_s if info.has_element? :description
+            @src_package = info.description.to_s if info.has_element? :src_package
             @summary = info.summary.to_s if info.has_element? :summary
             @size = info.size.to_s if info.has_element? :size
             @mtime = info.mtime.to_s if info.has_element? :mtime
