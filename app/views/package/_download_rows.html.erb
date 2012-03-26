@@ -1,16 +1,20 @@
 
 <% packages.flatten.group_by(&:project).each do |result| %>
   <li>
-    <% if  result.first == distro[:project] || result.first == "#{distro[:project]}:NonFree" 
+    <% if  result.first == distro[:project] || result.first == "#{distro[:project]}:NonFree"
       name = "official release"
     elsif result.first == "#{distro[:project]}:Update"
-      name = "official update" 
+      name = "official update"
     else
       name = shorten result.first, 22
     end
 
-    pkg_link = (result.last.first.package.nil? ? "" : "&package=#{result.last.first.package}") %>
-    <%= link_to name, "https://build.opensuse.org/package/show?project=#{result.first}" + pkg_link %>
+    if result.last.first.package.nil?
+      pkg_link = "https://build.opensuse.org/project/show?project=#{result.first}"
+    else 
+      pkg_link =  "https://build.opensuse.org/package/show?project=#{result.first}&package=#{result.last.first.package}"
+    end -%>
+    <%= link_to name, pkg_link %>
 
   <%# only use the latest version, obs bug: some outdated versions still listed. %>
     <% version = result.last.map{|r| r.version }.max %>
@@ -19,7 +23,7 @@
       <li><%= shorten version, 23 %></li>
       <% items = result.last.select{|r| r.version == version && r.release.sub(".", "").to_i == release } %>
       <% archs = items.map{|item| human_arch( item.arch ) }.uniq.sort %>
-     <%  archs << "Source" if archs.delete("Source") %>
+      <%  archs << "Source" if archs.delete("Source") %>
       <% archs.each do |arch| %>
         <% items.select{|item| human_arch( item.arch ) == arch}.each do |bin| %>
           <li><%= link_to human_arch( bin.arch ), "http://download.opensuse.org/repositories/" + bin.filepath  %> </li>
