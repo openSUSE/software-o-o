@@ -24,8 +24,14 @@ class SearchController < ApplicationController
 
 
   def searchresult
-    base = @baseproject=="ALL" ? "" : @baseproject    
-    begin
+    base = @baseproject=="ALL" ? "" : @baseproject
+
+    #if we have a baseproject, and don't show unsupported packages, shortcut: '
+    if !@baseproject.blank? && !@search_unsupported
+      @search_project = @baseproject
+    end
+
+    begin 
       @packages = Seeker.prepare_result("#{@search_term}", base, @search_project, @exclude_filter, @exclude_debug)
       SearchHistory.create :query => @search_term, :count => @packages.size
     rescue => e
@@ -45,14 +51,13 @@ class SearchController < ApplicationController
           @distributions.map{|d| "#{d[:project]}:Update"}.include?( p.project ) || @distributions.map{|d| "#{d[:project]}:NonFree"}.include?( p.project ) }
     end
 
-    # only show hits for our base distributions right now
-    @packages = @packages.select{|p| @distributions.map{|d| d[:project]}.include?( p.baseproject ) }
-    # only show rpms
-    @packages = @packages.select{|p| p.first.type == 'rpm'}
+    # only show packages
+    @packages = @packages.select{|p| p.first.type != 'ymp'}
     @packagenames = @packages.map{|p| p.name}
 
     #mix in searchresults from appdata, as the api can't search in summary and description atm
-    appdata_hits = @appdata[:apps].select{|a| a[:summary].match(/#{@search_term}/i)}.map{|a| a[:pkgname]}
+    appdata_hits = @appdata[:apps].select{|a| ( a[:summary].match(/#{@search_term}/i) ||
+          a[:name].match(/#{@search_term}/i) ) }.map{|a| a[:pkgname]}
     @packagenames = (@packagenames + appdata_hits).uniq.sort_by {|x| x.length}
 
     if request.xhr?
