@@ -63,6 +63,8 @@ module PackageHelper
       screenshot_thumb = image_path "default-screenshots/perl.gif"
     when /^python-/
       screenshot_thumb = image_path "default-screenshots/python.png"
+    when /^kernel-/
+      screenshot_thumb = image_path "default-screenshots/tux.png"
     else
       screenshot_thumb = "http://screenshots.debian.net/thumbnail/" + pkgname.downcase
     end
