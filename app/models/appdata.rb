@@ -2,10 +2,20 @@ class Appdata < ActiveXML::Base
 
   def self.get dist="factory"
     data = Hash.new
-    data[:apps] = Array.new
-    # TODO: automatically load non-oss, too
     xml = Appdata.get_distribution dist, "oss"
-    xml.xpath("/applications/application").each do |app|
+    data = add_appdata data, xml
+    xml = Appdata.get_distribution dist, "non-oss"
+    data = add_appdata data, xml
+    data
+  end
+
+
+  private
+
+  def self.add_appdata data, xml
+    data[:apps] = Array.new unless data[:apps]
+    data[:categories] = Array.new unless data[:categories]
+      xml.xpath("/applications/application").each do |app|
       appdata = Hash.new
       appdata[:name] = app.xpath('name').text
       appdata[:pkgname] = app.xpath('pkgname').text
@@ -14,16 +24,13 @@ class Appdata < ActiveXML::Base
       appdata[:summary] = app.xpath('summary').text
       data[:apps] << appdata
     end
-    data[:categories] = xml.xpath("/applications/application/appcategories/appcategory").
+    data[:categories] += xml.xpath("/applications/application/appcategories/appcategory").
       map{|cat| cat.text}.reject{|c| c.match(/^X-/)}.uniq
     data
   end
 
 
-  private
-
   # Get the appdata xml for a distribution
-  # TODO: atm obs only offers appdata for Factory
   def self.get_distribution dist="factory", flavour="oss"
     if dist == "factory"
       appdata_url = "http://download.opensuse.org/factory/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"

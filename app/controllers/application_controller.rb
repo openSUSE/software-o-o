@@ -140,6 +140,7 @@ class ApplicationController < ActionController::Base
   end
 
 
+  # TODO: atm obs only offers appdata for Factory
   def prepare_appdata
     @appdata =  Rails.cache.fetch("appdata", :expires_in => 12.hours) do
         Appdata.get "factory"
