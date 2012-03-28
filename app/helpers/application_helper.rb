@@ -78,7 +78,7 @@ module ApplicationHelper
         packages = Seeker.prepare_result("\"#{pkgname}\"", nil, nil, nil, nil)
         packages = packages.select{|p| p.first.type != 'ymp'}
       end
-      packages.select{|p| (p.name == pkgname && !@distributions.map{|d| d[:project]}.include?( p.project ) )}.each do |package|
+      packages.select{|p| p.name == pkgname}.each do |package|
         description_package = nil
         unless package.description.blank?
           description_package = package
