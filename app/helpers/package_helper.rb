@@ -38,25 +38,31 @@ module PackageHelper
   def screenshot_thumb_url pkgname
     case pkgname
     when /-devel$/
-      screenshot_thumb =  image_path "file_settings.png"
+      screenshot_thumb =  image_path "default-screenshots/file_settings.png"
     when /-devel-/
-      screenshot_thumb =  image_path "file_settings.png"
+      screenshot_thumb =  image_path "default-screenshots/file_settings.png"
     when /-lang$/
-      screenshot_thumb =  image_path "file_settings.png"
+      screenshot_thumb =  image_path "default-screenshots/file_settings.png"
     when /-debug$/
-      screenshot_thumb = image_path "file_settings.png"
+      screenshot_thumb = image_path "default-screenshots/file_settings.png"
     when /-doc$/
-      screenshot_thumb = image_path "files.png"
+      screenshot_thumb = image_path "default-screenshots/files.png"
     when /-help-/
-      screenshot_thumb = image_path "files.png"
+      screenshot_thumb = image_path "default-screenshots/files.png"
     when /-javadoc$/
-      screenshot_thumb = image_path "files.png"
+      screenshot_thumb = image_path "default-screenshots/files.png"
     when /-debuginfo/
-      screenshot_thumb = image_path "file_settings.png"
+      screenshot_thumb = image_path "default-screenshots/file_settings.png"
     when /-debugsource/
-      screenshot_thumb = image_path "file_settings.png"
+      screenshot_thumb = image_path "default-screenshots/file_settings.png"
     when /-kmp-/
-      screenshot_thumb = image_path "file_settings.png"
+      screenshot_thumb = image_path "default-screenshots/file_settings.png"
+    when /^rubygem-/
+      screenshot_thumb = image_path "default-screenshots/rubygem.png"
+    when /^perl-/
+      screenshot_thumb = image_path "default-screenshots/perl.gif"
+    when /^python-/
+      screenshot_thumb = image_path "default-screenshots/python.png"
     else
       screenshot_thumb = "http://screenshots.debian.net/thumbnail/" + pkgname.downcase
     end
