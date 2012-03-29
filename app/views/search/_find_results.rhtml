@@ -46,10 +46,10 @@
         <%= "style=\"background: url('/images/#{banner_path}') no-repeat scroll 0 0;\"" if banner_app %> >
 
             <div class="app-screenshot-search">
-              <%= link_to( image_tag(  screenshot_thumb_url( package ), :height => 75 ), :controller => :package, :action => :show, :package => package, :search_term => @search_term  ) %>
+              <%= link_to( image_tag(  screenshot_thumb_url( package ), :height => 75 ), :controller => :package, :action => :show, :package => package  ) %>
             </div>
             <div class="search-result-txt">
-              <h3><%= link_to highlight(package_name, @search_term), :controller => :package, :action => :show, :package => package, :search_term => @search_term  %>
+              <h3><%= link_to highlight(package_name, @search_term), :controller => :package, :action => :show, :package => package  %>
 
                 <div class="search-result-rating hidden">
                   <%= image_tag "star_color.png" %>

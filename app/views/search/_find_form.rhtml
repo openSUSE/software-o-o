@@ -17,31 +17,34 @@
       $('#search-messages').hide();
       $('#msg').html("");
       last_search = search_term;
-      $.ajax({ url: "<%= url_for :controller => :search, :action => :searchresult %>",
+      parameters = {
+        q: search_term,
+        baseproject: $("#baseproject").val(),
+        search_devel: $("#search_devel_checkbox").is(':checked'),
+        search_unsupported: $("#search_unsupported_checkbox").is(':checked')
+      };
+
+      $.pjax({
         cache: true,
-        sync: false,
-        data: {
-          q: search_term,
-          baseproject: $("#baseproject").val(),
-          search_devel: $("#search_devel_checkbox").is(':checked'),
-          search_unsupported: $("#search_unsupported_checkbox").is(':checked')
-        },
+        url: '<%= url_for :controller => :search, :action => :searchresult %>',
+        data: parameters,
+        container: '#search_result_container',
+        timeout: 10000,
         beforeSend: function() {
-          $('#search-loader-txt').html('Updating search results for: ' + search_term);
           $('#search-form').addClass('search-form-busy');
         },
         complete: function(){
           $('#search-form').removeClass('search-form-busy');
         },
         success: function(html){
-          $("#search_result_container").html(html);
           $('#search-messages').hide();
         },
         error: function(jqXHR, textStatus, errorThrown) {
           $('#msg').html("An internal error happened :-(");
           $('#search-messages').show();
         }
-      });
+      })
+
     } else if (search_term.length > 0 ) {
       $('#msg').html("Please enter more than 2 characters");
       $('#search-result-error').hide();
@@ -69,14 +72,14 @@
 
 </script>
 
-  <div class="box box-shadow pkg-header-box pkg-appstore-box">
-    <h1><%= link_to "openSUSE Factory<br/>App Browser", {:controller => :package, :action => :categories}, :id => "apps-headline"  %></h1>
-  </div>
+<div class="box box-shadow pkg-header-box pkg-appstore-box">
+  <h1><%= link_to "openSUSE Factory<br/>App Browser", {:controller => :package, :action => :categories}, :id => "apps-headline"  %></h1>
+</div>
 
 
 <div class="box box-shadow pkg-search-box pkg-header-box">
   <% form_tag( {:controller => 'search', :action => :searchresult}, :method => :get ) do %>
-  <h1><%= link_to "Package Search", {:controller => :search, :action => :find}, :id => "apps-headline"  %></h1>
+    <h1><%= link_to "Package Search", {:controller => :search, :action => :find}, :id => "apps-headline"  %></h1>
     <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form",  :autocomplete => "off" %>
     <div id='search-loader' class="hidden"><span id="search-loader-txt"></span> <%= image_tag "ajax-loader.gif" %></div>
     <%= submit_tag _('Search'), :name => nil, :class => "search-go-button" %>
@@ -91,7 +94,7 @@
         <%= check_box_tag("search_unsupported", "true", @search_unsupported, {:id => "search_unsupported_checkbox" })  %>
         <label for="search_unsupported_checkbox"><%= _("Show unsupported packages") %></label><br/>
         <% @distributions ||= Array.new %>
-        &nbsp;Show distribution:&nbsp; 
+        &nbsp;Show distribution:&nbsp;
         <%= select_tag 'baseproject', options_for_select((@distributions.map{|d| [d[:name], d[:project]]} || ["ALL"]), (@baseproject or default_baseproject)) %>
       </p>
     </div>

@@ -92,9 +92,6 @@
 <div id="search_result_container">
   <div class="box box-shadow">
     <h2 class="box-header">
-      <% unless @search_term.blank? %>
-        <%= link_to _("< Back to search results"), {:controller => :search, :action => :searchresult, :q => @search_term}, :class => "pkg-backlink" %>
-      <% end %>
       <span class="alignleft"><%= @page_title -%></span>
     </h2>
     <div>

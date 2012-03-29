@@ -10,7 +10,7 @@
 
     <%= stylesheet_link_tag "/themes/bento/css/style.css", "software" %>
     <link href="http://static.opensuse.org/themes/bento/images/favicon.png" rel="shortcut icon" />
-    <%= javascript_include_tag "http://static.opensuse.org/themes/bento/js/jquery.js", "jquery-ui-1.8.18.custom.min", "jrails.js", "jquery.cookie", "application.js"  %>
+    <%= javascript_include_tag "http://static.opensuse.org/themes/bento/js/jquery.js", "jquery-ui-1.8.18.custom.min", "jrails", "jquery.cookie", "application", "jquery.pjax"  %>
     <%= javascript_include_tag "/themes/bento/js/l10n/global-navigation-data-#{@lang}.js", "/themes/bento/js/global-navigation.js" %>
 
     <%= yield :content_for_head %>

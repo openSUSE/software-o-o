@@ -83,7 +83,7 @@ namespace :deploy do
   task :notify do
     #diff = `#{source.local.diff(current_revision)}`
     begin
-      diff_log = `#{source.local.log( source.next_revision(current_revision) )}`
+      diff_log = `#{source.local.log( source.next_revision(current_revision), branch )}`
     rescue
       diff_log = "No REVISION found, probably initial deployment."
     end
