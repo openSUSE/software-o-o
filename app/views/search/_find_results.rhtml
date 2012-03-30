@@ -13,6 +13,10 @@
 <%= render :partial => 'search/category_header'  if @category %>
 
 
+<%  if (@packagenames.include? @search_term) ||  (@packagenames.size == 1) -%>
+<% end -%>
+
+
 <% if @packagenames.blank? %>
 
   <div id="search-result-error" >
@@ -30,8 +34,6 @@
 
 <% else %>
 
-  <div class="box box-shadow">
-    <div class="box-header"></div>
     <div id="search-result-list">
 
       <% @packagenames.each_with_index do |package, idx| %>
@@ -42,7 +44,7 @@
         banner_app = true if FileTest.exists?( Rails.root.join( "public/images/" + banner_path ) )
       %>
 
-        <div class="search-result-box <%= "search-result-box-grey" if( (idx%4 == 0) || ( (idx-3)%4 == 0) )  %> rounded-corner"
+        <div class="search-result-box box-shadow rounded-corner"
         <%= "style=\"background: url('/images/#{banner_path}') no-repeat scroll 0 0;\"" if banner_app %> >
 
             <div class="app-screenshot-search">
@@ -105,7 +107,5 @@
       <% end -%>
 
     </div>
-    <div class="box-footer"> </div>
-  </div>
 
 <% end %>

@@ -29,7 +29,7 @@
         url: '<%= url_for :controller => :search, :action => :searchresult %>',
         data: parameters,
         container: '#search_result_container',
-        timeout: 10000,
+        timeout: 30000,
         beforeSend: function() {
           $('#search-form').addClass('search-form-busy');
         },
@@ -80,7 +80,7 @@
 <div class="box box-shadow pkg-search-box pkg-header-box">
   <% form_tag( {:controller => 'search', :action => :searchresult}, :method => :get ) do %>
     <h1><%= link_to "Package Search", {:controller => :search, :action => :find}, :id => "apps-headline"  %></h1>
-    <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form",  :autocomplete => "off" %>
+    <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form",  :autocomplete => "off", :autofocus => true %>
     <div id='search-loader' class="hidden"><span id="search-loader-txt"></span> <%= image_tag "ajax-loader.gif" %></div>
     <%= submit_tag _('Search'), :name => nil, :class => "search-go-button" %>
     <span id="search-options-link"><%= image_tag "configure_search.png", :width => 24, :class =>"search-options-link" %></span>

@@ -91,9 +91,6 @@
 
 <div id="search_result_container">
   <div class="box box-shadow">
-    <h2 class="box-header">
-      <span class="alignleft"><%= @page_title -%></span>
-    </h2>
     <div>
 
       <% if @packages.blank? %>
@@ -157,8 +154,8 @@
                       <% official = @packages.select{|s| s.project == distro[:project] || s.project == "#{distro[:project]}:NonFree" } %>
                       <% update = @packages.select{|s| s.project == "#{distro[:project]}:Update"} %>
 
-                      <%= render( :partial => 'download_rows', :locals => {:packages => official, :distro => distro} ) if update.blank? %>
-                      <%= render :partial => 'download_rows', :locals => {:packages => update, :distro => distro} %>
+                      <%= render( :partial => 'package/download_rows', :locals => {:packages => official, :distro => distro} ) if update.blank? %>
+                      <%= render :partial => 'package/download_rows', :locals => {:packages => update, :distro => distro} %>
 
                       <% official_projects = @distributions.map{|d| d[:project]} %>
                       <% devel = @packages.select{|s| s.baseproject == distro[:project] } %>
@@ -173,8 +170,8 @@
                       <% end -%>
                     </ul>
                     <ul class="pkg-options-details  hidden" id="dist_home_<%= distro[:dist_id] %>" >
-                      <%= render :partial => 'download_rows', :locals => {:packages => devel, :distro => distro} %>
-                      <%= render :partial => 'download_rows', :locals => {:packages => home, :distro => distro} %>
+                      <%= render :partial => 'package/download_rows', :locals => {:packages => devel, :distro => distro} %>
+                      <%= render :partial => 'package/download_rows', :locals => {:packages => home, :distro => distro} %>
                     </ul>
 
                   </li>

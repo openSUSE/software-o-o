@@ -203,13 +203,14 @@ body {
     min-height: 110px;
     float: left;
     width: 440px;
-    margin-left: 13px;
-    margin-bottom: 5px;
-    padding: 5px;
+    margin: 5px;
+    margin-top: 10px;
+    padding: 7px;
+    background-color: #fff;
 }
 
 .search-result-box-grey {
-    background-color: #eee;
+    background-color: #fff;
 }
 
 .app-screenshot-search img {
@@ -251,12 +252,11 @@ input[type="submit"].search-go-button {
 
 .app-screenshot,  .app-screenshot-search {
     float: left;
-    margin-right: 25px;
+    margin: 15px 25px 0px 5px;
     border: 1px solid white;
     box-shadow: 0 1px 2px #999;
     -moz-box-shadow: 0 1px 2px #999;
     -webkit-box-shadow: 0 1px 2px #999;
-    margin-top: 0.5em;
 }
 
 .app-screenshot ~ p, .app-screenshot ~ a#one-click-button { /* If screenshot is available sibling <p> get left margin.*/
@@ -476,9 +476,9 @@ input[type="submit"].search-go-button {
 
 
 .pkg-categorie-note { /* Categorie under first H1 */
-  color: #999;
-  font-size: 0.8em;
-  letter-spacing: 0.1em;
+                      color: #999;
+                      font-size: 0.8em;
+                      letter-spacing: 0.1em;
 }
 
 #pkg-description .pkg-categorie-note {
@@ -579,7 +579,7 @@ select  {
     background: none repeat scroll 0 0 #FFFFFF;
     height: 80px;
     margin: 10px 0;
-     text-align: center;
+    text-align: center;
     overflow: hidden;
 }
 
@@ -590,7 +590,7 @@ select  {
     top: -0.28em;
     opacity:0.4;
     filter:alpha(opacity=40); /* For IE8 and earlier */
-    
+
 }
 
 #related-categories {

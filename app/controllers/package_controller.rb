@@ -33,7 +33,7 @@ class PackageController < ApplicationController
       @homepage = pkg_appdata.first[:homepage]
     end
 
-    #TODO: get distro spezific screenshot, cache from debshots etc.
+    #TODO: get distro specific screenshot, cache from debshots etc.
     @screenshot = "http://screenshots.debian.net/screenshot/" + @pkgname.downcase
 
     #TODO: sort out tumbleweed packages as seperate repo, maybe obs can mark that as seperate baseproject? 
@@ -59,7 +59,7 @@ class PackageController < ApplicationController
     categories = ( mapping.blank? ? [@category] : mapping.first[:categories] )
 
     app_pkgs = @appdata[:apps].select{|app| !( app[:categories].map{|c| c.downcase} & categories.map{|c| c.downcase} ).blank? }
-    @packagenames = app_pkgs.map{|p| p[:pkgname]}.uniq.sort
+    @packagenames = app_pkgs.map{|p| p[:pkgname]}.uniq.sort_by {|x| @appdata[:apps].select{|a| a[:pkgname] == x}.first[:name] }
 
     app_categories = app_pkgs.map{|p| p[:categories]}.flatten
     @related_categories = app_categories.uniq.map{|c| {:name => c, :weight => app_categories.select {|v| v == c }.size } }
