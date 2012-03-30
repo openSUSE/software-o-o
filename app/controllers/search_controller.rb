@@ -27,7 +27,7 @@ class SearchController < ApplicationController
     base = @baseproject=="ALL" ? "" : @baseproject
 
     #if we have a baseproject, and don't show unsupported packages, shortcut: '
-    if !@baseproject.blank? && !@search_unsupported
+    if !@baseproject.blank? && !@search_unsupported && !@search_project
       @search_project = @baseproject
     end
 
@@ -46,7 +46,7 @@ class SearchController < ApplicationController
     end
 
     # filter out devel projects on user setting
-    unless @search_unsupported
+    unless (@search_unsupported || @search_project)
       @packages = @packages.select{|p| (@distributions.map{|d| d[:project]}.include? p.project) ||
           @distributions.map{|d| "#{d[:project]}:Update"}.include?( p.project ) || @distributions.map{|d| "#{d[:project]}:NonFree"}.include?( p.project ) }
     end
@@ -56,9 +56,12 @@ class SearchController < ApplicationController
     @packagenames = @packages.map{|p| p.name}
 
     #mix in searchresults from appdata, as the api can't search in summary and description atm
+    if (!@search_project)
     appdata_hits = @appdata[:apps].select{|a| ( a[:summary].match(/#{@search_term}/i) ||
           a[:name].match(/#{@search_term}/i) ) }.map{|a| a[:pkgname]}
-    @packagenames = (@packagenames + appdata_hits).uniq.sort_by {|x| x.length}
+    @packagenames = (@packagenames + appdata_hits)
+    end
+    @packagenames = @packagenames.uniq.sort_by {|x| x.length}
 
     if request.xhr?
       render :partial => 'find_results' and return

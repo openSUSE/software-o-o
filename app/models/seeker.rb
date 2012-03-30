@@ -20,7 +20,7 @@ class Seeker < ActiveXML::Base
       words = query.split(" ").select {|part| !part.match(/^[0-9_\.-]+$/) }
       versrel = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
       logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
-      raise "Please provide a valid search term" if words.blank?
+      raise "Please provide a valid search term" if words.blank? && project.blank?
 
       xpath_items = Array.new
       xpath_items << "@project = '#{project}' " unless project.blank?
@@ -32,7 +32,7 @@ class Seeker < ActiveXML::Base
         xpath_items << "@name = '#{word.gsub(/['"()]/, "")}' "
       end
       xpath_items <<  "path/project='#{baseproject}'" unless baseproject.blank?
-      xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" unless exclude_filter.blank?
+      xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" if (!exclude_filter.blank? && project.blank?)
       xpath_items << versrel.map {|part| "starts-with(@versrel,'#{part}')"}.join(" and ") unless versrel.blank?
       xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " + 
         "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))" if exclude_debug
@@ -47,8 +47,9 @@ class Seeker < ActiveXML::Base
       result.add_binlist(bin)
 
       # remove this hack when the backend can filter for project names
-      result.reject!{|res| /#{exclude_filter}/.match( res.project ) } unless exclude_filter.blank?
+      result.reject!{|res| /#{exclude_filter}/.match( res.project ) } if (!exclude_filter.blank? && project.blank?)
       result.sort! {|x,y| y.relevance <=> x.relevance}
+      logger.info "Seeker found #{result.size} results"
       return result
     end
 

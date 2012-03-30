@@ -77,7 +77,7 @@
 </div>
 
 
-<div class="box box-shadow pkg-search-box pkg-header-box">
+<div class="box box-shadow pkg-search-box pkg-header-box ">
   <% form_tag( {:controller => 'search', :action => :searchresult}, :method => :get ) do %>
     <h1><%= link_to "Package Search", {:controller => :search, :action => :find}, :id => "apps-headline"  %></h1>
     <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form",  :autocomplete => "off", :autofocus => true %>
