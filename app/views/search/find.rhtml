@@ -1,14 +1,5 @@
 <% @page_title = _("Search") -%>
-<% @hide_side_box = true -%>
-<% @hide_search_box = true -%>
 
-<% content_for :content_for_head do %>
-<% end %>
-
-<%= render :partial => 'search/find_form' %>
-
-<div id="search_result_container">
   <% unless @packagenames.nil? %>
     <%= render :partial => 'search/find_results' %>
 <% end %>
-</div>

@@ -20,11 +20,6 @@
 <%= yield :head_javascript %>
   $(function() {
 <%= yield :ready_function %>
-         
-    var flip = 0;
-    $(".options_link").click(function () {
-      $("#search_options").toggle( flip++ % 2 == 0 );
-    });
   });
   /* ]]> */
     </script>
@@ -78,122 +73,25 @@
     <% end %>
 
     <div id="content" class="container_12 content-wrapper">
-      
-      <% if @hide_side_box -%>
-        <div class="grid_12 alpha omega">
-        <% else -%>
-          <div class="grid_9 alpha">
-          <% end -%>
 
-          <%= render :partial => 'search/search_box' unless @hide_search_box %>
+      <%= render :partial => 'search/find_form' unless @hide_search_box %>
 
-          <%= @content_for_layout %>
-
-        </div>
-
-        <% unless @hide_side_box -%>
-          <div class="grid_3 omega">
-
-            <div class="box box-shadow">
-              <h2 class="box-header centered"><%= _("Popular Software") %></h2>
-              <p>
-                <% top = top_downloads
-                if !top.blank?
-                  top1=top[0][:count]
-                  top10=top[-1][:count]
-                  if top1 - top10 > 0
-                    top.each do |query| -%>
-                      <% queryclass=((Float(query[:count] - top10) / (top1 - top10)) * 5).round %>
-                      <a class='<%= "nowrap query query_#{queryclass}"%>'><%= query[:query] %></a>
-                    <% end
-                  end
-                end -%>
-              </p>
-            </div>
-
-
-            <div class="box box-shadow">
-              <h2 class="box-header centered"><%=_("Getting Help")%></h2>
-              <ul class="navigation">
-                <li><a href="<%= _("http://en.opensuse.org/SDB:Download_help") %>"><%=_("Download Help")%></a></li>
-                <li><a href="<%= _("http://en.opensuse.org/SDB:Download_help\#Burn_the_ISO_image.28s.29") %>"><%=_("Burn CD/DVD Image(s)")%></a></li>
-                <li><a href="<%= _("http://en.opensuse.org/Portal:Installation") %>"><%=_("Installation Guides")%></a></li>
-                <li><a href="<%= _("http://doc.opensuse.org/") %>"><%=_("Official Manuals")%></a></li>
-                <li><a href="<%= _("http://en.opensuse.org/Package_repositories") %>"><%=_("Package Repositories")%></a></li>
-                <li><a href="<%= _("http://en.opensuse.org/openSUSE:Submitting_bug_reports") %>"><%=_("Reporting Bugs")%></a></li>
-              </ul>
-            </div>
-
-            <div class="box box-shadow">
-              <h2 class="box-header centered"><%=_("Countdown")%></h2>
-              <div class="centered">
-                <%= link_to image_tag( "http://counter.opensuse.org/small", :title => _("openSUSE Countdown") ), "http://countdown.opensuse.org/link/" %>
-              </div>
-            </div>
-
-            <!--
-            <div class="box box-shadow">
-              <h2 class="box-header aligncenter"><%=_("Buy openSUSE")%></h2>
-              <div class="centered">
-                <a href="<%= _("http://en.opensuse.org/Buy_openSUSE") %>"><%= image_tag "114_Boxshot_GB_3D.jpg", :title => _("Buy openSUSE"), :alt => _("Buy openSUSE"), :width => 90, :height => 114 %></a>
-              </div>
-              <p class="centered">
-                <a href="<%= _("http://en.opensuse.org/Buy_openSUSE") %>" title="Buy openSUSE" style="text-decoration: none; font-weight: bold"><%=_("Buy openSUSE")%></a>
-              </p>
-            </div>
-            -->
-
-            <div class="box box-shadow">
-              <h2 class="box-header centered"><%=_("Sponsored by")%></h2>
-              <!--<p class="centered" style="color: #ccc; font-size: 0.8em"><%=_("Platinum Sponsor")%></p>-->
-              <p class="centered" style="color: #ccc; font-size: 0.8em;"><%=_("Gold Sponsor")%></p>
-              <p class="centered">
-                <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by AMD")%>" alt="<%=_("Sponsored by AMD")%>" src="http://static.opensuse.org/c/images/common/Amd.png" width="136" height="66"/></a>
-                <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: IP Exchange")%>" alt="<%=_("Sponsored by: IP Exchange")%>" src="http://static.opensuse.org/c/images/common/Ip-exchange.gif" width="180" height="85"/></a>
-              </p>
-              <p class="centered" style="color: #ccc; font-size: 0.8em;"><%=_("Silver Sponsor")%></p>
-              <p class="centered">
-                <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: B1 Systems")%>" alt="<%=_("Sponsored by: B1 Systems")%>" src="http://static.opensuse.org/c/images/common/B1-systems-1.jpg" width="100" height="100"/></a>
-              </p>
-              <!--<p class="centered" style="color: #ccc; font-size: 0.8em"><%=_("Bronze Sponsor")%></p>-->
-            </div>
-
-            <div class="box box-shadow">
-              <h2 class="box-header centered"><%= _("Language") %></h2>
-              <form action="<%= url_for :controller => :main, :action => :index %>" method="get" class="centered">
-                <select name="lang" onChange="this.form.submit();">
-                  <option value="<%= @lang %>" selected="true"><%= link_to(LANGUAGE_NAMES[@lang] || @lang, :controller => :main, :action => :index, :lang => "#{@lang}") %></option>
-                  <% LANGUAGES.each do |lang| %>
-                    <option value="<%= lang %>"><%= link_to(LANGUAGE_NAMES[lang] || lang, :controller => :main, :action => :index, :lang => "#{lang}") %></option>
-                  <% end -%>
-                </select>
-              </form>
-            </div>
-
-          </div>
-        <% end -%>
-
+      <div id="search_result_container">
+        <%= @content_for_layout %>
       </div>
+    </div>
 
-      <div id="footer" class="container_12">
-        <div id="footer-content" class="grid_12 alpha">
-        </div>
-        <div id="footer-legal" class="border-top grid_12 alpha">
-          <p>© 2011 Novell, Inc. and others. |
+    <div id="footer" class="container_12">
+      <div id="footer-content" class="grid_12 alpha">
+      </div>
+      <div id="footer-legal" class="border-top grid_12 alpha">
+        <p>© 2011 Novell, Inc. and others. |
           <a href="http://en.opensuse.org/Portal:Project">About openSUSE</a> |
           <a href="http://en.opensuse.org/Terms_of_site">Legal information</a> |
           <a href="mailto:admin@opensuse.org">Feedback</a>
-          </p>
-        </div>
+        </p>
       </div>
-
-      <% if @right_box == :search -%>
-        <!--[if lte IE 7]>
-            <script type="text/javascript">
-             alert("Please note that the Internet Explorer (all versions) is not capable of handling\nfiles larger than 4 GB.\n\nThis means that you will not be able to download the DVD images using IE.\n\nPlease use a different browser or a downloadmanager.")
-            </script>
-          <![endif]-->
-      <% end -%>
+    </div>
 
   </body>
 </html>

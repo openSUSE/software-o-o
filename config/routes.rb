@@ -30,6 +30,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect 'developer/:lang', :controller => 'main', :action => 'release', :release => "developer"
 
+  map.connect 'search', :controller => 'search', :action => 'searchresult'
   map.connect 'package/:package', :controller => 'package', :action => 'show', :requirements => { :package => /[\w\-\.:\+]+/ }
   map.connect 'packages', :controller => 'package', :action => 'categories'
   map.connect 'appstore', :controller => 'package', :action => 'categories'

@@ -13,7 +13,7 @@
     <ol>
       <% top = @top_searches -%>
       <% top.each do |item| -%>
-        <li><%= h item[:query] %> (<%= h item[:count] %>)</li>
+        <li><%= link_to item[:query], :controller => :search, :action => :searchresult, :q =>item[:query] %> (<%= h item[:count] %>)</li>
       <% end -%>
     </ol>
 
@@ -22,7 +22,7 @@
     <ol>
       <% top = @failed_searches -%>
       <% top.each do |item| -%>
-        <li><%= h item[:query] %> (<%= h item[:count] %>)</li>
+        <li><%= link_to item[:query], :controller => :search, :action => :searchresult, :q =>item[:query] %> (<%= h item[:count] %>)</li>
       <% end -%>
     </ol>
 
@@ -34,7 +34,7 @@
     <ol>
       <% top = top_downloads -%>
       <% top.each do |item| -%>
-        <li><%= h item[:query] %> (<%= h item[:count] %>)</li>
+        <li><%= link_to item[:query], :controller => :search, :action => :searchresult, :q =>item[:query] %> (<%= h item[:count] %>)</li>
       <% end -%>
     </ol>
 

@@ -3,110 +3,172 @@
 @page_title = _("Download %s") % @releasename
 -%>
 
-<div class="box box-shadow">
-  <h2 class="box-header">
-    <span class="alignleft"><%= @box_title || @page_title -%></span>
-    <% if @right_box == :search -%>
-      <span class="alignright" style="padding-right: 10px">
-        <% if !@release.blank? and @release != "developer" -%>
-          <%= _('switch to') -%> <%= link_to _('Development Version'), {:controller => "main", :action => "developer", :lang => @lang } -%>
-        <% elsif !@release.blank? -%>
-          <%= _('switch to') -%> <%= link_to _('Released Version'), {:controller => "main", :action => "index", :lang => @lang } -%>
-        <% end -%>
-      </span>
-    <% end -%>
-  </h2>
-  <div>
+<div class="grid_9 alpha">
 
-    <script language="javascript" type="text/javascript" src="<%= url_for(:controller => :main, :action => "download_js", :release => @release) %>">
-      //<![CDATA[
-      // overwrite in case of changed installation medium
-      var mymedium = "<%= @medium %>";
-      //]]>
-    </script>
+  <div class="box box-shadow">
+    <h2 class="box-header">
+      <span class="alignleft"><%= @box_title || @page_title -%></span>
+      <% if @right_box == :search -%>
+        <span class="alignright" style="padding-right: 10px">
+          <% if !@release.blank? and @release != "developer" -%>
+            <%= _('switch to') -%> <%= link_to _('Development Version'), {:controller => "main", :action => "developer", :lang => @lang } -%>
+          <% elsif !@release.blank? -%>
+            <%= _('switch to') -%> <%= link_to _('Released Version'), {:controller => "main", :action => "index", :lang => @lang } -%>
+          <% end -%>
+        </span>
+      <% end -%>
+    </h2>
+    <div>
 
-    <div style="margin-top: 1em; padding: 0">
+      <script language="javascript" type="text/javascript" src="<%= url_for(:controller => :main, :action => "download_js", :release => @release) %>">
+        //<![CDATA[
+        // overwrite in case of changed installation medium
+        var mymedium = "<%= @medium %>";
+        //]]>
+      </script>
 
-      <div id="popup" style="display: none;">
-        <a href="#" id="popup_close" style="display: block; float: right; padding: 10px">Close</a>
-        <div id="popup_content"></div>
-      </div>
-      <div style="float: right; width: 14em;">
-      </div>
+      <div style="margin-top: 1em; padding: 0">
 
-      <h4 style="margin-bottom: 15px"><%= _("Installation Medium") %></h4>
-      <div id="iso-wrapper">
+        <div id="popup" style="display: none;">
+          <a href="#" id="popup_close" style="display: block; float: right; padding: 10px">Close</a>
+          <div id="popup_content"></div>
+        </div>
+        <div style="float: right; width: 14em;">
+        </div>
 
-        <div id="downloaderAccordion">
+        <h4 style="margin-bottom: 15px"><%= _("Installation Medium") %></h4>
+        <div id="iso-wrapper">
 
-          <%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD"), :longtext => _("Contains a large collection of software for desktop or server use.<br/>Suitable for installation or upgrade.") }) %>
-          <%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("A GNOME desktop you can run from CD or from USB stick.<br/>Can be installed as is (no upgrade).") }) %>
-          <%= render(:partial => "change_install", :locals => { :medium => "kde", :shorttext => _("Live KDE"), :longtext => _("A KDE desktop you can run from CD or from USB stick.<br/>Can be installed as is (no upgrade).") }) %>
-          <%= render(:partial => "change_install", :locals => { :medium => "net", :shorttext => _("Network"), :longtext => _("Downloads the installation system and all packages from online repositories.<br/>Suitable for installation or upgrade.") }) %>
-          <%= render(:partial => "change_install", :locals => { :medium => "derivatives", :shorttext => _("openSUSE Derivatives"), :longtext => _("Get one of the specialized distribution built on openSUSE.") }) %>
+          <div id="downloaderAccordion">
+
+            <%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD"), :longtext => _("Contains a large collection of software for desktop or server use.<br/>Suitable for installation or upgrade.") }) %>
+            <%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("A GNOME desktop you can run from CD or from USB stick.<br/>Can be installed as is (no upgrade).") }) %>
+            <%= render(:partial => "change_install", :locals => { :medium => "kde", :shorttext => _("Live KDE"), :longtext => _("A KDE desktop you can run from CD or from USB stick.<br/>Can be installed as is (no upgrade).") }) %>
+            <%= render(:partial => "change_install", :locals => { :medium => "net", :shorttext => _("Network"), :longtext => _("Downloads the installation system and all packages from online repositories.<br/>Suitable for installation or upgrade.") }) %>
+            <%= render(:partial => "change_install", :locals => { :medium => "derivatives", :shorttext => _("openSUSE Derivatives"), :longtext => _("Get one of the specialized distribution built on openSUSE.") }) %>
+          </div>
         </div>
       </div>
+
+      <hr style="clear: both"/>
+
+      <div id="download_links">
+        <p class="info_text">
+          <%=_("Choose an installation medium by clicking it and hit the Download button to start the download. Optionally choose your computer type or an alternative download method.") %>
+        </p>
+        <h3><%=_("Need help?")%></h3>
+        <p>
+          <%= _("More information on downloading openSUSE is available from the <a href=\"http://en.opensuse.org/SDB:Download_help\">Download Help</a> and <a href=\"http://en.opensuse.org/SDB:Network_installation\">Network Installation</a> pages in our <a href=\"http://en.opensuse.org/Portal:Documentation\">Documentation Wiki</a>.") %>
+          <%= _("User manuals are available from <a href=\"http://doc.opensuse.org\">doc.opensuse.org</a>, for example the <a href=\"http://doc.opensuse.org/products/opensuse/openSUSE/opensuse-startup/\">Official Start-Up Guide</a>.") %>
+        </p>
+
+        <h3><%=_("Verify your download (optional, for experts)")%></h3>
+        <p class="justify">
+          <%=_("Many applications can verify the checksum of a download. To verify your download can be important as it verifies you really have got the ISO file you wanted to download and not some broken version.") %>
+          <%=_("You could verify the file in the process of downloading. For example a checksum (SHA256) will be used automatically if you choose <a href='http://en.opensuse.org/SDB:Metalink'>Metalink</a> in the field above and use the add-on DownThemAll! in <a href='http://en.opensuse.org/Firefox'>Firefox</a>.") %>
+          <%=_("We offer three different checksums:")%>
+        </p>
+        <noscript>
+          <dl style="margin: 15px;">
+            <dt><%=_("gpg signature")%></dt>
+            <dd><%=_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % "4E98 E675 19D9 8DC7 362A  5990 E3A5 C360 307E 3D54" %>
+              (<a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.asc">32 Bit</a> or <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.asc">64 Bit</a>)
+            </dd>
+            <dt><%=_("md5 checksum")%></dt>
+            <dd><%=_("is still the most commonly used checksum. Many ISO burners display it right before burning.")%> (<a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.md5">32 Bit</a> or <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.md5">64 Bit</a>)</dd>
+            <dt><%=_("sha1 checksum")%></dt>
+            <dd><%=_("is the less known but more secure checksum than md5.")%> (<a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.sha1">32 Bit</a> or <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.sha1">64 Bit</a>)</dd>
+          </dl>
+        </noscript>
+        <ul class="hidden script_only">
+          <li><a id="sig_gpg" href="#"><%=_("gpg signature")%></a> <%=_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % "4E98 E675 19D9 8DC7 362A  5990 E3A5 C360 307E 3D54" %></li>
+          <li><a id="sig_md5" href="#"><%=_("md5 checksum")%></a> <%=_("is still the most commonly used checksum. Many ISO burners display it right before burning.")%></li>
+          <li><a id="sig_sha1" href="#"><%=_("sha1 checksum")%></a> <%=_("is the less known but more secure checksum than md5.")%></li>
+        </ul>
+
+        <h3><%=_("Add-On Downloads (optional)")%></h3>
+        <ul id="addon_downloads">
+          <li class="noscript"><%= render(:partial => "download_link", :locals => { :id => "lang32", :iso => "lang-32", :text => _("Extra Languages (32 Bit)") } ) %></li>
+          <li class="noscript"><%= render(:partial => "download_link", :locals => { :id => "lang64", :iso => "lang-64", :text => _("Extra Languages (64 Bit)") } ) %></li>
+          <li class="hidden script_only"><%= render(:partial => "download_link", :locals => { :id => "lang", :iso => "lang-32", :text => _("Extra Languages") } ) %></li>
+          <li><p class="justify"><%=_('Live CDs contain only four languages (English, German, Russian and Italian). If you want to have support for remaining languages you need to download it from the Internet during the installation or any time after it. If you have easy access to the Internet or if you use DVD containing all languages, you do not need this CD.')%></p></li>
+          <li><%= render(:partial => "download_link", :locals => { :id => "nonoss", :iso => "nonoss", :text => _("NonOSS CD") } )%></li>
+          <li><p class="justify"><%=_('This CD contains free software distributed under proprietary licence not allowing its inclusion to main installation media together with free open-source software. All software from this CD could be downloaded from NON-OSS repository.')%></p></li>
+        </ul>
+      </div>
+
+
+      <div id="download_help" class="info_text">
+        <h3><%=_("How to Proceed")%></h3>
+        <ol id="howtoproceed" style="list-style-type:lower-latin">
+          <li><%=_("After having successfully downloaded the ISO image(s), burn the image(s) with your favorite burning application to a DVD or CD. Please do <em>not</em> burn a data DVD/CD, but rather choose the option to burn an ISO image.")%>
+            <br/><a href="<%= _("http://en.opensuse.org/SDB:Download_help\#Burn_the_ISO_image.28s.29")%>">
+              <%=_("More information on burning the ISO file to CD/DVD")%></a>
+            <br/><%= _("More information on creating a <a href='http://en.opensuse.org/Live_USB_stick'>bootable USB stick</a>") %>
+          </li>
+          <li><%=_("Boot from the DVD or CD. In case your computer does not automatically boot from CD/DVD, open the BIOS setup to allow booting from CD or DVD.")%></li>
+        </ol>
+      </div>
+
     </div>
-
-    <hr style="clear: both"/>
-
-    <div id="download_links">
-      <p class="info_text">
-        <%=_("Choose an installation medium by clicking it and hit the Download button to start the download. Optionally choose your computer type or an alternative download method.") %>
-      </p>
-      <h3><%=_("Need help?")%></h3>
-      <p>
-        <%= _("More information on downloading openSUSE is available from the <a href=\"http://en.opensuse.org/SDB:Download_help\">Download Help</a> and <a href=\"http://en.opensuse.org/SDB:Network_installation\">Network Installation</a> pages in our <a href=\"http://en.opensuse.org/Portal:Documentation\">Documentation Wiki</a>.") %>
-        <%= _("User manuals are available from <a href=\"http://doc.opensuse.org\">doc.opensuse.org</a>, for example the <a href=\"http://doc.opensuse.org/products/opensuse/openSUSE/opensuse-startup/\">Official Start-Up Guide</a>.") %>
-      </p>
-
-      <h3><%=_("Verify your download (optional, for experts)")%></h3>
-      <p class="justify">
-        <%=_("Many applications can verify the checksum of a download. To verify your download can be important as it verifies you really have got the ISO file you wanted to download and not some broken version.") %>
-        <%=_("You could verify the file in the process of downloading. For example a checksum (SHA256) will be used automatically if you choose <a href='http://en.opensuse.org/SDB:Metalink'>Metalink</a> in the field above and use the add-on DownThemAll! in <a href='http://en.opensuse.org/Firefox'>Firefox</a>.") %>
-        <%=_("We offer three different checksums:")%>
-      </p>
-      <noscript>
-        <dl style="margin: 15px;">
-          <dt><%=_("gpg signature")%></dt>
-          <dd><%=_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % "4E98 E675 19D9 8DC7 362A  5990 E3A5 C360 307E 3D54" %>
-            (<a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.asc">32 Bit</a> or <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.asc">64 Bit</a>)
-          </dd>
-          <dt><%=_("md5 checksum")%></dt>
-          <dd><%=_("is still the most commonly used checksum. Many ISO burners display it right before burning.")%> (<a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.md5">32 Bit</a> or <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.md5">64 Bit</a>)</dd>
-          <dt><%=_("sha1 checksum")%></dt>
-          <dd><%=_("is the less known but more secure checksum than md5.")%> (<a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.sha1">32 Bit</a> or <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.sha1">64 Bit</a>)</dd>
-        </dl>
-      </noscript>
-      <ul class="hidden script_only">
-        <li><a id="sig_gpg" href="#"><%=_("gpg signature")%></a> <%=_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % "4E98 E675 19D9 8DC7 362A  5990 E3A5 C360 307E 3D54" %></li>
-        <li><a id="sig_md5" href="#"><%=_("md5 checksum")%></a> <%=_("is still the most commonly used checksum. Many ISO burners display it right before burning.")%></li>
-        <li><a id="sig_sha1" href="#"><%=_("sha1 checksum")%></a> <%=_("is the less known but more secure checksum than md5.")%></li>
-      </ul>
-
-      <h3><%=_("Add-On Downloads (optional)")%></h3>
-      <ul id="addon_downloads">
-        <li class="noscript"><%= render(:partial => "download_link", :locals => { :id => "lang32", :iso => "lang-32", :text => _("Extra Languages (32 Bit)") } ) %></li>
-        <li class="noscript"><%= render(:partial => "download_link", :locals => { :id => "lang64", :iso => "lang-64", :text => _("Extra Languages (64 Bit)") } ) %></li>
-        <li class="hidden script_only"><%= render(:partial => "download_link", :locals => { :id => "lang", :iso => "lang-32", :text => _("Extra Languages") } ) %></li>
-        <li><p class="justify"><%=_('Live CDs contain only four languages (English, German, Russian and Italian). If you want to have support for remaining languages you need to download it from the Internet during the installation or any time after it. If you have easy access to the Internet or if you use DVD containing all languages, you do not need this CD.')%></p></li>
-        <li><%= render(:partial => "download_link", :locals => { :id => "nonoss", :iso => "nonoss", :text => _("NonOSS CD") } )%></li>
-        <li><p class="justify"><%=_('This CD contains free software distributed under proprietary licence not allowing its inclusion to main installation media together with free open-source software. All software from this CD could be downloaded from NON-OSS repository.')%></p></li>
-      </ul>
-    </div>
-
-
-    <div id="download_help" class="info_text">
-      <h3><%=_("How to Proceed")%></h3>
-      <ol id="howtoproceed" style="list-style-type:lower-latin">
-        <li><%=_("After having successfully downloaded the ISO image(s), burn the image(s) with your favorite burning application to a DVD or CD. Please do <em>not</em> burn a data DVD/CD, but rather choose the option to burn an ISO image.")%>
-          <br/><a href="<%= _("http://en.opensuse.org/SDB:Download_help\#Burn_the_ISO_image.28s.29")%>">
-            <%=_("More information on burning the ISO file to CD/DVD")%></a>
-          <br/><%= _("More information on creating a <a href='http://en.opensuse.org/Live_USB_stick'>bootable USB stick</a>") %>
-        </li>
-        <li><%=_("Boot from the DVD or CD. In case your computer does not automatically boot from CD/DVD, open the BIOS setup to allow booting from CD or DVD.")%></li>
-      </ol>
-    </div>
-
   </div>
+
 </div>
+
+<div class="grid_3 omega">
+
+  <div class="box box-shadow">
+    <h2 class="box-header centered"><%=_("Getting Help")%></h2>
+    <ul class="navigation">
+      <li><a href="<%= _("http://en.opensuse.org/SDB:Download_help") %>"><%=_("Download Help")%></a></li>
+      <li><a href="<%= _("http://en.opensuse.org/SDB:Download_help\#Burn_the_ISO_image.28s.29") %>"><%=_("Burn CD/DVD Image(s)")%></a></li>
+      <li><a href="<%= _("http://en.opensuse.org/Portal:Installation") %>"><%=_("Installation Guides")%></a></li>
+      <li><a href="<%= _("http://doc.opensuse.org/") %>"><%=_("Official Manuals")%></a></li>
+      <li><a href="<%= _("http://en.opensuse.org/Package_repositories") %>"><%=_("Package Repositories")%></a></li>
+      <li><a href="<%= _("http://en.opensuse.org/openSUSE:Submitting_bug_reports") %>"><%=_("Reporting Bugs")%></a></li>
+    </ul>
+  </div>
+
+  <!--
+  <div class="box box-shadow">
+    <h2 class="box-header centered"><%=_("Countdown")%></h2>
+    <div class="centered">
+      <%= link_to image_tag( "http://counter.opensuse.org/small", :title => _("openSUSE Countdown") ), "http://countdown.opensuse.org/link/" %>
+    </div>
+  </div>
+  -->
+
+  <div class="box box-shadow">
+    <h2 class="box-header centered"><%=_("Sponsored by")%></h2>
+    <!--<p class="centered" style="color: #ccc; font-size: 0.8em"><%=_("Platinum Sponsor")%></p>-->
+    <p class="centered" style="color: #ccc; font-size: 0.8em;"><%=_("Gold Sponsor")%></p>
+    <p class="centered">
+      <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by AMD")%>" alt="<%=_("Sponsored by AMD")%>" src="http://static.opensuse.org/c/images/common/Amd.png" width="136" height="66"/></a>
+      <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: IP Exchange")%>" alt="<%=_("Sponsored by: IP Exchange")%>" src="http://static.opensuse.org/c/images/common/Ip-exchange.gif" width="180" height="85"/></a>
+    </p>
+    <p class="centered" style="color: #ccc; font-size: 0.8em;"><%=_("Silver Sponsor")%></p>
+    <p class="centered">
+      <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: B1 Systems")%>" alt="<%=_("Sponsored by: B1 Systems")%>" src="http://static.opensuse.org/c/images/common/B1-systems-1.jpg" width="100" height="100"/></a>
+    </p>
+    <!--<p class="centered" style="color: #ccc; font-size: 0.8em"><%=_("Bronze Sponsor")%></p>-->
+  </div>
+
+  <div class="box box-shadow">
+    <h2 class="box-header centered"><%= _("Language") %></h2>
+    <form action="<%= url_for :controller => :main, :action => :index %>" method="get" class="centered">
+      <select name="lang" onChange="this.form.submit();">
+        <option value="<%= @lang %>" selected="true"><%= link_to(LANGUAGE_NAMES[@lang] || @lang, :controller => :main, :action => :index, :lang => "#{@lang}") %></option>
+        <% LANGUAGES.each do |lang| %>
+          <option value="<%= lang %>"><%= link_to(LANGUAGE_NAMES[lang] || lang, :controller => :main, :action => :index, :lang => "#{lang}") %></option>
+        <% end -%>
+      </select>
+    </form>
+  </div>
+
+</div>
+
+<!--[if lte IE 7]>
+    <script type="text/javascript">
+     alert("Please note that the Internet Explorer (all versions) is not capable of handling\nfiles larger than 4 GB.\n\nThis means that you will not be able to download the DVD images using IE.\n\nPlease use a different browser or a downloadmanager.")
+    </script>
+  <![endif]-->

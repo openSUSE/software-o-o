@@ -8,7 +8,7 @@ when 'i386', 'i586', 'i686'
   architecture = "32 bit, #{architecture}"
 end
 
-@right_box = :search
+@hide_search_box = true
 @page_title = "Proprietary Multimedia Support in openSUSE"
 
 wm_framework = nil
@@ -30,7 +30,7 @@ end
         <% if @visitor.application %><%= h(@visitor.application.titlecase) %><% else %>The application you are using<% end %> requires the following additional proprietary third-party software to support the content you have attempted to play:
       </p>
 
-      <ul class="navlist" style="margin-bottom: 1.5em">
+      <ul class="navlist" style="margin-bottom: 1.5em;">
         <% if wm_framework  %>
           <li>Windows Media decoder (<%= h(wm_framework) %>, <%= h(architecture) %>)</li>
         <% end %>

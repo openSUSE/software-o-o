@@ -1,5 +1,3 @@
-<% @hide_side_box = true -%>
-<% @hide_search_box = true -%>
 
 <script type="text/javascript">
   $(function() {
@@ -12,44 +10,37 @@
 
 </script>
 
-<%= render :partial => 'search/find_form' %>
+<div class="appstore-container grid_12 alpha omega">
+
+  <div class="box box-shadow grid_6 appstore-category-box alpha "
+       style="background: url('/images/categories/games.gif') repeat scroll 0 0 #FFFFFF;">
+    <h2 class="box-header"><%= _("Games") %></h2>
+    <%= link_to "", {:controller => :package, :action => :category, :category =>"Games"}, :class => "appstore-category-box-hover" %>
+  </div>
+  <% @main_sections = @main_sections.delete_if{|section| section[:name] == "Games" } %>
+  <% @main_sections = @main_sections.delete_if{|section| section[:name] == "Multimedia" } %>
 
 
-<div id="search_result_container">
-
-  <div class="appstore-container">
-
-
-    <div class="box box-shadow grid_6 appstore-category-box alpha "
-         style="background: url('/images/categories/games.gif') repeat scroll 0 0 #FFFFFF;">
-      <h2 class="box-header"><%= _("Games") %></h2>
-      <%= link_to "", {:controller => :package, :action => :category, :category =>"Games"}, :class => "appstore-category-box-hover" %>
-    </div>
-    <% @main_sections = @main_sections.delete_if{|section| section[:name] == "Games" } %>
-    <% @main_sections = @main_sections.delete_if{|section| section[:name] == "Multimedia" } %>
-
-
-    <% @main_sections.each do |section| %>
-      <% apps = @appdata[:apps].select{|app| !(app[:categories] & section[:categories]).blank? } %>
-      <div class="box box-shadow grid_3 appstore-category-box alpha"
-           style="background: url('/images/categories/<%= section[:id].downcase %>_box.png') repeat scroll 0 0 #FFFFFF;">
-        <h2 class="box-header"><%=  section[:name]  %></h2>
-        <%= link_to "", {:controller => :package, :action => :category, :category => section[:id]}, :class => "appstore-category-box-hover" %>
-        <p>
+  <% @main_sections.each do |section| %>
+    <% apps = @appdata[:apps].select{|app| !(app[:categories] & section[:categories]).blank? } %>
+    <div class="box box-shadow grid_3 appstore-category-box alpha"
+         style="background: url('/images/categories/<%= section[:id].downcase %>_box.png') repeat scroll 0 0 #FFFFFF;">
+      <h2 class="box-header"><%=  section[:name]  %></h2>
+      <%= link_to "", {:controller => :package, :action => :category, :category => section[:id]}, :class => "appstore-category-box-hover" %>
+      <p>
   <%# apps[0..16].each do |app| %>
   <%# = link_to app[:name], :controller => :package, :action => :show, :package => app[:pkgname] %>
   <%# end -%>
-        </p>
-      </div>
-
-    <% end %>
-
-
-    <div class="box box-shadow grid_6 appstore-category-box alpha "
-         style="background: url('/images/categories/multimedia_wide.png') repeat scroll 0 0 #FFFFFF;">
-      <h2 class="box-header"><%= _("Multimedia") %></h2>
-      <%= link_to "", {:controller => :package, :action => :category, :category => "Multimedia" }, :class => "appstore-category-box-hover" %>
+      </p>
     </div>
 
+  <% end %>
+
+
+  <div class="box box-shadow grid_6 appstore-category-box alpha "
+       style="background: url('/images/categories/multimedia_wide.png') repeat scroll 0 0 #FFFFFF;">
+    <h2 class="box-header"><%= _("Multimedia") %></h2>
+    <%= link_to "", {:controller => :package, :action => :category, :category => "Multimedia" }, :class => "appstore-category-box-hover" %>
   </div>
+
 </div>

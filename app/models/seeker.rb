@@ -39,11 +39,11 @@ class Seeker < ActiveXML::Base
       xpath = xpath_items.join(' and ')
 
       bin = Seeker.find :binary, :match => xpath
-      pat = Seeker.find :pattern, :match => xpath
+      #pat = Seeker.find :pattern, :match => xpath
       raise "Backend not responding" if( bin == nil && pat == nil )
 
       result = new(query)
-      result.add_patlist(pat)
+      #result.add_patlist(pat)
       result.add_binlist(bin)
 
       # remove this hack when the backend can filter for project names

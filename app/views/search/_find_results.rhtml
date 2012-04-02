@@ -1,38 +1,40 @@
-<% if DEFAULT_SEARCHES[@search_term] %>
-  <div id="search-result-error" >
-    <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">
-      <p id="msg">
-        <span class="ui-icon ui-icon-info"/>
-        <%=DEFAULT_SEARCHES[@search_term] %>
-      </p>
+<div class="grid_12 alpha omega">
+
+  <% if DEFAULT_SEARCHES[@search_term] %>
+    <div id="search-result-error" >
+      <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">
+        <p id="msg">
+          <span class="ui-icon ui-icon-info"/>
+          <%=DEFAULT_SEARCHES[@search_term] %>
+        </p>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
 
-<%= render :partial => 'search/category_header'  if @category %>
+  <%= render :partial => 'search/category_header'  if @category %>
 
 
-<%  if (@packagenames.include? @search_term) ||  (@packagenames.size == 1) -%>
-<% end -%>
+  <%  if (@packagenames.include? @search_term) ||  (@packagenames.size == 1) -%>
+  <% end -%>
 
 
-<% if @packagenames.blank? %>
+  <% if @packagenames.blank? %>
 
-  <div id="search-result-error" >
-    <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">
-      <p id="msg">
-        <span class="ui-icon ui-icon-info"/>
-        <%= _("No packages found matching your search. ") %>
-        <% unless @search_unsupported %>
-          <br/>
-          <%= _("You could try to extend your search to unsupported packages or search for another base distribution (currently #{@baseproject}).") %>
-        <% end %>
-      </p>
+    <div id="search-result-error" >
+      <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">
+        <p id="msg">
+          <span class="ui-icon ui-icon-info"/>
+          <%= _("No packages found matching your search. ") %>
+          <% unless @search_unsupported %>
+            <br/>
+            <%= _("You could try to extend your search to unsupported packages or search for another base distribution (currently #{@baseproject}).") %>
+          <% end %>
+        </p>
+      </div>
     </div>
-  </div>
 
-<% else %>
+  <% else %>
 
     <div id="search-result-list">
 
@@ -45,56 +47,56 @@
       %>
 
         <div class="search-result-box box-shadow rounded-corner"
-        <%= "style=\"background: url('/images/#{banner_path}') no-repeat scroll 0 0;\"" if banner_app %> >
+             <%= "style=\"background: url('/images/#{banner_path}') no-repeat scroll 0 0;\"" if banner_app %> >
 
-            <div class="app-screenshot-search">
-              <%= link_to( image_tag(  screenshot_thumb_url( package ), :height => 75 ), :controller => :package, :action => :show, :package => package  ) %>
-            </div>
-            <div class="search-result-txt">
-              <h3><%= link_to highlight(package_name, @search_term), :controller => :package, :action => :show, :package => package  %>
+          <div class="app-screenshot-search">
+            <%= link_to( image_tag(  screenshot_thumb_url( package ), :height => 75 ), :controller => :package, :action => :show, :package => package  ) %>
+          </div>
+          <div class="search-result-txt">
+            <h3><%= link_to highlight(package_name, @search_term), :controller => :package, :action => :show, :package => package  %>
 
-                <div class="search-result-rating hidden">
-                  <%= image_tag "star_color.png" %>
-                  <%= image_tag "star_color.png" %>
-                  <%= image_tag "star_color.png" %>
-                  <%= image_tag "star_bw.png" %>
-                  <%= image_tag "star_bw.png" %>
-                </div>
-              </h3>
+              <div class="search-result-rating hidden">
+                <%= image_tag "star_color.png" %>
+                <%= image_tag "star_color.png" %>
+                <%= image_tag "star_color.png" %>
+                <%= image_tag "star_bw.png" %>
+                <%= image_tag "star_bw.png" %>
+              </div>
+            </h3>
 
-              <% if( appdata_pkg.blank? || appdata_pkg.first[:summary].blank? )
-                desc_package = search_for_description( package, @packages )
-                unless  desc_package.blank?
-                  summary = desc_package.summary
-                end
-              else
-                summary = appdata_pkg.first[:summary]
+            <% if( appdata_pkg.blank? || appdata_pkg.first[:summary].blank? )
+              desc_package = search_for_description( package, @packages )
+              unless  desc_package.blank?
+                summary = desc_package.summary
               end
-              unless  summary.blank? %>
-                <p><i><%= highlight( summary, @search_term) %></i></p>
-              <% end -%>
+            else
+              summary = appdata_pkg.first[:summary]
+            end
+            unless  summary.blank? %>
+              <p><i><%= highlight( summary, @search_term) %></i></p>
+            <% end -%>
 
-              <% devel_pack_match = [package + "-devel", package + "-lang", package + "-debuginfo", package + "-debugsource"] -%>
-              <% devel_packages = @packagenames.select{|r| devel_pack_match.include? r } -%>
-              <% unless devel_packages.blank? %>
-                <p><%= _("Development packages:") %>
-                  <% devel_packages.sort.each do |subpackage| %>
-                    <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
-                  <% end %>
-                </p>
-                <% @packagenames.reject! {|r| devel_pack_match.include? r }  -%>
-              <% end -%>
+            <% devel_pack_match = [package + "-devel", package + "-lang", package + "-debuginfo", package + "-debugsource"] -%>
+            <% devel_packages = @packagenames.select{|r| devel_pack_match.include? r } -%>
+            <% unless devel_packages.blank? %>
+              <p><%= _("Development packages:") %>
+                <% devel_packages.sort.each do |subpackage| %>
+                  <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
+                <% end %>
+              </p>
+              <% @packagenames.reject! {|r| devel_pack_match.include? r }  -%>
+            <% end -%>
 
-              <% sub_packages = @packagenames.sort.select{|name| ( name.match(/^#{package}-/) && @appdata[:apps].select{|a| a[:pkgname] == name}.blank? ) } -%>
-              <% unless sub_packages.blank? -%>
-                <p><%= _("Sub-packages:") %>
-                  <% sub_packages.each do |subpackage| %>
-                    <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
-                  <% end %>
-                </p>
-                <% @packagenames.reject! {|r| r.match(/^#{package}-/)  && @appdata[:apps].select{|a| a[:pkgname] == r}.blank? }  -%>
-              <% end -%>
-            </div>
+            <% sub_packages = @packagenames.sort.select{|name| ( name.match(/^#{package}-/) && @appdata[:apps].select{|a| a[:pkgname] == name}.blank? ) } -%>
+            <% unless sub_packages.blank? -%>
+              <p><%= _("Sub-packages:") %>
+                <% sub_packages.each do |subpackage| %>
+                  <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
+                <% end %>
+              </p>
+              <% @packagenames.reject! {|r| r.match(/^#{package}-/)  && @appdata[:apps].select{|a| a[:pkgname] == r}.blank? }  -%>
+            <% end -%>
+          </div>
         </div>
       <% end -%>
       <div style="clear: both; "></div>
@@ -108,4 +110,6 @@
 
     </div>
 
-<% end %>
+  <% end %>
+
+</div>

@@ -13,7 +13,7 @@
 
 <p>Just create a link to </p>
 <pre>http://software.opensuse.org/download/package?project=<b>&lt;projectname&gt;</b>&amp;package=<b>&lt;packagename&gt;</b></pre>
-<p>for example: <a href="http://software.opensuse.org/download/package?project=openSUSE:Tools&amp;package=osc">http://software.opensuse.org/download/package?project=openSUSE:Tools&amp;package=osc</a>.
+<p>for example: <%= link_to "http://software.opensuse.org/download/package?project=openSUSE:Tools&amp;package=osc", :controller => :download, :action => :package, :project => "openSUSE:Tools", :package => "osc" %>.
 </p>
 
 <p>To embed this page as an iframe in the download section of your project homepage, you can use this code: </p>
@@ -24,7 +24,7 @@
 
 <p>Which will result in an output like this: </p>
 
-<iframe src="http://software.opensuse.org/download/package.iframe?project=openSUSE:Tools&amp;package=osc" width="100%" ></iframe>
+<iframe src="<%= url_for :controller => :download, :action => :package, :project => "openSUSE:Tools", :package => "osc", :format => "iframe" %>" width="100%" ></iframe>
 
 <h3>Creating a download page for a pattern</h3>
 
@@ -46,7 +46,7 @@
 
 <p>Which will result in an output like this: </p>
 
-<iframe src="http://software.opensuse.org/download/appliance.iframe?project=openSUSE:Tools" width="100%" ></iframe> <!--/raw-->
+<iframe src="<%= url_for :controller => :download, :action => :appliance, :project => "openSUSE:Tools", :format => "iframe" %>" width="100%" ></iframe> <!--/raw-->
 
 <h2>Advanced options</h2>
 

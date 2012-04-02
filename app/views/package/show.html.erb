@@ -1,5 +1,3 @@
-<% @hide_side_box = true -%>
-<% @hide_search_box = true -%>
 
 <% content_for :content_for_head do %>
   <%= javascript_include_tag "slimbox2" %>
@@ -78,19 +76,18 @@
 
 </script>
 
-<div id="unsupported-warning" class="hidden">
-  <p>
-    <%= _("Please be aware that the following packages are from unofficial repositories.
-    That means they are not reviewed by openSUSE and may contain unstable or experimental software.") %>
-  </p>
-  <p><input type="checkbox" id="toggle_unsupported_warning"/>
-    <label for="toggle_unsupported_warning"><%= _("Don't show this warning the next time") %></label>
-  </p>
-</div>
+<div class="grid_12 alpha omega">
 
-<%= render :partial => 'search/find_form' %>
+  <div id="unsupported-warning" class="hidden">
+    <p>
+      <%= _("Please be aware that the following packages are from unofficial repositories.
+  That means they are not reviewed by openSUSE and may contain unstable or experimental software.") %>
+    </p>
+    <p><input type="checkbox" id="toggle_unsupported_warning"/>
+      <label for="toggle_unsupported_warning"><%= _("Don't show this warning the next time") %></label>
+    </p>
+  </div>
 
-<div id="search_result_container">
   <div class="box box-shadow">
     <div>
 
@@ -104,7 +101,7 @@
         <div id="pkg-content" class="grid_10 prefix_1 suffix_1">
 
           <div class="app-screenshot">
-            <%= link_to( image_tag( screenshot_thumb_url( @pkgname ), :height => 120 ), @screenshot, 
+            <%= link_to( image_tag( screenshot_thumb_url( @pkgname ), :height => 120 ), @screenshot,
               { :rel => "lightbox", :title => _("Screenshot of  ") % [@pkgname] } ) %>
           </div>
 
