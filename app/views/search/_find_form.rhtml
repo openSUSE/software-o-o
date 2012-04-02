@@ -40,13 +40,13 @@
           $('#search-messages').hide();
         },
         error: function(jqXHR, textStatus, errorThrown) {
-          $('#msg').html("An internal error happened :-(");
+          $('#msg').html("<%= _("An internal error happened :-(") %>");
           $('#search-messages').show();
         }
       })
 
     } else if (search_term.length > 0 ) {
-      $('#msg').html("Please enter more than 2 characters");
+      $('#msg').html("<%= _("Please enter more than 2 characters") %>");
       $('#search-result-error').hide();
       $('#search-messages').show();
     } else {
@@ -73,13 +73,13 @@
 </script>
 
 <div class="box box-shadow pkg-header-box pkg-appstore-box">
-  <h1><%= link_to "openSUSE Factory<br/>App Browser", {:controller => :package, :action => :categories}, :id => "apps-headline"  %></h1>
+  <h1><%= link_to "openSUSE Factory<br/>" + _("App Browser"), {:controller => :package, :action => :categories}, :id => "apps-headline"  %></h1>
 </div>
 
 
 <div class="box box-shadow pkg-search-box pkg-header-box ">
   <% form_tag( {:controller => 'search', :action => :searchresult}, :method => :get ) do %>
-    <h1><%= link_to "Package Search", {:controller => :search, :action => :find}, :id => "apps-headline"  %></h1>
+    <h1><%= link_to _("Package Search"), {:controller => :search, :action => :find}, :id => "apps-headline"  %></h1>
     <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form",  :autocomplete => "off", :autofocus => true %>
     <div id='search-loader' class="hidden"><span id="search-loader-txt"></span> <%= image_tag "ajax-loader.gif" %></div>
     <%= submit_tag _('Search'), :name => nil, :class => "search-go-button" %>
@@ -94,7 +94,7 @@
         <%= check_box_tag("search_unsupported", "true", @search_unsupported, {:id => "search_unsupported_checkbox" })  %>
         <label for="search_unsupported_checkbox"><%= _("Show unsupported packages") %></label><br/>
         <% @distributions ||= Array.new %>
-        &nbsp;Show distribution:&nbsp;
+        &nbsp;<%= _("Show distribution:") %>&nbsp;
         <%= select_tag 'baseproject', options_for_select((@distributions.map{|d| [d[:name], d[:project]]} || ["ALL"]), (@baseproject or default_baseproject)) %>
       </p>
     </div>

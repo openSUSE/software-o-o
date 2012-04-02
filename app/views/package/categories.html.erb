@@ -22,7 +22,7 @@
 
     <div class="box box-shadow grid_6 appstore-category-box alpha "
          style="background: url('/images/categories/games.gif') repeat scroll 0 0 #FFFFFF;">
-      <h2 class="box-header">Games</h2>
+      <h2 class="box-header"><%= _("Games") %></h2>
       <%= link_to "", {:controller => :package, :action => :category, :category =>"Games"}, :class => "appstore-category-box-hover" %>
     </div>
     <% @main_sections = @main_sections.delete_if{|section| section[:name] == "Games" } %>
@@ -47,7 +47,7 @@
 
     <div class="box box-shadow grid_6 appstore-category-box alpha "
          style="background: url('/images/categories/multimedia_wide.png') repeat scroll 0 0 #FFFFFF;">
-      <h2 class="box-header">Multimedia</h2>
+      <h2 class="box-header"><%= _("Multimedia") %></h2>
       <%= link_to "", {:controller => :package, :action => :category, :category => "Multimedia" }, :class => "appstore-category-box-hover" %>
     </div>
 

@@ -41,8 +41,8 @@ class PackageController < ApplicationController
       if ( package.repository.match(/Tumbleweed/) || (package.project == "openSUSE:Tumbleweed") )
         package.baseproject = "openSUSE:Tumbleweed"
       end
-
     end
+
   end
 
 

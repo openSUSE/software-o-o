@@ -11,9 +11,9 @@ module PackageHelper
     when ("amd64") then
       "64 Bit"
     when ("src") then 
-      "Source"
+      _("Source")
     when ("nosrc") then
-      "Source"
+      _("Source")
     else
       arch
     end

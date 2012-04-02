@@ -77,7 +77,7 @@
               <% devel_pack_match = [package + "-devel", package + "-lang", package + "-debuginfo", package + "-debugsource"] -%>
               <% devel_packages = @packagenames.select{|r| devel_pack_match.include? r } -%>
               <% unless devel_packages.blank? %>
-                <p>Development packages:
+                <p><%= _("Development packages:") %>
                   <% devel_packages.sort.each do |subpackage| %>
                     <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
                   <% end %>
@@ -87,7 +87,7 @@
 
               <% sub_packages = @packagenames.sort.select{|name| ( name.match(/^#{package}-/) && @appdata[:apps].select{|a| a[:pkgname] == name}.blank? ) } -%>
               <% unless sub_packages.blank? -%>
-                <p>Sub-packages:
+                <p><%= _("Sub-packages:") %>
                   <% sub_packages.each do |subpackage| %>
                     <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
                   <% end %>
@@ -102,7 +102,7 @@
 
       <% if @packagenames.size > 81 %>
         <div id="show-more-button" class="rounded-corner hidden">
-          <p><a href="#">Show more...</a></p>
+          <p><a href="#"><%= _("Show more...") %></a></p>
         </div>
       <% end -%>
 

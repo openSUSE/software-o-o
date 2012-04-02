@@ -95,7 +95,7 @@
     <div>
 
       <% if @packages.blank? %>
-        <p>Package <%= @pkgname %> not found...</p>
+        <p><%= _("Package %s not found...") % [@pkgname] %></p>
       <% else %>
 
         <!-- Main Content -->
@@ -104,7 +104,8 @@
         <div id="pkg-content" class="grid_10 prefix_1 suffix_1">
 
           <div class="app-screenshot">
-            <%= link_to( image_tag( screenshot_thumb_url( @pkgname ), :height => 120 ), @screenshot, { :rel => "lightbox", :title => "Screenshot of  #{@pkgname}" } ) %>
+            <%= link_to( image_tag( screenshot_thumb_url( @pkgname ), :height => 120 ), @screenshot, 
+              { :rel => "lightbox", :title => _("Screenshot of  ") % [@pkgname] } ) %>
           </div>
 
           <div id="pkg-description">
@@ -123,7 +124,7 @@
               <p id="pkg-desc"><%= prepare_desc desc_package.description -%></p>
               <!-- <i>(from <%= desc_package.project %>)</i> -->
             <%else %>
-              <p>No description found...</p>
+              <p><%= _("No description found...") %></p>
             <% end -%>
 
             <% unless @default_package.blank? %>
@@ -132,11 +133,11 @@
               <div id="one-click-button-box">
                 <a id="one-click-button" href="<%= url %>">
                   <%= image_tag "download-arrow.png", :width => "36", :height => "36", :alt => "Download Arrow" %>
-                  <strong>Direct Install</strong><br/>
+                  <strong><%= _("Direct Install") %></strong><br/>
                   <em><%=  @default_project_name %>,
-                    Version <%= @default_package.version %><%= ", #{number_to_human_size desc_package.size}" if desc_package %></em>
+                    <%= _("Version") %> <%= @default_package.version %><%= ", #{number_to_human_size desc_package.size}" if desc_package %></em>
                 </a>
-                <div id="other-versions-link"><a href="#">Show other versions</a></div>
+                <div id="other-versions-link"><a href="#"><%= _("Show other versions") %></a></div>
               </div>
             <% end -%>
           </div>
@@ -167,7 +168,7 @@
 
                       <% unless home.blank? && devel.blank? %>
                         <li id="unsupported_link_<%= distro[:dist_id] %>">
-                          <a class="trigger-show-more" href="#" onclick="toggle_unsupported('<%= distro[:dist_id] %>'); return false;">Show unsupported packages</a></li>
+                          <a class="trigger-show-more" href="#" onclick="toggle_unsupported('<%= distro[:dist_id] %>'); return false;"><%= _("Show unsupported packages") %></a></li>
                       <% end -%>
                     </ul>
                     <ul class="pkg-options-details  hidden" id="dist_home_<%= distro[:dist_id] %>" >
@@ -186,8 +187,8 @@
 
               <% unless @extra_dists.blank?  %>
 
-                <a id="show-extra-dists" href="#">Show more packages for unsupported distributions</a>
-                <div class="hidden" id="unsupported-title">Unsupported distributions:</div>
+                <a id="show-extra-dists" href="#"><%= _("Show more packages for unsupported distributions") %></a>
+                <div class="hidden" id="unsupported-title"><%= _("Unsupported distributions:") %></div>
                 <%  @extra_dists.each do |distro| -%>
                   <li class="extra-dists hidden">
                     <a href="#" onclick=" toggle_dist('<%= escape_for_id distro[:project] %>'); return false;"

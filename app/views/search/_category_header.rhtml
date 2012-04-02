@@ -6,7 +6,7 @@
 <% unless @related_categories.blank? %>
   <div id="related-categories">
     <p class="pkg-categorie-note">
-      Related categories:
+      <%= _("Related categories:") %>
       <% @related_categories[0..7].each do |cat| %>
         <%= link_to cat[:name], :controller => :package, :action => :category, :category => cat[:name] %>
       <% end -%>

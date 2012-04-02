@@ -2,9 +2,9 @@
 <% packages.flatten.group_by(&:project).each do |result| %>
   <li>
     <% if  result.first == distro[:project] || result.first == "#{distro[:project]}:NonFree"
-      name = "official release"
+      name = _("official release")
     elsif result.first == "#{distro[:project]}:Update"
-      name = "official update"
+      name = _("official update")
     else
       name = shorten result.first, 22
     end
@@ -23,7 +23,7 @@
       <li><%= shorten version, 23 %></li>
       <% items = result.last.select{|r| r.version == version && r.release.sub(".", "").to_i == release } %>
       <% archs = items.map{|item| human_arch( item.arch ) }.uniq.sort %>
-      <%  archs << "Source" if archs.delete("Source") %>
+      <%  archs << _("Source") if archs.delete(_("Source")) %>
       <% archs.each do |arch| %>
         <% items.select{|item| human_arch( item.arch ) == arch}.each do |bin| %>
           <li><%= link_to human_arch( bin.arch ), "http://download.opensuse.org/repositories/" + bin.filepath  %> </li>
