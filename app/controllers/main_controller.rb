@@ -45,7 +45,7 @@ class MainController < ApplicationController
       @isos["net-32"] = "11.3-NET-i586"
       @isos["net-64"] = "11.3-NET-x86_64"
 
-      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.3/RELEASE-NOTES.en.html"
+      @releasenotes = _("http://www.suse.de/relnotes/i386/openSUSE/11.3/RELEASE-NOTES.en.html")
       @releasename = "openSUSE 11.3"
       @repourl = "http://download.opensuse.org/distribution/11.3"
       @medium = "dvd"
@@ -64,7 +64,7 @@ class MainController < ApplicationController
       @isos["net-32"] = "11.4-NET-i586"
       @isos["net-64"] = "11.4-NET-x86_64"
 
-      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/11.4/RELEASE-NOTES.en.html"
+      @releasenotes = _("http://www.suse.de/relnotes/i386/openSUSE/11.4/RELEASE-NOTES.en.html")
       @releasename = "openSUSE 11.4"
       @repourl = "http://download.opensuse.org/distribution/11.4"
       @medium = "dvd"
@@ -83,7 +83,7 @@ class MainController < ApplicationController
       @isos["net-32"] = "12.1-NET-i586"
       @isos["net-64"] = "12.1-NET-x86_64"
 
-      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/12.1/RELEASE-NOTES.en.html"
+      @releasenotes = _("http://www.suse.de/relnotes/i386/openSUSE/12.1/RELEASE-NOTES.en.html")
       @releasename = "openSUSE 12.1"
       @repourl = "http://download.opensuse.org/distribution/12.1"
       @medium = "dvd"
@@ -102,7 +102,7 @@ class MainController < ApplicationController
       @isos["net-32"] = "NET-Build0258-i586"
       @isos["net-64"] = "NET-Build0258-x86_64"
 
-      @releasenotes = "http://www.suse.de/relnotes/i386/openSUSE/12.2/RELEASE-NOTES.en.html"
+      @releasenotes = _("http://www.suse.de/relnotes/i386/openSUSE/12.2/RELEASE-NOTES.en.html")
       @releasename = "openSUSE 12.2 Milestone 2"
       @repourl = "http://download.opensuse.org/distribution/12.2"
       @medium = "dvd"
