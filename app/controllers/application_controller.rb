@@ -32,10 +32,10 @@ class ApplicationController < ActionController::Base
   end
 
   def set_language
-    if cookies[:lang]
-      @lang = cookies[:lang]
-    elsif params[:lang]
+    if params[:lang]
       @lang = params[:lang][0]
+    elsif cookies[:lang]
+      @lang = cookies[:lang]
     end
     @lang.gsub!(/_/, '-') if @lang
     if !@lang || !LANGUAGES.include?( @lang )
