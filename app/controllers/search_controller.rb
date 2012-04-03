@@ -45,10 +45,12 @@ class SearchController < ApplicationController
     end
     @packagenames = @packagenames.uniq.sort_by {|x| x.length}
 
-    if request.xhr?
+    if @packagenames.size == 1
+      redirect_to( :controller => :package, :action => :show, :package => @packagenames.first, :search_term => @search_term ) and return
+    elsif request.xhr?
       render :partial => 'find_results' and return
     else
-      render 'find'
+      render 'find' and return
     end
   end
 
