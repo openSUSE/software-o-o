@@ -1,6 +1,6 @@
 class PackageController < ApplicationController
 
-  before_filter :set_beta_warning
+  before_filter :set_beta_warning, :only => [:category, :categories]
   before_filter :set_search_options, :only => [:show, :categories]
   before_filter :prepare_appdata, :set_categories
 
