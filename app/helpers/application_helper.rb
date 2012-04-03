@@ -1,4 +1,5 @@
 require 'seeker'
+require 'workers/search_helper_job'
 
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
