@@ -102,7 +102,7 @@
 
           <div class="app-screenshot">
             <%= link_to( image_tag( screenshot_thumb_url( @pkgname ), :height => 120 ), @screenshot,
-              { :rel => "lightbox", :title => _("Screenshot of  ") % [@pkgname] } ) %>
+              { :rel => "lightbox", :title => _("Screenshot of  %s") % [@pkgname] } ) %>
           </div>
 
           <div id="pkg-description">
