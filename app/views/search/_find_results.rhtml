@@ -43,11 +43,9 @@
         <% package_name = package
         package_name = appdata_pkg.first[:name] unless ( appdata_pkg.blank? || appdata_pkg.first[:name].blank? )
         banner_path = "apps/#{package.downcase}.jpg"
-        banner_app = true if FileTest.exists?( Rails.root.join( "public/images/" + banner_path ) )
       %>
 
-        <div class="search-result-box box-shadow rounded-corner"
-             <%= "style=\"background: url('/images/#{banner_path}') no-repeat scroll 0 0;\"" if banner_app %> >
+        <div class="search-result-box box-shadow rounded-corner">
 
           <div class="app-screenshot-search">
             <%= link_to( image_tag(  screenshot_thumb_url( package ), :height => 75 ), :controller => :package, :action => :show, :package => package  ) %>
