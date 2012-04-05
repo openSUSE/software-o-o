@@ -5,6 +5,7 @@
 desc "Import clean (non-fuzzy) .mo files from lcn checkout"
 task :makemo do
   require 'gettext/utils'
+  raise "ERROR: $MY_LCN_CHECKOUT should point to your checkout of https://svn.opensuse.org/svn/opensuse-i18n/trunk/lcn" if ENV["MY_LCN_CHECKOUT"].nil?
   system("cd $MY_LCN_CHECKOUT && svn up")
   files = Dir.glob(ENV["MY_LCN_CHECKOUT"] + "/*/po/software-opensuse-org*.po")
   files.each { |file|
@@ -30,6 +31,7 @@ end
 desc "Update pot/po files in lcn checkout to match new version."
 task :updatepo do
   require 'gettext/utils'
+  raise "ERROR: $MY_LCN_CHECKOUT should point to your checkout of https://svn.opensuse.org/svn/opensuse-i18n/trunk/lcn" if ENV["MY_LCN_CHECKOUT"].nil?
   files = Dir.glob("{app,lib}/**/*.{rb,rhtml,erb}")
   GetText.rgettext(files, "tmp.pot")
   system("cd $MY_LCN_CHECKOUT && svn up")
