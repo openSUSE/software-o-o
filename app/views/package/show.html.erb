@@ -33,6 +33,24 @@
   }
 
   $(function() {
+
+<% unless @default_package.blank? %>
+      $( "#pkg-options" ).addClass("hidden");
+<% end -%>
+
+<% @distributions.each do |distro| -%>
+  <% unless (@default_package.blank? && (distro[:project] == @baseproject )) %>
+        $('#dist_<%= distro[:dist_id] %>').addClass("hidden");
+  <% end -%>
+<% end -%>
+
+
+    $( ".pkg-options-unsupported" ).addClass("hidden");
+    $('#unsupported-title').addClass("hidden");
+    $('.extra-dists').addClass("hidden");
+    $('.pkg-options-unsupported').addClass("hidden");
+
+    
     $( "#unsupported-warning" ).dialog({
       autoOpen: false,
       minWidth: 500,
@@ -134,13 +152,13 @@
                   <em><%=  @default_project_name %>,
                     <%= _("Version") %> <%= @default_package.version %><%= ", #{number_to_human_size desc_package.size}" if desc_package %></em>
                 </a>
-                <div id="other-versions-link"><a href="#"><%= _("Show other versions") %></a></div>
+                <div id="other-versions-link"><a href="#pkg-options"><%= _("Show other versions") %></a></div>
               </div>
             <% end -%>
           </div>
 
 
-          <div id="pkg-options" class="<%= "hidden" unless @default_package.blank? %>">
+          <div id="pkg-options">
             <ul>
               <% @distributions.each do |distro| -%>
                 <% if @packages.select{|s| s.baseproject == distro[:project]}.size > 0 %>
@@ -148,7 +166,7 @@
                   <li>
                     <a href="#" onclick=" toggle_dist('<%= distro[:dist_id] %>'); return false;"
                        class="distro-toggle" id="distro-toggle-<%= distro[:dist_id] %>"><%= distro[:name] %></a>
-                    <ul class="pkg-options-details  <%= "hidden" unless (@default_package.blank? && (distro[:project] == @baseproject ))%>" id="dist_<%= distro[:dist_id] %>" >
+                    <ul class="pkg-options-details " id="dist_<%= distro[:dist_id] %>" >
 
                       <% official = @packages.select{|s| s.project == distro[:project] || s.project == "#{distro[:project]}:NonFree" } %>
                       <% update = @packages.select{|s| s.project == "#{distro[:project]}:Update"} %>
@@ -168,7 +186,7 @@
                           <a class="trigger-show-more" href="#" onclick="toggle_unsupported('<%= distro[:dist_id] %>'); return false;"><%= _("Show unsupported packages") %></a></li>
                       <% end -%>
                     </ul>
-                    <ul class="pkg-options-details  hidden" id="dist_home_<%= distro[:dist_id] %>" >
+                    <ul class="pkg-options-details pkg-options-unsupported" id="dist_home_<%= distro[:dist_id] %>" >
                       <%= render :partial => 'package/download_rows', :locals => {:packages => devel, :distro => distro} %>
                       <%= render :partial => 'package/download_rows', :locals => {:packages => home, :distro => distro} %>
                     </ul>
@@ -178,20 +196,15 @@
                 <% end -%>
               <% end -%>
 
-              <% #get extra distributions that are not in the default distribution list %>
-              <% @extra_packages = @packages.reject{|p| @distributions.map{|d| d[:project]}.include? p.baseproject } %>
-              <% @extra_dists = @extra_packages.map{|p| p.baseproject}.reject{|d| d.nil?}.uniq.sort.map{|d| {:project => d}} %>
-
               <% unless @extra_dists.blank?  %>
-
                 <a id="show-extra-dists" href="#"><%= _("Show more packages for unsupported distributions") %></a>
-                <div class="hidden" id="unsupported-title"><%= _("Unsupported distributions:") %></div>
+                <div class="" id="unsupported-title"><%= _("Unsupported distributions:") %></div>
                 <%  @extra_dists.each do |distro| -%>
-                  <li class="extra-dists hidden">
+                  <li class="extra-dists">
                     <a href="#" onclick=" toggle_dist('<%= escape_for_id distro[:project] %>'); return false;"
                        class="distro-toggle" id="distro-toggle-<%= escape_for_id distro[:project] %>"><%= distro[:project].gsub(":", " ").sub("DISCONTINUED", "") %></a>
                        <% pks = @extra_packages.select{|s| s.baseproject == distro[:project] } %>
-                    <ul class="pkg-options-details  hidden" id="dist_<%= escape_for_id distro[:project] %>" >
+                    <ul class="pkg-options-details pkg-options-unsupported" id="dist_<%= escape_for_id distro[:project] %>" >
                       <%= render :partial => 'download_rows', :locals => {:packages => pks, :distro => distro} %>
                     </ul>
                   </li>

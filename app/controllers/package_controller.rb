@@ -42,6 +42,10 @@ class PackageController < ApplicationController
         package.baseproject = "openSUSE:Tumbleweed"
       end
     end
+    
+    #get extra distributions that are not in the default distribution list
+    @extra_packages = @packages.reject{|p| @distributions.map{|d| d[:project]}.include? p.baseproject } 
+    @extra_dists = @extra_packages.map{|p| p.baseproject}.reject{|d| d.nil?}.uniq.sort.map{|d| {:project => d}} 
 
   end
 
