@@ -55,6 +55,9 @@
   }
 
   $(function() {
+
+    $('#search-options').addClass('hidden');
+
     afterDelayedKeyup('#search-form',"search()", 500);
 
     $('#search_devel_checkbox, #search_unsupported_checkbox, #baseproject').change(function() {
@@ -86,7 +89,7 @@
     <%= submit_tag _('Search'), :name => nil, :class => "search-go-button" %>
     <span id="search-options-link"><%= image_tag "configure_search.png", :width => 24, :class =>"search-options-link" %></span>
 
-    <div id="search-options" class="hidden">
+    <div id="search-options" class="">
       <p>
         <%= hidden_field_tag("search_devel", "false") %>
         <%= check_box_tag("search_devel", "true", @search_devel, {:id => "search_devel_checkbox" })  %>
