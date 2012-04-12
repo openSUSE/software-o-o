@@ -97,10 +97,10 @@ class MainController < ApplicationController
       @isos["kde-32"] = "KDE-LiveCD-Build0318-i686"
       @isos["gnome-64"] = "GNOME-LiveCD-Build0318-x86_64"
       @isos["gnome-32"] = "GNOME-LiveCD-Build0318-i686"
-      @isos["dvd-64"] = "DVD-Build0318-x86_64"
-      @isos["dvd-32"] = "DVD-Build0318-i586"
-      @isos["net-32"] = "NET-Build0318-i586"
-      @isos["net-64"] = "NET-Build0318-x86_64"
+      @isos["dvd-64"] = "DVD-Build0315-x86_64"
+      @isos["dvd-32"] = "DVD-Build0317-i586"
+      @isos["net-32"] = "NET-Build0317-i586"
+      @isos["net-64"] = "NET-Build0315-x86_64"
 
       @releasenotes = _("http://www.suse.de/relnotes/i386/openSUSE/12.2/RELEASE-NOTES.en.html")
       @releasename = "openSUSE 12.2 Milestone 3"
