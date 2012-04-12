@@ -65,6 +65,10 @@ module PackageHelper
       screenshot_thumb = image_path "default-screenshots/python.png"
     when /^kernel-/
       screenshot_thumb = image_path "default-screenshots/tux.png"
+    when /^openstack-/
+      screenshot_thumb = image_path "default-screenshots/openstack.png"
+    when /-OpenStack/
+      screenshot_thumb = image_path "default-screenshots/openstack.png"
     else
       screenshot_thumb = "http://screenshots.debian.net/thumbnail/" + pkgname.downcase
     end
