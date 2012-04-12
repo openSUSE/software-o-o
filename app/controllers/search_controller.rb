@@ -6,10 +6,10 @@ class SearchController < ApplicationController
   def searchresult
     render 'find' and return if @search_term.blank?
 
-    base = @baseproject=="ALL" ? "" : @baseproject
+    base = ( @baseproject == "ALL" ) ? "" : @baseproject
 
     #if we have a baseproject, and don't show unsupported packages, shortcut: '
-    if !@baseproject.blank? && !@search_unsupported && !@search_project
+    if !@baseproject.blank? && !( @baseproject == "ALL" ) && !@search_unsupported && !@search_project
       @search_project = @baseproject
     end
 

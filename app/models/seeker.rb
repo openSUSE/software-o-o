@@ -40,7 +40,7 @@ class Seeker < ActiveXML::Base
 
       bin = Seeker.find :binary, :match => xpath
       #pat = Seeker.find :pattern, :match => xpath
-      raise "Backend not responding" if( bin == nil && pat == nil )
+      raise "Backend not responding" if( bin.nil? )
 
       result = new(query)
       #result.add_patlist(pat)
