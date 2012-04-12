@@ -54,10 +54,13 @@ class ApplicationController < ActionController::Base
     @distributions = Rails.cache.fetch('distributions', :expires_in => 120.minutes) do
       load_distributions
     end
+    raise _("OBS Backend not available") if @distributions.nil?
   end
 
   def set_baseproject
-    @baseproject = cookies[:search_baseproject] unless @distributions.select{|d| d[:project] == cookies[:search_baseproject]}.blank?
+    unless ( @distributions.blank? || @distributions.select{|d| d[:project] == cookies[:search_baseproject]}.blank? )
+      @baseproject = cookies[:search_baseproject]
+    end
   end
 
 
