@@ -82,25 +82,26 @@ class PackageController < ApplicationController
     required_parameters :package
     package = params[:package]
     default_url = File.join( Rails.root, "public/images/default-screenshots/no_screenshot_opensuse_big.png" )
-    image package, "http://screenshots.debian.net/screenshot/", default_url
+    image package, "screenshot", default_url
   end
 
   def thumbnail
     required_parameters :package
     package = params[:package]
     default_url = File.join( Rails.root, "public/images/default-screenshots/no_screenshot_opensuse.png" )
-    image package, "http://screenshots.debian.net/thumbnail/", default_url
+    image package, "thumbnail", default_url
   end
 
   private
   
-  def image pkgname, url_prefix, default_url
-    image_url = url_prefix + pkgname.downcase
+  def image pkgname, type, default_url
+    image_url = "http://screenshots.debian.net/" + type + "/" + pkgname.downcase
     begin
       content = open(image_url, "rb")
     rescue OpenURI::HTTPError => e
       logger.info("No screenshot found for: " + pkgname)
       content = open(default_url, "rb")
+      File.symlink(default_url, File.join( Rails.root, "public/package/" + type + "/" + pkgname + ".png" ))
     end
     response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
     response.headers['Content-Type'] = 'image/png'
