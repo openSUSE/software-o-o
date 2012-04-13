@@ -1,8 +1,13 @@
+require 'open-uri'
+
 class PackageController < ApplicationController
 
   before_filter :set_beta_warning, :only => [:category, :categories]
   before_filter :set_search_options, :only => [:show, :categories]
-  before_filter :prepare_appdata, :set_categories
+  before_filter :prepare_appdata, :set_categories, :only => [:show, :categories, :category]
+
+  caches_page :screenshot, :gzip => :best_speed
+  caches_page :thumbnail, :gzip => :best_speed
 
   def show
     required_parameters :package
@@ -33,8 +38,7 @@ class PackageController < ApplicationController
       @homepage = pkg_appdata.first[:homepage]
     end
 
-    #TODO: get distro specific screenshot, cache from debshots etc.
-    @screenshot = "http://screenshots.debian.net/screenshot/" + @pkgname.downcase
+    @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname
 
     #TODO: sort out tumbleweed packages as seperate repo, maybe obs can mark that as seperate baseproject? 
     @packages.each do |package|
@@ -74,7 +78,35 @@ class PackageController < ApplicationController
   end
 
 
-  private 
+  def screenshot
+    required_parameters :package
+    package = params[:package]
+    default_url = File.join( Rails.root, "public/images/default-screenshots/no_screenshot_opensuse_big.png" )
+    image package, "http://screenshots.debian.net/screenshot/", default_url
+  end
+
+  def thumbnail
+    required_parameters :package
+    package = params[:package]
+    default_url = File.join( Rails.root, "public/images/default-screenshots/no_screenshot_opensuse.png" )
+    image package, "http://screenshots.debian.net/thumbnail/", default_url
+  end
+
+  private
+  
+  def image pkgname, url_prefix, default_url
+    image_url = url_prefix + pkgname.downcase
+    begin
+      content = open(image_url, "rb")
+    rescue OpenURI::HTTPError => e
+      logger.info("No screenshot found for: " + pkgname)
+      content = open(default_url, "rb")
+    end
+    response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
+    response.headers['Content-Type'] = 'image/png'
+    response.headers['Content-Disposition'] = 'inline'
+    render :inline => content.read, :content_type => 'image/png'
+  end
 
   def set_categories
     @main_sections = [

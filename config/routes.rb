@@ -32,6 +32,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect 'search', :controller => 'search', :action => 'searchresult'
   map.connect 'package/:package', :controller => 'package', :action => 'show', :requirements => { :package => /[\w\-\.:\+]+/ }
+  map.connect 'package/thumbnail/:package.png', :controller => 'package', :action => 'thumbnail', :requirements => { :package => /[\w\-\.:\+]+/ }
+  map.connect 'package/screenshot/:package.png', :controller => 'package', :action => 'screenshot', :requirements => { :package => /[\w\-\.:\+]+/ }
+
   map.connect 'packages', :controller => 'package', :action => 'categories'
   map.connect 'appstore', :controller => 'package', :action => 'categories'
   map.connect 'appstore/:category', :controller => 'package', :action => 'category', :requirements => { :category => /[\w\-\.: ]+/ }
