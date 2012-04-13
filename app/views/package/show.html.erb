@@ -119,8 +119,9 @@
         <div id="pkg-content" class="grid_10 prefix_1 suffix_1">
 
           <div class="app-screenshot">
-            <%= link_to( image_tag( screenshot_thumb_url( @pkgname ), :height => 120 ), @screenshot,
-              { :rel => "lightbox", :title => _("Screenshot of  %s") % [@pkgname] } ) %>
+            <a title="Screenshot of <%= @pkgname %>" rel="lightbox" href="<%= @screenshot %>">
+              <img height="120" src="<%= screenshot_thumb_url( @pkgname ) %>" alt="<%= @pkgname %>" />
+            </a>
           </div>
 
           <div id="pkg-description">

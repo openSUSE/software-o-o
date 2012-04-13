@@ -48,7 +48,9 @@
         <div class="search-result-box box-shadow rounded-corner">
 
           <div class="app-screenshot-search">
-            <%= link_to( image_tag(  screenshot_thumb_url( package ), :height => 75 ), :controller => :package, :action => :show, :package => package  ) %>
+            <a href="<%= url_for :controller => :package, :action => :show, :package => package %>">
+              <img src="<%= screenshot_thumb_url( package ) %>" alt="<%= package %>" height="75" />
+            </a>
           </div>
           <div class="search-result-txt">
             <h3><%= link_to highlight(package_name, @search_term), :controller => :package, :action => :show, :package => package  %>
