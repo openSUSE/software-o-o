@@ -7,6 +7,8 @@ class SearchController < ApplicationController
     render 'find' and return if @search_term.blank?
 
     base = ( @baseproject == "ALL" ) ? "" : @baseproject
+    #FIXME: remove @search_unsupported when redesigning search options
+    @search_unsupported = true
 
     #if we have a baseproject, and don't show unsupported packages, shortcut: '
     if !@baseproject.blank? && !( @baseproject == "ALL" ) && !@search_unsupported && !@search_project
