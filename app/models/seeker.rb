@@ -308,11 +308,11 @@ class Seeker < ActiveXML::Base
 
       def quality
         unless @quality
-          @quality = ""
           quality_xml = ::Attribute.find_cached 'att', :prj => @project,
             :attribute => 'OBS:QualityCategory', :expires_in => 12.hours
           @quality = quality_xml.attribute.text.strip unless quality_xml.nil? || quality_xml.attribute.nil?
         end
+        @quality = "" unless @quality
         @quality
       end
       
