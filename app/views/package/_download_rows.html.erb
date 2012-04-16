@@ -2,23 +2,23 @@
 <% packages.flatten.group_by(&:project).each do |result| %>
   <li>
     <% if  result.first == distro[:project] || result.first == "#{distro[:project]}:NonFree"
-      name = _("official release")
+      name = _("<b>official release</b>")
     elsif result.first == "#{distro[:project]}:Update"
-      name = _("official update")
+      name = _("<b>official update</b>")
     else
       name = shorten result.first, 22
     end
 
     if result.last.first.package.nil?
       pkg_link = "https://build.opensuse.org/project/show?project=#{result.first}"
-    else 
+    else
       pkg_link =  "https://build.opensuse.org/package/show?project=#{result.first}&package=#{result.last.first.package}"
     end -%>
     <%= link_to name, pkg_link %>
 
   <%# only use the latest version, obs bug: some outdated versions still listed. %>
     <% version = result.last.map{|r| r.version }.max %>
-    
+
     <% release = result.last.select{|r| r.version == version }.map{|v| "#{v.release}".sub(".", "").to_i}.max %>
     <ul class="pkg-typ-options">
       <li><%= shorten version, 23 %></li>

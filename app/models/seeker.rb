@@ -26,7 +26,7 @@ class Seeker < ActiveXML::Base
       xpath_items << "@project = '#{project}' " unless project.blank?
       substring_words = words.select{|word| !word.match(/^".+"$/) }.map{|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ")
       unless ( substring_words.blank? )
-         xpath_items << "contains-ic(@name, " + substring_words + ")"
+        xpath_items << "contains-ic(@name, " + substring_words + ")"
       end
       words.select{|word| word.match(/^".+"$/) }.map{|word| word.gsub( "\"", "" ) }.each do |word|
         xpath_items << "@name = '#{word.gsub(/['"()]/, "")}' "
@@ -235,6 +235,7 @@ class Seeker < ActiveXML::Base
       attr_reader :mtime
       attr_reader :requires
       attr_reader :provides
+      attr_reader :quality
 
       def initialize(key, query)
         super(key, query)
@@ -252,7 +253,7 @@ class Seeker < ActiveXML::Base
           bin = self[0]
           begin
             info = ::Published.find_cached bin.filename, :view => :fileinfo, :project => @project,
-              :repository => @repository, :arch => bin.arch.to_s, :expires_in => 6.hours
+              :repository => @repository, :arch => bin.arch.to_s, :expires_in => 12.hours
           rescue => e
             logger.error "Error fetching info for binary: #{e.message}"
           end
@@ -303,6 +304,16 @@ class Seeker < ActiveXML::Base
       def size
         load_extra_data
         @size
+      end
+
+      def quality
+        unless @quality
+          @quality = ""
+          quality_xml = ::Attribute.find_cached 'att', :prj => @project,
+            :attribute => 'OBS:QualityCategory', :expires_in => 12.hours
+          @quality = quality_xml.attribute.text.strip unless quality_xml.nil? || quality_xml.attribute.nil?
+        end
+        @quality
       end
       
     end

@@ -19,16 +19,14 @@ class PackageController < ApplicationController
 
     @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
     # only show rpms
-    @packages = @packages.select{|p| p.first.type != 'ymp'}
+    @packages = @packages.select{|p| p.first.type != 'ymp' && p.quality != "Private"}
     @default_project = @baseproject || @template.default_baseproject
     @default_project_name = @distributions.select{|d| d[:project] == @default_project}.first[:name]
     @default_repo = @distributions.select{|d| d[:project] == @default_project}.first[:repository]
     if (@packages.select{|s| s.project == "#{@default_project}:Update"}.size >0)
       @default_package = @packages.select{|s| s.project == "#{@default_project}:Update"}.first
-    elsif (@packages.select{|s| s.project == "#{@default_project}:NonFree"}.size >0)
-      @default_package = @packages.select{|s| s.project == "#{@default_project}:NonFree"}.first
     else
-      @default_package = @packages.select{|s| s.project == (@default_project)}.first
+      @default_package = @packages.select{|s| [@default_project, "#{@default_project}:NonFree"].include? s.project}.first
     end
 
     pkg_appdata = @appdata[:apps].select{|app| app[:pkgname].downcase == @pkgname.downcase}
@@ -46,10 +44,11 @@ class PackageController < ApplicationController
         package.baseproject = "openSUSE:Tumbleweed"
       end
     end
-    
+
+    @official_projects = @distributions.map{|d| d[:project]}
     #get extra distributions that are not in the default distribution list
-    @extra_packages = @packages.reject{|p| @distributions.map{|d| d[:project]}.include? p.baseproject } 
-    @extra_dists = @extra_packages.map{|p| p.baseproject}.reject{|d| d.nil?}.uniq.sort.map{|d| {:project => d}} 
+    @extra_packages = @packages.reject{|p| @distributions.map{|d| d[:project]}.include? p.baseproject }
+    @extra_dists = @extra_packages.map{|p| p.baseproject}.reject{|d| d.nil?}.uniq.sort.map{|d| {:project => d}}
 
   end
 
@@ -100,8 +99,8 @@ class PackageController < ApplicationController
       content = open(image_url, "rb")
     rescue OpenURI::HTTPError => e
       logger.info("No screenshot found for: " + pkgname)
-      content = open(default_url, "rb")
       File.symlink(default_url, File.join( Rails.root, "public/package/" + type + "/" + pkgname + ".png" ))
+      content = open(default_url, "rb")
     end
     response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
     response.headers['Content-Type'] = 'image/png'
