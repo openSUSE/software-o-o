@@ -140,15 +140,18 @@
 
   <div class="box box-shadow">
     <h2 class="box-header centered"><%=_("Sponsored by")%></h2>
-    <!--<p class="centered" style="color: #ccc; font-size: 0.8em"><%=_("Platinum Sponsor")%></p>-->
+    <p class="centered" style="color: #ccc; font-size: 0.8em"><%=_("Platinum Sponsor")%></p>
+    <p class="centered">
+    <%= link_to image_tag( '/themes/bento/images/sponsors/sponsor_amd.png', :width => 90, :height => 50, :alt => _("Sponsored by: AMD") ), "http://en.opensuse.org/Sponsors" %>
+    </p>
     <p class="centered" style="color: #ccc; font-size: 0.8em;"><%=_("Gold Sponsor")%></p>
     <p class="centered">
-      <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by AMD")%>" alt="<%=_("Sponsored by AMD")%>" src="http://static.opensuse.org/c/images/common/Amd.png" width="136" height="66"/></a>
-      <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: IP Exchange")%>" alt="<%=_("Sponsored by: IP Exchange")%>" src="http://static.opensuse.org/c/images/common/Ip-exchange.gif" width="180" height="85"/></a>
+      <%= link_to image_tag( '/themes/bento/images/sponsors/sponsor_ip-exchange.png', :width => 180, :height => 85, :alt => _("Sponsored by: IP Exchange") ), "http://en.opensuse.org/Sponsors" %>
     </p>
     <p class="centered" style="color: #ccc; font-size: 0.8em;"><%=_("Silver Sponsor")%></p>
     <p class="centered">
-      <a href="http://en.opensuse.org/Sponsors"><img title="<%=_("Sponsored by: B1 Systems")%>" alt="<%=_("Sponsored by: B1 Systems")%>" src="http://static.opensuse.org/c/images/common/B1-systems-1.jpg" width="100" height="100"/></a>
+      <%= link_to image_tag( '/themes/bento/images/sponsors/sponsor_b1-systems.png', :width => 86, :height => 86, :alt => _("Sponsored by: B1 Systems") ), "http://en.opensuse.org/Sponsors" %>
+      <%= link_to image_tag( '/themes/bento/images/sponsors/sponsor_heinlein.png', :width => 200, :height => 65, :alt => _("Sponsored by: Heinlein") ), "http://en.opensuse.org/Sponsors" %>
     </p>
     <!--<p class="centered" style="color: #ccc; font-size: 0.8em"><%=_("Bronze Sponsor")%></p>-->
   </div>
