@@ -6,6 +6,8 @@ class PackageController < ApplicationController
   before_filter :set_search_options, :only => [:show, :categories]
   before_filter :prepare_appdata, :set_categories, :only => [:show, :categories, :category]
 
+  skip_before_filter :set_language, :set_distributions, :set_baseproject, :only => [:thumbnail, :screenshot]
+
   caches_page :screenshot, :gzip => :best_speed
   caches_page :thumbnail, :gzip => :best_speed
 
@@ -96,16 +98,17 @@ class PackageController < ApplicationController
   def image pkgname, type, default_url
     image_url = "http://screenshots.debian.net/" + type + "/" + pkgname.downcase
     begin
-      content = open(image_url, "rb")
+      content = open( image_url, "rb") {|io| io.read }
     rescue OpenURI::HTTPError => e
       logger.info("No screenshot found for: " + pkgname)
-      File.symlink(default_url, File.join( Rails.root, "public/package/" + type + "/" + pkgname + ".png" ))
-      content = open(default_url, "rb")
+      path = File.join( Rails.root, "public/package/" + type + "/" + pkgname + ".png" )
+      File.symlink(default_url, path )
+      content = open( path, "rb") {|io| io.read }
     end
     response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
     response.headers['Content-Type'] = 'image/png'
     response.headers['Content-Disposition'] = 'inline'
-    render :inline => content.read, :content_type => 'image/png'
+    render :inline => content, :content_type => 'image/png'
   end
 
   def set_categories

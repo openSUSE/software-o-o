@@ -81,7 +81,7 @@
             <% unless devel_packages.blank? %>
               <p><%= _("Development packages:") %>
                 <% devel_packages.sort.each do |subpackage| %>
-                  <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
+                  <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage  %>
                 <% end %>
               </p>
               <% @packagenames.reject! {|r| devel_pack_match.include? r }  -%>
@@ -91,7 +91,7 @@
             <% unless sub_packages.blank? -%>
               <p><%= _("Sub-packages:") %>
                 <% sub_packages.each do |subpackage| %>
-                  <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage, :search_term => @search_term  %>
+                  <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage  %>
                 <% end %>
               </p>
               <% @packagenames.reject! {|r| r.match(/^#{package}-/)  && @appdata[:apps].select{|a| a[:pkgname] == r}.blank? }  -%>
