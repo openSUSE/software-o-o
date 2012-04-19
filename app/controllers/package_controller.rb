@@ -40,17 +40,32 @@ class PackageController < ApplicationController
 
     @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname
 
-    #TODO: sort out tumbleweed packages as seperate repo, maybe obs can mark that as seperate baseproject? 
+    # remove maintenance projects
+    @packages.reject!{|p| p.project.match(/openSUSE\:Maintenance\:/) }
+
     @packages.each do |package|
+
       if ( package.repository.match(/Tumbleweed/) || (package.project == "openSUSE:Tumbleweed") )
         package.baseproject = "openSUSE:Tumbleweed"
+      elsif ( package.project.match( /openSUSE:Evergreen/ ) )
+        package.baseproject = package.project
+      elsif ( package.repository.match( /^Factory$/i ) )
+        package.baseproject = "openSUSE:Factory"
+      elsif ( package.repository.match( /^\d{2}\.\d$/ ) )
+        package.baseproject = "openSUSE:" + package.repository
+      elsif ( !(@distributions.map{|d| d[:reponame]}.include? package.repository) &&
+            (package.repository != "standard") &&
+            (package.repository != "snapshot") &&
+            (!package.repository.match(/_Update$/)) )
+        logger.info("Found non-std repo: #{package.repository}")
+        package.baseproject = package.repository.gsub("_", ":")
       end
     end
 
     @official_projects = @distributions.map{|d| d[:project]}
     #get extra distributions that are not in the default distribution list
     @extra_packages = @packages.reject{|p| @distributions.map{|d| d[:project]}.include? p.baseproject }
-    @extra_dists = @extra_packages.map{|p| p.baseproject}.reject{|d| d.nil?}.uniq.sort.map{|d| {:project => d}}
+    @extra_dists = @extra_packages.map{|p| p.baseproject}.reject{|d| d.nil?}.uniq.map{|d| {:project => d}}
 
   end
 

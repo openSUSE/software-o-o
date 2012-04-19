@@ -1,5 +1,4 @@
-
-<% packages.flatten.group_by(&:project).each do |result| %>
+<% packages.flatten.sort_by(&:project).group_by(&:project).each do |result| %>
   <li>
     <% if  result.first == distro[:project] || result.first == "#{distro[:project]}:NonFree"
       name = _("<b>official release</b>")
