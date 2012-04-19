@@ -117,8 +117,8 @@ class PackageController < ApplicationController
     rescue OpenURI::HTTPError => e
       logger.info("No screenshot found for: " + pkgname)
       path = File.join( Rails.root, "public/package/" + type + "/" + pkgname + ".png" )
+      content = open( default_url, "rb") {|io| io.read }
       File.symlink(default_url, path )
-      content = open( path, "rb") {|io| io.read }
     end
     response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
     response.headers['Content-Type'] = 'image/png'
