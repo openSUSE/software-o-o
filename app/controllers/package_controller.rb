@@ -8,8 +8,7 @@ class PackageController < ApplicationController
 
   skip_before_filter :set_language, :set_distributions, :set_baseproject, :only => [:thumbnail, :screenshot]
 
-  caches_page :screenshot, :gzip => :best_speed
-  caches_page :thumbnail, :gzip => :best_speed
+  caches_page :thumbnail, :screenshot
 
   def show
     required_parameters :package
@@ -115,15 +114,15 @@ class PackageController < ApplicationController
     begin
       content = open( image_url, "rb") {|io| io.read }
     rescue OpenURI::HTTPError => e
-      logger.info("No screenshot found for: " + pkgname)
+      logger.debug("No screenshot found for: " + pkgname)
       path = File.join( Rails.root, "public/package/" + type + "/" + pkgname + ".png" )
       content = open( default_url, "rb") {|io| io.read }
-      File.symlink(default_url, path )
     end
     response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
     response.headers['Content-Type'] = 'image/png'
     response.headers['Content-Disposition'] = 'inline'
-    render :inline => content, :content_type => 'image/png'
+    render :text => content, :content_type => 'image/png'
+    File.symlink(default_url, path ) if path
   end
 
   def set_categories
