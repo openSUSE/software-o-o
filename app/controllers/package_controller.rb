@@ -8,8 +8,6 @@ class PackageController < ApplicationController
 
   skip_before_filter :set_language, :set_distributions, :set_baseproject, :only => [:thumbnail, :screenshot]
 
-  caches_page :thumbnail, :screenshot
-
   def show
     required_parameters :package
     @pkgname = params[:package]
@@ -122,7 +120,8 @@ class PackageController < ApplicationController
     response.headers['Content-Type'] = 'image/png'
     response.headers['Content-Disposition'] = 'inline'
     render :text => content, :content_type => 'image/png'
-    File.symlink(default_url, path ) if path
+    cache_page
+    FileUtils.ln_sf( default_url, path ) if path
   end
 
   def set_categories
