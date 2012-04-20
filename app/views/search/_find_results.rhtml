@@ -11,13 +11,7 @@
     </div>
   <% end %>
 
-
   <%= render :partial => 'search/category_header'  if @category %>
-
-
-  <%  if (@packagenames.include? @search_term) ||  (@packagenames.size == 1) -%>
-  <% end -%>
-
 
   <% if @packagenames.blank? %>
 
@@ -38,12 +32,16 @@
 
     <div id="search-result-list">
 
-      <% @packagenames.each_with_index do |package, idx| %>
-        <% appdata_pkg = @appdata[:apps].select{|a| a[:pkgname] == package} %>
-        <% package_name = package
+      <%
+      @packagenames.each_with_index do |package, idx|
+        appdata_pkg = @appdata[:apps].select{|a| a[:pkgname] == package}
+        package_name = package
         package_name = appdata_pkg.first[:name] unless ( appdata_pkg.blank? || appdata_pkg.first[:name].blank? )
-        banner_path = "apps/#{package.downcase}.jpg"
       %>
+
+        <% if idx % 2 == 0 %>
+          <div style="clear: both; "></div>
+        <% end %>
 
         <div class="search-result-box box-shadow rounded-corner">
 
@@ -76,26 +74,45 @@
               <p><i><%= highlight( summary, @search_term) %></i></p>
             <% end -%>
 
-            <% devel_pack_match = [package + "-devel", package + "-lang", package + "-debuginfo", package + "-debugsource"] -%>
-            <% devel_packages = @packagenames.select{|r| devel_pack_match.include? r } -%>
-            <% unless devel_packages.blank? %>
-              <p><%= _("Development packages:") %>
-                <% devel_packages.sort.each do |subpackage| %>
-                  <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage  %>
-                <% end %>
+            <%
+            devel_pack_match = [package + "-devel", package + "-lang", package + "-debuginfo", package + "-debugsource", package + "-debuginfo-32bit",
+              package + "-debuginfo-x86", ]
+            devel_packages = @packagenames.select{|r| devel_pack_match.include? r }
+            sub_packages = @packagenames.sort.select{|name| ( !(devel_pack_match.include? name) && name.match(/^#{package}-/) && @appdata[:apps].select{|a| a[:pkgname] == name}.blank? ) } -%>
+
+
+            <% unless devel_packages.blank? && sub_packages.blank? %>
+              <p>
+                <%= _("Show") %>
+                <a href="#" onclick="$('#devel-packages-<%= package %>').slideToggle(); return false;">
+                  <%= devel_packages.size.to_s + " " + _("Development-") + " " if !devel_packages.blank? && !sub_packages.blank? -%>
+                  <%= devel_packages.size.to_s + " " + _("Development packages") + " " if !devel_packages.blank? && sub_packages.blank? -%>
+                </a>
+                <%= _(" and ") unless (devel_packages.blank? || sub_packages.blank?) -%>
+                <a href="#" onclick="$('#sub-packages-<%= package %>').slideToggle(); return false;">
+                  <%= sub_packages.size.to_s + " " + _("Sub-Packages") + " " unless sub_packages.blank? -%>
+                </a>
               </p>
+            <% end -%>
+
+            <% unless devel_packages.blank? %>
+                <ul class="hidden extra-packages" id="devel-packages-<%= package %>">
+                  <% devel_packages.sort.each do |subpackage| %>
+                    <li><%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage  %></li>
+                  <% end %>
+                </ul>
               <% @packagenames.reject! {|r| devel_pack_match.include? r }  -%>
             <% end -%>
 
-            <% sub_packages = @packagenames.sort.select{|name| ( name.match(/^#{package}-/) && @appdata[:apps].select{|a| a[:pkgname] == name}.blank? ) } -%>
             <% unless sub_packages.blank? -%>
-              <p><%= _("Sub-packages:") %>
+                <ul class="hidden extra-packages" id="sub-packages-<%= package %>">
                 <% sub_packages.each do |subpackage| %>
-                  <%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage  %>
+                  <li><%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage  %></li>
                 <% end %>
-              </p>
+                  </ul>
               <% @packagenames.reject! {|r| r.match(/^#{package}-/)  && @appdata[:apps].select{|a| a[:pkgname] == r}.blank? }  -%>
             <% end -%>
+
           </div>
         </div>
       <% end -%>
