@@ -78,7 +78,8 @@
             devel_pack_match = [package + "-devel", package + "-lang", package + "-debuginfo", package + "-debugsource", package + "-debuginfo-32bit",
               package + "-debuginfo-x86", ]
             devel_packages = @packagenames.select{|r| devel_pack_match.include? r }
-            sub_packages = @packagenames.sort.select{|name| ( !(devel_pack_match.include? name) && name.match(/^#{package}-/) && @appdata[:apps].select{|a| a[:pkgname] == name}.blank? ) } -%>
+            sub_packages = @packagenames.sort.select{|name| ( !(devel_pack_match.include? name) &&
+                    name.match(/^#{Regexp.escape( package )}-/) && @appdata[:apps].select{|a| a[:pkgname] == name}.blank? ) } -%>
 
 
             <% unless devel_packages.blank? && sub_packages.blank? %>
@@ -110,7 +111,7 @@
                   <li><%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage  %></li>
                 <% end %>
                   </ul>
-              <% @packagenames.reject! {|r| r.match(/^#{package}-/)  && @appdata[:apps].select{|a| a[:pkgname] == r}.blank? }  -%>
+              <% @packagenames.reject! {|r| r.match(/^#{Regexp.escape( package )}-/)  && @appdata[:apps].select{|a| a[:pkgname] == r}.blank? }  -%>
             <% end -%>
 
           </div>
