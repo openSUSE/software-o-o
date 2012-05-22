@@ -9,9 +9,9 @@
     end
 
     if result.last.first.package.nil?
-      pkg_link = "https://build.opensuse.org/project/show?project=#{result.first}"
+      pkg_link = "https://build.opensuse.org/project/show?project=#{CGI.escape result.first}"
     else
-      pkg_link =  "https://build.opensuse.org/package/show?project=#{result.first}&package=#{result.last.first.package}"
+      pkg_link =  "https://build.opensuse.org/package/show?project=#{CGI.escape result.first}&package=#{CGI.escape result.last.first.package}"
     end -%>
     <%= link_to name, pkg_link %>
 
