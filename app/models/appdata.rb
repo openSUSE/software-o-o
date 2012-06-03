@@ -37,11 +37,15 @@ class Appdata < ActiveXML::Base
     else
       appdata_url = "http://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
     end
-    appdata = ApiConnect::get appdata_url
+    begin
+      appdata = ApiConnect::get appdata_url
+    rescue
+      # never ever die when remote is not working or file is not there
+    end
     zipfilename = File.join( Rails.root.join('tmp'), "appdata-" + dist + ".xml.gz" )
     filename = File.join( Rails.root.join('tmp'), "appdata-" + dist + ".xml" )
     File.open(zipfilename, "w+") do |f|
-      f.write(appdata.body)
+      f.write(appdata.body) if appdata
     end 
     `gunzip -f #{zipfilename}`
     xmlfile = File.open(filename)
