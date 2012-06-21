@@ -106,6 +106,13 @@ end
             '?'
           end
         %></pre>
+
+        <% if ['Debian', 'Ubuntu'].include? v[:flavor] %>
+        <p><%= _("You can add the repository key to apt like this: ") %></p>
+       <pre>wget <%= v[:repo] %>Release.key
+apt-key add - < Release.key  </pre>
+        <% end -%>
+
       </div>
     <% end %>
   </div>
