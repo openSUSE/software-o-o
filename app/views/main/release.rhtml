@@ -160,7 +160,7 @@
     <h2 class="box-header centered"><%= _("Language") %></h2>
     <form action="<%= url_for :controller => :main, :action => :index %>" method="get" class="centered">
       <select name="lang" onChange="this.form.submit();">
-        <option value="<%= @lang %>" selected="true"><%= link_to(LANGUAGE_NAMES[@lang] || @lang, :controller => :main, :action => :index, :lang => "#{@lang}") %></option>
+        <option value="<%= @lang %>" selected="true"><%= link_to(LANGUAGE_NAMES[@lang.sub('_', '-')] || @lang, :controller => :main, :action => :index, :lang => "#{@lang}") %></option>
         <% LANGUAGES.each do |lang| %>
           <option value="<%= lang %>"><%= link_to(LANGUAGE_NAMES[lang] || lang, :controller => :main, :action => :index, :lang => "#{lang}") %></option>
         <% end -%>
