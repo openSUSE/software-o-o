@@ -92,4 +92,4 @@ LANGUAGE_NAMES = {'en' => 'English', 'de' => 'Deutsch', 'bg' => 'българс�
                   'km' => 'ភាសាខ្មែរ', 'ko' => '한국어 [韓國語]', 'lt' => 'lietuvių kalba', 'nb' => 'Bokmål',
                   'nl' => 'Nederlands', 'pl' => 'polski', 'ro' => 'român', 'ru' => 'Русский язык',
                   'sk' => 'slovenčina', 'th' => 'ภาษาไทย', 'uk' => 'Українська', 'wa' => 'walon',
-                  'pt-BR' => 'português', 'zh-TW' => '台語' }
+                  'pt-BR' => 'português', 'zh-TW' => '台語', 'zh-CN' => '简体中文' }
