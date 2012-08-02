@@ -73,7 +73,7 @@ end
   <p class="soo_line" id="soo_section_toggle_ymp"><%= _("Install using One Click Install") %><span></span></p>
   <div id="soo_section_ymp">
   
-    <% @data.select {|k,v| v.has_key?(:ymp)}.version_sort.each do |k,v| %>
+    <% @data.select {|k,v| v.has_key?(:ymp)}.sort.each do |k,v| %>
       <a class="soo_ymplink soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>" href="<%= v[:ymp] %>"><%= k.gsub('_', '&nbsp;') %></a>
     <% end %>
   </div>
@@ -82,7 +82,7 @@ end
 <div id="soo_repo" class="soo_box">
   <p class="soo_line" id="soo_section_toggle_repo"><%= _("Add repository and install manually") %><span></span></p>
   <div id="soo_section_repo">
-    <% @data.select {|k,v| v.has_key?(:repo)}.version_sort.each do |k,v| %>
+    <% @data.select {|k,v| v.has_key?(:repo)}.sort.each do |k,v| %>
       <div class="soo_repoinfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>">
         <p><%= _("For <strong>%s</strong> run the following as <strong>root</strong>:") % k.gsub('_', '&nbsp;') %></p>
         <pre><%=
@@ -123,7 +123,7 @@ apt-key add - < Release.key  </pre>
   <p class="soo_line" id="soo_section_toggle_pkg"><%= _("Grab binary packages directly") %><span></span></p>
   <div id="soo_section_pkg">
     <table>
-      <% @data.select {|k,v| v.has_key?(:package)}.version_sort.each do |k,v| %>
+      <% @data.select {|k,v| v.has_key?(:package)}.sort.each do |k,v| %>
         <tr class="soo_pkginfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>">
           <td><%= _("Packages for %s:") % ["<strong>" + k.gsub('_', '&nbsp;') + "</strong>"] %></td>
           <td><ul>
