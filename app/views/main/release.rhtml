@@ -71,7 +71,7 @@
         <noscript>
           <dl style="margin: 15px;">
             <dt><%=_("gpg signature")%></dt>
-            <dd><%=_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % "22C0 7BA5 3417 8CD0 2EFE  22AA B88B 2FD4 3DBD C284" %>
+            <dd><%=_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % @gpg %>
               (<a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.asc">32 Bit</a> or <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.asc">64 Bit</a>)
             </dd>
             <dt><%=_("md5 checksum")%></dt>
@@ -81,7 +81,7 @@
           </dl>
         </noscript>
         <ul class="hidden script_only">
-          <li><a id="sig_gpg" href="#"><%=_("gpg signature")%></a> <%=_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % "22C0 7BA5 3417 8CD0 2EFE  22AA B88B 2FD4 3DBD C284" %></li>
+          <li><a id="sig_gpg" href="#"><%=_("gpg signature")%></a> <%=_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % @gpg %></li>
           <li><a id="sig_md5" href="#"><%=_("md5 checksum")%></a> <%=_("is still the most commonly used checksum. Many ISO burners display it right before burning.")%></li>
           <li><a id="sig_sha1" href="#"><%=_("sha1 checksum")%></a> <%=_("is the less known but more secure checksum than md5.")%></li>
         </ul>

@@ -30,26 +30,7 @@ class MainController < ApplicationController
   end
 
   def set_release(release)
-    if release == "113"
-      @isos = {}
-      @directory = "http://download.opensuse.org/distribution/11.3"
-      @isos["lang-32"] = "11.3-Addon-Lang-i586"
-      @isos["lang-64"] = "11.3-Addon-Lang-x86_64"
-      @isos["nonoss"] = "11.3-Addon-NonOss-BiArch-i586-x86_64"
-      @isos["kde-64"] = "11.3-KDE4-LiveCD-x86_64"
-      @isos["kde-32"] = "11.3-KDE4-LiveCD-i686"
-      @isos["gnome-64"] = "11.3-GNOME-LiveCD-x86_64"
-      @isos["gnome-32"] = "11.3-GNOME-LiveCD-i686"
-      @isos["dvd-64"] = "11.3-DVD-x86_64"
-      @isos["dvd-32"] = "11.3-DVD-i586"
-      @isos["net-32"] = "11.3-NET-i586"
-      @isos["net-64"] = "11.3-NET-x86_64"
-
-      @releasenotes = _("http://www.suse.de/relnotes/i386/openSUSE/11.3/RELEASE-NOTES.en.html")
-      @releasename = "openSUSE 11.3"
-      @repourl = "http://download.opensuse.org/distribution/11.3"
-      @medium = "dvd"
-    elsif release == "114"
+    if release == "114"
       @isos = {}
       @directory = "http://download.opensuse.org/distribution/11.4"
       @isos["lang-32"] = "11.4-Addon-Lang-i586"
@@ -68,6 +49,7 @@ class MainController < ApplicationController
       @releasename = "openSUSE 11.4"
       @repourl = "http://download.opensuse.org/distribution/11.4"
       @medium = "dvd"
+      @gpg = "4E98 E675 19D9 8DC7 362A 5990 E3A5 C360 307E 3D54"
     elsif release == "121"
       @isos = {}
       @directory = "http://download.opensuse.org/distribution/12.1"
@@ -87,6 +69,7 @@ class MainController < ApplicationController
       @releasename = "openSUSE 12.1"
       @repourl = "http://download.opensuse.org/distribution/12.1"
       @medium = "dvd"
+      @gpg = "4E98 E675 19D9 8DC7 362A 5990 E3A5 C360 307E 3D54"
     elsif release == "developer"
       @isos = {}
       @directory = "http://download.opensuse.org/distribution/12.2-RC2"
@@ -106,6 +89,7 @@ class MainController < ApplicationController
       @releasename = "openSUSE 12.2 RC 2"
       @repourl = "http://download.opensuse.org/distribution/12.2"
       @medium = "dvd"
+      @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
     end
     @release = release
   end
