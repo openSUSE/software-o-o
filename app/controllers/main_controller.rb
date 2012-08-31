@@ -72,7 +72,7 @@ class MainController < ApplicationController
       @gpg = "4E98 E675 19D9 8DC7 362A 5990 E3A5 C360 307E 3D54"
     elsif release == "122"
       @isos = {}
-      @directory = "http://download.opensuse.org/distribution/12.22"
+      @directory = "http://download.opensuse.org/distribution/12.2"
       @isos["lang-32"] = "12.2-Addon-Lang-i586"
       @isos["lang-64"] = "12.2-Addon-Lang-x86_64"
       @isos["nonoss"] = "12.2-Addon-NonOss-BiArch-i586-x86_64"
