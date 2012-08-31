@@ -70,6 +70,27 @@ class MainController < ApplicationController
       @repourl = "http://download.opensuse.org/distribution/12.1"
       @medium = "dvd"
       @gpg = "4E98 E675 19D9 8DC7 362A 5990 E3A5 C360 307E 3D54"
+    elsif release == "122"
+      @isos = {}
+      @directory = "http://download.opensuse.org/distribution/12.22"
+      @isos["lang-32"] = "12.2-Addon-Lang-i586"
+      @isos["lang-64"] = "12.2-Addon-Lang-x86_64"
+      @isos["nonoss"] = "12.2-Addon-NonOss-BiArch-i586-x86_64"
+      @isos["kde-64"] = "12.2-KDE-LiveCD-x86_64"
+      @isos["kde-32"] = "12.2-KDE-LiveCD-i686"
+      @isos["gnome-64"] = "12.2-GNOME-LiveCD-x86_64"
+      @isos["gnome-32"] = "12.2-GNOME-LiveCD-i686"
+      @isos["dvd-64"] = "12.2-DVD-x86_64"
+      @isos["dvd-32"] = "12.2-DVD-i586"
+      @isos["net-32"] = "12.2-NET-i586"
+      @isos["net-64"] = "12.2-NET-x86_64"
+
+      @releasenotes = _("http://www.suse.de/relnotes/i386/openSUSE/12.2/RELEASE-NOTES.en.html")
+      @releasename = "openSUSE 12.2"
+      @repourl = "http://download.opensuse.org/distribution/12.2"
+      @medium = "dvd"
+      @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
+
     elsif release == "developer"
       @isos = {}
       @directory = "http://download.opensuse.org/distribution/12.2-RC2"
