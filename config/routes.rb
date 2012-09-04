@@ -20,13 +20,14 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/', :controller => 'main', :action => 'index'
   map.connect 'developer', :controller => 'main', :action => 'developer'
   map.connect ':release/download.js', :controller => 'main', :action => 'download_js'
-  map.connect '121', :controller => 'main', :action => :index
+  map.connect '122', :controller => 'main', :action => :index
+  map.connect '122/:lang', :controller => 'main', :action => 'release', :release => "122"
   map.connect '121/:lang', :controller => 'main', :action => 'release', :release => "121"
   map.connect '114/:lang', :controller => 'main', :action => 'release', :release => "114", :outdated => true
   map.connect '113/:lang', :controller => 'main', :action => 'release', :release => "113", :outdated => true
 
   #map unavailable version to the latest release
-  map.connect ':version/:lang', :controller => 'main', :action => 'release', :release => "121", :requirements => { :version => /[\d]+/ }
+  map.connect ':version/:lang', :controller => 'main', :action => 'release', :release => "122", :requirements => { :version => /[\d]+/ }
 
   map.connect 'developer/:lang', :controller => 'main', :action => 'release', :release => "developer"
 
