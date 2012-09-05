@@ -6,7 +6,6 @@ require 'net/https'
 
 class ApplicationController < ActionController::Base
 
-  #before_filter :set_gettext_locale
   before_filter :set_language
   before_filter :set_distributions
   before_filter :set_baseproject
@@ -32,11 +31,15 @@ class ApplicationController < ActionController::Base
   end
 
   def set_language
+    set_gettext_locale
+    @lang = FastGettext.locale
+    return
+    # old way
     logger.debug "params #{params.inspect}"
-    if params[:lang]
-      @lang = params[:lang]
-    elsif cookies[:lang]
-      @lang = cookies[:lang]
+    if params[:locale]
+      @lang = params[:locale]
+    elsif cookies[:locale]
+      @lang = cookies[:locale]
     end
     @lang.gsub!(/_/, '-') if @lang
     if !@lang || !LANGUAGES.include?( @lang )

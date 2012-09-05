@@ -13,7 +13,6 @@ gem 'delayed_job_active_record'
 gem 'xmlhash', '>= 1.2.2'
 
 gem 'jquery-rails'
-gem 'http_accept_language'
 
 gem 'memcache-client'
 gem 'sqlite3'

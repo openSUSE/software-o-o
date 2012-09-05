@@ -118,7 +118,7 @@ class MainController < ApplicationController
           "<a href='%s'>continue</a>.") % url
       render :template => "main/redirect_with_notice", :locals => { :notice => notice } and return
     end
-    redirect_to :action => 'release', :release => release, :lang => @lang
+    redirect_to :action => 'release', :release => release, :locale => FastGettext.locale
   end
 
 

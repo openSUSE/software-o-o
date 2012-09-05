@@ -5,20 +5,20 @@ SoftwareOO::Application.routes.draw do
     match 'developer' => :developer
     match ':release/download.js' => :download_js
     match '122' => :index
-    match '122/:lang' => :release, :release => "122"
-    match '121/:lang' => :release, :release => "121"
-    match '114/:lang' => :release, :release => "114", :outdated => true
+    match '122/:locale' => :release, :release => "122"
+    match '121/:locale' => :release, :release => "121"
+    match '114/:locale' => :release, :release => "114", :outdated => true
 
     match 'change_install' => :change_install
 
     match 'ymp/:project/:repository/:package.ymp' => :ymp_without_arch_and_version,
-          :constrains => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :package => /[\w\-\.:\+]+/ }
+          :constraints => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :package => /[\w\-\.:\+]+/ }
     match 'ymp/:project/:repository/:arch/:binary.ymp' => :ymp_with_arch_and_version,
           :constrains => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :arch => /[\w\-\.:]+/, :binary => /[\w\-\.:\+]+/ }
 
     #map unavailable version to the latest release
-    match ':version/:lang' => :release, :release => "122", :requirements => { :version => /[\d]+/ }
-    match 'developer/:lang' => :release, :release => "developer"
+    match ':version/:locale' => :release, :release => "122", :constraints => { :version => /[\d]+/ }
+    match 'developer/:locale' => :release, :release => "developer"
   end
 
   controller :search do
@@ -27,7 +27,7 @@ SoftwareOO::Application.routes.draw do
   end
   
   controller :package do 
-    match 'package/:package' => :show, :constraints => { :package => /[\w\-\.:\+]+/ }
+    match 'package/:package' => :show # , :constraints => { :package => /[\w\-\.:\+]+/ }
     match 'package/thumbnail/:package.png' => :thumbnail, :constraints => { :package => /[\w\-\.:\+]+/ }
     match 'package/screenshot/:package.png' => :screenshot, :constraints => { :package => /[\w\-\.:\+]+/ }
 
