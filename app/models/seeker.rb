@@ -58,7 +58,7 @@ class Seeker < ActiveXML::Base
     end
 
     def self.logger
-      RAILS_DEFAULT_LOGGER
+      Rails.logger
     end
 
     attr_reader :query
@@ -182,7 +182,7 @@ class Seeker < ActiveXML::Base
       end
 
       def logger
-        RAILS_DEFAULT_LOGGER
+        Rails.logger
       end
       
       private
