@@ -8,7 +8,7 @@ module ActiveSupport
     NUMBER_TO_COLOR_MAP = {0=>'0;37', 1=>'32', 2=>'33', 3=>'31', 4=>'31', 5=>'37'}
 
     def add(severity, message = nil, progname = nil, &block)
-      return if @level > severity
+      return if self.level > severity
       sevstring = NUMBER_TO_NAME_MAP[severity]
       color = NUMBER_TO_COLOR_MAP[severity]
       message = (message || (block && block.call) || progname).to_s
@@ -18,10 +18,10 @@ module ActiveSupport
         message = message[1..-1]
       end
    
-      message = prefix + "[\033[#{color}m%-5s\033[0m|#%5d] %s\n" % [sevstring, $$, message]
-      buffer << message
-      auto_flush
-      message
+      message = prefix + "[\033[#{color}m%-5s\033[0m|#%5d] %s" % [sevstring, $$, message]
+      @log.add(severity, message, progname, &block)
     end
   end
 end
+
+

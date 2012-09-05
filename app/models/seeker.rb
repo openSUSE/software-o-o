@@ -1,4 +1,4 @@
-require 'md5'
+require 'digest/md5'
 
 class Seeker < ActiveXML::Base
 
@@ -8,7 +8,7 @@ class Seeker < ActiveXML::Base
     cache_key += "_#{exclude_filter}" if exclude_filter
     cache_key += "_#{exclude_debug}" if exclude_debug
     cache_key += "_#{project}" if project
-    cache_key = 'searchresult_' + MD5::md5( cache_key ).to_s
+    cache_key = 'searchresult_' + Digest::MD5.hexdigest( cache_key ).to_s
     Rails.cache.fetch(cache_key, :expires_in => 120.minutes) do
       SearchResult.search(query, baseproject, project, exclude_filter, exclude_debug)
     end

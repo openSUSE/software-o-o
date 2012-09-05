@@ -77,7 +77,7 @@
       <%= render :partial => 'search/find_form' unless @hide_search_box %>
 
       <div id="search_result_container">
-        <%= @content_for_layout %>
+        <%= yield %>
       </div>
     </div>
 

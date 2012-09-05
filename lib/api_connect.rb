@@ -1,7 +1,7 @@
 class ApiConnect
 
   def self.get(path)
-    uri_str = "#{API_HOST}/#{path}".gsub(' ', '%20')
+    uri_str = "#{CONFIG['api_host']}/#{path}".gsub(' ', '%20')
     uri_str = path if path.match( /^http/ )
     uri = URI.parse(uri_str)
     logger.debug "Loading from api: #{uri_str}"
@@ -12,8 +12,8 @@ class ApiConnect
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       end
       request = Net::HTTP::Get.new("#{uri.path}?#{uri.query}")
-      api_user = API_USERNAME if defined? API_USERNAME
-      api_pass = API_PASSWORD if defined? API_PASSWORD
+      api_user = CONFIG['api_username']
+      api_pass = CONFIG['api_password']
       request['x-username'] = api_user
       request.basic_auth  api_user, api_pass unless (api_user.blank? || api_pass.blank?)
       http.read_timeout = 15
@@ -32,7 +32,7 @@ class ApiConnect
 
 
   def self.logger
-    RAILS_DEFAULT_LOGGER
+    Rails.logger
   end
 
 end
