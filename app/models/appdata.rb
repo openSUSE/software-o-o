@@ -44,7 +44,7 @@ class Appdata < ActiveXML::Base
     end
     zipfilename = File.join( Rails.root.join('tmp'), "appdata-" + dist + ".xml.gz" )
     filename = File.join( Rails.root.join('tmp'), "appdata-" + dist + ".xml" )
-    File.open(zipfilename, "w+") do |f|
+    File.open(zipfilename, "w+", :encoding => 'ascii-8bit') do |f|
       f.write(appdata.body) if appdata
     end 
     `gunzip -f #{zipfilename}`
