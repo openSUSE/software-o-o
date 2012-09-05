@@ -1,18 +1,18 @@
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
 
+require 'api_connect'
 require 'net/https'
 
 class ApplicationController < ActionController::Base
 
+  #before_filter :set_gettext_locale
   before_filter :set_language
   before_filter :set_distributions
   before_filter :set_baseproject
   
   helper :all # include all helpers, all the time
   require "rexml/document"
-
-  init_gettext('software')
 
   class MissingParameterError < Exception; end
 
@@ -32,8 +32,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_language
+    logger.debug "params #{params.inspect}"
     if params[:lang]
-      @lang = params[:lang][0]
+      @lang = params[:lang]
     elsif cookies[:lang]
       @lang = cookies[:lang]
     end
@@ -46,7 +47,7 @@ class ApplicationController < ActionController::Base
       end
     end
     @lang.gsub!(/-/, '_')
-    GetText.locale = @lang
+    FastGettext.locale = @lang
   end
 
 
@@ -69,7 +70,7 @@ class ApplicationController < ActionController::Base
     logger.debug "Loading distributions"
     @distributions = Array.new
     begin
-      response = ApiConnect::get("distributions")
+      response = ApiConnect::get("public/distributions")
       doc = REXML::Document.new response.body
       doc.elements.each("distributions/distribution") { |element|
         dist = Hash[:name => element.elements['name'].text, :project => element.elements['project'].text,

@@ -1,13 +1,9 @@
 require 'net/http'
-require 'gettext_rails'
 
 class MainController < ApplicationController
 
-  verify :only => :ymp, :params => [:project, :repository, :arch, :binary],
-    :redirect_to => :index
-
   # these pages are completely static:
-  caches_page :release, :download_js
+  caches_page :release, :download_js unless Rails.env.development?
 
   def ymp_with_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
