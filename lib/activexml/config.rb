@@ -5,18 +5,8 @@ module ActiveXML
 
     DEFAULTS = Hash.new
 
-    # the xml backend used for parsing
-    DEFAULTS[:xml_backend] = "rexml"
-
-    # available transport plugins
-    DEFAULTS[:transport_plugins] = "rest"
-
-    # if transport plugins should be used (deprecated)
-    # TODO: check code for usage of this variable/remove it
-    DEFAULTS[:use_transport_plugins] = false
-
     # if xml should be parsed on load (false) or on first element/attribute access (true)
-    DEFAULTS[:lazy_evaluation] = false
+    DEFAULTS[:lazy_evaluation] = true
 
     # globally deactivate write_through to backend on PUT requests
     DEFAULTS[:global_write_through] = true
@@ -30,18 +20,18 @@ module ActiveXML
       # defines ActiveXML::Base.config. Returns the ActiveXML::Config module from which you
       # can get/set the current configuration by using the dynamically added accessors.
       # ActiveXML::Base.config can also be called with a block which gets passed the Config object.
-      # The block style call is typically used from the environment files in ${RAILS_ROOT}/config
+      # The block style call is typically used from the environment files in ${Rails.root}/config
       #
       # Example:
       # ActiveXML::Base.config do |conf|
-      #   conf.xml_backend = "rexml"
+      #   conf.lazy_evaluation = true
       # end
       #
       # Configuration options can also be accessed by calling the accessor methods directly on
       # ActiveXML::Config :
       #
       # Example:
-      # ActiveXML::Config.xml_backend = "xml_smart"
+      # ActiveXML::Config.lazy_evaluation = true
       #
       def config
         yield(ActiveXML::Config) if block_given?
@@ -157,9 +147,9 @@ module ActiveXML
     class << self
 
       # access the logger object. All ActiveXML modules should use this method
-      # instead of using RAILS_DEFAULT_LOGGER to remain independent of rails
+      # instead of using Rails.logger to remain independent of rails
       def logger
-        @log_obj || RAILS_DEFAULT_LOGGER
+        @log_obj || Rails.logger
       end
 
       # defines the logger object used throughout ActiveXML modules

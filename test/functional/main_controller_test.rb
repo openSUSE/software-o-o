@@ -1,18 +1,8 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'main_controller'
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class MainController; def rescue_action(e) raise e end; end
-
-class MainControllerTest < Test::Unit::TestCase
-  def setup
-    @controller = MainController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
-  end
-
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+class MainControllerTest < ActionController::TestCase
+  test "should get index" do
+    get :index
+    assert_response :success
   end
 end
