@@ -132,13 +132,13 @@ class MainController < ApplicationController
         "Please check <a href='http://en.opensuse.org/Portal:Factory'>http://en.opensuse.org/Portal:Factory</a> for more information.")
     @exclude_debug = true
     @include_home = 'false'
-    set_release("121")
+    set_release("122")
     render :template => "main/release"
   end
 
 
   def index
-    redirectit("121")
+    redirectit("122")
   end
 
   def release
