@@ -27,13 +27,13 @@ SoftwareOO::Application.routes.draw do
   end
   
   controller :package do 
-    match 'package/:package' => :show, :constrains => { :package => /[\w\-\.:\+]+/ }
-    match 'package/thumbnail/:package.png' => :thumbnail, :constrains => { :package => /[\w\-\.:\+]+/ }
-    match 'package/screenshot/:package.png' => :screenshot, :constrains => { :package => /[\w\-\.:\+]+/ }
+    match 'package/:package' => :show, :constraints => { :package => /[\w\-\.:\+]+/ }
+    match 'package/thumbnail/:package.png' => :thumbnail, :constraints => { :package => /[\w\-\.:\+]+/ }
+    match 'package/screenshot/:package.png' => :screenshot, :constraints => { :package => /[\w\-\.:\+]+/ }
 
     match 'packages' => :categories
     match 'appstore' => :categories
-    match 'appstore/:category' => :category, :constrains => { :category => /[\w\-\.: ]+/ }
+    match 'appstore/:category' => :category, :constraints => { :category => /[\w\-\.: ]+/ }
   end
 
   match 'promodvd' => "order#new"
