@@ -1,3 +1,5 @@
+source 'https://rubygems.org'
+
 gem 'rails', '~> 3.2.1'
 gem 'nokogiri'
 gem 'gettext_i18n_rails'
