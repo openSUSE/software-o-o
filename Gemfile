@@ -29,3 +29,10 @@ gem 'jquery-rails'
 gem 'memcache-client'
 gem 'sqlite3'
 gem 'minitest'
+
+group :assets do
+  gem 'sass-rails' # if running rails 3.1 or greater
+  gem 'compass-rails'
+end
+
+

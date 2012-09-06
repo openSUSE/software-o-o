@@ -6,7 +6,7 @@
       <button name="medium" value="<%= medium %>" style="width: 630px; margin-bottom: 20px; background: #ccc" class="changeiso">
         <div>
           <p>
-            <%= image_tag "/images/" + medium + "_icon.png", :style=> "width: 64px; height: 64px; margin: 5x; float: left", :alt=>"", :width => 64, :height => 64 %>
+            <%= image_tag medium + "_icon.png", :style=> "width: 64px; height: 64px; margin: 5x; float: left", :alt=>"", :width => 64, :height => 64 %>
             <span style="font-size: 120%; font-weight: bold; height: 60px"><%= shorttext %></span>
             <br/>
             <span style="font-size: 90%; font-weight: 500"><%= longtext %></span>
@@ -18,7 +18,7 @@
 
   <div id="ci_<%= medium %>" class="hidden changeiso script_only <%= if @medium == medium then 'medium_selected' else 'medium_unselected' end %> ">
     <%= if @medium == medium then iclass='icon_selected' else iclass='icon_unselected' end
-    image_tag("/images/" + medium + "_icon.png", :alt => "", :id => "icon_" + medium, :class => iclass) %>
+    image_tag(medium + "_icon.png", :alt => "", :id => "icon_" + medium, :class => iclass) %>
     <div>
       <span style="font-size: 120%; font-weight: bold"><%= shorttext %></span>
       <br/>

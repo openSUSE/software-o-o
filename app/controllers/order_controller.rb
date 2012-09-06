@@ -11,6 +11,10 @@ class OrderController < ApplicationController
     redirect_to :action => "new"
   end
 
+  def show
+    redirect_to :action => "new"
+  end
+
   def pause
   end
 

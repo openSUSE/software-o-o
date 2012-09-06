@@ -5,7 +5,7 @@ var myiso = '';
 var directory = "<%= @directory %>";
 var isos = new Array();
 <% @isos.each { |key, value| %>
-  <%= "isos['#{key}'] = '#{value}';" %>
+  <%= raw "isos['#{key}'] = '#{value}';" %>
 <% } %>
 
 function changeiso () {
