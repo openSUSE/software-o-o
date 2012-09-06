@@ -1,5 +1,6 @@
 class OrderController < ApplicationController
 
+  respond_to :html, :json
 
   def list
     #@orders = Order.find :all, :limit => 200, :order => "created_at DESC"
@@ -15,10 +16,11 @@ class OrderController < ApplicationController
 
   def new
     @order = Order.new
+    respond_with(@order)
     #redirect_to :action => "pause"
   end
   
-  def save
+  def create
     @order = Order.new params[:order]
     if @order.save
       Promomailer.deliver_promo_order @order

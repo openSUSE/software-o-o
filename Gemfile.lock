@@ -76,6 +76,8 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
+    rails-i18n (0.6.5)
+      i18n (~> 0.5)
     railties (3.2.8)
       actionpack (= 3.2.8)
       activesupport (= 3.2.8)
@@ -107,12 +109,13 @@ DEPENDENCIES
   delayed_job (> 3.0)
   delayed_job_active_record
   gettext (>= 1.9.3)
-  gettext_i18n_rails
+  gettext_i18n_rails (>= 0.4.3)
   jquery-rails
   memcache-client
   minitest
   mysql2
   nokogiri
   rails (~> 3.2.1)
+  rails-i18n
   sqlite3
   xmlhash (>= 1.2.2)

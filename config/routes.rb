@@ -36,6 +36,8 @@ SoftwareOO::Application.routes.draw do
     match 'appstore/:category' => :category, :constraints => { :category => /[\w\-\.: ]+/ }
   end
 
+  resource :orders, :controller => "order"
+
   match 'promodvd' => "order#new"
   match 'promodvds' => "order#new"
 
