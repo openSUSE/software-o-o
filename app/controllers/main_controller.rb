@@ -65,7 +65,7 @@ class MainController < ApplicationController
       @isos["net-32"] = "12.1-NET-i586"
       @isos["net-64"] = "12.1-NET-x86_64"
 
-      @releasenotes = _("http://www.suse.de/relnotes/i386/openSUSE/12.1/RELEASE-NOTES.en.html")
+      @releasenotes = _("https://www.suse.com/releasenotes/x86_64/openSUSE/12.1/")
       @releasename = "openSUSE 12.1"
       @repourl = "http://download.opensuse.org/distribution/12.1"
       @medium = "dvd"
@@ -85,7 +85,7 @@ class MainController < ApplicationController
       @isos["net-32"] = "12.2-NET-i586"
       @isos["net-64"] = "12.2-NET-x86_64"
 
-      @releasenotes = _("http://www.suse.de/relnotes/i386/openSUSE/12.2/RELEASE-NOTES.en.html")
+      @releasenotes = _("https://www.suse.com/releasenotes/x86_64/openSUSE/12.2/")
       @releasename = "openSUSE 12.2"
       @repourl = "http://download.opensuse.org/distribution/12.2"
       @medium = "dvd"
@@ -106,7 +106,7 @@ class MainController < ApplicationController
       @isos["net-32"] = "NET-Build0050-i586"
       @isos["net-64"] = "NET-Build0050-x86_64"
 
-      @releasenotes = _("http://www.suse.de/relnotes/i386/openSUSE/12.3/RELEASE-NOTES.en.html")
+      @releasenotes = _("https://www.suse.com/releasenotes/x86_64/openSUSE/12.3")
       @releasename = "openSUSE 12.3 Milestone0"
       @repourl = "http://download.opensuse.org/distribution/12.3"
       @medium = "dvd"
