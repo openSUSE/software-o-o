@@ -13,7 +13,7 @@
 <div class="appstore-container grid_12 alpha omega">
 
   <div class="box box-shadow grid_6 appstore-category-box alpha "
-       style="background: url('/images/categories/games.gif') repeat scroll 0 0 #FFFFFF;">
+       style="background: url('/assets/categories/games.gif') repeat scroll 0 0 #FFFFFF;">
     <h2 class="box-header"><%= _("Games") %></h2>
     <%= link_to "", {:controller => :package, :action => :category, :category =>"Games"}, :class => "appstore-category-box-hover" %>
   </div>
@@ -24,7 +24,7 @@
   <% @main_sections.each do |section| %>
     <% apps = @appdata[:apps].select{|app| !(app[:categories] & section[:categories]).blank? } %>
     <div class="box box-shadow grid_3 appstore-category-box alpha"
-         style="background: url('/images/categories/<%= section[:id].downcase %>_box.png') repeat scroll 0 0 #FFFFFF;">
+         style="background: url('/assets/categories/<%= section[:id].downcase %>_box.png') repeat scroll 0 0 #FFFFFF;">
       <h2 class="box-header"><%=  section[:name]  %></h2>
       <%= link_to "", {:controller => :package, :action => :category, :category => section[:id]}, :class => "appstore-category-box-hover" %>
       <p>
@@ -38,7 +38,7 @@
 
 
   <div class="box box-shadow grid_6 appstore-category-box alpha "
-       style="background: url('/images/categories/multimedia_wide.png') repeat scroll 0 0 #FFFFFF;">
+       style="background: url('/assets/categories/multimedia_wide.png') repeat scroll 0 0 #FFFFFF;">
     <h2 class="box-header"><%= _("Multimedia") %></h2>
     <%= link_to "", {:controller => :package, :action => :category, :category => "Multimedia" }, :class => "appstore-category-box-hover" %>
   </div>
