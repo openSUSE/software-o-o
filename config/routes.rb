@@ -49,6 +49,7 @@ SoftwareOO::Application.routes.draw do
   match 'download/iframe' => "download#package", :format => 'iframe'
   match 'download/json' => "download#package", :format => 'json'
 
-#  match '/download/:action.:format', :controller => 'download'
+  match '/download/:action(.:format)', :controller => 'download'
+
 
 end
