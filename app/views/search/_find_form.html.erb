@@ -83,7 +83,7 @@
 
 <div class="box box-shadow pkg-search-box pkg-header-box grid_12 alpha">
   <h1><%= link_to _("Package Search"), {:controller => :search, :action => :find}, :id => "apps-headline"  %></h1>
-  <% form_tag( {:controller => 'search', :action => :searchresult}, :method => :get ) do %>
+  <%= form_tag( {:controller => 'search', :action => :searchresult}, :method => :get ) do %>
     <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form",  :autocomplete => "off", :autofocus => true %>
     <div id='search-loader' class="hidden"><span id="search-loader-txt"></span> <%= image_tag "ajax-loader.gif" %></div>
     <%= submit_tag _('Search'), :name => nil, :class => "search-go-button" %>
