@@ -53,7 +53,7 @@ def gradient(top, mid, btm)
 end
 %>
 
-<%= render(:partial => "download.css") %>
+<%= render(:partial => "download", :formats => [:css]) %>
 
 <% unless @flavors.blank? %>
   <div class="soo_box">
@@ -74,7 +74,7 @@ end
   <div id="soo_section_ymp">
   
     <% @data.select {|k,v| v.has_key?(:ymp)}.sort.reverse.each do |k,v| %>
-      <a class="soo_ymplink soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>" href="<%= v[:ymp] %>"><%= k.gsub('_', '&nbsp;') %></a>
+      <a class="soo_ymplink soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>" href="<%= v[:ymp] %>"><%= k.gsub('_', '&nbsp;').html_safe %></a>
     <% end %>
   </div>
 </div>
@@ -84,7 +84,7 @@ end
   <div id="soo_section_repo">
     <% @data.select {|k,v| v.has_key?(:repo)}.sort.reverse.each do |k,v| %>
       <div class="soo_repoinfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>">
-        <p><%= _("For <strong>%s</strong> run the following as <strong>root</strong>:") % k.gsub('_', '&nbsp;') %></p>
+        <p><%= (_("For <strong>%s</strong> run the following as <strong>root</strong>:") % k.gsub('_', '&nbsp;')).html_safe %></p>
         <pre><%=
           case v[:flavor]
           when 'openSUSE', 'SLE'
@@ -125,7 +125,7 @@ apt-key add - < Release.key  </pre>
     <table>
       <% @data.select {|k,v| v.has_key?(:package)}.sort.reverse.each do |k,v| %>
         <tr class="soo_pkginfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>">
-          <td><%= _("Packages for %s:") % ["<strong>" + k.gsub('_', '&nbsp;') + "</strong>"] %></td>
+          <td><%= (_("Packages for %s:") % ["<strong>" + k.gsub('_', '&nbsp;') + "</strong>"]).html_safe %></td>
           <td><ul>
             <% v[:package].sort.each do |k,v| %>
               <li><a href="<%= v %>"><%= k %></a></li>
