@@ -50,13 +50,13 @@
 <h2>Advanced options</h2>
 
 <p><b>JSON output:</b> You can also request the data in json format by using .json as output format, for example:
-  <a href="http://software.opensuse.org/download/package.json?project=openSUSE:Tools&amp;package=obs-server">http://software.opensuse.org/download/package.json?project=openSUSE:Tools&amp;package=obs-server</a>.
-  </p>
+  <%= link_to "http://software.opensuse.org/download/package.json?project=openSUSE:Tools&package=obs-server", :controller => :download, :action => :package, :format => :json, :project => "openSUSE:Tools", :package => "obs-server" %>.
+</p>
 
   <p>
   <b>Theming: </b>
   To customize the theming of the download page, you have multiple options to change the colors.
   Use the parameters <b>bcolor</b>, <b>fcolor</b>, <b>hcolor</b> and <b>acolor</b> to set the different colors. <br/>
-  Example: <a href="http://software.opensuse.org/download/appliance.iframe?project=openSUSE:Tools&amp;fcolor=607890&amp;hcolor=607890&amp;acolor=607890&bcolor=123">http://software.opensuse.org/download/appliance?project=openSUSE:Tools&amp;fcolor=607890&amp;hcolor=607890&amp;acolor=607890&amp;bcolor=123</a>
-  
+  Example:
+    <%= link_to "http://software.opensuse.org/download/appliance.iframe?project=openSUSE:Tools&fcolor=607890&hcolor=607890&acolor=607890&bcolor=123", :controller => :download, :action => :appliance, :format => :iframe, :project => "openSUSE:Tools", :fcolor => "607890", :hcolor => "607890", :acolor => "607890", :bcolor => "123" %>
   </p>
