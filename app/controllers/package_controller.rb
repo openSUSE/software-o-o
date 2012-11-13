@@ -94,14 +94,14 @@ class PackageController < ApplicationController
   def screenshot
     required_parameters :package
     package = params[:package]
-    default_url = File.join( Rails.root, "public/images/default-screenshots/no_screenshot_opensuse_big.png" )
+    default_url = File.join( Rails.root, "app/assets/images/default-screenshots/no_screenshot_opensuse_big.png" )
     image package, "screenshot", default_url
   end
 
   def thumbnail
     required_parameters :package
     package = params[:package]
-    default_url = File.join( Rails.root, "public/images/default-screenshots/no_screenshot_opensuse.png" )
+    default_url = File.join( Rails.root, "app/assets/images/default-screenshots/no_screenshot_opensuse.png" )
     image package, "thumbnail", default_url
   end
 
