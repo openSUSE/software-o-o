@@ -43,6 +43,8 @@ SoftwareOO::Application.routes.draw do
 
   match 'codecs' => "codecs#index"
 
+  match 'statistic' => "statistic#index"
+
   # compatibility routes for old download implementation
   match 'download' => "download#package"
   match 'download.:format' => "download#package"
@@ -50,6 +52,5 @@ SoftwareOO::Application.routes.draw do
   match 'download/json' => "download#package", :format => 'json'
 
   match '/download/:action(.:format)', :controller => 'download'
-
 
 end
