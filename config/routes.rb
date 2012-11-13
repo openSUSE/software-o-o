@@ -12,7 +12,7 @@ SoftwareOO::Application.routes.draw do
     match 'change_install' => :change_install
 
     match 'ymp/:project/:repository/:package.ymp' => :ymp_without_arch_and_version,
-          :constraints => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :package => /[\w\-\.:\+]+/ }
+          :constraints => { :project => /[\w\-\.:\+]+/, :repository => /[\w\-\.:\+]+/, :package => /[\w\-\.:\+]+/ }
     match 'ymp/:project/:repository/:arch/:binary.ymp' => :ymp_with_arch_and_version,
           :constrains => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :arch => /[\w\-\.:]+/, :binary => /[\w\-\.:\+]+/ }
 
