@@ -48,13 +48,13 @@ function changeiso () {
      $('#l_torrent').addClass('notavailable');
      $('#p_torrent').attr('disabled', 'disabled');
      if ($('#p_torrent').attr('checked')) {
-	$('#p_torrent').attr('checked', '');
+	$('#p_torrent').removeAttr('checked');
 	$('#p_http').attr('checked', 'checked');
 	mylink = myiso;
      }
   } else {
      $('#l_torrent').removeClass('notavailable');
-     $('#p_torrent').attr('disabled', '');
+     $('#p_torrent').removeAttr('disabled');
   }
 
   if ( mymedium == "derivatives"){
