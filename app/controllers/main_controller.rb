@@ -9,7 +9,7 @@ class MainController < ApplicationController
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
     DownloadHistory.create :query => params[:query], :base => params[:base],
       :ymp => path
-    res =  Rails.cache.fetch( Rails.cache.escape_key( "ymp_#{path}"  ), :expires_in => 1.hour) do
+    res =  Rails.cache.fetch( "ymp_#{path}", :expires_in => 1.hour) do
       ApiConnect::get(path)
     end
     render :text => res.body, :content_type => res.content_type
@@ -19,7 +19,7 @@ class MainController < ApplicationController
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:package]}?view=ymp"
     DownloadHistory.create :query => params[:query], :base => params[:base],
       :ymp => path
-    res =  Rails.cache.fetch( Rails.cache.escape_key( "ymp_#{path}"  ), :expires_in => 1.hour) do
+    res =  Rails.cache.fetch("ymp_#{path}", :expires_in => 1.hour) do
       ApiConnect::get(path)
     end
     render :text => res.body, :content_type => res.content_type
