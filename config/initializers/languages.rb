@@ -18,6 +18,6 @@ LANGUAGE_NAMES = {'en' => 'English', 'de' => 'Deutsch', 'bg' => 'българс�
                   'pt-BR' => 'português', 'zh-TW' => '台語', 'zh-CN' => '简体中文' }
 
 FastGettext.add_text_domain 'software', :path => 'locale'
-FastGettext.default_available_locales = LANGUAGES #all you want to allow
+FastGettext.available_locales = LANGUAGES #all you want to allow
 FastGettext.default_text_domain = 'software'
 
