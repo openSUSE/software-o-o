@@ -27,5 +27,10 @@ class Order < ActiveRecord::Base
   validates_presence_of :title, :name, :street1, :zip, :city, :country,
     :phone, :email, :amount, :reason, :deadline
 
+  attr_accessible :title, :name, :street1, :zip, :city, :country,
+    :phone, :email, :amount, :reason, :deadline, :company, :street2, :county, :material
+
+  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
+  validates :deadline, format: { with: %r{^2[0-9][0-9][0-9]-[01][0-9]-[0-3][0-9]}, on: :create }, unless: "deadline == 'NONE'"
   validates_numericality_of :amount
 end

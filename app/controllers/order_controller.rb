@@ -27,7 +27,7 @@ class OrderController < ApplicationController
   def create
     @order = Order.new params[:order]
     if @order.save
-      Promomailer.deliver_promo_order @order
+      Promomailer.promo_order(@order).deliver
       redirect_to "/order/thanks" and return
     else
       flash.now[:error] = "Your submission could not be processed, please fix the problems listed below: \n"
