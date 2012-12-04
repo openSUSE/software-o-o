@@ -28,11 +28,13 @@ gem 'jquery-rails'
 
 gem 'memcache-client'
 gem 'sqlite3'
-gem 'minitest'
+gem 'minitest', '~> 2.5'
 
 group :assets do
   gem 'sass-rails' # if running rails 3.1 or greater
   gem 'compass-rails'
+  gem 'uglifier'
 end
 
+gem 'rake', '~> 0.9.2'
 
