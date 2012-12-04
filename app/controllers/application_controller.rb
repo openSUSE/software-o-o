@@ -31,26 +31,10 @@ class ApplicationController < ActionController::Base
   end
 
   def set_language
+    # reset the language as first step to avoid leaving the old language around
+    FastGettext.set_locale(FastGettext.default_locale)
     set_gettext_locale
     @lang = FastGettext.locale
-    return
-    # old way
-    logger.debug "params #{params.inspect}"
-    if params[:locale]
-      @lang = params[:locale]
-    elsif cookies[:locale]
-      @lang = cookies[:locale]
-    end
-    @lang.gsub!(/_/, '-') if @lang
-    if !@lang || !LANGUAGES.include?( @lang )
-      if !request.compatible_language_from(LANGUAGES).blank?
-        @lang = request.compatible_language_from(LANGUAGES).dup
-      else
-        @lang = "en"
-      end
-    end
-    @lang.gsub!(/-/, '_')
-    FastGettext.locale = @lang
   end
 
 
