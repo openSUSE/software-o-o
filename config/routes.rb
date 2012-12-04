@@ -4,6 +4,7 @@ SoftwareOO::Application.routes.draw do
     match '/' => :index
     match 'developer' => :developer
     match ':release/download.js' => :download_js
+    match 'main/download' => :download
     match '122' => :index
     match '122/:locale' => :release, :release => "122"
     match '121/:locale' => :release, :release => "121"
