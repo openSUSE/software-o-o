@@ -110,6 +110,10 @@ $(function() {
 				  return false; 
 				});
     $('#download_button').click(function() {
+			   try {
+			       piwikTracker = Piwik.getAsyncTracker();
+			       piwikTracker.trackPageView(mylink);
+			   } catch(err) {}
 			   window.location = mylink;
 			   return false;
 			 });
