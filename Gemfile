@@ -34,6 +34,7 @@ group :assets do
   gem 'sass-rails' # if running rails 3.1 or greater
   gem 'compass-rails'
   gem 'uglifier'
+  gem 'therubyracer'
 end
 
 gem 'rake', '~> 0.9.2'
