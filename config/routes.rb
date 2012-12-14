@@ -7,8 +7,8 @@ SoftwareOO::Application.routes.draw do
     match 'main/download' => :download
     match '122' => :index
     match '122/:locale' => :release, :release => "122"
-    match '121/:locale' => :release, :release => "121"
-    match '114/:locale' => :release, :release => "114", :outdated => true
+    match '121' => :release, :release => "121", :outdated => true
+    match '121/:locale' => :release, :release => "121", :outdated => true
 
     match 'change_install' => :change_install
 
@@ -18,7 +18,8 @@ SoftwareOO::Application.routes.draw do
           :constrains => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :arch => /[\w\-\.:]+/, :binary => /[\w\-\.:\+]+/ }
 
     #map unavailable version to the latest release
-    match ':version/:locale' => :release, :release => "122", :constraints => { :version => /[\d]+/ }
+    match ':version' => :index, :constraints => { :version => /[\d]+/ }
+    match ':version/:locale' => :index, :constraints => { :version => /[\d]+/ }
     match 'developer/:locale' => :release, :release => "developer"
   end
 
