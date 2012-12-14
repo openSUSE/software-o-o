@@ -14,5 +14,5 @@ map.connect :attribute, 'rest:///source/:prj/_attribute/:attribute'
 map.set_additional_header( "X-Username", CONFIG['api_username'])
 map.login CONFIG['api_username'], CONFIG['api_password']
 map.set_additional_header( "User-Agent", "software.o.o" )
-map.map.set_additional_header("X-opensuse_data", CONFIG['opensuse_cookie']) if CONFIG['opensuse_cookie']
+map.set_additional_header("X-opensuse_data", CONFIG['opensuse_cookie']) if CONFIG['opensuse_cookie']
 
