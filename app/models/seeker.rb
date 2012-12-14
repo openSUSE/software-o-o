@@ -1,6 +1,6 @@
 require 'digest/md5'
 
-class Seeker < ActiveXML::Base
+class Seeker < ActiveXML::Node
 
   def self.prepare_result(query, baseproject=nil, project=nil, exclude_filter=nil, exclude_debug=false)
     cache_key = query

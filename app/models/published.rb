@@ -1,2 +1,2 @@
-class Published < ActiveXML::Base
+class Published < ActiveXML::Node
 end

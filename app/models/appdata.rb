@@ -1,4 +1,4 @@
-class Appdata < ActiveXML::Base
+class Appdata
 
   def self.get dist="factory"
     data = Hash.new

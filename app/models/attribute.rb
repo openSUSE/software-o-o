@@ -1,2 +1,2 @@
-class Attribute < ActiveXML::Base
+class Attribute < ActiveXML::Node
 end

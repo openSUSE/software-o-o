@@ -15,6 +15,8 @@ class ApiConnect
       api_user = CONFIG['api_username']
       api_pass = CONFIG['api_password']
       request['x-username'] = api_user
+      # if you know the cookie, you can buypass login - useful in production ;)
+      request['X-opensuse_data'] = CONFIG['opensuse_cookie'] if CONFIG['opensuse_cookie']
       request.basic_auth  api_user, api_pass unless (api_user.blank? || api_pass.blank?)
       http.read_timeout = 15
       response = http.request(request)
