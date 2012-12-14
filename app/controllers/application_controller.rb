@@ -17,11 +17,8 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def rescue_action_locally( exception )
-    rescue_action_in_public( exception )
-  end
-
-  def rescue_action_in_public(exception)
+  rescue_from Exception do |exception|
+   logger.debug "rescue"
     @message = exception.message
     if request.xhr?
       render :template => "error", :layout => false, :status => 400

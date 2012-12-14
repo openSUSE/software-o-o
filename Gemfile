@@ -29,6 +29,7 @@ gem 'jquery-rails'
 gem 'memcache-client'
 gem 'sqlite3'
 gem 'minitest', '~> 2.5'
+gem 'hoptoad_notifier', "~> 2.3"
 
 group :assets do
   gem 'sass-rails' # if running rails 3.1 or greater

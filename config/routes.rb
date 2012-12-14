@@ -17,8 +17,6 @@ SoftwareOO::Application.routes.draw do
     match 'ymp/:project/:repository/:arch/:binary.ymp' => :ymp_with_arch_and_version,
           :constrains => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :arch => /[\w\-\.:]+/, :binary => /[\w\-\.:\+]+/ }
 
-    #map unavailable version to the latest release
-    match ':version' => :index, :constraints => { :version => /[\d]+/ }
     match ':version/:locale' => :index, :constraints => { :version => /[\d]+/ }
     match 'developer/:locale' => :release, :release => "developer"
   end
