@@ -9,6 +9,7 @@ set :branch, "master"
 set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
 set :migrate_target, :current
+set :use_sudo, false
 
 set :deploy_notification_to, ['tschmidt@suse.de', 'coolo@suse.de']
 server "software", :app, :web, :db, :primary => true
@@ -39,10 +40,12 @@ set :runner, "root"
 after "deploy:update_code", "config:symlink_shared_config"
 after "deploy:update_code", "config:sync_static"
 after "deploy:create_symlink", "config:permissions"
-after "deploy:finalize_update", "deploy:notify"
+after "deploy:restart", "deploy:notify"
 
 after :deploy, 'deploy:cleanup' # only keep 5 releases
 
+io = IO.popen('ruby -rbundler -e "Bundler.settings[:frozen] = 1; Bundler.definition.resolve.to_a.each { |s| puts \"rubygem(1.9.1:#{s.name}) = #{s.version}\" }"')
+zypperlines = io.readlines
 
 namespace :config do
 
@@ -56,6 +59,8 @@ namespace :config do
     run "ln -s #{shared_path}/options.yml #{release_path}/config/options.yml"
     run "rm -r #{release_path}/tmp/cache"
     run "ln -s #{shared_path}/software.o.o.cache #{release_path}/tmp/cache"
+    run "cd #{release_path}; zypper -n in -C \"#{zypperlines.join('" "')}\""
+    run "cd #{release_path}; bundle show"
     run "cd #{release_path}; bundle exec rake assets:precompile RAILS_ENV=production --trace"
   end
 
