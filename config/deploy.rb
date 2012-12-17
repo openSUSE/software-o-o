@@ -11,7 +11,7 @@ set :git_enable_submodules, 1
 set :migrate_target, :current
 
 set :deploy_notification_to, ['tschmidt@suse.de', 'coolo@suse.de']
-server "buildserviceapi.suse.de", :app, :web, :db, :primary => true
+server "software", :app, :web, :db, :primary => true
 
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
@@ -56,6 +56,7 @@ namespace :config do
     run "ln -s #{shared_path}/options.yml #{release_path}/config/options.yml"
     run "rm -r #{release_path}/tmp/cache"
     run "ln -s #{shared_path}/software.o.o.cache #{release_path}/tmp/cache"
+    run "cd #{release_path}; bundle exec rake assets:precompile RAILS_ENV=production --trace"
   end
 
   desc "Set permissions"
@@ -75,7 +76,7 @@ end
 namespace :deploy do
   task :restart do
     run "touch #{current_path}/tmp/restart.txt"
-    run "sv restart /service/delayed_job_software"
+    run "sv restart /etc/service/delayed_job_software"
   end
 
 

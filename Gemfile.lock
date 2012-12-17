@@ -30,6 +30,12 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     builder (3.0.4)
+    capistrano (2.13.5)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     chunky_png (1.2.6)
     compass (0.12.2)
       chunky_png (~> 1.2)
@@ -51,6 +57,7 @@ GEM
       locale
     gettext_i18n_rails (0.8.0)
       fast_gettext (>= 0.4.8)
+    highline (1.6.15)
     hike (1.2.1)
     hoptoad_notifier (2.4.11)
       activesupport
@@ -71,6 +78,13 @@ GEM
     minitest (2.5.1)
     multi_json (1.4.0)
     mysql2 (0.3.11)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.6.2)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
     nokogiri (1.5.5)
     pkg-config (1.1.4)
     polyglot (0.3.3)
@@ -128,6 +142,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  capistrano (~> 2.13)
   compass-rails
   delayed_job (> 3.0)
   delayed_job_active_record

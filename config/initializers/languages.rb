@@ -16,7 +16,7 @@ LANGUAGE_NAMES = {'en' => 'English', 'de' => 'Deutsch', 'bg' => 'българс�
                   'sk' => 'slovenčina', 'th' => 'ภาษาไทย', 'uk' => 'Українська', 'wa' => 'walon',
                   'pt_BR' => 'português', 'z_-TW' => '台語', 'zh_CN' => '简体中文' }
 
-FastGettext.add_text_domain 'software', :path => 'locale'
+FastGettext.add_text_domain 'software', :path => Rails.root.join('locale')
 FastGettext.available_locales = LANGUAGES #all you want to allow
 FastGettext.default_text_domain = 'software'
 FastGettext.default_locale = 'en'
