@@ -17,15 +17,13 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  rescue_from MissingParameterError do |exception|
+  rescue_from Exception do |exception|
     logger.error "Exception: #{exception.class}: #{exception.message}"
     logger.error exception.backtrace.join("\n")
     @message = exception.message
-    if request.xhr?
-      render :template => "error", :layout => false, :status => 400
-    else
-      render :template => 'error', :layout => "application", :status => 400
-    end
+    layout = request.xhr? ? false : "application"
+    notify_hoptoad(exception)
+    render :template => 'error', :layout => layout, :status => 400
   end
 
   def set_language
