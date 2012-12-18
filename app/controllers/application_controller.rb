@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
   protected
 
   rescue_from MissingParameterError do |exception|
-   logger.debug "rescue"
+    logger.error "Exception: #{exception.class}: #{exception.message}"
+    logger.error exception.backtrace.join("\n")
     @message = exception.message
     if request.xhr?
       render :template => "error", :layout => false, :status => 400
