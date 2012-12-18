@@ -87,8 +87,15 @@ class MainController < ApplicationController
       @repourl = "http://download.opensuse.org/distribution/12.3"
       @medium = "dvd"
       @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
+    else
+      flash[:warn] = _("#{release} is not a supported release.")
+      @exclude_debug = true
+      @include_home = 'false'
+      redirect_to action: :index
+      return false
     end
     @release = release
+    return true
   end
 
   def redirectit(release)
@@ -121,18 +128,18 @@ class MainController < ApplicationController
     @exclude_debug = true
     @include_home = 'false'
     flash.now[:info] = _("Please note that this is not the latest openSUSE release. You can get the latest version <a href='/'>here</a>. ") if params[:outdated]
-    set_release(params[:release])
+    set_release(params[:release]) || return
     render :template => "main/release"
   end
 
   def change_install
-    set_release(params[:release])
+    set_release(params[:release]) || return
     @medium = params[:medium]
     render :template => "main/release"
   end
 
   def download_js
-    set_release(params[:release])
+    set_release(params[:release]) || return
     render :template => "main/download", :content_type => 'text/javascript', :layout => false
   end
 
@@ -141,7 +148,7 @@ class MainController < ApplicationController
   end
 
   def download
-    set_release(params[:release])
+    set_release(params[:release]) || return
     medium = params[:medium]
 
     if params[:arch] == "i686"
