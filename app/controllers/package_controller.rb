@@ -121,7 +121,7 @@ class PackageController < ApplicationController
     response.headers['Content-Disposition'] = 'inline'
     render :text => content, :content_type => 'image/png'
     cache_page unless path
-    FileUtils.ln_sf( default_url, path ) if path
+    FileUtils.ln_sf( default_url, path ) if path rescue logger.error "Couldn't create default link for #{path}"
   end
 
   def set_categories
