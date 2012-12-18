@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  rescue_from Exception do |exception|
+  rescue_from MissingParameterError do |exception|
    logger.debug "rescue"
     @message = exception.message
     if request.xhr?
