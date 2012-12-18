@@ -32,7 +32,7 @@
   end
 %>
 
-  <%= render(:partial => "download.css") %>
+  <%= render(:partial => "download", :formats => [:css]) %>
 
   <% unless @flavors.blank? %>
     <div class="soo_box">
