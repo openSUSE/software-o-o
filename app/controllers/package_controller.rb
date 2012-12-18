@@ -120,7 +120,7 @@ class PackageController < ApplicationController
     response.headers['Content-Type'] = 'image/png'
     response.headers['Content-Disposition'] = 'inline'
     render :text => content, :content_type => 'image/png'
-    cache_page
+    cache_page unless path
     FileUtils.ln_sf( default_url, path ) if path
   end
 
