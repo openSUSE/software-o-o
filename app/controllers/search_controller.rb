@@ -6,21 +6,21 @@ class SearchController < ApplicationController
   def searchresult
     render 'find' and return if @search_term.blank?
 
-    base = ( @baseproject == "ALL" ) ? "" : @baseproject
+    base = (@baseproject == "ALL") ? "" : @baseproject
 
     #if we have a baseproject, and don't show unsupported packages, shortcut: '
-    if !@baseproject.blank? && !( @baseproject == "ALL" ) && !@search_unsupported && !@search_project
+    if !@baseproject.blank? && !(@baseproject == "ALL") && !@search_unsupported && !@search_project
       @search_project = @baseproject
     end
 
-    begin 
+    begin
       @packages = Seeker.prepare_result("#{@search_term}", base, @search_project, @exclude_filter, @exclude_debug)
       SearchHistory.create :query => @search_term, :count => @packages.size
     rescue ActiveXML::Transport::Error => e
       if e.code.to_s == "413"
         logger.debug("Too many hits, trying exact match for: #{@search_term}")
         SearchHistory.create :query => @search_term, :count => 0
-        @search_term = @search_term.split(" ").map{|x| "\"#{CGI.escape(x)}\""}.join(" ")
+        @search_term = @search_term.split(" ").map { |x| "\"#{CGI.escape(x)}\"" }.join(" ")
         @packages = Seeker.prepare_result("#{@search_term}", base, @search_project, @exclude_filter, @exclude_debug)
       end
       raise e if @packages.nil?
@@ -28,24 +28,24 @@ class SearchController < ApplicationController
 
     # filter out devel projects on user setting
     unless (@search_unsupported || @search_project)
-      @packages = @packages.select{|p| (@distributions.map{|d| d[:project]}.include? p.project) ||
-          @distributions.map{|d| "#{d[:project]}:Update"}.include?( p.project ) || @distributions.map{|d| "#{d[:project]}:NonFree"}.include?( p.project ) }
+      @packages = @packages.select { |p| (@distributions.map { |d| d[:project] }.include? p.project) ||
+          @distributions.map { |d| "#{d[:project]}:Update" }.include?(p.project) || @distributions.map { |d| "#{d[:project]}:NonFree" }.include?(p.project) }
     end
 
     # only show packages
-    @packages = @packages.select{|p| p.first.type != 'ymp'}
-    @packagenames = @packages.map{|p| p.name}
+    @packages = @packages.select { |p| p.first.type != 'ymp' }
+    @packagenames = @packages.map { |p| p.name }
 
-    #mix in searchresults from appdata, as the api can't search in summary and description atm
+    # mix in searchresults from appdata, as the api can't search in summary and description atm
     if (!@search_project)
-    appdata_hits = @appdata[:apps].select{|a| ( a[:summary].match(/#{@search_term}/i) ||
-          a[:name].match(/#{@search_term}/i) ) }.map{|a| a[:pkgname]}
-    @packagenames = (@packagenames + appdata_hits)
+      appdata_hits = @appdata[:apps].select { |a| (a[:summary].match(/#{Regexp.quote(@search_term)}/i) ||
+          a[:name].match(/#{Regexp.quote(@search_term)}/i)) }.map { |a| a[:pkgname] }
+      @packagenames = (@packagenames + appdata_hits)
     end
-    @packagenames = @packagenames.uniq.sort_by {|x| x.length}
+    @packagenames = @packagenames.uniq.sort_by { |x| x.length }
 
     if @packagenames.size == 1
-      redirect_to( :controller => :package, :action => :show, :package => @packagenames.first, :search_term => @search_term ) and return
+      redirect_to(:controller => :package, :action => :show, :package => @packagenames.first, :search_term => @search_term) and return
     elsif request.xhr?
       render :partial => 'find_results' and return
     else
