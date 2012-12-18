@@ -17,8 +17,7 @@ class SearchController < ApplicationController
       @packages = Seeker.prepare_result("#{@search_term}", base, @search_project, @exclude_filter, @exclude_debug)
       SearchHistory.create :query => @search_term, :count => @packages.size
     rescue => e
-      search_error, code, api_exception = ActiveXML::Transport.extract_error_message e
-      if code == "413"
+      if e.code.to_s == "413"
         logger.debug("Too many hits, trying exact match for: #{@search_term}")
         SearchHistory.create :query => @search_term, :count => 0
         @search_term = @search_term.split(" ").map{|x| "\"#{CGI.escape(x)}\""}.join(" ")
