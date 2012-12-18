@@ -27,7 +27,6 @@ class ApiConnect
       end
     rescue Exception => e
       logger.error "Error connecting to #{uri_str}: #{e.to_s}"
-      raise "Error connecting to OBS API: #{e.to_s}"
       return nil
     end
   end
