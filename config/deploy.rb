@@ -46,6 +46,12 @@ after :deploy, 'deploy:cleanup' # only keep 5 releases
 
 io = IO.popen('ruby -rbundler -e "Bundler.settings[:frozen] = 1; Bundler.definition.resolve.to_a.each { |s| puts \"rubygem(1.9.1:#{s.name}) = #{s.version}\" }"')
 zypperlines = io.readlines
+ 
+begin
+  diff_log = `#{source.local.log( source.next_revision(current_revision), branch )}`
+rescue
+  diff_log = "No REVISION found, probably initial deployment."
+end
 
 namespace :config do
 
@@ -88,11 +94,6 @@ namespace :deploy do
   desc "Send email notification of deployment"
   task :notify do
     #diff = `#{source.local.diff(current_revision)}`
-    begin
-      diff_log = `#{source.local.log( source.next_revision(current_revision), branch )}`
-    rescue
-      diff_log = "No REVISION found, probably initial deployment."
-    end
     user = `whoami`
     body = %Q[From: software-deploy@suse.de
 To: #{deploy_notification_to.join(", ")}
