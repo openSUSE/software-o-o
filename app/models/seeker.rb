@@ -14,13 +14,14 @@ class Seeker < ActiveXML::Node
     end
   end
 
+  class InvalidSearchTerm < Exception; end
 
   class SearchResult < Array
     def self.search(query, baseproject, project=nil, exclude_filter=nil, exclude_debug=false)
       words = query.split(" ").select {|part| !part.match(/^[0-9_\.-]+$/) }
       versrel = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
       logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
-      raise "Please provide a valid search term" if words.blank? && project.blank?
+      raise InvalidSearchTerm.new "Please provide a valid search term" if words.blank? && project.blank?
 
       xpath_items = Array.new
       xpath_items << "@project = '#{project}' " unless project.blank?
