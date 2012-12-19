@@ -30,7 +30,7 @@
         <% end -%>
       <% end -%>
     </ul>
-    <% if distro[:project].match(/SUSE/) %>
+    <% if oneclick && distro[:project].match(/SUSE/) %>
       <% url = url_for :controller => 'main', :action => 'ymp_without_arch_and_version',
         :project => result.first, :repository => result.last.first.repository, :package => @pkgname,
         :base => result.last.first.baseproject, :query => @pkgname%>
