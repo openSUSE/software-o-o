@@ -5,10 +5,12 @@ SoftwareOO::Application.routes.draw do
     match 'developer' => :developer
     match ':release/download.js' => :download_js
     match 'main/download' => :download
-    match '122' => :index
-    match '122/:locale' => :release, :release => "122"
+
     match '121' => :release, :release => "121", :outdated => true
     match '121/:locale' => :release, :release => "121", :outdated => true
+    match ':release' => :release, :constraints => { :release => /[\d]+/ }, :format => false
+    match ':release/:locale' =>  :release, :constraints => { :release => /[\d]+/ }, :format => false
+    match 'developer/:locale' => :release, :release => "developer", :format => false
 
     match 'change_install' => :change_install
 
@@ -16,14 +18,11 @@ SoftwareOO::Application.routes.draw do
           :constraints => { :project => /[\w\-\.:\+]+/, :repository => /[\w\-\.:\+]+/, :package => /[\w\-\.:\+]+/ }
     match 'ymp/:project/:repository/:arch/:binary.ymp' => :ymp_with_arch_and_version,
           :constrains => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :arch => /[\w\-\.:]+/, :binary => /[\w\-\.:\+]+/ }
-
-    match ':version/:locale' => :index, :constraints => { :version => /[\d]+/ }
-    match 'developer/:locale' => :release, :release => "developer"
   end
 
   controller :search do
-    match 'search' => :searchresult
-    match 'find' => :find
+    match 'search' => :searchresult, :format => false
+    match 'find' => :find, :format => false
   end
   
   controller :package do 
