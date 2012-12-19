@@ -1,5 +1,7 @@
 class ApiConnect
 
+  class Error < Exception; end
+
   def self.get(path)
     uri_str = "#{CONFIG['api_host']}/#{path}".gsub(' ', '%20')
     uri_str = path if path.match( /^http/ )
@@ -23,10 +25,10 @@ class ApiConnect
       case response
       when Net::HTTPSuccess then response;
       else
-        raise "Response was: #{response} #{response.body}"
+        raise Error.new "Response was: #{response} #{response.body}"
       end
     rescue Exception => e
-      raise "Error connecting to #{uri_str}: #{e.to_s}"
+      raise Error.new "Error connecting to #{uri_str}: #{e.to_s}"
     end
   end
 

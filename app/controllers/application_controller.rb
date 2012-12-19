@@ -23,6 +23,8 @@ class ApplicationController < ActionController::Base
     layout = request.xhr? ? false : "application"
     case exception
       when Seeker::InvalidSearchTerm
+      when ApiConnect::Error
+      when ApplicationController::MissingParameterError
       else
         logger.error exception.backtrace.join("\n")
         notify_hoptoad(exception)
