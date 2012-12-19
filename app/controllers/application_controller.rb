@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     @message = exception.message
     layout = request.xhr? ? false : "application"
     notify_hoptoad(exception)
-    render :template => 'error', :layout => layout, :status => 400
+    render :template => 'error', :formats => [:html], :layout => layout, :status => 400
   end
 
   def set_language
