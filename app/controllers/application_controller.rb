@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
       when Seeker::InvalidSearchTerm
       when ApiConnect::Error
       when ApplicationController::MissingParameterError
+      when Timeout::Error
       else
         logger.error exception.backtrace.join("\n")
         notify_hoptoad(exception)
