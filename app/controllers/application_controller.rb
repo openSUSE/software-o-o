@@ -19,10 +19,14 @@ class ApplicationController < ActionController::Base
 
   rescue_from Exception do |exception|
     logger.error "Exception: #{exception.class}: #{exception.message}"
-    logger.error exception.backtrace.join("\n")
     @message = exception.message
     layout = request.xhr? ? false : "application"
-    notify_hoptoad(exception)
+    case exception
+      when Seeker::InvalidSearchTerm
+      else
+        logger.error exception.backtrace.join("\n")
+        notify_hoptoad(exception)
+      end
     render :template => 'error', :formats => [:html], :layout => layout, :status => 400
   end
 
