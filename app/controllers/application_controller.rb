@@ -30,6 +30,10 @@ class ApplicationController < ActionController::Base
     # reset the language as first step to avoid leaving the old language around
     FastGettext.set_locale(FastGettext.default_locale)
     set_gettext_locale
+    unless LANGUAGES.include? FastGettext.locale
+      params[:locale] = FastGettext.default_locale
+      set_gettext_locale
+    end
     @lang = FastGettext.locale
   end
 
