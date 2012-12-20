@@ -8,8 +8,8 @@ SoftwareOO::Application.routes.draw do
 
     match '121' => :release, :release => "121", :outdated => true
     match '121/:locale' => :release, :release => "121", :outdated => true
-    match ':release' => :release, :constraints => { :release => /[\d]+/ }, :format => false
-    match ':release/:locale' =>  :release, :constraints => { :release => /[\d]+/ }, :format => false
+    match ':release' => :release, :constraints => { :release => /[123][\d]+/ }, :format => false
+    match ':release/:locale' =>  :release, :constraints => { :release => /[123][\d]+/ }, :format => false
     match 'developer/:locale' => :release, :release => "developer", :format => false
 
     match 'change_install' => :change_install
