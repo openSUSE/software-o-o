@@ -4,6 +4,7 @@ gem 'rails', '~> 3.2.1'
 gem 'nokogiri'
 
 gem 'gettext_i18n_rails', '>= 0.4.3'
+gem 'fast_gettext', '>= 0.7.0'
 
 # rails-i18n provides translations for ActiveRecord
 # validation error messages
