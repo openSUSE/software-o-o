@@ -39,10 +39,12 @@
         success: function(html){
           $('#search-messages').hide();
         },
-        error: function(jqXHR, textStatus, errorThrown) {
-          $('#msg').html("<%= _("An internal error happened :-(") %>");
-          $('#search-messages').show();
+        error:function (jqXHR, textStatus, errorThrown) {
+          if (textStatus != 'abort') {
+            $('#msg').html("<%= _("An internal error happened :-(") %>");
+            $('#search-messages').show();
         }
+      }
       })
 
     } else if (search_term.length > 0 ) {
