@@ -7,15 +7,15 @@ SoftwareOO::Application.routes.draw do
     match 'main/download' => :download
 
     match '121' => :release, :release => "121", :outdated => true
-    match '121/:locale' => :release, :release => "121", :outdated => true
+    match '121/:locale' => :release, :release => "121", :outdated => true, :constraints => { :locale => /[\w]+/ }
     match ':release' => :release, :constraints => { :release => /[\d]+/ }, :format => false
-    match ':release/:locale' =>  :release, :constraints => { :release => /[\d]+/ }, :format => false
-    match 'developer/:locale' => :release, :release => "developer", :format => false
+    match ':release/:locale' =>  :release, :constraints => { :release => /[\d]+/, :locale => /[\w]+/ }, :format => false
+    match 'developer/:locale' => :release, :release => "developer", :format => false, :constraints => { :locale => /[\w]+/ }
 
     match 'change_install' => :change_install
 
     match 'ymp/:project/:repository/:package.ymp' => :ymp_without_arch_and_version,
-          :constraints => { :project => /[\w\-\.:\+]+/, :repository => /[\w\-\.:\+]+/, :package => /[\w\-\.:\+]+/ }
+          :constraints => { :project => /[\w\-\.:\+]+/, :repository => /[\w\-\.:\+]+/, :package => /[-+\w\.:\@]+/ }
     match 'ymp/:project/:repository/:arch/:binary.ymp' => :ymp_with_arch_and_version,
           :constrains => { :project => /[\w\-\.:]+/, :repository => /[\w\-\.:]+/, :arch => /[\w\-\.:]+/, :binary => /[\w\-\.:\+]+/ }
   end
@@ -26,9 +26,9 @@ SoftwareOO::Application.routes.draw do
   end
   
   controller :package do 
-    match 'package/:package' => :show # , :constraints => { :package => /[\w\-\.:\+]+/ }
-    match 'package/thumbnail/:package.png' => :thumbnail, :constraints => { :package => /[\w\-\.:\+]+/ }
-    match 'package/screenshot/:package.png' => :screenshot, :constraints => { :package => /[\w\-\.:\+]+/ }
+    match 'package/:package' => :show, :constraints => { :package => /[-+\w\.:\@]+/ }
+    match 'package/thumbnail/:package.png' => :thumbnail, :constraints => { :package => /[-+\w\.:\@]+/ }
+    match 'package/screenshot/:package.png' => :screenshot, :constraints => { :package => /[-+\w\.:\@]+/ }
 
     match 'packages' => :categories
     match 'appstore' => :categories
