@@ -103,14 +103,17 @@ class MainController < ApplicationController
       notice = _("Konqueror of KDE 3 is unfortunately unmaintained and its javascript implementation contains bugs that " +
           "make it impossible to use with this page. Please make sure you have javascript disabled before you " +
           "<a href='%s'>continue</a>.") % url_for( :action => 'release', :release => release, :locale => FastGettext.locale )
-      render :template => "main/redirect_with_notice", :locals => { :notice => notice } and return
+      notice = notice.html_safe
+      render :template => "main/redirect_with_notice", :locals => { :notice => notice }
+      return
     end
     redirect_to :action => 'release', :release => release, :locale => FastGettext.locale
   end
 
 
   def developer
-    redirectit("developer") and return
+    redirectit("developer")
+    return
     flash.now[:warn] = _("We currently don't have a Factory Snapshot that is more recent than our last openSUSE release. <br/>" +
         "Please check <a href='http://en.opensuse.org/Portal:Factory'>http://en.opensuse.org/Portal:Factory</a> for more information.")
     @exclude_debug = true
