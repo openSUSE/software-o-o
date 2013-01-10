@@ -44,7 +44,7 @@ after "deploy:restart", "deploy:notify"
 
 after :deploy, 'deploy:cleanup' # only keep 5 releases
 
-io = IO.popen('BUNDLE_FROZEN=1 BUNDLE_WITHOUT=test:development bundle show --paths | sed -e "s,.*/,,; s,^,rubygem(1.9.1:,; s,-\([^-]*\)$,:\1),"')
+io = IO.popen('BUNDLE_FROZEN=1 BUNDLE_WITHOUT=test:development bundle show --paths | sed -e "s,.*/,,; s,^,rubygem(1.9.1:,; s,-\([^-]*\)$,) = \1,"')
 zypperlines = io.readlines
  
 begin
@@ -66,7 +66,7 @@ namespace :config do
     run "rm -r #{release_path}/tmp/cache"
     run "ln -s #{shared_path}/software.o.o.cache #{release_path}/tmp/cache"
     run "cd #{release_path}; zypper -n in -C \"#{zypperlines.join('" "')}\""
-    run "cd #{release_path}; bundle config --local frozen 1; bundle config --local without test:development")
+    run "cd #{release_path}; bundle config --local frozen 1; bundle config --local without test:development"
     run "cd #{release_path}; bundle show"
     run "cd #{release_path}; bundle exec rake assets:precompile RAILS_ENV=production --trace"
   end
