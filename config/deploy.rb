@@ -65,6 +65,7 @@ namespace :config do
     run "ln -s #{shared_path}/options.yml #{release_path}/config/options.yml"
     run "rm -r #{release_path}/tmp/cache"
     run "ln -s #{shared_path}/software.o.o.cache #{release_path}/tmp/cache"
+    run "cd #{release_path}; zypper ref"
     run "cd #{release_path}; zypper -n in -C \"#{zypperlines.join('" "')}\""
     run "cd #{release_path}; bundle config --local frozen 1; bundle config --local without test:development"
     run "cd #{release_path}; bundle show"
