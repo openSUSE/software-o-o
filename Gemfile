@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bundler', '~> 1.2.3'
 gem 'rails', '~> 3.2.1'
 gem 'nokogiri'
 
