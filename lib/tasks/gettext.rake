@@ -4,7 +4,6 @@
 
 desc "Import clean (non-fuzzy) .mo files from lcn checkout"
 task :makemo do
-  require 'gettext/utils'
   raise "ERROR: $MY_LCN_CHECKOUT should point to your checkout of https://svn.opensuse.org/svn/opensuse-i18n/trunk/lcn" if ENV["MY_LCN_CHECKOUT"].nil?
   system("cd $MY_LCN_CHECKOUT && svn up")
   files = Dir.glob(ENV["MY_LCN_CHECKOUT"] + "/*/po/software-opensuse-org*.po")
@@ -28,14 +27,12 @@ task :makemo do
   }
 end
 
+
 desc "Update pot/po files in lcn checkout to match new version."
 task :updatepo do
-  require 'gettext/utils'
   raise "ERROR: $MY_LCN_CHECKOUT should point to your checkout of https://svn.opensuse.org/svn/opensuse-i18n/trunk/lcn" if ENV["MY_LCN_CHECKOUT"].nil?
-  files = Dir.glob("{app,lib}/**/*.{rb,rhtml,erb}")
-  GetText.rgettext(files, "tmp.pot")
+  Rake::Task['gettext:find'].invoke
   system("cd $MY_LCN_CHECKOUT && svn up")
-  system("msgmerge -o $MY_LCN_CHECKOUT/50-pot/software-opensuse-org.pot $MY_LCN_CHECKOUT/50-pot/software-opensuse-org.pot tmp.pot")
-  FileUtils.rm_f "tmp.pot"
+  system("msgmerge -o $MY_LCN_CHECKOUT/50-pot/software-opensuse-org.pot $MY_LCN_CHECKOUT/50-pot/software-opensuse-org.pot locale/software.pot")
   system("cd $MY_LCN_CHECKOUT && sh ./50-tools/lcn-merge.sh -p software-opensuse-org.pot -s -n")
 end
