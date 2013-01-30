@@ -20,9 +20,9 @@
         <p id="msg">
           <span class="ui-icon ui-icon-info"/>
           <%= _("No packages found matching your search. ") %>
-          <% unless @search_unsupported %>
+          <% unless @search_devel %>
             <br/>
-            <%= _("You could try to extend your search to unsupported packages or search for another base distribution (currently #{@baseproject}).") %>
+            <%= _("You could try to extend your search to development packages or search for another base distribution (currently #{@baseproject}).") %>
           <% end %>
         </p>
       </div>

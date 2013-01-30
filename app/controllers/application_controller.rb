@@ -123,7 +123,7 @@ class ApplicationController < ActionController::Base
     @baseproject = params[:baseproject] unless @distributions.select{|d| d[:project] == params[:baseproject]}.blank?
     @search_devel = cookies[:search_devel] unless cookies[:search_devel].blank?
     @search_devel = params[:search_devel] unless params[:search_devel].blank?
-    @search_unsupported = cookies[:search_unsupported] unless cookies[:search_unsupported] .blank?
+    @search_unsupported = cookies[:search_unsupported] unless cookies[:search_unsupported].blank?
     @search_unsupported = params[:search_unsupported] unless params[:search_unsupported].blank?
     #FIXME: remove @search_unsupported when redesigning search options
     @search_unsupported = "true"
