@@ -79,6 +79,8 @@ class MainController < ApplicationController
       @isos["gnome-32"] = "12.3-GNOME-LiveCD-Build0024-i686"
       @isos["dvd-64"] = "12.3-DVD-Build0024-x86_64"
       @isos["dvd-32"] = "12.3-DVD-Build0024-i586"
+#      @isos["rescue-32"] = "12.3-Rescue-i586"
+#      @isos["rescue-64"] = "12.3-Rescue-x86_64"
       @isos["net-32"] = "12.3-NET-Build0024-i586"
       @isos["net-64"] = "12.3-NET-Build0024-x86_64"
 

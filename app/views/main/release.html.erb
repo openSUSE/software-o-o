@@ -41,10 +41,21 @@
 
           <div id="downloaderAccordion">
 
+            <% if @isos["dvd-32"] %>
             <%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD"), :longtext => _("Contains a large collection of software for desktop or server use.<br/>Suitable for installation or upgrade.") }) %>
+            <% end %>
+            <% if @isos["gnome-32"] %>
             <%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("A GNOME desktop you can run from CD or from USB stick.<br/>Can be installed as is (no upgrade).") }) %>
+            <% end %>
+            <% if @isos["kde-32"] %>
             <%= render(:partial => "change_install", :locals => { :medium => "kde", :shorttext => _("Live KDE"), :longtext => _("A KDE desktop you can run from CD or from USB stick.<br/>Can be installed as is (no upgrade).") }) %>
+            <% end %>
+            <% if @isos["rescue-32"] %>
+            <%= render(:partial => "change_install", :locals => { :medium => "rescue", :shorttext => _("Rescue"), :longtext => _("Rescue system that you can run from CD or from USB stick.<br/>Can not be used for neither installation nor upgrade.") }) %>
+            <% end %>
+            <% if @isos["net-32"] %>
             <%= render(:partial => "change_install", :locals => { :medium => "net", :shorttext => _("Network"), :longtext => _("Downloads the installation system and all packages from online repositories.<br/>Suitable for installation or upgrade.") }) %>
+            <% end %>
             <%= render(:partial => "change_install", :locals => { :medium => "derivatives", :shorttext => _("openSUSE Derivatives"), :longtext => _("Get one of the specialized distribution built on openSUSE.") }) %>
           </div>
         </div>
