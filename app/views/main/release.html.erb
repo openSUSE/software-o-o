@@ -45,10 +45,12 @@
             <%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD"), :longtext => _("Contains a large collection of software for desktop or server use.<br/>Suitable for installation or upgrade.") }) %>
             <% end %>
             <% if @isos["gnome-32"] %>
-            <%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("A GNOME desktop you can run from CD or from USB stick.<br/>Can be installed as is (no upgrade).") }) %>
+            <% livecd = ( @isos["gnome-32"].match(/.*-LiveCD-.*/) ? "CD" : "DVD" ) %>
+            <%= render(:partial => "change_install", :locals => { :medium => "gnome", :shorttext => _("Live GNOME"), :longtext => _("A GNOME desktop you can run from #{livecd} or from USB stick.<br/>Can be installed as is (no upgrade).") }) %>
             <% end %>
             <% if @isos["kde-32"] %>
-            <%= render(:partial => "change_install", :locals => { :medium => "kde", :shorttext => _("Live KDE"), :longtext => _("A KDE desktop you can run from CD or from USB stick.<br/>Can be installed as is (no upgrade).") }) %>
+            <% livecd = ( @isos["kde-32"].match(/.*-LiveCD-.*/) ? "CD" : "DVD" ) %>
+            <%= render(:partial => "change_install", :locals => { :medium => "kde", :shorttext => _("Live KDE"), :longtext => _("A KDE desktop you can run from #{livecd} or from USB stick.<br/>Can be installed as is (no upgrade).") }) %>
             <% end %>
             <% if @isos["rescue-32"] %>
             <%= render(:partial => "change_install", :locals => { :medium => "rescue", :shorttext => _("Rescue"), :longtext => _("Rescue system that you can run from CD or from USB stick.<br/>Can not be used for neither installation nor upgrade.") }) %>
