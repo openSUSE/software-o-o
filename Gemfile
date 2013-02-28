@@ -41,5 +41,10 @@ group :assets do
   #gem 'therubyracer'
 end
 
+group :test do
+  gem 'capybara'
+  gem 'capybara-webkit'
+end
+
 gem 'rake', '~> 0.9.2'
 gem 'capistrano', '~> 2.13'
