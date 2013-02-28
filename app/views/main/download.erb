@@ -11,19 +11,19 @@ var isos = new Array();
 function changeiso () {
   mylink = mymedium;
   var arch_suffix = "-64";
-  if ($('#i686').attr('checked')) {
+  if ($('#i686:checked').val()) {
     arch_suffix = "-32";
   }
   myiso = directory + "/iso/openSUSE-" + isos[mylink + arch_suffix] + ".iso";
   mylink = myiso;
   var download_suffix = '';
-  if ($('#p_torrent').attr('checked')) {
+  if ($('#p_torrent:checked').val()) {
     download_suffix = ".torrent";
   }
-  if ($('#p_metalink').attr('checked')) {
+  if ($('#p_metalink:checked').val()) {
     download_suffix = ".meta4";
   }
-  if ($('#p_mirror').attr('checked')) {
+  if ($('#p_mirror:checked').val()) {
     download_suffix = "?mirrorlist";
   }
   $('#sig_gpg').attr("href", myiso + ".asc");
@@ -47,9 +47,9 @@ function changeiso () {
   if (mymedium == 'net') {
      $('#l_torrent').addClass('notavailable');
      $('#p_torrent').attr('disabled', 'disabled');
-     if ($('#p_torrent').attr('checked')) {
+     if ($('#p_torrent:checked').val()) {
 	$('#p_torrent').removeAttr('checked');
-	$('#p_http').attr('checked', 'checked');
+	$('#p_http').prop("checked",true);
 	mylink = myiso;
      }
   } else {
@@ -63,9 +63,9 @@ function changeiso () {
 
 //	$('#l_x86_64').addClass('notavailable');
 //    $('#x86_64').attr('disabled', 'disabled');
-//   if ($('#x86_64').attr('checked')) {
-//		$('#x86_64').attr('checked', '');
-//		$('#i686').attr('checked', 'checked');
+     if ($('#x86_64:checked').val()) {
+	        $('#x86_64').removeAttr('checked');
+	        $('#i686').prop("checked",true);
 //    }
 //  }
 //  else {
