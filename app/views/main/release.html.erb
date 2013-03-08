@@ -94,7 +94,7 @@
           </dl>
         </noscript>
         <ul class="hidden script_only">
-          <li><a id="sig_gpg" href="#"><%=_("gpg signature")%></a> <%=_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % @gpg %></li>
+          <li><a id="sig_gpg" href="#"><%=_("gpg signature")%></a> <%=raw(_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % @gpg) %></li>
           <li><a id="sig_md5" href="#"><%=_("md5 checksum")%></a> <%=_("is still the most commonly used checksum. Many ISO burners display it right before burning.")%></li>
           <li><a id="sig_sha1" href="#"><%=_("sha1 checksum")%></a> <%=_("is the less known but more secure checksum than md5.")%></li>
         </ul>
