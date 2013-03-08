@@ -113,8 +113,12 @@ $(function() {
 			   try {
 			       piwikTracker = Piwik.getAsyncTracker();
 			       piwikTracker.trackPageView(mylink);
-			   } catch(err) {}
-			   window.location = mylink;
+			       // Needed for Piwik to work properly with 'external' links
+			       // 500ms is the default value for linkTrackingTimer
+			       setTimeout(function() {window.location = mylink}, 500);
+			   } catch(err) {
+			       window.location = mylink;
+			   }
 			   return false;
 			 });
 
