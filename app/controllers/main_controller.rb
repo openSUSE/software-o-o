@@ -66,6 +66,26 @@ class MainController < ApplicationController
       @repourl = "http://download.opensuse.org/distribution/12.2"
       @medium = "dvd"
       @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
+    elsif release == "123"
+      @isos = {}
+      @directory = "http://download.opensuse.org/distribution/12.3"
+      @isos["lang-32"] = "12.3-Addon-Lang-i586"
+      @isos["lang-64"] = "12.3-Addon-Lang-x86_64"
+      @isos["nonoss"] = "12.3-Addon-NonOss-BiArch-i586-x86_64"
+      @isos["kde-64"] = "12.3-KDE-LiveCD-x86_64"
+      @isos["kde-32"] = "12.3-KDE-LiveCD-i686"
+      @isos["gnome-64"] = "12.3-GNOME-LiveCD-x86_64"
+      @isos["gnome-32"] = "12.3-GNOME-LiveCD-i686"
+      @isos["dvd-64"] = "12.3-DVD-x86_64"
+      @isos["dvd-32"] = "12.3-DVD-i586"
+      @isos["net-32"] = "12.3-NET-i586"
+      @isos["net-64"] = "12.3-NET-x86_64"
+
+      @releasenotes = _("https://www.suse.com/releasenotes/x86_64/openSUSE/12.3/")
+      @releasename = "openSUSE 12.3"
+      @repourl = "http://download.opensuse.org/distribution/12.3"
+      @medium = "dvd"
+      @gpg = "22C0 7BA5 3417 8CD0 2EFE  22AA B88B 2FD4 3DBD C284"
 
     elsif release == "developer"
       @isos = {}
@@ -114,19 +134,19 @@ class MainController < ApplicationController
 
 
   def developer
-    redirectit("developer")
-    return
+    #redirectit("developer")
+    #return
     flash.now[:warn] = _("We currently don't have a Factory Snapshot that is more recent than our last openSUSE release. <br/>" +
         "Please check <a href='http://en.opensuse.org/Portal:Factory'>http://en.opensuse.org/Portal:Factory</a> for more information.")
     @exclude_debug = true
     @include_home = 'false'
-    set_release("122")
+    set_release("123")
     render :template => "main/release"
   end
 
 
   def index
-    redirectit("122")
+    redirectit("123")
   end
 
   def release
