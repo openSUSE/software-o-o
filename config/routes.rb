@@ -34,6 +34,7 @@ SoftwareOO::Application.routes.draw do
 
     match 'packages' => :categories
     match 'appstore' => :categories
+    match 'packages/:category' => :category, :constraints => { :category => /[\w\-\.: ]+/ }
     match 'appstore/:category' => :category, :constraints => { :category => /[\w\-\.: ]+/ }
   end
 
