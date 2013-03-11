@@ -6,6 +6,8 @@ SoftwareOO::Application.routes.draw do
     match ':release/download.js' => :download_js
     match 'main/download' => :download
 
+    match '122' => :release, :release => "122", :outdated => true
+    match '122/:locale' => :release, :release => "122", :outdated => true, :constraints => { :locale => /[\w]+/ }
     match '121' => :release, :release => "121", :outdated => true
     match '121/:locale' => :release, :release => "121", :outdated => true, :constraints => { :locale => /[\w]+/ }
     match ':release' => :release, :constraints => { :release => /[123][\d]+/ }, :format => false
