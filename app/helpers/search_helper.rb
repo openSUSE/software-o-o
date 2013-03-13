@@ -6,7 +6,7 @@ module SearchHelper
   end
 
   def default_baseproject
-    'openSUSE:12.2'
+    'openSUSE:12.3'
   end
 
 end
