@@ -10,7 +10,7 @@ SoftwareOO::Application.routes.draw do
     match '122/:locale' => :release, :release => "122", :outdated => true, :constraints => { :locale => /[\w]+/ }
     match '121' => :release, :release => "121", :outdated => true
     match '121/:locale' => :release, :release => "121", :outdated => true, :constraints => { :locale => /[\w]+/ }
-    match ':release' => :release, :constraints => { :release => /[123][\d]+/ }, :format => false
+    match ':release' => :releasemain, :constraints => { :release => /[123][\d]+/ }, :format => false
     match ':release/:locale' =>  :release, :constraints => { :release => /[123][\d]+/, :locale => /[\w]+/ }, :format => false
     match 'developer/:locale' => :release, :release => "developer", :format => false, :constraints => { :locale => /[\w]+/ }
 

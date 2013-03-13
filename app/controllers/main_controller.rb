@@ -150,6 +150,10 @@ class MainController < ApplicationController
     redirectit("123")
   end
 
+  def releasemain
+    redirectit(params[:release])
+  end
+
   def release
     @exclude_debug = true
     @include_home = 'false'
