@@ -20,7 +20,7 @@ class DownloadDistroTest < ActionDispatch::IntegrationTest
     choose 'Metalink'
     choose 'i686'
     click_button "download_button"
-    assert_match /^http:\/\/download.*GNOME-LiveCD-i686.iso.meta4$/, evaluate_script("mylink")
+    assert_match /^http:\/\/download.*GNOME-Live.*-i686.iso.meta4$/, evaluate_script("mylink")
   end  
 
   def test_network_bittorrent
