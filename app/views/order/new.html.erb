@@ -14,11 +14,26 @@
   <div>
 
     <div>
-      <h2>Order Promo DVDs...</h2>
+      <h2>Get Promo DVDs...</h2>
       <p><%= _("Join the fast-growing community, put openSUSE into more hands by
-        ordering the latest PromoDVD for your group, non-profit organization, school
+        getting the latest PromoDVD for your group, non-profit organization, school
         university or event like LUG meetings, installfests, and conferences.
         Promo DVDs help to increase awareness and visibility of openSUSE!") %>
+      </p>
+
+      <%- d_icon = image_tag('folder_go.png', :alt => "download", :width => 16, :height => 16) %>
+      <p><%= (_("Promo DVDs and all the related artwork -labels and sleeve- can be
+        downloaded from the <a href=\"http://download.opensuse.org/promodvd/\">promodvd
+        download directory %s</a>. Keep in mind that this is a special version of openSUSE,
+        namely designed for promotional distribution.") % d_icon).html_safe %>
+      </p>
+
+      <p><%= _("You can also order Promo DVDs for events and organizations and we will
+        ship them to your location. We will take care of the shipment costs, but we can
+        <b>NOT</b> take care of customs for you, this is something you might need to pay
+        - depending on the amount of media and your local custom situation. So please
+        consider the download as a first option. If you want to place an order, check
+        the form <a href=\"#orderh\">below</a>.") %>
       </p>
 
       <h3><%= _("... and keep us informed") %></h3>
@@ -37,14 +52,15 @@
 
       <h3>... and organize a launch party</h3>
       <p> One special request if you are organizing a openSUSE launch party: Please
-        make that clear in the "Reason" field below and ensure that your event is listed
-        on the <a href="http://en.opensuse.org/openSUSE:Launch_parties">Launch Parties page</a>!
+        make that clear in the "Reason" field below (if ordering a shipment) and ensure that your
+        event is listed on the
+        <a href="http://en.opensuse.org/openSUSE:Launch_parties">Launch Parties page</a>!
         And if you need help on organizing a launch party, check
         <a href="http://en.opensuse.org/openSUSE:Launch_party_HOWTO">the Launch party how-to</a>.
         You can find some cool posters and other artwork on that page as well.
       </p>
 
-      <h2>Before You Place an Order</h2>
+      <h2 id="orderh" name="orderh">Before You Place an Order</h2>
 
       <p> Before you place an order please keep the following things in mind.
       </p>
@@ -67,15 +83,6 @@
       <p> These PromoDVDs are not for resale. If you wish to sell openSUSE versions, please
         mind our <a href="http://en.opensuse.org/openSUSE:Trademark_guidelines">Trademark Guidelines</a>
         or talk to one of our <a href="http://en.opensuse.org/Buy_openSUSE">resellsers</a>.
-      </p>
-
-      <h3>Costs!</h3>
-      <p>
-        The PromoDVDs, material and shipment is sponsored by one of our
-        <a href="http://en.opensuse.org/Sponsors">sponsors</a>.
-        But we can <b>NOT</b> take care of customs for you, this is
-        something you might need to pay - depending on the amount of media
-        and your local custom situation.
       </p>
 
       <h3>We will <b>not</b> fulfill requests for...</h3>
@@ -105,12 +112,6 @@
       </p>
 
       <h2>Order Form</h2>
-
-      <p>
-        <b>Note:</b> Unfortunately we will <b>NOT</b> be able to send out any openSUSE DVD's until 
-        the openSUSE conference October 20th-23rd. After the event we will process your requests 
-        as quickly as possible. Apologies for this.
-      </p>
 
       <p>
         Help us to quickly respond to your request by filling out the form
