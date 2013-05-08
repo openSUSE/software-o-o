@@ -28,14 +28,6 @@
         namely designed for promotional distribution.") % d_icon).html_safe %>
       </p>
 
-      <p><%= _("You can also order Promo DVDs for events and organizations and we will
-        ship them to your location. We will take care of the shipment costs, but we can
-        <b>NOT</b> take care of customs for you, this is something you might need to pay
-        - depending on the amount of media and your local custom situation. So please
-        consider the download as a first option. If you want to place an order, check
-        the form <a href=\"#orderh\">below</a>.") %>
-      </p>
-
       <h3><%= _("... and keep us informed") %></h3>
       <p><%= _("We would like you, to keep us informed about your usage of the DVDs, so we
         can help you to promote your organization, event or school on our
@@ -59,99 +51,6 @@
         <a href="http://en.opensuse.org/openSUSE:Launch_party_HOWTO">the Launch party how-to</a>.
         You can find some cool posters and other artwork on that page as well.
       </p>
-
-      <h2 id="orderh" name="orderh">Before You Place an Order</h2>
-
-      <p> Before you place an order please keep the following things in mind.
-      </p>
-
-      <h3>Personal Use</h3>
-      <p> Unfortunately, due to the cost and time
-        involved in shipping and handling, we can only send in bulk. We are
-        unable to respond to requests for DVDs for personal use for <em>any
-          reason</em> (including your terrible internet connection). To get a DVD image
-        for yourself, please visit
-        <a href="http://software.opensuse.org">software.opensuse.org</a>.
-        And if your internet connection is too slow, contact your
-        <a href="http://en.opensuse.org/openSUSE:Ambassadors_list">local Ambassador</a>
-        for an event in your area where you can get a free copy. By the way, if you
-        don't have a local Ambassador, consider becoming one! We'd love to have
-        you in our community.
-      </p>
-
-      <h3>Commercial Use and Resale</h3>
-      <p> These PromoDVDs are not for resale. If you wish to sell openSUSE versions, please
-        mind our <a href="http://en.opensuse.org/openSUSE:Trademark_guidelines">Trademark Guidelines</a>
-        or talk to one of our <a href="http://en.opensuse.org/Buy_openSUSE">resellsers</a>.
-      </p>
-
-      <h3>We will <b>not</b> fulfill requests for...</h3>
-      <p>
-      <ul>
-        <li>single DVD requests </li>
-        <li>requests for reselling PromoDVDs</li>
-        <li>requests for samples for your company</li>
-        <li>requests for DVDs due to slow internet connections</li>
-      </ul>
-      </p>
-
-      <p>
-      <h3>We will try to fulfill requests for...</h3>
-      <ul>
-        <li>DVDs for Free Software Day activities</li>
-        <li>openSUSE promotion at events and college fairs</li>
-        <li>LUGS and Linux conference stalls/booths</li>
-        <li>Educational groups, community groups, or non-traditional events where you will talk about openSUSE</li>
-        <li>Any event that has 100 or more expected attendees</li>
-        <li>other reasons not listed may be considered at our discretion</li>
-      </ul>
-      </p>
-
-      <p>
-        Not sure if your event or group qualifies? Just go ahead and fill out the form, we'll let you know.
-      </p>
-
-      <h2>Order Form</h2>
-
-      <p>
-        Help us to quickly respond to your request by filling out the form
-        as accurately as possible. We will try to keep you informed about
-        the status of the shipment
-      </p>
-
-    </div>
-
-
-    <%= form_for(@order) do |f| %>
-      <table id="promoformtbl">
-        <tr><td></td><td>Colored fields are mandatory!</td></tr>
-        <tr><td><%= f.label :reason, _("Please enter a <b>brief</b> reason (in English!) why you need the DVDs and provide a link of the event/purpose.") %></td><td><%= f.text_area :reason, :class => "mandatory" %></td></tr>
-        <tr><td>Title</td><td><%= f.select :title, %w(Mr. Mrs. Company) %></td></tr>
-        <tr><td>Full Name (<em>needed for screening</em>)</td><td><%= f.text_field :name, :class => "mandatory" %></td></tr>
-        <tr><td>Company</td><td><%= f.text_field :company %></td></tr>
-        <tr><td>Street1</td><td><%= f.text_field :street1, :class => "mandatory" %></td></tr>
-        <tr><td>Street2</td><td> <%= f.text_field :street2 %></td></tr>
-        <tr><td>Zip</td><td><%= f.text_field :zip, :class => "mandatory" %></td></tr>
-        <tr><td>City</td><td><%= f.text_field :city, :class => "mandatory" %></td></tr>
-        <tr><td>County/State</td><td><%= f.text_field :county %></td></tr>
-        <tr><td><%= f.label :country, _("Country") %></td><td><%= f.text_field :country, :class => "mandatory" %></td></tr>
-        <tr><td>Phone number (<em>needed only for the parcel service</em>)</td><td><%= f.text_field :phone, :class => "mandatory" %></td></tr>
-        <tr><td>E-Mail Address</td><td><%= f.text_field :email, :class => "mandatory" %></td></tr>
-        <tr><td>Total Amount of DVDs (since we have a package size of 100, please round to 100s). You may also order in larger quantities if you have several events planned in the near future.</td><td><%= f.text_field :amount, :class => "mandatory" %></td></tr>
-        <tr><td>We have posters, t-shirts and other promotional material (in English only). If you want some, please state that and we supply them based on availability. Which additional promotional material could you need?</td><td><%= f.text_field :material %></td></tr>
-        <tr><td>Deadline (ISO format YYYY-MM-DD, e.g. 2011-03-31 or NONE). Shipping may take 2-3 weeks depending on your location and customs requirements.</td><td><%= f.text_field :deadline, :class => "mandatory" %></td></tr>
-        <tr><td colspan=2><%= f.submit("Send request now") %></td></tr>
-      </table>
-      <p>
-        <em><%= _("All data is used only for sending openSUSE promotional material
-          and will not be spread to third parties. We store the data to
-          inform the users if a new version is available. All requests have
-          to be screened to fulfill the US export embargo. More information
-          about the embargo and a list of countries at wikipedia <a href='http://en.wikipedia.org/wiki/United_States_embargoes'>http://en.wikipedia.org/wiki/United_States_embargoes</a>.") %>
-        </em>
-      </p>
-    <% end %>
-
 
   </div>
 </div>
