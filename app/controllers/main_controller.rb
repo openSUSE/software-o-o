@@ -92,24 +92,24 @@ class MainController < ApplicationController
 
     elsif release == "developer"
       @isos = {}
-      @directory = "http://download.opensuse.org/distribution/12.3-RC2"
-      @isos["lang-32"] = "12.3-Addon-Lang-Build0094-i586"
-      @isos["lang-64"] = "12.3-Addon-Lang-Build0094-x86_64"
-      @isos["nonoss"] = "12.3-Addon-NonOss-BiArch-Build0094-i586-x86_64"
-      @isos["kde-64"] = "12.3-KDE-Live-Build0094-x86_64"
-      @isos["kde-32"] = "12.3-KDE-Live-Build0094-i686"
-      @isos["gnome-64"] = "12.3-GNOME-Live-Build0094-x86_64"
-      @isos["gnome-32"] = "12.3-GNOME-Live-Build0094-i686"
-      @isos["dvd-64"] = "12.3-DVD-Build0094-x86_64"
-      @isos["dvd-32"] = "12.3-DVD-Build0095-i586"
-      @isos["rescue-32"] = "12.3-Rescue-CD-Build0094-i686"
-      @isos["rescue-64"] = "12.3-Rescue-CD-Build0094-x86_64"
-      @isos["net-32"] = "12.3-NET-Build0094-i586"
-      @isos["net-64"] = "12.3-NET-Build0094-x86_64"
+      @directory = "http://download.opensuse.org/distribution/13.1-Milestone1"
+      @isos["lang-32"] = "Factory-Addon-Lang-Build0466-i586"
+      @isos["lang-64"] = "Factory-Addon-Lang-Build0466-x86_64"
+      @isos["nonoss"] = "Factory-Addon-NonOss-BiArch-Build0466-i586-x86_64"
+      @isos["kde-64"] = "Factory-KDE-Live-Build0466-x86_64"
+      @isos["kde-32"] = "Factory-KDE-Live-Build0466-i686"
+      @isos["gnome-64"] = "Factory-GNOME-Live-Build0466-x86_64"
+      @isos["gnome-32"] = "Factory-GNOME-Live-Build0466-i686"
+      @isos["dvd-64"] = "Factory-DVD-Build0466-x86_64"
+      @isos["dvd-32"] = "Factory-DVD-Build0466-i586"
+      @isos["rescue-32"] = "Factory-Rescue-CD-Build0466-i686"
+      @isos["rescue-64"] = "Factory-Rescue-CD-Build0466-x86_64"
+      @isos["net-32"] = "Factory-NET-Build0466-i586"
+      @isos["net-64"] = "Factory-NET-Build0466-x86_64"
 
-      @releasenotes = _("https://www.suse.com/releasenotes/x86_64/openSUSE/12.3")
-      @releasename = "openSUSE 12.3 RC 2"
-      @repourl = "http://download.opensuse.org/distribution/12.3"
+      @releasenotes = _("https://www.suse.com/releasenotes/x86_64/openSUSE/13.1")
+      @releasename = "openSUSE 13.1 Milestone1"
+      @repourl = "http://download.opensuse.org/distribution/13.1"
       @medium = "dvd"
       @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
     else
@@ -137,8 +137,8 @@ class MainController < ApplicationController
 
 
   def developer
-    #redirectit("developer")
-    #return
+    redirectit("developer")
+    return
     flash.now[:warn] = _("We currently don't have a Factory Snapshot that is more recent than our last openSUSE release. <br/>" +
         "Please check <a href='http://en.opensuse.org/Portal:Factory'>http://en.opensuse.org/Portal:Factory</a> for more information.")
     @exclude_debug = true
