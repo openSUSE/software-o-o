@@ -1,6 +1,6 @@
 <div class="medium_wrapper">
   <noscript>
-    <% form_tag({:controller => "main", :action => 'change_install'}, :method => "get") do -%>
+    <%= form_tag({:controller => "main", :action => 'change_install'}, :method => "get") do -%>
       <input name="release" value="<%= @release %>" type="hidden" />
       <input name="locale" value="<%= @lang %>" type="hidden"/>
       <button name="medium" value="<%= medium %>" style="width: 630px; margin-bottom: 20px; background: #ccc" class="changeiso">
