@@ -42,7 +42,8 @@ after "deploy:update_code", "config:sync_static"
 after "deploy:create_symlink", "config:permissions"
 after "deploy:restart", "deploy:notify"
 
-after :deploy, 'deploy:cleanup' # only keep 5 releases
+set :keep_releases, 5
+after 'deploy:update', 'deploy:cleanup' # only keep 5 releases
 
 io = IO.popen('BUNDLE_FROZEN=1 BUNDLE_WITHOUT=test:development bundle show --paths | sed -e "s,.*/,,; s,^,rubygem(1.9.1:,; s,-\([^-]*\)$,) = \1,"')
 zypperlines = io.readlines
