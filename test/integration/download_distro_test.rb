@@ -41,5 +41,14 @@ class DownloadDistroTest < ActionDispatch::IntegrationTest
     assert_no_selector :xpath, "//input[@id='p_torrent'][@disabled='disabled']"
   end
 
+  def test_rescue_after_gnome
+    # Choose Gnome version
+    find('#ci_gnome').click
+    assert page.has_content? 'Download GNOME'
+    # Change to rescue, button label should change
+    find('#ci_rescue').click
+    assert page.has_no_content? 'Download GNOME'
+    assert page.has_content? 'Download Rescue'
+  end
 end
 
