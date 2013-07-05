@@ -42,10 +42,12 @@ class DownloadController < ApplicationController
     required_parameters :project, :package
     @project = params[:project]
     @package = params[:package]
+    escaped_prj = CGI.escape(@project)
+    escaped_pkg = CGI.escape(@package)
 
     cache_key = "soo_download_#{@project}_#{@package}"
     @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
-      api_result = ApiConnect::get("/search/published/binary/id?match=project='#{@project}'+and+name='#{@package}'")
+      api_result = ApiConnect::get("/search/published/binary/id?match=project='#{escaped_prj}'+and+name='#{escaped_pkg}'")
       xpath = "/collection/binary"
       if api_result
         doc = REXML::Document.new api_result.body
