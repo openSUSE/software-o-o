@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'bundler', '~> 1.2.3'
 gem 'rails', '~> 3.2.1'
 gem 'nokogiri'
 
@@ -27,10 +26,11 @@ gem 'delayed_job_active_record'
 gem 'xmlhash', '>= 1.2.2'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 gem 'memcache-client'
 gem 'sqlite3'
-gem 'minitest', '~> 2.5'
+gem 'minitest'
 gem 'hoptoad_notifier', "~> 2.3"
 
 group :assets do
@@ -42,9 +42,9 @@ group :assets do
 end
 
 group :test do
-  gem 'capybara'
-  gem 'capybara-webkit'
+  gem 'capybara', '~>2.0.1'
+  gem 'capybara-webkit', '< 1.0'
 end
 
-gem 'rake', '~> 0.9.2'
+gem 'rake', '~> 0.10'
 gem 'capistrano', '~> 2.13'
