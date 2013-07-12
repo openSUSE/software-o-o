@@ -46,5 +46,4 @@ group :test do
   gem 'capybara-webkit', '< 1.0'
 end
 
-gem 'rake', '~> 0.10'
 gem 'capistrano', '~> 2.13'
