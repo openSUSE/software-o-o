@@ -30,7 +30,7 @@ gem 'jquery-ui-rails'
 
 gem 'memcache-client'
 gem 'sqlite3'
-gem 'minitest'
+gem 'minitest', '< 5.0'
 gem 'hoptoad_notifier', "~> 2.3"
 
 group :assets do
