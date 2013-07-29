@@ -52,5 +52,8 @@
         You can find some cool posters and other artwork on that page as well.
       </p>
 
+      <%# Dirty hack to get the form back in some situations %>
+      <%= render "form" if params[:show_form] %>
+
   </div>
 </div>
