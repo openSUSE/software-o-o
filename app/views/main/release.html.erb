@@ -42,7 +42,7 @@
           <div id="downloaderAccordion">
 
             <% if @isos["dvd-32"] %>
-            <%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD"), :longtext => _("Contains a large collection of software for desktop or server use.<br/>Suitable for installation or upgrade.") }) %>
+            <%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD (also suitable for USB stick)"), :longtext => _("Contains a large collection of software for desktop or server use.<br/>Suitable for installation or upgrade.") }) %>
             <% end %>
             <% if @isos["gnome-32"] %>
             <% livecd = ( @isos["gnome-32"].match(/.*-LiveCD-.*/) ? "CD" : "DVD" ) %>
@@ -98,29 +98,31 @@
           <li><a id="sig_md5" href="#"><%=_("md5 checksum")%></a> <%=_("is still the most commonly used checksum. Many ISO burners display it right before burning.")%></li>
           <li><a id="sig_sha1" href="#"><%=_("sha1 checksum")%></a> <%=_("is the less known but more secure checksum than md5.")%></li>
         </ul>
+      </div>
 
+      <div id="download_help" class="info_text">
+        <h3><%=_("How to Proceed")%></h3>
+        <ol id="howtoproceed" style="list-style-type:lower-latin">
+          <li><%=_("After having successfully downloaded the ISO image(s), create a bootable USB stick or burn the image(s) to a DVD (or a CD if the chosen image fits).")%>
+            <ul>
+              <li><%= _("More information on creating a <a href='http://en.opensuse.org/Live_USB_stick'>bootable USB stick</a>") %></li>
+              <li><a href="<%= _("http://en.opensuse.org/SDB:Download_help\#Burn_the_ISO_image.28s.29")%>"><%=_("More information on burning the ISO file to CD/DVD")%></a></li>
+            </ul>
+          </li>
+          <li><%=_("Boot from the DVD, CD or USB stick. In case your computer does not automatically boot from the chosen device, open the BIOS setup to allow booting from it.")%></li>
+        </ol>
+      </div>
+
+      <div id="additional_downloads">
         <h3><%=_("Add-On Downloads (optional)")%></h3>
         <ul id="addon_downloads">
           <li class="noscript"><%= render(:partial => "download_link", :locals => { :id => "lang32", :iso => "lang-32", :text => _("Extra Languages (32 Bit)") } ) %></li>
           <li class="noscript"><%= render(:partial => "download_link", :locals => { :id => "lang64", :iso => "lang-64", :text => _("Extra Languages (64 Bit)") } ) %></li>
           <li class="hidden script_only"><%= render(:partial => "download_link", :locals => { :id => "lang", :iso => "lang-32", :text => _("Extra Languages") } ) %></li>
-          <li><p class="justify"><%=_('Live CDs contain only four languages (English, German, Russian and Italian). If you want to have support for remaining languages you need to download it from the Internet during the installation or any time after it. If you have easy access to the Internet or if you use DVD containing all languages, you do not need this CD.')%></p></li>
+          <li><p class="justify"><%=_('The installation process is available in many languages but, for most of them, the translation of the applications is not included in the image. If you want your openSUSE system to support some additional language, you need to download it from the Internet during the installation or any time after it. If you have easy access to the Internet you do not need this CD, but if you are planning to install openSUSE in some machine with no Internet connection, it will provide you access to all the available translations.')%></p></li>
           <li><%= render(:partial => "download_link", :locals => { :id => "nonoss", :iso => "nonoss", :text => _("NonOSS CD") } )%></li>
           <li><p class="justify"><%=_('This CD contains free software distributed under proprietary licence not allowing its inclusion to main installation media together with free open-source software. All software from this CD could be downloaded from NON-OSS repository.')%></p></li>
         </ul>
-      </div>
-
-
-      <div id="download_help" class="info_text">
-        <h3><%=_("How to Proceed")%></h3>
-        <ol id="howtoproceed" style="list-style-type:lower-latin">
-          <li><%=_("After having successfully downloaded the ISO image(s), burn the image(s) with your favorite burning application to a DVD or CD. Please do <em>not</em> burn a data DVD/CD, but rather choose the option to burn an ISO image.")%>
-            <br/><a href="<%= _("http://en.opensuse.org/SDB:Download_help\#Burn_the_ISO_image.28s.29")%>">
-              <%=_("More information on burning the ISO file to CD/DVD")%></a>
-            <br/><%= _("More information on creating a <a href='http://en.opensuse.org/Live_USB_stick'>bootable USB stick</a>") %>
-          </li>
-          <li><%=_("Boot from the DVD or CD. In case your computer does not automatically boot from CD/DVD, open the BIOS setup to allow booting from CD or DVD.")%></li>
-        </ol>
       </div>
 
     </div>
