@@ -88,7 +88,30 @@ class MainController < ApplicationController
       @releasename = "openSUSE 12.3"
       @repourl = "http://download.opensuse.org/distribution/12.3"
       @medium = "dvd"
-      @gpg = "22C0 7BA5 3417 8CD0 2EFE  22AA B88B 2FD4 3DBD C284"
+      @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
+
+    elsif release == "131"
+      @isos = {}
+      @directory = "http://download.opensuse.org/distribution/13.1"
+      @isos["lang-32"] = "13.1-Addon-Lang-i586"
+      @isos["lang-64"] = "13.1-Addon-Lang-x86_64"
+      @isos["nonoss"] = "13.1-Addon-NonOss-BiArch-i586-x86_64"
+      @isos["kde-64"] = "13.1-KDE-Live-x86_64"
+      @isos["kde-32"] = "13.1-KDE-Live-i686"
+      @isos["gnome-64"] = "13.1-GNOME-Live-x86_64"
+      @isos["gnome-32"] = "13.1-GNOME-Live-i686"
+      @isos["dvd-64"] = "13.1-DVD-x86_64"
+      @isos["dvd-32"] = "13.1-DVD-i586"
+      @isos["rescue-32"] = "13.1-Rescue-CD-i686"
+      @isos["rescue-64"] = "13.1-Rescue-CD-x86_64"
+      @isos["net-32"] = "13.1-NET-i586"
+      @isos["net-64"] = "13.1-NET-x86_64"
+
+      @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1/")
+      @releasename = "openSUSE 13.1"
+      @repourl = "http://download.opensuse.org/distribution/13.1"
+      @medium = "dvd"
+      @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
 
     elsif release == "developer"
       @isos = {}
@@ -137,19 +160,19 @@ class MainController < ApplicationController
 
 
   def developer
-    redirectit("developer")
-    return
+    #redirectit("developer")
+    #return
     flash.now[:warn] = _("We currently don't have a Factory Snapshot that is more recent than our last openSUSE release. <br/>" +
         "Please check <a href='http://en.opensuse.org/Portal:Factory'>http://en.opensuse.org/Portal:Factory</a> for more information.")
     @exclude_debug = true
     @include_home = 'false'
-    set_release("123")
+    set_release("131")
     render :template => "main/release"
   end
 
 
   def index
-    redirectit("123")
+    redirectit("131")
   end
 
   def releasemain
