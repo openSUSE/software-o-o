@@ -96,7 +96,7 @@ end
           when 'CentOS', 'Fedora', 'RHEL', 'SL'
             "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
           when 'Debian', 'Ubuntu'
-            "echo 'deb #{v[:repo]} /' >> /etc/apt/sources.list.d/#{@package}.list \napt-get update\napt-get install #{@package}"
+            "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')} /' >> /etc/apt/sources.list.d/#{@package}.list \napt-get update\napt-get install #{@package}"
 # don't use apt-add-repository wrapper for Ubuntu for now, because it adds source repo which we don't provide
 #          when 'Ubuntu'
 #            "apt-add-repository deb #{v[:repo]} /\napt-get update\napt-get install #{@package}"
