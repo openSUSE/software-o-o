@@ -6,6 +6,9 @@ require 'rails/test_help'
 require 'capybara/rails'
 Capybara.default_driver = :webkit
 
+require 'webmock/test_unit'
+# Prevent webmock to prevent capybara to connect to localhost
+WebMock.disable_net_connect!(:allow_localhost => true)
 
 class ActionDispatch::IntegrationTest
   # Make the Capybara DSL available in all integration tests

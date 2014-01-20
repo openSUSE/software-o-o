@@ -44,6 +44,7 @@ end
 group :test do
   gem 'capybara', '~>2.0.1'
   gem 'capybara-webkit', '< 1.0'
+  gem 'webmock'
 end
 
 gem 'capistrano', '~> 2.13'
