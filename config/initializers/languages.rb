@@ -17,7 +17,9 @@ LANGUAGE_NAMES = {'en' => 'English', 'de' => 'Deutsch', 'bg' => 'българс�
                   'pt_BR' => 'português', 'zh_TW' => '台語', 'zh_CN' => '简体中文' }
 
 FastGettext.add_text_domain 'software', :path => Rails.root.join('locale')
-FastGettext.available_locales = LANGUAGES #all you want to allow
+# Explicity adding the available locales to both FastGettext and I18n in order
+# to config.i18n.enforce_available_locales to work properly
+FastGettext.available_locales = I18n.available_locales = LANGUAGES #all you want to allow
 FastGettext.default_text_domain = 'software'
 FastGettext.default_locale = 'en'
 
