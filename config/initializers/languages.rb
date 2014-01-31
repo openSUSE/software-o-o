@@ -20,6 +20,8 @@ FastGettext.add_text_domain 'software', :path => Rails.root.join('locale')
 # Explicity adding the available locales to both FastGettext and I18n in order
 # to config.i18n.enforce_available_locales to work properly
 FastGettext.available_locales = I18n.available_locales = LANGUAGES #all you want to allow
+# Temporary hack to fix a problem with locales including "_"
+I18n.available_locales += FastGettext.available_locales.grep(/_/).map {|i| i.gsub("_", "-") }
 FastGettext.default_text_domain = 'software'
 FastGettext.default_locale = 'en'
 
