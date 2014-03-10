@@ -15,17 +15,6 @@ module ApplicationHelper
     @@theme_prefix
   end
 
-  def compute_asset_host(source)
-    if defined? USE_STATIC
-      if source.slice(0, theme_prefix.length) == theme_prefix
-        return "http://static.opensuse.org"
-      end
-      return "http://static.opensuse.org/hosts/#{USE_STATIC}"
-    end
-    super(source)
-  end
-
-
   def top_downloads
     r = Rails.cache.read('top_downloads') || []
     # it's possible we will have to enqueue one on cold caches

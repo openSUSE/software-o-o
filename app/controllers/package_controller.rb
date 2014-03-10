@@ -108,19 +108,23 @@ class PackageController < ApplicationController
   private
   
   def image pkgname, type, default_url
-    image_url = "http://screenshots.debian.net/" + type + "/" + pkgname.downcase
-    begin
-      content = open( image_url, "rb") {|io| io.read }
-    rescue OpenURI::HTTPError => e
-      logger.debug("No screenshot found for: " + pkgname)
-      path = File.join( Rails.root, "public/package/" + type + "/" + pkgname + ".png" )
-      content = open( default_url, "rb") {|io| io.read }
-    end
     response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
     response.headers['Content-Type'] = 'image/png'
     response.headers['Content-Disposition'] = 'inline'
+    cache_key = "t:#{type}-p:#{pkgname}"
+    content = Rails.cache.read(cache_key)
+    if content.nil?
+      image_url = "http://screenshots.debian.net/" + type + "/" + pkgname.downcase
+      begin
+        content = open( image_url, "rb") {|io| io.read }
+      rescue OpenURI::HTTPError => e
+        logger.debug("No screenshot found for: " + pkgname)
+        path = File.join( Rails.root, "public/package/" + type + "/" + pkgname + ".png" )
+        content = open( default_url, "rb") {|io| io.read }
+      end
+      Rails.cache.write(cache_key, content) unless path
+    end
     render :text => content, :content_type => 'image/png'
-    cache_page unless path
     FileUtils.ln_sf( default_url, path ) if path rescue logger.error "Couldn't create default link for #{path}"
   end
 

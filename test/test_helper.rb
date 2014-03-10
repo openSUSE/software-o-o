@@ -4,9 +4,10 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 require 'capybara/rails'
-Capybara.default_driver = :webkit
+require 'capybara/poltergeist'
+Capybara.default_driver = :poltergeist
 
-require 'webmock/test_unit'
+require 'webmock/minitest'
 # Prevent webmock to prevent capybara to connect to localhost
 WebMock.disable_net_connect!(:allow_localhost => true)
 

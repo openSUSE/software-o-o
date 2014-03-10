@@ -1,7 +1,19 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.1'
+gem 'rails', '~> 4.0.3'
 gem 'nokogiri'
+
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.0'
+# With compass
+gem 'compass-rails'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use CoffeeScript for .js.coffee assets and views
+# gem 'coffee-rails', '~> 4.0.0'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 gem 'gettext_i18n_rails', '>= 0.4.3'
 gem 'fast_gettext', '>= 0.7.0'
@@ -18,32 +30,43 @@ group :development do
   gem 'gettext', '>= 1.9.3', :require => false
 end
 
-gem 'mysql2'
+# MySQL is not used, as far as I know
+# gem 'mysql2'
 
 gem 'delayed_job', '>3.0'
 gem 'delayed_job_active_record'
 
 gem 'xmlhash', '>= 1.2.2'
 
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-
-gem 'memcache-client'
+#gem 'memcache-client'
+gem 'dalli'
 gem 'sqlite3'
 gem 'minitest', '< 5.0'
 gem 'hoptoad_notifier', "~> 2.3"
 
-group :assets do
-  gem 'sass-rails' # if running rails 3.1 or greater
-  gem 'compass-rails'
-  gem 'uglifier'
-  # install nodejs instead!
-  #gem 'therubyracer'
+#gem 'actionpack-page_caching'
+#gem 'actionpack-action_caching'
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
 end
 
 group :test do
-  gem 'capybara', '~>2.0.1'
-  gem 'capybara-webkit', '< 1.0'
+# This doesn't work because capybara-webkit (~> 1.1.1) depends on
+# capybara (< 2.2.0, >= 2.0.2) ruby
+#  gem 'capybara', '~>2.2.1'
+#  gem 'capybara-webkit', '~>1.1.1'
+# This 'bundles' but does not work (incompatibility)
+#  gem 'capybara', '~>2.2.1'
+#  gem 'capybara-webkit', '< 1.0'
+# And this (the only working solution) cannot by installed because capybara-webkit (~> 1.1.1)
+# requires 'websocket (~> 1.0.4)' but rubygem-websocket-1_0_7 requires ruby(abi) = 2.0.0
+#  gem 'capybara', '~>2.0.3'
+#  gem 'capybara-webkit', '~>1.1.1'
+  gem 'capybara'
+  gem 'poltergeist'
+
   gem 'webmock'
 end
 

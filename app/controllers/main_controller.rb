@@ -2,8 +2,9 @@ require 'net/http'
 
 class MainController < ApplicationController
 
-  # these pages are completely static:
-  caches_page :release, :download_js unless Rails.env.development?
+  # these pages are completely static, but
+  # page caching have been extracted from Rails 4
+  # caches_page :release, :download_js unless Rails.env.development?
 
   def ymp_with_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"

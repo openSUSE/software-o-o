@@ -25,7 +25,9 @@ class OrderController < ApplicationController
   end
   
   def create
-    @order = Order.new params[:order]
+    @order = Order.new params.require(:order).permit(:title, :name, :street1,
+        :zip, :city, :country, :phone, :email, :amount, :reason, :deadline,
+        :company, :street2, :county, :material)
     if @order.save
       Promomailer.promo_order(@order).deliver
       redirect_to "/order/thanks" and return
