@@ -31,7 +31,7 @@ group :development do
 end
 
 # MySQL is not used, as far as I know
-# gem 'mysql2'
+gem 'mysql2'
 
 gem 'delayed_job', '>3.0'
 gem 'delayed_job_active_record'
