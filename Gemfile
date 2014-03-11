@@ -70,4 +70,4 @@ group :test do
   gem 'webmock'
 end
 
-gem 'capistrano', '~> 2.13'
+# gem 'capistrano', '~> 2.13'
