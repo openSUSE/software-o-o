@@ -28,6 +28,6 @@ class Order < ActiveRecord::Base
     :phone, :email, :amount, :reason, :deadline
 
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
-  validates :deadline, format: { with: %r{^2[0-9][0-9][0-9]-[01][0-9]-[0-3][0-9]}, on: :create }, unless: "deadline == 'NONE'"
+  validates :deadline, format: { with: %r{\A2[0-9][0-9][0-9]-[01][0-9]-[0-3][0-9]}, on: :create }, unless: "deadline == 'NONE'"
   validates_numericality_of :amount
 end
