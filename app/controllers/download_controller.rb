@@ -136,7 +136,10 @@ class DownloadController < ApplicationController
     @box_title  = @page_title
     respond_to do |format|
       format.html { render page_template, :layout => 'download' }
-      format.iframe  { render page_template, :layout => 'iframe.html' }
+      format.iframe  {
+        response.headers.except! 'X-Frame-Options'
+        render page_template, :layout => 'iframe.html'
+      }
       # needed for rails < 3.0 to support JSONP
       format.json { render_json @data.to_json }
     end
