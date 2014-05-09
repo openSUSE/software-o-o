@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0.3'
+gem 'rails', '~> 4.0'
 gem 'nokogiri'
 
 # Use SCSS for stylesheets
@@ -46,11 +46,6 @@ gem 'hoptoad_notifier', "~> 2.3"
 
 #gem 'actionpack-page_caching'
 #gem 'actionpack-action_caching'
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
 
 group :test do
 # This doesn't work because capybara-webkit (~> 1.1.1) depends on
