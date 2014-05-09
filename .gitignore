@@ -1,19 +1,40 @@
+# Annoying files
 nbproject
 ._*
 .#*
+*~
 diff.diff
-.*.swp
+.*.sw*
 .DS_Store
-public/package
-public/121
-public/114
-public/113
-public/developer
-tmp/appdata-factory.xml
-tmp/appdata-factory.xml.gz
 .idea
+
+# Bundler config
+/.bundle
+
+# Static files in public
+public/111
+public/112
+public/113
+public/114
+public/121
 public/assets
-tmp/sass-cache
+public/developer
+public/developer.html
+public/developer2
+public/index.html
+public/package
+
+# Logfiles and temfiles
+/log/*.log
+/tmp
+
+# Configuration files
 config/options.yml
-.bundle
+config/database.yml
+
+# i18n
 locale
+
+# Local databases
+/db/*.sqlite3
+/db/*.db
