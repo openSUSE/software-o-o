@@ -180,7 +180,7 @@
             <% end -%>
 
             <% unless @default_package.blank? %>
-              <% url = url_for :controller => 'main', :action => 'ymp_without_arch_and_version',
+              <% url = url_for :controller => 'main', :action => 'ymp_without_arch_and_version', :query => @pkgname,
                 :project => @default_package.project, :repository => @default_package.repository, :package => @pkgname, :base => @default_package.baseproject %>
               <div id="one-click-button-box">
                 <a id="one-click-button" href="<%= url %>">
