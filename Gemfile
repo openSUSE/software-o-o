@@ -35,6 +35,7 @@ gem 'mysql2'
 
 gem 'delayed_job', '>3.0'
 gem 'delayed_job_active_record'
+gem 'daemons'
 
 gem 'xmlhash', '>= 1.2.2'
 
