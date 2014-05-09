@@ -33,10 +33,6 @@ end
 # MySQL is not used, as far as I know
 gem 'mysql2'
 
-gem 'delayed_job', '>3.0'
-gem 'delayed_job_active_record'
-gem 'daemons'
-
 gem 'xmlhash', '>= 1.2.2'
 
 #gem 'memcache-client'
