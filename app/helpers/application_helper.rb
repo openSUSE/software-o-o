@@ -1,5 +1,4 @@
 require 'seeker'
-require 'workers/search_helper_job'
 
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
@@ -16,10 +15,7 @@ module ApplicationHelper
   end
 
   def top_downloads
-    r = Rails.cache.read('top_downloads') || []
-    # it's possible we will have to enqueue one on cold caches
-    Delayed::Job.enqueue SearchHelperJob.new if r.blank?
-    return r
+    Rails.cache.read('top_downloads') || []
   end
 
   def time_diff time
