@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0'
+gem 'rails', '~> 4.1.1'
 gem 'nokogiri'
 
 # Use SCSS for stylesheets
@@ -38,7 +38,7 @@ gem 'xmlhash', '>= 1.2.2'
 #gem 'memcache-client'
 gem 'dalli'
 gem 'sqlite3'
-gem 'minitest', '< 5.0'
+gem 'minitest'
 gem 'hoptoad_notifier', "~> 2.3"
 
 #gem 'actionpack-page_caching'

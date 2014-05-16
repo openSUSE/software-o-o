@@ -13,7 +13,7 @@ class MainController < ApplicationController
     res =  Rails.cache.fetch( "ymp_#{path}", :expires_in => 1.hour) do
       ApiConnect::get(path)
     end
-    render :text => res.body, :content_type => res.content_type
+    render :body => res.body, :content_type => res.content_type
   end
 
   def ymp_without_arch_and_version
@@ -23,7 +23,7 @@ class MainController < ApplicationController
     res =  Rails.cache.fetch("ymp_#{path}", :expires_in => 1.hour) do
       ApiConnect::get(path)
     end
-    render :text => res.body, :content_type => res.content_type
+    render :body => res.body, :content_type => res.content_type
   end
 
   def set_release(release)

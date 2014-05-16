@@ -124,7 +124,7 @@ class PackageController < ApplicationController
       end
       Rails.cache.write(cache_key, content) unless path
     end
-    render :text => content, :content_type => 'image/png'
+    render :body => content, :content_type => 'image/png'
     FileUtils.ln_sf( default_url, path ) if path rescue logger.error "Couldn't create default link for #{path}"
   end
 
