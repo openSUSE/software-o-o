@@ -161,10 +161,10 @@ class MainController < ApplicationController
 
 
   def developer
-    redirectit("developer")
-    return
-    flash.now[:warn] = _("We currently don't have a Factory Snapshot that is more recent than our last openSUSE release. <br/>" +
-        "Please check <a href='http://en.opensuse.org/Portal:Factory'>http://en.opensuse.org/Portal:Factory</a> for more information.")
+    #redirectit("developer")
+    #return
+    flash.now[:warn] = _("There is no openSUSE release in testing phase at the moment. <br/>" +
+        " If you want to use bleeding edge software, please use <a href='http://en.opensuse.org/Portal:Factory'>openSUSE Factory</a>.")
     @exclude_debug = true
     @include_home = 'false'
     set_release("131")
