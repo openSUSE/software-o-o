@@ -108,7 +108,7 @@ class MainController < ApplicationController
       @isos["net-32"] = "13.1-NET-i586"
       @isos["net-64"] = "13.1-NET-x86_64"
 
-      @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1/")
+      @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1")
       @releasename = "openSUSE 13.1"
       @repourl = "http://download.opensuse.org/distribution/13.1"
       @medium = "dvd"
@@ -131,7 +131,7 @@ class MainController < ApplicationController
       @isos["net-32"] = "Factory-NET-Build0117-i586"
       @isos["net-64"] = "Factory-NET-Build0117-x86_64"
 
-      @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2")
+      @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2/")
       @releasename = "openSUSE 13.2 Milestone0"
       @repourl = "http://download.opensuse.org/distribution/13.2"
       @medium = "dvd"
