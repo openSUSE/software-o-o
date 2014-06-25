@@ -1,4 +1,4 @@
-<% cache do %>
+<% cache :locale => @lang do %>
 <% 
 @right_box = :search 
 @page_title = _("Download %s") % @releasename
@@ -12,9 +12,9 @@
       <% if @right_box == :search -%>
         <span class="alignright" style="padding-right: 10px">
           <% if !@release.blank? and @release != "developer" -%>
-            <%= _('switch to') -%> <%= link_to _('Development Version'), {:controller => "main", :action => "developer", :lang => @lang } -%>
+            <%= _('switch to') -%> <%= link_to _('Development Version'), {:controller => "main", :action => "developer", :locale => @lang } -%>
           <% elsif !@release.blank? -%>
-            <%= _('switch to') -%> <%= link_to _('Released Version'), {:controller => "main", :action => "index", :lang => @lang } -%>
+            <%= _('switch to') -%> <%= link_to _('Released Version'), {:controller => "main", :action => "index", :locale => @lang } -%>
           <% end -%>
         </span>
       <% end -%>
