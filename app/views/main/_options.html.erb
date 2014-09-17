@@ -37,8 +37,8 @@
       <h4><%= _("Type of Computer") %> <%= image_tag 'help-browser.png', :id => "architectureTypeHelpPopup", :class=>"help_icon", :alt=>"?", :width => 16, :height => 16 %></h4>
 
       <div>
-        <label id="l_i686" class="l_change"><input id="i686" name="arch" value="i686" checked="checked" type="radio" class="changeiso" /><%=_("32&nbsp;Bit&nbsp;PC")%></label>
-        <label id="l_x86_64" class="l_change"><input id="x86_64" name="arch" value="x86_64" type="radio" class="changeiso" /><%=_("64 Bit PC")%></label>
+        <label id="l_x86_64" class="l_change"><input id="x86_64" name="arch" value="x86_64" checked="checked" type="radio" class="changeiso" /><%=_("64 Bit PC")%></label>
+        <label id="l_i686" class="l_change"><input id="i686" name="arch" value="i686" type="radio" class="changeiso" /><%=_("Legacy 32&nbsp;Bit&nbsp;PC")%></label>
         <div id="help_arch_content" class="hidden">
           <h2><%=_("Help on Type of Computer")%></h2>
           <p>
@@ -48,7 +48,7 @@
           <p>
             <%= _("Most new computers support <a href=\"http://en.wikipedia.org/wiki/X86-64\">x86-64</a> (also known as AMD64 and Intel64), but some laptop processors and netbook processors do not support it. So you need to check wikipedia if you want to be sure your computer supports it.") %>
           </p>
-          <h3><%=_("32 Bit PC")%></h3>
+          <h3><%=_("Legacy 32 Bit PC")%></h3>
           <p>
             <%= _("This version runs on all PCs including those that support 64 Bit. If you have more than 3 GB of RAM you should prefer the 64 Bit version though. openSUSE does not support processors before Pentium - the live CDs even support only i686 (Pentium Pro and later).") %>
           </p>
