@@ -14,7 +14,8 @@ LANGUAGE_NAMES = {'en' => 'English', 'de' => 'Deutsch', 'bg' => 'българс�
                   'km' => 'ភាសាខ្មែរ', 'ko' => '한국어 [韓國語]', 'lt' => 'lietuvių kalba', 'nb' => 'Bokmål',
                   'nl' => 'Nederlands', 'pl' => 'polski', 'ro' => 'român', 'ru' => 'Русский язык',
                   'sk' => 'slovenčina', 'th' => 'ภาษาไทย', 'uk' => 'Українська', 'wa' => 'walon',
-                  'pt_BR' => 'português', 'zh_TW' => '台語', 'zh_CN' => '简体中文' }
+                  'pt_BR' => 'português', 'zh_TW' => '台語', 'zh_CN' => '简体中文',
+                  'el' => 'ελληνικά', 'ar' => 'العربية', 'ca' => 'Català'}
 
 FastGettext.add_text_domain 'software', :path => Rails.root.join('locale')
 # Explicity adding the available locales to both FastGettext and I18n in order
