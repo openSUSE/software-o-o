@@ -6,7 +6,8 @@ gem 'nokogiri'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 # With compass
-gem 'compass-rails'
+gem 'compass-rails', '< 2.0'
+gem 'compass', '< 1.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
