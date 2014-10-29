@@ -123,7 +123,25 @@ $(function() {
 			   return false;
 			 });
 
-	$("#downloaderAccordion").accordion();
+    $('#alternativeMedia').show();
+    $('#downloaderAccordion').accordion({
+        create: function(ev, ui) {
+            $('#ui-accordion-downloaderAccordion-header-2').hide();
+            $('#ui-accordion-downloaderAccordion-header-3').hide();
+            $('#ui-accordion-downloaderAccordion-header-4').hide();
+            $('#ui-accordion-downloaderAccordion-header-5').hide();
+        }
+    });
+
+    $('#alternativeMedia a').click(function() {
+        $('#alternativeMedia').hide();
+        $('#ui-accordion-downloaderAccordion-header-2').fadeIn();
+        $('#ui-accordion-downloaderAccordion-header-3').fadeIn();
+        $('#ui-accordion-downloaderAccordion-header-4').fadeIn();
+        $('#ui-accordion-downloaderAccordion-header-5').fadeIn();
+        return false;
+    });
+
 	$("#help_method_content").dialog({
 				bgiframe: true,
 				autoOpen:false,
