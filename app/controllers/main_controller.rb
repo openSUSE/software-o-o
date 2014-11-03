@@ -187,7 +187,7 @@ class MainController < ApplicationController
     #redirectit("developer")
     #return
     flash.now[:warn] = _("There is no openSUSE release in testing phase at the moment. <br/>" +
-        " If you want to use bleeding edge software, please use <a href='http://en.opensuse.org/Portal:Factory'>openSUSE Factory</a>.")
+        " If you want to use bleeding edge software, please use <a href='http://en.opensuse.org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>.")
     @exclude_debug = true
     @include_home = 'false'
     set_release("132")
