@@ -114,6 +114,29 @@ class MainController < ApplicationController
       @medium = "dvd"
       @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
 
+    elsif release == "132"
+      @isos = {}
+      @directory = "http://download.opensuse.org/distribution/13.2"
+      @isos["lang-32"] = "13.2-Addon-Lang-i586"
+      @isos["lang-64"] = "13.2-Addon-Lang-x86_64"
+      @isos["nonoss"] = "13.2-Addon-NonOss-BiArch-i586-x86_64"
+      @isos["kde-64"] = "13.2-KDE-Live-x86_64"
+      @isos["kde-32"] = "13.2-KDE-Live-i686"
+      @isos["gnome-64"] = "13.2-GNOME-Live-x86_64"
+      @isos["gnome-32"] = "13.2-GNOME-Live-i686"
+      @isos["dvd-64"] = "13.2-DVD-x86_64"
+      @isos["dvd-32"] = "13.2-DVD-i586"
+      @isos["rescue-32"] = "13.2-Rescue-CD-i686"
+      @isos["rescue-64"] = "13.2-Rescue-CD-x86_64"
+      @isos["net-32"] = "13.2-NET-i586"
+      @isos["net-64"] = "13.2-NET-x86_64"
+
+      @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2")
+      @releasename = "openSUSE 13.2"
+      @repourl = "http://download.opensuse.org/distribution/13.2"
+      @medium = "dvd"
+      @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
+
     elsif release == "developer"
       @isos = {}
       @directory = "http://download.opensuse.org/distribution/13.2-RC1"
@@ -161,19 +184,19 @@ class MainController < ApplicationController
 
 
   def developer
-    redirectit("developer")
-    return
+    #redirectit("developer")
+    #return
     flash.now[:warn] = _("There is no openSUSE release in testing phase at the moment. <br/>" +
         " If you want to use bleeding edge software, please use <a href='http://en.opensuse.org/Portal:Factory'>openSUSE Factory</a>.")
     @exclude_debug = true
     @include_home = 'false'
-    set_release("131")
+    set_release("132")
     render :template => "main/release"
   end
 
 
   def index
-    redirectit("131")
+    redirectit("132")
   end
 
   def releasemain
