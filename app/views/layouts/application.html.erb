@@ -77,7 +77,7 @@
       <% unless @hide_search_box %>
         <%# Caching is really crucial in the front page (at release date, at least) %>
 	<% if controller.controller_name == "main" && controller.action_name == "release" %>
-          <% cache :locale => @lang do %>
+          <% cache :locale => @lang, :baseproject => (@baseproject || default_baseproject) do %>
             <%= render :partial => 'search/find_form' %>
           <% end %>
         <% else %>
