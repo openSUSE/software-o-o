@@ -16,7 +16,7 @@ SoftwareOO::Application.routes.draw do
     get '121/:locale' => :release, :release => "121", :outdated => true, :constraints => { :locale => /[\w]+/ }
     get ':release' => :releasemain, :constraints => { :release => /[123][\d]+/ }, :format => false
     get ':release/:locale' =>  :release, :constraints => { :release => /[123][\d]+/, :locale => /[\w]+/ }, :format => false
-    get 'developer/:locale' => :release, :release => "developer", :format => false, :constraints => { :locale => /[\w]+/ }
+    get 'developer/:locale' => :developer, :format => false, :constraints => { :locale => /[\w]+/ }
 
     get 'change_install' => :change_install
 
