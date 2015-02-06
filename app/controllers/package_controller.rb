@@ -116,8 +116,11 @@ class PackageController < ApplicationController
     if content.nil?
       image_url = "http://screenshots.debian.net/" + type + "/" + pkgname.downcase
       begin
-        content = open( image_url, "rb") {|io| io.read }
-      rescue OpenURI::HTTPError => e
+        content = open( image_url, "rb", :read_timeout => 6 ) {|io| io.read }
+      # The only expected exceptions are listed below, but this is sensitive
+      # enough (depending on an external system) to justify an agressive rescue
+      # rescue Errno::ETIMEDOUT, Net::ReadTimeout, OpenURI::HTTPError => e
+      rescue Exception => e
         logger.debug("No screenshot found for: " + pkgname)
         path = File.join( Rails.root, "public/package/" + type + "/" + pkgname + ".png" )
         content = open( default_url, "rb") {|io| io.read }
