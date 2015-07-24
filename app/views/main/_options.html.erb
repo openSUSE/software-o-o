@@ -3,8 +3,10 @@
     <div id="downloadMethodDiv">
       <h4><%=_("Download Method")%> <%= image_tag 'help-browser.png', :id => "downloadMethodHelpPopup", :class => "help_icon", :alt => "?", :width => 16, :height => 16 %></h4>
       <div>
-        <label class="l_change"><input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/><%=_("Direct Link")%></label>
-        <label class="l_change" id="l_torrent"><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/><%=_("BitTorrent")%></label>
+          <label class="l_change"><input id="p_http" name="protocol" value="http" checked="checked" type="radio" class="changeiso"/><%=_("Direct Link")%></label>
+          <% if @release != 'developer' %>
+              <label class="l_change" id="l_torrent"><input id="p_torrent" name="protocol" value="torrent" type="radio" class="changeiso"/><%=_("BitTorrent")%></label>
+          <% end  %>
         <label class="l_change"><input id="p_metalink" name="protocol" value="metalink" type="radio" class="changeiso"/><%=_("Metalink")%></label>
         <label class="l_change"><input id="p_mirror" name="protocol" value="mirror" type="radio" class="changeiso"/><%=_("Pick Mirror")%></label>
       </div>
