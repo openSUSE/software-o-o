@@ -139,24 +139,24 @@ class MainController < ApplicationController
 
     elsif release == "developer"
       @isos = {}
-      @directory = "http://download.opensuse.org/distribution/13.2-RC1"
-      @isos["lang-32"] = "13.2-Addon-Lang-Build0019-i586"
-      @isos["lang-64"] = "13.2-Addon-Lang-Build0019-x86_64"
-      @isos["nonoss"] = "13.2-Addon-NonOss-BiArch-Build0019-i586-x86_64"
-      @isos["kde-64"] = "13.2-KDE-Live-Build0019-x86_64"
-      @isos["kde-32"] = "13.2-KDE-Live-Build0019-i686"
-      @isos["gnome-64"] = "13.2-GNOME-Live-Build0019-x86_64"
-      @isos["gnome-32"] = "13.2-GNOME-Live-Build0019-i686"
-      @isos["dvd-64"] = "13.2-DVD-Build0019-x86_64"
-      @isos["dvd-32"] = "13.2-DVD-Build0019-i586"
-      @isos["rescue-32"] = "13.2-Rescue-CD-Build0019-i686"
-      @isos["rescue-64"] = "13.2-Rescue-CD-Build0019-x86_64"
-      @isos["net-32"] = "13.2-NET-Build0019-i586"
-      @isos["net-64"] = "13.2-NET-Build0019-x86_64"
+      @directory = "http://download.opensuse.org/distribution/leap/42.1-Milestone1"
+      @isos["lang-32"] = nil
+      @isos["lang-64"] = nil
+      @isos["nonoss"] = nil
+      @isos["kde-64"] = nil
+      @isos["kde-32"] = nil
+      @isos["gnome-64"] = nil
+      @isos["gnome-32"] = nil
+      @isos["dvd-64"] = "42.1-DVD-x86_64-Build0017-Media"
+      @isos["dvd-32"] = nil
+      @isos["rescue-32"] = nil
+      @isos["rescue-64"] = nil
+      @isos["net-32"] = nil
+      @isos["net-64"] = "42.1-NET-x86_64-Build0017-Media"
 
-      @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2/")
-      @releasename = "openSUSE 13.2 RC1"
-      @repourl = "http://download.opensuse.org/distribution/13.2"
+      @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/42.1/")
+      @releasename = "openSUSE 42.1 Milestone 1"
+      @repourl = "http://download.opensuse.org/distribution/leap/42.1"
       @medium = "dvd"
       @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
     else
@@ -184,8 +184,8 @@ class MainController < ApplicationController
 
 
   def developer
-    #redirectit("developer")
-    #return
+    redirectit("developer")
+    return
     flash.now[:warn] = _("There is no openSUSE release in testing phase at the moment. <br/>" +
         " If you want to use bleeding edge software, please use <a href='http://en.opensuse.org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>.")
     @exclude_debug = true

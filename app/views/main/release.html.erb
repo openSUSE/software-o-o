@@ -47,10 +47,10 @@
           </noscript>
 
           <div id="downloaderAccordion">
-            <% if @isos["dvd-32"] %>
+            <% if @isos["dvd-64"] %>
             <%= render(:partial => "change_install", :locals => { :medium => "dvd", :shorttext => _("4.7GB DVD (also suitable for USB stick)"), :longtext => _("Contains a large collection of software for desktop or server use.<br/>Suitable for installation or upgrade.") }) %>
             <% end %>
-            <% if @isos["net-32"] %>
+            <% if @isos["net-64"] %>
             <%= render(:partial => "change_install", :locals => { :medium => "net", :shorttext => _("Network"), :longtext => _("Downloads the installation system and all packages from online repositories.<br/>Suitable for installation or upgrade.") }) %>
             <% end %>
             <% if @isos["gnome-32"] %>
@@ -125,6 +125,7 @@
         </ol>
       </div>
 
+      <% if @isos['lang-64'] %>
       <div id="additional_downloads">
         <h3><%=_("Add-On Downloads (optional)")%></h3>
         <ul id="addon_downloads">
@@ -136,6 +137,7 @@
           <li><p class="justify"><%=_('This CD contains free software distributed under proprietary licence not allowing its inclusion to main installation media together with free open-source software. All software from this CD could be downloaded from NON-OSS repository.')%></p></li>
         </ul>
       </div>
+      <% end %>
 
     </div>
   </div>
