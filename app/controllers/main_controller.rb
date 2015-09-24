@@ -139,7 +139,7 @@ class MainController < ApplicationController
 
     elsif release == "developer"
       @isos = {}
-      @directory = "http://download.opensuse.org/distribution/leap/42.1-Milestone1"
+      @directory = "http://download.opensuse.org/distribution/leap/42.1-Beta1"
       @isos["lang-32"] = nil
       @isos["lang-64"] = nil
       @isos["nonoss"] = nil
@@ -147,15 +147,15 @@ class MainController < ApplicationController
       @isos["kde-32"] = nil
       @isos["gnome-64"] = nil
       @isos["gnome-32"] = nil
-      @isos["dvd-64"] = "42.1-DVD-x86_64-Build0017-Media"
+      @isos["dvd-64"] = "Leap-42.1-DVD-x86_64-Build0186-Media"
       @isos["dvd-32"] = nil
       @isos["rescue-32"] = nil
       @isos["rescue-64"] = nil
       @isos["net-32"] = nil
-      @isos["net-64"] = "42.1-NET-x86_64-Build0017-Media"
+      @isos["net-64"] = "Leap-42.1-NET-x86_64-Build0186-Media"
 
       @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/42.1/")
-      @releasename = "openSUSE 42.1 Milestone 1"
+      @releasename = "openSUSE 42.1 Beta 1"
       @repourl = "http://download.opensuse.org/distribution/leap/42.1"
       @medium = "dvd"
       @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
