@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '~> 4.2.1'
 
 gem 'gettext_i18n_rails', '>= 0.4.3'
 gem 'fast_gettext', '>= 0.7.0'
