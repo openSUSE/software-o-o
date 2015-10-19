@@ -32,7 +32,7 @@ group :development do
 end
 
 # MySQL is not used, as far as I know
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.13' # required by rails 3.1
 
 gem 'xmlhash', '>= 1.2.2'
 
