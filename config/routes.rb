@@ -57,8 +57,6 @@ SoftwareOO::Application.routes.draw do
 
   get 'codecs' => "codecs#index"
 
-  get 'statistic' => "statistic#index"
-
   # compatibility routes for old download implementation
   get 'download' => "download#package"
   get 'download.:format' => "download#package"

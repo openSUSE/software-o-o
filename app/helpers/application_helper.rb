@@ -14,10 +14,6 @@ module ApplicationHelper
     @@theme_prefix
   end
 
-  def top_downloads
-    Rails.cache.read('top_downloads') || []
-  end
-
   def time_diff time
     Time.now - Time.parse(time)
   end

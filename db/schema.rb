@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20121218194957) do
+ActiveRecord::Schema.define(version: 20151030124119) do
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0
@@ -55,15 +55,6 @@ ActiveRecord::Schema.define(version: 20121218194957) do
     t.datetime "processed_at"
     t.string   "processed_by"
     t.string   "material"
-  end
-
-  create_table "search_histories", force: true do |t|
-    t.string   "base"
-    t.string   "query"
-    t.integer  "count"
-    t.integer  "binaries"
-    t.integer  "patterns"
-    t.datetime "created_at"
   end
 
 end

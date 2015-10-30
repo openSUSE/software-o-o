@@ -251,11 +251,4 @@ class MainController < ApplicationController
     redirect_to @directory + "/iso/openSUSE-" + @isos[medium] + suffix
 
   end
-
-  def top_downloads
-    respond_to do |format|
-      format.xml  { render(:layout => false, :content_type => 'text/xml' ) }
-    end
-  end
-
 end
