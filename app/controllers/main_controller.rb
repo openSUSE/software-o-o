@@ -145,7 +145,7 @@ class MainController < ApplicationController
       @isos["dvd-64"] = "Leap-42.1-DVD-x86_64"
       @isos["net-64"] = "Leap-42.1-NET-x86_64"
 
-      @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1")
+      @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/")
       @releasename = "openSUSE Leap 42.1"
       @repourl = "http://download.opensuse.org/distribution/leap/42.1"
       @medium = "dvd"
@@ -170,7 +170,7 @@ class MainController < ApplicationController
       @isos["net-32"] = nil
       @isos["net-64"] = "Leap-42.1-NET-x86_64-Build0235-Media"
 
-      @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap42.1/")
+      @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/")
       @releasename = "openSUSE 42.1 RC 1"
       @repourl = "http://download.opensuse.org/distribution/leap/42.1"
       @medium = "dvd"
