@@ -1,0 +1,22 @@
+<p class="justify">
+  <%=_("Many applications can verify the checksum of a download. To verify your download can be important as it verifies you really have got the ISO file you wanted to download and not some broken version.") %>
+  <%=_("You could verify the file in the process of downloading. For example a checksum (SHA256) will be used automatically if you choose <a href='http://en.opensuse.org/SDB:Metalink'>Metalink</a> in the field above and use the add-on DownThemAll! in <a href='http://en.opensuse.org/Firefox'>Firefox</a>.") %>
+  <%=_("We offer three different checksums:")%>
+</p>
+<noscript>
+  <dl style="margin: 15px;">
+    <dt><%=_("gpg signature")%></dt>
+    <dd><%=_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % @gpg %>
+      (<a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.asc">32 Bit</a> or <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.asc">64 Bit</a>)
+    </dd>
+    <dt><%=_("md5 checksum")%></dt>
+    <dd><%=_("is still the most commonly used checksum. Many ISO burners display it right before burning.")%> (<a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.md5">32 Bit</a> or <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.md5">64 Bit</a>)</dd>
+    <dt><%=_("sha1 checksum")%></dt>
+    <dd><%=_("is the less known but more secure checksum than md5.")%> (<a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.sha1">32 Bit</a> or <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.sha1">64 Bit</a>)</dd>
+  </dl>
+</noscript>
+<ul class="hidden script_only">
+  <li><a id="sig_gpg" href="#"><%=_("gpg signature")%></a> <%=raw(_("offers the most security as you can verify who signed it. It should be <tt>%s</tt>.") % @gpg) %></li>
+  <li><a id="sig_md5" href="#"><%=_("md5 checksum")%></a> <%=_("is still the most commonly used checksum. Many ISO burners display it right before burning.")%></li>
+  <li><a id="sig_sha1" href="#"><%=_("sha1 checksum")%></a> <%=_("is the less known but more secure checksum than md5.")%></li>
+</ul>
