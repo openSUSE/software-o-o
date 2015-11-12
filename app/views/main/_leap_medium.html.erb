@@ -10,7 +10,7 @@
       <h4><%=_("Download Method")%> <%= image_tag 'help-browser.png', :class => "downloadMethodHelpPopup help_icon", :alt => "?", :width => 16, :height => 16 %></h4>
       <%
         links = []
-        links << { label: _("Direct link"), url: url}
+        links << { label: _("Direct Link"), url: url}
         unless medium == "net" || @release == "developer"
           links << { label: _("BitTorrent"), url: "#{url}.torrent" }
         end
