@@ -18,7 +18,7 @@
 
   <div id="ci_<%= medium %>" class="hidden changeiso script_only <%= if @medium == medium then 'medium_selected' else 'medium_unselected' end %> ">
     <%= if @medium == medium then iclass='icon_selected' else iclass='icon_unselected' end
-    image_tag(medium + "_icon.png", :alt => "", :id => "icon_" + medium, :class => iclass) %>
+    image_tag(medium + "_icon.png", :alt => "", :id => "icon_" + medium, :class => "medium_icon #{iclass}") %>
     <div>
       <span style="font-size: 120%; font-weight: bold"><%= shorttext %></span>
       <br/>

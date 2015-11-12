@@ -6,16 +6,3 @@
   <%=_("For each ISO, we offer a checksum file with the corresponding SHA256 sum.") %>
   <%=_("For extra security, you can use GPG to verify who signed those .sha256 files. It should be %s.") % @gpg %>
 </p>
-<noscript>
-  <p>
-    <% if @isos["#{@medium}-32"] %>
-      <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-32"] %>.iso.sha256">32 Bit</a> / <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.sha256">64 Bit</a>.
-    <% else %>
-      <a href="<%= @directory %>/iso/openSUSE-<%= @isos[@medium + "-64"] %>.iso.sha256"><%=_("SHA256 checksum")%></a>
-    <% end %>
-  </p>
-</noscript>
-<p class="hidden script_only">
-  <a id="sig_sha256" href="#"><%=_("SHA256 checksum")%></a>
-</p>
-</p>

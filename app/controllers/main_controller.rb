@@ -140,7 +140,8 @@ class MainController < ApplicationController
     elsif release == "421"
       @isos = {}
       @directory = "http://download.opensuse.org/distribution/leap/42.1"
-      # No iso for:
+      @leap = true
+      # leap means no iso for:
       # nonoss, dvd-32, net-32, rescue-XX, kde-XX, gnome-XX, lang-XX
       @isos["dvd-64"] = "Leap-42.1-DVD-x86_64"
       @isos["net-64"] = "Leap-42.1-NET-x86_64"
@@ -148,33 +149,20 @@ class MainController < ApplicationController
       @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/")
       @releasename = "openSUSE Leap 42.1"
       @repourl = "http://download.opensuse.org/distribution/leap/42.1"
-      @medium = "dvd"
-      @inline_signature = true
       @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
-
 
     elsif release == "developer"
       @isos = {}
       @directory = "http://download.opensuse.org/distribution/leap/42.1-RC1"
-      @isos["lang-32"] = nil
-      @isos["lang-64"] = nil
-      @isos["nonoss"] = nil
-      @isos["kde-64"] = nil
-      @isos["kde-32"] = nil
-      @isos["gnome-64"] = nil
-      @isos["gnome-32"] = nil
+      @leap = true
+      # leap means no iso for:
+      # nonoss, dvd-32, net-32, rescue-XX, kde-XX, gnome-XX, lang-XX
       @isos["dvd-64"] = "Leap-42.1-DVD-x86_64-Build0235-Media"
-      @isos["dvd-32"] = nil
-      @isos["rescue-32"] = nil
-      @isos["rescue-64"] = nil
-      @isos["net-32"] = nil
       @isos["net-64"] = "Leap-42.1-NET-x86_64-Build0235-Media"
 
       @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/")
       @releasename = "openSUSE 42.1 RC 1"
       @repourl = "http://download.opensuse.org/distribution/leap/42.1"
-      @medium = "dvd"
-      @inline_signature = true
       @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
     else
       flash[:warn] = _("#{release} is not a supported release.")
