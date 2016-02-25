@@ -40,7 +40,8 @@
     if (navigator.userAgent.indexOf('Red Hat') > 0 ) $('#soo_button_RHEL').click();
     if (navigator.userAgent.indexOf('Scientific') > 0 ) $('#soo_button_SL').click();
     if (navigator.userAgent.indexOf('SUSE') > 0 ) $('#soo_button_openSUSE').click();
-    if (navigator.userAgent.indexOf('buntu') > 0 ) $('#soo_button_Ubuntu').click();
+    if (navigator.userAgent.indexOf('Ubuntu') > 0 ) $('#soo_button_Ubuntu').click();
+    if (navigator.userAgent.indexOf('Univention') > 0 ) $('#soo_button_Univention').click();
   });
 </script>
 
@@ -113,7 +114,7 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
               end
             when 'CentOS', 'Fedora', 'RHEL', 'SL'
               "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
-            when 'Debian'
+            when 'Debian', 'Univention'
               "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')} /' >> /etc/apt/sources.list.d/#{@package}.list \napt-get update\napt-get install #{@package}"
             when 'Mageia', 'Mandriva'
               "urpmi.addmedia #{@project} #{v[:repo]}\nurpmi.update -a\nurpmi #{@package}"
@@ -123,7 +124,7 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
           %></pre>
         <% end %>
 
-        <% if ['Debian', 'Ubuntu'].include? v[:flavor] %>
+        <% if ['Debian', 'Ubuntu', 'Univention'].include? v[:flavor] %>
           <% info_url = v[:flavor] == "Debian" ? "https://wiki.debian.org/SecureApt" : "https://help.ubuntu.com/community/SecureApt" %>
           <p><%= (_("You can add the repository key to apt. Keep in mind that the owner of the key may distribute updates, packages and repositories that your system will trust (<a href=\"%s\">more information</a>). To add the key, run:") % info_url).html_safe %></p>
          <pre>wget <%= v[:repo] %>Release.key

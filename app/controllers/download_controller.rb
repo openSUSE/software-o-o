@@ -168,7 +168,9 @@ class DownloadController < ApplicationController
       'Debian'
     when /^(DISCONTINUED:)?Ubuntu:/
       'Ubuntu'
-    when /^(DISCONTINUED:)?Arch:/
+    when /^Univention:/
+      'Univention'
+    when /^Arch:/
       'Arch'
     else
       'Unknown'
