@@ -1,6 +1,6 @@
 Install:
 
-sudo zypper in rubygem-rails-2_3 rubygem-sqlite3 rubygem-gettext_rails rubygem-nokogiri memcached
+sudo zypper in rubygem-rails-4_1 rubygem-sqlite3 rubygem-gettext_rails rubygem-nokogiri memcached
 
 Additional gems either from devel:languages:ruby:extensions (incompatible atm) or rubygems:
 daemons, mongrel, ruby-debug, delayed_job (1.8.4), capistrano
@@ -19,4 +19,11 @@ rake db:migrate
 git submodule init
 git submodule update
 
-./script/server
+
+Generating a secret token:
+
+* cp config/secrets.yml.example config/secrets.yml
+* Generate a new secret with 'rake -s secret' and replace secret_key_base keys in config/secrets.yml
+
+
+rails s
