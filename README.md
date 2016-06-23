@@ -28,9 +28,9 @@ cd software-o-o
 git submodule init
 git submodule update
 
-cp database.yml.example database.yml
-cp options.yml.example options.yml
-cp secrets.yml.example secrets.yml
+cp config/database.yml.example config/database.yml
+cp config/options.yml.example config/options.yml
+cp config/secrets.yml.example config/secrets.yml
 rake db:migrate
 
 rails server
