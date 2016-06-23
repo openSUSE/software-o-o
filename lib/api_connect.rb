@@ -2,7 +2,7 @@ class ApiConnect
 
   class Error < Exception; end
 
-  def self.get(path)
+  def self.get(path, limit = 10)
     uri_str = "#{CONFIG['api_host']}/#{path}".gsub(' ', '%20')
     uri_str = path if path.match( /^http/ )
     uri = URI.parse(uri_str)
@@ -24,6 +24,12 @@ class ApiConnect
       response = http.request(request)
       case response
       when Net::HTTPSuccess then response;
+      when Net::HTTPRedirection then
+        if limit
+          get(response['location'], limit - 1)
+        else
+          raise Error.new "Recursive redirect"
+        end
       else
         raise Error.new "Response was: #{response} #{response.body}"
       end
