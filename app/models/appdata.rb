@@ -34,7 +34,7 @@ class Appdata
   # Get the appdata xml for a distribution
   def self.get_distribution dist="factory", flavour="oss"
     if dist == "factory"
-      appdata_url = "http://download.opensuse.org/factory/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
+      appdata_url = "http://download.opensuse.org/tumbleweed/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
     else
       appdata_url = "http://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
     end
