@@ -112,7 +112,14 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
               else
                 "zypper addrepo #{v[:repo]}#{@project}.repo\nzypper refresh\nzypper install #{@package}"
               end
-            when 'CentOS', 'Fedora', 'RHEL', 'SL'
+            when 'Fedora'
+              version = k.split("_").last
+              if Integer(version) >= 22
+                "dnf config-manager --add-repo #{v[:repo]}#{@project}.repo\ndnf install #{@package}"
+              else
+                "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
+              end
+            when 'CentOS', 'RHEL', 'SL'
               "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
             when 'Debian', 'Univention'
               "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')} /' >> /etc/apt/sources.list.d/#{@package}.list \napt-get update\napt-get install #{@package}"
