@@ -37,7 +37,7 @@ class Appdata
   def self.get_distribution dist="factory", flavour="oss"
     if dist == "factory"
       appdata_regex = /appdata-\S{32}.xml.gz/
-      tumbleweed_contents = open('http://download.opensuse.org/tumbleweed/repo/#{flavour}/content') {|f| f.read }
+      tumbleweed_contents = open("http://download.opensuse.org/tumbleweed/repo/#{flavour}/content") {|f| f.read }
       appdata_filename = tumbleweed_contents.match(appdata_regex)
       appdata_url = "http://download.opensuse.org/tumbleweed/repo/#{flavour}/suse/setup/descr/#{appdata_filename}"
     else
