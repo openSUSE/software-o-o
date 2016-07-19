@@ -68,7 +68,7 @@ module PackageHelper
     when /^openstack-/i
       screenshot_thumb = image_path "default-screenshots/openstack.png"
     else
-      screenshot_thumb = url_for :controller => :package, :action => :thumbnail, :package => pkgname
+      screenshot_thumb = image_path "default-screenshots/no_screenshot_opensuse.png"
     end
     screenshot_thumb
   end

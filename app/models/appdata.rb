@@ -25,6 +25,7 @@ class Appdata
       appdata[:pkgname] = app.xpath('pkgname').text
       appdata[:categories] = app.xpath('categories/category').map{|c| c.text}.reject{|c| c.match(/^X-/)}.uniq
       appdata[:homepage] = app.xpath('url').text
+      appdata[:screenshots] = app.xpath('screenshots/screenshot/image').map{|s| s.text}
       data[:apps] << appdata
     end
     data[:categories] += xml.xpath("/components/component/categories/category").
