@@ -17,17 +17,17 @@ class Appdata
   def self.add_appdata data, xml
     data[:apps] = Array.new unless data[:apps]
     data[:categories] = Array.new unless data[:categories]
-      xml.xpath("/applications/application").each do |app|
+      xml.xpath("/components/component").each do |app|
       appdata = Hash.new
       # Filter translated versions of name and summary out
       appdata[:name] = app.xpath('name[not(@xml:lang)]').text
       appdata[:summary] = app.xpath('summary[not(@xml:lang)]').text
       appdata[:pkgname] = app.xpath('pkgname').text
-      appdata[:categories] = app.xpath('appcategories/appcategory').map{|c| c.text}.reject{|c| c.match(/^X-/)}.uniq
+      appdata[:categories] = app.xpath('categories/category').map{|c| c.text}.reject{|c| c.match(/^X-/)}.uniq
       appdata[:homepage] = app.xpath('url').text
       data[:apps] << appdata
     end
-    data[:categories] += xml.xpath("/applications/application/appcategories/appcategory").
+    data[:categories] += xml.xpath("/components/component/categories/category").
       map{|cat| cat.text}.reject{|c| c.match(/^X-/)}.uniq
     data
   end
