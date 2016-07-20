@@ -36,4 +36,4 @@ rake db:migrate
 rails server
 ```
 
-Enjoy your software.opensuse.org clone at http://localhost:3000/
+Enjoy your software.opensuse.org clone at http://127.0.0.1:3000/
