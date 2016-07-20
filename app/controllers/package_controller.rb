@@ -33,9 +33,11 @@ class PackageController < ApplicationController
       @name = pkg_appdata.first[:name]
       @appcategories = pkg_appdata.first[:categories]
       @homepage = pkg_appdata.first[:homepage]
+      @appscreenshot = pkg_appdata.first[:screenshots].first
     end
 
-    @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname
+    @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, :appscreen => @appscreenshot
+    @thumbnail = url_for :controller => :package, :action => :thumbnail, :package => @pkgname, :appscreen => @appscreenshot
 
     # remove maintenance projects
     @packages.reject!{|p| p.project.match(/openSUSE\:Maintenance\:/) }
@@ -92,30 +94,66 @@ class PackageController < ApplicationController
 
 
   def screenshot
-    required_parameters :package
+    required_parameters :package, :appscreen
     package = params[:package]
+    appscreen = params[:appscreen]
     default_url = File.join( Rails.root, "app/assets/images/default-screenshots/no_screenshot_opensuse_big.png" )
-    image package, "screenshot", default_url
+    image package, "screenshot", default_url, appscreen
   end
 
   def thumbnail
-    required_parameters :package
+    required_parameters :package, :appscreen
     package = params[:package]
-    default_url = File.join( Rails.root, "app/assets/images/default-screenshots/no_screenshot_opensuse.png" )
-    image package, "thumbnail", default_url
+    appscreen = params[:appscreen]
+
+    case package
+    when /-devel$/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
+    when /-devel-/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
+    when /-lang$/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
+    when /-debug$/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
+    when /-doc$/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/files.png" )
+    when /-help-/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/files.png" )
+    when /-javadoc$/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/files.png" )
+    when /-debuginfo/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
+    when /-debugsource/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
+    when /-kmp-/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
+    when /^rubygem-/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/rubygem.png" )
+    when /^perl-/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/perl.gif" )
+    when /^python-/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/python.png" )
+    when /^kernel-/
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/tux.png" )
+    when /^openstack-/i
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/openstack.png" )
+    else
+      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/no_screenshot_opensuse.png" )
+    end
+
+    image package, "thumbnail", default_url, appscreen
   end
 
   private
   
-  def image pkgname, type, default_url
+  def image pkgname, type, default_url, image_url
     response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
-    response.headers['Content-Type'] = 'image/png'
     response.headers['Content-Disposition'] = 'inline'
     cache_key = "t:#{type}-p:#{pkgname}"
     content = Rails.cache.read(cache_key)
     if content.nil?
-      image_url = "http://screenshots.debian.net/" + type + "/" + pkgname.downcase
       begin
+        logger.debug("Fetching screenshot from " + image_url)
         content = open( image_url, "rb", :read_timeout => 6 ) {|io| io.read }
       # The only expected exceptions are listed below, but this is sensitive
       # enough (depending on an external system) to justify an agressive rescue
