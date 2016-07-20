@@ -153,15 +153,15 @@ class MainController < ApplicationController
 
     elsif release == "developer"
       @isos = {}
-      @directory = "http://download.opensuse.org/distribution/leap/42.2-Alpha2"
+      @directory = "http://download.opensuse.org/distribution/leap/42.2-Alpha3"
       @leap = true
       # leap means no iso for:
       # nonoss, dvd-32, net-32, rescue-XX, kde-XX, gnome-XX, lang-XX
-      @isos["dvd-64"] = "Leap-42.2-DVD-x86_64-Build0045-Media"
-      @isos["net-64"] = "Leap-42.2-NET-x86_64-Build0045-Media"
+      @isos["dvd-64"] = "Leap-42.2-DVD-x86_64-Build0109-Media"
+      @isos["net-64"] = "Leap-42.2-NET-x86_64-Build0109-Media"
 
       @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/")
-      @releasename = "openSUSE 42.2 Alpha 2"
+      @releasename = "openSUSE 42.2 Alpha 3"
       @repourl = "http://download.opensuse.org/distribution/leap/42.2"
       @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
     else
