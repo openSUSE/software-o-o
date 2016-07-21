@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class PackageController < ApplicationController
 
   #before_filter :set_beta_warning, :only => [:category, :categories]
@@ -94,79 +92,23 @@ class PackageController < ApplicationController
 
 
   def screenshot
-    required_parameters :package, :appscreen
-    package = params[:package]
-    appscreen = params[:appscreen]
-    default_url = File.join( Rails.root, "app/assets/images/default-screenshots/no_screenshot_opensuse_big.png" )
-    image package, "screenshot", default_url, appscreen
+    required_parameters :package
+    image params[:package], "screenshot", params[:appscreen]
   end
 
   def thumbnail
-    required_parameters :package, :appscreen
-    package = params[:package]
-    appscreen = params[:appscreen]
-
-    case package
-    when /-devel$/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
-    when /-devel-/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
-    when /-lang$/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
-    when /-debug$/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
-    when /-doc$/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/files.png" )
-    when /-help-/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/files.png" )
-    when /-javadoc$/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/files.png" )
-    when /-debuginfo/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
-    when /-debugsource/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
-    when /-kmp-/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/file_settings.png" )
-    when /^rubygem-/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/rubygem.png" )
-    when /^perl-/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/perl.gif" )
-    when /^python-/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/python.png" )
-    when /^kernel-/
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/tux.png" )
-    when /^openstack-/i
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/openstack.png" )
-    else
-      default_url = File.join( Rails.root, "app/assets/images/default-screenshots/no_screenshot_opensuse.png" )
-    end
-
-    image package, "thumbnail", default_url, appscreen
+    required_parameters :package
+    image params[:package], "thumbnail", params[:appscreen]
   end
 
   private
   
-  def image pkgname, type, default_url, image_url
+  def image pkgname, type, image_url
     response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
     response.headers['Content-Disposition'] = 'inline'
-    cache_key = "t:#{type}-p:#{pkgname}"
-    content = Rails.cache.read(cache_key)
-    if content.nil?
-      begin
-        logger.debug("Fetching screenshot from " + image_url)
-        content = open( image_url, "rb", :read_timeout => 6 ) {|io| io.read }
-      # The only expected exceptions are listed below, but this is sensitive
-      # enough (depending on an external system) to justify an agressive rescue
-      # rescue Errno::ETIMEDOUT, Net::ReadTimeout, OpenURI::HTTPError => e
-      rescue Exception => e
-        logger.debug("No screenshot found for: " + pkgname)
-        path = File.join( Rails.root, "public/package/" + type + "/" + pkgname + ".png" )
-        content = open( default_url, "rb") {|io| io.read }
-      end
-      Rails.cache.write(cache_key, content) unless path
-    end
+    screenshot = Screenshot.new(pkgname, image_url)
+    content = screenshot.blob(type.to_sym)
     render :body => content, :content_type => 'image/png'
-    FileUtils.ln_sf( default_url, path ) if path rescue logger.error "Couldn't create default link for #{path}"
   end
 
   def set_categories

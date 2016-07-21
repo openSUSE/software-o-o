@@ -41,7 +41,7 @@ gem 'dalli'
 gem 'sqlite3'
 gem 'minitest'
 gem 'hoptoad_notifier', "~> 2.3"
-
+gem 'mini_magick'
 #gem 'actionpack-page_caching'
 #gem 'actionpack-action_caching'
 
