@@ -35,44 +35,15 @@ module PackageHelper
     txt
   end
 
-  def screenshot_thumb_url pkgname
-    case pkgname
-    when /-devel$/
-      screenshot_thumb =  image_path "default-screenshots/file_settings.png"
-    when /-devel-/
-      screenshot_thumb =  image_path "default-screenshots/file_settings.png"
-    when /-lang$/
-      screenshot_thumb =  image_path "default-screenshots/file_settings.png"
-    when /-debug$/
-      screenshot_thumb = image_path "default-screenshots/file_settings.png"
-    when /-doc$/
-      screenshot_thumb = image_path "default-screenshots/files.png"
-    when /-help-/
-      screenshot_thumb = image_path "default-screenshots/files.png"
-    when /-javadoc$/
-      screenshot_thumb = image_path "default-screenshots/files.png"
-    when /-debuginfo/
-      screenshot_thumb = image_path "default-screenshots/file_settings.png"
-    when /-debugsource/
-      screenshot_thumb = image_path "default-screenshots/file_settings.png"
-    when /-kmp-/
-      screenshot_thumb = image_path "default-screenshots/file_settings.png"
-    when /^rubygem-/
-      screenshot_thumb = image_path "default-screenshots/rubygem.png"
-    when /^perl-/
-      screenshot_thumb = image_path "default-screenshots/perl.gif"
-    when /^python-/
-      screenshot_thumb = image_path "default-screenshots/python.png"
-    when /^kernel-/
-      screenshot_thumb = image_path "default-screenshots/tux.png"
-    when /^openstack-/i
-      screenshot_thumb = image_path "default-screenshots/openstack.png"
+  def screenshot_thumb_url(pkg_name, source_url)
+    screenshot = Screenshot.new(pkg_name, source_url)
+    # Don't wait for every thumbnail to be generated before loading the page.
+    path = screenshot.thumbnail_path(fetch: false)
+    if path
+      image_url path
     else
-      screenshot_thumb = url_for :controller => :package, :action => :thumbnail, :package => pkgname
+      # If a thumbnail is not already generated, do it in separate request.
+      url_for :controller => :package, :action => :thumbnail, :package => pkg_name, :appscreen => source_url
     end
-    screenshot_thumb
   end
-
-
-
 end

@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class PackageController < ApplicationController
 
   #before_filter :set_beta_warning, :only => [:category, :categories]
@@ -33,9 +31,11 @@ class PackageController < ApplicationController
       @name = pkg_appdata.first[:name]
       @appcategories = pkg_appdata.first[:categories]
       @homepage = pkg_appdata.first[:homepage]
+      @appscreenshot = pkg_appdata.first[:screenshots].first
     end
 
-    @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname
+    @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, :appscreen => @appscreenshot
+    @thumbnail = url_for :controller => :package, :action => :thumbnail, :package => @pkgname, :appscreen => @appscreenshot
 
     # remove maintenance projects
     @packages.reject!{|p| p.project.match(/openSUSE\:Maintenance\:/) }
@@ -93,42 +93,22 @@ class PackageController < ApplicationController
 
   def screenshot
     required_parameters :package
-    package = params[:package]
-    default_url = File.join( Rails.root, "app/assets/images/default-screenshots/no_screenshot_opensuse_big.png" )
-    image package, "screenshot", default_url
+    image params[:package], "screenshot", params[:appscreen]
   end
 
   def thumbnail
     required_parameters :package
-    package = params[:package]
-    default_url = File.join( Rails.root, "app/assets/images/default-screenshots/no_screenshot_opensuse.png" )
-    image package, "thumbnail", default_url
+    image params[:package], "thumbnail", params[:appscreen]
   end
 
   private
   
-  def image pkgname, type, default_url
+  def image pkgname, type, image_url
     response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
-    response.headers['Content-Type'] = 'image/png'
     response.headers['Content-Disposition'] = 'inline'
-    cache_key = "t:#{type}-p:#{pkgname}"
-    content = Rails.cache.read(cache_key)
-    if content.nil?
-      image_url = "http://screenshots.debian.net/" + type + "/" + pkgname.downcase
-      begin
-        content = open( image_url, "rb", :read_timeout => 6 ) {|io| io.read }
-      # The only expected exceptions are listed below, but this is sensitive
-      # enough (depending on an external system) to justify an agressive rescue
-      # rescue Errno::ETIMEDOUT, Net::ReadTimeout, OpenURI::HTTPError => e
-      rescue Exception => e
-        logger.debug("No screenshot found for: " + pkgname)
-        path = File.join( Rails.root, "public/package/" + type + "/" + pkgname + ".png" )
-        content = open( default_url, "rb") {|io| io.read }
-      end
-      Rails.cache.write(cache_key, content) unless path
-    end
+    screenshot = Screenshot.new(pkgname, image_url)
+    content = screenshot.blob(type.to_sym)
     render :body => content, :content_type => 'image/png'
-    FileUtils.ln_sf( default_url, path ) if path rescue logger.error "Couldn't create default link for #{path}"
   end
 
   def set_categories

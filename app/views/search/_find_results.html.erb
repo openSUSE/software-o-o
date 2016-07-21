@@ -37,6 +37,9 @@
         appdata_pkg = @appdata[:apps].select{|a| a[:pkgname] == package}
         package_name = package
         package_name = appdata_pkg.first[:name] unless ( appdata_pkg.blank? || appdata_pkg.first[:name].blank? )
+        package_img = nil
+        package_img = appdata_pkg.first[:screenshots].first unless ( appdata_pkg.blank? || appdata_pkg.first[:screenshots].blank? )
+        thumb_url = screenshot_thumb_url(package, package_img)
       %>
 
         <% if idx % 2 == 0 %>
@@ -47,7 +50,7 @@
 
           <div class="app-screenshot-search">
             <a href="<%= url_for :controller => :package, :action => :show, :package => package %>">
-              <img src="<%= screenshot_thumb_url( package ) %>" alt="<%= package %>" />
+              <img src="<%= thumb_url %>" alt="<%= package %>" />
             </a>
           </div>
           <div class="search-result-txt">
