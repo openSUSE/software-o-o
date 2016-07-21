@@ -41,6 +41,7 @@ class Screenshot
       # rescue Errno::ETIMEDOUT, Net::ReadTimeout, OpenURI::HTTPError => e
       # And also there is a chance of exception generating the thumbnail
       rescue Exception => e
+        raise unless Rails.env.production?
         Rails.logger.debug("No screenshot fetched for: " + pkg_name)
         default_file_path(:thumbnail, fullpath: false)
       end
@@ -70,6 +71,7 @@ class Screenshot
       # rescue Errno::ETIMEDOUT, Net::ReadTimeout, OpenURI::HTTPError => e
       # And also there is a chance of exception generating the thumbnail
       rescue Exception => e
+        raise unless Rails.env.production?
         Rails.logger.debug("No screenshot fetched (blob) for: " + pkg_name)
         default_blob(type)
       end
