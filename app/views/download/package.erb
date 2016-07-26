@@ -114,7 +114,7 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
               end
             when 'Fedora'
               version = k.split("_").last
-              if Integer(version) >= 22
+              if version == "Rawhide" or Integer(version) >= 22
                 "dnf config-manager --add-repo #{v[:repo]}#{@project}.repo\ndnf install #{@package}"
               else
                 "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
@@ -124,7 +124,12 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
             when 'Debian', 'Univention'
               "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')} /' >> /etc/apt/sources.list.d/#{@package}.list \napt-get update\napt-get install #{@package}"
             when 'Mageia', 'Mandriva'
-              "urpmi.addmedia #{@project} #{v[:repo]}\nurpmi.update -a\nurpmi #{@package}"
+              version = k.split("_").last
+              if version == "Cauldron" or Integer(version) >= 6
+                "dnf config-manager --add-repo #{v[:repo]}#{@project}.repo\ndnf install #{@package}"
+              else
+                "urpmi.addmedia #{@project} #{v[:repo]}\nurpmi.update -a\nurpmi #{@package}"
+              end
             else
               '?'
             end
@@ -135,7 +140,8 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
           <% info_url = v[:flavor] == "Debian" ? "https://wiki.debian.org/SecureApt" : "https://help.ubuntu.com/community/SecureApt" %>
           <p><%= (_("You can add the repository key to apt. Keep in mind that the owner of the key may distribute updates, packages and repositories that your system will trust (<a href=\"%s\">more information</a>). To add the key, run:") % info_url).html_safe %></p>
          <pre>wget <%= v[:repo] %>Release.key
-<%= "sudo " if v[:flavor] == "Ubuntu" %>apt-key add - < Release.key  </pre>
+<%= "sudo " if v[:flavor] == "Ubuntu" %>apt-key add - < Release.key
+<%= "sudo " if v[:flavor] == "Ubuntu" %>apt-get update</pre>
         <% end -%>
       </div>
     <% end %>
