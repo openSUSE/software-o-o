@@ -124,7 +124,12 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
             when 'Debian', 'Univention'
               "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')} /' >> /etc/apt/sources.list.d/#{@package}.list \napt-get update\napt-get install #{@package}"
             when 'Mageia', 'Mandriva'
-              "urpmi.addmedia #{@project} #{v[:repo]}\nurpmi.update -a\nurpmi #{@package}"
+              version = k.split("_").last
+              if version == "Cauldron" or Integer(version) >= 6
+                "dnf config-manager --add-repo #{v[:repo]}#{@project}.repo\ndnf install #{@package}"
+              else
+                "urpmi.addmedia #{@project} #{v[:repo]}\nurpmi.update -a\nurpmi #{@package}"
+              end
             else
               '?'
             end
