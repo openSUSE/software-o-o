@@ -114,7 +114,7 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
               end
             when 'Fedora'
               version = k.split("_").last
-              if Integer(version) >= 22
+              if version == "Rawhide" or Integer(version) >= 22
                 "dnf config-manager --add-repo #{v[:repo]}#{@project}.repo\ndnf install #{@package}"
               else
                 "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
