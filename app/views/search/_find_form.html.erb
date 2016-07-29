@@ -13,7 +13,7 @@
 
   function search() {
     search_term = encodeURI( jQuery.trim( $("#search-form").val() ) );
-    if (search_term.length > 2 ) {
+    if (search_term.length > 1 ) {
       $('#search-messages').hide();
       $('#msg').html("");
       last_search = search_term;
@@ -48,7 +48,7 @@
       })
 
     } else if (search_term.length > 0 ) {
-      $('#msg').html("<%= _("Please enter more than 2 characters") %>");
+      $('#msg').html("<%= _("Please enter more than 1 character") %>");
       $('#search-result-error').hide();
       $('#search-messages').show();
     } else {
@@ -63,7 +63,7 @@
     afterDelayedKeyup('#search-form',"search()", 500);
 
     $('#search_devel_checkbox, #search_unsupported_checkbox, #baseproject').change(function() {
-      if ($("#search-form").val().length > 2 ) {
+      if ($("#search-form").val().length > 1 ) {
         search();
       }
     });
@@ -116,4 +116,3 @@
     </p>
   </div>
 </div>
-
