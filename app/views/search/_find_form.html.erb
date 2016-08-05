@@ -1,72 +1,8 @@
 <script type="text/javascript">
 
-  var last_search = "<%= CGI::escape( @search_term || "" ) %>";
-
-  function afterDelayedKeyup(selector, action, delay){
-    jQuery(selector).keyup(function(){
-      if(typeof(window['inputTimeout']) != "undefined"){
-        clearTimeout(inputTimeout);
-      }
-      inputTimeout = setTimeout(action, delay);
-    });
-  }
-
-  function search() {
-    search_term = encodeURI( jQuery.trim( $("#search-form").val() ) );
-    if (search_term.length > 1 ) {
-      $('#search-messages').hide();
-      $('#msg').html("");
-      last_search = search_term;
-      parameters = {
-        q: search_term,
-        baseproject: $("#baseproject").val(),
-        search_devel: $("#search_devel_checkbox").is(':checked'),
-        search_unsupported: $("#search_unsupported_checkbox").is(':checked')
-      };
-
-      $.pjax({
-        cache: true,
-        url: '<%= url_for :controller => :search, :action => :searchresult %>',
-        data: parameters,
-        container: '#search_result_container',
-        timeout: 30000,
-        beforeSend: function() {
-          $('#search-form').addClass('search-form-busy');
-        },
-        complete: function(){
-          $('#search-form').removeClass('search-form-busy');
-        },
-        success: function(html){
-          $('#search-messages').hide();
-        },
-        error:function (jqXHR, textStatus, errorThrown) {
-          if (textStatus != 'abort') {
-            $('#msg').html("<%= _("An internal error happened :-(") %>");
-            $('#search-messages').show();
-        }
-      }
-      })
-
-    } else if (search_term.length > 0 ) {
-      $('#msg').html("<%= _("Please enter more than 1 character") %>");
-      $('#search-result-error').hide();
-      $('#search-messages').show();
-    } else {
-      $('#search-messages').hide();
-    }
-  }
-
   $(function() {
 
     $('#search-options').addClass('hidden');
-
-    afterDelayedKeyup('#search-form',"search()", 500);
-
-    $('#search_devel_checkbox, #search_unsupported_checkbox, #baseproject').change(function() {
-      if ($("#search-form").val().length > 1 ) {
-        search();
-      }
-    });
 
     $("#search-options-link").click(function() {
       $("#search-options").slideToggle();
