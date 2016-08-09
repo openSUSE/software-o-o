@@ -132,7 +132,7 @@ class DownloadController < ApplicationController
   end
 
 
-  def render_page page_template
+  def render_page(page_template)
     @box_title  = @page_title
     respond_to do |format|
       format.html { render page_template, layout: 'download' }
@@ -146,7 +146,7 @@ class DownloadController < ApplicationController
   end
 
 
-  def set_distro_flavor distro
+  def set_distro_flavor(distro)
     case distro
     when /^(DISCONTINUED:)?openSUSE:/
       'openSUSE'
@@ -187,7 +187,7 @@ class DownloadController < ApplicationController
     end
   end
 
-  def get_image_type filename
+  def get_image_type(filename)
     case filename
     when /raw\.bz2$/, /raw\.tar\.bz2$/
       'Raw'
@@ -220,7 +220,7 @@ class DownloadController < ApplicationController
     end
   end
 
-  def valid_color? color
+  def valid_color?(color)
     color =~ /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
   end
 

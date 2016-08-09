@@ -105,15 +105,15 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def valid_package_name? name
+  def valid_package_name?(name)
     name =~ /^[[:alnum:]][-+\w\.:\@]*$/
   end
 
-  def valid_pattern_name? name
+  def valid_pattern_name?(name)
     name =~ /^[[:alnum:]][-_+\w\.:]*$/
   end
 
-  def valid_project_name? name
+  def valid_project_name?(name)
     name =~ /^[[:alnum:]][-+\w.:]+$/
   end
 

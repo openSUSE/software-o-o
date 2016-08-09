@@ -1,6 +1,6 @@
 module PackageHelper
   
-  def human_arch arch
+  def human_arch(arch)
     case arch
     when ( "i586" ) then 
       "32 Bit"
@@ -23,7 +23,7 @@ module PackageHelper
     text.length > chars ? text[0,chars-2] + "..." : text
   end
 
-  def prepare_desc txt
+  def prepare_desc(txt)
     txt = txt.gsub(/[\n][\n]+/, "\n\n")
     txt = create_links txt
     txt = txt.sub(/Authors[:]?[\w\W]+/, "")

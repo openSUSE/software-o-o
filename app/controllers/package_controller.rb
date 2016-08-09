@@ -103,7 +103,7 @@ class PackageController < ApplicationController
 
   private
 
-  def image pkgname, type, image_url
+  def image(pkgname, type, image_url)
     response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
     response.headers['Content-Disposition'] = 'inline'
     screenshot = Screenshot.new(pkgname, image_url)

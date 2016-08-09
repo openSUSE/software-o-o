@@ -14,7 +14,7 @@ module ApplicationHelper
     @@theme_prefix
   end
 
-  def time_diff time
+  def time_diff(time)
     Time.now - Time.parse(time)
   end
 
@@ -35,13 +35,13 @@ module ApplicationHelper
     return diff.to_s + " years ago"
   end
 
-  def escape_for_id string
+  def escape_for_id(string)
     string.gsub(/[.:]/, "_")
   end
 
   # TODO: released projects don't give info over the api... (bnc#749828)
   # so we search one from the other projects...
-  def search_for_description pkgname, packages = []
+  def search_for_description(pkgname, packages = [])
     cache_key = "description_package_#{pkgname.downcase}"
     description_package =  Rails.cache.fetch(cache_key, expires_in: 12.hours) do
       if packages.blank?

@@ -2,7 +2,7 @@ require 'open-uri'
 
 class Appdata
 
-  def self.get dist="factory"
+  def self.get(dist="factory")
     data = Hash.new
     xml = Appdata.get_distribution dist, "oss"
     data = add_appdata data, xml
@@ -14,7 +14,7 @@ class Appdata
 
   private
 
-  def self.add_appdata data, xml
+  def self.add_appdata(data, xml)
     data[:apps] = Array.new unless data[:apps]
     data[:categories] = Array.new unless data[:categories]
       xml.xpath("/components/component").each do |app|
@@ -35,7 +35,7 @@ class Appdata
 
 
   # Get the appdata xml for a distribution
-  def self.get_distribution dist="factory", flavour="oss"
+  def self.get_distribution(dist="factory", flavour="oss")
     if dist == "factory"
       appdata_regex = /appdata-\S{32}.xml.gz/
       tumbleweed_contents = open("http://download.opensuse.org/tumbleweed/repo/#{flavour}/content") {|f| f.read }
