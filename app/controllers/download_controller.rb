@@ -16,7 +16,7 @@ class DownloadController < ApplicationController
     @data = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
       api_result_images = ApiConnect::get("/published/#{@project}/images")
       # api_result_iso = ApiConnect::get("/published/#{@project}/images/iso")
-      xpath = "/directory/entry"
+      xpath = '/directory/entry'
       if api_result_images
         doc = REXML::Document.new api_result_images.body
         data = Hash.new 
@@ -33,7 +33,7 @@ class DownloadController < ApplicationController
       end
     end
     set_flavours
-    @page_title = _("Download appliance from %s") % [@project]
+    @page_title = _('Download appliance from %s') % [@project]
     render_page :appliance
   end
 
@@ -48,7 +48,7 @@ class DownloadController < ApplicationController
     cache_key = "soo_download_#{@project}_#{@package}"
     @data = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
       api_result = ApiConnect::get("/search/published/binary/id?match=project='#{escaped_prj}'+and+name='#{escaped_pkg}'")
-      xpath = "/collection/binary"
+      xpath = '/collection/binary'
       if api_result
         doc = REXML::Document.new api_result.body
         data = Hash.new
@@ -75,7 +75,7 @@ class DownloadController < ApplicationController
       end
     end
     set_flavours
-    @page_title = _("Install package %s / %s") % [@project, @package]
+    @page_title = _('Install package %s / %s') % [@project, @package]
     render_page :package
   end
 
@@ -93,7 +93,7 @@ class DownloadController < ApplicationController
       # TODO: workaround - the line above does not return a thing - see http://lists.opensuse.org/opensuse-buildservice/2011-07/msg00088.html
       # so we search for all files of the project and filter for *.ymp below
       api_result = ApiConnect::get("/search/published/pattern/id?match=project='#{@project}'")
-      xpath = "/collection/pattern"
+      xpath = '/collection/pattern'
       # logger.debug doc
 
       if api_result
@@ -120,7 +120,7 @@ class DownloadController < ApplicationController
       end
     end
     set_flavours
-    @page_title = _("Install pattern %s / %s") % [@project, @pattern]
+    @page_title = _('Install pattern %s / %s') % [@project, @pattern]
     render_page :package
   end
 
@@ -203,19 +203,19 @@ class DownloadController < ApplicationController
 
   def set_colors
     if params[:acolor]
-      raise "Invalid acolor value (has to be 000-fff or 000000-ffffff)" unless valid_color? params[:acolor]
+      raise 'Invalid acolor value (has to be 000-fff or 000000-ffffff)' unless valid_color? params[:acolor]
       @acolor = '#' + params[:acolor]
     end
     if params[:bcolor]
-      raise "Invalid bcolor value (has to be 000-fff or 000000-ffffff)" unless valid_color? params[:bcolor]
+      raise 'Invalid bcolor value (has to be 000-fff or 000000-ffffff)' unless valid_color? params[:bcolor]
       @bcolor = '#' + params[:bcolor]
     end
     if params[:fcolor]
-      raise "Invalid fcolor value (has to be 000-fff or 000000-ffffff)" unless valid_color? params[:fcolor]
+      raise 'Invalid fcolor value (has to be 000-fff or 000000-ffffff)' unless valid_color? params[:fcolor]
       @fcolor = '#' + params[:fcolor]
     end
     if params[:hcolor]
-      raise "Invalid hcolor value (has to be 000-fff or 000000-ffffff)" unless valid_color? params[:hcolor]
+      raise 'Invalid hcolor value (has to be 000-fff or 000000-ffffff)' unless valid_color? params[:hcolor]
       @hcolor = '#' + params[:hcolor]
     end
   end

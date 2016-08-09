@@ -28,7 +28,7 @@ class ApiConnect
         if limit
           get(response['location'], limit - 1)
         else
-          raise Error.new "Recursive redirect"
+          raise Error.new 'Recursive redirect'
         end
       else
         raise Error.new "Response was: #{response} #{response.body}"

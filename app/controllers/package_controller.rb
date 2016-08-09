@@ -9,14 +9,14 @@ class PackageController < ApplicationController
   def show
     required_parameters :package
     @pkgname = params[:package]
-    raise MissingParameterError, "Invalid parameter package" unless valid_package_name? @pkgname
+    raise MissingParameterError, 'Invalid parameter package' unless valid_package_name? @pkgname
 
     @search_term = params[:search_term]
-    @base_appdata_project = "openSUSE:Factory"
+    @base_appdata_project = 'openSUSE:Factory'
 
     @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
     # only show rpms
-    @packages = @packages.select { |p| p.first.type != 'ymp' && p.quality != "Private" }
+    @packages = @packages.select { |p| p.first.type != 'ymp' && p.quality != 'Private' }
     @default_project = @baseproject || view_context.default_baseproject
     @default_project_name = @distributions.select { |d| d[:project] == @default_project }.first[:name]
     @default_repo = @distributions.select { |d| d[:project] == @default_project }.first[:repository]
@@ -42,20 +42,20 @@ class PackageController < ApplicationController
 
     @packages.each do |package|
 
-      if ( package.repository.match(/Tumbleweed/) || (package.project == "openSUSE:Tumbleweed") )
-        package.baseproject = "openSUSE:Tumbleweed"
+      if ( package.repository.match(/Tumbleweed/) || (package.project == 'openSUSE:Tumbleweed') )
+        package.baseproject = 'openSUSE:Tumbleweed'
       elsif ( package.project.match( /openSUSE:Evergreen/ ) )
         package.baseproject = package.project
       elsif ( package.repository.match( /^Factory$/i ) )
-        package.baseproject = "openSUSE:Factory"
+        package.baseproject = 'openSUSE:Factory'
       elsif ( package.repository.match( /^\d{2}\.\d$/ ) )
-        package.baseproject = "openSUSE:" + package.repository
+        package.baseproject = 'openSUSE:' + package.repository
       elsif ( !(@distributions.map { |d| d[:reponame] }.include? package.repository) &&
-            (package.repository != "standard") &&
-            (package.repository != "snapshot") &&
+            (package.repository != 'standard') &&
+            (package.repository != 'snapshot') &&
             (!package.repository.match(/_Update$/)) )
         logger.info("Found non-std repo: #{package.repository}")
-        package.baseproject = package.repository.gsub("_", ":")
+        package.baseproject = package.repository.gsub('_', ':')
       end
     end
 
@@ -74,7 +74,7 @@ class PackageController < ApplicationController
   def category
     required_parameters :category
     @category = params[:category]
-    raise MissingParameterError, "Invalid parameter category" unless valid_package_name? @category
+    raise MissingParameterError, 'Invalid parameter category' unless valid_package_name? @category
 
     mapping = @main_sections.select { |s| s[:id].downcase == @category.downcase }
     categories = ( mapping.blank? ? [@category] : mapping.first[:categories] )
@@ -85,7 +85,7 @@ class PackageController < ApplicationController
     app_categories = app_pkgs.map { |p| p[:categories] }.flatten
     @related_categories = app_categories.uniq.map { |c| { name: c, weight: app_categories.select { |v| v == c }.size } }
     @related_categories = @related_categories.sort_by { |c| c[:weight] }.reverse.reject { |c| categories.include? c[:name] }
-    @related_categories = @related_categories.reject { |c| ["GNOME", "KDE", "Qt", "GTK"].include? c[:name] }
+    @related_categories = @related_categories.reject { |c| ['GNOME', 'KDE', 'Qt', 'GTK'].include? c[:name] }
 
     render 'search/find'
   end
@@ -93,12 +93,12 @@ class PackageController < ApplicationController
 
   def screenshot
     required_parameters :package
-    image params[:package], "screenshot", params[:appscreen]
+    image params[:package], 'screenshot', params[:appscreen]
   end
 
   def thumbnail
     required_parameters :package
-    image params[:package], "thumbnail", params[:appscreen]
+    image params[:package], 'thumbnail', params[:appscreen]
   end
 
   private
@@ -113,12 +113,12 @@ class PackageController < ApplicationController
 
   def set_categories
     @main_sections = [
-      { name: "Games", id: "Games", categories: ["Game"] },
-      { name: "Education & Science", id: "Education", categories: ["Education", "Science"] },
-      { name: "Development", id: "Development", categories: ["Development"] },
-      { name: "Office & Productivity", id: "Office", categories: ["Office"] },
-      { name: "Tools", id: "Tools", categories: [ "Network", "Settings", "System", "Utility"] },
-      { name: "Multimedia", id: "Multimedia", categories: ["AudioVideo", "Audio", "Video", "Graphics"] },
+      { name: 'Games', id: 'Games', categories: ['Game'] },
+      { name: 'Education & Science', id: 'Education', categories: ['Education', 'Science'] },
+      { name: 'Development', id: 'Development', categories: ['Development'] },
+      { name: 'Office & Productivity', id: 'Office', categories: ['Office'] },
+      { name: 'Tools', id: 'Tools', categories: [ 'Network', 'Settings', 'System', 'Utility'] },
+      { name: 'Multimedia', id: 'Multimedia', categories: ['AudioVideo', 'Audio', 'Video', 'Graphics'] },
     ]
   end
 

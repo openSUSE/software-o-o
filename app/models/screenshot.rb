@@ -3,7 +3,7 @@ require 'mini_magick'
 
 # Class to cache and resize the screenshot of a given package
 class Screenshot
-  THUMBNAIL_WIDTH = "160"
+  THUMBNAIL_WIDTH = '160'
 
   # @return [String] name of the package
   attr_reader :pkg_name
@@ -42,7 +42,7 @@ class Screenshot
       # And also there is a chance of exception generating the thumbnail
       rescue Exception => e
         raise unless Rails.env.production?
-        Rails.logger.debug("No screenshot fetched for: " + pkg_name)
+        Rails.logger.debug('No screenshot fetched for: ' + pkg_name)
         default_file_path(:thumbnail, fullpath: false)
       end
     else
@@ -72,7 +72,7 @@ class Screenshot
       # And also there is a chance of exception generating the thumbnail
       rescue Exception => e
         raise unless Rails.env.production?
-        Rails.logger.debug("No screenshot fetched (blob) for: " + pkg_name)
+        Rails.logger.debug('No screenshot fetched (blob) for: ' + pkg_name)
         default_blob(type)
       end
     end
@@ -86,14 +86,14 @@ class Screenshot
 
   def cached_blob(type)
     if type == :thumbnail
-      open(thumbnail_file_path, "rb", &:read)
+      open(thumbnail_file_path, 'rb', &:read)
     else
       Rails.cache.read(cache_key)
     end
   end
 
   def default_blob(type)
-    open(default_file_path(type), "rb", &:read)
+    open(default_file_path(type), 'rb', &:read)
   end
 
   def cache_key
@@ -108,7 +108,7 @@ class Screenshot
 
   def fetch
     Rails.logger.debug("Fetching screenshot from #{source_url}")
-    content = open(source_url, "rb", read_timeout: 6)
+    content = open(source_url, 'rb', read_timeout: 6)
     generate_thumbnail(content)
     Rails.cache.write(cache_key, content.read)
   ensure
@@ -117,46 +117,46 @@ class Screenshot
 
   def thumbnail_file_path(fullpath: true)
     file = "thumbnails/#{pkg_name}.png"
-    fullpath ? File.join( Rails.root, "public", "images", file) : file
+    fullpath ? File.join( Rails.root, 'public', 'images', file) : file
   end
 
   def default_file_path(type, fullpath: true)
     file = case pkg_name
            when /-devel$/
-             "file_settings.png"
+             'file_settings.png'
            when /-devel-/
-             "file_settings.png"
+             'file_settings.png'
            when /-lang$/
-             "file_settings.png"
+             'file_settings.png'
            when /-debug$/
-             "file_settings.png"
+             'file_settings.png'
            when /-doc$/
-             "files.png"
+             'files.png'
            when /-help-/
-             "files.png"
+             'files.png'
            when /-javadoc$/
-             "files.png"
+             'files.png'
            when /-debuginfo/
-             "file_settings.png"
+             'file_settings.png'
            when /-debugsource/
-             "file_settings.png"
+             'file_settings.png'
            when /-kmp-/
-             "file_settings.png"
+             'file_settings.png'
            when /^rubygem-/
-             "rubygem.png"
+             'rubygem.png'
            when /^perl-/
-             "perl.png"
+             'perl.png'
            when /^python-/
-             "python.png"
+             'python.png'
            when /^kernel-/
-             "tux.png"
+             'tux.png'
            when /^openstack-/i
-             "openstack.png"
+             'openstack.png'
            else
-             type == :thumbnail ? "no_screenshot_opensuse.png" : "no_screenshot_opensuse_big.png"
+             type == :thumbnail ? 'no_screenshot_opensuse.png' : 'no_screenshot_opensuse_big.png'
            end
     if fullpath
-      File.join(Rails.root, "app/assets/images/default-screenshots", file)
+      File.join(Rails.root, 'app/assets/images/default-screenshots', file)
     else
       "default-screenshots/#{file}"
     end

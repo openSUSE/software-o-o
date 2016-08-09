@@ -18,30 +18,30 @@ class Seeker < ActiveXML::Node
 
   class SearchResult < Array
     def self.search(query, baseproject, project = nil, exclude_filter = nil, exclude_debug = false)
-      words = query.split(" ").select { |part| !part.match(/^[0-9_\.-]+$/) }
-      versrel = query.split(" ").select { |part| part.match(/^[0-9_\.-]+$/) }
+      words = query.split(' ').select { |part| !part.match(/^[0-9_\.-]+$/) }
+      versrel = query.split(' ').select { |part| part.match(/^[0-9_\.-]+$/) }
       logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
-      raise InvalidSearchTerm.new "Please provide a valid search term" if words.blank? && project.blank?
+      raise InvalidSearchTerm.new 'Please provide a valid search term' if words.blank? && project.blank?
 
       xpath_items = Array.new
       xpath_items << "@project = '#{project}' " unless project.blank?
-      substring_words = words.select { |word| !word.match(/^".+"$/) }.map { |word| "'#{word.gsub(/['"()]/, "")}'" }.join(", ")
+      substring_words = words.select { |word| !word.match(/^".+"$/) }.map { |word| "'#{word.gsub(/['"()]/, "")}'" }.join(', ')
       unless ( substring_words.blank? )
-        xpath_items << "contains-ic(@name, " + substring_words + ")"
+        xpath_items << 'contains-ic(@name, ' + substring_words + ')'
       end
-      words.select { |word| word.match(/^".+"$/) }.map { |word| word.gsub( "\"", "" ) }.each do |word|
+      words.select { |word| word.match(/^".+"$/) }.map { |word| word.gsub( '"', '' ) }.each do |word|
         xpath_items << "@name = '#{word.gsub(/['"()]/, "")}' "
       end
       xpath_items <<  "path/project='#{baseproject}'" unless baseproject.blank?
       xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" if (!exclude_filter.blank? && project.blank?)
-      xpath_items << versrel.map { |part| "starts-with(@versrel,'#{part}')" }.join(" and ") unless versrel.blank?
+      xpath_items << versrel.map { |part| "starts-with(@versrel,'#{part}')" }.join(' and ') unless versrel.blank?
       xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " + 
                      "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))" if exclude_debug
       xpath = xpath_items.join(' and ')
 
       bin = Seeker.find :binary, match: xpath
       # pat = Seeker.find :pattern, :match => xpath
-      raise "Backend not responding" if( bin.nil? )
+      raise 'Backend not responding' if( bin.nil? )
 
       result = new(query)
       # result.add_patlist(pat)
@@ -130,11 +130,11 @@ class Seeker < ActiveXML::Node
     end
 
     def dump
-      out = "<ul>"
+      out = '<ul>'
       each do |item|
         out << "<li>#{item.key} #{item.dump}</li>"
       end
-      out << "</ul>"
+      out << '</ul>'
     end
 
     class Item < Array
@@ -174,7 +174,7 @@ class Seeker < ActiveXML::Node
         each do |bin|
           out << "<li>#{bin.filename} #{bin.dump}</li>"
         end
-        out << "</ul>"
+        out << '</ul>'
         return out
       end
 
@@ -250,7 +250,7 @@ class Seeker < ActiveXML::Node
 
       def load_extra_data
         unless @description
-          @description = ""
+          @description = ''
           bin = self[0]
           begin
             info = ::Published.find_cached bin.filename, view: :fileinfo, project: @project,
@@ -313,7 +313,7 @@ class Seeker < ActiveXML::Node
             attribute: 'OBS:QualityCategory', expires_in: 12.hours
           @quality = quality_xml.attribute.text.strip unless quality_xml.nil? || quality_xml.attribute.nil?
         end
-        @quality = "" unless @quality
+        @quality = '' unless @quality
         @quality
       end
       
@@ -338,9 +338,9 @@ class Seeker < ActiveXML::Node
       end
 
       def description
-        cache_key = "desc_pat_" + @filename + "_" + @project + "_" + @repository
+        cache_key = 'desc_pat_' + @filename + '_' + @project + '_' + @repository
         Rails.cache.fetch(cache_key, expires_in: 6.hours) do
-          @description = ""
+          @description = ''
           begin
             pat = ::Published.find @filename, project: @project, repository: @repository, view: :fileinfo
             @description = pat.description.to_s if pat.has_element? :description
@@ -362,15 +362,15 @@ class Seeker < ActiveXML::Node
       end
 
       def __key
-        @__key ||= @fragment_type.to_s+"|"+%w(project repository name).map { |x| self[x] }.join('|')
+        @__key ||= @fragment_type.to_s+'|'+%w(project repository name).map { |x| self[x] }.join('|')
       end
 
       def dump
-        out = "<ul>"
+        out = '<ul>'
         each do |key,val|
           out << "<li><b>#{key}:</b> #{val}</li>x"
         end
-        out << "</ul>"
+        out << '</ul>'
         return out
       end
 

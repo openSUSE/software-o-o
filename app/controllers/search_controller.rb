@@ -6,19 +6,19 @@ class SearchController < ApplicationController
   def searchresult
     render 'find' and return if @search_term.blank?
 
-    base = (@baseproject == "ALL") ? "" : @baseproject
+    base = (@baseproject == 'ALL') ? '' : @baseproject
 
     # if we have a baseproject, and don't show unsupported packages, shortcut: '
-    if !@baseproject.blank? && !(@baseproject == "ALL") && !@search_unsupported && !@search_project
+    if !@baseproject.blank? && !(@baseproject == 'ALL') && !@search_unsupported && !@search_project
       @search_project = @baseproject
     end
 
     begin
       @packages = Seeker.prepare_result("#{@search_term}", base, @search_project, @exclude_filter, @exclude_debug)
     rescue ActiveXML::Transport::Error => e
-      if e.code.to_s == "413"
+      if e.code.to_s == '413'
         logger.debug("Too many hits, trying exact match for: #{@search_term}")
-        @search_term = @search_term.split(" ").map { |x| "\"#{CGI.escape(x)}\"" }.join(" ")
+        @search_term = @search_term.split(' ').map { |x| "\"#{CGI.escape(x)}\"" }.join(' ')
         @packages = Seeker.prepare_result("#{@search_term}", base, @search_project, @exclude_filter, @exclude_debug)
       end
       raise e if @packages.nil?

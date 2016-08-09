@@ -4,15 +4,15 @@ class OrderController < ApplicationController
 
   def list
     # @orders = Order.find :all, :limit => 200, :order => "created_at DESC"
-    redirect_to action: "index"
+    redirect_to action: 'index'
   end
 
   def index
-    redirect_to action: "new"
+    redirect_to action: 'new'
   end
 
   def show
-    redirect_to action: "new"
+    redirect_to action: 'new'
   end
 
   def pause
@@ -30,7 +30,7 @@ class OrderController < ApplicationController
         :company, :street2, :county, :material)
     if @order.save
       Promomailer.promo_order(@order).deliver
-      redirect_to "/order/thanks" and return
+      redirect_to '/order/thanks' and return
     else
       flash.now[:error] = "Your submission could not be processed, please fix the problems listed below: \n"
       flash.now[:error] += @order.errors.full_messages.join("\n")

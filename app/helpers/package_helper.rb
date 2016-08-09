@@ -2,31 +2,31 @@ module PackageHelper
   
   def human_arch(arch)
     case arch
-    when ( "i586" ) then 
-      "32 Bit"
-    when ( "i386" ) then
-      "32 Bit"
-    when ("x86_64") then 
-      "64 Bit"
-    when ("amd64") then
-      "64 Bit"
-    when ("src") then 
-      _("Source")
-    when ("nosrc") then
-      _("Source")
+    when ( 'i586' ) then 
+      '32 Bit'
+    when ( 'i386' ) then
+      '32 Bit'
+    when ('x86_64') then 
+      '64 Bit'
+    when ('amd64') then
+      '64 Bit'
+    when ('src') then 
+      _('Source')
+    when ('nosrc') then
+      _('Source')
     else
       arch
     end
   end
 
   def shorten(text, chars)
-    text.length > chars ? text[0,chars-2] + "..." : text
+    text.length > chars ? text[0,chars-2] + '...' : text
   end
 
   def prepare_desc(txt)
     txt = txt.gsub(/[\n][\n]+/, "\n\n")
     txt = create_links txt
-    txt = txt.sub(/Authors[:]?[\w\W]+/, "")
+    txt = txt.sub(/Authors[:]?[\w\W]+/, '')
     txt
   end
 

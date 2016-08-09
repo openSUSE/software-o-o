@@ -10,8 +10,8 @@ class MissingCodec
   end
   
   def display_framework
-    if framework == "gstreamer"
-      return "GStreamer"
+    if framework == 'gstreamer'
+      return 'GStreamer'
     else
       return framework.titlecase
     end
