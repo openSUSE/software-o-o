@@ -29,7 +29,7 @@ class Appdata
       data[:apps] << appdata
     end
     data[:categories] += xml.xpath("/components/component/categories/category")
-      .map{|cat| cat.text}.reject{|c| c.match(/^X-/)}.uniq
+                            .map{|cat| cat.text}.reject{|c| c.match(/^X-/)}.uniq
     data
   end
 
