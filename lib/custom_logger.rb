@@ -1,4 +1,4 @@
-#defines a custom formatter for all log messages
+# defines a custom formatter for all log messages
 
 class NiceLogger < Logger
 

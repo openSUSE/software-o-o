@@ -3,7 +3,7 @@ class OrderController < ApplicationController
   respond_to :html, :json
 
   def list
-    #@orders = Order.find :all, :limit => 200, :order => "created_at DESC"
+    # @orders = Order.find :all, :limit => 200, :order => "created_at DESC"
     redirect_to action: "index"
   end
 
@@ -21,7 +21,7 @@ class OrderController < ApplicationController
   def new
     @order = Order.new
     respond_with(@order)
-    #redirect_to :action => "pause"
+    # redirect_to :action => "pause"
   end
   
   def create

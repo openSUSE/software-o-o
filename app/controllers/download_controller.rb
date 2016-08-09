@@ -15,7 +15,7 @@ class DownloadController < ApplicationController
     cache_key = "soo_download_appliances_#{@project}"
     @data = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
       api_result_images = ApiConnect::get("/published/#{@project}/images")
-      #api_result_iso = ApiConnect::get("/published/#{@project}/images/iso")
+      # api_result_iso = ApiConnect::get("/published/#{@project}/images/iso")
       xpath = "/directory/entry"
       if api_result_images
         doc = REXML::Document.new api_result_images.body
@@ -94,7 +94,7 @@ class DownloadController < ApplicationController
       # so we search for all files of the project and filter for *.ymp below
       api_result = ApiConnect::get("/search/published/pattern/id?match=project='#{@project}'")
       xpath = "/collection/pattern"
-      #logger.debug doc
+      # logger.debug doc
 
       if api_result
         doc = REXML::Document.new api_result.body

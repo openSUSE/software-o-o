@@ -1,6 +1,6 @@
 class PackageController < ApplicationController
 
-  #before_filter :set_beta_warning, :only => [:category, :categories]
+  # before_filter :set_beta_warning, :only => [:category, :categories]
   before_filter :set_search_options, only: [:show, :categories]
   before_filter :prepare_appdata, :set_categories, only: [:show, :categories, :category]
 
@@ -60,7 +60,7 @@ class PackageController < ApplicationController
     end
 
     @official_projects = @distributions.map{|d| d[:project]}
-    #get extra distributions that are not in the default distribution list
+    # get extra distributions that are not in the default distribution list
     @extra_packages = @packages.reject{|p| @distributions.map{|d| d[:project]}.include? p.baseproject }
     @extra_dists = @extra_packages.map{|p| p.baseproject}.reject{|d| d.nil?}.uniq.map{|d| {project: d}}
 
