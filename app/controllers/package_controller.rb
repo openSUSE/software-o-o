@@ -62,7 +62,7 @@ class PackageController < ApplicationController
     @official_projects = @distributions.map { |d| d[:project] }
     # get extra distributions that are not in the default distribution list
     @extra_packages = @packages.reject { |p| @distributions.map { |d| d[:project] }.include? p.baseproject }
-    @extra_dists = @extra_packages.map { |p| p.baseproject }.reject { |d| d.nil? }.uniq.map { |d| {project: d} }
+    @extra_dists = @extra_packages.map { |p| p.baseproject }.reject { |d| d.nil? }.uniq.map { |d| { project: d } }
 
   end
 
@@ -83,7 +83,7 @@ class PackageController < ApplicationController
     @packagenames = app_pkgs.map { |p| p[:pkgname] }.uniq.sort_by { |x| @appdata[:apps].select { |a| a[:pkgname] == x }.first[:name] }
 
     app_categories = app_pkgs.map { |p| p[:categories] }.flatten
-    @related_categories = app_categories.uniq.map { |c| {name: c, weight: app_categories.select { |v| v == c }.size } }
+    @related_categories = app_categories.uniq.map { |c| { name: c, weight: app_categories.select { |v| v == c }.size } }
     @related_categories = @related_categories.sort_by { |c| c[:weight] }.reverse.reject { |c| categories.include? c[:name] }
     @related_categories = @related_categories.reject { |c| ["GNOME", "KDE", "Qt", "GTK"].include? c[:name] }
 
@@ -113,12 +113,12 @@ class PackageController < ApplicationController
 
   def set_categories
     @main_sections = [
-      {name: "Games", id: "Games", categories: ["Game"]},
-      {name: "Education & Science", id: "Education", categories: ["Education", "Science"]},
-      {name: "Development", id: "Development", categories: ["Development"]},
-      {name: "Office & Productivity", id: "Office", categories: ["Office"]},
-      {name: "Tools", id: "Tools", categories: [ "Network", "Settings", "System", "Utility"]},
-      {name: "Multimedia", id: "Multimedia", categories: ["AudioVideo", "Audio", "Video", "Graphics"]},
+      { name: "Games", id: "Games", categories: ["Game"] },
+      { name: "Education & Science", id: "Education", categories: ["Education", "Science"] },
+      { name: "Development", id: "Development", categories: ["Development"] },
+      { name: "Office & Productivity", id: "Office", categories: ["Office"] },
+      { name: "Tools", id: "Tools", categories: [ "Network", "Settings", "System", "Utility"] },
+      { name: "Multimedia", id: "Multimedia", categories: ["AudioVideo", "Audio", "Video", "Graphics"] },
     ]
   end
 

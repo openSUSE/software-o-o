@@ -20,7 +20,7 @@ module ActiveXML
         rescue TypeError
           Rails.logger.error "Couldn't parse error xml: #{self.message[0..120]}"
         end
-	@xml ||= {'summary' => self.message[0..120], 'code' => '500'}
+	@xml ||= { 'summary' => self.message[0..120], 'code' => '500' }
       end
 
       def api_exception
@@ -71,7 +71,7 @@ module ActiveXML
       uri = URI( target )
       replace_server_if_needed( uri )
       # logger.debug "setting up transport for model #{model}: #{uri} opts: #{opt}"
-      @mapping[model] = {target_uri: uri, opt: opt}
+      @mapping[model] = { target_uri: uri, opt: opt }
     end
 
     def replace_server_if_needed( uri )
@@ -96,7 +96,7 @@ module ActiveXML
       @host = host
       @port = port
       @default_servers ||= Hash.new
-      @http_header = {"Content-Type" => "text/plain", 'Accept-Encoding' => 'identity'}
+      @http_header = { "Content-Type" => "text/plain", 'Accept-Encoding' => 'identity' }
       # stores mapping information
       # key: symbolified model name
       # value: hash with keys :target_uri and :opt (arguments to connect method)
@@ -210,7 +210,7 @@ module ActiveXML
 
     # TODO: get rid of this very thin wrapper
     def direct_http( url, opt = {} )
-      defaults = {method: "GET"}
+      defaults = { method: "GET" }
       opt = defaults.merge opt
 
       logger.debug "--> direct_http url: #{url.inspect}"
@@ -282,7 +282,7 @@ module ActiveXML
     def http_do( method, url, opt = {} )
       # protect two http transactions happening at the same time - we're not thread safe here
       @mutex.lock
-      defaults = {timeout: 60}
+      defaults = { timeout: 60 }
       opt = defaults.merge opt
       max_retries = 1
 
