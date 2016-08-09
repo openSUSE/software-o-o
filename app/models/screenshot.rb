@@ -122,39 +122,39 @@ protected
 
   def default_file_path(type, fullpath: true)
     file = case pkg_name
-    when /-devel$/
-      "file_settings.png"
-    when /-devel-/
-      "file_settings.png"
-    when /-lang$/
-      "file_settings.png"
-    when /-debug$/
-      "file_settings.png"
-    when /-doc$/
-      "files.png"
-    when /-help-/
-      "files.png"
-    when /-javadoc$/
-      "files.png"
-    when /-debuginfo/
-      "file_settings.png"
-    when /-debugsource/
-      "file_settings.png"
-    when /-kmp-/
-      "file_settings.png"
-    when /^rubygem-/
-      "rubygem.png"
-    when /^perl-/
-      "perl.png"
-    when /^python-/
-      "python.png"
-    when /^kernel-/
-      "tux.png"
-    when /^openstack-/i
-      "openstack.png"
-    else
-      type == :thumbnail ? "no_screenshot_opensuse.png" : "no_screenshot_opensuse_big.png"
-    end
+           when /-devel$/
+             "file_settings.png"
+           when /-devel-/
+             "file_settings.png"
+           when /-lang$/
+             "file_settings.png"
+           when /-debug$/
+             "file_settings.png"
+           when /-doc$/
+             "files.png"
+           when /-help-/
+             "files.png"
+           when /-javadoc$/
+             "files.png"
+           when /-debuginfo/
+             "file_settings.png"
+           when /-debugsource/
+             "file_settings.png"
+           when /-kmp-/
+             "file_settings.png"
+           when /^rubygem-/
+             "rubygem.png"
+           when /^perl-/
+             "perl.png"
+           when /^python-/
+             "python.png"
+           when /^kernel-/
+             "tux.png"
+           when /^openstack-/i
+             "openstack.png"
+           else
+             type == :thumbnail ? "no_screenshot_opensuse.png" : "no_screenshot_opensuse_big.png"
+           end
     if fullpath
       File.join(Rails.root, "app/assets/images/default-screenshots", file)
     else
