@@ -27,7 +27,7 @@ class SearchController < ApplicationController
     # filter out devel projects on user setting
     unless (@search_unsupported || @search_project)
       @packages = @packages.select { |p| (@distributions.map { |d| d[:project] }.include? p.project) ||
-          @distributions.map { |d| "#{d[:project]}:Update" }.include?(p.project) || @distributions.map { |d| "#{d[:project]}:NonFree" }.include?(p.project) }
+        @distributions.map { |d| "#{d[:project]}:Update" }.include?(p.project) || @distributions.map { |d| "#{d[:project]}:NonFree" }.include?(p.project) }
     end
 
     # only show packages
