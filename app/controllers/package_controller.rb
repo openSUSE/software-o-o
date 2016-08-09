@@ -10,7 +10,7 @@ class PackageController < ApplicationController
     required_parameters :package
     @pkgname = params[:package]
     raise MissingParameterError, "Invalid parameter package" unless valid_package_name? @pkgname
-    
+
     @search_term = params[:search_term]
     @base_appdata_project = "openSUSE:Factory"
 
@@ -20,11 +20,11 @@ class PackageController < ApplicationController
     @default_project = @baseproject || view_context.default_baseproject
     @default_project_name = @distributions.select{|d| d[:project] == @default_project}.first[:name]
     @default_repo = @distributions.select{|d| d[:project] == @default_project}.first[:repository]
-    if (@packages.select{|s| s.project == "#{@default_project}:Update"}.size >0)
-      @default_package = @packages.select{|s| s.project == "#{@default_project}:Update"}.first
-    else
-      @default_package = @packages.select{|s| [@default_project, "#{@default_project}:NonFree"].include? s.project}.first
-    end
+    @default_package = if (@packages.select{|s| s.project == "#{@default_project}:Update"}.size >0)
+                         @packages.select{|s| s.project == "#{@default_project}:Update"}.first
+                       else
+                         @default_package = @packages.select{|s| [@default_project, "#{@default_project}:NonFree"].include? s.project}.first
+                       end
 
     pkg_appdata = @appdata[:apps].select{|app| app[:pkgname].downcase == @pkgname.downcase}
     if ( !pkg_appdata.first.blank? )
@@ -102,7 +102,7 @@ class PackageController < ApplicationController
   end
 
   private
-  
+
   def image pkgname, type, image_url
     response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
     response.headers['Content-Disposition'] = 'inline'
@@ -123,4 +123,3 @@ class PackageController < ApplicationController
   end
 
 end
- 
