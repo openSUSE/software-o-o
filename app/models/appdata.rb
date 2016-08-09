@@ -28,8 +28,8 @@ class Appdata
       appdata[:screenshots] = app.xpath('screenshots/screenshot/image').map{|s| s.text}
       data[:apps] << appdata
     end
-    data[:categories] += xml.xpath("/components/component/categories/category").
-      map{|cat| cat.text}.reject{|c| c.match(/^X-/)}.uniq
+    data[:categories] += xml.xpath("/components/component/categories/category")
+      .map{|cat| cat.text}.reject{|c| c.match(/^X-/)}.uniq
     data
   end
 
@@ -53,7 +53,7 @@ class Appdata
     filename = File.join( Rails.root.join('tmp'), "appdata-" + dist + ".xml" )
     File.open(zipfilename, "w+", :encoding => 'ascii-8bit') do |f|
       f.write(appdata.body) if appdata
-    end 
+    end
     `gunzip -f #{zipfilename}`
     xmlfile = File.open(filename)
     doc = Nokogiri::XML(xmlfile)
