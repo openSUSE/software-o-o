@@ -16,17 +16,17 @@ class PackageController < ApplicationController
 
     @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
     # only show rpms
-    @packages = @packages.select {|p| p.first.type != 'ymp' && p.quality != "Private"}
+    @packages = @packages.select { |p| p.first.type != 'ymp' && p.quality != "Private" }
     @default_project = @baseproject || view_context.default_baseproject
-    @default_project_name = @distributions.select {|d| d[:project] == @default_project}.first[:name]
-    @default_repo = @distributions.select {|d| d[:project] == @default_project}.first[:repository]
-    @default_package = if (@packages.select {|s| s.project == "#{@default_project}:Update"}.size >0)
-                         @packages.select {|s| s.project == "#{@default_project}:Update"}.first
+    @default_project_name = @distributions.select { |d| d[:project] == @default_project }.first[:name]
+    @default_repo = @distributions.select { |d| d[:project] == @default_project }.first[:repository]
+    @default_package = if (@packages.select { |s| s.project == "#{@default_project}:Update" }.size >0)
+                         @packages.select { |s| s.project == "#{@default_project}:Update" }.first
                        else
-                         @default_package = @packages.select {|s| [@default_project, "#{@default_project}:NonFree"].include? s.project}.first
+                         @default_package = @packages.select { |s| [@default_project, "#{@default_project}:NonFree"].include? s.project }.first
                        end
 
-    pkg_appdata = @appdata[:apps].select {|app| app[:pkgname].downcase == @pkgname.downcase}
+    pkg_appdata = @appdata[:apps].select { |app| app[:pkgname].downcase == @pkgname.downcase }
     if ( !pkg_appdata.first.blank? )
       @name = pkg_appdata.first[:name]
       @appcategories = pkg_appdata.first[:categories]
@@ -38,7 +38,7 @@ class PackageController < ApplicationController
     @thumbnail = url_for controller: :package, action: :thumbnail, package: @pkgname, appscreen: @appscreenshot
 
     # remove maintenance projects
-    @packages.reject! {|p| p.project.match(/openSUSE\:Maintenance\:/) }
+    @packages.reject! { |p| p.project.match(/openSUSE\:Maintenance\:/) }
 
     @packages.each do |package|
 
@@ -50,7 +50,7 @@ class PackageController < ApplicationController
         package.baseproject = "openSUSE:Factory"
       elsif ( package.repository.match( /^\d{2}\.\d$/ ) )
         package.baseproject = "openSUSE:" + package.repository
-      elsif ( !(@distributions.map {|d| d[:reponame]}.include? package.repository) &&
+      elsif ( !(@distributions.map { |d| d[:reponame] }.include? package.repository) &&
             (package.repository != "standard") &&
             (package.repository != "snapshot") &&
             (!package.repository.match(/_Update$/)) )
@@ -59,10 +59,10 @@ class PackageController < ApplicationController
       end
     end
 
-    @official_projects = @distributions.map {|d| d[:project]}
+    @official_projects = @distributions.map { |d| d[:project] }
     # get extra distributions that are not in the default distribution list
-    @extra_packages = @packages.reject {|p| @distributions.map {|d| d[:project]}.include? p.baseproject }
-    @extra_dists = @extra_packages.map {|p| p.baseproject}.reject {|d| d.nil?}.uniq.map {|d| {project: d}}
+    @extra_packages = @packages.reject { |p| @distributions.map { |d| d[:project] }.include? p.baseproject }
+    @extra_dists = @extra_packages.map { |p| p.baseproject }.reject { |d| d.nil? }.uniq.map { |d| {project: d} }
 
   end
 
@@ -76,16 +76,16 @@ class PackageController < ApplicationController
     @category = params[:category]
     raise MissingParameterError, "Invalid parameter category" unless valid_package_name? @category
 
-    mapping = @main_sections.select {|s| s[:id].downcase == @category.downcase }
+    mapping = @main_sections.select { |s| s[:id].downcase == @category.downcase }
     categories = ( mapping.blank? ? [@category] : mapping.first[:categories] )
 
-    app_pkgs = @appdata[:apps].select {|app| !( app[:categories].map {|c| c.downcase} & categories.map {|c| c.downcase} ).blank? }
-    @packagenames = app_pkgs.map {|p| p[:pkgname]}.uniq.sort_by {|x| @appdata[:apps].select {|a| a[:pkgname] == x}.first[:name] }
+    app_pkgs = @appdata[:apps].select { |app| !( app[:categories].map { |c| c.downcase } & categories.map { |c| c.downcase } ).blank? }
+    @packagenames = app_pkgs.map { |p| p[:pkgname] }.uniq.sort_by { |x| @appdata[:apps].select { |a| a[:pkgname] == x }.first[:name] }
 
-    app_categories = app_pkgs.map {|p| p[:categories]}.flatten
-    @related_categories = app_categories.uniq.map {|c| {name: c, weight: app_categories.select {|v| v == c }.size } }
-    @related_categories = @related_categories.sort_by { |c| c[:weight] }.reverse.reject {|c| categories.include? c[:name] }
-    @related_categories = @related_categories.reject {|c| ["GNOME", "KDE", "Qt", "GTK"].include? c[:name] }
+    app_categories = app_pkgs.map { |p| p[:categories] }.flatten
+    @related_categories = app_categories.uniq.map { |c| {name: c, weight: app_categories.select { |v| v == c }.size } }
+    @related_categories = @related_categories.sort_by { |c| c[:weight] }.reverse.reject { |c| categories.include? c[:name] }
+    @related_categories = @related_categories.reject { |c| ["GNOME", "KDE", "Qt", "GTK"].include? c[:name] }
 
     render 'search/find'
   end

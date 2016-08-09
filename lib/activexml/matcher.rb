@@ -37,7 +37,7 @@ module NodeMatcher #:nodoc:
     private
 
     def keys_to_strings(hash)
-      Hash[hash.keys.map {|k| [k.to_s, hash[k]]}]
+      Hash[hash.keys.map { |k| [k.to_s, hash[k]] }]
     end
 
     def keys_to_symbols(hash)

@@ -23,13 +23,13 @@ class Appdata
       appdata[:name] = app.xpath('name[not(@xml:lang)]').text
       appdata[:summary] = app.xpath('summary[not(@xml:lang)]').text
       appdata[:pkgname] = app.xpath('pkgname').text
-      appdata[:categories] = app.xpath('categories/category').map {|c| c.text}.reject {|c| c.match(/^X-/)}.uniq
+      appdata[:categories] = app.xpath('categories/category').map { |c| c.text }.reject { |c| c.match(/^X-/) }.uniq
       appdata[:homepage] = app.xpath('url').text
-      appdata[:screenshots] = app.xpath('screenshots/screenshot/image').map {|s| s.text}
+      appdata[:screenshots] = app.xpath('screenshots/screenshot/image').map { |s| s.text }
       data[:apps] << appdata
     end
     data[:categories] += xml.xpath("/components/component/categories/category")
-                            .map {|cat| cat.text}.reject {|c| c.match(/^X-/)}.uniq
+                            .map { |cat| cat.text }.reject { |c| c.match(/^X-/) }.uniq
     data
   end
 
@@ -38,7 +38,7 @@ class Appdata
   def self.get_distribution(dist = "factory", flavour = "oss")
     if dist == "factory"
       appdata_regex = /appdata-\S{32}.xml.gz/
-      tumbleweed_contents = open("http://download.opensuse.org/tumbleweed/repo/#{flavour}/content") {|f| f.read }
+      tumbleweed_contents = open("http://download.opensuse.org/tumbleweed/repo/#{flavour}/content") { |f| f.read }
       appdata_filename = tumbleweed_contents.match(appdata_regex)
       appdata_url = "http://download.opensuse.org/tumbleweed/repo/#{flavour}/suse/setup/descr/#{appdata_filename}"
     else
