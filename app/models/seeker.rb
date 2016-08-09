@@ -2,7 +2,7 @@ require 'digest/md5'
 
 class Seeker < ActiveXML::Node
 
-  def self.prepare_result(query, baseproject=nil, project=nil, exclude_filter=nil, exclude_debug=false)
+  def self.prepare_result(query, baseproject = nil, project = nil, exclude_filter = nil, exclude_debug = false)
     cache_key = query
     cache_key += "_#{baseproject}" if baseproject
     cache_key += "_#{exclude_filter}" if exclude_filter
@@ -17,7 +17,7 @@ class Seeker < ActiveXML::Node
   class InvalidSearchTerm < Exception; end
 
   class SearchResult < Array
-    def self.search(query, baseproject, project=nil, exclude_filter=nil, exclude_debug=false)
+    def self.search(query, baseproject, project = nil, exclude_filter = nil, exclude_debug = false)
       words = query.split(" ").select {|part| !part.match(/^[0-9_\.-]+$/) }
       versrel = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
       logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
