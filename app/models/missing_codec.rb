@@ -1,4 +1,4 @@
-class MissingCodec 
+class MissingCodec
   attr_accessor :description, :framework, :framework_version, :description, :fourcc
 
   def initialize(a)
@@ -8,7 +8,7 @@ class MissingCodec
     self.fourcc = Array.new
     self.fourcc << a[4]
   end
-  
+
   def display_framework
     if framework == 'gstreamer'
       return 'GStreamer'

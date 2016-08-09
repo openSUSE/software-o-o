@@ -23,7 +23,7 @@ class OrderController < ApplicationController
     respond_with(@order)
     # redirect_to :action => "pause"
   end
-  
+
   def create
     @order = Order.new params.require(:order).permit(:title, :name, :street1,
         :zip, :city, :country, :phone, :email, :amount, :reason, :deadline,
