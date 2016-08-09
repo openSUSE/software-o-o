@@ -14,4 +14,3 @@ class Visitor
     self.missing_codecs = Array.new
   end
 end
-

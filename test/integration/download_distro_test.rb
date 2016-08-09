@@ -51,4 +51,3 @@ class DownloadDistroTest < ActionDispatch::IntegrationTest
     assert page.has_content? 'Download Rescue'
   end
 end
-

@@ -21,4 +21,3 @@ class CodecsController < ApplicationController
 
   end
 end
-

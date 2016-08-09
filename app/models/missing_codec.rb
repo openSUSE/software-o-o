@@ -17,4 +17,3 @@ class MissingCodec
     end
   end
 end
-

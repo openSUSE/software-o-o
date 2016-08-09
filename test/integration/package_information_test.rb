@@ -9,4 +9,3 @@ class PackageInformationTest < ActionDispatch::IntegrationTest
     assert page.has_content? 'InstantMessaging'
   end  
 end
-
