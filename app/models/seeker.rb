@@ -9,7 +9,7 @@ class Seeker < ActiveXML::Node
     cache_key += "_#{exclude_debug}" if exclude_debug
     cache_key += "_#{project}" if project
     cache_key = 'searchresult_' + Digest::MD5.hexdigest( cache_key ).to_s
-    Rails.cache.fetch(cache_key, :expires_in => 120.minutes) do
+    Rails.cache.fetch(cache_key, expires_in: 120.minutes) do
       SearchResult.search(query, baseproject, project, exclude_filter, exclude_debug)
     end
   end
@@ -39,7 +39,7 @@ class Seeker < ActiveXML::Node
         "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))" if exclude_debug
       xpath = xpath_items.join(' and ')
 
-      bin = Seeker.find :binary, :match => xpath
+      bin = Seeker.find :binary, match: xpath
       #pat = Seeker.find :pattern, :match => xpath
       raise "Backend not responding" if( bin.nil? )
 
@@ -253,8 +253,8 @@ class Seeker < ActiveXML::Node
           @description = ""
           bin = self[0]
           begin
-            info = ::Published.find_cached bin.filename, :view => :fileinfo, :project => @project,
-              :repository => @repository, :arch => bin.arch.to_s, :expires_in => 12.hours
+            info = ::Published.find_cached bin.filename, view: :fileinfo, project: @project,
+              repository: @repository, arch: bin.arch.to_s, expires_in: 12.hours
           rescue => e
             logger.error "Error fetching info for binary: #{e.message}"
           end
@@ -309,8 +309,8 @@ class Seeker < ActiveXML::Node
 
       def quality
         unless @quality
-          quality_xml = ::Attribute.find_cached 'att', :prj => @project,
-            :attribute => 'OBS:QualityCategory', :expires_in => 12.hours
+          quality_xml = ::Attribute.find_cached 'att', prj: @project,
+            attribute: 'OBS:QualityCategory', expires_in: 12.hours
           @quality = quality_xml.attribute.text.strip unless quality_xml.nil? || quality_xml.attribute.nil?
         end
         @quality = "" unless @quality
@@ -339,10 +339,10 @@ class Seeker < ActiveXML::Node
 
       def description
         cache_key = "desc_pat_" + @filename + "_" + @project + "_" + @repository
-        Rails.cache.fetch(cache_key, :expires_in => 6.hours) do
+        Rails.cache.fetch(cache_key, expires_in: 6.hours) do
           @description = ""
           begin
-            pat = ::Published.find @filename, :project => @project, :repository => @repository, :view => :fileinfo
+            pat = ::Published.find @filename, project: @project, repository: @repository, view: :fileinfo
             @description = pat.description.to_s if pat.has_element? :description
           rescue
           end

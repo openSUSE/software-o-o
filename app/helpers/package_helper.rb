@@ -43,7 +43,7 @@ module PackageHelper
       image_url path
     else
       # If a thumbnail is not already generated, do it in separate request.
-      url_for :controller => :package, :action => :thumbnail, :package => pkg_name, :appscreen => source_url
+      url_for controller: :package, action: :thumbnail, package: pkg_name, appscreen: source_url
     end
   end
 end

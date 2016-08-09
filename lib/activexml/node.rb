@@ -141,7 +141,7 @@ module ActiveXML
         begin
           if cache_time
             fromcache = true
-            objdata, params, objhash = Rails.cache.fetch(cache_key, :expires_in => cache_time) do
+            objdata, params, objhash = Rails.cache.fetch(cache_key, expires_in: cache_time) do
               fromcache = false
               objdata, params = ActiveXML::transport.find( self, *args)
               obj = self.new( objdata )

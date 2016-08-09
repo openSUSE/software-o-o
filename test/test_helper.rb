@@ -9,7 +9,7 @@ Capybara.default_driver = :poltergeist
 
 require 'webmock/minitest'
 # Prevent webmock to prevent capybara to connect to localhost
-WebMock.disable_net_connect!(:allow_localhost => true)
+WebMock.disable_net_connect!(allow_localhost: true)
 
 class ActiveSupport::TestCase
   # Helper to associate queries to OBS with the corresponding file in

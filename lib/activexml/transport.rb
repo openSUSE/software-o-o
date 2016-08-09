@@ -71,7 +71,7 @@ module ActiveXML
       uri = URI( target )
       replace_server_if_needed( uri )
       #logger.debug "setting up transport for model #{model}: #{uri} opts: #{opt}"
-      @mapping[model] = {:target_uri => uri, :opt => opt}
+      @mapping[model] = {target_uri: uri, opt: opt}
     end
 
     def replace_server_if_needed( uri )
@@ -160,13 +160,13 @@ module ActiveXML
       #use get-method if no conditions defined <- no post-data is set.
       if data.nil?
         #logger.debug"[REST] Transport.find using GET-method"
-        objdata = http_do( 'get', url, :timeout => 300 )
+        objdata = http_do( 'get', url, timeout: 300 )
         raise RuntimeError.new("GET to %s returned no data" % url) if objdata.empty?
       else
         #use post-method
         logger.debug"[REST] Transport.find using POST-method"
         #logger.debug"[REST] POST-data as xml: #{data.to_s}"
-        objdata = http_do( 'post', url, :data => data.to_s, :content_type => own_mimetype)
+        objdata = http_do( 'post', url, data: data.to_s, content_type: own_mimetype)
         raise RuntimeError.new("POST to %s returned no data" % url) if objdata.empty?
       end
       objdata = objdata.force_encoding("UTF-8")
@@ -176,13 +176,13 @@ module ActiveXML
     def create(object, opt={})
       logger.debug "creating object #{object.class} (#{object.init_options.inspect}) to api:\n #{object.dump_xml}"
       url = substituted_uri_for( object, :create, opt )
-      http_do 'post', url, :data => object.dump_xml
+      http_do 'post', url, data: object.dump_xml
     end
 
     def save(object, opt={})
       logger.debug "saving object #{object.class} (#{object.init_options.inspect}) to api:\n #{object.dump_xml}"
       url = substituted_uri_for( object )
-      http_do 'put', url, :data => object.dump_xml
+      http_do 'put', url, data: object.dump_xml
     end
 
     def delete(object, opt={})
@@ -210,7 +210,7 @@ module ActiveXML
 
     # TODO: get rid of this very thin wrapper
     def direct_http( url, opt={} )
-      defaults = {:method => "GET"}
+      defaults = {method: "GET"}
       opt = defaults.merge opt
 
       logger.debug "--> direct_http url: #{url.inspect}"
@@ -282,7 +282,7 @@ module ActiveXML
     def http_do( method, url, opt={} )
       # protect two http transactions happening at the same time - we're not thread safe here
       @mutex.lock
-      defaults = {:timeout => 60}
+      defaults = {timeout: 60}
       opt = defaults.merge opt
       max_retries = 1
 

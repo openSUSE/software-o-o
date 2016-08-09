@@ -13,7 +13,7 @@ class DownloadController < ApplicationController
     # TODO: no clear way to fetch appliances. we need a /search/published/appliance
 
     cache_key = "soo_download_appliances_#{@project}"
-    @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
+    @data = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
       api_result_images = ApiConnect::get("/published/#{@project}/images")
       #api_result_iso = ApiConnect::get("/published/#{@project}/images/iso")
       xpath = "/directory/entry"
@@ -23,7 +23,7 @@ class DownloadController < ApplicationController
         doc.elements.each(xpath) do |e|
           filename = e.attributes['name']
           if (File.extname(filename) == '.bz2')
-            data[filename] = {:flavor => get_image_type( filename )}
+            data[filename] = {flavor: get_image_type( filename )}
           end
 
         end
@@ -38,7 +38,7 @@ class DownloadController < ApplicationController
   end
 
   def package
-    redirect_to :action => :doc  and return if !params[:project] && !params[:package]
+    redirect_to action: :doc  and return if !params[:project] && !params[:package]
     required_parameters :project, :package
     @project = params[:project]
     @package = params[:package]
@@ -46,7 +46,7 @@ class DownloadController < ApplicationController
     escaped_pkg = CGI.escape(@package)
 
     cache_key = "soo_download_#{@project}_#{@package}"
-    @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
+    @data = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
       api_result = ApiConnect::get("/search/published/binary/id?match=project='#{escaped_prj}'+and+name='#{escaped_pkg}'")
       xpath = "/collection/binary"
       if api_result
@@ -56,8 +56,8 @@ class DownloadController < ApplicationController
           distro = e.attributes['repository']
           if not data.has_key?(distro)
             data[distro] = {
-              :repo => "http://download.opensuse.org/repositories/#{@project}/#{distro}/",
-              :package => Hash.new
+              repo: "http://download.opensuse.org/repositories/#{@project}/#{distro}/",
+              package: Hash.new
             }
             data[distro][:flavor] = set_distro_flavor e.attributes['baseproject']
             case e.attributes['baseproject']
@@ -87,7 +87,7 @@ class DownloadController < ApplicationController
     @pattern = params[:pattern]
 
     cache_key = "soo_download_#{@project}_#{@pattern}"
-    @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
+    @data = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
 
       # api_result = ApiConnect::get("/search/published/pattern/id?match=project='#{@project}'+and+filename='#{@pattern}.ymp'")
       # TODO: workaround - the line above does not return a thing - see http://lists.opensuse.org/opensuse-buildservice/2011-07/msg00088.html
@@ -104,8 +104,8 @@ class DownloadController < ApplicationController
           distro = e.attributes['repository']
           if not data.has_key?(distro)
             data[distro] = {
-              :repo => "http://download.opensuse.org/repositories/#{@project}/#{distro}/",
-              :package => Hash.new
+              repo: "http://download.opensuse.org/repositories/#{@project}/#{distro}/",
+              package: Hash.new
             }
             data[distro][:flavor] = set_distro_flavor e.attributes['baseproject']
             case e.attributes['baseproject']
@@ -135,10 +135,10 @@ class DownloadController < ApplicationController
   def render_page page_template
     @box_title  = @page_title
     respond_to do |format|
-      format.html { render page_template, :layout => 'download' }
+      format.html { render page_template, layout: 'download' }
       format.iframe  {
         response.headers.except! 'X-Frame-Options'
-        render page_template, :layout => 'iframe.html'
+        render page_template, layout: 'iframe.html'
       }
       # needed for rails < 3.0 to support JSONP
       format.json { render_json @data.to_json }

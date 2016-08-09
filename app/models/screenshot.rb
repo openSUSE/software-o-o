@@ -108,7 +108,7 @@ class Screenshot
 
   def fetch
     Rails.logger.debug("Fetching screenshot from #{source_url}")
-    content = open(source_url, "rb", :read_timeout => 6)
+    content = open(source_url, "rb", read_timeout: 6)
     generate_thumbnail(content)
     Rails.cache.write(cache_key, content.read)
   ensure

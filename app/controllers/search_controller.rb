@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 
-  before_filter :set_search_options, :only => [:find, :searchresult]
-  before_filter :prepare_appdata, :only => [:find, :searchresult]
+  before_filter :set_search_options, only: [:find, :searchresult]
+  before_filter :prepare_appdata, only: [:find, :searchresult]
 
   def searchresult
     render 'find' and return if @search_term.blank?
@@ -43,9 +43,9 @@ class SearchController < ApplicationController
     @packagenames = @packagenames.uniq.sort_by { |x| x.length }
 
     if @packagenames.size == 1
-      redirect_to(:controller => :package, :action => :show, :package => @packagenames.first, :search_term => @search_term) and return
+      redirect_to(controller: :package, action: :show, package: @packagenames.first, search_term: @search_term) and return
     elsif request.xhr?
-      render :partial => 'find_results' and return
+      render partial: 'find_results' and return
     else
       render 'find' and return
     end

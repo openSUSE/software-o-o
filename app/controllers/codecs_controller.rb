@@ -1,14 +1,14 @@
 class CodecsController < ApplicationController
   def index
     @visitor = Visitor.new(
-        :os_release => params["os_release"],
-        :language => params["lang"],
-        :client_version => params["client_version"],
-        :kernel => params["kernel"],
-        :gstreamer_package => params["gstreamer"],
-        :xine_package => params["xine"],
-        :user_agent => request.user_agent,
-        :ip_address => request.remote_ip
+        os_release: params["os_release"],
+        language: params["lang"],
+        client_version: params["client_version"],
+        kernel: params["kernel"],
+        gstreamer_package: params["gstreamer"],
+        xine_package: params["xine"],
+        user_agent: request.user_agent,
+        ip_address: request.remote_ip
     )
 
     params.each do | k, v |

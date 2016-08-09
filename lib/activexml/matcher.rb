@@ -4,7 +4,7 @@ module NodeMatcher #:nodoc:
   class Conditions < Hash #:nodoc:
     def initialize(hash)
       super()
-      hash = { :content => hash } unless Hash === hash
+      hash = { content: hash } unless Hash === hash
       hash = keys_to_symbols(hash)
       hash.each do |k,v|
         case k
@@ -185,7 +185,7 @@ module NodeMatcher #:nodoc:
         # test the child
         found_one = match(child, conditions[:descendant]) ||
         # test the child's descendants
-        match(child, :descendant => conditions[:descendant])
+        match(child, descendant: conditions[:descendant])
         break if found_one
       end
       return false unless found_one

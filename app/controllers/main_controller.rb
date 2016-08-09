@@ -8,22 +8,22 @@ class MainController < ApplicationController
 
   def ymp_with_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
-    DownloadHistory.create :query => params[:query], :base => params[:base],
-      :ymp => path
-    res =  Rails.cache.fetch( "ymp_#{path}", :expires_in => 1.hour) do
+    DownloadHistory.create query: params[:query], base: params[:base],
+      ymp: path
+    res =  Rails.cache.fetch( "ymp_#{path}", expires_in: 1.hour) do
       ApiConnect::get(path)
     end
-    render :body => res.body, :content_type => res.content_type
+    render body: res.body, content_type: res.content_type
   end
 
   def ymp_without_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:package]}?view=ymp"
-    DownloadHistory.create :query => params[:query], :base => params[:base],
-      :ymp => path
-    res =  Rails.cache.fetch("ymp_#{path}", :expires_in => 1.hour) do
+    DownloadHistory.create query: params[:query], base: params[:base],
+      ymp: path
+    res =  Rails.cache.fetch("ymp_#{path}", expires_in: 1.hour) do
       ApiConnect::get(path)
     end
-    render :body => res.body, :content_type => res.content_type
+    render body: res.body, content_type: res.content_type
   end
 
   def set_release(release)
@@ -179,12 +179,12 @@ class MainController < ApplicationController
     if request.user_agent && request.user_agent.index('Mozilla/5.0 (compatible; Konqueror/3')
       notice = _("Konqueror of KDE 3 is unfortunately unmaintained and its javascript implementation contains bugs that " +
           "make it impossible to use with this page. Please make sure you have javascript disabled before you " +
-          "<a href='%s'>continue</a>.") % url_for( :action => 'release', :release => release, :locale => FastGettext.locale )
+          "<a href='%s'>continue</a>.") % url_for( action: 'release', release: release, locale: FastGettext.locale )
       notice = notice.html_safe
-      render :template => "main/redirect_with_notice", :locals => { :notice => notice }
+      render template: "main/redirect_with_notice", locals: { notice: notice }
       return
     end
-    redirect_to :action => 'release', :release => release, :locale => FastGettext.locale
+    redirect_to action: 'release', release: release, locale: FastGettext.locale
   end
 
 
@@ -196,7 +196,7 @@ class MainController < ApplicationController
     @exclude_debug = true
     @include_home = 'false'
     set_release("421")
-    render :template => "main/release"
+    render template: "main/release"
   end
 
 
@@ -213,22 +213,22 @@ class MainController < ApplicationController
     @include_home = 'false'
     flash.now[:info] = _("Please note that this is not the latest openSUSE release. You can get the latest version <a href='/'>here</a>. ") if params[:outdated]
     set_release(params[:release]) || return
-    render :template => "main/release"
+    render template: "main/release"
   end
 
   def change_install
     set_release(params[:release]) || return
     @medium = params[:medium]
-    render :template => "main/release"
+    render template: "main/release"
   end
 
   def download_js
     set_release(params[:release]) || return
-    render :template => "main/download", :content_type => 'text/javascript', :layout => false
+    render template: "main/download", content_type: 'text/javascript', layout: false
   end
 
   def show_request
-    render :template => "main/testrequest", :layout => false
+    render template: "main/testrequest", layout: false
   end
 
   def download
