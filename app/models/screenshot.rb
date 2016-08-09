@@ -78,7 +78,7 @@ class Screenshot
     end
   end
 
-protected
+  protected
 
   def cached?
     Rails.cache.exist? cache_key
