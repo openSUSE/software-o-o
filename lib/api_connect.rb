@@ -28,13 +28,13 @@ class ApiConnect
         if limit
           get(response['location'], limit - 1)
         else
-          raise Error.new 'Recursive redirect'
+          raise(Error, 'Recursive redirect')
         end
       else
-        raise Error.new "Response was: #{response} #{response.body}"
+        raise(Error, "Response was: #{response} #{response.body}")
       end
     rescue Exception => e
-      raise Error.new "Error connecting to #{uri_str}: #{e.to_s}"
+      raise(Error, "Error connecting to #{uri_str}: #{e.to_s}")
     end
   end
 

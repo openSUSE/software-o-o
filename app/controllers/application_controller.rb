@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
     @distributions = Rails.cache.fetch('distributions', expires_in: 120.minutes) do
       load_distributions
     end
-    raise ApiConnect::Error.new(_('OBS Backend not available')) if @distributions.nil?
+    raise(ApiConnect::Error, _('OBS Backend not available')) if @distributions.nil?
   end
 
   def set_baseproject

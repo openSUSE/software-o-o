@@ -21,7 +21,7 @@ class Seeker < ActiveXML::Node
       words = query.split(' ').select { |part| !part.match(/^[0-9_\.-]+$/) }
       versrel = query.split(' ').select { |part| part.match(/^[0-9_\.-]+$/) }
       logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
-      raise InvalidSearchTerm.new 'Please provide a valid search term' if words.blank? && project.blank?
+      raise(InvalidSearchTerm, 'Please provide a valid search term') if words.blank? && project.blank?
 
       xpath_items = Array.new
       xpath_items << "@project = '#{project}' " unless project.blank?
