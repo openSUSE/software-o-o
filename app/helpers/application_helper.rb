@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   def time_diff(time)
-    Time.now - Time.parse(time)
+    Time.current - Time.zone.parse(time)
   end
 
   def fuzzy_time_string(time)

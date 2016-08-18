@@ -233,9 +233,9 @@ module ActiveXML
       raise(ParseError, 'Empty XML passed!') if data.empty?
       begin
         # puts "parse #{self.class}"
-        t0 = Time.now
+        t0 = Time.current
         @data = Nokogiri::XML::Document.parse(data.to_str.strip, nil, nil, Nokogiri::XML::ParseOptions::STRICT).root
-        @@xml_time += Time.now - t0
+        @@xml_time += Time.current - t0
       rescue Nokogiri::XML::SyntaxError => e
         Rails.logger.error "Error parsing XML: #{e}"
         Rails.logger.error "XML content was: #{data}"
@@ -316,13 +316,13 @@ module ActiveXML
       if @node_cache.has_key?(symbol)
         return @node_cache[symbol]
       else
-        t0 = Time.now
+        t0 = Time.current
         e = _data.xpath(symbol)
         if e.empty?
           return @node_cache[symbol] = nil
         end
         node = create_node_with_relations(e.first)
-        @@xml_time += Time.now - t0
+        @@xml_time += Time.current - t0
         @node_cache[symbol] = node
       end
     end
@@ -331,9 +331,9 @@ module ActiveXML
     def to_hash
       return @hash_cache if @hash_cache
       # Rails.logger.debug "to_hash #{options.inspect} #{dump_xml}"
-      t0 = Time.now
+      t0 = Time.current
       x = Benchmark.measure { @hash_cache  = Xmlhash.parse(dump_xml) }
-      @@xml_time += Time.now - t0
+      @@xml_time += Time.current - t0
       # Rails.logger.debug "after to_hash #{JSON.pretty_generate(@hash_cache)}"
       # puts "to_hash #{self.class} #{x}"
       @hash_cache

@@ -6,9 +6,9 @@ require 'net/https'
 
 class ApplicationController < ActionController::Base
 
-  before_filter :set_language
-  before_filter :set_distributions
-  before_filter :set_baseproject
+  before_action :set_language
+  before_action :set_distributions
+  before_action :set_baseproject
 
   helper :all # include all helpers, all the time
   require 'rexml/document'

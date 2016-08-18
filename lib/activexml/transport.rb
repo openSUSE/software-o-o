@@ -296,7 +296,7 @@ module ActiveXML
       end
 
       method = method.downcase.to_sym
-      start = Time.now
+      start = Time.current
 
       case method
       when :put, :post, :delete
@@ -375,7 +375,7 @@ module ActiveXML
           if runtime
             payload[:runtime] = Float(runtime) * 1000
           end
-          payload[:all] = (Time.now - start) * 1000
+          payload[:all] = (Time.current - start) * 1000
           self.details.add(payload)
           logger.debug "RT #{url} #{payload.inspect}"
         end
