@@ -2,37 +2,51 @@
 # Added for Ruby-GetText-Package
 #
 
-desc "Import clean (non-fuzzy) .mo files from lcn checkout"
-task :makemo do
-  raise "ERROR: $MY_LCN_CHECKOUT should point to your checkout of https://svn.opensuse.org/svn/opensuse-i18n/trunk/lcn" if ENV["MY_LCN_CHECKOUT"].nil?
-  system("cd $MY_LCN_CHECKOUT && svn up")
-  files = Dir.glob(ENV["MY_LCN_CHECKOUT"] + "/*/po/software-opensuse-org*.po")
-  files.each { |file|
-    lang=File.basename(file, ".po").split('.')[1]
-    ilang=lang
-    #puts "msgfmt -o locale/%s/LC_MESSAGES/software.mo '%s'" % [lang, file]
-    res=''
-    IO.popen( "LC_ALL=C msgfmt --statistics -o messages.mo '%s' 2>&1" % file ) { |f| res=f.gets }
-    #puts "#{lang}: #{res}"
-    # copy only if it contains non-fuzzy translations
-    res = begin Integer(/^(\w*) translated messages/.match(res)[1]) rescue 0 end
-    if res > 100
-      puts res.inspect
-      FileUtils.mkdir_p "locale/" + ilang + "/LC_MESSAGES"
-      puts "take %s into %s" % [lang, ilang]
-      FileUtils.mv "messages.mo", "locale/%s/LC_MESSAGES/software.mo" % ilang
-    else
-      FileUtils.rm "messages.mo"
-    end
-  }
+POT_FILE = "locale/software.pot"
+
+def each_po_file(&block)
+  @po_files ||= Dir.glob("locale/*/software.po")
+
+  @po_files.each do |file|
+    lang = file_to_lang(file)
+    block.call(file, lang)
+  end
 end
 
+def file_to_lang(file)
+  file.to_s.split("/")[-2]
+end
 
-desc "Update pot/po files in lcn checkout to match new version."
+def backup_po_files
+  each_po_file do |file, lang|
+    system("cp #{file} #{file}.back")
+  end
+end
+
+def restore_po_files
+  each_po_file do |file, lang|
+    system("mv #{file}.back #{file}")
+  end
+end
+
+def msgmerge_po_files
+  each_po_file do |file, lang|
+    print "Merging #{lang}"
+    system "msgmerge --previous --lang=#{lang} #{file} #{POT_FILE} -o #{file}.new"
+    system "mv #{file}.new #{file}"
+  end
+end
+
+desc "Import translations into .mo files"
+task :makemo do
+  Rake::Task['gettext:pack'].invoke
+end
+
+# We want strict control on the command used to refresh the .po files
+desc "Invokes msgmerge to update pot/po files"
 task :updatepo do
-  raise "ERROR: $MY_LCN_CHECKOUT should point to your checkout of https://svn.opensuse.org/svn/opensuse-i18n/trunk/lcn" if ENV["MY_LCN_CHECKOUT"].nil?
+  backup_po_files
   Rake::Task['gettext:find'].invoke
-  system("cd $MY_LCN_CHECKOUT && svn up")
-  system("msgmerge -o $MY_LCN_CHECKOUT/50-pot/software-opensuse-org.pot $MY_LCN_CHECKOUT/50-pot/software-opensuse-org.pot locale/software.pot")
-  system("cd $MY_LCN_CHECKOUT && sh ./50-tools/lcn-merge.sh -p software-opensuse-org.pot -s -n")
+  restore_po_files
+  msgmerge_po_files
 end
