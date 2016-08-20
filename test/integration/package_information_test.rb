@@ -7,6 +7,5 @@ class PackageInformationTest < ActionDispatch::IntegrationTest
     visit '/package/pidgin'
     assert page.has_content? 'Pidgin'
     assert page.has_content? 'InstantMessaging'
-  end  
+  end
 end
-

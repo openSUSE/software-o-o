@@ -1,4 +1,4 @@
-class Visitor 
+class Visitor
   attr_accessor :missing_codecs
   attr_accessor :os_release, :language, :client_version, :kernel, :gstreamer_package, :xine_package, :user_agent, :ip_address, :application
 
@@ -14,4 +14,3 @@ class Visitor
     self.missing_codecs = Array.new
   end
 end
-

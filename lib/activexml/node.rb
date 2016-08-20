@@ -8,7 +8,7 @@ module ActiveXML
   class NotFoundError < GeneralError; end
   class CreationError < GeneralError; end
   class ParseError < GeneralError; end
-  
+
   class Node
 
     @@elements = {}
@@ -30,13 +30,13 @@ module ActiveXML
         return ActiveXML::Node
       end
 
-      #creates an empty xml document
+      # creates an empty xml document
       # FIXME: works only for projects/packages, or by overwriting it in the model definition
       # FIXME: could get info somehow from schema, as soon as schema evaluation is built in
       def make_stub(opt)
-        #Rails.logger.debug "--> creating stub element for #{self.name}, arguments: #{opt.inspect}"
+        # Rails.logger.debug "--> creating stub element for #{self.name}, arguments: #{opt.inspect}"
         if opt.nil?
-          raise CreationError, "Tried to create document without opt parameter"
+          raise CreationError, 'Tried to create document without opt parameter'
         end
         root_tag_name = self.name.downcase
         doc = ActiveXML::Node.new("<#{root_tag_name}/>")
@@ -62,13 +62,13 @@ module ActiveXML
         @@xml_time = 0
       end
 
-      #transport object, gets defined according to configuration when Base is subclassed
+      # transport object, gets defined according to configuration when Base is subclassed
       attr_reader :transport
 
       def inherited( subclass )
         # called when a subclass is defined
-        #Rails.logger.debug "Initializing ActiveXML model #{subclass}"
-        subclass.instance_variable_set "@default_find_parameter", @default_find_parameter
+        # Rails.logger.debug "Initializing ActiveXML model #{subclass}"
+        subclass.instance_variable_set '@default_find_parameter', @default_find_parameter
       end
       private :inherited
 
@@ -81,7 +81,7 @@ module ActiveXML
       def setup(transport_object)
         super()
         @@transport = transport_object
-        #Rails.logger.debug "--> ActiveXML successfully set up"
+        # Rails.logger.debug "--> ActiveXML successfully set up"
         true
       end
 
@@ -113,13 +113,13 @@ module ActiveXML
           args[0] = hash
         end
 
-        #Rails.logger.debug "prepared find args: #{args.inspect}"
+        # Rails.logger.debug "prepared find args: #{args.inspect}"
         return args
       end
 
       def calc_key( args )
-        #Rails.logger.debug "Cache key for #{args.inspect}"
-        self.name + "_" + Digest::MD5.hexdigest( "2" + args.to_s )
+        # Rails.logger.debug "Cache key for #{args.inspect}"
+        self.name + '_' + Digest::MD5.hexdigest( '2' + args.to_s )
       end
 
       def free_object_cache
@@ -134,21 +134,21 @@ module ActiveXML
           if obj
             logger.debug "returning #{args.inspect} from object_cache"
             return obj
-	  end
+          end
         end
 
         objhash = nil
         begin
           if cache_time
             fromcache = true
-            objdata, params, objhash = Rails.cache.fetch(cache_key, :expires_in => cache_time) do
+            objdata, params, objhash = Rails.cache.fetch(cache_key, expires_in: cache_time) do
               fromcache = false
               objdata, params = ActiveXML::transport.find( self, *args)
               obj = self.new( objdata )
               [objdata, params, obj.to_hash]
             end
 	    if fromcache
-	      logger.debug "returning #{args.inspect} from rails cache #{cache_key}"  
+	      logger.debug "returning #{args.inspect} from rails cache #{cache_key}"
 	    end
           else
             objdata, params = ActiveXML::transport.find( self, *args)
@@ -160,7 +160,7 @@ module ActiveXML
           @@object_cache[cache_key] = obj
           return obj
         rescue ActiveXML::Transport::NotFoundError
-          Rails.logger.debug "#{self.name}.find( #{args.map {|a| a.inspect}.join(', ')} ) did not find anything, return nil"
+          Rails.logger.debug "#{self.name}.find( #{args.map { |a| a.inspect }.join(', ')} ) did not find anything, return nil"
           return nil
         end
       end
@@ -201,7 +201,7 @@ module ActiveXML
 
     end
 
-    #instance methods
+    # instance methods
 
     def initialize( data )
       @init_options = {}
@@ -210,7 +210,7 @@ module ActiveXML
       elsif data.kind_of? String
         self.raw_data = data.clone
       elsif data.kind_of? Hash
-        #create new
+        # create new
         @init_options = data
         stub = self.class.make_stub(data)
         if stub.kind_of? String
@@ -223,23 +223,23 @@ module ActiveXML
       elsif data.kind_of? Node
         @data = data.internal_data.clone
       else
-        raise "constructor needs either XML::Node, String or Hash"
+        raise 'constructor needs either XML::Node, String or Hash'
       end
 
       cleanup_cache
     end
 
     def parse(data)
-      raise ParseError.new('Empty XML passed!') if data.empty?
+      raise(ParseError, 'Empty XML passed!') if data.empty?
       begin
-        #puts "parse #{self.class}"
-        t0 = Time.now
+        # puts "parse #{self.class}"
+        t0 = Time.current
         @data = Nokogiri::XML::Document.parse(data.to_str.strip, nil, nil, Nokogiri::XML::ParseOptions::STRICT).root
-        @@xml_time += Time.now - t0
+        @@xml_time += Time.current - t0
       rescue Nokogiri::XML::SyntaxError => e
         Rails.logger.error "Error parsing XML: #{e}"
         Rails.logger.error "XML content was: #{data}"
-        raise ParseError.new e.message
+        raise(ParseError, e.message)
       end
     end
     private :parse
@@ -262,7 +262,7 @@ module ActiveXML
     end
 
     # remember: this function does not exist!
-    def _data #nodoc
+    def _data # nodoc
       if !@data && @raw_data
         parse(@raw_data)
         # save memory
@@ -277,7 +277,7 @@ module ActiveXML
     end
 
     def text
-      #puts 'text -%s- -%s-' % [data.inner_xml, data.content]
+      # puts 'text -%s- -%s-' % [data.inner_xml, data.content]
       _data.content
     end
 
@@ -296,7 +296,7 @@ module ActiveXML
 
     def each_with_index(symbol = nil)
       unless block_given?
-        raise "use each instead"
+        raise 'use each instead'
       end
       index = 0
       if symbol.nil?
@@ -316,13 +316,13 @@ module ActiveXML
       if @node_cache.has_key?(symbol)
         return @node_cache[symbol]
       else
-        t0 = Time.now
+        t0 = Time.current
         e = _data.xpath(symbol)
         if e.empty?
           return @node_cache[symbol] = nil
         end
         node = create_node_with_relations(e.first)
-        @@xml_time += Time.now - t0
+        @@xml_time += Time.current - t0
         @node_cache[symbol] = node
       end
     end
@@ -330,15 +330,15 @@ module ActiveXML
     # this function is a simplified version of XML::Simple of cpan fame
     def to_hash
       return @hash_cache if @hash_cache
-      #Rails.logger.debug "to_hash #{options.inspect} #{dump_xml}"
-      t0 = Time.now
+      # Rails.logger.debug "to_hash #{options.inspect} #{dump_xml}"
+      t0 = Time.current
       x = Benchmark.measure { @hash_cache  = Xmlhash.parse(dump_xml) }
-      @@xml_time += Time.now - t0
-      #Rails.logger.debug "after to_hash #{JSON.pretty_generate(@hash_cache)}"
-      #puts "to_hash #{self.class} #{x}"
+      @@xml_time += Time.current - t0
+      # Rails.logger.debug "after to_hash #{JSON.pretty_generate(@hash_cache)}"
+      # puts "to_hash #{self.class} #{x}"
       @hash_cache
     end
-    
+
     def to_json(*a)
       to_hash.to_json(*a)
     end
@@ -348,7 +348,7 @@ module ActiveXML
     end
 
     def to_s
-      #raise "to_s is obsolete #{self.inspect}"
+      # raise "to_s is obsolete #{self.inspect}"
       ret = ''
       _data.children.each do |node|
         if node.text?
@@ -372,21 +372,21 @@ module ActiveXML
 
     def to_param
       if @hash_cache
-        return @hash_cache["name"]
+        return @hash_cache['name']
       end
       _data.attributes['name'].value
     end
 
     def add_node(node)
-      raise ArgumentError, "argument must be a string" unless node.kind_of? String
+      raise ArgumentError, 'argument must be a string' unless node.kind_of? String
       xmlnode = Nokogiri::XML::Document.parse(node, nil, nil, Nokogiri::XML::ParseOptions::STRICT).root
       _data.add_child(xmlnode)
       cleanup_cache
       Node.new(xmlnode)
     end
 
-    def add_element ( element, attrs=nil )
-      raise "First argument must be an element name" if element.nil?
+    def add_element ( element, attrs = nil )
+      raise 'First argument must be an element name' if element.nil?
       el = _data.document.create_element(element)
       _data.add_child(el)
       attrs.each do |key, value|
@@ -414,9 +414,9 @@ module ActiveXML
       Node.new(_data.parent)
     end
 
-    #tests if a child element exists matching the given query.
-    #query can either be an element name, an xpath, or any object
-    #whose to_s method evaluates to an element name or xpath
+    # tests if a child element exists matching the given query.
+    # query can either be an element name, an xpath, or any object
+    # whose to_s method evaluates to an element name or xpath
     def has_element?( query )
       if @hash_cache && query.kind_of?(Symbol)
         return @hash_cache.has_key? query.to_s
@@ -446,15 +446,15 @@ module ActiveXML
 
     def delete_element( elem )
       if elem.kind_of? Node
-        raise "NO GOOD IDEA!" unless _data.document == elem.internal_data.document
+        raise 'NO GOOD IDEA!' unless _data.document == elem.internal_data.document
         elem.internal_data.remove
       elsif elem.kind_of? Nokogiri::XML::Node
-        raise "this should be obsolete!!!"
+        raise 'this should be obsolete!!!'
         elem.remove
       else
         s = _data.xpath(elem.to_s)
-        raise "this was supposed to return sets" unless s.kind_of? Nokogiri::XML::NodeSet
-        raise "xpath for delete did not give exactly one node!" unless s.length == 1
+        raise 'this was supposed to return sets' unless s.kind_of? Nokogiri::XML::NodeSet
+        raise 'xpath for delete did not give exactly one node!' unless s.length == 1
         s.first.remove
       end
       # you never know
@@ -467,17 +467,17 @@ module ActiveXML
     end
 
     def create_node_with_relations( element )
-      #FIXME: relation stuff should be taken into an extra module
-      #puts element.name
+      # FIXME: relation stuff should be taken into an extra module
+      # puts element.name
       klass = self.class.get_class(element.name)
       opt = {}
       node = nil
       node ||= klass.new(element)
-      #Rails.logger.debug "created node: #{node.inspect}"
+      # Rails.logger.debug "created node: #{node.inspect}"
       return node
     end
 
-    def value( symbol ) 
+    def value( symbol )
       symbols = symbol.to_s
 
       if @hash_cache
@@ -498,15 +498,15 @@ module ActiveXML
       return @value_cache[symbols] = nil
     end
 
-    def find( symbol, &block ) 
+    def find( symbol, &block )
       symbols = symbol.to_s
       _data.xpath(symbols).each do |e|
         block.call(create_node_with_relations(e))
-      end 
+      end
     end
 
     def method_missing( symbol, *args, &block )
-      #puts "called method: #{symbol}(#{args.map do |a| a.inspect end.join ', '})"
+      # puts "called method: #{symbol}(#{args.map do |a| a.inspect end.join ', '})"
 
       symbols = symbol.to_s
       if( symbols =~ /^each_(.*)$/ )
@@ -530,23 +530,23 @@ module ActiveXML
       find_first(symbols)
     end
 
-    def == other
+    def ==(other)
       return false unless other
       _data == other.internal_data
     end
 
-    def move_after other
-      raise "NO GOOD IDEA!" unless _data.document == other.internal_data.document	    
+    def move_after(other)
+      raise 'NO GOOD IDEA!' unless _data.document == other.internal_data.document
       # the naming of the API is a bit strange IMO
       _data.before(other.internal_data)
     end
 
-    def move_before other
-      raise "NO GOOD IDEA!" unless _data.document == other.internal_data.document
+    def move_before(other)
+      raise 'NO GOOD IDEA!' unless _data.document == other.internal_data.document
       # the naming of the API is a bit strange IMO
       _data.after(other.internal_data)
     end
-    
+
     def find_matching(conds)
       return self if NodeMatcher.match(self, conds) == true
       self.each do |c|
@@ -557,7 +557,7 @@ module ActiveXML
     end
 
     # stay away from this
-    def internal_data #nodoc
+    def internal_data # nodoc
       _data
     end
 
@@ -577,7 +577,7 @@ module ActiveXML
       Rails.logger
     end
 
-    def save(opt={})
+    def save(opt = {})
       if opt[:create]
         @raw_data = ActiveXML::transport.create self, opt
         @data = nil
@@ -589,8 +589,8 @@ module ActiveXML
       return true
     end
 
-    def delete(opt={})
-      #Rails.logger.debug "Delete #{self.class}, opt: #{opt.inspect}"
+    def delete(opt = {})
+      # Rails.logger.debug "Delete #{self.class}, opt: #{opt.inspect}"
       ActiveXML::transport.delete self, opt
       free_cache
       return true

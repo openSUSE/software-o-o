@@ -6,12 +6,12 @@ require 'net/https'
 
 class ApplicationController < ActionController::Base
 
-  before_filter :set_language
-  before_filter :set_distributions
-  before_filter :set_baseproject
-  
+  before_action :set_language
+  before_action :set_distributions
+  before_action :set_baseproject
+
   helper :all # include all helpers, all the time
-  require "rexml/document"
+  require 'rexml/document'
 
   class MissingParameterError < Exception; end
 
@@ -20,17 +20,17 @@ class ApplicationController < ActionController::Base
   rescue_from Exception do |exception|
     logger.error "Exception: #{exception.class}: #{exception.message}"
     @message = exception.message
-    layout = request.xhr? ? false : "application"
+    layout = request.xhr? ? false : 'application'
     case exception
-      when Seeker::InvalidSearchTerm
-      when ApiConnect::Error
-      when ApplicationController::MissingParameterError
-      when Timeout::Error
-      else
-        logger.error exception.backtrace.join("\n")
-        notify_hoptoad(exception)
-      end
-    render :template => 'error', :formats => [:html], :layout => layout, :status => 400
+    when Seeker::InvalidSearchTerm
+    when ApiConnect::Error
+    when ApplicationController::MissingParameterError
+    when Timeout::Error
+    else
+      logger.error exception.backtrace.join("\n")
+      notify_hoptoad(exception)
+    end
+    render template: 'error', formats: [:html], layout: layout, status: 400
   end
 
   def set_language
@@ -44,14 +44,14 @@ class ApplicationController < ActionController::Base
 
 
   def set_distributions
-    @distributions = Rails.cache.fetch('distributions', :expires_in => 120.minutes) do
+    @distributions = Rails.cache.fetch('distributions', expires_in: 120.minutes) do
       load_distributions
     end
-    raise ApiConnect::Error.new(_("OBS Backend not available")) if @distributions.nil?
+    raise(ApiConnect::Error, _('OBS Backend not available')) if @distributions.nil?
   end
 
   def set_baseproject
-    unless ( @distributions.blank? || @distributions.select{|d| d[:project] == cookies[:search_baseproject]}.blank? )
+    unless ( @distributions.blank? || @distributions.select { |d| d[:project] == cookies[:search_baseproject] }.blank? )
       @baseproject = cookies[:search_baseproject]
     end
   end
@@ -59,21 +59,21 @@ class ApplicationController < ActionController::Base
 
   # load available distributions
   def load_distributions
-    logger.debug "Loading distributions"
+    logger.debug 'Loading distributions'
     @distributions = Array.new
     begin
-      response = ApiConnect::get("public/distributions")
+      response = ApiConnect::get('public/distributions')
       doc = REXML::Document.new response.body
-      doc.elements.each("distributions/distribution") { |element|
-        dist = Hash[:name => element.elements['name'].text, :project => element.elements['project'].text,
-          :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text, 
-          :icon => element.elements['icon'].attributes["url"], :dist_id => element.attributes['id'].sub(".", "") ]
+      doc.elements.each('distributions/distribution') { |element|
+        dist = Hash[name: element.elements['name'].text, project: element.elements['project'].text,
+          reponame: element.elements['reponame'].text, repository: element.elements['repository'].text,
+          icon: element.elements['icon'].attributes['url'], dist_id: element.attributes['id'].sub('.', '') ]
         @distributions << dist
         logger.debug "Added Distribution: #{dist[:name]}"
       }
-      @distributions << Hash[:name => "ALL Distributions", :project => 'ALL' ]
+      @distributions << Hash[name: 'ALL Distributions', project: 'ALL' ]
     rescue Exception => e
-      logger.error "Error while loading distributions: " + e.to_s
+      logger.error 'Error while loading distributions: ' + e.to_s
       @distributions = nil
     end
     return @distributions
@@ -93,7 +93,7 @@ class ApplicationController < ActionController::Base
         json
       end
     end
-    render({:content_type => "application/javascript", :body => response}.merge(options))
+    render({ content_type: 'application/javascript', body: response }.merge(options))
   end
 
   def required_parameters(*parameters)
@@ -103,53 +103,53 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  
 
-  def valid_package_name? name
+
+  def valid_package_name?(name)
     name =~ /^[[:alnum:]][-+\w\.:\@]*$/
   end
 
-  def valid_pattern_name? name
+  def valid_pattern_name?(name)
     name =~ /^[[:alnum:]][-_+\w\.:]*$/
   end
 
-  def valid_project_name? name
+  def valid_project_name?(name)
     name =~ /^[[:alnum:]][-+\w.:]+$/
   end
 
 
   def set_search_options
-    @search_term = params[:q] || ""
-    @baseproject = params[:baseproject] unless @distributions.select{|d| d[:project] == params[:baseproject]}.blank?
+    @search_term = params[:q] || ''
+    @baseproject = params[:baseproject] unless @distributions.select { |d| d[:project] == params[:baseproject] }.blank?
     @search_devel = cookies[:search_devel] unless cookies[:search_devel].blank?
     @search_devel = params[:search_devel] unless params[:search_devel].blank?
     @search_unsupported = cookies[:search_unsupported] unless cookies[:search_unsupported].blank?
     @search_unsupported = params[:search_unsupported] unless params[:search_unsupported].blank?
-    #FIXME: remove @search_unsupported when redesigning search options
-    @search_unsupported = "true"
-    @search_devel = ( @search_devel == "true" ? true : false )
+    # FIXME: remove @search_unsupported when redesigning search options
+    @search_unsupported = 'true'
+    @search_devel = ( @search_devel == 'true' ? true : false )
     @search_project = params[:search_project]
-    @search_unsupported = ( @search_unsupported == "true" ? true : false )
+    @search_unsupported = ( @search_unsupported == 'true' ? true : false )
     @exclude_debug = @search_devel ? false : true
     @exclude_filter = @search_unsupported ? nil : 'home:'
-    cookies[:search_devel] = { :value => @search_devel, :expires => 1.year.from_now }
-    cookies[:search_unsupported] = { :value => @search_unsupported, :expires => 1.year.from_now }
-    cookies[:search_baseproject] = { :value => @baseproject, :expires => 1.year.from_now }
+    cookies[:search_devel] = { value: @search_devel, expires: 1.year.from_now }
+    cookies[:search_unsupported] = { value: @search_unsupported, expires: 1.year.from_now }
+    cookies[:search_baseproject] = { value: @baseproject, expires: 1.year.from_now }
   end
 
 
   # TODO: atm obs only offers appdata for Factory
   def prepare_appdata
-    @appdata =  Rails.cache.fetch("appdata", :expires_in => 12.hours) do
-        Appdata.get "factory"
+    @appdata =  Rails.cache.fetch('appdata', expires_in: 12.hours) do
+        Appdata.get 'factory'
     end
   end
 
   private
 
   def set_beta_warning
-    flash.now[:info] = "This is a beta version of the new app browser, part of " +
-      "the <a href='https://trello.com/board/appstream/4f156e1c9ce0824a2e1b8831'>current boosters sprint</a>!"
+    flash.now[:info] = 'This is a beta version of the new app browser, part of ' +
+                       "the <a href='https://trello.com/board/appstream/4f156e1c9ce0824a2e1b8831'>current boosters sprint</a>!"
   end
 
 end

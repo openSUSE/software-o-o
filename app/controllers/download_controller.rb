@@ -1,7 +1,7 @@
 class DownloadController < ApplicationController
 
-  before_filter :set_colors
-  before_filter :set_parameters
+  before_action :set_colors
+  before_action :set_parameters
 
   # display documentation
   def doc
@@ -13,17 +13,17 @@ class DownloadController < ApplicationController
     # TODO: no clear way to fetch appliances. we need a /search/published/appliance
 
     cache_key = "soo_download_appliances_#{@project}"
-    @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
+    @data = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
       api_result_images = ApiConnect::get("/published/#{@project}/images")
-      #api_result_iso = ApiConnect::get("/published/#{@project}/images/iso")
-      xpath = "/directory/entry"
+      # api_result_iso = ApiConnect::get("/published/#{@project}/images/iso")
+      xpath = '/directory/entry'
       if api_result_images
         doc = REXML::Document.new api_result_images.body
-        data = Hash.new 
+        data = Hash.new
         doc.elements.each(xpath) do |e|
           filename = e.attributes['name']
           if (File.extname(filename) == '.bz2')
-            data[filename] = {:flavor => get_image_type( filename )}
+            data[filename] = { flavor: get_image_type( filename ) }
           end
 
         end
@@ -33,12 +33,12 @@ class DownloadController < ApplicationController
       end
     end
     set_flavours
-    @page_title = _("Download appliance from %s") % [@project]
+    @page_title = _('Download appliance from %s') % [@project]
     render_page :appliance
   end
 
   def package
-    redirect_to :action => :doc  and return if !params[:project] && !params[:package]
+    redirect_to action: :doc  and return if !params[:project] && !params[:package]
     required_parameters :project, :package
     @project = params[:project]
     @package = params[:package]
@@ -46,9 +46,9 @@ class DownloadController < ApplicationController
     escaped_pkg = CGI.escape(@package)
 
     cache_key = "soo_download_#{@project}_#{@package}"
-    @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
+    @data = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
       api_result = ApiConnect::get("/search/published/binary/id?match=project='#{escaped_prj}'+and+name='#{escaped_pkg}'")
-      xpath = "/collection/binary"
+      xpath = '/collection/binary'
       if api_result
         doc = REXML::Document.new api_result.body
         data = Hash.new
@@ -56,8 +56,8 @@ class DownloadController < ApplicationController
           distro = e.attributes['repository']
           if not data.has_key?(distro)
             data[distro] = {
-              :repo => "http://download.opensuse.org/repositories/#{@project}/#{distro}/",
-              :package => Hash.new
+              repo: "http://download.opensuse.org/repositories/#{@project}/#{distro}/",
+              package: Hash.new
             }
             data[distro][:flavor] = set_distro_flavor e.attributes['baseproject']
             case e.attributes['baseproject']
@@ -75,26 +75,26 @@ class DownloadController < ApplicationController
       end
     end
     set_flavours
-    @page_title = _("Install package %s / %s") % [@project, @package]
+    @page_title = _('Install package %s / %s') % [@project, @package]
     render_page :package
   end
 
 
-  
+
   def pattern
     required_parameters :project, :pattern
     @project = params[:project]
     @pattern = params[:pattern]
 
     cache_key = "soo_download_#{@project}_#{@pattern}"
-    @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
+    @data = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
 
       # api_result = ApiConnect::get("/search/published/pattern/id?match=project='#{@project}'+and+filename='#{@pattern}.ymp'")
       # TODO: workaround - the line above does not return a thing - see http://lists.opensuse.org/opensuse-buildservice/2011-07/msg00088.html
       # so we search for all files of the project and filter for *.ymp below
       api_result = ApiConnect::get("/search/published/pattern/id?match=project='#{@project}'")
-      xpath = "/collection/pattern"
-      #logger.debug doc
+      xpath = '/collection/pattern'
+      # logger.debug doc
 
       if api_result
         doc = REXML::Document.new api_result.body
@@ -104,8 +104,8 @@ class DownloadController < ApplicationController
           distro = e.attributes['repository']
           if not data.has_key?(distro)
             data[distro] = {
-              :repo => "http://download.opensuse.org/repositories/#{@project}/#{distro}/",
-              :package => Hash.new
+              repo: "http://download.opensuse.org/repositories/#{@project}/#{distro}/",
+              package: Hash.new
             }
             data[distro][:flavor] = set_distro_flavor e.attributes['baseproject']
             case e.attributes['baseproject']
@@ -120,7 +120,7 @@ class DownloadController < ApplicationController
       end
     end
     set_flavours
-    @page_title = _("Install pattern %s / %s") % [@project, @pattern]
+    @page_title = _('Install pattern %s / %s') % [@project, @pattern]
     render_page :package
   end
 
@@ -132,13 +132,13 @@ class DownloadController < ApplicationController
   end
 
 
-  def render_page page_template
+  def render_page(page_template)
     @box_title  = @page_title
     respond_to do |format|
-      format.html { render page_template, :layout => 'download' }
+      format.html { render page_template, layout: 'download' }
       format.iframe  {
         response.headers.except! 'X-Frame-Options'
-        render page_template, :layout => 'iframe.html'
+        render page_template, layout: 'iframe.html'
       }
       # needed for rails < 3.0 to support JSONP
       format.json { render_json @data.to_json }
@@ -146,7 +146,7 @@ class DownloadController < ApplicationController
   end
 
 
-  def set_distro_flavor distro
+  def set_distro_flavor(distro)
     case distro
     when /^(DISCONTINUED:)?openSUSE:/
       'openSUSE'
@@ -183,11 +183,11 @@ class DownloadController < ApplicationController
       head :forbidden
     else
       # collect distro types from @data
-      @flavors = @data.values.collect { |i| i[:flavor] }.uniq.sort{|x,y| x.downcase <=> y.downcase }
+      @flavors = @data.values.collect { |i| i[:flavor] }.uniq.sort { |x,y| x.downcase <=> y.downcase }
     end
   end
 
-  def get_image_type filename
+  def get_image_type(filename)
     case filename
     when /raw\.bz2$/, /raw\.tar\.bz2$/
       'Raw'
@@ -203,24 +203,24 @@ class DownloadController < ApplicationController
 
   def set_colors
     if params[:acolor]
-      raise "Invalid acolor value (has to be 000-fff or 000000-ffffff)" unless valid_color? params[:acolor]
+      raise 'Invalid acolor value (has to be 000-fff or 000000-ffffff)' unless valid_color? params[:acolor]
       @acolor = '#' + params[:acolor]
     end
     if params[:bcolor]
-      raise "Invalid bcolor value (has to be 000-fff or 000000-ffffff)" unless valid_color? params[:bcolor]
+      raise 'Invalid bcolor value (has to be 000-fff or 000000-ffffff)' unless valid_color? params[:bcolor]
       @bcolor = '#' + params[:bcolor]
     end
     if params[:fcolor]
-      raise "Invalid fcolor value (has to be 000-fff or 000000-ffffff)" unless valid_color? params[:fcolor]
+      raise 'Invalid fcolor value (has to be 000-fff or 000000-ffffff)' unless valid_color? params[:fcolor]
       @fcolor = '#' + params[:fcolor]
     end
     if params[:hcolor]
-      raise "Invalid hcolor value (has to be 000-fff or 000000-ffffff)" unless valid_color? params[:hcolor]
+      raise 'Invalid hcolor value (has to be 000-fff or 000000-ffffff)' unless valid_color? params[:hcolor]
       @hcolor = '#' + params[:hcolor]
     end
   end
 
-  def valid_color? color
+  def valid_color?(color)
     color =~ /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
   end
 

@@ -4,7 +4,7 @@ module NodeMatcher #:nodoc:
   class Conditions < Hash #:nodoc:
     def initialize(hash)
       super()
-      hash = { :content => hash } unless Hash === hash
+      hash = { content: hash } unless Hash === hash
       hash = keys_to_symbols(hash)
       hash.each do |k,v|
         case k
@@ -37,7 +37,7 @@ module NodeMatcher #:nodoc:
     private
 
     def keys_to_strings(hash)
-      Hash[hash.keys.map {|k| [k.to_s, hash[k]]}]
+      Hash[hash.keys.map { |k| [k.to_s, hash[k]] }]
     end
 
     def keys_to_symbols(hash)
@@ -184,8 +184,8 @@ module NodeMatcher #:nodoc:
       node.each do |child|
         # test the child
         found_one = match(child, conditions[:descendant]) ||
-        # test the child's descendants
-        match(child, :descendant => conditions[:descendant])
+                    # test the child's descendants
+                    match(child, descendant: conditions[:descendant])
         break if found_one
       end
       return false unless found_one
@@ -229,7 +229,7 @@ module NodeMatcher #:nodoc:
         siblings << child
         self_index = index if child == node
       end
-      raise "homeless child!" unless self_index >= 0
+      raise 'homeless child!' unless self_index >= 0
 
       if conditions[:sibling]
         return false unless siblings.detect do |s|
