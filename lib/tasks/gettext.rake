@@ -32,7 +32,8 @@ end
 def msgmerge_po_files
   each_po_file do |file, lang|
     print "Merging #{lang}"
-    system "msgmerge --previous --lang=#{lang} #{file} #{POT_FILE} -o #{file}.new"
+    command = "msgmerge --previous --lang=#{lang} #{file} #{POT_FILE} -o #{file}.new"
+    raise "ERROR running #{command}" unless system(command)
     system "mv #{file}.new #{file}"
   end
 end
