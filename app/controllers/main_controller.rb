@@ -151,7 +151,7 @@ class MainController < ApplicationController
       @repourl = "http://download.opensuse.org/distribution/leap/42.1"
       @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
 
-    elsif release == "developer"
+    elsif release == "developer" || release == "422"
       @isos = {}
       @directory = "http://download.opensuse.org/distribution/leap/42.2-Beta2"
       @leap = true
