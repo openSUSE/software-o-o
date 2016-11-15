@@ -151,7 +151,21 @@ class MainController < ApplicationController
       @repourl = "http://download.opensuse.org/distribution/leap/42.1"
       @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
 
-    elsif release == "developer" || release == "422"
+    elsif release == "422"
+      @isos = {}
+      @directory = "http://download.opensuse.org/distribution/leap/42.2"
+      @leap = true
+      # leap means no iso for:
+      # nonoss, dvd-32, net-32, rescue-XX, kde-XX, gnome-XX, lang-XX
+      @isos["dvd-64"] = "Leap-42.2-DVD-x86_64"
+      @isos["net-64"] = "Leap-42.2-NET-x86_64"
+
+      @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/")
+      @releasename = "openSUSE Leap 42.2"
+      @repourl = "http://download.opensuse.org/distribution/leap/42.2"
+      @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
+
+    elsif release == "developer" || release == "423"
       @isos = {}
       @directory = "http://download.opensuse.org/distribution/leap/42.2-RC2"
       @leap = true
@@ -189,19 +203,19 @@ class MainController < ApplicationController
 
 
   def developer
-    redirectit("developer")
-    return
+    # redirectit("developer")
+    # return
     flash.now[:warn] = _("There is no openSUSE release in testing phase at the moment. <br/>" +
         " If you want to use bleeding edge software, please use <a href='http://en.opensuse.org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>.")
     @exclude_debug = true
     @include_home = 'false'
-    set_release("421")
+    set_release("422")
     render :template => "main/release"
   end
 
 
   def index
-    redirectit("421")
+    redirectit("422")
   end
 
   def releasemain
