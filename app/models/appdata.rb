@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Appdata
 
   def self.get dist="factory"
@@ -39,17 +41,11 @@ class Appdata
     else
       appdata_url = "http://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
     end
-    begin
-      appdata = ApiConnect::get appdata_url
-    rescue
-      # never ever die when remote is not working or file is not there
-    end
-    zipfilename = File.join( Rails.root.join('tmp'), "appdata-" + dist + ".xml.gz" )
     filename = File.join( Rails.root.join('tmp'), "appdata-" + dist + ".xml" )
-    File.open(zipfilename, "w+", :encoding => 'ascii-8bit') do |f|
-      f.write(appdata.body) if appdata
-    end 
-    `gunzip -f #{zipfilename}`
+    open(filename, 'wb') do |file|
+      # Gzip data will be automatically decompressed with open-uri
+      file << open(appdata_url).read
+    end
     xmlfile = File.open(filename)
     doc = Nokogiri::XML(xmlfile)
     xmlfile.close
