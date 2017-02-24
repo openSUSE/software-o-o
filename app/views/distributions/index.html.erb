@@ -4,9 +4,11 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           <div class="page-heading">
-            <h1>Get openSUSE</h1>
+            <h1><%= _('Get openSUSE') %></h1>
             <hr class="small">
-            <span class="page-subheading">openSUSE is completely free to download, use and share.</span>
+            <span class="page-subheading">
+              <%= _('openSUSE is completely free to download, use and share.') %>
+            </span>
           </div>
         </div>
       </div>
@@ -37,12 +39,12 @@
         <tbody>
           <tr>
             <td>
-              Download openSUSE’s rolling release and always run the latest
-              packages provided by the openSUSE Project.
+              <%= _('Download openSUSE’s rolling release and always run the latest
+              packages provided by the openSUSE Project.') %>
             </td>
             <td>
-              Download openSUSE’s regular release and enjoy the benefits of both
-              enterprise-grade engineering and community-developed innovation.
+              <%= _('Download openSUSE’s regular release and enjoy the benefits
+              of both enterprise-grade engineering and community-developed innovation.') %>
             </td>
           </tr>
         </tbody>
@@ -61,8 +63,8 @@
         <tbody>
           <tr>
             <td>
-              Help test openSUSE’s next version of Leap by downloading the
-              latest development milestone.
+              <%= _('Help test openSUSE’s next version of Leap by downloading
+              the latest development milestone.') %>
             </td>
           </tr>
         </tbody>
@@ -70,50 +72,59 @@
 
       <hr>
 
-      <h2 id="chosing-which-distribution-to-download">Chosing which Distribution to Download</h2>
+      <h2 id="chosing-which-distribution-to-download">
+        <%= _('Chosing which Distribution to Download') %>
+      </h2>
       <p>
         <%= link_to 'openSUSE Tumbleweed', tumbleweed_distributions_path %>
-        is a <strong>rolling-release</strong>. This means the software is always
+        <%= _('is a <strong>rolling-release</strong>. This means the software is always
         the latest stable versions available from the openSUSE Project. Things
         will change regularly as Free and Open Source projects continually
-        release new versions of their software.<br> Tumbleweed is recommended
-        for <strong>Developers</strong>, <strong>openSUSE Contributors</strong>,
-        and <strong>Linux/FOSS Enthusiasts</strong>.
+        release new versions of their software.') %>
+        <br>
+        <%= _('Tumbleweed is recommended for <strong>Developers</strong>,
+        <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS
+        Enthusiasts</strong>.') %>
       </p>
 
       <p>
         <%= link_to 'openSUSE Leap', leap_distributions_path %>
-        is a <strong>regular-release</strong>. This means it releases
-        <a  href="https://en.opensuse.org/openSUSE:Roadmap"> annually</a>,
-        with security and stability updates being the priority during each release
-        <a href="https://en.opensuse.org/Lifetime">lifetime</a>. It is not expected
-        to change in any significant way until its next annual release.
+        <%= _('is a <strong>regular-release</strong>. This means it releases') %>
+        <a  href="<%= _('https://en.opensuse.org/openSUSE:Roadmap') %>">
+        <%= _('annually') %></a>,
+        <%= _('with security and stability updates being the priority during each release') %>
+        <a href="<%= _('https://en.opensuse.org/Lifetime') %>"><%= _('lifetime') %></a>.
+        <%= _('It is not expected to change in any significant way until its next annual release.') %>
         <br />
-        Leap shares a Common Base System with
+        <%= _('Leap shares a Common Base System with') %>
         <a href="https://www.suse.com/products/server/">SUSE Linux Enterprise</a>,
-        so major architectural changes are not expected for several years, aligned
-        with each new Major Release (eg 12, 13, etc) of SUSE Linux Enterprise.
+        <%= _('so major architectural changes are not expected for several years, aligned
+        with each new Major Release (eg 12, 13, etc) of SUSE Linux Enterprise.') %>
         <br />
-        Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise
-        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>.
+        <%= _('Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise
+        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>.') %>
       </p>
 
       <p>
-        Both distributions are well tested by
-        <a href="https://openqa.opensuse.org">openQA</a> as well as by human
-        openSUSE contributors so both can be relied upon to work.
+        <%= _('Both distributions are well tested by') %>
+        <a href="https://openqa.opensuse.org">openQA</a>
+        <%= _('as well as by human openSUSE contributors so both can be relied
+        upon to work.') %>
         <br>
-        Both distributions are fully capable of being used on a Desktop PC,
-        laptop, server, or in the cloud.
+        <%= _('Both distributions are fully capable of being used on a Desktop PC,
+        laptop, server, or in the cloud.') %>
       </p>
 
       <p>
-        <strong>If you are still not sure, download
+        <strong>
+          <%= _('If you are still not sure, download') %>
           <%= link_to 'openSUSE Leap', leap_distributions_path %>
         </strong>
         <br>
-        It is easy to <a href="https://en.opensuse.org/openSUSE:Tumbleweed_upgrade">
-        switch to openSUSE Tumbleweed</a> if you change your mind later.
+        <%= _('It is easy to') %>
+        <a href="<%= _('https://en.opensuse.org/openSUSE:Tumbleweed_upgrade') %>">
+        <%= _('switch to openSUSE Tumbleweed')%></a>
+        <%= _('if you change your mind later.') %>
       </p>
 
       <hr>
@@ -122,16 +133,16 @@
         <thead>
           <tr>
             <th>
-              <a href="https://en.opensuse.org/Derivatives">Derivatives</a>
+              <a href="https://en.opensuse.org/Derivatives"><%= _('Derivatives') %></a>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              openSUSE has a number of unofficial derivative distributions.
+              <%= _('openSUSE has a number of unofficial derivative distributions.
               These are made by our awesome community, often for special
-              purposes.
+              purposes.') %>
             </td>
           </tr>
         </tbody>
