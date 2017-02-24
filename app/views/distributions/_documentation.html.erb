@@ -1,5 +1,5 @@
 <% version = '' if version.nil? %>
-<h2 id="documentation">Documentation</h2>
+<h2 id="documentation"><%= _('Documentation') %></h2>
 <table>
   <tbody>
     <tr>
@@ -10,16 +10,17 @@
       </td>
       <td>
         <a href="https://doc.opensuse.org/release-notes/x86_64/openSUSE/<%= distro %>/<%= version %>">
-          Release Notes
+          <%= _('Release Notes') %>
         </a>
       </td>
       <td>
         <a href="https://en.opensuse.org/openSUSE:License">
-          License</a>
+          <%= _('License') %>
+        </a>
         </td>
       <td>
         <a href="https://doc.opensuse.org">
-          Full Documentation
+          <%= _('Full Documentation') %>
         </a>
       </td>
     </tr>
