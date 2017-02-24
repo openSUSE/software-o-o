@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>Get openSUSE</title>
+    <title><%= _('Get openSUSE') %></title>
     <meta name="author" content="openSUSE">
     <meta name="description" content="openSUSE is completely free to download, use and share.">
 
@@ -17,7 +17,7 @@
     <!-- Facebook OpenGraph tags -->
     <meta property="og:title" content="Get openSUSE">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://software.opensuse.org/newsite">
+    <meta property="og:url" content="https://software.opensuse.org">
     <meta property="og:image" content="https://static.opensuse.org/themes/bento/images/favicon.png">
     <link href="//static.opensuse.org/themes/bento/images/favicon.png" rel="shortcut icon" />
   </head>
@@ -26,12 +26,12 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only"><%= _('Toggle navigation') %></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://software.opensuse.org/newsite">Get openSUSE</a>
+          <a class="navbar-brand" href="/"><%= _('Get openSUSE') %></a>
         </div>
         <div class="collapse navbar-collapse" id="main-navbar">
           <ul class="nav navbar-nav navbar-right">
@@ -42,14 +42,14 @@
               <%= link_to 'Leap', leap_distributions_path %>
             </li>
             <li>
-              <a href="/search">Package Search</a>
+              <a href="/search"><%= _('Package Search') %></a>
             </li>
           </ul>
         </div>
         <div class="avatar-container">
             <div class="avatar-img-border">
               <%= link_to('/') do %>
-                <%= image_tag('jekyll/avatar-icon.png', class: 'avatar-img') %>
+                <%= image_tag('jekyll/avatar-icon.png', class: 'avatar-img', alt: 'openSUSE Logo') %>
               <% end %>
             </div>
         </div>
@@ -104,7 +104,7 @@
             &nbsp;•&nbsp;
             2016
             &nbsp;•&nbsp;
-            <a href="https://software.opensuse.org/newsite">download.opensuse.org</a>
+            <a href="https://software.opensuse.org/">software.opensuse.org</a>
           </p>
           <!-- Please don't remove this, keep my open source work credited :) -->
           <p class="theme-by text-muted">
