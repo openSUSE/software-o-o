@@ -1,0 +1,28 @@
+<% version = '' if version.nil? %>
+<h2 id="documentation"><%= _('Documentation') %></h2>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <a href="https://doc.opensuse.org/documentation/leap/startup/single-html/book.opensuse.startup/index.html">
+          openSUSE Startup Guide
+        </a>
+      </td>
+      <td>
+        <a href="https://doc.opensuse.org/release-notes/x86_64/openSUSE/<%= distro %>/<%= version %>">
+          <%= _('Release Notes') %>
+        </a>
+      </td>
+      <td>
+        <a href="https://en.opensuse.org/openSUSE:License">
+          <%= _('License') %>
+        </a>
+        </td>
+      <td>
+        <a href="https://doc.opensuse.org">
+          <%= _('Full Documentation') %>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

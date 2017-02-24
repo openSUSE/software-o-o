@@ -1,0 +1,208 @@
+<header class="header-section ">
+  <div class="intro-header no-img">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="page-heading">
+            <h1>Tumbleweed LiveUSBs</h1>
+            <hr class="small">
+            <span class="page-subheading">
+              <%= _('Download the LiveUSBs of the rolling version of openSUSE,
+              for desktop PCs, laptops, and servers.') %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <h2 id="please-note-these-liveusbs-are-not-supported">
+        <%= _('Please Note: These LiveUSBs are not supported') %>
+      </h2>
+      <ul>
+        <li>
+          <%= _('They cannot be used to install or upgrade Tumbleweed. Please use the') %>
+          <%= link_to "_('Tumbleweed installation media')", tumbleweed_distributions_path %>
+          <%= _('instead.') %>
+        </li>
+        <li>
+          <%= _('They have a limited package/driver selection, so cannot be considered
+          an accurate reflection as to whether Tumbleweed will work on your
+          hardware or not.') %>
+        </li>
+        <li>
+          <%= _('They are not tested as thoroughly as the') %>
+          <%= link_to "_('Tumbleweed installation media.')", tumbleweed_distributions_path %>
+          <%= _('Please review') %>
+          <a href="https://openqa.opensuse.org/">openQA’s</a>
+          <%= _('test results if you want an indication whether these LiveUSBs are
+          working as expected.') %>
+        </li>
+      </ul>
+      <h2 id="liveusb-media-intel">LiveUSB <%= _('Media') %> - Intel 64-bit (x86_64)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tumbleweed</th>
+            <th><%= _('Size') %></th>
+            <th><%= _('Download Method') %></th>
+            <th><%= _('Checksum') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GNOME</td>
+            <td>950MB</td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-GNOME-Live-x86_64-Current.iso">
+                <%= _('Direct Link') %>
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-GNOME-Live-x86_64-Current.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-GNOME-Live-x86_64-Current.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-GNOME-Live-x86_64-Current.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>KDE</td>
+            <td>950MB</td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso">
+                <%= _('Direct Link') %>
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Rescue</td>
+            <td>650MB</td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-Rescue-CD-x86_64-Current.iso">
+                <%= _('Direct Link') %>
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-Rescue-CD-x86_64-Current.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-Rescue-CD-x86_64-Current.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-Rescue-CD-x86_64-Current.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="liveusb-media-intel-32">LiveUSB <%= _('Media') %> - Intel 32-bit (i686)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tumbleweed</th>
+            <th><%= _('Size') %></th>
+            <th><%= _('Download Method') %></th>
+            <th><%= _('Checksum') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GNOME</td>
+            <td>950MB</td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-GNOME-Live-i686-Current.iso">
+                <%= _('Direct Link') %>
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-GNOME-Live-i686-Current.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-GNOME-Live-i686-Current.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-GNOME-Live-i686-Current.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>KDE</td>
+            <td>950MB</td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-i686-Current.iso">
+                <%= _('Direct Link') %></a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-i686-Current.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-i686-Current.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-i686-Current.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Rescue</td>
+            <td>650MB</td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-Rescue-CD-i686-Current.iso">
+                <%= _('Direct Link') %>
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-Rescue-CD-i686-Current.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-Rescue-CD-i686-Current.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-Rescue-CD-i686-Current.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <%= render partial: "documentation", locals: { distro: 'Tumbleweed' } %>
+      <%= render "verify_download" %>
+      <%= render "requirements" %>
+    </div>
+  </div>
+</div>
