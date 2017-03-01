@@ -22,7 +22,7 @@
       <table>
         <thead>
           <tr>
-            <th>Leap 42.1</th>
+            <th>Leap 42.2</th>
             <th><%= _('Size') %></th>
             <th><%= _('Download Method') %></th>
             <th><%= _('Checksum') %></th>
@@ -33,24 +33,24 @@
             <td>DVD/USB Stick</td>
             <td>4.7GB</td>
             <td>
-              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-x86_64.iso">
+              <a href="http://download.opensuse.org/distribution/leap/42.2/iso/openSUSE-Leap-42.2-DVD-x86_64.iso">
                 <%= _('Direct Link') %>
               </a>
               |
-              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-x86_64.iso.torrent">
+              <a href="http://download.opensuse.org/distribution/leap/42.2/iso/openSUSE-Leap-42.2-DVD-x86_64.iso.torrent">
                 BitTorrent
               </a>
               |
-              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-x86_64.iso.meta4">
+              <a href="http://download.opensuse.org/distribution/leap/42.2/iso/openSUSE-Leap-42.2-DVD-x86_64.iso.meta4">
                 Metalink
               </a>
               |
-              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-x86_64.iso?mirrorlist">
+              <a href="http://download.opensuse.org/distribution/leap/42.2/iso/openSUSE-Leap-42.2-DVD-x86_64.iso?mirrorlist">
                 <%= _('Pick Mirror') %>
               </a>
             </td>
             <td>
-              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-x86_64.iso.sha256">
+              <a href="http://download.opensuse.org/distribution/leap/42.2/iso/openSUSE-Leap-42.2-DVD-x86_64.iso.sha256">
                 SHA256
               </a>
             </td>
@@ -59,20 +59,20 @@
             <td>Network CD/USB Stick</td>
             <td>85MB</td>
             <td>
-              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-NET-x86_64.iso">
+              <a href="http://download.opensuse.org/distribution/leap/42.2/iso/openSUSE-Leap-42.2-NET-x86_64.iso">
                 <%= _('Direct Link') %>
               </a>
               |
-              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-NET-x86_64.iso.meta4">
+              <a href="http://download.opensuse.org/distribution/leap/42.2/iso/openSUSE-Leap-42.2-NET-x86_64.iso.meta4">
                 Metalink
               </a>
               |
-              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-NET-x86_64.iso?mirrorlist">
+              <a href="http://download.opensuse.org/distribution/leap/42.2/iso/openSUSE-Leap-42.2-NET-x86_64.iso?mirrorlist">
                 <%= _('Pick Mirror') %>
               </a>
             </td>
             <td>
-              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-NET-x86_64.iso.sha256">
+              <a href="http://download.opensuse.org/distribution/leap/42.2/iso/openSUSE-Leap-42.2-NET-x86_64.iso.sha256">
                 SHA256
               </a>
             </td>
@@ -83,9 +83,7 @@
         <%= _('openSUSE Leap is also available on other architectures, such as
         AArch64 (aka ARMv8) and PPC64.') %>
         <br>
-        <a href="https://software.opensuse.org/newsite/leap/ports">
-          <%= _('Get openSUSE Leap for other architectures.') %>
-        </a>
+        <%= link_to _('Get openSUSE Leap for other architectures.'), leap_ports_distributions_path %>
       </p>
       <%= render "choosing_media" %>
       <%= render "leap_switch" %>
