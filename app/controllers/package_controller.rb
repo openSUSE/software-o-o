@@ -43,7 +43,7 @@ class PackageController < ApplicationController
     @packages.each do |package|
 
       if ( package.repository.match(/Tumbleweed/) || (package.project == "openSUSE:Tumbleweed") )
-        package.baseproject = "openSUSE:Tumbleweed"
+        package.baseproject = "openSUSE:Factory"
       elsif ( package.project.match( /openSUSE:Evergreen/ ) )
         package.baseproject = package.project
       elsif ( package.repository.match( /^Factory$/i ) )
