@@ -1,0 +1,95 @@
+<header class="header-section ">
+  <div class="intro-header no-img">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="page-heading">
+            <h1>Tumbleweed</h1>
+            <hr class="small">
+            <span class="page-subheading">
+              <%= _('Download the rolling version of openSUSE, for desktop PCs,
+              laptops, and servers.') %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <h2 id="installation-media-intel"><%= _('Installation Media') %> - Intel 64-bit (x86_64)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tumbleweed</th>
+            <th><%= _('Size') %></th>
+            <th><%= _('Download Method') %></th>
+            <th><%= _('Checksum') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DVD/USB Stick</td>
+            <td>4.7GB</td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso">
+                <%= _('Direct Link') %>
+                </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><%= _('Network') %> CD/USB Stick</td>
+            <td>85MB</td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso">
+                <%= _('Direct Link') %>
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        openSUSE Tumbleweed
+        <%= _('is also available on other architectures, such as
+        Intel 32-bit (aka i586), AArch64 (aka ARMv8) and PPC64.') %>
+        <br>
+        <%= link_to _('Get openSUSE Tumbleweed for other architectures.'), tumbleweed_ports_distributions_path %>
+      </p>
+      <%= render "choosing_media" %>
+      <%= render "unsupported_live_media" %>
+      <%= render "tumbleweed_switch" %>
+      <%= render partial: 'documentation', locals: { distro: "Tumbleweed" } %>
+      <%= render "verify_download" %>
+      <%= render "requirements" %>
+    </div>
+  </div>
+</div>

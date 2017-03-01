@@ -1,5 +1,16 @@
 SoftwareOO::Application.routes.draw do
 
+  resources :distributions, only: [:index] do
+    collection do
+      get 'tumbleweed'
+      get 'tumbleweed/ports', to: 'distributions#tumbleweed_ports'
+      get 'tumbleweed/unsupported', to: 'distributions#tumbleweed_unsupported'
+      get 'leap'
+      get 'leap/ports', to: 'distributions#leap_ports'
+      get 'testing'
+    end
+  end
+
   controller :main do
     get '/' => :index
     get 'developer' => :developer
@@ -34,8 +45,8 @@ SoftwareOO::Application.routes.draw do
     get 'search' => :searchresult, :format => false
     get 'find' => :find, :format => false
   end
-  
-  controller :package do 
+
+  controller :package do
     get 'package/:package' => :show, :constraints => { :package => /[-+\w\.:\@]+/ }
     get 'package/thumbnail/:package.png' => :thumbnail, :constraints => { :package => /[-+\w\.:\@]+/ }
     get 'package/screenshot/:package.png' => :screenshot, :constraints => { :package => /[-+\w\.:\@]+/ }

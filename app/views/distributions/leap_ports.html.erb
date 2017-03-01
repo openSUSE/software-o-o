@@ -1,0 +1,147 @@
+<header class="header-section ">
+  <div class="intro-header no-img">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="page-heading">
+            <h1>Leap Ports</h1>
+            <hr class="small">
+            <span class="page-subheading">
+              <%= _('Download alternative architecture versions of openSUSE Leap, for desktop PCs, laptops, and servers.') %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <h2 id="installation-media">Installation Media - PowerPC Little Endian (ppc64le)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Leap 42.1</th>
+            <th><%= _('Size') %></th>
+            <th><%= _('Download Method') %></th>
+            <th><%= _('Checksum') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DVD/USB Stick</td>
+            <td>4.7GB</td>
+            <td>
+              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-x86_64.iso">
+                <%= _('Direct Link') %>
+              </a>
+              |
+              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-x86_64.iso.torrent">
+                BitTorrent
+              </a>
+              |
+              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-x86_64.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-x86_64.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-x86_64.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><%= _('Network' %> CD/USB Stick</td>
+            <td>85MB</td>
+            <td>
+              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-NET-x86_64.iso">
+                <%= _('Direct Link') %>
+              </a>
+              |
+              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-NET-x86_64.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-NET-x86_64.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/distribution/leap/42.1/iso/openSUSE-Leap-42.1-NET-x86_64.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="installation-media-armv8">Installation Media - ARMv8 64-bit (aarch64)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Leap 42.1</th>
+            <th><%= _('Size') %></th>
+            <th><%= _('Download Method') %></th>
+            <th><%= _('Checksum') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DVD/USB Stick</td>
+            <td>4.7GB</td>
+            <td>
+              <a href="http://download.opensuse.org/ports/aarch64/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-aarch64.iso">
+                <%= _('Direct Link') %>
+              </a>
+              |
+              <a href="http://download.opensuse.org/ports/aarch64/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-aarch64.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/ports/aarch64/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-aarch64.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/ports/aarch64/distribution/leap/42.1/iso/openSUSE-Leap-42.1-DVD-aarch64.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><%= _('Network') %> CD/USB Stick</td>
+            <td>85MB</td>
+            <td>
+              <a href="http://download.opensuse.org/ports/aarch64/distribution/leap/42.1/iso/openSUSE-Leap-42.1-NET-aarch64.iso">
+                <%= _('Direct Link') %>
+              </a>
+              |
+              <a href="http://download.opensuse.org/ports/aarch64/distribution/leap/42.1/iso/openSUSE-Leap-42.1-NET-aarch64.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/ports/aarch64/distribution/leap/42.1/iso/openSUSE-Leap-42.1-NET-aarch64.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/ports/aarch64/distribution/leap/42.1/iso/openSUSE-Leap-42.1-NET-aarch64.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <%= render "choosing_media" %>
+      <%= render "leap_switch" %>
+      <%= render partial: 'documentation', locals: {distro: "Leap"} %>
+      <%= render "verify_download" %>
+      <%= render "requirements" %>
+    </div>
+  </div>
+</div>
