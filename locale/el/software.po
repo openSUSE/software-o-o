@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-31 16:19+0200\n"
+"POT-Creation-Date: 2017-03-01 11:05+0100\n"
 "PO-Revision-Date: 2015-11-03 23:26+0200\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
 "Language-Team: Ελληνικά <opensuse-translation-el@opensuse.org>\n"
@@ -17,30 +17,50 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.7\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../app/views/search/_find_results.html.erb:94
 msgid " and "
 msgstr " και "
 
+#: ../app/controllers/main_controller.rb:182
 msgid "\"#{release} is not a supported release.\""
 msgstr "\"Η #{release} δεν είναι υποστηριζόμενη έκδοση.\""
 
+#: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
 msgid "(hide)"
 msgstr "(απόκρυψη)"
 
+#: ../app/views/download/package.erb:7 ../app/views/download/appliance.erb:7
 msgid "(show)"
 msgstr "(εμφάνιση)"
 
+#: ../app/views/order/new.html.erb:31
 msgid "... and keep us informed"
 msgstr "...και κρατήστε μας ενήμερυς"
 
+#: ../app/views/order/new.html.erb:40
 msgid "... get other marketing stuff"
 msgstr "...πάρτε άλλα υλικά μάρκετινγκ"
 
+#: ../app/views/distributions/_requirements.html.erb:6
+msgid "2 GB system memory"
+msgstr ""
+
+#: ../app/views/distributions/_requirements.html.erb:5
+msgid "2 Ghz dual core processor or better"
+msgstr ""
+
+#: ../app/views/main/_leap_release.html.erb:13
+#: ../app/views/main/_non_leap_release.html.erb:28
 msgid "4.7GB DVD (also suitable for USB stick)"
 msgstr "4.7GB DVD (κατάλληλο επίσης για USB stick)"
 
+#: ../app/views/main/_options.html.erb:21
+#: ../app/views/main/_options.html.erb:30
 msgid "64 Bit PC"
 msgstr "64 Bit Η/Υ"
 
+#: ../app/views/main/_options.html.erb:62
+#: ../app/views/main/_leap_release.html.erb:45
 msgid ""
 "<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">openSUSE "
 "startup guide</a>"
@@ -48,6 +68,7 @@ msgstr ""
 "<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">Οδηγός "
 "εκκίνησης openSUSE</a>"
 
+#: ../app/views/main/_help_method.html.erb:16
 msgid ""
 "<a href=\"http://en.opensuse.org/SDB:Metalink\">Metalink</a> is an open "
 "standard that bundles the various ways (FTP/HTTP/BitTorrent) to get files "
@@ -68,18 +89,25 @@ msgstr ""
 "διακομιστές αυτόματα. Επίσης, μπορεί να εντοπίζει και να διορθώνει λάθη. "
 "Χρειάζεται όμως ειδική εφαρμογή για να το χειριστεί."
 
+#: ../app/views/main/_options.html.erb:64
+#: ../app/views/main/_leap_release.html.erb:49
 msgid "<a href=\"http://en.opensuse.org/openSUSE:License\">License</a>"
 msgstr "<a href=\"http://en.opensuse.org/openSUSE:License\">Άδεια χρήσης</a>"
 
+#: ../app/views/main/_options.html.erb:63
+#: ../app/views/main/_leap_release.html.erb:47
 msgid "<a href='%s'>Release Notes</a>"
 msgstr "<a href='%s'>Σημειώσεις έκδοσης</a>"
 
+#: ../app/views/package/_download_rows.html.erb:4
 msgid "<b>official release</b>"
 msgstr "<b>επίσημη έκδοση</b>"
 
+#: ../app/views/package/_download_rows.html.erb:6
 msgid "<b>official update</b>"
 msgstr "<b>επίσημη ενημέρωση</b>"
 
+#: ../app/views/main/_non_leap_release.html.erb:35
 msgid ""
 "A GNOME desktop you can run from %s or from USB stick.<br/>Can be installed "
 "as is (no upgrade)."
@@ -87,6 +115,7 @@ msgstr ""
 "Μία επιφάνεια εργασίας GNOME που μπορείτε να εκτελέσετε από %s ή από στικάκι "
 "USB.<br/>Μπορεί να εγκατασταθεί ως έχει (χωρίς αναβάθμιση)."
 
+#: ../app/views/main/_non_leap_release.html.erb:39
 msgid ""
 "A KDE desktop you can run from %s or from USB stick.<br/>Can be installed as "
 "is (no upgrade)."
@@ -94,12 +123,16 @@ msgstr ""
 "Μία επιφάνεια εργασίας KDE που μπορείτε να εκτελέσετε από %s ή από στικάκι "
 "USB.<br/>Μπορεί να εγκατασταθεί ως έχει (χωρίς αναβάθμιση)."
 
+#: ../app/views/download/package.erb:84
 msgid "Add repository and install manually"
 msgstr "Προσθέσετε αποθετήριο και εγκαταστήσετε με το χέρι"
 
+#: ../app/views/main/_non_leap_release.html.erb:86
 msgid "Add-On Downloads (optional)"
 msgstr "Επιπρόσθετες μεταφορτώσεις (προαιρετικό)"
 
+#: ../app/views/main/_leap_release.html.erb:67
+#: ../app/views/main/_non_leap_release.html.erb:74
 msgid ""
 "After having successfully downloaded the ISO image(s), create a bootable USB "
 "stick or burn the image(s) to a DVD (or a CD if the chosen image fits)."
@@ -107,6 +140,7 @@ msgstr ""
 "Μόλις κατεβάσετε επιτυχώς τα ISO, δημιουργήστε ένα εκκινήσιμο USB stick ή "
 "εγγράψτε το ISO σε ένα DVD (ή σε CD εάν το ISO χωράει)."
 
+#: ../app/views/order/_form.html.erb:81
 msgid ""
 "All data is used only for sending openSUSE promotional material\n"
 "      and will not be spread to third parties. We store the data to\n"
@@ -128,15 +162,22 @@ msgstr ""
 "United_States_embargoes'>http://en.wikipedia.org/wiki/"
 "United_States_embargoes</a>."
 
+#: ../app/views/search/_find_form.html.erb:18
 msgid "App Browser"
 msgstr "Εφαρμογή Πλοηγού"
 
+#: ../app/views/download/appliance.erb:52
 msgid "Available Images"
 msgstr "Διαθέσιμες Εικόνες"
 
+#: ../app/views/main/_leap_medium.html.erb:15
+#: ../app/views/main/_help_method.html.erb:10
+#: ../app/views/main/_options.html.erb:8
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
+#: ../app/views/main/_leap_release.html.erb:73
+#: ../app/views/main/_non_leap_release.html.erb:80
 msgid ""
 "Boot from the DVD, CD or USB stick. In case your computer does not "
 "automatically boot from the chosen device, open the BIOS setup to allow "
@@ -146,21 +187,56 @@ msgstr ""
 "ο υπολογιστής σας δεν εκκινήσει αυτόματα από την επιλεγμένη συσκευή, ανοίξτε "
 "τις ρυθμίσεις BIOS και επιτρέψτε την εκκίνηση από αυτή."
 
+#: ../app/views/distributions/index.html.erb:114
+msgid ""
+"Both distributions are fully capable of being used on a Desktop PC,\n"
+"        laptop, server, or in the cloud."
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:109
+msgid "Both distributions are well tested by"
+msgstr ""
+
+#: ../app/views/main/release.html.erb:68
 msgid "Bronze Sponsor"
 msgstr "Χάλκινος Χορηγός"
 
+#: ../app/views/main/redirect_with_notice.erb:1
 msgid "Browser incompatibility"
 msgstr "Ασυμβατότητα περιηγητή"
 
+#: ../app/views/main/release.html.erb:36
 msgid "Burn CD/DVD Image(s)"
 msgstr "Εγγραφή εικόνας(ων) CD/DVD"
 
+#: ../app/views/package/show.html.erb:169
 msgid "Categories"
 msgstr "Κατηγορίες"
 
+#: ../app/views/package/show.html.erb:169
 msgid "Category"
 msgstr "Κατηγορία"
 
+#: ../app/views/distributions/tumbleweed_ports.html.erb:29
+#: ../app/views/distributions/tumbleweed_ports.html.erb:86
+#: ../app/views/distributions/tumbleweed_ports.html.erb:143
+#: ../app/views/distributions/testing.html.erb:50
+#: ../app/views/distributions/leap_ports.html.erb:29
+#: ../app/views/distributions/leap_ports.html.erb:90
+#: ../app/views/distributions/tumbleweed.html.erb:30
+#: ../app/views/distributions/leap.html.erb:28
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:53
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:132
+#, fuzzy
+#| msgid "md5 checksum"
+msgid "Checksum"
+msgstr "Ελεγκτικό σύνολο md5"
+
+#: ../app/views/distributions/_verify_download.html.erb:26
+msgid "Checksums Help"
+msgstr ""
+
+#: ../app/views/main/_non_leap_release.html.erb:59
 msgid ""
 "Choose an installation medium by clicking it and hit the Download button to "
 "start the download. Optionally choose your computer type or an alternative "
@@ -170,15 +246,31 @@ msgstr ""
 "Μεταφόρτωση για να ξεκινήσει η μεταφόρτωσή του. Προαιρετικά επιλέξτε το "
 "είδος του υπολογιστή σας ή κάποια εναλλακτική μέθοδο μεταφόρτωσης."
 
+#: ../app/views/distributions/_choosing_media.html.erb:2
+#, fuzzy
+#| msgid "Click to Download"
+msgid "Choosing Which Media to Download"
+msgstr "Κάντε κλικ για Λήψη"
+
+#: ../app/views/distributions/index.html.erb:76
+msgid "Chosing which Distribution to Download"
+msgstr ""
+
+#: ../app/views/main/_non_leap_release.html.erb:49
 msgid "Click here to display these alternative versions."
 msgstr "Κάντε κλίκ εδώ για εμφάνιση αυτών των εναλλακτικών εκδόσεων."
 
+#: ../app/views/main/_download_link.html.erb:2
 msgid "Click to Download"
 msgstr "Κάντε κλικ για Λήψη"
 
+#: ../app/views/layouts/download.html.erb:59
+#: ../app/views/layouts/application.html.erb:65
 msgid "Community"
 msgstr "Κοινότητα"
 
+#: ../app/views/main/_leap_release.html.erb:13
+#: ../app/views/main/_non_leap_release.html.erb:28
 msgid ""
 "Contains a large collection of software for desktop or server use.<br/"
 ">Suitable for installation or upgrade."
@@ -186,69 +278,185 @@ msgstr ""
 "Περιέχει μεγάλη συλλογή εφαρμογών για χρήση σε desktop ή διακομιστή. <br/> "
 "Κατάλληλο για εγκατάσταση ή αναβάθμιση."
 
+#: ../app/views/main/release.html.erb:46
 msgid "Countdown"
 msgstr "Αντίστροφη Μέτρηση"
 
+#: ../app/views/order/_form.html.erb:72
 msgid "Country"
 msgstr "Χώρα"
 
+#: ../app/views/distributions/testing.html.erb:34
+msgid "Currently testing"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:136
+#, fuzzy
+#| msgid "openSUSE Derivatives"
+msgid "Derivatives"
+msgstr "Παράγωγα openSUSE"
+
+#: ../app/views/layouts/download.html.erb:60
+#: ../app/views/layouts/application.html.erb:66
 msgid "Development"
 msgstr "Ανάπτυξη"
 
+#: ../app/views/main/release.html.erb:15
 msgid "Development Version"
 msgstr "Έκδοση υπό ανάπτυξη"
 
+#: ../app/views/search/_find_results.html.erb:92
 msgid "Development packages"
 msgstr "Πακέτα υπό ανάπτυξη"
 
+#: ../app/views/search/_find_results.html.erb:91
 msgid "Development-"
 msgstr "Ανάπτυξη-"
 
+#: ../app/views/package/show.html.erb:188
 msgid "Direct Install"
 msgstr "Άμεση Εγκατάσταση"
 
+#: ../app/views/main/_leap_medium.html.erb:13
+#: ../app/views/main/_help_method.html.erb:6
+#: ../app/views/main/_options.html.erb:6
+#: ../app/views/distributions/tumbleweed_ports.html.erb:38
+#: ../app/views/distributions/tumbleweed_ports.html.erb:60
+#: ../app/views/distributions/tumbleweed_ports.html.erb:95
+#: ../app/views/distributions/tumbleweed_ports.html.erb:117
+#: ../app/views/distributions/tumbleweed_ports.html.erb:152
+#: ../app/views/distributions/tumbleweed_ports.html.erb:174
+#: ../app/views/distributions/testing.html.erb:59
+#: ../app/views/distributions/testing.html.erb:81
+#: ../app/views/distributions/leap_ports.html.erb:38
+#: ../app/views/distributions/leap_ports.html.erb:64
+#: ../app/views/distributions/leap_ports.html.erb:99
+#: ../app/views/distributions/leap_ports.html.erb:121
+#: ../app/views/distributions/tumbleweed.html.erb:39
+#: ../app/views/distributions/tumbleweed.html.erb:61
+#: ../app/views/distributions/leap.html.erb:37
+#: ../app/views/distributions/leap.html.erb:63
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:62
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:84
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:106
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:141
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:163
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:184
 msgid "Direct Link"
 msgstr "Απευθείας σύνδεσμος"
 
+#: ../app/views/main/_options.html.erb:60
+#: ../app/views/main/_leap_release.html.erb:43
+#: ../app/views/distributions/_documentation.html.erb:2
 msgid "Documentation"
 msgstr "Τεκμηρίωση"
 
+#: ../app/views/package/show.html.erb:141
 msgid "Don't show this warning the next time"
 msgstr "Να μην εμφανιστεί την επόμενη φορά αυτή η προειδοποίηση."
 
+#: ../app/views/main/_options.html.erb:45
+#: ../app/views/main/_download_link.html.erb:2
 msgid "Download"
 msgstr "Λήψη"
 
+#: ../app/views/main/release.html.erb:4
 msgid "Download %s"
 msgstr "Λήψη %s"
 
+#: ../app/views/main/release.html.erb:35
 msgid "Download Help"
 msgstr "Λήψη Βοήθειας"
 
+#: ../app/views/main/_leap_medium.html.erb:10
+#: ../app/views/main/_options.html.erb:4
+#: ../app/views/distributions/tumbleweed_ports.html.erb:28
+#: ../app/views/distributions/tumbleweed_ports.html.erb:85
+#: ../app/views/distributions/tumbleweed_ports.html.erb:142
+#: ../app/views/distributions/testing.html.erb:49
+#: ../app/views/distributions/leap_ports.html.erb:28
+#: ../app/views/distributions/leap_ports.html.erb:89
+#: ../app/views/distributions/tumbleweed.html.erb:29
+#: ../app/views/distributions/leap.html.erb:27
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:52
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:131
 msgid "Download Method"
 msgstr "Μέθοδος Λήψης"
 
+#: ../app/views/distributions/leap_ports.html.erb:10
+msgid ""
+"Download alternative architecture versions of openSUSE Leap, for desktop "
+"PCs, laptops, and servers."
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed_ports.html.erb:10
+msgid ""
+"Download alternative architectures of the rolling version\n"
+"              of openSUSE, for desktop PCs, laptops, and servers."
+msgstr ""
+
+#: ../app/controllers/download_controller.rb:36
 msgid "Download appliance from %s"
 msgstr "Λήψη μεταφόρτωσης από %s"
 
+#: ../app/views/distributions/index.html.erb:46
+msgid ""
+"Download openSUSE’s regular release and enjoy the benefits\n"
+"              of both enterprise-grade engineering and community-developed "
+"innovation."
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:42
+msgid ""
+"Download openSUSE’s rolling release and always run the latest\n"
+"              packages provided by the openSUSE Project."
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
+msgid ""
+"Download the LiveUSBs of the rolling version of openSUSE,\n"
+"              for desktop PCs, laptops, and servers."
+msgstr ""
+
+#: ../app/views/distributions/leap.html.erb:10
+msgid ""
+"Download the latest version of openSUSE Leap, for desktop PCs, laptops, and "
+"servers."
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:10
+msgid ""
+"Download the rolling version of openSUSE, for desktop PCs,\n"
+"              laptops, and servers."
+msgstr ""
+
+#: ../app/views/main/_options.html.erb:49
 msgid "Download&nbsp;DVD"
 msgstr "Λήψη&nbsp;DVD"
 
+#: ../app/views/main/_options.html.erb:48
 msgid "Download&nbsp;GNOME"
 msgstr "Λήψη&nbsp;GNOME"
 
+#: ../app/views/main/_options.html.erb:47
 msgid "Download&nbsp;KDE"
 msgstr "Λήψη&nbsp;KDE"
 
+#: ../app/views/main/_options.html.erb:50
 msgid "Download&nbsp;Network"
 msgstr "Λήψη&nbsp;Δικτυακού"
 
+#: ../app/views/main/_options.html.erb:51
 msgid "Download&nbsp;Rescue"
 msgstr "Λήψη&nbsp;Συστήματος&nbsp;Διάσωσης"
 
+#: ../app/views/layouts/download.html.erb:57
+#: ../app/views/layouts/application.html.erb:63
 msgid "Downloads"
 msgstr "Λήψεις"
 
+#: ../app/views/main/_leap_release.html.erb:15
+#: ../app/views/main/_non_leap_release.html.erb:31
 msgid ""
 "Downloads the installation system and all packages from online repositories."
 "<br/>Suitable for installation or upgrade."
@@ -256,24 +464,43 @@ msgstr ""
 "Κατεβάζει το σύστημα εγκατάστασης και όλα τα πακέτα από διαδικτυακά "
 "αποθετήρια. <br/>Κατάλληλο για εγκατάσταση ή αναβάθμιση."
 
+#: ../app/views/distributions/_leap_switch.html.erb:2
+msgid "Easy Ways to Switch to openSUSE Leap"
+msgstr ""
+
+#: ../app/views/distributions/_tumbleweed_switch.html.erb:2
+msgid "Easy Ways to Switch to openSUSE Tumbleweed"
+msgstr ""
+
+#: ../app/views/distributions/_requirements.html.erb:8
+msgid "Either a DVD drive or USB port for the installation media"
+msgstr ""
+
+#: ../app/views/package/show.html.erb:252
 msgid "Expand all sections ('e')"
 msgstr "Ανάπτυξη όλων των τμημάτων ('e')"
 
+#: ../app/views/main/_non_leap_release.html.erb:90
 msgid "Extra Languages"
 msgstr "Πρόσθετες γλώσσες"
 
+#: ../app/views/main/_non_leap_release.html.erb:88
 msgid "Extra Languages (32 Bit)"
 msgstr "Πρόσθετες γλώσσες (32 Bit)"
 
+#: ../app/views/main/_non_leap_release.html.erb:89
 msgid "Extra Languages (64 Bit)"
 msgstr "Πρόσθετες γλώσσες (64 bit)"
 
+#: ../app/views/download/package.erb:106
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
 msgstr "Εκτελέστε το <strong>%s</strong> ως χρήστης <strong>root</strong>:"
 
+#: ../app/views/download/package.erb:99
 msgid "For <strong>%s</strong> run the following:"
 msgstr "Για <strong>%s</strong> εκτελέστε το παρακάτω:"
 
+#: ../app/views/download/package.erb:90
 msgid ""
 "For <strong>Arch Linux</strong>, edit /etc/pacman.conf and add the following "
 "(note that the order of repositories in pacman.conf is important, since "
@@ -284,10 +511,24 @@ msgstr ""
 "conf είναι σημαντική, διότι ο pacman κατεβάζει πάντα το πρώτο πακέτο που "
 "βρίσκει):"
 
+#: ../app/views/main/_leap_verify.html.erb:6
+#: ../app/views/distributions/_verify_download.html.erb:13
 msgid ""
 "For each ISO, we offer a checksum file with the corresponding SHA256 sum."
 msgstr "Για κάθε ISO, παρέχουμε ένα αρχείο checksum με το SHA256 sum."
 
+#: ../app/views/distributions/_verify_download.html.erb:16
+#, fuzzy
+#| msgid ""
+#| "For extra security, you can use GPG to verify who signed those .sha256 "
+#| "files. It should be %s."
+msgid ""
+"For extra security, you can use GPG to verify who signed those .sha256 files."
+msgstr ""
+"Για περισσότερη ασφάλεια, μπορείτε να χρησιμοποιήσετε το κλειδί GPG για να "
+"επιβεβαιώσετε ποιος υπέγραψε τα αρχεία sha256. Πρέπει να είναι %s."
+
+#: ../app/views/main/_leap_verify.html.erb:7
 msgid ""
 "For extra security, you can use GPG to verify who signed those .sha256 "
 "files. It should be %s."
@@ -295,34 +536,129 @@ msgstr ""
 "Για περισσότερη ασφάλεια, μπορείτε να χρησιμοποιήσετε το κλειδί GPG για να "
 "επιβεβαιώσετε ποιος υπέγραψε τα αρχεία sha256. Πρέπει να είναι %s."
 
+#: ../app/views/distributions/_verify_download.html.erb:24
+msgid "For more help verifing your download please read"
+msgstr ""
+
+#: ../app/views/distributions/_upgrade_table.html.erb:6
+msgid "From OS X"
+msgstr ""
+
+#: ../app/views/distributions/_upgrade_table.html.erb:5
+msgid "From Windows"
+msgstr ""
+
+#: ../app/views/distributions/_upgrade_table.html.erb:4
+msgid "From an older version or other Linux distro"
+msgstr ""
+
+#: ../app/views/distributions/_documentation.html.erb:23
+#, fuzzy
+#| msgid "Documentation"
+msgid "Full Documentation"
+msgstr "Τεκμηρίωση"
+
+#: ../app/views/package/categories.html.erb:17
 msgid "Games"
 msgstr "Παιγνίδια"
 
+#: ../app/views/distributions/_unsupported_live_media.html.erb:10
+msgid "Get Unsupported Tumbleweed LiveCDs."
+msgstr ""
+
+#: ../app/views/main/_non_leap_release.html.erb:44
 msgid "Get one of the specialized distributions built on openSUSE."
 msgstr ""
 "Λάβετε μία από τις ειδικευμένες διανομές που χτίστηκαν πάνω στο openSUSE."
 
+#: ../app/views/layouts/jekyll.html.erb:8
+#: ../app/views/layouts/jekyll.html.erb:34
+#: ../app/views/distributions/index.html.erb:7
+#, fuzzy
+#| msgid "openSUSE"
+msgid "Get openSUSE"
+msgstr "openSUSE"
+
+#: ../app/views/distributions/leap.html.erb:87
+msgid "Get openSUSE Leap for other architectures."
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:85
+msgid "Get openSUSE Tumbleweed for other architectures."
+msgstr ""
+
+#: ../app/views/main/release.html.erb:33
 msgid "Getting Help"
 msgstr "Λήψη Βοήθειας"
 
+#: ../app/views/main/release.html.erb:59
 msgid "Gold Sponsor"
 msgstr "Χρυσός Χορηγός"
 
+#: ../app/views/download/package.erb:153
 msgid "Grab binary packages directly"
 msgstr "Πάρτε τα εκτελέσιμα πακέτα απευθείας"
 
+#: ../app/views/layouts/download.html.erb:54
+#: ../app/views/layouts/application.html.erb:60
 msgid "Header Logo"
 msgstr "Λογότυπο Επικεφαλίδας"
 
+#: ../app/views/main/_help_method.html.erb:2
 msgid "Help on Download Method"
 msgstr "Βοήθεια στην μέθοδο λήψης"
 
+#: ../app/views/main/_options.html.erb:26
 msgid "Help on Type of Computer"
 msgstr "Βοήθεια στο είδος υπολογιστή"
 
+#: ../app/views/distributions/index.html.erb:66
+msgid ""
+"Help test openSUSE’s next version of Leap by downloading\n"
+"              the latest development milestone."
+msgstr ""
+
+#: ../app/views/distributions/testing.html.erb:10
+msgid ""
+"Help test the next version of openSUSE Leap, the\n"
+"              regular-release distribution for desktop PCs, laptops,\n"
+"              and servers."
+msgstr ""
+
+#: ../app/views/main/_leap_release.html.erb:65
+#: ../app/views/main/_non_leap_release.html.erb:72
 msgid "How to Proceed"
 msgstr "Πως να προχωρήσετε"
 
+#: ../app/views/distributions/_upgrade_table.html.erb:13
+msgid "How to burn a DVD on Linux."
+msgstr ""
+
+#: ../app/views/distributions/_upgrade_table.html.erb:23
+msgid "How to burn a DVD on OS X."
+msgstr ""
+
+#: ../app/views/distributions/_upgrade_table.html.erb:18
+msgid "How to burn a DVD on Windows."
+msgstr ""
+
+#: ../app/views/distributions/_upgrade_table.html.erb:35
+msgid "How to create a Bootable USB stick on Windows."
+msgstr ""
+
+#: ../app/views/distributions/_upgrade_table.html.erb:30
+msgid "How to create a bootable USB stick on Linux."
+msgstr ""
+
+#: ../app/views/distributions/_upgrade_table.html.erb:40
+msgid "How to create a bootable USB stick on OS X."
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:120
+msgid "If you are still not sure, download"
+msgstr ""
+
+#: ../app/views/main/_help_method.html.erb:20
 msgid ""
 "If you want to use a direct link but live in a place in the world where our "
 "download redirector has not enough information to redirect to the fastest "
@@ -333,24 +669,69 @@ msgstr ""
 "ανακατευθύνει στον ταχύτερο διακομιστή, μπορείτε να επιλέξετε μόνοι σας "
 "διακομιστή."
 
+#: ../app/views/distributions/_tumbleweed_switch.html.erb:5
+#: ../app/views/distributions/_leap_switch.html.erb:5
+msgid ""
+"If you’re already running openSUSE you can upgrade by booting from the\n"
+"  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
+"  commands."
+msgstr ""
+
+#: ../app/views/download/appliance.erb:57
 msgid "Image:"
 msgstr "Εικόνα:"
 
+#: ../app/controllers/download_controller.rb:78
 msgid "Install package %s / %s"
 msgstr "Εγκατάσταση πακέτου %s / %s"
 
+#: ../app/controllers/download_controller.rb:123
 msgid "Install pattern %s / %s"
 msgstr "Εγκατάσταση προτύπου %s / %s"
 
+#: ../app/views/download/package.erb:74
 msgid "Install using One Click Install"
 msgstr "Εγκατάσταση με χρήση ενός κλικ"
 
+#: ../app/views/main/release.html.erb:37
 msgid "Installation Guides"
 msgstr "Οδηγοί Εγκατάστασης"
 
+#: ../app/views/distributions/tumbleweed_ports.html.erb:22
+#: ../app/views/distributions/tumbleweed_ports.html.erb:79
+#: ../app/views/distributions/tumbleweed_ports.html.erb:136
+#: ../app/views/distributions/testing.html.erb:43
+#: ../app/views/distributions/tumbleweed.html.erb:23
+#: ../app/views/distributions/leap.html.erb:21
+#, fuzzy
+#| msgid "Installation Medium"
+msgid "Installation Media"
+msgstr "Μέσο Eγκατάστασης"
+
+#: ../app/views/main/_leap_release.html.erb:10
+#: ../app/views/main/_non_leap_release.html.erb:17
 msgid "Installation Medium"
 msgstr "Μέσο Eγκατάστασης"
 
+#: ../app/views/distributions/_requirements.html.erb:9
+msgid "Internet access is helpful, and required for the Network Installer"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:124
+msgid "It is easy to"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:97
+msgid ""
+"It is not expected to change in any significant way until its next annual "
+"release."
+msgstr ""
+
+#: ../app/views/distributions/_verify_download.html.erb:18
+msgid "It should be"
+msgstr ""
+
+#: ../app/views/order/new.html.erb:18
 msgid ""
 "Join the fast-growing community, put openSUSE into more hands by\n"
 "        getting the latest PromoDVD for your group, non-profit organization, "
@@ -367,6 +748,7 @@ msgstr ""
 "συνέδρια.\n"
 "        Τα Promo DVDs βοηθούν στην γνωριμία με το openSUSE!"
 
+#: ../app/controllers/main_controller.rb:194
 msgid ""
 "Konqueror of KDE 3 is unfortunately unmaintained and its javascript "
 "implementation contains bugs that make it impossible to use with this page. "
@@ -379,21 +761,61 @@ msgstr ""
 "javascript προτού <a href='%s'>συνεχίσετε</a>."
 
 # label for language selection
+#: ../app/views/main/release.html.erb:72
 msgid "Language"
 msgstr "Γλώσσα"
 
+#: ../app/views/distributions/index.html.erb:104
+msgid ""
+"Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
+"        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:99
+msgid "Leap shares a Common Base System with"
+msgstr ""
+
+#: ../app/views/main/_options.html.erb:35
 msgid "Legacy 32 Bit PC"
 msgstr "Παλαιοί 32 Bit Η/Υ"
 
+#: ../app/views/main/_options.html.erb:23
 msgid "Legacy 32&nbsp;Bit&nbsp;PC"
 msgstr "Παλαιοί 32&nbsp;Bit&nbsp;Η/Υ"
 
+#: ../app/views/distributions/_documentation.html.erb:18
+msgid "License"
+msgstr ""
+
+#: ../app/views/main/_non_leap_release.html.erb:35
 msgid "Live GNOME"
 msgstr "Live Gnome"
 
+#: ../app/views/main/_non_leap_release.html.erb:39
 msgid "Live KDE"
 msgstr "Live KDE"
 
+#: ../app/views/distributions/_verify_download.html.erb:5
+#, fuzzy
+#| msgid ""
+#| "Many applications can verify the checksum of a download. To verify your "
+#| "download can be important as it verifies you really have got the ISO file "
+#| "you wanted to download and not some broken version."
+msgid ""
+"Many applications can verify the checksum of a download. To verify\n"
+"  your download can be important as it verifies you really have got the\n"
+"  ISO file you wanted to download and not some broken version. You could\n"
+"  verify the file in the process of downloading. For example a checksum\n"
+"  (SHA256) will be used automatically if you choose Metalink in the\n"
+"  field above and use the add-on DownThemAll! in Firefox."
+msgstr ""
+"Πολλές εφαρμογές μπορούν να επαληθεύσουν το ελεγκτικό άθροισμα μιας "
+"μεταφόρτωσης. Το να επαληθεύσετε την μεταφόρτωσή σας μπορεί να είναι "
+"σημαντικό, καθώς επιβεβαιώνει ότι πραγματικά έχετε το αρχείο ISO που θέλατε "
+"να μεταφορτώσετε και όχι κάποια χαλασμένη έκδοση."
+
+#: ../app/views/main/_leap_verify.html.erb:2
+#: ../app/views/main/_non_leap_verify.html.erb:2
 msgid ""
 "Many applications can verify the checksum of a download. To verify your "
 "download can be important as it verifies you really have got the ISO file "
@@ -404,12 +826,26 @@ msgstr ""
 "σημαντικό, καθώς επιβεβαιώνει ότι πραγματικά έχετε το αρχείο ISO που θέλατε "
 "να μεταφορτώσετε και όχι κάποια χαλασμένη έκδοση."
 
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:46
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:125
+#, fuzzy
+#| msgid "Multimedia"
+msgid "Media"
+msgstr "Πολυμέσα"
+
+#: ../app/views/main/_leap_medium.html.erb:17
+#: ../app/views/main/_help_method.html.erb:14
+#: ../app/views/main/_options.html.erb:10
 msgid "Metalink"
 msgstr "Σύνδεσμος"
 
+#: ../app/views/main/_leap_release.html.erb:70
+#: ../app/views/main/_non_leap_release.html.erb:77
 msgid "More information on burning the ISO file to CD/DVD"
 msgstr "Περισσότερες πληροφορίες για την εγγραφή του αρχείου ISO σε CD/DVD"
 
+#: ../app/views/main/_leap_release.html.erb:69
+#: ../app/views/main/_non_leap_release.html.erb:76
 msgid ""
 "More information on creating a <a href='http://en.opensuse.org/"
 "Live_USB_stick'>bootable USB stick</a>"
@@ -417,6 +853,8 @@ msgstr ""
 "Περισσότερες πληροφορίες για την δημιουργία <a href='http://en.opensuse.org/"
 "Live_USB_stick'>USB στικ εκκίνησης</a>"
 
+#: ../app/views/main/_leap_release.html.erb:56
+#: ../app/views/main/_non_leap_release.html.erb:63
 msgid ""
 "More information on downloading openSUSE is available from the <a href="
 "\"http://en.opensuse.org/SDB:Download_help\">Download Help</a> and <a href="
@@ -430,6 +868,7 @@ msgstr ""
 "Network_installation\">Δικτυακή Εγκατάσταση </a> στο <a href=\"http://en."
 "opensuse.org/Portal:Documentation\">Wiki Τεκμηρίωσης</a>."
 
+#: ../app/views/main/_options.html.erb:32
 msgid ""
 "Most new computers support <a href=\"http://en.wikipedia.org/wiki/"
 "X86-64\">x86-64</a> (also known as AMD64 and Intel64), but some laptop "
@@ -441,42 +880,67 @@ msgstr ""
 "επεξεργαστές laptop και netbook  δεν το υποστηρίζουν. Οπότε πρέπει να "
 "ελέγξετε αν θέλετε να είστε σίγουροι ότι ο υπολογιστής σας το υποστηρίζει."
 
+#: ../app/views/package/categories.html.erb:42
 msgid "Multimedia"
 msgstr "Πολυμέσα"
 
+#: ../app/views/main/_leap_release.html.erb:54
+#: ../app/views/main/_non_leap_release.html.erb:61
 msgid "Need help?"
 msgstr "Χρειάζεστε βοήθεια;"
 
+#: ../app/views/main/_leap_release.html.erb:15
+#: ../app/views/main/_non_leap_release.html.erb:31
+#: ../app/views/distributions/tumbleweed_ports.html.erb:113
+#: ../app/views/distributions/tumbleweed_ports.html.erb:170
+#: ../app/views/distributions/testing.html.erb:77
+#: ../app/views/distributions/leap_ports.html.erb:60
+#: ../app/views/distributions/leap_ports.html.erb:117
+#: ../app/views/distributions/tumbleweed.html.erb:57
 msgid "Network"
 msgstr "Δίκτυο"
 
+#: ../app/views/download/appliance.erb:2
 msgid "No appliance data for %s"
 msgstr "Δεν υπάρχουν δεδομένα μεταφορτώσεων για %s"
 
+#: ../app/views/download/appliance.erb:47
 msgid "No appliances found in project %s"
 msgstr "Δεν βρέθηκαν μεταφορτώσεις στο έργο %s"
 
+#: ../app/views/download/package.erb:2
 msgid "No data for %s / %s"
 msgstr "Δεν υπάρχουν στοιχεία για %s / %s"
 
+#: ../app/views/package/show.html.erb:179
 msgid "No description found..."
 msgstr "Δεν βρέθηκε περιγραφή..."
 
+#: ../app/views/download/package.erb:69
 msgid "No downloads found for %s in project %s"
 msgstr "Δεν βρέθηκαν μεταφορτώσεις για %s στο έργο %s"
 
+#: ../app/views/search/_find_results.html.erb:22
 msgid "No packages found matching your search. "
 msgstr "Δεν βρέθηκαν πακέτα που να ταιριάζουν στην αναζήτησή σας."
 
+#: ../app/views/main/_non_leap_release.html.erb:92
 msgid "NonOSS CD"
 msgstr "CD λογισμικού που δεν είναι ανοιχτού κώδικα (NON-OSS)"
 
+#: ../app/controllers/application_controller.rb:50
 msgid "OBS Backend not available"
 msgstr "Δεν είναι διαθέσιμο το σύστημα υποστήριξης OBS"
 
+#: ../app/views/main/release.html.erb:38
 msgid "Official Manuals"
 msgstr "Επίσημα Εγχειρίδια Οδηγιών"
 
+#: ../app/views/distributions/_leap_switch.html.erb:9
+msgid "Online Upgrade Instructions"
+msgstr ""
+
+#: ../app/views/main/_non_leap_release.html.erb:22
 msgid ""
 "Only DVD and Network medias are fully tested. Alternatives, like live or "
 "rescue systems, are recommended for limited use only."
@@ -485,24 +949,64 @@ msgstr ""
 "εναλλακτικά, όπως το live και το σύστημα διάσωσης, συνιστώνται μόνο για "
 "περιορισμένη χρήση."
 
+#: ../app/views/distributions/_requirements.html.erb:7
+msgid "Over 40GB of free hard drive space"
+msgstr ""
+
+#: ../app/views/package/show.html.erb:149
 msgid "Package %s not found..."
 msgstr "Δεν βρέθηκε το πακέτο %s..."
 
+#: ../app/views/main/release.html.erb:39
 msgid "Package Repositories"
 msgstr "Αποθετήρια Πακέτων"
 
+#: ../app/views/layouts/jekyll.html.erb:45
+#: ../app/views/search/_find_form.html.erb:23
 msgid "Package Search"
 msgstr "Αναζήτηση Πακέτων"
 
+#: ../app/views/download/package.erb:158
 msgid "Packages for %s:"
 msgstr "Πακέτα για το %s:"
 
+#: ../app/views/main/_leap_medium.html.erb:18
+#: ../app/views/main/_help_method.html.erb:18
+#: ../app/views/main/_options.html.erb:11
+#: ../app/views/distributions/tumbleweed_ports.html.erb:46
+#: ../app/views/distributions/tumbleweed_ports.html.erb:68
+#: ../app/views/distributions/tumbleweed_ports.html.erb:103
+#: ../app/views/distributions/tumbleweed_ports.html.erb:125
+#: ../app/views/distributions/tumbleweed_ports.html.erb:160
+#: ../app/views/distributions/tumbleweed_ports.html.erb:182
+#: ../app/views/distributions/testing.html.erb:67
+#: ../app/views/distributions/testing.html.erb:89
+#: ../app/views/distributions/leap_ports.html.erb:50
+#: ../app/views/distributions/leap_ports.html.erb:72
+#: ../app/views/distributions/leap_ports.html.erb:107
+#: ../app/views/distributions/leap_ports.html.erb:129
+#: ../app/views/distributions/tumbleweed.html.erb:47
+#: ../app/views/distributions/tumbleweed.html.erb:69
+#: ../app/views/distributions/leap.html.erb:49
+#: ../app/views/distributions/leap.html.erb:71
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:70
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:92
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:114
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:149
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:170
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:192
 msgid "Pick Mirror"
 msgstr "Επιλογή πηγής"
 
+#: ../app/views/main/release.html.erb:55
 msgid "Platinum Sponsor"
 msgstr "Πλατινένιος Χορηγός"
 
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:24
+msgid "Please Note: These LiveUSBs are not supported"
+msgstr ""
+
+#: ../app/views/package/show.html.erb:137
 msgid ""
 "Please be aware that the following packages are from unofficial "
 "repositories.\n"
@@ -513,6 +1017,7 @@ msgstr ""
 "  Αυτό σημαίνει ότι δεν έχουν αναθεωρηθεί από την openSUSE και μπορεί να "
 "περιέχουν μη σταθερό ή πειραματικό λογισμικό."
 
+#: ../app/views/order/_form.html.erb:63
 msgid ""
 "Please enter a <b>brief</b> reason (in English!) why you need the DVDs and "
 "provide a link of the event/purpose."
@@ -520,6 +1025,7 @@ msgstr ""
 "Παρακαλώ εισάγετε ένα <b>συνοπτικό</b> λόγο (στα Αγγλικά) γιατί χρειάζεστε "
 "τα DVDs και παρέχετε ένα σύνδεσμο για την εκδήλωση/σκοπό."
 
+#: ../app/controllers/main_controller.rb:228
 msgid ""
 "Please note that this is not the latest openSUSE release. You can get the "
 "latest version <a href='/'>here</a>. "
@@ -527,6 +1033,15 @@ msgstr ""
 "Σημειώστε ότι αυτή δεν είναι η τελευταία έκδοση openSUSE. Μπορείτε να λάβετε "
 "την τελευταία έκδοση από <a href='/'>εδώ</a>. "
 
+#: ../app/views/distributions/testing.html.erb:40
+msgid "Please report any issues you find in our Bugtracker."
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:40
+msgid "Please review"
+msgstr ""
+
+#: ../app/views/order/new.html.erb:25
 msgid ""
 "Promo DVDs and all the related artwork -labels and sleeve- can be\n"
 "        downloaded from the <a href=\"http://download.opensuse.org/promodvd/"
@@ -543,18 +1058,33 @@ msgstr ""
 "έκδοση του openSUSE,\n"
 "        που προορίζεται για προώθηση της διανομής."
 
+#: ../app/views/distributions/_requirements.html.erb:2
+msgid "Recommended System Requirements"
+msgstr ""
+
+#: ../app/views/search/_category_header.html.erb:9
 msgid "Related categories:"
 msgstr "Σχετικές κατηγορίες:"
 
+#: ../app/views/distributions/_documentation.html.erb:13
+#, fuzzy
+#| msgid "Released Version"
+msgid "Release Notes"
+msgstr "Έκδοση σε Κυκλοφορία"
+
+#: ../app/views/main/release.html.erb:17
 msgid "Released Version"
 msgstr "Έκδοση σε Κυκλοφορία"
 
+#: ../app/views/main/release.html.erb:40
 msgid "Reporting Bugs"
 msgstr "Αναφορά Σφαλμάτων"
 
+#: ../app/views/main/_non_leap_release.html.erb:42
 msgid "Rescue"
 msgstr "Σύστημα Διάσωσης"
 
+#: ../app/views/main/_non_leap_release.html.erb:42
 msgid ""
 "Rescue system that you can run from CD or from USB stick.<br/>Can not be "
 "used for installation or upgrade."
@@ -562,45 +1092,73 @@ msgstr ""
 "Το σύστημα διάσωσης μπορείτε να το εκτελέσετε από το CD ή από το στικάκι USB."
 "<br/>Δεν μπορεί να χρησιμοποιηθεί για εγκατάσταση ούτε αναβάθμιση."
 
+#: ../app/views/main/_leap_medium.html.erb:20
 msgid "SHA256 checksum"
 msgstr "SHA256 checksum"
 
+#: ../app/views/search/_find_form.html.erb:27
+#: ../app/views/search/find.html.erb:1
 msgid "Search"
 msgstr "Αναζήτηση"
 
+#: ../app/views/download/package.erb:61
 msgid "Select Your Operating System"
 msgstr "Επιλογή Λειτουργικού Συστήματος"
 
+#: ../app/views/download/appliance.erb:39
 msgid "Select the image type"
 msgstr "Επιλέξτε τον τύπο εικόνας"
 
+#: ../app/views/search/_find_results.html.erb:89
 msgid "Show"
 msgstr "Προβολή"
 
+#: ../app/views/search/_find_form.html.erb:34
 msgid "Show development, language and debug packages"
 msgstr "Εμφάνιση πακέτων ανάπτυξης, γλώσσας και αποσφαλμάτωσης"
 
+#: ../app/views/search/_find_form.html.erb:39
 msgid "Show distribution:"
 msgstr "Εμφάνιση διανομής:"
 
+#: ../app/views/package/show.html.erb:253
 msgid "Show more packages for unsupported distributions"
 msgstr "Εμφάνιση περισσότερων πακέτων για μη υποστηριζόμενες διανομές"
 
+#: ../app/views/search/_find_results.html.erb:127
 msgid "Show more..."
 msgstr "Εμφάνιση περισσότερων..."
 
+#: ../app/views/package/show.html.erb:192
 msgid "Show other versions"
 msgstr "Εμφάνιση άλλων εκδόσεων"
 
+#: ../app/views/package/show.html.erb:225
 msgid "Show unstable packages"
 msgstr "Εμφάνιση μη σταθερών πακέτων"
 
+#: ../app/views/search/_find_form.html.erb:37
 msgid "Show unsupported packages"
 msgstr "Εμφάνιση μη υποστηριζόμενων πακέτων"
 
+#: ../app/views/main/release.html.erb:63
 msgid "Silver Sponsor"
 msgstr "Ασημένιος Χορηγός"
 
+#: ../app/views/distributions/tumbleweed_ports.html.erb:27
+#: ../app/views/distributions/tumbleweed_ports.html.erb:84
+#: ../app/views/distributions/tumbleweed_ports.html.erb:141
+#: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/leap_ports.html.erb:27
+#: ../app/views/distributions/leap_ports.html.erb:88
+#: ../app/views/distributions/tumbleweed.html.erb:28
+#: ../app/views/distributions/leap.html.erb:26
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:51
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:130
+msgid "Size"
+msgstr ""
+
+#: ../app/views/main/_non_leap_release.html.erb:48
 msgid ""
 "Some alternative media (eg. live and rescue systems) are also available, "
 "although they are less tested and recommended for limited use only."
@@ -609,6 +1167,7 @@ msgstr ""
 "διαθέσιμα, αν και είναι λιγότερο δοκιμασμένα και συνιστώνται για "
 "περιορισμένη χρήση."
 
+#: ../app/views/main/_change_install.html.erb:34
 msgid ""
 "Some of the live distributions based on openSUSE. Those interested in trying "
 "to build their own derivatives can take a look at <a href=\"http://"
@@ -618,30 +1177,57 @@ msgstr ""
 "δοκιμάσουν να φτιάξουν το δικό τους παράγωγο μπορούν να κοιτάξουν στο <a "
 "href=\"http://susestudio.com/\">SUSE Studio</a>."
 
+#: ../app/helpers/package_helper.rb:14 ../app/helpers/package_helper.rb:16
+#: ../app/views/package/_download_rows.html.erb:26
+#: ../app/views/package/_download_rows.html.erb:33
 msgid "Source"
 msgstr "Πηγή"
 
+#: ../app/views/main/release.html.erb:54
 msgid "Sponsored by"
 msgstr "Χορηγήθηκε από"
 
+#: ../app/views/main/release.html.erb:57
 msgid "Sponsored by: AMD"
 msgstr "Χορηγός: AMD"
 
+#: ../app/views/main/release.html.erb:65
 msgid "Sponsored by: B1 Systems"
 msgstr "Χορηγός: B1 Systems"
 
+#: ../app/views/main/release.html.erb:66
 msgid "Sponsored by: Heinlein"
 msgstr "Χορηγός: Heinlein"
 
+#: ../app/views/main/release.html.erb:61
 msgid "Sponsored by: IP Exchange"
 msgstr "Χορηγός: IP Exchange"
 
+#: ../app/views/search/_find_results.html.erb:96
 msgid "Sub-Packages"
 msgstr "Υπό-πακέτα"
 
+#: ../app/views/layouts/download.html.erb:58
+#: ../app/views/layouts/application.html.erb:64
 msgid "Support"
 msgstr "Υποστήριξη"
 
+#: ../app/views/distributions/_choosing_media.html.erb:5
+msgid ""
+"The DVD/USB Stick is typically recommended as it contains most of the\n"
+"  packages available in the distribution and does not require a network\n"
+"  connection during the installation."
+msgstr ""
+
+#: ../app/views/distributions/_choosing_media.html.erb:10
+msgid ""
+"The Network CD/USB Stick is recommended for users who have limited\n"
+"  bandwidth on their internet connections, as it will only download the\n"
+"  packages they choose to install, which is likely to be significantly\n"
+"  less than 4.7GB."
+msgstr ""
+
+#: ../app/views/main/_non_leap_release.html.erb:91
 msgid ""
 "The installation process is available in many languages but, for most of "
 "them, the translation of the applications is not included in the image. If "
@@ -660,9 +1246,11 @@ msgstr ""
 "openSUSE σε κάποιο μηχάνημα χωρίς σύνδεση στο Internet, θα έχετε πρόσβαση σε "
 "όλες τις διαθέσιμες μεταφράσεις."
 
+#: ../app/views/download/package.erb:95
 msgid "Then run the following as <strong>root</strong>"
 msgstr "Μετά εκτελέστε την παρακάτω ως χρήστης <strong>root</strong>:"
 
+#: ../app/controllers/main_controller.rb:208
 msgid ""
 "There is no openSUSE release in testing phase at the moment. <br/> If you "
 "want to use bleeding edge software, please use <a href='http://en.opensuse."
@@ -673,6 +1261,22 @@ msgstr ""
 "την έκδοση <a href='http://en.opensuse.org/Portal:Tumbleweed'>openSUSE "
 "Tumbleweed</a>."
 
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:38
+msgid "They are not tested as thoroughly as the"
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
+msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:33
+msgid ""
+"They have a limited package/driver selection, so cannot be considered\n"
+"          an accurate reflection as to whether Tumbleweed will work on your\n"
+"          hardware or not."
+msgstr ""
+
+#: ../app/views/main/_non_leap_release.html.erb:93
 msgid ""
 "This CD contains free software distributed under proprietary licence not "
 "allowing its inclusion to main installation media together with free open-"
@@ -684,6 +1288,13 @@ msgstr ""
 "δωρεάν λογισμικό ανοιχτού κώδικα. Όλο αυτό το λογισμικό μπορεί να "
 "μεταφορτωθεί από αποθετήριο λογισμικού μη ανοιχτού κώδικα (NOS-OSS)."
 
+#: ../app/views/distributions/testing.html.erb:36
+msgid ""
+"This is not a supported release. It is provided to help openSUSE testers\n"
+"        find bugs before release."
+msgstr ""
+
+#: ../app/views/main/_options.html.erb:37
 msgid ""
 "This version runs on all PCs including those that support 64 Bit. If you "
 "have more than 3 GB of RAM you should prefer the 64 Bit version though. "
@@ -696,12 +1307,39 @@ msgstr ""
 "προγενέστερους από Pentium - τα live CD υποστηρίζουν μόνο i686 (Pentium Pro "
 "και μεταγενέστερους)."
 
+#: ../app/views/layouts/jekyll.html.erb:29
+msgid "Toggle navigation"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:85
+msgid ""
+"Tumbleweed is recommended for <strong>Developers</strong>,\n"
+"        <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS\n"
+"        Enthusiasts</strong>."
+msgstr ""
+
+#: ../app/views/main/_options.html.erb:18
 msgid "Type of Computer"
 msgstr "Είδος Υπολογιστή"
 
+#: ../app/views/distributions/_unsupported_live_media.html.erb:2
+#, fuzzy
+#| msgid "Support"
+msgid "Unsupported"
+msgstr "Υποστήριξη"
+
+#: ../app/views/package/show.html.erb:239
 msgid "Unsupported distributions:"
 msgstr "Μη υποστηριζόμενες διανομές:"
 
+#: ../app/views/distributions/_tumbleweed_switch.html.erb:9
+#, fuzzy
+#| msgid "Unsupported distributions:"
+msgid "Upgrade Instructions"
+msgstr "Μη υποστηριζόμενες διανομές:"
+
+#: ../app/views/main/_leap_release.html.erb:57
+#: ../app/views/main/_non_leap_release.html.erb:64
 msgid ""
 "User manuals are available from <a href=\"http://activedoc.opensuse.org"
 "\">activedoc.opensuse.org</a>, for example the <a href=\"http://activedoc."
@@ -712,6 +1350,7 @@ msgstr ""
 "href=\"http://activedoc.opensuse.org/book/opensuse-start-up/\">Επίσημος "
 "Οδηγός Εκκίνησης</a>."
 
+#: ../app/views/main/_help_method.html.erb:12
 msgid ""
 "Using <a href=\"http://en.opensuse.org/SDB:BitTorrent\">BitTorrent</a> is "
 "recommended on slow links, especially when downloading the DVD image. "
@@ -730,15 +1369,26 @@ msgstr ""
 "επιτρέπει να σταματήσετε την μεταφόρτωση όποτε θέλετε και να την συνεχίσετε "
 "αργότερα."
 
+#: ../app/views/distributions/_verify_download.html.erb:2
+#, fuzzy
+#| msgid "Verify your download before use"
+msgid "Verify Your Download Before Use"
+msgstr "Επαλήθευση λήψης πριν τη χρήση"
+
+#: ../app/views/main/_leap_release.html.erb:60
+#: ../app/views/main/_non_leap_release.html.erb:67
 msgid "Verify your download before use"
 msgstr "Επαλήθευση λήψης πριν τη χρήση"
 
+#: ../app/views/package/show.html.erb:190
 msgid "Version"
 msgstr "Έκδοση"
 
+#: ../app/views/main/_non_leap_verify.html.erb:4
 msgid "We offer three different checksums:"
 msgstr "Παρέχουμε τρία διαφορετικά ελεγκτικά σύνολα:"
 
+#: ../app/views/order/new.html.erb:32
 msgid ""
 "We would like you, to keep us informed about your usage of the DVDs, so we\n"
 "        can help you to promote your organization, event or school on our\n"
@@ -762,6 +1412,7 @@ msgstr ""
 "        για να συζητήσουμε την προώθηση και/ή άλλους τρόπους που μπορούμε να "
 "σας βοηθήσουμε."
 
+#: ../app/views/main/_help_method.html.erb:8
 msgid ""
 "When downloading images other than the CD for network installation, it is "
 "<i>strongly</i> recommended to use a proper download manager to reduce the "
@@ -771,6 +1422,7 @@ msgstr ""
 "<i>έντονα</i> να χρησιμοποιήσετε διαχειριστή μεταφορτώσεων, για να μειωθούν "
 "οι πιθανότητες να κατέβει χαλασμένο."
 
+#: ../app/views/download/package.erb:141
 msgid ""
 "You can add the repository key to apt. Keep in mind that the owner of the "
 "key may distribute updates, packages and repositories that your system will "
@@ -781,6 +1433,7 @@ msgstr ""
 "που το σύστημά σας θα εμπιστεύεται (<a href=\"%s\">περισσότερες πληροφορίες</"
 "a>). Για να προσθέσετε το κλειδί, εκτελέστε:"
 
+#: ../app/views/search/_find_results.html.erb:25
 msgid ""
 "You could try to extend your search to development packages or search for "
 "another base distribution (currently )."
@@ -788,6 +1441,8 @@ msgstr ""
 "Μπορείτε να δοκιμάσετε να επεκτείνετε την αναζήτησή σας στα υπό ανάπτυξη "
 "πακέτα ή να αναζητήσετε για άλλη βασική διανομή (τρέχον)."
 
+#: ../app/views/main/_leap_verify.html.erb:3
+#: ../app/views/main/_non_leap_verify.html.erb:3
 msgid ""
 "You could verify the file in the process of downloading. For example a "
 "checksum (SHA256) will be used automatically if you choose <a href='http://"
@@ -800,53 +1455,192 @@ msgstr ""
 "παραπάνω πεδίο και χρησιμοποιήσετε το πρόσθετο DownThemAll! στο <a "
 "href='http://en.opensuse.org/Firefox'>Firefox</a>."
 
+#: ../app/views/distributions/_unsupported_live_media.html.erb:6
+msgid ""
+"also offers a number of unsupported LiveUSBs. These\n"
+"  cannot be used for Installation or Upgrade. They are not an accurate\n"
+"  reflection as to whether or not Tumbleweed will run on your hardware."
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:94
+msgid "annually"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:111
+msgid ""
+"as well as by human openSUSE contributors so both can be relied\n"
+"        upon to work."
+msgstr ""
+
+#: ../app/views/main/_non_leap_verify.html.erb:8
+#: ../app/views/main/_non_leap_verify.html.erb:19
 msgid "gpg signature"
 msgstr "Υπογραφή gpg"
 
+#: ../app/views/main/release.html.erb:38
 msgid "http://doc.opensuse.org/"
 msgstr "http://doc.opensuse.org/"
 
+#: ../app/views/main/_change_install.html.erb:36
 msgid "http://en.opensuse.org/Derivatives"
 msgstr "http://en.opensuse.org/Derivatives"
 
+#: ../app/views/main/release.html.erb:39
 msgid "http://en.opensuse.org/Package_repositories"
 msgstr "http://en.opensuse.org/Package_repositories"
 
+#: ../app/views/main/release.html.erb:37
 msgid "http://en.opensuse.org/Portal:Installation"
 msgstr "http://en.opensuse.org/Portal:Installation"
 
+#: ../app/views/main/release.html.erb:35
 msgid "http://en.opensuse.org/SDB:Download_help"
 msgstr "http://en.opensuse.org/SDB:Download_help"
 
+#: ../app/views/main/release.html.erb:36
+#: ../app/views/main/_leap_release.html.erb:70
+#: ../app/views/main/_non_leap_release.html.erb:77
 msgid "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
 msgstr "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
 
+#: ../app/views/main/release.html.erb:40
 msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
 
+#: ../app/controllers/main_controller.rb:45
 msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
 msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
 
+#: ../app/controllers/main_controller.rb:65
 msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
 msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
 
+#: ../app/controllers/main_controller.rb:88
 msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
 msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
 
+#: ../app/controllers/main_controller.rb:111
 msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
 msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
 
+#: ../app/controllers/main_controller.rb:134
 msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
 msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
 
+#: ../app/controllers/main_controller.rb:149
 msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
 msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
 
+#: ../app/controllers/main_controller.rb:163
+#: ../app/controllers/main_controller.rb:177
 #, fuzzy
 #| msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
 msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
 msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
 
+#: ../app/views/distributions/index.html.erb:96
+#, fuzzy
+#| msgid "http://en.opensuse.org/Derivatives"
+msgid "https://en.opensuse.org/Lifetime"
+msgstr "http://en.opensuse.org/Derivatives"
+
+#: ../app/views/distributions/_upgrade_table.html.erb:39
+#, fuzzy
+#| msgid "http://en.opensuse.org/Derivatives"
+msgid "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Mac_OS_x"
+msgstr "http://en.opensuse.org/Derivatives"
+
+#: ../app/views/distributions/_upgrade_table.html.erb:34
+#, fuzzy
+#| msgid "http://en.opensuse.org/Derivatives"
+msgid "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
+msgstr "http://en.opensuse.org/Derivatives"
+
+#: ../app/views/distributions/_verify_download.html.erb:25
+#, fuzzy
+#| msgid "http://en.opensuse.org/SDB:Download_help"
+msgid "https://en.opensuse.org/SDB:Download_help#Checksums"
+msgstr "http://en.opensuse.org/SDB:Download_help"
+
+#: ../app/views/distributions/_upgrade_table.html.erb:12
+#, fuzzy
+#| msgid "http://en.opensuse.org/SDB:Download_help"
+msgid "https://en.opensuse.org/SDB:Download_help#Using_Linux"
+msgstr "http://en.opensuse.org/SDB:Download_help"
+
+#: ../app/views/distributions/_upgrade_table.html.erb:22
+#, fuzzy
+#| msgid "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
+msgid ""
+"https://en.opensuse.org/SDB:Download_help#Using_MacOS_X_.2810.3_and_above.29"
+msgstr "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
+
+#: ../app/views/distributions/_upgrade_table.html.erb:17
+#, fuzzy
+#| msgid "http://en.opensuse.org/SDB:Download_help"
+msgid "https://en.opensuse.org/SDB:Download_help#Using_Microsoft_Windows"
+msgstr "http://en.opensuse.org/SDB:Download_help"
+
+#: ../app/views/distributions/_upgrade_table.html.erb:29
+#, fuzzy
+#| msgid "http://en.opensuse.org/Derivatives"
+msgid "https://en.opensuse.org/SDB:Live_USB_stick"
+msgstr "http://en.opensuse.org/Derivatives"
+
+#: ../app/views/distributions/_leap_switch.html.erb:8
+#, fuzzy
+#| msgid "http://en.opensuse.org/Derivatives"
+msgid "https://en.opensuse.org/SDB:System_upgrade"
+msgstr "http://en.opensuse.org/Derivatives"
+
+#: ../app/views/distributions/index.html.erb:93
+#, fuzzy
+#| msgid "http://en.opensuse.org/Buy_openSUSE"
+msgid "https://en.opensuse.org/openSUSE:Roadmap"
+msgstr "http://en.opensuse.org/Buy_openSUSE"
+
+#: ../app/views/distributions/testing.html.erb:39
+#, fuzzy
+#| msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+msgid "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
+msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+
+#: ../app/views/distributions/index.html.erb:125
+#: ../app/views/distributions/_tumbleweed_switch.html.erb:8
+#, fuzzy
+#| msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
+msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+
+#: ../app/views/distributions/index.html.erb:127
+msgid "if you change your mind later."
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:30
+msgid "instead."
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:92
+msgid "is a <strong>regular-release</strong>. This means it releases"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:80
+msgid ""
+"is a <strong>rolling-release</strong>. This means the software is always\n"
+"        the latest stable versions available from the openSUSE Project. "
+"Things\n"
+"        will change regularly as Free and Open Source projects continually\n"
+"        release new versions of their software."
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:82
+msgid ""
+"is also available on other architectures, such as\n"
+"        Intel 32-bit (aka i586), AArch64 (aka ARMv8) and PPC64."
+msgstr ""
+
+#: ../app/views/main/_non_leap_verify.html.erb:13
+#: ../app/views/main/_non_leap_verify.html.erb:20
 msgid ""
 "is still the most commonly used checksum. Many ISO burners display it right "
 "before burning."
@@ -854,12 +1648,22 @@ msgstr ""
 "είναι ακόμα το πιο σύνηθες ελεγκτικό σύνολο. Πολλές εφαρμογές εγγραφής ISO "
 "το δείχνουν αμέσως πριν την εγγραφή."
 
+#: ../app/views/main/_non_leap_verify.html.erb:15
+#: ../app/views/main/_non_leap_verify.html.erb:21
 msgid "is the less known but more secure checksum than md5."
 msgstr "είναι το λιγότερο γνωστό αλλά πιο ασφαλές ελεγκτικό σύνολο από το md5."
 
+#: ../app/views/distributions/index.html.erb:96
+msgid "lifetime"
+msgstr ""
+
+#: ../app/views/main/_non_leap_verify.html.erb:12
+#: ../app/views/main/_non_leap_verify.html.erb:20
 msgid "md5 checksum"
 msgstr "Ελεγκτικό σύνολο md5"
 
+#: ../app/views/main/_non_leap_verify.html.erb:9
+#: ../app/views/main/_non_leap_verify.html.erb:19
 msgid ""
 "offers the most security as you can verify who signed it. It should be <tt>"
 "%s</tt>."
@@ -867,12 +1671,29 @@ msgstr ""
 "προσφέρει την μεγαλύτερη ασφάλεια αφού μπορείτε να επιβεβαιώσετε ποιος το "
 "υπέγραψε. Πρέπει να είναι <tt>%s</tt>."
 
+#: ../app/views/main/release.html.erb:48
 msgid "openSUSE Countdown"
 msgstr "Αντίστροφη Μέτρηση openSUSE"
 
+#: ../app/views/main/_leap_release.html.erb:51
+#: ../app/views/main/_non_leap_release.html.erb:44
 msgid "openSUSE Derivatives"
 msgstr "Παράγωγα openSUSE"
 
+#: ../app/views/distributions/leap.html.erb:83
+msgid ""
+"openSUSE Leap is also available on other architectures, such as\n"
+"        AArch64 (aka ARMv8) and PPC64."
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:143
+msgid ""
+"openSUSE has a number of unofficial derivative distributions.\n"
+"              These are made by our awesome community, often for special\n"
+"              purposes."
+msgstr ""
+
+#: ../app/views/main/_help_method.html.erb:4
 msgid ""
 "openSUSE is available via http (direct link) or BitTorrent. The CD for "
 "network installation is only available via http."
@@ -880,17 +1701,48 @@ msgstr ""
 "Το openSUSE είναι διαθέσιμο μέσω http (απευθείας σύνδεσμος) ή BitTorrent. Το "
 "CD για εγκατάσταση από δίκτυο είναι διαθέσιμο μόνο μέσω http."
 
+#: ../app/views/distributions/index.html.erb:10
+msgid "openSUSE is completely free to download, use and share."
+msgstr ""
+
+#: ../app/views/main/_options.html.erb:28
 msgid "openSUSE only supports PCs with 32 Bits and 64 Bits."
 msgstr "Το openSUSE υποστηρίζει μόνο 32 και 64 bit H/Y "
 
+#: ../app/views/main/_change_install.html.erb:36
 msgid "see Derivatives on wiki"
 msgstr "Δείτε τα Παράγωγα στο wiki"
 
+#: ../app/views/main/_non_leap_verify.html.erb:14
+#: ../app/views/main/_non_leap_verify.html.erb:21
 msgid "sha1 checksum"
 msgstr "Ελεγκτικό σύνολο sha1"
 
+#: ../app/views/distributions/index.html.erb:101
+msgid ""
+"so major architectural changes are not expected for several years, aligned\n"
+"        with each new Major Release (eg 12, 13, etc) of SUSE Linux "
+"Enterprise."
+msgstr ""
+
+#: ../app/views/main/release.html.erb:15 ../app/views/main/release.html.erb:17
 msgid "switch to"
 msgstr "εναλλαγή στο"
+
+#: ../app/views/distributions/index.html.erb:126
+msgid "switch to openSUSE Tumbleweed"
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:42
+msgid ""
+"test results if you want an indication whether these LiveUSBs are\n"
+"          working as expected."
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:95
+msgid ""
+"with security and stability updates being the priority during each release"
+msgstr ""
 
 #~ msgid "An internal error happened :-("
 #~ msgstr "Παρουσιάστηκε ένα εσωτερικό σφάλμα :-("
@@ -1018,9 +1870,6 @@ msgstr "εναλλαγή στο"
 
 #~ msgid "Buy openSUSE"
 #~ msgstr "Αγοράστε το openSUSE"
-
-#~ msgid "http://en.opensuse.org/Buy_openSUSE"
-#~ msgstr "http://en.opensuse.org/Buy_openSUSE"
 
 #~ msgid "1-Click Install"
 #~ msgstr "Εγκατάσταση με 1 κλικ"
@@ -1173,11 +2022,6 @@ msgstr "εναλλαγή στο"
 #~| msgid "Sound service"
 #~ msgid "Search Build Service"
 #~ msgstr "Υπηρεσία ήχου"
-
-#, fuzzy
-#~| msgid "openSUSE"
-#~ msgid "Get openSUSE"
-#~ msgstr "openSUSE"
 
 #, fuzzy
 #~| msgid "Nothing to do."
