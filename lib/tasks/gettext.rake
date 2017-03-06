@@ -40,7 +40,9 @@ end
 
 desc "Import translations into .mo files"
 task :makemo do
+  backup_po_files
   Rake::Task['gettext:pack'].invoke
+  restore_po_files
 end
 
 # We want strict control on the command used to refresh the .po files
