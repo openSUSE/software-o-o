@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-01 11:05+0100\n"
-"PO-Revision-Date: 2017-03-15 13:38+0000\n"
+"PO-Revision-Date: 2017-03-17 09:45+0000\n"
 "Last-Translator: Alessio Adamo <alessio.adamo@gmail.com>\n"
 "Language-Team: Italian "
 "<https://l10n.opensuse.org/projects/software-o-o/master/it/>\n"
@@ -633,6 +633,8 @@ msgid ""
 "Help test openSUSE’s next version of Leap by downloading\n"
 "              the latest development milestone."
 msgstr ""
+"Aiutaci a testare la prossima versione di openSUSE Leap, scaricando\n"
+"              il più recente stadio di sviluppo."
 
 #: ../app/views/distributions/testing.html.erb:10
 msgid ""
@@ -736,9 +738,9 @@ msgid "Installation Medium"
 msgstr "Supporto di installazione"
 
 #: ../app/views/distributions/_requirements.html.erb:9
-#, fuzzy
 msgid "Internet access is helpful, and required for the Network Installer"
-msgstr "L'accesso a internet è utile e necessario per l'installatore via rete"
+msgstr ""
+"L'accesso a internet è utile ed è necessario per l'installatore via rete"
 
 #: ../app/views/distributions/index.html.erb:124
 msgid "It is easy to"
@@ -954,7 +956,7 @@ msgstr "Non è stato trovato alcun scaricamento per %s nel progetto %s"
 
 #: ../app/views/search/_find_results.html.erb:22
 msgid "No packages found matching your search. "
-msgstr "Nessun pacchetto corrispondente alla ricerca."
+msgstr "Nessun pacchetto corrispondente alla ricerca. "
 
 #: ../app/views/main/_non_leap_release.html.erb:92
 msgid "NonOSS CD"
@@ -1066,8 +1068,8 @@ msgid ""
 "Please note that this is not the latest openSUSE release. You can get the "
 "latest version <a href='/'>here</a>. "
 msgstr ""
-"Considera che questa non è l'ultima versione di openSUSE. Puoi trovarla <a "
-"href='/'>qui</a>."
+"Si noti che questa non è l'ultima versione di openSUSE. La versione più "
+"recente può essere recuperata <a href='/'>qui</a>. "
 
 #: ../app/views/distributions/testing.html.erb:40
 msgid "Please report any issues you find in our Bugtracker."
@@ -1076,7 +1078,7 @@ msgstr ""
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:40
 msgid "Please review"
-msgstr "Si prega di verificare"
+msgstr "Si prega di verificare i risultati dei test di"
 
 #: ../app/views/order/new.html.erb:25
 msgid ""
@@ -1326,11 +1328,9 @@ msgid ""
 "          an accurate reflection as to whether Tumbleweed will work on your\n"
 "          hardware or not."
 msgstr ""
-"Hanno una selezione limitata di pacchetti/driver, per cui non danno un'"
-"indicazione\n"
-"          fedele in merito al fatto se Tumbleweed sarà in grado di "
-"funzionare\n"
-"          sul proprio hardware o meno."
+"Hanno una selezione limitata di pacchetti/driver, per cui non sono\n"
+"          rappresentative della capacità di Tumbleweed di funzionare\n"
+"          sul proprio hardware."
 
 #: ../app/views/main/_non_leap_release.html.erb:93
 msgid ""
@@ -1518,16 +1518,22 @@ msgid ""
 "  cannot be used for Installation or Upgrade. They are not an accurate\n"
 "  reflection as to whether or not Tumbleweed will run on your hardware."
 msgstr ""
+"offre anche un certo numero di LiveUSB non supportate. Queste non\n"
+" possono essere usate per l'installazione o l'aggiornamento. Non sono\n"
+" rappresentative della capacità di Tumbleweed di funzionare sul proprio\n"
+" hardware."
 
 #: ../app/views/distributions/index.html.erb:94
 msgid "annually"
-msgstr ""
+msgstr "annualmente"
 
 #: ../app/views/distributions/index.html.erb:111
 msgid ""
 "as well as by human openSUSE contributors so both can be relied\n"
 "        upon to work."
 msgstr ""
+"così come da contributori di openSUSE in carne ed ossa, per cui è possibile\n"
+"        fare affidamento su entrambe per il proprio lavoro."
 
 #: ../app/views/main/_non_leap_verify.html.erb:8
 #: ../app/views/main/_non_leap_verify.html.erb:19
@@ -1666,15 +1672,16 @@ msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
 #: ../app/views/distributions/index.html.erb:127
 msgid "if you change your mind later."
-msgstr ""
+msgstr "qualora si cambiasse opinione in seguito."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:30
 msgid "instead."
-msgstr ""
+msgstr "al loro posto."
 
 #: ../app/views/distributions/index.html.erb:92
 msgid "is a <strong>regular-release</strong>. This means it releases"
 msgstr ""
+"è un  <strong>rilascio regolare</strong>. Ciò significa che viene rilasciata"
 
 #: ../app/views/distributions/index.html.erb:80
 msgid ""
@@ -1684,12 +1691,21 @@ msgid ""
 "        will change regularly as Free and Open Source projects continually\n"
 "        release new versions of their software."
 msgstr ""
+"è a <strong>rilascio continuo</strong>. Ciò significa che i programmi sono "
+"sempre\n"
+"        aggiornati all'ultima versione stabile fornita dal progetto "
+"openSUSE. Sarà\n"
+"        periodicamente soggetta a modifiche, in quanto i progetti liberi e "
+"open source\n"
+"        rilasciano continuamente nuove versioni dei propri programmi."
 
 #: ../app/views/distributions/tumbleweed.html.erb:82
 msgid ""
 "is also available on other architectures, such as\n"
 "        Intel 32-bit (aka i586), AArch64 (aka ARMv8) and PPC64."
 msgstr ""
+"è disponibile anche per altre architetture, come\n"
+"        Intel 32-bit (ovvero i586), AArch64 (ovvero ARMv8) e PPC64."
 
 #: ../app/views/main/_non_leap_verify.html.erb:13
 #: ../app/views/main/_non_leap_verify.html.erb:20
@@ -1707,7 +1723,7 @@ msgstr "è un codice di controllo meno noto ma più sicuro di md5."
 
 #: ../app/views/distributions/index.html.erb:96
 msgid "lifetime"
-msgstr ""
+msgstr "periodo di supporto"
 
 #: ../app/views/main/_non_leap_verify.html.erb:12
 #: ../app/views/main/_non_leap_verify.html.erb:20
@@ -1737,6 +1753,8 @@ msgid ""
 "openSUSE Leap is also available on other architectures, such as\n"
 "        AArch64 (aka ARMv8) and PPC64."
 msgstr ""
+"openSUSE Leap è disponibile anche per altre architetture, come\n"
+"        AArch64 (ovvero ARMv8) e PPC64."
 
 #: ../app/views/distributions/index.html.erb:143
 msgid ""
@@ -1744,6 +1762,9 @@ msgid ""
 "              These are made by our awesome community, often for special\n"
 "              purposes."
 msgstr ""
+"openSUSE ha un certo numero di distribuzioni derivate non ufficiali.\n"
+"              Queste sono confezionate dalla nostra meravigliosa comunità,\n"
+"              spesso per finalità particolari."
 
 #: ../app/views/main/_help_method.html.erb:4
 msgid ""
@@ -1756,6 +1777,8 @@ msgstr ""
 #: ../app/views/distributions/index.html.erb:10
 msgid "openSUSE is completely free to download, use and share."
 msgstr ""
+"openSUSE è totalmente libera in termini di scaricamento, utilizzo e "
+"condivisione."
 
 #: ../app/views/main/_options.html.erb:28
 msgid "openSUSE only supports PCs with 32 Bits and 64 Bits."
@@ -1776,6 +1799,10 @@ msgid ""
 "        with each new Major Release (eg 12, 13, etc) of SUSE Linux "
 "Enterprise."
 msgstr ""
+"cosicché non sono previste modifiche architetturali per diversi anni a "
+"venire, ed è riallineata\n"
+"        a ciascun nuovo rilascio principale (ed es. 12, 13, ecc.) di SUSE "
+"Linux Enterprise."
 
 #: ../app/views/main/release.html.erb:15 ../app/views/main/release.html.erb:17
 msgid "switch to"
@@ -1783,18 +1810,22 @@ msgstr "passa a"
 
 #: ../app/views/distributions/index.html.erb:126
 msgid "switch to openSUSE Tumbleweed"
-msgstr ""
+msgstr "passare ad openSUSE Tumbleweed"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:42
 msgid ""
 "test results if you want an indication whether these LiveUSBs are\n"
 "          working as expected."
 msgstr ""
+"se si vuole avere un'indicazione del fatto che queste LiveUSB\n"
+"          funzionino come previsto."
 
 #: ../app/views/distributions/index.html.erb:95
 msgid ""
 "with security and stability updates being the priority during each release"
 msgstr ""
+"con la priorità data agli aggiornamenti di sicurezza e di stabilità durante "
+"ciascun"
 
 #~ msgid "An internal error happened :-("
 #~ msgstr "Si è verificato un errore interno :-("
