@@ -61,6 +61,8 @@ group :test do
   gem 'poltergeist'
 
   gem 'webmock'
+  
+  gem 'rubocop', ">= 0.47"
 end
 
 # gem 'capistrano', '~> 2.13'
