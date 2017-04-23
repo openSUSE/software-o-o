@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: software 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-01 11:05+0100\n"
-"PO-Revision-Date: 2017-04-23 05:44+0000\n"
+"PO-Revision-Date: 2017-04-23 15:03+0000\n"
 "Last-Translator: wantoyo mr <wantoyo@yahoo.com>\n"
 "Language-Team: Indonesian "
 "<https://l10n.opensuse.org/projects/software-o-o/master/id/>\n"
@@ -1006,7 +1006,7 @@ msgstr ""
 
 #: ../app/views/main/release.html.erb:55
 msgid "Platinum Sponsor"
-msgstr ""
+msgstr "Sponsor Platinum"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:24
 msgid "Please Note: These LiveUSBs are not supported"
@@ -1056,6 +1056,12 @@ msgid ""
 " of openSUSE,\n"
 "        namely designed for promotional distribution."
 msgstr ""
+"DVD-DVD promo dan semua kerangka kera yang behubungan -label \n"
+"………dan sleeve- bisa diunduh dari <a href=\""
+"http://download.opensuse.org/promodvd/\">promodvd\n"
+"        download directory %s</a>. Perlu diingat bahwa ini adalah versi "
+"spesial\n"
+"………openSUSE, dirancang untuk distribusi promosi."
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -1215,6 +1221,9 @@ msgid ""
 "  packages available in the distribution and does not require a network\n"
 "  connection during the installation."
 msgstr ""
+"DVD/USB Stick biasanya dianjurkan karena berisi sebagian besar\n"
+"  paket-paket yang tersedia dalam distribusi dan tidak memerlukan\n"
+"  sambungan jaringan selama pemasangan."
 
 #: ../app/views/distributions/_choosing_media.html.erb:10
 msgid ""
@@ -1223,6 +1232,10 @@ msgid ""
 "  packages they choose to install, which is likely to be significantly\n"
 "  less than 4.7GB."
 msgstr ""
+"Network CD/USB Stick adalah dianjurkan untuk pengguna yang memiliki\n"
+"  keterbatasan bandwidth pada sambungan internet mereka, karena hanya\n"
+"  akan mengunduh paket-paket yang mereka pilih untuk dipasang, yang \n"
+"  kemungkinan akan sangat signifikan kurang dari 4.7GB."
 
 #: ../app/views/main/_non_leap_release.html.erb:91
 msgid ""
@@ -1234,10 +1247,17 @@ msgid ""
 "g to install openSUSE in some machine with no Internet connection, it will pro"
 "vide you access to all the available translations."
 msgstr ""
+"Proses pemasangan telah tersedia dalam banyak bahasa namun, bagi sebagian "
+"besar dari mereka, terjemahan pada aplikasi tidak termasuk dalam image. Jika "
+"kamu ingin sistem openSUSE-mu mendukung beberapa bahasa tambahan, kamu perlu "
+"mengunduhnya dari Internet selama pemasangan atau kapan saja setelahnya. "
+"Jika kamu memiliki akses mudah ke Internet, kamu tidak memerlukan CD ini, "
+"namun jika kamu berencana memasang openSUSE di beberapa mesin tanpa "
+"sambungan Internet, kamu akan dapat mengakses semua terjemahan yang tersedia."
 
 #: ../app/views/download/package.erb:95
 msgid "Then run the following as <strong>root</strong>"
-msgstr ""
+msgstr "Kemudian jalankan berikut sebagai <strong>root</strong>"
 
 #: ../app/controllers/main_controller.rb:208
 msgid ""
@@ -1245,14 +1265,18 @@ msgid ""
 " to use bleeding edge software, please use <a href='http://en.opensuse.org/Por"
 "tal:Tumbleweed'>openSUSE Tumbleweed</a>."
 msgstr ""
+"Tidak ada rilis openSUSE dalam tahap pengujian saat ini. <br/> Jika kamu "
+"ingin menggunakan software bleeding edge, silakan gunakan <a "
+"href='http://en.opensuse.org/Portal:Tumbleeed'>openSUSE Tumbleweed </a>."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:38
 msgid "They are not tested as thoroughly as the"
-msgstr ""
+msgstr "Mereka tidak diuji secara menyeluruh seperti"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
 msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
 msgstr ""
+"Ia tak bisa digunakan untuk memasang atau upgrade Tumbleweed. Silakan gunakan"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:33
 msgid ""
@@ -1260,6 +1284,10 @@ msgid ""
 "          an accurate reflection as to whether Tumbleweed will work on your\n"
 "          hardware or not."
 msgstr ""
+"Ia memiliki pilihan driver/paket terbatas, sehingga tak bisa dianggap\n"
+"           refleksi yang akurat mengenai apakah Tumbleweed akan bekerja "
+"pada\n"
+"           hardware-mu atau tidak."
 
 #: ../app/views/main/_non_leap_release.html.erb:93
 msgid ""
@@ -1267,12 +1295,18 @@ msgid ""
 "ing its inclusion to main installation media together with free open-source so"
 "ftware. All software from this CD could be downloaded from NON-OSS repository."
 msgstr ""
+"CD ini berisi software bebas yang didistribusikan dengan lisensi proprietary "
+"yang tidak mengizinkan penyertaannya ke media pemasangan utama bersama "
+"dengan software open-source bebas. Semua software dari CD ini dapat diunduh "
+"dari repositori NON-OSS."
 
 #: ../app/views/distributions/testing.html.erb:36
 msgid ""
 "This is not a supported release. It is provided to help openSUSE testers\n"
 "        find bugs before release."
 msgstr ""
+"Ini adalah bukan rilis yang didukung. Ini disediakan untuk membantu\n"
+"         penguji openSUSE yang menemukan bug sebelum rilis."
 
 #: ../app/views/main/_options.html.erb:37
 msgid ""
@@ -1281,6 +1315,10 @@ msgid ""
 "es not support processors before Pentium - the live CDs even support only i686"
 " (Pentium Pro and later)."
 msgstr ""
+"Versi ini berjalan pada semua PC termasuk yang mendukung 64 Bit. Jika kamu "
+"memiliki lebih dari 3 GB RAM kamu seharusnya memilih versi 64 Bit sekalian. "
+"openSUSE tidak mendukung prosesor sebelum Pentium - live CD bahkan hanya "
+"mendukung i686 (Pentium Pro dan yang lebih baru)."
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
@@ -1292,22 +1330,25 @@ msgid ""
 "        <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS\n"
 "        Enthusiasts</strong>."
 msgstr ""
+"Tumbleweed adalah dianjurkan bagi <strong>Developers</strong>,\n"
+"        <strong>openSUSE Contributors</strong>, dan <strong>Linux/FOSS\n"
+"        Enthusiasts</strong>."
 
 #: ../app/views/main/_options.html.erb:18
 msgid "Type of Computer"
-msgstr ""
+msgstr "Tipe Komputer"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
 msgid "Unsupported"
-msgstr ""
+msgstr "Tak didukung"
 
 #: ../app/views/package/show.html.erb:239
 msgid "Unsupported distributions:"
-msgstr ""
+msgstr "Distribusi tak didukung:"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:9
 msgid "Upgrade Instructions"
-msgstr ""
+msgstr "Petunjuk upgrade"
 
 #: ../app/views/main/_leap_release.html.erb:57
 #: ../app/views/main/_non_leap_release.html.erb:64
@@ -1316,6 +1357,10 @@ msgid ""
 "doc.opensuse.org</a>, for example the <a href=\"http://activedoc.opensuse.org/b"
 "ook/opensuse-start-up/\">Official Start-Up Guide</a>."
 msgstr ""
+"Panduan pengguna telah tersedia dari <a href=\"http://activedoc.opensuse."
+"org\">activedoc.opensuse.org</a>, contohnya <a href=\""
+"http://activedoc.opensuse.org/book/opensuse-start-up/\">Official Start-Up "
+"Guide</a>."
 
 #: ../app/views/main/_help_method.html.erb:12
 msgid ""
@@ -1327,23 +1372,31 @@ msgid ""
 " - for everybody. Whatsmore, it allows you to stop the download at any time an"
 "d resume it later."
 msgstr ""
+"Menggunakan <a href=\"http://en.opensuse.org/SDB:BitTorrent\">BitTorrent</a> "
+"adalah dianjurkan pada link lambat, terutama saat mengunduh image DVD. "
+"Unduhan BitTorrent memiliki beberapa keuntungan, melindungi klien terhadap "
+"korupsi data dan kamu membantu mengurangi beban di server dengan "
+"berpartisipasi dalam upload - jika cukup banyak orang berpartisipasi, itu "
+"juga akan lebih cepat daripada server terpusat - untuk semua orang. Terlebih "
+"lagi, ini mengizinkan kamu menghentikan unduhan kapan saja dan "
+"melanjutkannya nanti."
 
 #: ../app/views/distributions/_verify_download.html.erb:2
 msgid "Verify Your Download Before Use"
-msgstr ""
+msgstr "Verifikasi Unduhanmu Sebelum Digunakan"
 
 #: ../app/views/main/_leap_release.html.erb:60
 #: ../app/views/main/_non_leap_release.html.erb:67
 msgid "Verify your download before use"
-msgstr ""
+msgstr "Verifikasi unduhanmu sebelum digunakan"
 
 #: ../app/views/package/show.html.erb:190
 msgid "Version"
-msgstr ""
+msgstr "Versi"
 
 #: ../app/views/main/_non_leap_verify.html.erb:4
 msgid "We offer three different checksums:"
-msgstr ""
+msgstr "Kami menawarkan tiga checksum berbeda:"
 
 #: ../app/views/order/new.html.erb:32
 msgid ""
@@ -1357,6 +1410,17 @@ msgid ""
 "ensuse.org</a>\n"
 "        to discuss promotion and/or other ways we can assist you."
 msgstr ""
+"Kami ingin kamu, untuk memberi tahu kami tentang penggunaan DVD-mu, sehingga "
+"kami\n"
+"         bisa membantu kamu untuk mempromosikan organisasimu, acara atau "
+"sekolah pada\n"
+"         <a href='http://news.opensuse.org' title='news.opensuse.org'>"
+"halaman baru</a> kami\n"
+"         atau sumber lainnya. (Ingat! Kami menyukai foto. Ambil banyak dari "
+"mereka!). Silahkan hubungi kami di\n"
+"         <a href='mailto:opensuse-marketing@opensuse.org'>opensuse-"
+"marketing@opensuse.org</a>\n"
+"         untuk diskusi promosi dan/atau cara lain kita bisa membantumu."
 
 #: ../app/views/main/_help_method.html.erb:8
 msgid ""
@@ -1364,6 +1428,9 @@ msgid ""
 "trongly</i> recommended to use a proper download manager to reduce the risk of"
 " corrupted data."
 msgstr ""
+"Saat mengunduh image selain CD untuk pemasangan jaringan, <i>sangat</i> "
+"dianjurkan untuk menggunakan pengelola unduhan yang tepat untuk mengurangi "
+"risiko data yang korup."
 
 #: ../app/views/download/package.erb:141
 msgid ""
