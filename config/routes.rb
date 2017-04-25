@@ -70,8 +70,6 @@ SoftwareOO::Application.routes.draw do
   get 'promodvd' => "order#new"
   get 'promodvds' => "order#new"
 
-  get 'codecs' => "codecs#index"
-
   # compatibility routes for old download implementation
   get 'download' => "download#package"
   get 'download.:format' => "download#package"
