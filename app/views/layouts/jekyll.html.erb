@@ -58,63 +58,7 @@
 
     <%= yield %>
 
-    <footer>
-      <div class="container beautiful-jekyll-footer">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <ul class="list-inline text-center footer-links">
-            <li>
-              <a href="https://www.facebook.com/en.openSUSE" title="Facebook">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-facebook-square fa-stack-2x"></i>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/openSUSE" title="GitHub">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-github-square fa-stack-2x"></i>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/openSUSE" title="Twitter">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-twitter-square fa-stack-2x"></i>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="https://google.com/+openSUSE" title="Google+">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-google-plus-square fa-stack-2x"></i>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="https://linkedin.com/company/opensuse-project" title="LinkedIn">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-linkedin-square fa-stack-2x"></i>
-                </span>
-              </a>
-            </li>
-          </ul>
-          <p class="copyright text-muted">
-            openSUSE
-            &nbsp;•&nbsp;
-            2016
-            &nbsp;•&nbsp;
-            <a href="https://software.opensuse.org/">software.opensuse.org</a>
-          </p>
-          <!-- Please don't remove this, keep my open source work credited :) -->
-          <p class="theme-by text-muted">
-            Theme based on
-            <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
-          </p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%= render(:partial => "layouts/footer") %>
 
     <script src="//cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/bootstrap/3.3.2/js/bootstrap.min.js"></script>

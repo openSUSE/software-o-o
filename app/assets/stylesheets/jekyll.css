@@ -230,14 +230,46 @@ img {
 /* --- Footer --- */
 
 footer {
-  padding: 30px 0;
-  background: #173f4f;
+  border-bottom: 5px solid #6da741;
+  background: none;
+  padding-top: 30px 0;
   margin-top: 50px;
   font-size: 14px;
 }
 
+footer .footer-sponsors-area {
+  border-bottom: 1px solid #777;
+  margin-bottom: 1em;
+}
+
+footer .footer-links-area, .footer-sponsors-area {
+  padding: 2em 0;
+}
+
+footer .footer-links-area {
+  background: #173f4f;
+}
+
+footer .social-networks {
+  text-align: right;
+  font-size: 2em;
+  text-decoration: none;
+}
+
+footer .social-networks a:hover {
+    text-decoration: none;
+}
+
+footer .social-networks a:active {
+    text-decoration: none;
+}
+
 footer a {
   color: #35b9ab;
+}
+
+footer p {
+  margin: 0;
 }
 
 footer .list-inline {
@@ -254,9 +286,17 @@ footer .theme-by {
   margin: 10px 0 0;
 }
 
+.blue-triangular-division {
+  background: url('jekyll/blue-triangle-for-division.png') center no-repeat;
+  height: 38px;
+  min-width: 134px;
+  width: 100%;
+}
+
+
 @media only screen and (min-width: 768px) {
   footer {
-    padding: 50px 0;
+    padding-top: 50px;
   }
   footer .footer-links {
     font-size: 18px;
