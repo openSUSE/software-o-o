@@ -1,7 +1,0 @@
-To make the mail sending work on buildserviceapi, I had to patch 
-/usr/lib64/ruby/gems/1.8/gems/gettext_rails-2.0.0/lib/gettext_rails/action_mailer.rb 
-in line 30: 
-create_bang_without_gettext(*arg)
-to
-create_without_gettext!(*arg)
-

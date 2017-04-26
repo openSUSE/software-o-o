@@ -57,19 +57,6 @@ SoftwareOO::Application.routes.draw do
     get 'appstore/:category' => :category, :constraints => { :category => /[\w\-\.: ]+/ }
   end
 
-  resource :orders, :controller => "order" do
-    member do
-     get 'thanks'
-    end
-  end
-
-  controller 'order' do
-    get 'order/thanks' => :thanks
-  end
-
-  get 'promodvd' => "order#new"
-  get 'promodvds' => "order#new"
-
   # compatibility routes for old download implementation
   get 'download' => "download#package"
   get 'download.:format' => "download#package"

@@ -11,50 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030124119) do
+ActiveRecord::Schema.define(version: 20170425185949) do
 
   create_table "delayed_jobs", force: true do |t|
-    t.integer  "priority",   default: 0
-    t.integer  "attempts",   default: 0
+    t.integer  "priority",               default: 0
+    t.integer  "attempts",               default: 0
     t.text     "handler"
     t.text     "last_error"
     t.datetime "run_at"
     t.datetime "locked_at"
     t.datetime "failed_at"
-    t.string   "locked_by"
+    t.string   "locked_by",  limit: nil
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "queue"
+    t.string   "queue",      limit: nil
   end
 
   create_table "download_histories", force: true do |t|
-    t.string   "base"
-    t.string   "query"
-    t.string   "file"
-    t.string   "ymp"
+    t.string   "base",       limit: nil
+    t.string   "query",      limit: nil
+    t.string   "file",       limit: nil
+    t.string   "ymp",        limit: nil
     t.datetime "created_at"
-  end
-
-  create_table "orders", force: true do |t|
-    t.string   "title",        null: false
-    t.string   "name",         null: false
-    t.string   "company"
-    t.string   "street1",      null: false
-    t.string   "street2"
-    t.string   "zip",          null: false
-    t.string   "city",         null: false
-    t.string   "county"
-    t.string   "country",      null: false
-    t.string   "phone",        null: false
-    t.string   "email",        null: false
-    t.integer  "amount",       null: false
-    t.text     "reason",       null: false
-    t.string   "deadline",     null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "processed_at"
-    t.string   "processed_by"
-    t.string   "material"
   end
 
 end
