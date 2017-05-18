@@ -73,7 +73,7 @@ class ApplicationController < ActionController::Base
       doc.elements.each("distributions/distribution") { |element|
         dist = Hash[:name => element.elements['name'].text, :project => element.elements['project'].text,
           :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text, 
-          :icon => element.elements['icon'].attributes["url"], :dist_id => element.attributes['id'].sub(".", "") ]
+          :dist_id => element.attributes['id'].sub(".", "") ]
         @distributions << dist
         logger.debug "Added Distribution: #{dist[:name]}"
       }
