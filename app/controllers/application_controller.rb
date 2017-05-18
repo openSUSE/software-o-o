@@ -35,9 +35,15 @@ class ApplicationController < ActionController::Base
 
   def set_language
     set_gettext_locale
-    unless LANGUAGES.include? FastGettext.locale
-      params[:locale] = FastGettext.default_locale
-      set_gettext_locale
+    requested_locale = FastGettext.locale
+    # if we don't have translations for the requested locale, try
+    # the short form without underscore
+    unless LANGUAGES.include? requested_locale
+      requested_locale = requested_locale.split('_').first
+      if LANGUAGES.include? requested_locale
+        params[:locale] = requested_locale
+        set_gettext_locale
+      end
     end
     @lang = FastGettext.locale
   end
