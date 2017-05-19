@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-01 11:05+0100\n"
-"PO-Revision-Date: 2015-11-06 15:37+0100\n"
+"PO-Revision-Date: 2017-05-19 13:25+0000\n"
 "Last-Translator: Guillaume GARDET <guillaume.gardet@opensuse.org>\n"
-"Language-Team: French <opensuse-fr@opensuse.org>\n"
+"Language-Team: French "
+"<https://l10n.opensuse.org/projects/software-o-o/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.6\n"
 
 #: ../app/views/search/_find_results.html.erb:94
 msgid " and "
@@ -228,10 +229,9 @@ msgstr "Catégorie"
 #: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:53
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:132
-#, fuzzy
 #| msgid "md5 checksum"
 msgid "Checksum"
-msgstr "somme de contrôle MD5"
+msgstr "Somme de contrôle"
 
 #: ../app/views/distributions/_verify_download.html.erb:26
 msgid "Checksums Help"
@@ -249,10 +249,9 @@ msgstr ""
 "alternative."
 
 #: ../app/views/distributions/_choosing_media.html.erb:2
-#, fuzzy
 #| msgid "Click to Download"
 msgid "Choosing Which Media to Download"
-msgstr "Cliquez pour télécharger"
+msgstr "Choix du média à télécharger"
 
 #: ../app/views/distributions/index.html.erb:76
 msgid "Chosing which Distribution to Download"
@@ -294,10 +293,9 @@ msgid "Currently testing"
 msgstr ""
 
 #: ../app/views/distributions/index.html.erb:136
-#, fuzzy
 #| msgid "openSUSE Derivatives"
 msgid "Derivatives"
-msgstr "Dérivés d'openSUSE"
+msgstr "Dérivés"
 
 #: ../app/views/layouts/download.html.erb:60
 #: ../app/views/layouts/application.html.erb:66
@@ -497,7 +495,7 @@ msgstr "Langues supplémentaires (64 bits)"
 
 #: ../app/views/download/package.erb:106
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
-msgstr "Pour <strong>%s</strong>, executez en tant que <strong>root</strong>:"
+msgstr "Pour <strong>%s</strong>, exécutez en tant que <strong>root</strong> :"
 
 #: ../app/views/download/package.erb:99
 msgid "For <strong>%s</strong> run the following:"
@@ -509,9 +507,9 @@ msgid ""
 "(note that the order of repositories in pacman.conf is important, since "
 "pacman always downloads the first found package):"
 msgstr ""
-"Pour <strong>Arch Linux</strong>, modifiez /etc/pacman.conf et ajoutez : "
-"(remarque : l'ordre des dépôts est important dans pacman.conf, puisque "
-"pacman télécharge toujours le premier paquet trouvé)"
+"Pour <strong>Arch Linux</strong>, modifiez /etc/pacman.conf et ajoutez ("
+"remarque : l'ordre des dépôts est important dans pacman.conf, puisque pacman "
+"télécharge toujours le premier paquet trouvé) :"
 
 #: ../app/views/main/_leap_verify.html.erb:6
 #: ../app/views/distributions/_verify_download.html.erb:13
@@ -522,7 +520,6 @@ msgstr ""
 "somme SHA256 correspondante."
 
 #: ../app/views/distributions/_verify_download.html.erb:16
-#, fuzzy
 #| msgid ""
 #| "For extra security, you can use GPG to verify who signed those .sha256 "
 #| "files. It should be %s."
@@ -530,7 +527,7 @@ msgid ""
 "For extra security, you can use GPG to verify who signed those .sha256 files."
 msgstr ""
 "Pour plus de sécurité, vous pouvez utiliser GPG pour vérifier qui a signé "
-"ces fichiers .sha256. Ce devrait être %s."
+"ces fichiers .sha256."
 
 #: ../app/views/main/_leap_verify.html.erb:7
 msgid ""
@@ -557,10 +554,9 @@ msgid "From an older version or other Linux distro"
 msgstr ""
 
 #: ../app/views/distributions/_documentation.html.erb:23
-#, fuzzy
 #| msgid "Documentation"
 msgid "Full Documentation"
-msgstr "Documentation"
+msgstr "Documentation complète"
 
 #: ../app/views/package/categories.html.erb:17
 msgid "Games"
@@ -577,10 +573,9 @@ msgstr "Obtenez une distribution spécialisée basée sur openSUSE."
 #: ../app/views/layouts/jekyll.html.erb:8
 #: ../app/views/layouts/jekyll.html.erb:34
 #: ../app/views/distributions/index.html.erb:7
-#, fuzzy
 #| msgid "Buy openSUSE"
 msgid "Get openSUSE"
-msgstr "Achetez openSUSE"
+msgstr "Obtenir openSUSE"
 
 #: ../app/views/distributions/leap.html.erb:87
 msgid "Get openSUSE Leap for other architectures."
@@ -707,7 +702,6 @@ msgstr "Guides d'installation"
 #: ../app/views/distributions/testing.html.erb:43
 #: ../app/views/distributions/tumbleweed.html.erb:23
 #: ../app/views/distributions/leap.html.erb:21
-#, fuzzy
 #| msgid "Installation Medium"
 msgid "Installation Media"
 msgstr "Média d'installation"
@@ -801,7 +795,6 @@ msgid "Live KDE"
 msgstr "Live KDE"
 
 #: ../app/views/distributions/_verify_download.html.erb:5
-#, fuzzy
 #| msgid ""
 #| "Many applications can verify the checksum of a download. To verify your "
 #| "download can be important as it verifies you really have got the ISO file "
@@ -815,9 +808,16 @@ msgid ""
 "  field above and use the add-on DownThemAll! in Firefox."
 msgstr ""
 "De nombreuses applications peuvent vérifier la somme de contrôle (checksum) "
-"d'un téléchargement. Vérifier votre téléchargement peut être important pour "
-"s'assurer que vous avez réellement obtenu le fichier ISO que vous vouliez et "
-"non une version corrompue."
+"d'un téléchargement. \n"
+"Vérifier votre téléchargement peut être important pour s'assurer que vous "
+"avez réellement obtenu le \n"
+"fichier ISO que vous vouliez et non une version corrompue. Vous pourriez "
+"vérifier\n"
+"le fichier lors du téléchargement. Par exemple, une somme de contrôle "
+"(SHA256) sera utilisée \n"
+"automatiquement si vous choisissez Metalink dans le champs au dessus et "
+"utilisez l'extension \n"
+"DownThemAll! dans Firefox."
 
 #: ../app/views/main/_leap_verify.html.erb:2
 #: ../app/views/main/_non_leap_verify.html.erb:2
@@ -834,10 +834,9 @@ msgstr ""
 # TLABEL fr_FR_2002_02_20_2232__9
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:46
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:125
-#, fuzzy
 #| msgid "Multimedia"
 msgid "Media"
-msgstr "Multimédia"
+msgstr "Media"
 
 #: ../app/views/main/_leap_medium.html.erb:17
 #: ../app/views/main/_help_method.html.erb:14
@@ -931,7 +930,7 @@ msgstr "Aucun téléchargement trouvé pour %s dans le projet %s"
 
 #: ../app/views/search/_find_results.html.erb:22
 msgid "No packages found matching your search. "
-msgstr "Aucun paquet correpondant à votre recherche."
+msgstr "Aucun paquet correspondant à votre recherche. "
 
 #: ../app/views/main/_non_leap_release.html.erb:92
 msgid "NonOSS CD"
@@ -978,7 +977,7 @@ msgstr "Recherche de paquets"
 # TLABEL restore_2002_08_07_0216__60
 #: ../app/views/download/package.erb:158
 msgid "Packages for %s:"
-msgstr "Paquets pour '%s':"
+msgstr "Paquets pour '%s' :"
 
 #: ../app/views/main/_leap_medium.html.erb:18
 #: ../app/views/main/_help_method.html.erb:18
@@ -1076,10 +1075,9 @@ msgid "Related categories:"
 msgstr "Catégories liées :"
 
 #: ../app/views/distributions/_documentation.html.erb:13
-#, fuzzy
 #| msgid "Released Version"
 msgid "Release Notes"
-msgstr "Version stable"
+msgstr "Notes de version"
 
 #: ../app/views/main/release.html.erb:17
 msgid "Released Version"
@@ -1131,7 +1129,7 @@ msgstr "Afficher les paquets de développement, de langue et de debug"
 
 #: ../app/views/search/_find_form.html.erb:39
 msgid "Show distribution:"
-msgstr "Afficher la distribution:"
+msgstr "Afficher la distribution :"
 
 #: ../app/views/package/show.html.erb:253
 msgid "Show more packages for unsupported distributions"
@@ -1336,20 +1334,18 @@ msgid "Type of Computer"
 msgstr "Type d'ordinateur"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
-#, fuzzy
 #| msgid "Support"
 msgid "Unsupported"
-msgstr "Support"
+msgstr "Non supporté"
 
 #: ../app/views/package/show.html.erb:239
 msgid "Unsupported distributions:"
 msgstr "Distribution non supportées :"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:9
-#, fuzzy
 #| msgid "Unsupported distributions:"
 msgid "Upgrade Instructions"
-msgstr "Distribution non supportées :"
+msgstr "Instructions de mise à niveau"
 
 #: ../app/views/main/_leap_release.html.erb:57
 #: ../app/views/main/_non_leap_release.html.erb:64
@@ -1383,10 +1379,9 @@ msgstr ""
 "moment et le reprendre plus tard."
 
 #: ../app/views/distributions/_verify_download.html.erb:2
-#, fuzzy
 #| msgid "Verify your download before use"
 msgid "Verify Your Download Before Use"
-msgstr "Vérifiez votre téléchargement avant utilisation"
+msgstr "Vérifier votre téléchargement avant utilisation"
 
 #: ../app/views/main/_leap_release.html.erb:60
 #: ../app/views/main/_non_leap_release.html.erb:67
@@ -1559,86 +1554,76 @@ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
 
 #: ../app/controllers/main_controller.rb:163
 #: ../app/controllers/main_controller.rb:177
-#, fuzzy
 #| msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
 msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
+msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
 
 #: ../app/views/distributions/index.html.erb:96
-#, fuzzy
 #| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/Lifetime"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/Lifetime"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:39
-#, fuzzy
 #| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Mac_OS_x"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Mac_OS_x"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:34
-#, fuzzy
 #| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
 
 #: ../app/views/distributions/_verify_download.html.erb:25
-#, fuzzy
 #| msgid "http://en.opensuse.org/SDB:Download_help"
 msgid "https://en.opensuse.org/SDB:Download_help#Checksums"
-msgstr "http://fr.opensuse.org/SDB:Aide_au_téléchargement"
+msgstr "https://fr.opensuse.org/SDB:Aide_au_téléchargement#Checksums"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:12
-#, fuzzy
 #| msgid "http://en.opensuse.org/SDB:Download_help"
 msgid "https://en.opensuse.org/SDB:Download_help#Using_Linux"
-msgstr "http://fr.opensuse.org/SDB:Aide_au_téléchargement"
+msgstr ""
+"https://fr.opensuse.org/SDB:Aide_au_t%C3%A9l%C3%A9chargement#Sous_Linux_2"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:22
-#, fuzzy
 #| msgid "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
 msgid ""
 "https://en.opensuse.org/SDB:Download_help#Using_MacOS_X_.2810.3_and_above.29"
 msgstr ""
-"http://fr.opensuse.org/SDB:Aide_au_t%C3%A9l"
-"%C3%A9chargement#Graver_l.27image_ISO"
+"https://fr.opensuse.org/SDB:Aide_au_t%C3%A9l%C3%A9chargement#Sous_Mac_OS_X_10"
+".3_et_plus_r.C3.A9cent"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:17
-#, fuzzy
 #| msgid "http://en.opensuse.org/SDB:Download_help"
 msgid "https://en.opensuse.org/SDB:Download_help#Using_Microsoft_Windows"
-msgstr "http://fr.opensuse.org/SDB:Aide_au_téléchargement"
+msgstr ""
+"https://fr.opensuse.org/SDB:Aide_au_t%C3%A9l%C3%A9chargement#Sous_Microsoft_W"
+"indows_2"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:29
-#, fuzzy
 #| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/SDB:Live_USB_stick"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/SDB:Live_USB_stick"
 
 #: ../app/views/distributions/_leap_switch.html.erb:8
-#, fuzzy
 #| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/SDB:System_upgrade"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/SDB:System_upgrade"
 
 #: ../app/views/distributions/index.html.erb:93
-#, fuzzy
 #| msgid "http://en.opensuse.org/Buy_openSUSE"
 msgid "https://en.opensuse.org/openSUSE:Roadmap"
-msgstr "http://en.opensuse.org/Buy_openSUSE"
+msgstr "https://en.opensuse.org/openSUSE:Roadmap"
 
 #: ../app/views/distributions/testing.html.erb:39
-#, fuzzy
 #| msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgid "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
-msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+msgstr "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 
 #: ../app/views/distributions/index.html.erb:125
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:8
-#, fuzzy
 #| msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
-msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
 #: ../app/views/distributions/index.html.erb:127
 msgid "if you change your mind later."
