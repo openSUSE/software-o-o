@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-01 11:05+0100\n"
-"PO-Revision-Date: 2017-06-05 19:22+0100\n"
+"PO-Revision-Date: 2017-06-06 19:21+0100\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <opensuse-translation-sk@opensuse.org>\n"
 "Language: sk\n"
@@ -181,7 +181,6 @@ msgstr "BitTorrent"
 
 #: ../app/views/main/_leap_release.html.erb:73
 #: ../app/views/main/_non_leap_release.html.erb:80
-#, fuzzy
 #| msgid ""
 #| "Boot from the DVD or CD. In case your computer does not automatically "
 #| "boot from CD/DVD, open the BIOS setup to allow booting from CD or DVD."
@@ -190,8 +189,9 @@ msgid ""
 "automatically boot from the chosen device, open the BIOS setup to allow "
 "booting from it."
 msgstr ""
-"Spustite z DVD, alebo CD. V prípade, že počítač automaticky nespustí systém "
-"z CD/DVD, v BIOSe povoľte spustenie z CD, alebo DVD."
+"Spustite systém z DVD, CD alebo USB kľúča. V prípade, že počítač automaticky "
+"nespustí systém zo zvoleného zariadenia, otvorte nastavenie systému BIOS, "
+"aby ste z neho umožnili štart systému."
 
 #: ../app/views/distributions/index.html.erb:114
 msgid ""
@@ -254,10 +254,9 @@ msgstr ""
 "sťahovania."
 
 #: ../app/views/distributions/_choosing_media.html.erb:2
-#, fuzzy
 #| msgid "Click to Download"
 msgid "Choosing Which Media to Download"
-msgstr "Kliknúť pre stiahnutie"
+msgstr "Výber média, ktoré sa stiahne"
 
 #: ../app/views/distributions/index.html.erb:76
 msgid "Chosing which Distribution to Download"
@@ -286,9 +285,8 @@ msgstr ""
 "použitie.<br/>Vhodné pre inštaláciu, alebo upgrade."
 
 #: ../app/views/main/release.html.erb:46
-#, fuzzy
 msgid "Countdown"
-msgstr "Vypnúť počítač"
+msgstr "Odpočítavanie"
 
 #: ../app/views/order/_form.html.erb:72
 msgid "Country"
@@ -299,10 +297,9 @@ msgid "Currently testing"
 msgstr "Aktuálne testovanie"
 
 #: ../app/views/distributions/index.html.erb:136
-#, fuzzy
 #| msgid "openSUSE Derivatives"
 msgid "Derivatives"
-msgstr "openSUSE deriváty"
+msgstr "Deriváty"
 
 #: ../app/views/layouts/download.html.erb:60
 #: ../app/views/layouts/application.html.erb:66
@@ -322,9 +319,8 @@ msgid "Development-"
 msgstr "Vývoj-"
 
 #: ../app/views/package/show.html.erb:188
-#, fuzzy
 msgid "Direct Install"
-msgstr "1-Click inštalácia"
+msgstr "Priama inštalácia"
 
 #: ../app/views/main/_leap_medium.html.erb:13
 #: ../app/views/main/_help_method.html.erb:6
@@ -409,9 +405,8 @@ msgstr ""
 "              pre stolné počítače, prenosné počítače a servery."
 
 #: ../app/controllers/download_controller.rb:36
-#, fuzzy
 msgid "Download appliance from %s"
-msgstr "Sťahujem patch rpm (záplatu)"
+msgstr "Stiahnuť predpripravené systémy z %s"
 
 #: ../app/views/distributions/index.html.erb:46
 msgid ""
@@ -471,10 +466,9 @@ msgid "Download&nbsp;Network"
 msgstr "Stiahnuť"
 
 #: ../app/views/main/_options.html.erb:51
-#, fuzzy
 #| msgid "Download&nbsp;KDE"
 msgid "Download&nbsp;Rescue"
-msgstr "Stiahnuť"
+msgstr "Stiahnuť&nbsp;Záchranné"
 
 #: ../app/views/layouts/download.html.erb:57
 #: ../app/views/layouts/application.html.erb:63
@@ -545,23 +539,23 @@ msgstr ""
 "súčetom."
 
 #: ../app/views/distributions/_verify_download.html.erb:16
-#, fuzzy
 #| msgid ""
 #| "offers the most security as you can verify who signed it. It should be"
 msgid ""
 "For extra security, you can use GPG to verify who signed those .sha256 files."
 msgstr ""
-"ponúka najbezpečnejšiu metódu, ako môžete overiť kto ho podpísal. Mal by byť"
+"Pre zvýšenú bezpečnosť môžete pomocou GPG overiť, kto podpísal tieto .sha256 "
+"súbory."
 
 #: ../app/views/main/_leap_verify.html.erb:7
-#, fuzzy
 #| msgid ""
 #| "offers the most security as you can verify who signed it. It should be"
 msgid ""
 "For extra security, you can use GPG to verify who signed those .sha256 "
 "files. It should be %s."
 msgstr ""
-"ponúka najbezpečnejšiu metódu, ako môžete overiť kto ho podpísal. Mal by byť"
+"Pre zvýšenú bezpečnosť môžete pomocou GPG overiť, kto podpísal tieto .sha256 "
+"súbory. Mal by to byť %s."
 
 #: ../app/views/distributions/_verify_download.html.erb:24
 msgid "For more help verifing your download please read"
@@ -591,7 +585,7 @@ msgstr "Hry"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:10
 msgid "Get Unsupported Tumbleweed LiveCDs."
-msgstr ""
+msgstr "Získať nepodporované Tumbleweed LiveCD."
 
 #: ../app/views/main/_non_leap_release.html.erb:44
 msgid "Get one of the specialized distributions built on openSUSE."
@@ -605,11 +599,11 @@ msgstr "Získať openSUSE"
 
 #: ../app/views/distributions/leap.html.erb:87
 msgid "Get openSUSE Leap for other architectures."
-msgstr ""
+msgstr "Získať openSUSE Leap pre iné architektúry."
 
 #: ../app/views/distributions/tumbleweed.html.erb:85
 msgid "Get openSUSE Tumbleweed for other architectures."
-msgstr ""
+msgstr "Získať openSUSE Tumbleweed pre iné architektúry."
 
 #: ../app/views/main/release.html.erb:33
 msgid "Getting Help"
@@ -621,7 +615,7 @@ msgstr "Zlatý sponzor"
 
 #: ../app/views/download/package.erb:153
 msgid "Grab binary packages directly"
-msgstr ""
+msgstr "Získať binárne balíky priamo"
 
 #: ../app/views/layouts/download.html.erb:54
 #: ../app/views/layouts/application.html.erb:60
@@ -641,6 +635,8 @@ msgid ""
 "Help test openSUSE’s next version of Leap by downloading\n"
 "              the latest development milestone."
 msgstr ""
+"Pomôžte testovať ďalšiu verziu openSUSE Leap stiahnutím\n"
+"              najnovšieho vývojového medzníka."
 
 #: ../app/views/distributions/testing.html.erb:10
 msgid ""
@@ -648,6 +644,9 @@ msgid ""
 "              regular-release distribution for desktop PCs, laptops,\n"
 "              and servers."
 msgstr ""
+"Pomôžte testovať ďalšiu verziu openSUSE Leap,\n"
+"              normálne vydanie distribúcie pre stolné počítače,\n"
+"              prenosné počítače a servery."
 
 #: ../app/views/main/_leap_release.html.erb:65
 #: ../app/views/main/_non_leap_release.html.erb:72
@@ -668,19 +667,19 @@ msgstr "Ako napáliť DVD na systéme Windows."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:35
 msgid "How to create a Bootable USB stick on Windows."
-msgstr ""
+msgstr "Ako vytvoriť spustiteľný USB kľúč na systéme Windows."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:30
 msgid "How to create a bootable USB stick on Linux."
-msgstr ""
+msgstr "Ako vytvoriť spustiteľný USB kľúč na Linuxe."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:40
 msgid "How to create a bootable USB stick on OS X."
-msgstr ""
+msgstr "Ako vytvoriť spustiteľný USB kľúč na OS X."
 
 #: ../app/views/distributions/index.html.erb:120
 msgid "If you are still not sure, download"
-msgstr ""
+msgstr "Ak si stále nie ste istí, stiahnite si"
 
 #: ../app/views/main/_help_method.html.erb:20
 msgid ""
@@ -705,9 +704,8 @@ msgid "Image:"
 msgstr "Obraz:"
 
 #: ../app/controllers/download_controller.rb:78
-#, fuzzy
 msgid "Install package %s / %s"
-msgstr "Nainštalované balíky: %d"
+msgstr "Nainštalovať balík %s / %s"
 
 #: ../app/controllers/download_controller.rb:123
 msgid "Install pattern %s / %s"
