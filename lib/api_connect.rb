@@ -9,7 +9,7 @@ class ApiConnect
     logger.debug "Loading from api: #{uri_str}"
     begin
       http = Net::HTTP.new(uri.host, uri.port)
-      if  uri.scheme == 'https'
+      if uri.scheme == 'https'
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       end

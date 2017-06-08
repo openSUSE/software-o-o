@@ -38,7 +38,7 @@ class DownloadController < ApplicationController
   end
 
   def package
-    redirect_to :action => :doc  and return if !params[:project] && !params[:package]
+    redirect_to :action => :doc and return if !params[:project] && !params[:package]
     required_parameters :project, :package
     @project = params[:project]
     @package = params[:package]
@@ -130,10 +130,10 @@ class DownloadController < ApplicationController
   end
 
   def render_page page_template
-    @box_title  = @page_title
+    @box_title = @page_title
     respond_to do |format|
       format.html { render page_template, :layout => 'download' }
-      format.iframe  {
+      format.iframe {
         response.headers.except! 'X-Frame-Options'
         render page_template, :layout => 'iframe.html'
       }

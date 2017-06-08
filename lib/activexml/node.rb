@@ -332,7 +332,7 @@ module ActiveXML
       return @hash_cache if @hash_cache
       #Rails.logger.debug "to_hash #{options.inspect} #{dump_xml}"
       t0 = Time.now
-      x = Benchmark.measure { @hash_cache  = Xmlhash.parse(dump_xml) }
+      x = Benchmark.measure { @hash_cache = Xmlhash.parse(dump_xml) }
       @@xml_time += Time.now - t0
       #Rails.logger.debug "after to_hash #{JSON.pretty_generate(@hash_cache)}"
       #puts "to_hash #{self.class} #{x}"
