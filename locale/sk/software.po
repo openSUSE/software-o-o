@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-01 11:05+0100\n"
-"PO-Revision-Date: 2017-06-08 18:04+0100\n"
+"PO-Revision-Date: 2017-06-08 18:18+0100\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <opensuse-translation-sk@opensuse.org>\n"
 "Language: sk\n"
@@ -834,23 +834,22 @@ msgid ""
 msgstr ""
 "Veľa aplikácií môže overiť kontrolný súčet stiahnutia. Pre overenie\n"
 "  vášho stiahnutia môže byť dôležité, či naozaj máte ISO súbor, ktorý ste\n"
-"  chceli stiahnuť a nie je poškodený. Môžete overiť súbor v procese\n"
+"  chceli stiahnuť a nie nejakú poškodenú verziu. Môžete overiť súbor v "
+"procese\n"
 "  sťahovania. Napríklad kontrolný súčet (SHA256) sa použije automaticky,\n"
 "  ak v poli vyššie zvolíte Metalink a použijete doplnok DownThemAll!\n"
 "vo Firefoxe."
 
 #: ../app/views/main/_leap_verify.html.erb:2
 #: ../app/views/main/_non_leap_verify.html.erb:2
-#, fuzzy
 msgid ""
 "Many applications can verify the checksum of a download. To verify your "
 "download can be important as it verifies you really have got the ISO file "
 "you wanted to download and not some broken version."
 msgstr ""
-"Veľa aplikácií môže overiť kontrolný súčet stiahnutia. Pre overenie Vášho "
-"stiahnutia môže byť dôležité, či ste naozaj stiahli ISO súbor, ktorý ste "
-"chceli stiahnuť a nie je poškodený. Ponúkame tri metódy overenia kontrolných "
-"súčtov:"
+"Veľa aplikácií môže overiť kontrolný súčet stiahnutia. Pre overenie vášho "
+"stiahnutia môže byť dôležité, či naozaj máte ISO súbor, ktorý ste chceli "
+"stiahnuť a nie nejakú poškodenú verziu."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:46
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:125
@@ -946,18 +945,16 @@ msgid "No downloads found for %s in project %s"
 msgstr "Nebolo nájdené nič k stiahnutiu pre %s v projekte %s"
 
 #: ../app/views/search/_find_results.html.erb:22
-#, fuzzy
 msgid "No packages found matching your search. "
-msgstr "Neboli nájdené žiadne balíky vyhovujúce výrazu '%s'."
+msgstr "Neboli nájdené žiadne balíky vyhovujúce vášmu hľadaniu."
 
 #: ../app/views/main/_non_leap_release.html.erb:92
 msgid "NonOSS CD"
 msgstr "NonOSS CD"
 
 #: ../app/controllers/application_controller.rb:50
-#, fuzzy
 msgid "OBS Backend not available"
-msgstr "scdb nie je k dispozícii"
+msgstr "OBS Backend nie je dostupný"
 
 #: ../app/views/main/release.html.erb:38
 msgid "Official Manuals"
@@ -980,9 +977,8 @@ msgid "Over 40GB of free hard drive space"
 msgstr "Viac ako 40 GB voľného miesta na pevnom disku"
 
 #: ../app/views/package/show.html.erb:149
-#, fuzzy
 msgid "Package %s not found..."
-msgstr "'Záplata %s' nebola nájdená."
+msgstr "Balík %s nebol nájdený..."
 
 #: ../app/views/main/release.html.erb:39
 msgid "Package Repositories"
@@ -994,9 +990,8 @@ msgid "Package Search"
 msgstr "Hľadať balíky"
 
 #: ../app/views/download/package.erb:158
-#, fuzzy
 msgid "Packages for %s:"
-msgstr "Mažem uložené RPM súbory pre '%s'."
+msgstr "Balíky pre %s:"
 
 #: ../app/views/main/_leap_medium.html.erb:18
 #: ../app/views/main/_help_method.html.erb:18
@@ -1077,15 +1072,13 @@ msgid "Recommended System Requirements"
 msgstr "Odporúčané systémové požiadavky"
 
 #: ../app/views/search/_category_header.html.erb:9
-#, fuzzy
 msgid "Related categories:"
-msgstr "Kategória"
+msgstr "Súvisiace kategórie:"
 
 #: ../app/views/distributions/_documentation.html.erb:13
-#, fuzzy
 #| msgid "Released Version"
 msgid "Release Notes"
-msgstr "Stabilná verzia"
+msgstr "Poznámky k vydaniu"
 
 #: ../app/views/main/release.html.erb:17
 msgid "Released Version"
@@ -1096,13 +1089,11 @@ msgid "Reporting Bugs"
 msgstr "Hlásenie chýb"
 
 #: ../app/views/main/_non_leap_release.html.erb:42
-#, fuzzy
 #| msgid "Rescue System"
 msgid "Rescue"
-msgstr "Záchranný systém"
+msgstr "Záchrana"
 
 #: ../app/views/main/_non_leap_release.html.erb:42
-#, fuzzy
 #| msgid ""
 #| "A KDE desktop you can run from CD or from USB stick.<br/>Can be installed "
 #| "as is (no upgrade)."
@@ -1110,8 +1101,8 @@ msgid ""
 "Rescue system that you can run from CD or from USB stick.<br/>Can not be "
 "used for installation or upgrade."
 msgstr ""
-"KDE prostredie, ktoré je možné spustiť z CD, prípadne USB kľúčiku.<br/>Môže "
-"byť použité aj na inštaláciu systému (nie aktualizáciu)."
+"Záchranný systém, ktorý môžete spustiť z CD alebo USB kľúča.<br/>Nemôže byť "
+"použitý pre inštaláciu alebo zvýšenie verzie."
 
 #: ../app/views/main/_leap_medium.html.erb:20
 msgid "SHA256 checksum"
@@ -1123,9 +1114,8 @@ msgid "Search"
 msgstr "Hľadať"
 
 #: ../app/views/download/package.erb:61
-#, fuzzy
 msgid "Select Your Operating System"
-msgstr "Štart operačného systému"
+msgstr "Vyberte váš operačný systém"
 
 #: ../app/views/download/appliance.erb:39
 #, fuzzy
