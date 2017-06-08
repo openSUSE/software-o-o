@@ -34,7 +34,7 @@ class ApiConnect
         raise Error.new "Response was: #{response} #{response.body}"
       end
     rescue Exception => e
-      raise Error.new "Error connecting to #{uri_str}: #{e.to_s}"
+      raise Error.new "Error connecting to #{uri_str}: #{e}"
     end
   end
 
