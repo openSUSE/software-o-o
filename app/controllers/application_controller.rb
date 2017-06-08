@@ -48,7 +48,6 @@ class ApplicationController < ActionController::Base
     @lang = FastGettext.locale
   end
 
-
   def set_distributions
     @distributions = Rails.cache.fetch('distributions', :expires_in => 120.minutes) do
       load_distributions
@@ -61,7 +60,6 @@ class ApplicationController < ActionController::Base
       @baseproject = cookies[:search_baseproject]
     end
   end
-
 
   # load available distributions
   def load_distributions
@@ -123,7 +121,6 @@ class ApplicationController < ActionController::Base
     name =~ /^[[:alnum:]][-+\w.:]+$/
   end
 
-
   def set_search_options
     @search_term = params[:q] || ""
     @baseproject = params[:baseproject] unless @distributions.select{|d| d[:project] == params[:baseproject]}.blank?
@@ -142,7 +139,6 @@ class ApplicationController < ActionController::Base
     cookies[:search_unsupported] = { :value => @search_unsupported, :expires => 1.year.from_now }
     cookies[:search_baseproject] = { :value => @baseproject, :expires => 1.year.from_now }
   end
-
 
   # TODO: atm obs only offers appdata for Factory
   def prepare_appdata

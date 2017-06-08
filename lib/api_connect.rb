@@ -38,7 +38,6 @@ class ApiConnect
     end
   end
 
-
   def self.logger
     Rails.logger
   end

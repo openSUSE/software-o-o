@@ -79,7 +79,6 @@ class DownloadController < ApplicationController
     render_page :package
   end
 
-
   
   def pattern
     required_parameters :project, :pattern
@@ -124,13 +123,11 @@ class DownloadController < ApplicationController
     render_page :package
   end
 
-
   private
 
   def set_parameters
     @hide_search_box = true
   end
-
 
   def render_page page_template
     @box_title  = @page_title
@@ -144,7 +141,6 @@ class DownloadController < ApplicationController
       format.json { render_json @data.to_json }
     end
   end
-
 
   def set_distro_flavor distro
     case distro
@@ -177,7 +173,6 @@ class DownloadController < ApplicationController
     end
   end
 
-
   def set_flavours
     if @data.nil?
       head :forbidden
@@ -199,7 +194,6 @@ class DownloadController < ApplicationController
       'Unknown'
     end
   end
-
 
   def set_colors
     if params[:acolor]
@@ -223,6 +217,5 @@ class DownloadController < ApplicationController
   def valid_color? color
     color =~ /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
   end
-
 
 end

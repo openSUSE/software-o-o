@@ -201,7 +201,6 @@ class MainController < ApplicationController
     redirect_to :action => 'release', :release => release, :locale => FastGettext.locale
   end
 
-
   def developer
     redirectit("developer")
     return
@@ -212,7 +211,6 @@ class MainController < ApplicationController
     set_release("422")
     render :template => "main/release"
   end
-
 
   def index
     redirectit("422")

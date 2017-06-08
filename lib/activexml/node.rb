@@ -564,7 +564,6 @@ module ActiveXML
     @default_find_parameter = :name
     @@object_cache = {}
 
-
     def name
       method_missing( :name )
     end

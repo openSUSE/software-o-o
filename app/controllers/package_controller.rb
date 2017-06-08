@@ -66,10 +66,8 @@ class PackageController < ApplicationController
 
   end
 
-
   def categories
   end
-
 
   def category
     required_parameters :category
@@ -89,7 +87,6 @@ class PackageController < ApplicationController
 
     render 'search/find'
   end
-
 
   def screenshot
     required_parameters :package

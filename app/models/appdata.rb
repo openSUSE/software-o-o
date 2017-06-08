@@ -11,7 +11,6 @@ class Appdata
     data
   end
 
-
   private
 
   def self.add_appdata data, xml
@@ -33,7 +32,6 @@ class Appdata
     data
   end
 
-
   # Get the appdata xml for a distribution
   def self.get_distribution dist="factory", flavour="oss"
     appdata_url = if dist == "factory"
@@ -51,6 +49,5 @@ class Appdata
     xmlfile.close
     doc
   end
-
 
 end
