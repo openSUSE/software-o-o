@@ -20,11 +20,11 @@ class PackageController < ApplicationController
     @default_project = @baseproject || view_context.default_baseproject
     @default_project_name = @distributions.select{|d| d[:project] == @default_project}.first[:name]
     @default_repo = @distributions.select{|d| d[:project] == @default_project}.first[:repository]
-    if (@packages.select{|s| s.project == "#{@default_project}:Update"}.size >0)
-      @default_package = @packages.select{|s| s.project == "#{@default_project}:Update"}.first
-    else
-      @default_package = @packages.select{|s| [@default_project, "#{@default_project}:NonFree"].include? s.project}.first
-    end
+    @default_package = if (@packages.select{|s| s.project == "#{@default_project}:Update"}.size >0)
+                         @packages.select{|s| s.project == "#{@default_project}:Update"}.first
+                       else
+                         @packages.select{|s| [@default_project, "#{@default_project}:NonFree"].include? s.project}.first
+                       end
 
     pkg_appdata = @appdata[:apps].select{|app| app[:pkgname].downcase == @pkgname.downcase}
     if ( !pkg_appdata.first.blank? )

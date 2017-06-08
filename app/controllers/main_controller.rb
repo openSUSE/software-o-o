@@ -249,11 +249,11 @@ class MainController < ApplicationController
     set_release(params[:release]) || return
     medium = params[:medium]
 
-    if params[:arch] == "i686"
-      medium += "-32"
-    else
-      medium += "-64"
-    end
+    medium += if params[:arch] == "i686"
+                "-32"
+              else
+                "-64"
+              end
 
     suffix = ".iso"
     

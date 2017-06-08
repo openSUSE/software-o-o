@@ -36,11 +36,11 @@ class Appdata
 
   # Get the appdata xml for a distribution
   def self.get_distribution dist="factory", flavour="oss"
-    if dist == "factory"
-      appdata_url = "http://download.opensuse.org/tumbleweed/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
-    else
-      appdata_url = "http://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
-    end
+    appdata_url = if dist == "factory"
+                    "http://download.opensuse.org/tumbleweed/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
+                  else
+                    "http://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
+                  end
     filename = File.join( Rails.root.join('tmp'), "appdata-" + dist + ".xml" )
     open(filename, 'wb') do |file|
       # Gzip data will be automatically decompressed with open-uri
