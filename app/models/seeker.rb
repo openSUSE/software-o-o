@@ -32,7 +32,7 @@ class Seeker < ActiveXML::Node
       words.select{|word| word.match(/^".+"$/) }.map{|word| word.gsub( "\"", "" ) }.each do |word|
         xpath_items << "@name = '#{word.gsub(/['"()]/, "")}' "
       end
-      xpath_items <<  "path/project='#{baseproject}'" unless baseproject.blank?
+      xpath_items << "path/project='#{baseproject}'" unless baseproject.blank?
       xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" if (!exclude_filter.blank? && project.blank?)
       xpath_items << versrel.map {|part| "starts-with(@versrel,'#{part}')"}.join(" and ") unless versrel.blank?
       xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " + 

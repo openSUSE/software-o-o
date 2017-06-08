@@ -9,7 +9,7 @@ class ApiConnect
     logger.debug "Loading from api: #{uri_str}"
     begin
       http = Net::HTTP.new(uri.host, uri.port)
-      if  uri.scheme == 'https'
+      if uri.scheme == 'https'
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       end
@@ -34,10 +34,9 @@ class ApiConnect
         raise Error.new "Response was: #{response} #{response.body}"
       end
     rescue Exception => e
-      raise Error.new "Error connecting to #{uri_str}: #{e.to_s}"
+      raise Error.new "Error connecting to #{uri_str}: #{e}"
     end
   end
-
 
   def self.logger
     Rails.logger

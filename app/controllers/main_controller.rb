@@ -201,7 +201,6 @@ class MainController < ApplicationController
     redirect_to :action => 'release', :release => release, :locale => FastGettext.locale
   end
 
-
   def developer
     redirectit("developer")
     return
@@ -212,7 +211,6 @@ class MainController < ApplicationController
     set_release("422")
     render :template => "main/release"
   end
-
 
   def index
     redirectit("422")
@@ -249,11 +247,11 @@ class MainController < ApplicationController
     set_release(params[:release]) || return
     medium = params[:medium]
 
-    if params[:arch] == "i686"
-      medium += "-32"
-    else
-      medium += "-64"
-    end
+    medium += if params[:arch] == "i686"
+                "-32"
+              else
+                "-64"
+              end
 
     suffix = ".iso"
     

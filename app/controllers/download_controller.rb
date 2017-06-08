@@ -38,7 +38,7 @@ class DownloadController < ApplicationController
   end
 
   def package
-    redirect_to :action => :doc  and return if !params[:project] && !params[:package]
+    redirect_to :action => :doc and return if !params[:project] && !params[:package]
     required_parameters :project, :package
     @project = params[:project]
     @package = params[:package]
@@ -78,7 +78,6 @@ class DownloadController < ApplicationController
     @page_title = _("Install package %s / %s") % [@project, @package]
     render_page :package
   end
-
 
   
   def pattern
@@ -124,19 +123,17 @@ class DownloadController < ApplicationController
     render_page :package
   end
 
-
   private
 
   def set_parameters
     @hide_search_box = true
   end
 
-
   def render_page page_template
-    @box_title  = @page_title
+    @box_title = @page_title
     respond_to do |format|
       format.html { render page_template, :layout => 'download' }
-      format.iframe  {
+      format.iframe {
         response.headers.except! 'X-Frame-Options'
         render page_template, :layout => 'iframe.html'
       }
@@ -144,7 +141,6 @@ class DownloadController < ApplicationController
       format.json { render_json @data.to_json }
     end
   end
-
 
   def set_distro_flavor distro
     case distro
@@ -177,7 +173,6 @@ class DownloadController < ApplicationController
     end
   end
 
-
   def set_flavours
     if @data.nil?
       head :forbidden
@@ -199,7 +194,6 @@ class DownloadController < ApplicationController
       'Unknown'
     end
   end
-
 
   def set_colors
     if params[:acolor]
@@ -223,6 +217,5 @@ class DownloadController < ApplicationController
   def valid_color? color
     color =~ /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
   end
-
 
 end

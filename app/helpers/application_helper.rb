@@ -30,7 +30,7 @@ module ApplicationHelper
     diff = Integer(diff/7) # now weeks
     return diff.to_s + (diff == 1 ? " week ago" : " weeks ago") if diff < 9
     diff = Integer(diff/4.1) # roughly months
-    return diff.to_s + " months ago"  if diff < 24
+    return diff.to_s + " months ago" if diff < 24
     diff = Integer(diff/12) # years
     return diff.to_s + " years ago"
   end
@@ -43,7 +43,7 @@ module ApplicationHelper
   # so we search one from the other projects...
   def search_for_description pkgname, packages = []
     cache_key = "description_package_#{pkgname.downcase}"
-    description_package =  Rails.cache.fetch(cache_key, :expires_in => 12.hours) do
+    description_package = Rails.cache.fetch(cache_key, :expires_in => 12.hours) do
       if packages.blank?
         packages = Seeker.prepare_result("\"#{pkgname}\"", nil, nil, nil, nil)
         packages = packages.select{|p| p.first.type != 'ymp'}
@@ -60,6 +60,5 @@ module ApplicationHelper
       description_package
     end
   end
-
 
 end
