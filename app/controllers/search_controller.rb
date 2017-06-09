@@ -1,9 +1,9 @@
 class SearchController < ApplicationController
 
-  before_filter :set_search_options, :only => [:find, :searchresult]
-  before_filter :prepare_appdata, :only => [:find, :searchresult]
+  before_filter :set_search_options
+  before_filter :prepare_appdata
 
-  def searchresult
+  def index
     render 'find' and return if @search_term.blank?
 
     base = (@baseproject == "ALL") ? "" : @baseproject
@@ -50,5 +50,7 @@ class SearchController < ApplicationController
       render 'find' and return
     end
   end
+
+  def find; end
 
 end
