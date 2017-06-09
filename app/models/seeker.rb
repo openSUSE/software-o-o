@@ -49,7 +49,7 @@ class Seeker < ActiveXML::Node
 
       # remove this hack when the backend can filter for project names
       result.reject!{|res| /#{exclude_filter}/.match(res.project) } if (!exclude_filter.blank? && project.blank?)
-      result.sort! {|x,y| y.relevance <=> x.relevance}
+      result.sort! {|x, y| y.relevance <=> x.relevance}
       logger.info "Seeker found #{result.size} results"
       return result
     end
@@ -78,7 +78,7 @@ class Seeker < ActiveXML::Node
     # page index starts with 1
     def page(idx)
       return [] if idx > page_count
-      page = self[@page_length*(idx-1),@page_length]
+      page = self[@page_length*(idx-1), @page_length]
       page.each do |item|
         item.description
       end
@@ -367,7 +367,7 @@ class Seeker < ActiveXML::Node
 
       def dump
         out = "<ul>"
-        each do |key,val|
+        each do |key, val|
           out << "<li><b>#{key}:</b> #{val}</li>x"
         end
         out << "</ul>"
@@ -375,14 +375,14 @@ class Seeker < ActiveXML::Node
       end
 
       def type(*args)
-        method_missing(:type,*args)
+        method_missing(:type, *args)
       end
 
-      def method_missing(symbol,*args,&block)
+      def method_missing(symbol, *args, &block)
         if self.has_key? symbol.to_s
           return self[symbol.to_s]
         end
-        super(symbol,*args,&block)
+        super(symbol, *args, &block)
       end
     end
 
