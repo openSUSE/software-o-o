@@ -254,7 +254,7 @@ class MainController < ApplicationController
               end
 
     suffix = ".iso"
-    
+
     case
     when params[:protocol] == "torrent"
       if params[:medium] != "net"

@@ -19,7 +19,7 @@ class DownloadController < ApplicationController
       xpath = "/directory/entry"
       if api_result_images
         doc = REXML::Document.new api_result_images.body
-        data = Hash.new 
+        data = Hash.new
         doc.elements.each(xpath) do |e|
           filename = e.attributes['name']
           if (File.extname(filename) == '.bz2')
@@ -79,7 +79,6 @@ class DownloadController < ApplicationController
     render_page :package
   end
 
-  
   def pattern
     required_parameters :project, :pattern
     @project = params[:project]

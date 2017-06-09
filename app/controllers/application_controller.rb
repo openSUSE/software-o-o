@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_language
   before_filter :set_distributions
   before_filter :set_baseproject
-  
+
   helper :all # include all helpers, all the time
   require "rexml/document"
 
@@ -70,7 +70,7 @@ class ApplicationController < ActionController::Base
       doc = REXML::Document.new response.body
       doc.elements.each("distributions/distribution") { |element|
         dist = Hash[:name => element.elements['name'].text, :project => element.elements['project'].text,
-          :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text, 
+          :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text,
           :dist_id => element.attributes['id'].sub(".", "") ]
         @distributions << dist
         logger.debug "Added Distribution: #{dist[:name]}"
@@ -107,7 +107,6 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  
 
   def valid_package_name? name
     name =~ /^[[:alnum:]][-+\w\.:\@]*$/

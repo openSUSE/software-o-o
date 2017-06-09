@@ -35,7 +35,7 @@ class Seeker < ActiveXML::Node
       xpath_items << "path/project='#{baseproject}'" unless baseproject.blank?
       xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" if (!exclude_filter.blank? && project.blank?)
       xpath_items << versrel.map {|part| "starts-with(@versrel,'#{part}')"}.join(" and ") unless versrel.blank?
-      xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " + 
+      xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " +
         "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))" if exclude_debug
       xpath = xpath_items.join(' and ')
 
@@ -185,7 +185,7 @@ class Seeker < ActiveXML::Node
       def logger
         Rails.logger
       end
-      
+
       private
 
       def cache_data(element)
@@ -316,7 +316,7 @@ class Seeker < ActiveXML::Node
         @quality = "" unless @quality
         @quality
       end
-      
+
     end
 
     class Pattern < Item
@@ -329,7 +329,7 @@ class Seeker < ActiveXML::Node
         # pattern bonus
         @relevance += 20
       end
-      
+
       def cache_specific_data(element)
         @filename = element.filename.to_s
         @filepath = element.filepath.to_s

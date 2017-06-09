@@ -10,7 +10,7 @@ class PackageController < ApplicationController
     required_parameters :package
     @pkgname = params[:package]
     raise MissingParameterError, "Invalid parameter package" unless valid_package_name? @pkgname
-    
+
     @search_term = params[:search_term]
     @base_appdata_project = "openSUSE:Factory"
 
@@ -99,7 +99,7 @@ class PackageController < ApplicationController
   end
 
   private
-  
+
   def image pkgname, type, image_url
     response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
     response.headers['Content-Disposition'] = 'inline'
@@ -120,4 +120,4 @@ class PackageController < ApplicationController
   end
 
 end
- 
+

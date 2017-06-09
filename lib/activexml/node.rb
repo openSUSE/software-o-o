@@ -8,7 +8,7 @@ module ActiveXML
   class NotFoundError < GeneralError; end
   class CreationError < GeneralError; end
   class ParseError < GeneralError; end
-  
+
   class Node
 
     @@elements = {}
@@ -148,7 +148,7 @@ module ActiveXML
               [objdata, params, obj.to_hash]
             end
 	    if fromcache
-	      logger.debug "returning #{args.inspect} from rails cache #{cache_key}"  
+	      logger.debug "returning #{args.inspect} from rails cache #{cache_key}"
 	    end
           else
             objdata, params = ActiveXML::transport.find( self, *args)
@@ -338,7 +338,7 @@ module ActiveXML
       #puts "to_hash #{self.class} #{x}"
       @hash_cache
     end
-    
+
     def to_json(*a)
       to_hash.to_json(*a)
     end
@@ -477,7 +477,7 @@ module ActiveXML
       return node
     end
 
-    def value( symbol ) 
+    def value( symbol )
       symbols = symbol.to_s
 
       if @hash_cache
@@ -498,11 +498,11 @@ module ActiveXML
       return @value_cache[symbols] = nil
     end
 
-    def find( symbol, &block ) 
+    def find( symbol, &block )
       symbols = symbol.to_s
       _data.xpath(symbols).each do |e|
         block.call(create_node_with_relations(e))
-      end 
+      end
     end
 
     def method_missing( symbol, *args, &block )
@@ -536,7 +536,7 @@ module ActiveXML
     end
 
     def move_after other
-      raise "NO GOOD IDEA!" unless _data.document == other.internal_data.document	    
+      raise "NO GOOD IDEA!" unless _data.document == other.internal_data.document
       # the naming of the API is a bit strange IMO
       _data.before(other.internal_data)
     end
@@ -546,7 +546,7 @@ module ActiveXML
       # the naming of the API is a bit strange IMO
       _data.after(other.internal_data)
     end
-    
+
     def find_matching(conds)
       return self if NodeMatcher.match(self, conds) == true
       self.each do |c|
