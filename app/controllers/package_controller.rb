@@ -120,4 +120,3 @@ class PackageController < ApplicationController
   end
 
 end
-
