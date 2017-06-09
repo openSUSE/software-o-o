@@ -78,7 +78,7 @@ class Seeker < ActiveXML::Node
     # page index starts with 1
     def page(idx)
       return [] if idx > page_count
-      page = self[@page_length*(idx-1), @page_length]
+      page = self[@page_length * (idx - 1), @page_length]
       page.each do |item|
         item.description
       end
@@ -86,7 +86,7 @@ class Seeker < ActiveXML::Node
     end
 
     def page_count
-      ((self.length-1)/@page_length)+1
+      ((self.length - 1) / @page_length) + 1
     end
 
     def add_binlist(binlist)
@@ -207,8 +207,8 @@ class Seeker < ActiveXML::Node
       def calculate_relevance
         quoted_query = Regexp.quote @query
         @relevance_calculated = true
-        @relevance += 15 if name =~/^#{quoted_query}$/i
-        @relevance += 5 if name =~/^#{quoted_query}/i
+        @relevance += 15 if name =~ /^#{quoted_query}$/i
+        @relevance += 5 if name =~ /^#{quoted_query}/i
         @relevance += 15 if project =~ /^openSUSE:/i
         @relevance += 5 if project =~ /^#{quoted_query}$/i
         @relevance += 2 if project =~ /^#{quoted_query}/i
@@ -362,7 +362,7 @@ class Seeker < ActiveXML::Node
       end
 
       def __key
-        @__key ||= @fragment_type.to_s+"|"+%w(project repository name).map{|x| self[x]}.join('|')
+        @__key ||= @fragment_type.to_s + "|" + %w(project repository name).map{|x| self[x]}.join('|')
       end
 
       def dump
