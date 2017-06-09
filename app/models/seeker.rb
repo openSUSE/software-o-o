@@ -8,7 +8,7 @@ class Seeker < ActiveXML::Node
     cache_key += "_#{exclude_filter}" if exclude_filter
     cache_key += "_#{exclude_debug}" if exclude_debug
     cache_key += "_#{project}" if project
-    cache_key = 'searchresult_' + Digest::MD5.hexdigest( cache_key ).to_s
+    cache_key = 'searchresult_' + Digest::MD5.hexdigest(cache_key).to_s
     Rails.cache.fetch(cache_key, :expires_in => 120.minutes) do
       SearchResult.search(query, baseproject, project, exclude_filter, exclude_debug)
     end
@@ -26,10 +26,10 @@ class Seeker < ActiveXML::Node
       xpath_items = Array.new
       xpath_items << "@project = '#{project}' " unless project.blank?
       substring_words = words.select{|word| !word.match(/^".+"$/) }.map{|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ")
-      unless ( substring_words.blank? )
+      unless (substring_words.blank?)
         xpath_items << "contains-ic(@name, " + substring_words + ")"
       end
-      words.select{|word| word.match(/^".+"$/) }.map{|word| word.gsub( "\"", "" ) }.each do |word|
+      words.select{|word| word.match(/^".+"$/) }.map{|word| word.gsub("\"", "") }.each do |word|
         xpath_items << "@name = '#{word.gsub(/['"()]/, "")}' "
       end
       xpath_items << "path/project='#{baseproject}'" unless baseproject.blank?
@@ -41,14 +41,14 @@ class Seeker < ActiveXML::Node
 
       bin = Seeker.find :binary, :match => xpath
       #pat = Seeker.find :pattern, :match => xpath
-      raise "Backend not responding" if( bin.nil? )
+      raise "Backend not responding" if(bin.nil?)
 
       result = new(query)
       #result.add_patlist(pat)
       result.add_binlist(bin)
 
       # remove this hack when the backend can filter for project names
-      result.reject!{|res| /#{exclude_filter}/.match( res.project ) } if (!exclude_filter.blank? && project.blank?)
+      result.reject!{|res| /#{exclude_filter}/.match(res.project) } if (!exclude_filter.blank? && project.blank?)
       result.sort! {|x,y| y.relevance <=> x.relevance}
       logger.info "Seeker found #{result.size} results"
       return result

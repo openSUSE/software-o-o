@@ -124,7 +124,7 @@ protected
 
   def thumbnail_file_path(fullpath: true)
     file = "thumbnails/#{pkg_name}.png"
-    fullpath ? File.join( Rails.root, "public", "images", file) : file
+    fullpath ? File.join(Rails.root, "public", "images", file) : file
   end
 
   def default_file_path(type, fullpath: true)

@@ -56,7 +56,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_baseproject
-    unless ( @distributions.blank? || @distributions.select{|d| d[:project] == cookies[:search_baseproject]}.blank? )
+    unless (@distributions.blank? || @distributions.select{|d| d[:project] == cookies[:search_baseproject]}.blank?)
       @baseproject = cookies[:search_baseproject]
     end
   end
@@ -129,9 +129,9 @@ class ApplicationController < ActionController::Base
     @search_unsupported = params[:search_unsupported] unless params[:search_unsupported].blank?
     #FIXME: remove @search_unsupported when redesigning search options
     @search_unsupported = "true"
-    @search_devel = ( @search_devel == "true" ? true : false )
+    @search_devel = (@search_devel == "true" ? true : false)
     @search_project = params[:search_project]
-    @search_unsupported = ( @search_unsupported == "true" ? true : false )
+    @search_unsupported = (@search_unsupported == "true" ? true : false)
     @exclude_debug = @search_devel ? false : true
     @exclude_filter = @search_unsupported ? nil : 'home:'
     cookies[:search_devel] = { :value => @search_devel, :expires => 1.year.from_now }

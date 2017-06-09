@@ -27,7 +27,7 @@ class PackageController < ApplicationController
                        end
 
     pkg_appdata = @appdata[:apps].select{|app| app[:pkgname].downcase == @pkgname.downcase}
-    if ( !pkg_appdata.first.blank? )
+    if (!pkg_appdata.first.blank?)
       @name = pkg_appdata.first[:name]
       @appcategories = pkg_appdata.first[:categories]
       @homepage = pkg_appdata.first[:homepage]
@@ -42,18 +42,18 @@ class PackageController < ApplicationController
 
     @packages.each do |package|
 
-      if ( package.repository.match(/Tumbleweed/) || (package.project == "openSUSE:Tumbleweed") )
+      if (package.repository.match(/Tumbleweed/) || (package.project == "openSUSE:Tumbleweed"))
         package.baseproject = "openSUSE:Factory"
-      elsif ( package.project.match( /openSUSE:Evergreen/ ) )
+      elsif (package.project.match(/openSUSE:Evergreen/))
         package.baseproject = package.project
-      elsif ( package.repository.match( /^Factory$/i ) )
+      elsif (package.repository.match(/^Factory$/i))
         package.baseproject = "openSUSE:Factory"
-      elsif ( package.repository.match( /^\d{2}\.\d$/ ) )
+      elsif (package.repository.match(/^\d{2}\.\d$/))
         package.baseproject = "openSUSE:" + package.repository
-      elsif ( !(@distributions.map{|d| d[:reponame]}.include? package.repository) &&
+      elsif (!(@distributions.map{|d| d[:reponame]}.include? package.repository) &&
             (package.repository != "standard") &&
             (package.repository != "snapshot") &&
-            (!package.repository.match(/_Update$/)) )
+            (!package.repository.match(/_Update$/)))
         logger.info("Found non-std repo: #{package.repository}")
         package.baseproject = package.repository.gsub("_", ":")
       end
@@ -75,9 +75,9 @@ class PackageController < ApplicationController
     raise MissingParameterError, "Invalid parameter category" unless valid_package_name? @category
 
     mapping = @main_sections.select{|s| s[:id].downcase == @category.downcase }
-    categories = ( mapping.blank? ? [@category] : mapping.first[:categories] )
+    categories = (mapping.blank? ? [@category] : mapping.first[:categories])
 
-    app_pkgs = @appdata[:apps].select{|app| !( app[:categories].map{|c| c.downcase} & categories.map{|c| c.downcase} ).blank? }
+    app_pkgs = @appdata[:apps].select{|app| !(app[:categories].map{|c| c.downcase} & categories.map{|c| c.downcase}).blank? }
     @packagenames = app_pkgs.map{|p| p[:pkgname]}.uniq.sort_by {|x| @appdata[:apps].select{|a| a[:pkgname] == x}.first[:name] }
 
     app_categories = app_pkgs.map{|p| p[:categories]}.flatten

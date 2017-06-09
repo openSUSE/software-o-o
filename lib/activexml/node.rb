@@ -65,7 +65,7 @@ module ActiveXML
       #transport object, gets defined according to configuration when Base is subclassed
       attr_reader :transport
 
-      def inherited( subclass )
+      def inherited(subclass)
         # called when a subclass is defined
         #Rails.logger.debug "Initializing ActiveXML model #{subclass}"
         subclass.instance_variable_set "@default_find_parameter", @default_find_parameter
@@ -74,7 +74,7 @@ module ActiveXML
 
       # setup the default parameter for find calls. If the first parameter to <Model>.find is a string,
       # the value of this string is used as value f
-      def default_find_parameter( sym )
+      def default_find_parameter(sym)
         @default_find_parameter = sym
       end
 
@@ -89,7 +89,7 @@ module ActiveXML
         @error
       end
 
-      def prepare_args( args )
+      def prepare_args(args)
         if args[0].kind_of? String
           args[1] ||= {}
           first_arg = args.shift
@@ -117,18 +117,18 @@ module ActiveXML
         return args
       end
 
-      def calc_key( args )
+      def calc_key(args)
         #Rails.logger.debug "Cache key for #{args.inspect}"
-        self.name + "_" + Digest::MD5.hexdigest( "2" + args.to_s )
+        self.name + "_" + Digest::MD5.hexdigest("2" + args.to_s)
       end
 
       def free_object_cache
         @@object_cache = {}
       end
 
-      def find_priv(cache_time, *args )
+      def find_priv(cache_time, *args)
         args = prepare_args(args)
-        cache_key = calc_key( args )
+        cache_key = calc_key(args)
         if cache_time
           obj = @@object_cache[cache_key]
           if obj
@@ -143,20 +143,20 @@ module ActiveXML
             fromcache = true
             objdata, params, objhash = Rails.cache.fetch(cache_key, :expires_in => cache_time) do
               fromcache = false
-              objdata, params = ActiveXML::transport.find( self, *args)
-              obj = self.new( objdata )
+              objdata, params = ActiveXML::transport.find(self, *args)
+              obj = self.new(objdata)
               [objdata, params, obj.to_hash]
             end
       if fromcache
         logger.debug "returning #{args.inspect} from rails cache #{cache_key}"
       end
           else
-            objdata, params = ActiveXML::transport.find( self, *args)
+            objdata, params = ActiveXML::transport.find(self, *args)
           end
-          obj = self.new( objdata ) unless obj
-          obj.instance_variable_set( '@cache_key', cache_key ) if cache_key
-          obj.instance_variable_set( '@init_options', params )
-          obj.instance_variable_set( '@hash_cache', objhash) if objhash
+          obj = self.new(objdata) unless obj
+          obj.instance_variable_set('@cache_key', cache_key) if cache_key
+          obj.instance_variable_set('@init_options', params)
+          obj.instance_variable_set('@hash_cache', objhash) if objhash
           @@object_cache[cache_key] = obj
           return obj
         rescue ActiveXML::Transport::NotFoundError
@@ -165,11 +165,11 @@ module ActiveXML
         end
       end
 
-      def find( *args )
-        find_priv(nil, *args )
+      def find(*args)
+        find_priv(nil, *args)
       end
 
-      def find_cached( *args )
+      def find_cached(*args)
         expires_in = 30.minutes
         if args.last.kind_of?(Hash) and args.last[:expires_in]
           expires_in = args.last[:expires_in]
@@ -178,13 +178,13 @@ module ActiveXML
         find_priv(expires_in, *args)
       end
 
-      def find_hashed( *args )
-        ret = find_cached( *args )
+      def find_hashed(*args)
+        ret = find_cached(*args)
         return {} unless ret
         ret.to_hash
       end
 
-      def free_cache( *args )
+      def free_cache(*args)
         # modify copy of args as it might be still used in the calling method
         free_args = args.dup
         options = free_args.last if free_args.last.kind_of?(Hash)
@@ -192,18 +192,18 @@ module ActiveXML
           free_args[free_args.length-1] = free_args.last.dup
           free_args.last.delete :expires_in
         end
-  free_args = prepare_args( free_args )
-        key = calc_key( free_args )
+  free_args = prepare_args(free_args)
+        key = calc_key(free_args)
   logger.debug "free_cache #{free_args.inspect} #{key}"
         @@object_cache.delete key
-        Rails.cache.delete( key )
+        Rails.cache.delete(key)
       end
 
     end
 
     #instance methods
 
-    def initialize( data )
+    def initialize(data)
       @init_options = {}
       if data.kind_of? Nokogiri::XML::Node
         @data = data
@@ -244,7 +244,7 @@ module ActiveXML
     end
     private :parse
 
-    def raw_data=( data )
+    def raw_data=(data)
       if data.kind_of? Nokogiri::XML::Node
         @data = data.clone
       else
@@ -385,7 +385,7 @@ module ActiveXML
       Node.new(xmlnode)
     end
 
-    def add_element ( element, attrs=nil )
+    def add_element (element, attrs=nil)
       raise "First argument must be an element name" if element.nil?
       el = _data.document.create_element(element)
       _data.add_child(el)
@@ -417,18 +417,18 @@ module ActiveXML
     #tests if a child element exists matching the given query.
     #query can either be an element name, an xpath, or any object
     #whose to_s method evaluates to an element name or xpath
-    def has_element?( query )
+    def has_element?(query)
       if @hash_cache && query.kind_of?(Symbol)
         return @hash_cache.has_key? query.to_s
       end
-      !find_first( query ).nil?
+      !find_first(query).nil?
     end
 
     def has_elements?
       return !_data.element_children.empty?
     end
 
-    def has_attribute?( query )
+    def has_attribute?(query)
       if @hash_cache && query.kind_of?(Symbol)
         return @hash_cache.has_key? query.to_s
       end
@@ -439,12 +439,12 @@ module ActiveXML
       !_data.attribute_nodes.empty?
     end
 
-    def delete_attribute( name )
+    def delete_attribute(name)
       cleanup_cache
       _data.remove_attribute(name.to_s)
     end
 
-    def delete_element( elem )
+    def delete_element(elem)
       if elem.kind_of? Node
         raise "NO GOOD IDEA!" unless _data.document == elem.internal_data.document
         elem.internal_data.remove
@@ -461,12 +461,12 @@ module ActiveXML
       cleanup_cache
     end
 
-    def set_attribute( name, value)
+    def set_attribute(name, value)
       cleanup_cache
       _data[name] = value
     end
 
-    def create_node_with_relations( element )
+    def create_node_with_relations(element)
       #FIXME: relation stuff should be taken into an extra module
       #puts element.name
       klass = self.class.get_class(element.name)
@@ -477,7 +477,7 @@ module ActiveXML
       return node
     end
 
-    def value( symbol )
+    def value(symbol)
       symbols = symbol.to_s
 
       if @hash_cache
@@ -498,18 +498,18 @@ module ActiveXML
       return @value_cache[symbols] = nil
     end
 
-    def find( symbol, &block )
+    def find(symbol, &block)
       symbols = symbol.to_s
       _data.xpath(symbols).each do |e|
         block.call(create_node_with_relations(e))
       end
     end
 
-    def method_missing( symbol, *args, &block )
+    def method_missing(symbol, *args, &block)
       #puts "called method: #{symbol}(#{args.map do |a| a.inspect end.join ', '})"
 
       symbols = symbol.to_s
-      if( symbols =~ /^each_(.*)$/ )
+      if(symbols =~ /^each_(.*)$/)
         elem = $1
         return [] if not has_element? elem
         result = Array.new
@@ -565,7 +565,7 @@ module ActiveXML
     @@object_cache = {}
 
     def name
-      method_missing( :name )
+      method_missing(:name)
     end
 
     def marshal_dump
