@@ -97,7 +97,7 @@ class ApplicationController < ActionController::Base
         json
       end
     end
-    render({:content_type => "application/javascript", :body => response}.merge(options))
+    render({ :content_type => "application/javascript", :body => response }.merge(options))
   end
 
   def required_parameters(*parameters)

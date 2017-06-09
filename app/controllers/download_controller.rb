@@ -23,7 +23,7 @@ class DownloadController < ApplicationController
         doc.elements.each(xpath) do |e|
           filename = e.attributes['name']
           if (File.extname(filename) == '.bz2')
-            data[filename] = {:flavor => get_image_type(filename)}
+            data[filename] = { :flavor => get_image_type(filename) }
           end
 
         end
