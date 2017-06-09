@@ -10,7 +10,7 @@ class PackageController < ApplicationController
     required_parameters :package
     @pkgname = params[:package]
     raise MissingParameterError, "Invalid parameter package" unless valid_package_name? @pkgname
-    
+
     @search_term = params[:search_term]
     @base_appdata_project = "openSUSE:Factory"
 
@@ -27,7 +27,7 @@ class PackageController < ApplicationController
                        end
 
     pkg_appdata = @appdata[:apps].select{|app| app[:pkgname].downcase == @pkgname.downcase}
-    if ( !pkg_appdata.first.blank? )
+    if (!pkg_appdata.first.blank?)
       @name = pkg_appdata.first[:name]
       @appcategories = pkg_appdata.first[:categories]
       @homepage = pkg_appdata.first[:homepage]
@@ -42,18 +42,18 @@ class PackageController < ApplicationController
 
     @packages.each do |package|
 
-      if ( package.repository.match(/Tumbleweed/) || (package.project == "openSUSE:Tumbleweed") )
+      if (package.repository.match(/Tumbleweed/) || (package.project == "openSUSE:Tumbleweed"))
         package.baseproject = "openSUSE:Factory"
-      elsif ( package.project.match( /openSUSE:Evergreen/ ) )
+      elsif (package.project.match(/openSUSE:Evergreen/))
         package.baseproject = package.project
-      elsif ( package.repository.match( /^Factory$/i ) )
+      elsif (package.repository.match(/^Factory$/i))
         package.baseproject = "openSUSE:Factory"
-      elsif ( package.repository.match( /^\d{2}\.\d$/ ) )
+      elsif (package.repository.match(/^\d{2}\.\d$/))
         package.baseproject = "openSUSE:" + package.repository
-      elsif ( !(@distributions.map{|d| d[:reponame]}.include? package.repository) &&
+      elsif (!(@distributions.map{|d| d[:reponame]}.include? package.repository) &&
             (package.repository != "standard") &&
             (package.repository != "snapshot") &&
-            (!package.repository.match(/_Update$/)) )
+            (!package.repository.match(/_Update$/)))
         logger.info("Found non-std repo: #{package.repository}")
         package.baseproject = package.repository.gsub("_", ":")
       end
@@ -62,7 +62,7 @@ class PackageController < ApplicationController
     @official_projects = @distributions.map{|d| d[:project]}
     #get extra distributions that are not in the default distribution list
     @extra_packages = @packages.reject{|p| @distributions.map{|d| d[:project]}.include? p.baseproject }
-    @extra_dists = @extra_packages.map{|p| p.baseproject}.reject{|d| d.nil?}.uniq.map{|d| {:project => d}}
+    @extra_dists = @extra_packages.map{|p| p.baseproject}.reject{|d| d.nil?}.uniq.map{|d| { :project => d }}
 
   end
 
@@ -75,13 +75,13 @@ class PackageController < ApplicationController
     raise MissingParameterError, "Invalid parameter category" unless valid_package_name? @category
 
     mapping = @main_sections.select{|s| s[:id].downcase == @category.downcase }
-    categories = ( mapping.blank? ? [@category] : mapping.first[:categories] )
+    categories = (mapping.blank? ? [@category] : mapping.first[:categories])
 
-    app_pkgs = @appdata[:apps].select{|app| !( app[:categories].map{|c| c.downcase} & categories.map{|c| c.downcase} ).blank? }
+    app_pkgs = @appdata[:apps].select{|app| !(app[:categories].map{|c| c.downcase} & categories.map{|c| c.downcase}).blank? }
     @packagenames = app_pkgs.map{|p| p[:pkgname]}.uniq.sort_by {|x| @appdata[:apps].select{|a| a[:pkgname] == x}.first[:name] }
 
     app_categories = app_pkgs.map{|p| p[:categories]}.flatten
-    @related_categories = app_categories.uniq.map{|c| {:name => c, :weight => app_categories.select {|v| v == c }.size } }
+    @related_categories = app_categories.uniq.map{|c| { :name => c, :weight => app_categories.select {|v| v == c }.size } }
     @related_categories = @related_categories.sort_by { |c| c[:weight] }.reverse.reject{|c| categories.include? c[:name] }
     @related_categories = @related_categories.reject{|c| ["GNOME", "KDE", "Qt", "GTK"].include? c[:name] }
 
@@ -99,7 +99,7 @@ class PackageController < ApplicationController
   end
 
   private
-  
+
   def image pkgname, type, image_url
     response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
     response.headers['Content-Disposition'] = 'inline'
@@ -110,14 +110,13 @@ class PackageController < ApplicationController
 
   def set_categories
     @main_sections = [
-      {:name => "Games", :id => "Games", :categories => ["Game"]},
-      {:name => "Education & Science", :id => "Education", :categories => ["Education", "Science"]},
-      {:name => "Development", :id => "Development", :categories => ["Development"]},
-      {:name => "Office & Productivity", :id => "Office", :categories => ["Office"]},
-      {:name => "Tools", :id => "Tools", :categories => [ "Network", "Settings", "System", "Utility"]},
-      {:name => "Multimedia", :id => "Multimedia", :categories => ["AudioVideo", "Audio", "Video", "Graphics"]},
+      { :name => "Games", :id => "Games", :categories => ["Game"] },
+      { :name => "Education & Science", :id => "Education", :categories => ["Education", "Science"] },
+      { :name => "Development", :id => "Development", :categories => ["Development"] },
+      { :name => "Office & Productivity", :id => "Office", :categories => ["Office"] },
+      { :name => "Tools", :id => "Tools", :categories => ["Network", "Settings", "System", "Utility"] },
+      { :name => "Multimedia", :id => "Multimedia", :categories => ["AudioVideo", "Audio", "Video", "Graphics"] },
     ]
   end
 
 end
- 

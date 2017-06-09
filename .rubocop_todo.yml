@@ -731,54 +731,11 @@ Style/SingleLineMethods:
   Exclude:
     - 'test/functional/search_controller_test.rb'
 
-# Offense count: 15
-# Cop supports --auto-correct.
-Style/SpaceAfterComma:
-  Exclude:
-    - 'app/controllers/download_controller.rb'
-    - 'app/helpers/package_helper.rb'
-    - 'app/helpers/search_helper.rb'
-    - 'app/models/seeker.rb'
-    - 'lib/activexml/matcher.rb'
-    - 'lib/activexml/transport.rb'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-Style/SpaceAfterMethodName:
-  Exclude:
-    - 'app/helpers/package_helper.rb'
-    - 'lib/activexml/node.rb'
-
-# Offense count: 21
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: space, no_space
-Style/SpaceAroundEqualsInParameterDefault:
-  Exclude:
-    - 'app/models/appdata.rb'
-    - 'app/models/seeker.rb'
-    - 'lib/activexml/node.rb'
-    - 'lib/activexml/transport.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/SpaceAroundKeyword:
   Exclude:
     - 'app/models/seeker.rb'
-    - 'lib/activexml/node.rb'
-
-# Offense count: 26
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment.
-Style/SpaceAroundOperators:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/download_controller.rb'
-    - 'app/controllers/package_controller.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/helpers/package_helper.rb'
-    - 'app/models/seeker.rb'
-    - 'lib/activexml/matcher.rb'
     - 'lib/activexml/node.rb'
 
 # Offense count: 44
@@ -812,41 +769,6 @@ Style/SpaceInsideBlockBraces:
     - 'lib/activexml/node.rb'
     - 'lib/activexml/transport.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-Style/SpaceInsideBrackets:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/package_controller.rb'
-
-# Offense count: 29
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SupportedStylesForEmptyBraces.
-# SupportedStyles: space, no_space, compact
-# SupportedStylesForEmptyBraces: space, no_space
-Style/SpaceInsideHashLiteralBraces:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/download_controller.rb'
-    - 'app/controllers/package_controller.rb'
-    - 'lib/activexml/transport.rb'
-
-# Offense count: 181
-# Cop supports --auto-correct.
-Style/SpaceInsideParens:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/download_controller.rb'
-    - 'app/controllers/main_controller.rb'
-    - 'app/controllers/package_controller.rb'
-    - 'app/helpers/package_helper.rb'
-    - 'app/models/appdata.rb'
-    - 'app/models/screenshot.rb'
-    - 'app/models/seeker.rb'
-    - 'lib/activexml/node.rb'
-    - 'lib/activexml/transport.rb'
-    - 'lib/api_connect.rb'
-
 # Offense count: 446
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, ConsistentQuotesInMultiline.
@@ -875,13 +797,6 @@ Style/SymbolProc:
     - 'app/models/seeker.rb'
     - 'lib/activexml/node.rb'
 
-# Offense count: 11
-# Cop supports --auto-correct.
-Style/Tab:
-  Exclude:
-    - 'lib/activexml/node.rb'
-    - 'lib/activexml/transport.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, AllowSafeAssignment.
@@ -890,17 +805,6 @@ Style/TernaryParentheses:
   Exclude:
     - 'app/controllers/search_controller.rb'
 
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: final_newline, final_blank_line
-Style/TrailingBlankLines:
-  Exclude:
-    - 'Rakefile'
-    - 'app/controllers/package_controller.rb'
-    - 'test/integration/download_distro_test.rb'
-    - 'test/integration/package_information_test.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStylesForMultiline.
@@ -908,21 +812,6 @@ Style/TrailingBlankLines:
 Style/TrailingCommaInLiteral:
   Exclude:
     - 'app/controllers/package_controller.rb'
-
-# Offense count: 30
-# Cop supports --auto-correct.
-Style/TrailingWhitespace:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/download_controller.rb'
-    - 'app/controllers/main_controller.rb'
-    - 'app/controllers/package_controller.rb'
-    - 'app/helpers/package_helper.rb'
-    - 'app/models/seeker.rb'
-    - 'lib/activexml/node.rb'
-    - 'lib/activexml/transport.rb'
-    - 'test/integration/download_distro_test.rb'
-    - 'test/integration/package_information_test.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.

@@ -19,11 +19,11 @@ class DownloadController < ApplicationController
       xpath = "/directory/entry"
       if api_result_images
         doc = REXML::Document.new api_result_images.body
-        data = Hash.new 
+        data = Hash.new
         doc.elements.each(xpath) do |e|
           filename = e.attributes['name']
           if (File.extname(filename) == '.bz2')
-            data[filename] = {:flavor => get_image_type( filename )}
+            data[filename] = { :flavor => get_image_type(filename) }
           end
 
         end
@@ -79,7 +79,6 @@ class DownloadController < ApplicationController
     render_page :package
   end
 
-  
   def pattern
     required_parameters :project, :pattern
     @project = params[:project]
@@ -178,7 +177,7 @@ class DownloadController < ApplicationController
       head :forbidden
     else
       # collect distro types from @data
-      @flavors = @data.values.collect { |i| i[:flavor] }.uniq.sort{|x,y| x.downcase <=> y.downcase }
+      @flavors = @data.values.collect { |i| i[:flavor] }.uniq.sort{|x, y| x.downcase <=> y.downcase }
     end
   end
 

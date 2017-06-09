@@ -7,4 +7,3 @@ require File.expand_path('../config/application', __FILE__)
 SoftwareOO::Application.load_tasks
 
 require(File.join(File.dirname(__FILE__), 'config', 'boot'))
-

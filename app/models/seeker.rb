@@ -2,13 +2,13 @@ require 'digest/md5'
 
 class Seeker < ActiveXML::Node
 
-  def self.prepare_result(query, baseproject=nil, project=nil, exclude_filter=nil, exclude_debug=false)
+  def self.prepare_result(query, baseproject = nil, project = nil, exclude_filter = nil, exclude_debug = false)
     cache_key = query
     cache_key += "_#{baseproject}" if baseproject
     cache_key += "_#{exclude_filter}" if exclude_filter
     cache_key += "_#{exclude_debug}" if exclude_debug
     cache_key += "_#{project}" if project
-    cache_key = 'searchresult_' + Digest::MD5.hexdigest( cache_key ).to_s
+    cache_key = 'searchresult_' + Digest::MD5.hexdigest(cache_key).to_s
     Rails.cache.fetch(cache_key, :expires_in => 120.minutes) do
       SearchResult.search(query, baseproject, project, exclude_filter, exclude_debug)
     end
@@ -17,7 +17,7 @@ class Seeker < ActiveXML::Node
   class InvalidSearchTerm < Exception; end
 
   class SearchResult < Array
-    def self.search(query, baseproject, project=nil, exclude_filter=nil, exclude_debug=false)
+    def self.search(query, baseproject, project = nil, exclude_filter = nil, exclude_debug = false)
       words = query.split(" ").select {|part| !part.match(/^[0-9_\.-]+$/) }
       versrel = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
       logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
@@ -26,30 +26,30 @@ class Seeker < ActiveXML::Node
       xpath_items = Array.new
       xpath_items << "@project = '#{project}' " unless project.blank?
       substring_words = words.select{|word| !word.match(/^".+"$/) }.map{|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ")
-      unless ( substring_words.blank? )
+      unless (substring_words.blank?)
         xpath_items << "contains-ic(@name, " + substring_words + ")"
       end
-      words.select{|word| word.match(/^".+"$/) }.map{|word| word.gsub( "\"", "" ) }.each do |word|
+      words.select{|word| word.match(/^".+"$/) }.map{|word| word.gsub("\"", "") }.each do |word|
         xpath_items << "@name = '#{word.gsub(/['"()]/, "")}' "
       end
       xpath_items << "path/project='#{baseproject}'" unless baseproject.blank?
       xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" if (!exclude_filter.blank? && project.blank?)
       xpath_items << versrel.map {|part| "starts-with(@versrel,'#{part}')"}.join(" and ") unless versrel.blank?
-      xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " + 
+      xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " +
         "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))" if exclude_debug
       xpath = xpath_items.join(' and ')
 
       bin = Seeker.find :binary, :match => xpath
       #pat = Seeker.find :pattern, :match => xpath
-      raise "Backend not responding" if( bin.nil? )
+      raise "Backend not responding" if(bin.nil?)
 
       result = new(query)
       #result.add_patlist(pat)
       result.add_binlist(bin)
 
       # remove this hack when the backend can filter for project names
-      result.reject!{|res| /#{exclude_filter}/.match( res.project ) } if (!exclude_filter.blank? && project.blank?)
-      result.sort! {|x,y| y.relevance <=> x.relevance}
+      result.reject!{|res| /#{exclude_filter}/.match(res.project) } if (!exclude_filter.blank? && project.blank?)
+      result.sort! {|x, y| y.relevance <=> x.relevance}
       logger.info "Seeker found #{result.size} results"
       return result
     end
@@ -78,7 +78,7 @@ class Seeker < ActiveXML::Node
     # page index starts with 1
     def page(idx)
       return [] if idx > page_count
-      page = self[@page_length*(idx-1),@page_length]
+      page = self[@page_length * (idx - 1), @page_length]
       page.each do |item|
         item.description
       end
@@ -86,7 +86,7 @@ class Seeker < ActiveXML::Node
     end
 
     def page_count
-      ((self.length-1)/@page_length)+1
+      ((self.length - 1) / @page_length) + 1
     end
 
     def add_binlist(binlist)
@@ -185,7 +185,7 @@ class Seeker < ActiveXML::Node
       def logger
         Rails.logger
       end
-      
+
       private
 
       def cache_data(element)
@@ -207,8 +207,8 @@ class Seeker < ActiveXML::Node
       def calculate_relevance
         quoted_query = Regexp.quote @query
         @relevance_calculated = true
-        @relevance += 15 if name =~/^#{quoted_query}$/i
-        @relevance += 5 if name =~/^#{quoted_query}/i
+        @relevance += 15 if name =~ /^#{quoted_query}$/i
+        @relevance += 5 if name =~ /^#{quoted_query}/i
         @relevance += 15 if project =~ /^openSUSE:/i
         @relevance += 5 if project =~ /^#{quoted_query}$/i
         @relevance += 2 if project =~ /^#{quoted_query}/i
@@ -316,7 +316,7 @@ class Seeker < ActiveXML::Node
         @quality = "" unless @quality
         @quality
       end
-      
+
     end
 
     class Pattern < Item
@@ -329,7 +329,7 @@ class Seeker < ActiveXML::Node
         # pattern bonus
         @relevance += 20
       end
-      
+
       def cache_specific_data(element)
         @filename = element.filename.to_s
         @filepath = element.filepath.to_s
@@ -362,12 +362,12 @@ class Seeker < ActiveXML::Node
       end
 
       def __key
-        @__key ||= @fragment_type.to_s+"|"+%w(project repository name).map{|x| self[x]}.join('|')
+        @__key ||= @fragment_type.to_s + "|" + %w(project repository name).map{|x| self[x]}.join('|')
       end
 
       def dump
         out = "<ul>"
-        each do |key,val|
+        each do |key, val|
           out << "<li><b>#{key}:</b> #{val}</li>x"
         end
         out << "</ul>"
@@ -375,14 +375,14 @@ class Seeker < ActiveXML::Node
       end
 
       def type(*args)
-        method_missing(:type,*args)
+        method_missing(:type, *args)
       end
 
-      def method_missing(symbol,*args,&block)
+      def method_missing(symbol, *args, &block)
         if self.has_key? symbol.to_s
           return self[symbol.to_s]
         end
-        super(symbol,*args,&block)
+        super(symbol, *args, &block)
       end
     end
 

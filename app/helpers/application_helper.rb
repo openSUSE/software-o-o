@@ -21,17 +21,17 @@ module ApplicationHelper
   def fuzzy_time_string(time)
     return "unknown date" if time.blank?
     return "now" if time_diff(time) < 60
-    diff = Integer(time_diff(time)/60) # now minutes
+    diff = Integer(time_diff(time) / 60) # now minutes
     return diff.to_s + (diff == 1 ? " min ago" : " mins ago") if diff < 60
-    diff = Integer(diff/60) # now hours
+    diff = Integer(diff / 60) # now hours
     return diff.to_s + (diff == 1 ? " hour ago" : " hours ago") if diff < 24
-    diff = Integer(diff/24) # now days
+    diff = Integer(diff / 24) # now days
     return diff.to_s + (diff == 1 ? " day ago" : " days ago") if diff < 14
-    diff = Integer(diff/7) # now weeks
+    diff = Integer(diff / 7) # now weeks
     return diff.to_s + (diff == 1 ? " week ago" : " weeks ago") if diff < 9
-    diff = Integer(diff/4.1) # roughly months
+    diff = Integer(diff / 4.1) # roughly months
     return diff.to_s + " months ago" if diff < 24
-    diff = Integer(diff/12) # years
+    diff = Integer(diff / 12) # years
     return diff.to_s + " years ago"
   end
 

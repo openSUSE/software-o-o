@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_language
   before_filter :set_distributions
   before_filter :set_baseproject
-  
+
   helper :all # include all helpers, all the time
   require "rexml/document"
 
@@ -56,7 +56,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_baseproject
-    unless ( @distributions.blank? || @distributions.select{|d| d[:project] == cookies[:search_baseproject]}.blank? )
+    unless (@distributions.blank? || @distributions.select{|d| d[:project] == cookies[:search_baseproject]}.blank?)
       @baseproject = cookies[:search_baseproject]
     end
   end
@@ -70,12 +70,12 @@ class ApplicationController < ActionController::Base
       doc = REXML::Document.new response.body
       doc.elements.each("distributions/distribution") { |element|
         dist = Hash[:name => element.elements['name'].text, :project => element.elements['project'].text,
-          :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text, 
-          :dist_id => element.attributes['id'].sub(".", "") ]
+          :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text,
+          :dist_id => element.attributes['id'].sub(".", "")]
         @distributions << dist
         logger.debug "Added Distribution: #{dist[:name]}"
       }
-      @distributions << Hash[:name => "ALL Distributions", :project => 'ALL' ]
+      @distributions << Hash[:name => "ALL Distributions", :project => 'ALL']
     rescue Exception => e
       logger.error "Error while loading distributions: " + e.to_s
       @distributions = nil
@@ -97,7 +97,7 @@ class ApplicationController < ActionController::Base
         json
       end
     end
-    render({:content_type => "application/javascript", :body => response}.merge(options))
+    render({ :content_type => "application/javascript", :body => response }.merge(options))
   end
 
   def required_parameters(*parameters)
@@ -107,7 +107,6 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  
 
   def valid_package_name? name
     name =~ /^[[:alnum:]][-+\w\.:\@]*$/
@@ -130,9 +129,9 @@ class ApplicationController < ActionController::Base
     @search_unsupported = params[:search_unsupported] unless params[:search_unsupported].blank?
     #FIXME: remove @search_unsupported when redesigning search options
     @search_unsupported = "true"
-    @search_devel = ( @search_devel == "true" ? true : false )
+    @search_devel = (@search_devel == "true" ? true : false)
     @search_project = params[:search_project]
-    @search_unsupported = ( @search_unsupported == "true" ? true : false )
+    @search_unsupported = (@search_unsupported == "true" ? true : false)
     @exclude_debug = @search_devel ? false : true
     @exclude_filter = @search_unsupported ? nil : 'home:'
     cookies[:search_devel] = { :value => @search_devel, :expires => 1.year.from_now }

@@ -2,7 +2,7 @@ require 'open-uri'
 
 class Appdata
 
-  def self.get dist="factory"
+  def self.get dist = "factory"
     data = Hash.new
     xml = Appdata.get_distribution dist, "oss"
     data = add_appdata data, xml
@@ -33,13 +33,13 @@ class Appdata
   end
 
   # Get the appdata xml for a distribution
-  def self.get_distribution dist="factory", flavour="oss"
+  def self.get_distribution dist = "factory", flavour = "oss"
     appdata_url = if dist == "factory"
                     "http://download.opensuse.org/tumbleweed/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
                   else
                     "http://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
                   end
-    filename = File.join( Rails.root.join('tmp'), "appdata-" + dist + ".xml" )
+    filename = File.join(Rails.root.join('tmp'), "appdata-" + dist + ".xml")
     open(filename, 'wb') do |file|
       # Gzip data will be automatically decompressed with open-uri
       file << open(appdata_url).read

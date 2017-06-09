@@ -13,7 +13,7 @@ class DownloadDistroTest < ActionDispatch::IntegrationTest
     choose '64 Bit PC'
     click_button "download_button"
     assert_match /^http:\/\/download.*DVD-x86_64.iso.torrent$/, evaluate_script("mylink")
-  end  
+  end
 
   def test_download_metalink
     find('#ci_gnome').click
@@ -21,7 +21,7 @@ class DownloadDistroTest < ActionDispatch::IntegrationTest
     choose 'i686'
     click_button "download_button"
     assert_match /^http:\/\/download.*GNOME-Live.*-i686.iso.meta4$/, evaluate_script("mylink")
-  end  
+  end
 
   def test_network_bittorrent
     # Choose kde BitTorrent download
@@ -51,4 +51,3 @@ class DownloadDistroTest < ActionDispatch::IntegrationTest
     assert page.has_content? 'Download Rescue'
   end
 end
-
