@@ -134,7 +134,7 @@ module ActiveXML
           if obj
             logger.debug "returning #{args.inspect} from object_cache"
             return obj
-	  end
+    end
         end
 
         objhash = nil
@@ -147,9 +147,9 @@ module ActiveXML
               obj = self.new( objdata )
               [objdata, params, obj.to_hash]
             end
-	    if fromcache
-	      logger.debug "returning #{args.inspect} from rails cache #{cache_key}"
-	    end
+      if fromcache
+        logger.debug "returning #{args.inspect} from rails cache #{cache_key}"
+      end
           else
             objdata, params = ActiveXML::transport.find( self, *args)
           end
@@ -192,9 +192,9 @@ module ActiveXML
           free_args[free_args.length-1] = free_args.last.dup
           free_args.last.delete :expires_in
         end
-	free_args = prepare_args( free_args )
+  free_args = prepare_args( free_args )
         key = calc_key( free_args )
-	logger.debug "free_cache #{free_args.inspect} #{key}"
+  logger.debug "free_cache #{free_args.inspect} #{key}"
         @@object_cache.delete key
         Rails.cache.delete( key )
       end
