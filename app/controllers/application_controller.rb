@@ -71,11 +71,11 @@ class ApplicationController < ActionController::Base
       doc.elements.each("distributions/distribution") { |element|
         dist = Hash[:name => element.elements['name'].text, :project => element.elements['project'].text,
           :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text,
-          :dist_id => element.attributes['id'].sub(".", "") ]
+          :dist_id => element.attributes['id'].sub(".", "")]
         @distributions << dist
         logger.debug "Added Distribution: #{dist[:name]}"
       }
-      @distributions << Hash[:name => "ALL Distributions", :project => 'ALL' ]
+      @distributions << Hash[:name => "ALL Distributions", :project => 'ALL']
     rescue Exception => e
       logger.error "Error while loading distributions: " + e.to_s
       @distributions = nil

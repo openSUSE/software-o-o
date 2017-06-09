@@ -114,7 +114,7 @@ class PackageController < ApplicationController
       {:name => "Education & Science", :id => "Education", :categories => ["Education", "Science"]},
       {:name => "Development", :id => "Development", :categories => ["Development"]},
       {:name => "Office & Productivity", :id => "Office", :categories => ["Office"]},
-      {:name => "Tools", :id => "Tools", :categories => [ "Network", "Settings", "System", "Utility"]},
+      {:name => "Tools", :id => "Tools", :categories => ["Network", "Settings", "System", "Utility"]},
       {:name => "Multimedia", :id => "Multimedia", :categories => ["AudioVideo", "Audio", "Video", "Graphics"]},
     ]
   end
