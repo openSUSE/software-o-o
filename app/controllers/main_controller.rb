@@ -175,7 +175,7 @@ class MainController < ApplicationController
       @isos["net-64"] = "Leap-42.3-NET-x86_64-Current"
 
       @releasenotes = _("https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.3/")
-      @releasename = "openSUSE 42.3 Alpha"
+      @releasename = "openSUSE 42.3 Beta"
       @repourl = "http://download.opensuse.org/distribution/leap/42.3"
       @gpg = "22C0 7BA5 3417 8CD0 2EFE 22AA B88B 2FD4 3DBD C284"
     else
