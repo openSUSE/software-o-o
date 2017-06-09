@@ -29,7 +29,7 @@ module PackageHelper
     txt
   end
 
-  def create_links (txt)
+  def create_links(txt)
     txt = txt.gsub(/(https?:\/\/[-_A-Za-z0-9\/\(\)\[\]:,.;?&+@#%=~|]+[^),. <"'\n\r])/m, '<a href="\1">\1</a> ')
     txt
   end
