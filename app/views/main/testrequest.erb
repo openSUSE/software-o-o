@@ -1,7 +1,0 @@
-<html>
-<body>
-<% %w{HTTP_ACCEPT_LANGUAGE HTTP_USER_AGENT}.each do |v| %>
-<%= debug '%s: %s' % [v, request.env[v]] %>
-<% end %>
-</body>
-</html>
