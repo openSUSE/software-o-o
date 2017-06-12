@@ -1,3 +1,14 @@
+/*
+ * This is a manifest file that'll be compiled into jekyll.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+*/
 @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,800,900);
 @import url(//fonts.googleapis.com/css?family=Open+Sans:800);
 
@@ -287,7 +298,8 @@ footer .theme-by {
 }
 
 .blue-triangular-division {
-  background: url('jekyll/blue-triangle-for-division.png') center no-repeat;
+  background: image-url('jekyll/blue-triangle-for-division.png') center no-repeat;
+
   height: 38px;
   min-width: 134px;
   width: 100%;
