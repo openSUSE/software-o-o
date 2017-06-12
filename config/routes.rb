@@ -60,6 +60,7 @@ SoftwareOO::Application.routes.draw do
   get '132/:locale', to: redirect('/distributions/leap?locale=%{locale}')
   get 'developer', to: redirect('/distributions/testing')
   get 'developer/:locale', to: redirect('/distributions/testing?locale=%{locale}')
+  get '/promodvd', to: 'distributions#index'
 
   # catch all other params as locales...
   get '/:locale', to: 'distributions#index'
