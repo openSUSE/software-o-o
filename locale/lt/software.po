@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-01 11:05+0100\n"
-"PO-Revision-Date: 2017-06-13 10:27+0000\n"
+"PO-Revision-Date: 2017-06-13 15:43+0000\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: Lithuanian "
 "<https://l10n.opensuse.org/projects/software-o-o/master/lt/>\n"
@@ -532,7 +532,6 @@ msgid ""
 msgstr "Kiekvienam ISO atvaizdžiui pateikiame jos SHA256 kontrolinę sumą."
 
 #: ../app/views/distributions/_verify_download.html.erb:16
-#, fuzzy
 #| msgid ""
 #| "For extra security, you can use GPG to verify who signed those .sha256 "
 #| "files. It should be %s."
@@ -540,7 +539,7 @@ msgid ""
 "For extra security, you can use GPG to verify who signed those .sha256 files."
 msgstr ""
 "Naudodami GPG raktą, galite patikrinti, kas pasirašė .sha256 rinkmenas – tai "
-"užtikrina didelį saugumą. Turėtų būti <tt>%s</tt>."
+"užtikrina didelį saugumą."
 
 #: ../app/views/main/_leap_verify.html.erb:7
 msgid ""
@@ -692,6 +691,9 @@ msgid ""
 "  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
 "  commands."
 msgstr ""
+"Jei šiuo metu naudojate „openSUSE“, sistemą galite naujovinti:\n"
+"  a) paleidę kompiuterį iš diegimo laikmenos ir pasirinkę „atnaujinti“,\n"
+"  b) esamoje sistemoje vykdydami naujovinimo internetu komandas."
 
 #: ../app/views/download/appliance.erb:57
 msgid "Image:"
@@ -783,10 +785,13 @@ msgid ""
 "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
 "        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgstr ""
+"„Leap“ pirmiausia siūloma <strong>sistemų administratoriams</strong>, "
+"<strong>įmonių\n"
+"        programuotojams</strong> ir <strong>paprastiems naudotojams</strong>."
 
 #: ../app/views/distributions/index.html.erb:99
 msgid "Leap shares a Common Base System with"
-msgstr ""
+msgstr "„Leap“ sistemos pagrindas atitinka"
 
 #: ../app/views/main/_options.html.erb:35
 msgid "Legacy 32 Bit PC"
@@ -809,7 +814,6 @@ msgid "Live KDE"
 msgstr "Demonstracinis KDE (LiveCD/LiveUSB)"
 
 #: ../app/views/distributions/_verify_download.html.erb:5
-#, fuzzy
 #| msgid ""
 #| "Many applications can verify the checksum of a download. To verify your "
 #| "download can be important as it verifies you really have got the ISO file "
@@ -824,7 +828,10 @@ msgid ""
 msgstr ""
 "Daugybė programų gali patikrinti siuntinių kontrolines sumas. Patikrinti "
 "savo siuntinius gali būti svarbu, nes nustatoma, ar jūs iš tiesų "
-"atsisiuntėte norimą ISO atvaizdį ir ar jo versiją nėra sugadinta."
+"atsisiuntėte norimą ISO atvaizdį ir ar jo versiją nėra sugadinta. Atvaizdį "
+"gali automatiškai patikrinti jį parsiunčiančios programos. Pavyzdžiui, "
+"kontrolinė suma (SHA256) tikrinama automatiškai, jei pasirenkate meta "
+"nuorodą, jei naudojatės „Firefox“ naršyklės „DownThemAll!“ papildiniu."
 
 #: ../app/views/main/_leap_verify.html.erb:2
 #: ../app/views/main/_non_leap_verify.html.erb:2
@@ -908,7 +915,7 @@ msgstr "Reikia pagalbos?"
 #: ../app/views/distributions/leap_ports.html.erb:117
 #: ../app/views/distributions/tumbleweed.html.erb:57
 msgid "Network"
-msgstr "Tinklas"
+msgstr "Mažas"
 
 #: ../app/views/download/appliance.erb:2
 msgid "No appliance data for %s"
@@ -1045,11 +1052,11 @@ msgstr ""
 
 #: ../app/views/distributions/testing.html.erb:40
 msgid "Please report any issues you find in our Bugtracker."
-msgstr ""
+msgstr "Labai prašome pranešti apie pastebėtus nesklandumus."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:40
 msgid "Please review"
-msgstr ""
+msgstr "Peržiūrėkite"
 
 #: ../app/views/order/new.html.erb:25
 msgid ""
@@ -1225,6 +1232,9 @@ msgid ""
 "  packages available in the distribution and does not require a network\n"
 "  connection during the installation."
 msgstr ""
+"Paprastai patariame rinktis atvaizdį DVD/USB laikmenai, kadangi jame \n"
+"   didelė dalis prieinamų paketų, tad diegiant gali nebereikėti interneto \n"
+"   ryšio."
 
 #: ../app/views/distributions/_choosing_media.html.erb:10
 msgid ""
@@ -1233,6 +1243,10 @@ msgid ""
 "  packages they choose to install, which is likely to be significantly\n"
 "  less than 4.7GB."
 msgstr ""
+"CD/USB laikmena diegimui per tinklą siūloma tiems naudotojams, kurie\n"
+"  turi pakankamai greitą bei stabilų interneto ryšį, tačiau nori kuo mažiau\n"
+"  išeikvoti duomenų: diegiant siunčiami tik pasirinkti paketai, o tai \n"
+"  paprastai turėtų sudaryti gerokai mažiau nei 4 GiB."
 
 #: ../app/views/main/_non_leap_release.html.erb:91
 msgid ""
@@ -1267,11 +1281,13 @@ msgstr ""
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:38
 msgid "They are not tested as thoroughly as the"
-msgstr ""
+msgstr "Jie nėra taip gerai išbandyti kaip"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
 msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
 msgstr ""
+"Jų negalite naudoti Tumbleweed naujovinimui, kartais gali netikti netgi "
+"diegimui. Tam rinkitės"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:33
 msgid ""
@@ -1279,6 +1295,9 @@ msgid ""
 "          an accurate reflection as to whether Tumbleweed will work on your\n"
 "          hardware or not."
 msgstr ""
+"Juose mažai įdiegtų paketų bei tvarkyklių, tad kartais gali neveikti \n"
+"su jūsų aparatine įranga, nors galėtų veikti „Tumbleweed“ diegiant įprastu "
+"būdu."
 
 #: ../app/views/main/_non_leap_release.html.erb:93
 msgid ""
@@ -1297,6 +1316,8 @@ msgid ""
 "This is not a supported release. It is provided to help openSUSE testers\n"
 "        find bugs before release."
 msgstr ""
+"Ši laida nėra oficialiai palaikoma. Ji skirta openSUSE testuotojams, "
+"ieškantiems galimų klaidų ruošiamoje laidoje."
 
 #: ../app/views/main/_options.html.erb:37
 msgid ""
@@ -1321,6 +1342,10 @@ msgid ""
 "        <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS\n"
 "        Enthusiasts</strong>."
 msgstr ""
+"„Tumbleweed“ pirmiausia siūloma <strong>programuotojams</strong>,\n"
+"        <strong>openSUSE talkininkams</strong> ir <strong>Linukso bei atviro "
+"kodo\n"
+"        naujovių mėgėjams</strong>."
 
 #: ../app/views/main/_options.html.erb:18
 msgid "Type of Computer"
@@ -1369,7 +1394,6 @@ msgstr ""
 
 # dialog title for nfs installation
 #: ../app/views/distributions/_verify_download.html.erb:2
-#, fuzzy
 #| msgid "Verify your download before use"
 msgid "Verify Your Download Before Use"
 msgstr "Parsisiųstųjų rinkmenų tikrinimas"
@@ -1460,13 +1484,13 @@ msgstr ""
 
 #: ../app/views/distributions/index.html.erb:94
 msgid "annually"
-msgstr ""
+msgstr "kas metus"
 
 #: ../app/views/distributions/index.html.erb:111
 msgid ""
 "as well as by human openSUSE contributors so both can be relied\n"
 "        upon to work."
-msgstr ""
+msgstr "ir openSUSE pagalbininkai, kurių darbu galite pasitikėti."
 
 #: ../app/views/main/_non_leap_verify.html.erb:8
 #: ../app/views/main/_non_leap_verify.html.erb:19
@@ -1517,7 +1541,9 @@ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
 
 #: ../app/controllers/main_controller.rb:111
 msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
+msgstr ""
+"https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1/RELEASE-"
+"NOTES.lt.html"
 
 #: ../app/controllers/main_controller.rb:134
 msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
@@ -1525,7 +1551,9 @@ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
 
 #: ../app/controllers/main_controller.rb:149
 msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
+msgstr ""
+"https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/RELEASE-"
+"NOTES.lt.html"
 
 #: ../app/controllers/main_controller.rb:163
 #: ../app/controllers/main_controller.rb:177
@@ -1587,15 +1615,15 @@ msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
 #: ../app/views/distributions/index.html.erb:127
 msgid "if you change your mind later."
-msgstr ""
+msgstr ", jei kartais vėliau persigalvotumėte."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:30
 msgid "instead."
-msgstr ""
+msgstr "."
 
 #: ../app/views/distributions/index.html.erb:92
 msgid "is a <strong>regular-release</strong>. This means it releases"
-msgstr ""
+msgstr "išleidžiama <strong>reguliariai</strong>, t. y."
 
 #: ../app/views/distributions/index.html.erb:80
 msgid ""
@@ -1605,12 +1633,16 @@ msgid ""
 "        will change regularly as Free and Open Source projects continually\n"
 "        release new versions of their software."
 msgstr ""
+"yra <strong>nuolatinio atnaujinimo</strong> laida. Jums kas kelias dienas \n"
+"pateikiama atnaujintų stabilių paketų."
 
 #: ../app/views/distributions/tumbleweed.html.erb:82
 msgid ""
 "is also available on other architectures, such as\n"
 "        Intel 32-bit (aka i586), AArch64 (aka ARMv8) and PPC64."
 msgstr ""
+"siūlo diegimo laikmenas ir kitų architektūrų procesoriams, pvz.,\n"
+"Intel 32-bit (i586), AArch64 (ARMv8) ir PPC64."
 
 #: ../app/views/main/_non_leap_verify.html.erb:13
 #: ../app/views/main/_non_leap_verify.html.erb:20
@@ -1628,7 +1660,7 @@ msgstr "mažiau žinoma, bet saugesnė nei md5."
 
 #: ../app/views/distributions/index.html.erb:96
 msgid "lifetime"
-msgstr ""
+msgstr "informaciją apie išleidimo ir palaikymo laikotarpius"
 
 #: ../app/views/main/_non_leap_verify.html.erb:12
 #: ../app/views/main/_non_leap_verify.html.erb:20
@@ -1658,6 +1690,9 @@ msgid ""
 "openSUSE Leap is also available on other architectures, such as\n"
 "        AArch64 (aka ARMv8) and PPC64."
 msgstr ""
+"„openSUSE Leap“ siūlo diegimo laikmenas ir kitų architektūrų procesoriams, "
+"pvz.,\n"
+"AArch64 (ARMv8) ir PPC64."
 
 #: ../app/views/distributions/index.html.erb:143
 msgid ""
@@ -1665,6 +1700,8 @@ msgid ""
 "              These are made by our awesome community, often for special\n"
 "              purposes."
 msgstr ""
+"Naudojant openSUSE sistemos pagrindą sukurta gausybė platinamųjų paketų.\n"
+"Bendruomenė vedinius paprastai kuria savitais tikslais."
 
 #: ../app/views/main/_help_method.html.erb:4
 msgid ""
@@ -1677,6 +1714,8 @@ msgstr ""
 #: ../app/views/distributions/index.html.erb:10
 msgid "openSUSE is completely free to download, use and share."
 msgstr ""
+"Galite parsisiųsti, naudoti ir dalintis openSUSE sistema visiškai nemokamai "
+"bei laisvai."
 
 #: ../app/views/main/_options.html.erb:28
 msgid "openSUSE only supports PCs with 32 Bits and 64 Bits."
@@ -1697,6 +1736,10 @@ msgid ""
 "        with each new Major Release (eg 12, 13, etc) of SUSE Linux "
 "Enterprise."
 msgstr ""
+"tad kelerius metus neturėtų būti sistemos pokyčių, tačiau ženklių pokyčių "
+"gali būti pereinant tarp pagrindinių versijų, \n"
+"        kurios savo ruožtu susietos su pagrindinėmis „SUSE Linux Enterprise“ "
+"versijomis (12, 13 ir kt.)."
 
 #: ../app/views/main/release.html.erb:15 ../app/views/main/release.html.erb:17
 msgid "switch to"
@@ -1704,7 +1747,7 @@ msgstr "Yra ir"
 
 #: ../app/views/distributions/index.html.erb:126
 msgid "switch to openSUSE Tumbleweed"
-msgstr ""
+msgstr "pereiti prie „openSUSE Tumbleweed“"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:42
 msgid ""
@@ -1716,6 +1759,8 @@ msgstr ""
 msgid ""
 "with security and stability updates being the priority during each release"
 msgstr ""
+"kiekvienoje laidoje pirmenybę teikiant saugumą ir stabilumą užtikrinantiems "
+"atnaujinimams; žiūrėkite"
 
 #~ msgid "An internal error happened :-("
 #~ msgstr "Vidinė klaida :-("
