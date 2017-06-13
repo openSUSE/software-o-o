@@ -122,6 +122,24 @@ class DownloadController < ApplicationController
     render_page :package
   end
 
+  def ymp_with_arch_and_version
+    path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
+    DownloadHistory.create :query => params[:query], :base => params[:base], :ymp => path
+    res = Rails.cache.fetch("ymp_#{path}", :expires_in => 1.hour) do
+      ApiConnect::get(path)
+    end
+    render :body => res.body, :content_type => res.content_type
+  end
+
+  def ymp_without_arch_and_version
+    path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:package]}?view=ymp"
+    DownloadHistory.create :query => params[:query], :base => params[:base], :ymp => path
+    res = Rails.cache.fetch("ymp_#{path}", :expires_in => 1.hour) do
+      ApiConnect::get(path)
+    end
+    render :body => res.body, :content_type => res.content_type
+  end
+
   private
 
   def set_parameters
@@ -215,24 +233,6 @@ class DownloadController < ApplicationController
 
   def valid_color? color
     color =~ /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
-  end
-
-  def ymp_with_arch_and_version
-    path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
-    DownloadHistory.create :query => params[:query], :base => params[:base], :ymp => path
-    res = Rails.cache.fetch("ymp_#{path}", :expires_in => 1.hour) do
-      ApiConnect::get(path)
-    end
-    render :body => res.body, :content_type => res.content_type
-  end
-
-  def ymp_without_arch_and_version
-    path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:package]}?view=ymp"
-    DownloadHistory.create :query => params[:query], :base => params[:base], :ymp => path
-    res = Rails.cache.fetch("ymp_#{path}", :expires_in => 1.hour) do
-      ApiConnect::get(path)
-    end
-    render :body => res.body, :content_type => res.content_type
   end
 
 end
