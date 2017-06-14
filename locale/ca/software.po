@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 11:05+0100\n"
+"POT-Creation-Date: 2017-06-14 13:51+0200\n"
 "PO-Revision-Date: 2017-03-01 17:12+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/software-o-o/"
@@ -18,25 +18,48 @@ msgstr ""
 msgid " and "
 msgstr " i "
 
-#: ../app/controllers/main_controller.rb:182
-msgid "\"#{release} is not a supported release.\""
-msgstr "\"#{release} no és una versió amb suport.\""
+#: ../app/views/distributions/index.html.erb:85
+#, fuzzy
+#| msgid ""
+#| "with security and stability updates being the priority during each release"
+msgid ""
+"%{leap} is a <strong>regular-release</strong>. This means it releases "
+"%{annually}, with security and stability updates being the priority during "
+"each release %{lifetime}."
+msgstr ""
+"amb actualitzacions de seguretat i estabilitat, que són la prioritat durant "
+"cada publicació"
 
-#: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
+#: ../app/views/distributions/index.html.erb:79
+#, fuzzy
+#| msgid ""
+#| "is a <strong>rolling-release</strong>. This means the software is always\n"
+#| "        the latest stable versions available from the openSUSE Project. "
+#| "Things\n"
+#| "        will change regularly as Free and Open Source projects "
+#| "continually\n"
+#| "        release new versions of their software."
+msgid ""
+"%{tumbleweed} is a <strong>rolling-release</strong>. This means the software "
+"is always the latest stable versions available from the openSUSE Project. "
+"Things will change regularly as Free and Open Source projects continually "
+"release new versions of their software."
+msgstr ""
+"és una <strong>versió contínua</strong>. Això vol dir que el programari "
+"sempre\n"
+"        és la darrera versió estable disponible des del projecte openSUSE. "
+"Canviarà\n"
+"        regularment ja que els projectes lliures i de codi obert publiquen "
+"contínuament\n"
+"        versions noves del programari."
+
+#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
 msgid "(hide)"
 msgstr "(amaga)"
 
-#: ../app/views/download/package.erb:7 ../app/views/download/appliance.erb:7
+#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
 msgid "(show)"
 msgstr "(mostra)"
-
-#: ../app/views/order/new.html.erb:31
-msgid "... and keep us informed"
-msgstr "... i mantingueu-nos informats"
-
-#: ../app/views/order/new.html.erb:40
-msgid "... get other marketing stuff"
-msgstr "... obtingueu més coses de màrqueting"
 
 #: ../app/views/distributions/_requirements.html.erb:6
 msgid "2 GB system memory"
@@ -46,55 +69,6 @@ msgstr "Memòria de sistema de 2 GB"
 msgid "2 Ghz dual core processor or better"
 msgstr "Processador de doble nucli de 2 Ghz o superior"
 
-#: ../app/views/main/_leap_release.html.erb:13
-#: ../app/views/main/_non_leap_release.html.erb:28
-msgid "4.7GB DVD (also suitable for USB stick)"
-msgstr "DVD de 4.7 GB (també adient per a memòries usb)"
-
-#: ../app/views/main/_options.html.erb:21
-#: ../app/views/main/_options.html.erb:30
-msgid "64 Bit PC"
-msgstr "PC de 64 bits"
-
-#: ../app/views/main/_options.html.erb:62
-#: ../app/views/main/_leap_release.html.erb:45
-msgid ""
-"<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">openSUSE "
-"startup guide</a>"
-msgstr ""
-"<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">Guia "
-"d'inici d'openSUSE</a>"
-
-#: ../app/views/main/_help_method.html.erb:16
-msgid ""
-"<a href=\"http://en.opensuse.org/SDB:Metalink\">Metalink</a> is an open "
-"standard that bundles the various ways (FTP/HTTP/BitTorrent) to get files "
-"into one format for easier downloads. This makes it good for downloading "
-"ISOs; particularly for people who can't use P2P because of restrictions from "
-"their ISP or University. It can deliver very fast download speeds since most "
-"clients support multiple connections, to multiple mirrors, automatically. In "
-"addition, it can do automatic error detection, and correction. It needs a "
-"special client to handle it though."
-msgstr ""
-"<a href=\"http://en.opensuse.org/SDB:Metalink\">Un metaenllaç</a> és un "
-"estàndard obert que combina les diferents maneres (FTP/HTTP/BitTorrent) "
-"d'obtenir fitxers en un sol format per a descàrregues més fàcils. Va bé per "
-"a descàrregues d'ISO, particularment per a gent que no pot utilitzar P2P a "
-"causa de restriccions d'ISP o de la universitat. Pot oferir baixades molt "
-"ràpides ja que molts dels clients tenen suport per a connexions múltiples, a "
-"múltiples miralls, automàticament. A més, pot fer una detecció automàtica "
-"d'errors i correccions. Ara bé, per fer-ho necessita un client especial."
-
-#: ../app/views/main/_options.html.erb:64
-#: ../app/views/main/_leap_release.html.erb:49
-msgid "<a href=\"http://en.opensuse.org/openSUSE:License\">License</a>"
-msgstr "<a href=\"http://en.opensuse.org/openSUSE:License\">Llicència</a>"
-
-#: ../app/views/main/_options.html.erb:63
-#: ../app/views/main/_leap_release.html.erb:47
-msgid "<a href='%s'>Release Notes</a>"
-msgstr "<a href='%s'>Notes de la versió</a>"
-
 #: ../app/views/package/_download_rows.html.erb:4
 msgid "<b>official release</b>"
 msgstr "<b>versió oficial</b>"
@@ -103,58 +77,9 @@ msgstr "<b>versió oficial</b>"
 msgid "<b>official update</b>"
 msgstr "<b>actualització oficial</b>"
 
-#: ../app/views/main/_non_leap_release.html.erb:35
-msgid ""
-"A GNOME desktop you can run from %s or from USB stick.<br/>Can be installed "
-"as is (no upgrade)."
-msgstr ""
-"Un escriptori GNOME que podeu fer servir des de %s o des d'una memòria USB."
-"<br/>Es pot instal·lar tal com és (no per actualitzar)."
-
-#: ../app/views/main/_non_leap_release.html.erb:39
-msgid ""
-"A KDE desktop you can run from %s or from USB stick.<br/>Can be installed as "
-"is (no upgrade)."
-msgstr ""
-"Un escriptori KDE que podeu fer servir des de %s o des d'una memòria USB.<br/"
-">Es pot instal·lar tal com és (no per actualitzar)."
-
 #: ../app/views/download/package.erb:84
 msgid "Add repository and install manually"
 msgstr "Afegiu el repositori i instal·leu manualment"
-
-#: ../app/views/main/_non_leap_release.html.erb:86
-msgid "Add-On Downloads (optional)"
-msgstr "Descàrregues complementàries (opcional)"
-
-#: ../app/views/main/_leap_release.html.erb:67
-#: ../app/views/main/_non_leap_release.html.erb:74
-msgid ""
-"After having successfully downloaded the ISO image(s), create a bootable USB "
-"stick or burn the image(s) to a DVD (or a CD if the chosen image fits)."
-msgstr ""
-"Després d'haver descarregat correctament una imatge ISO, creeu una memòria "
-"USB d'arrencada o graveu la imatge en un DVD (o CD si la imatge escollida hi "
-"cap)."
-
-#: ../app/views/order/_form.html.erb:81
-msgid ""
-"All data is used only for sending openSUSE promotional material\n"
-"      and will not be spread to third parties. We store the data to\n"
-"      inform the users if a new version is available. All requests have\n"
-"      to be screened to fulfill the US export embargo. More information\n"
-"      about the embargo and a list of countries at wikipedia <a href='http://"
-"en.wikipedia.org/wiki/United_States_embargoes'>http://en.wikipedia.org/wiki/"
-"United_States_embargoes</a>."
-msgstr ""
-"Les dades només s'utilitzen per enviar material promocional d'openSUSE\n"
-"      i no s'escamparan a terceres parts. Desem les dades per\n"
-"      informar els usuaris de les noves versions disponibles. Totes les "
-"peticions\n"
-"      han d'escanejar-se per complir l'US export embargo. Més informació\n"
-"      sobre l'embargo i una llista de països a la Viquipèdia <a href='http://"
-"en.wikipedia.org/wiki/United_States_embargoes'>http://en.wikipedia.org/wiki/"
-"United_States_embargoes</a>."
 
 #: ../app/views/search/_find_form.html.erb:18
 msgid "App Browser"
@@ -164,47 +89,31 @@ msgstr "Navegador de l'aplicació"
 msgid "Available Images"
 msgstr "Imatges disponibles"
 
-#: ../app/views/main/_leap_medium.html.erb:15
-#: ../app/views/main/_help_method.html.erb:10
-#: ../app/views/main/_options.html.erb:8
-msgid "BitTorrent"
-msgstr "BitTorrent"
-
-#: ../app/views/main/_leap_release.html.erb:73
-#: ../app/views/main/_non_leap_release.html.erb:80
+#: ../app/views/distributions/index.html.erb:102
+#, fuzzy
+#| msgid ""
+#| "Both distributions are fully capable of being used on a Desktop PC,\n"
+#| "        laptop, server, or in the cloud."
 msgid ""
-"Boot from the DVD, CD or USB stick. In case your computer does not "
-"automatically boot from the chosen device, open the BIOS setup to allow "
-"booting from it."
-msgstr ""
-"Arrenqueu des d'un DVD, CD o memòria USB. En cas que l'ordinador no arrenqui "
-"automàticament des del mitjà escollit, entreu a la configuració de la BIOS "
-"per permetre-ho."
-
-#: ../app/views/distributions/index.html.erb:114
-msgid ""
-"Both distributions are fully capable of being used on a Desktop PC,\n"
-"        laptop, server, or in the cloud."
+"Both distributions are fully capable of being used on a Desktop PC, laptop, "
+"server, or in the cloud."
 msgstr ""
 "Totes dues distribucions són plenament capaces d'usar-se en un ordinador "
 "personal,\n"
 "        d'escriptori, portàtil, servidor o al núvol."
 
-#: ../app/views/distributions/index.html.erb:109
-msgid "Both distributions are well tested by"
-msgstr "Totes dues distribucions han estat ben posades a prova per"
-
-#: ../app/views/main/release.html.erb:68
-msgid "Bronze Sponsor"
-msgstr "Patrocinadors de bronze"
-
-#: ../app/views/main/redirect_with_notice.erb:1
-msgid "Browser incompatibility"
-msgstr "Incompatibilitat de navegador"
-
-#: ../app/views/main/release.html.erb:36
-msgid "Burn CD/DVD Image(s)"
-msgstr "Graveu una imatge de CD / DVD"
+#: ../app/views/distributions/index.html.erb:100
+#, fuzzy
+#| msgid ""
+#| "as well as by human openSUSE contributors so both can be relied\n"
+#| "        upon to work."
+msgid ""
+"Both distributions are well tested by <a href=\"https://openqa.opensuse.org"
+"\">openQA</a> as well as by human openSUSE contributors so both can be "
+"relied upon to work."
+msgstr ""
+"així com per col·laboradors humans de l'openSUSE, de manera que es\n"
+"        depengui de tots dos per funcionar."
 
 #: ../app/views/package/show.html.erb:169
 msgid "Categories"
@@ -214,32 +123,22 @@ msgstr "Categories"
 msgid "Category"
 msgstr "Categoria"
 
-#: ../app/views/distributions/tumbleweed_ports.html.erb:29
-#: ../app/views/distributions/tumbleweed_ports.html.erb:86
-#: ../app/views/distributions/tumbleweed_ports.html.erb:143
-#: ../app/views/distributions/testing.html.erb:50
+#: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:29
 #: ../app/views/distributions/leap_ports.html.erb:90
+#: ../app/views/distributions/testing.html.erb:50
 #: ../app/views/distributions/tumbleweed.html.erb:30
-#: ../app/views/distributions/leap.html.erb:28
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:53
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:132
+#: ../app/views/distributions/tumbleweed_ports.html.erb:28
+#: ../app/views/distributions/tumbleweed_ports.html.erb:85
+#: ../app/views/distributions/tumbleweed_ports.html.erb:142
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:51
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:130
 msgid "Checksum"
 msgstr "La suma de verificació"
 
 #: ../app/views/distributions/_verify_download.html.erb:26
 msgid "Checksums Help"
 msgstr "Ajuda per a les sumes de verificació"
-
-#: ../app/views/main/_non_leap_release.html.erb:59
-msgid ""
-"Choose an installation medium by clicking it and hit the Download button to "
-"start the download. Optionally choose your computer type or an alternative "
-"download method."
-msgstr ""
-"Escolliu un mitjà d'instal·lació clicant-hi i després premeu el botó de "
-"descàrrega per iniciar la baixada. Opcionalment, trieu el tipus d'ordinador "
-"o un mètode de descàrrega alternatiu."
 
 #: ../app/views/distributions/_choosing_media.html.erb:2
 msgid "Choosing Which Media to Download"
@@ -249,52 +148,23 @@ msgstr "Triar quin mitjà descarregar"
 msgid "Chosing which Distribution to Download"
 msgstr "Triar quina distribució descarregar"
 
-#: ../app/views/main/_non_leap_release.html.erb:49
-msgid "Click here to display these alternative versions."
-msgstr "Cliqueu aquí per veure aquestes versions alternatives."
-
-#: ../app/views/main/_download_link.html.erb:2
-msgid "Click to Download"
-msgstr "Cliqueu-hi per descarregar"
-
-#: ../app/views/layouts/download.html.erb:59
 #: ../app/views/layouts/application.html.erb:65
+#: ../app/views/layouts/download.html.erb:59
 msgid "Community"
 msgstr "Comunitat"
-
-#: ../app/views/main/_leap_release.html.erb:13
-#: ../app/views/main/_non_leap_release.html.erb:28
-msgid ""
-"Contains a large collection of software for desktop or server use.<br/"
-">Suitable for installation or upgrade."
-msgstr ""
-"Conté una gran col·lecció de programari per a ús d'escriptori o de servidor."
-"<br/>Adient per a una instal·lació o actualització."
-
-#: ../app/views/main/release.html.erb:46
-msgid "Countdown"
-msgstr "Compte enrere"
-
-#: ../app/views/order/_form.html.erb:72
-msgid "Country"
-msgstr "País"
 
 #: ../app/views/distributions/testing.html.erb:34
 msgid "Currently testing"
 msgstr "Actualment en proves"
 
-#: ../app/views/distributions/index.html.erb:136
+#: ../app/views/distributions/index.html.erb:119
 msgid "Derivatives"
 msgstr "Derivats"
 
-#: ../app/views/layouts/download.html.erb:60
 #: ../app/views/layouts/application.html.erb:66
+#: ../app/views/layouts/download.html.erb:60
 msgid "Development"
 msgstr "Desenvolupament"
-
-#: ../app/views/main/release.html.erb:15
-msgid "Development Version"
-msgstr "Versió de desenvolupament"
 
 #: ../app/views/search/_find_results.html.erb:92
 msgid "Development packages"
@@ -308,36 +178,31 @@ msgstr "Desenvolupament-"
 msgid "Direct Install"
 msgstr "Instal·lació directa"
 
-#: ../app/views/main/_leap_medium.html.erb:13
-#: ../app/views/main/_help_method.html.erb:6
-#: ../app/views/main/_options.html.erb:6
-#: ../app/views/distributions/tumbleweed_ports.html.erb:38
-#: ../app/views/distributions/tumbleweed_ports.html.erb:60
-#: ../app/views/distributions/tumbleweed_ports.html.erb:95
-#: ../app/views/distributions/tumbleweed_ports.html.erb:117
-#: ../app/views/distributions/tumbleweed_ports.html.erb:152
-#: ../app/views/distributions/tumbleweed_ports.html.erb:174
-#: ../app/views/distributions/testing.html.erb:59
-#: ../app/views/distributions/testing.html.erb:81
+#: ../app/views/distributions/leap.html.erb:37
+#: ../app/views/distributions/leap.html.erb:63
 #: ../app/views/distributions/leap_ports.html.erb:38
 #: ../app/views/distributions/leap_ports.html.erb:64
 #: ../app/views/distributions/leap_ports.html.erb:99
 #: ../app/views/distributions/leap_ports.html.erb:121
+#: ../app/views/distributions/testing.html.erb:59
+#: ../app/views/distributions/testing.html.erb:81
 #: ../app/views/distributions/tumbleweed.html.erb:39
 #: ../app/views/distributions/tumbleweed.html.erb:61
-#: ../app/views/distributions/leap.html.erb:37
-#: ../app/views/distributions/leap.html.erb:63
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:62
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:84
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:106
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:141
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:163
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:184
+#: ../app/views/distributions/tumbleweed_ports.html.erb:37
+#: ../app/views/distributions/tumbleweed_ports.html.erb:59
+#: ../app/views/distributions/tumbleweed_ports.html.erb:94
+#: ../app/views/distributions/tumbleweed_ports.html.erb:116
+#: ../app/views/distributions/tumbleweed_ports.html.erb:151
+#: ../app/views/distributions/tumbleweed_ports.html.erb:173
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:60
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:82
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:104
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:139
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:161
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:182
 msgid "Direct Link"
 msgstr "Enllaç directe"
 
-#: ../app/views/main/_options.html.erb:60
-#: ../app/views/main/_leap_release.html.erb:43
 #: ../app/views/distributions/_documentation.html.erb:2
 msgid "Documentation"
 msgstr "Documentació"
@@ -346,31 +211,16 @@ msgstr "Documentació"
 msgid "Don't show this warning the next time"
 msgstr "No tornis a mostrar aquest avís la propera vegada."
 
-#: ../app/views/main/_options.html.erb:45
-#: ../app/views/main/_download_link.html.erb:2
-msgid "Download"
-msgstr "Descàrrega"
-
-#: ../app/views/main/release.html.erb:4
-msgid "Download %s"
-msgstr "Descarregueu l'%s"
-
-#: ../app/views/main/release.html.erb:35
-msgid "Download Help"
-msgstr "Ajuda sobre la baixada"
-
-#: ../app/views/main/_leap_medium.html.erb:10
-#: ../app/views/main/_options.html.erb:4
-#: ../app/views/distributions/tumbleweed_ports.html.erb:28
-#: ../app/views/distributions/tumbleweed_ports.html.erb:85
-#: ../app/views/distributions/tumbleweed_ports.html.erb:142
-#: ../app/views/distributions/testing.html.erb:49
+#: ../app/views/distributions/leap.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:89
+#: ../app/views/distributions/testing.html.erb:49
 #: ../app/views/distributions/tumbleweed.html.erb:29
-#: ../app/views/distributions/leap.html.erb:27
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:52
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:131
+#: ../app/views/distributions/tumbleweed_ports.html.erb:27
+#: ../app/views/distributions/tumbleweed_ports.html.erb:84
+#: ../app/views/distributions/tumbleweed_ports.html.erb:141
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:50
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:129
 msgid "Download Method"
 msgstr "Mètode de descàrrega"
 
@@ -383,9 +233,13 @@ msgstr ""
 "a ordinadors d'escriptori, portàtils i servidors."
 
 #: ../app/views/distributions/tumbleweed_ports.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "Download alternative architectures of the rolling version\n"
+#| "              of openSUSE, for desktop PCs, laptops, and servers."
 msgid ""
-"Download alternative architectures of the rolling version\n"
-"              of openSUSE, for desktop PCs, laptops, and servers."
+"Download alternative architectures of the rolling version of openSUSE, for "
+"desktop PCs, laptops, and servers."
 msgstr ""
 "Descarregueu imatges amb arquitectures alternatives de la versió contínua\n"
 "              d'openSUSE, per a ordinadors d'escriptori, portàtils i "
@@ -430,46 +284,21 @@ msgstr ""
 "d'escriptori, portàtils i servidors."
 
 #: ../app/views/distributions/tumbleweed.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "Download the rolling version of openSUSE, for desktop PCs,\n"
+#| "              laptops, and servers."
 msgid ""
 "Download the rolling version of openSUSE, for desktop PCs,\n"
-"              laptops, and servers."
+"laptops, and servers."
 msgstr ""
 "Descarregueu la versió contínua de l'openSUSE per a ordinadors\n"
 "              d'escriptori, portàtils i servidors."
 
-#: ../app/views/main/_options.html.erb:49
-msgid "Download&nbsp;DVD"
-msgstr "Descarregueu el&nbsp;DVD"
-
-#: ../app/views/main/_options.html.erb:48
-msgid "Download&nbsp;GNOME"
-msgstr "Descarregueu&nbsp;GNOME"
-
-#: ../app/views/main/_options.html.erb:47
-msgid "Download&nbsp;KDE"
-msgstr "Descarregueu&nbsp;KDE"
-
-#: ../app/views/main/_options.html.erb:50
-msgid "Download&nbsp;Network"
-msgstr "Descarregueu&nbsp;Xarxa"
-
-#: ../app/views/main/_options.html.erb:51
-msgid "Download&nbsp;Rescue"
-msgstr "Descarregueu&nbsp;Rescat"
-
-#: ../app/views/layouts/download.html.erb:57
 #: ../app/views/layouts/application.html.erb:63
+#: ../app/views/layouts/download.html.erb:57
 msgid "Downloads"
 msgstr "Descàrregues"
-
-#: ../app/views/main/_leap_release.html.erb:15
-#: ../app/views/main/_non_leap_release.html.erb:31
-msgid ""
-"Downloads the installation system and all packages from online repositories."
-"<br/>Suitable for installation or upgrade."
-msgstr ""
-"Descarrega el sistema d'instal·lació i tots els paquets des dels repositoris "
-"en línia.<br/>Adient per a una instal·lació o actualització."
 
 #: ../app/views/distributions/_leap_switch.html.erb:2
 msgid "Easy Ways to Switch to openSUSE Leap"
@@ -486,18 +315,6 @@ msgstr "O bé un dispositiu de DVD o un port USB per al mitjà d'instal·lació"
 #: ../app/views/package/show.html.erb:252
 msgid "Expand all sections ('e')"
 msgstr "Expandeix totes les seccions ('e')"
-
-#: ../app/views/main/_non_leap_release.html.erb:90
-msgid "Extra Languages"
-msgstr "Més llengües"
-
-#: ../app/views/main/_non_leap_release.html.erb:88
-msgid "Extra Languages (32 Bit)"
-msgstr "Més llengües (32 bits)"
-
-#: ../app/views/main/_non_leap_release.html.erb:89
-msgid "Extra Languages (64 Bit)"
-msgstr "Més llengües (64 bits)"
 
 #: ../app/views/download/package.erb:106
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
@@ -518,7 +335,6 @@ msgstr ""
 "següent (tingueu present que l'ordre dels repositoris dins de pacman.conf és "
 "important, ja que el Pacman sempre baixa el primer paquet que troba):"
 
-#: ../app/views/main/_leap_verify.html.erb:6
 #: ../app/views/distributions/_verify_download.html.erb:13
 msgid ""
 "For each ISO, we offer a checksum file with the corresponding SHA256 sum."
@@ -532,14 +348,6 @@ msgid ""
 msgstr ""
 "Per a més seguretat, podeu usar GPG per verificar qui ha signat aquests "
 "fitxers .sha256."
-
-#: ../app/views/main/_leap_verify.html.erb:7
-msgid ""
-"For extra security, you can use GPG to verify who signed those .sha256 "
-"files. It should be %s."
-msgstr ""
-"Per a més seguretat, podeu usar GPG per verificar qui ha signat aquests "
-"fitxers .sha256. Hauria de ser <tt>%s</tt>."
 
 #: ../app/views/distributions/_verify_download.html.erb:24
 msgid "For more help verifing your download please read"
@@ -569,50 +377,28 @@ msgstr "Jocs"
 msgid "Get Unsupported Tumbleweed LiveCDs."
 msgstr "Obtingueu imatges vives sense suport del Tumbleweed."
 
-#: ../app/views/main/_non_leap_release.html.erb:44
-msgid "Get one of the specialized distributions built on openSUSE."
-msgstr ""
-"Obtingueu una de les distribucions especialitzades construïdes a partir "
-"d'openSUSE."
-
 #: ../app/views/layouts/jekyll.html.erb:8
 #: ../app/views/layouts/jekyll.html.erb:34
 #: ../app/views/distributions/index.html.erb:7
 msgid "Get openSUSE"
 msgstr "Obtingueu l'openSUSE"
 
-#: ../app/views/distributions/leap.html.erb:87
+#: ../app/views/distributions/leap.html.erb:85
 msgid "Get openSUSE Leap for other architectures."
 msgstr "Obtingueu l'openSUSE Leap per a altres arquitectures."
 
-#: ../app/views/distributions/tumbleweed.html.erb:85
+#: ../app/views/distributions/tumbleweed.html.erb:84
 msgid "Get openSUSE Tumbleweed for other architectures."
 msgstr "Obtingueu l'openSUSE Tumbleweed per a altres arquitectures."
-
-#: ../app/views/main/release.html.erb:33
-msgid "Getting Help"
-msgstr "Obtingueu ajuda"
-
-#: ../app/views/main/release.html.erb:59
-msgid "Gold Sponsor"
-msgstr "Patrocinadors d'or"
 
 #: ../app/views/download/package.erb:153
 msgid "Grab binary packages directly"
 msgstr "Agafeu paquets binaris directament"
 
-#: ../app/views/layouts/download.html.erb:54
 #: ../app/views/layouts/application.html.erb:60
+#: ../app/views/layouts/download.html.erb:54
 msgid "Header Logo"
 msgstr "Logo de la capçalera"
-
-#: ../app/views/main/_help_method.html.erb:2
-msgid "Help on Download Method"
-msgstr "Ajuda sobre el mètode de baixada"
-
-#: ../app/views/main/_options.html.erb:26
-msgid "Help on Type of Computer"
-msgstr "Ajuda sobre el tipus d'ordinador"
 
 #: ../app/views/distributions/index.html.erb:66
 msgid ""
@@ -632,11 +418,6 @@ msgstr ""
 "              la distribució de versió regular per a ordinadors "
 "d'escriptori,\n"
 "              portàtils i servidors."
-
-#: ../app/views/main/_leap_release.html.erb:65
-#: ../app/views/main/_non_leap_release.html.erb:72
-msgid "How to Proceed"
-msgstr "Com procedir"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
@@ -662,26 +443,24 @@ msgstr "Com crear una memòria USB arrencable amb Linux."
 msgid "How to create a bootable USB stick on OS X."
 msgstr "Com crear una memòria USB arrencable amb OS X."
 
-#: ../app/views/distributions/index.html.erb:120
-msgid "If you are still not sure, download"
+#: ../app/views/distributions/index.html.erb:107
+#, fuzzy
+#| msgid "If you are still not sure, download"
+msgid "If you are still not sure, download %{leap}"
 msgstr "Si encara no n'esteu segur, descarregueu"
 
-#: ../app/views/main/_help_method.html.erb:20
-msgid ""
-"If you want to use a direct link but live in a place in the world where our "
-"download redirector has not enough information to redirect to the fastest "
-"mirror, you can pick a mirror yourself."
-msgstr ""
-"Si voleu fer servir un enllaç directe però viviu en un lloc del planeta on "
-"el nostre redirector de descàrregues no té prou informació per redireccionar-"
-"vos al mirall més ràpid, podeu escollir vosaltres mateixos el mirall."
-
-#: ../app/views/distributions/_tumbleweed_switch.html.erb:5
 #: ../app/views/distributions/_leap_switch.html.erb:5
+#: ../app/views/distributions/_tumbleweed_switch.html.erb:5
+#, fuzzy
+#| msgid ""
+#| "If you’re already running openSUSE you can upgrade by booting from the\n"
+#| "  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a "
+#| "few\n"
+#| "  commands."
 msgid ""
 "If you’re already running openSUSE you can upgrade by booting from the\n"
-"  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
-"  commands."
+"DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
+"commands."
 msgstr ""
 "Si ja teniu l'openSUSE, podeu actualitzar-lo o bé arrencant l'ordinador des "
 "del\n"
@@ -697,7 +476,7 @@ msgstr "Imatge:"
 msgid "Install package %s / %s"
 msgstr "Instal·la el paquet %s / %s"
 
-#: ../app/controllers/download_controller.rb:123
+#: ../app/controllers/download_controller.rb:121
 msgid "Install pattern %s / %s"
 msgstr "Patró d'instal·lació %s / %s"
 
@@ -705,34 +484,27 @@ msgstr "Patró d'instal·lació %s / %s"
 msgid "Install using One Click Install"
 msgstr "Instal·la amb la instal·lació d'1-clic"
 
-#: ../app/views/main/release.html.erb:37
-msgid "Installation Guides"
-msgstr "Guies d'instal·lació"
-
-#: ../app/views/distributions/tumbleweed_ports.html.erb:22
-#: ../app/views/distributions/tumbleweed_ports.html.erb:79
-#: ../app/views/distributions/tumbleweed_ports.html.erb:136
+#: ../app/views/distributions/leap.html.erb:21
 #: ../app/views/distributions/testing.html.erb:43
 #: ../app/views/distributions/tumbleweed.html.erb:23
-#: ../app/views/distributions/leap.html.erb:21
+#: ../app/views/distributions/tumbleweed_ports.html.erb:21
+#: ../app/views/distributions/tumbleweed_ports.html.erb:78
+#: ../app/views/distributions/tumbleweed_ports.html.erb:135
 msgid "Installation Media"
 msgstr "Mitjans d'instal·lació"
-
-#: ../app/views/main/_leap_release.html.erb:10
-#: ../app/views/main/_non_leap_release.html.erb:17
-msgid "Installation Medium"
-msgstr "Mitjà d'instal·lació"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
 msgstr ""
 "Tenir accés a Internet ajuda i és necessari per a l'instal·lador per xarxa"
 
-#: ../app/views/distributions/index.html.erb:124
-msgid "It is easy to"
-msgstr "És fàcil"
+#: ../app/views/distributions/index.html.erb:110
+msgid ""
+"It is easy to <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
+"\">switch to openSUSE Tumbleweed</a> if you change your mind later."
+msgstr ""
 
-#: ../app/views/distributions/index.html.erb:97
+#: ../app/views/distributions/index.html.erb:90
 msgid ""
 "It is not expected to change in any significant way until its next annual "
 "release."
@@ -744,82 +516,57 @@ msgstr ""
 msgid "It should be"
 msgstr "Hauria de ser"
 
-#: ../app/views/order/new.html.erb:18
+#: ../app/views/distributions/index.html.erb:96
+#, fuzzy
+#| msgid ""
+#| "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
+#| "        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgid ""
-"Join the fast-growing community, put openSUSE into more hands by\n"
-"        getting the latest PromoDVD for your group, non-profit organization, "
-"school\n"
-"        university or event like LUG meetings, installfests, and "
-"conferences.\n"
-"        Promo DVDs help to increase awareness and visibility of openSUSE!"
-msgstr ""
-"Uniu-vos a la comunitat creixent, poseu l'openSUSE a mans de més persones\n"
-"        obtenint l'últim PromoDVD per al vostre grup, organizació sense ànim "
-"de lucre,\n"
-"        escola, universitat o esdeveniment com ara trobades LUG, festes "
-"d'instal·lació i conferències.\n"
-"        Els PromoDVD ajuden a augmentar el coneixement i la visibilitat "
-"d'openSUSE!"
-
-#: ../app/controllers/main_controller.rb:194
-msgid ""
-"Konqueror of KDE 3 is unfortunately unmaintained and its javascript "
-"implementation contains bugs that make it impossible to use with this page. "
-"Please make sure you have javascript disabled before you <a "
-"href='%s'>continue</a>."
-msgstr ""
-"El Konqueror del KDE 3 ja no té suport i no és mantingut i la seva "
-"implementació java conté errors que el fan impossible d'utilitzar amb "
-"aquesta pàgina. Si us plau, assegureu-vos de desactivar el javascript abans "
-"de <a href='%s'>continuar</a>."
-
-# label for language selection
-#: ../app/views/main/release.html.erb:72
-msgid "Language"
-msgstr "Idioma"
-
-#: ../app/views/distributions/index.html.erb:104
-msgid ""
-"Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
-"        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
+"Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
+"Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgstr ""
 "El Leap és recomanable per a <strong>administradors de sistemes</strong>, "
 "<strong>desenvolupadors\n"
 "        empresarials</strong> i <strong>usuaris habituals d'escriptoris</"
 "strong>."
 
-#: ../app/views/distributions/index.html.erb:99
-msgid "Leap shares a Common Base System with"
-msgstr "El Leap comparteix un sistema de base comuna amb"
-
-#: ../app/views/main/_options.html.erb:35
-msgid "Legacy 32 Bit PC"
-msgstr "PC de 32 bits (llegat)"
-
-#: ../app/views/main/_options.html.erb:23
-msgid "Legacy 32&nbsp;Bit&nbsp;PC"
-msgstr "Llegat de 32&nbsp;bits&nbsp"
+#: ../app/views/distributions/index.html.erb:92
+#, fuzzy
+#| msgid ""
+#| "so major architectural changes are not expected for several years, "
+#| "aligned\n"
+#| "        with each new Major Release (eg 12, 13, etc) of SUSE Linux "
+#| "Enterprise."
+msgid ""
+"Leap shares a Common Base System with %{sles}, so major architectural "
+"changes are not expected for several years, aligned with each new Major "
+"Release (eg 12, 13, etc) of SUSE Linux Enterprise."
+msgstr ""
+"de manera que no s'esperen canvis d'arquitectures durant uns quants anys, "
+"alineats\n"
+"         amb cada versió principal nova (p.e. 12, 13, etc) del SUSE Linux "
+"Enterprise."
 
 #: ../app/views/distributions/_documentation.html.erb:18
 msgid "License"
 msgstr "Llicència"
 
-#: ../app/views/main/_non_leap_release.html.erb:35
-msgid "Live GNOME"
-msgstr "GNOME imatge viva"
-
-#: ../app/views/main/_non_leap_release.html.erb:39
-msgid "Live KDE"
-msgstr "KDE imatge viva"
-
 #: ../app/views/distributions/_verify_download.html.erb:5
+#, fuzzy
+#| msgid ""
+#| "Many applications can verify the checksum of a download. To verify\n"
+#| "  your download can be important as it verifies you really have got the\n"
+#| "  ISO file you wanted to download and not some broken version. You could\n"
+#| "  verify the file in the process of downloading. For example a checksum\n"
+#| "  (SHA256) will be used automatically if you choose Metalink in the\n"
+#| "  field above and use the add-on DownThemAll! in Firefox."
 msgid ""
 "Many applications can verify the checksum of a download. To verify\n"
-"  your download can be important as it verifies you really have got the\n"
-"  ISO file you wanted to download and not some broken version. You could\n"
-"  verify the file in the process of downloading. For example a checksum\n"
-"  (SHA256) will be used automatically if you choose Metalink in the\n"
-"  field above and use the add-on DownThemAll! in Firefox."
+"your download can be important as it verifies you really have got the\n"
+"ISO file you wanted to download and not some broken version. You could\n"
+"verify the file in the process of downloading. For example a checksum\n"
+"(SHA256) will be used automatically if you choose Metalink in the\n"
+"field above and use the add-on DownThemAll! in Firefox."
 msgstr ""
 "Diverses aplicacions permeten verificar la suma d'una descàrrega. Verificar-"
 "la\n"
@@ -833,86 +580,21 @@ msgstr ""
 "del\n"
 "  Firefox anomenat DownThemAll! (Descarrega'ls tots!)."
 
-#: ../app/views/main/_leap_verify.html.erb:2
-#: ../app/views/main/_non_leap_verify.html.erb:2
-msgid ""
-"Many applications can verify the checksum of a download. To verify your "
-"download can be important as it verifies you really have got the ISO file "
-"you wanted to download and not some broken version."
-msgstr ""
-"Diverses aplicacions permeten verificar la suma d'una descàrrega. Verificar-"
-"la pot ser important ja que comprova que tingueu la imatge ISO que volíeu "
-"baixar i no una versió trencada o incorrecta."
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:46
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:125
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:44
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:123
 msgid "Media"
 msgstr "Mitjans"
-
-#: ../app/views/main/_leap_medium.html.erb:17
-#: ../app/views/main/_help_method.html.erb:14
-#: ../app/views/main/_options.html.erb:10
-msgid "Metalink"
-msgstr "Metaenllaç"
-
-#: ../app/views/main/_leap_release.html.erb:70
-#: ../app/views/main/_non_leap_release.html.erb:77
-msgid "More information on burning the ISO file to CD/DVD"
-msgstr "Més informació sobre gravació d'una imatge ISO en un CD / DVD"
-
-#: ../app/views/main/_leap_release.html.erb:69
-#: ../app/views/main/_non_leap_release.html.erb:76
-msgid ""
-"More information on creating a <a href='http://en.opensuse.org/"
-"Live_USB_stick'>bootable USB stick</a>"
-msgstr ""
-"Més informació sobre la creació d'una <a href='http://en.opensuse.org/"
-"Live_USB_stick'>memòria USB d'arrencada</a>"
-
-#: ../app/views/main/_leap_release.html.erb:56
-#: ../app/views/main/_non_leap_release.html.erb:63
-msgid ""
-"More information on downloading openSUSE is available from the <a href="
-"\"http://en.opensuse.org/SDB:Download_help\">Download Help</a> and <a href="
-"\"http://en.opensuse.org/SDB:Network_installation\">Network Installation</a> "
-"pages in our <a href=\"http://en.opensuse.org/Portal:Documentation"
-"\">Documentation Wiki</a>."
-msgstr ""
-"Més informació sobre la descàrrega d'openSUSE està disponible a <a href="
-"\"http://en.opensuse.org/SDB:Download_help\">Ajuda sobre la baixada</a> i a "
-"les pàgines de la <a href=\"http://en.opensuse.org/SDB:Network_installation"
-"\">Instal·lació per xarxa</a> de la <a href=\"http://en.opensuse.org/Portal:"
-"Documentation\">Wiki de documentació</a>."
-
-#: ../app/views/main/_options.html.erb:32
-msgid ""
-"Most new computers support <a href=\"http://en.wikipedia.org/wiki/"
-"X86-64\">x86-64</a> (also known as AMD64 and Intel64), but some laptop "
-"processors and netbook processors do not support it. So you need to check "
-"wikipedia if you want to be sure your computer supports it."
-msgstr ""
-"La mojoria d'ordinadors nous tenen suport per a <a href=\"http://en."
-"wikipedia.org/wiki/X86-64\">x86-64</a> (també conegut com a AMD64 i "
-"Intel64), però alguns processadors de portàtils o netbooks no en tenen "
-"suport. Podeu consultar la Viquipèdia per saber si el vostre en té."
 
 #: ../app/views/package/categories.html.erb:42
 msgid "Multimedia"
 msgstr "Multimèdia"
 
-#: ../app/views/main/_leap_release.html.erb:54
-#: ../app/views/main/_non_leap_release.html.erb:61
-msgid "Need help?"
-msgstr "Necessiteu ajuda?"
-
-#: ../app/views/main/_leap_release.html.erb:15
-#: ../app/views/main/_non_leap_release.html.erb:31
-#: ../app/views/distributions/tumbleweed_ports.html.erb:113
-#: ../app/views/distributions/tumbleweed_ports.html.erb:170
-#: ../app/views/distributions/testing.html.erb:77
 #: ../app/views/distributions/leap_ports.html.erb:60
 #: ../app/views/distributions/leap_ports.html.erb:117
+#: ../app/views/distributions/testing.html.erb:77
 #: ../app/views/distributions/tumbleweed.html.erb:57
+#: ../app/views/distributions/tumbleweed_ports.html.erb:112
+#: ../app/views/distributions/tumbleweed_ports.html.erb:169
 msgid "Network"
 msgstr "Xarxa"
 
@@ -940,30 +622,13 @@ msgstr "No hi ha descàrregues per a %s al projecte %s"
 msgid "No packages found matching your search. "
 msgstr "No hi ha paquets que coincideixin amb la cerca. "
 
-#: ../app/views/main/_non_leap_release.html.erb:92
-msgid "NonOSS CD"
-msgstr "CD no OSS"
-
-#: ../app/controllers/application_controller.rb:50
+#: ../app/controllers/application_controller.rb:55
 msgid "OBS Backend not available"
 msgstr "Rerefons OBS no disponible"
-
-#: ../app/views/main/release.html.erb:38
-msgid "Official Manuals"
-msgstr "Manuals oficials"
 
 #: ../app/views/distributions/_leap_switch.html.erb:9
 msgid "Online Upgrade Instructions"
 msgstr "Instruccions de l'actualització en línia"
-
-#: ../app/views/main/_non_leap_release.html.erb:22
-msgid ""
-"Only DVD and Network medias are fully tested. Alternatives, like live or "
-"rescue systems, are recommended for limited use only."
-msgstr ""
-"Només s'han provat completament els mitjans de DVD i de xarxa. Els "
-"alternatius, com ara els sistemes vius o de rescat, són recomanats només per "
-"a un ús limitat."
 
 #: ../app/views/distributions/_requirements.html.erb:7
 msgid "Over 40GB of free hard drive space"
@@ -972,10 +637,6 @@ msgstr "Més de 40 GB d'espai lliure al disc dur"
 #: ../app/views/package/show.html.erb:149
 msgid "Package %s not found..."
 msgstr "No s'ha trobat el paquet %s..."
-
-#: ../app/views/main/release.html.erb:39
-msgid "Package Repositories"
-msgstr "Repositoris de paquets"
 
 #: ../app/views/layouts/jekyll.html.erb:45
 #: ../app/views/search/_find_form.html.erb:23
@@ -986,37 +647,30 @@ msgstr "Cerca de paquets"
 msgid "Packages for %s:"
 msgstr "Paquets per %s:"
 
-#: ../app/views/main/_leap_medium.html.erb:18
-#: ../app/views/main/_help_method.html.erb:18
-#: ../app/views/main/_options.html.erb:11
-#: ../app/views/distributions/tumbleweed_ports.html.erb:46
-#: ../app/views/distributions/tumbleweed_ports.html.erb:68
-#: ../app/views/distributions/tumbleweed_ports.html.erb:103
-#: ../app/views/distributions/tumbleweed_ports.html.erb:125
-#: ../app/views/distributions/tumbleweed_ports.html.erb:160
-#: ../app/views/distributions/tumbleweed_ports.html.erb:182
-#: ../app/views/distributions/testing.html.erb:67
-#: ../app/views/distributions/testing.html.erb:89
+#: ../app/views/distributions/leap.html.erb:49
+#: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/leap_ports.html.erb:50
 #: ../app/views/distributions/leap_ports.html.erb:72
 #: ../app/views/distributions/leap_ports.html.erb:107
 #: ../app/views/distributions/leap_ports.html.erb:129
+#: ../app/views/distributions/testing.html.erb:67
+#: ../app/views/distributions/testing.html.erb:89
 #: ../app/views/distributions/tumbleweed.html.erb:47
 #: ../app/views/distributions/tumbleweed.html.erb:69
-#: ../app/views/distributions/leap.html.erb:49
-#: ../app/views/distributions/leap.html.erb:71
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:70
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:92
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:114
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:149
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:170
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:192
+#: ../app/views/distributions/tumbleweed_ports.html.erb:45
+#: ../app/views/distributions/tumbleweed_ports.html.erb:67
+#: ../app/views/distributions/tumbleweed_ports.html.erb:102
+#: ../app/views/distributions/tumbleweed_ports.html.erb:124
+#: ../app/views/distributions/tumbleweed_ports.html.erb:159
+#: ../app/views/distributions/tumbleweed_ports.html.erb:181
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:68
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:90
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:112
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:147
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:168
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:190
 msgid "Pick Mirror"
 msgstr "Trieu una rèplica"
-
-#: ../app/views/main/release.html.erb:55
-msgid "Platinum Sponsor"
-msgstr "Patrocinadors de platí"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:24
 msgid "Please Note: These LiveUSBs are not supported"
@@ -1034,44 +688,13 @@ msgstr ""
 "   Això significa que no estan revisats per openSUSE i que poden contenir "
 "programari no estable o experimental."
 
-#: ../app/views/order/_form.html.erb:63
-msgid ""
-"Please enter a <b>brief</b> reason (in English!) why you need the DVDs and "
-"provide a link of the event/purpose."
-msgstr ""
-"Si us plau, introduïu una raó <b>breu</b> (en anglès!) de per què necessiteu "
-"els DVD i proporcioneu un enllaç de l'esdeveniment/propòsit."
-
-#: ../app/controllers/main_controller.rb:228
-msgid ""
-"Please note that this is not the latest openSUSE release. You can get the "
-"latest version <a href='/'>here</a>. "
-msgstr ""
-"Si us plau, tingueu present que aquesta no és l'última versió estable "
-"d'openSUSE. Podeu obtenir-ne l'última <a href='/'>aquí</a>. "
-
 #: ../app/views/distributions/testing.html.erb:40
 msgid "Please report any issues you find in our Bugtracker."
 msgstr "Si us plau, informeu de qualsevol problema al nostre Bugtracker."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:40
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:39
 msgid "Please review"
 msgstr "Si us plau, reviseu-ho"
-
-#: ../app/views/order/new.html.erb:25
-msgid ""
-"Promo DVDs and all the related artwork -labels and sleeve- can be\n"
-"        downloaded from the <a href=\"http://download.opensuse.org/promodvd/"
-"\">promodvd\n"
-"        download directory %s</a>. Keep in mind that this is a special "
-"version of openSUSE,\n"
-"        namely designed for promotional distribution."
-msgstr ""
-"PromoDVD i tot l'art relacionat -etiquetes i caràtules- es pot descarregar\n"
-"        de <a href=\"http://download.opensuse.org/promodvd/\">promodvd\n"
-"        directori de baixada %s</a>. Tingueu present que aquesta és una "
-"verisó especial d'openSUSE,\n"
-"        dissenyada per a una distribució promocional."
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -1085,32 +708,12 @@ msgstr "Categories relacionades:"
 msgid "Release Notes"
 msgstr "Notes de la versió"
 
-#: ../app/views/main/release.html.erb:17
-msgid "Released Version"
-msgstr "Versió publicada"
-
-#: ../app/views/main/release.html.erb:40
-msgid "Reporting Bugs"
-msgstr "Informeu d'errors"
-
-#: ../app/views/main/_non_leap_release.html.erb:42
-msgid "Rescue"
-msgstr "Rescat"
-
-#: ../app/views/main/_non_leap_release.html.erb:42
-msgid ""
-"Rescue system that you can run from CD or from USB stick.<br/>Can not be "
-"used for installation or upgrade."
+#: ../app/views/distributions/index.html.erb:93
+msgid "SUSE Linux Enterprise"
 msgstr ""
-"Sistema de rescat que podeu executar des d'un CD o d'una memòria USB.<br/>No "
-"es pot fer servir per a instal·lacions o actualitzacions."
 
-#: ../app/views/main/_leap_medium.html.erb:20
-msgid "SHA256 checksum"
-msgstr "La suma SHA256"
-
-#: ../app/views/search/_find_form.html.erb:27
 #: ../app/views/search/find.html.erb:1
+#: ../app/views/search/_find_form.html.erb:27
 msgid "Search"
 msgstr "Cerca"
 
@@ -1154,133 +757,72 @@ msgstr "Mostra els paquets inestables"
 msgid "Show unsupported packages"
 msgstr "Mostra paquets sense suport"
 
-#: ../app/views/main/release.html.erb:63
-msgid "Silver Sponsor"
-msgstr "Patrocinadors de plata"
-
-#: ../app/views/distributions/tumbleweed_ports.html.erb:27
-#: ../app/views/distributions/tumbleweed_ports.html.erb:84
-#: ../app/views/distributions/tumbleweed_ports.html.erb:141
-#: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/leap_ports.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:88
+#: ../app/views/distributions/testing.html.erb:48
 #: ../app/views/distributions/tumbleweed.html.erb:28
-#: ../app/views/distributions/leap.html.erb:26
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:51
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:130
+#: ../app/views/distributions/tumbleweed_ports.html.erb:26
+#: ../app/views/distributions/tumbleweed_ports.html.erb:83
+#: ../app/views/distributions/tumbleweed_ports.html.erb:140
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:49
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:128
 msgid "Size"
 msgstr "Mida"
 
-#: ../app/views/main/_non_leap_release.html.erb:48
-msgid ""
-"Some alternative media (eg. live and rescue systems) are also available, "
-"although they are less tested and recommended for limited use only."
-msgstr ""
-"També hi ha disponibles alguns mitjans alternatius (per exemple, sistemes "
-"vius o de rescat), tot i que s'han provat menys i es recomanen només per a "
-"un ús limitat."
-
-#: ../app/views/main/_change_install.html.erb:34
-msgid ""
-"Some of the live distributions based on openSUSE. Those interested in trying "
-"to build their own derivatives can take a look at <a href=\"http://"
-"susestudio.com/\">SUSE Studio</a>."
-msgstr ""
-"Algunes de les distribucions vives basades en openSUSE. Tothom que estigui "
-"interessat a construir-ne un derivat propi pot fer un cop d'ull a <a href="
-"\"http://susestudio.com/\">SUSE Studio</a>."
-
-#: ../app/helpers/package_helper.rb:14 ../app/helpers/package_helper.rb:16
+#: ../app/helpers/package_helper.rb:13 ../app/helpers/package_helper.rb:15
 #: ../app/views/package/_download_rows.html.erb:26
 #: ../app/views/package/_download_rows.html.erb:33
 msgid "Source"
 msgstr "Font"
 
-#: ../app/views/main/release.html.erb:54
-msgid "Sponsored by"
-msgstr "Patrocinat per"
-
-#: ../app/views/main/release.html.erb:57
-msgid "Sponsored by: AMD"
-msgstr "Patrocinat per AMD"
-
-#: ../app/views/main/release.html.erb:65
-msgid "Sponsored by: B1 Systems"
-msgstr "Patrocinat per B1 Systems"
-
-#: ../app/views/main/release.html.erb:66
-msgid "Sponsored by: Heinlein"
-msgstr "Patrocinat per Heinlein"
-
-#: ../app/views/main/release.html.erb:61
-msgid "Sponsored by: IP Exchange"
-msgstr "Patrocinat per IP Exchange"
-
 #: ../app/views/search/_find_results.html.erb:96
 msgid "Sub-Packages"
 msgstr "Subpaquets"
 
-#: ../app/views/layouts/download.html.erb:58
 #: ../app/views/layouts/application.html.erb:64
+#: ../app/views/layouts/download.html.erb:58
 msgid "Support"
 msgstr "Suport"
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
+#, fuzzy
+#| msgid ""
+#| "The DVD/USB Stick is typically recommended as it contains most of the\n"
+#| "  packages available in the distribution and does not require a network\n"
+#| "  connection during the installation."
 msgid ""
 "The DVD/USB Stick is typically recommended as it contains most of the\n"
-"  packages available in the distribution and does not require a network\n"
-"  connection during the installation."
+"packages available in the distribution and does not require a network\n"
+"connection during the installation."
 msgstr ""
 "Es recomana normalment el DVD / USB, ja que conté la majoria de\n"
 "  paquets disponibles a la distribució i no necessita una connexió\n"
 "  de xarxa durant la instal·lació."
 
 #: ../app/views/distributions/_choosing_media.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "The Network CD/USB Stick is recommended for users who have limited\n"
+#| "  bandwidth on their internet connections, as it will only download the\n"
+#| "  packages they choose to install, which is likely to be significantly\n"
+#| "  less than 4.7GB."
 msgid ""
 "The Network CD/USB Stick is recommended for users who have limited\n"
-"  bandwidth on their internet connections, as it will only download the\n"
-"  packages they choose to install, which is likely to be significantly\n"
-"  less than 4.7GB."
+"bandwidth on their internet connections, as it will only download the\n"
+"packages they choose to install, which is likely to be significantly\n"
+"less than 4.7GB."
 msgstr ""
 "El CD / USB de xarxa és recomanable per als usuaris que tenen una\n"
 "  amplada de banda d'internet limitada, ja que només descarregarà\n"
 "  els paquets que triïn instal·lar, cosa que probablement serà menys\n"
 "  significativa que 4.7 GB."
 
-#: ../app/views/main/_non_leap_release.html.erb:91
-msgid ""
-"The installation process is available in many languages but, for most of "
-"them, the translation of the applications is not included in the image. If "
-"you want your openSUSE system to support some additional language, you need "
-"to download it from the Internet during the installation or any time after "
-"it. If you have easy access to the Internet you do not need this CD, but if "
-"you are planning to install openSUSE in some machine with no Internet "
-"connection, it will provide you access to all the available translations."
-msgstr ""
-"El procés d'instal·lació està disponible en moltes llengües però, per a la "
-"majoria, la traducció de les aplicacions no s'inclou a la imatge. Si voleu "
-"que el vostre sistema openSUSE tingui suport d'una llengua addicional, l'heu "
-"de baixar d'Internet durant la instal·lació o després. Si teniu accés fàcil "
-"a Internet no necessiteu aquest CD, que és només per a màquines sense "
-"connexió. Si voleu tenir l'openSUSE en català l'opció més fàcil és "
-"instal·lar-lo per xarxa, així ja el tindreu en català des del primer moment "
-"i no us caldrà acabar d'instal·lar després els paquets de llengua."
-
 #: ../app/views/download/package.erb:95
 msgid "Then run the following as <strong>root</strong>"
 msgstr "Llavors executeu el següent com a <strong>root</strong>"
 
-#: ../app/controllers/main_controller.rb:208
-msgid ""
-"There is no openSUSE release in testing phase at the moment. <br/> If you "
-"want to use bleeding edge software, please use <a href='http://en.opensuse."
-"org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>."
-msgstr ""
-"Ara no hi ha versió d'openSUSE en fase de proves. <br/> Si voleu fer servir "
-"programari d'última generació; si us plau, utilitzeu <a href='http://en."
-"opensuse.org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>."
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:38
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
 msgid "They are not tested as thoroughly as the"
 msgstr "No es proven tan a fons com"
 
@@ -1290,27 +832,21 @@ msgstr ""
 "No es poden usar per instal·lar o actualitzar el Tumbleweed. Si us plau, useu"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:33
+#, fuzzy
+#| msgid ""
+#| "They have a limited package/driver selection, so cannot be considered\n"
+#| "          an accurate reflection as to whether Tumbleweed will work on "
+#| "your\n"
+#| "          hardware or not."
 msgid ""
 "They have a limited package/driver selection, so cannot be considered\n"
-"          an accurate reflection as to whether Tumbleweed will work on your\n"
-"          hardware or not."
+"an accurate reflection as to whether Tumbleweed will work on your hardware "
+"or not."
 msgstr ""
 "Contenen una selecció limitada de paquets i controladors; per tant, no es\n"
 "          poden considerar un reflex precís de si el Tumbleweed funcionarà "
 "o\n"
 "          no amb el vostre maquinari."
-
-#: ../app/views/main/_non_leap_release.html.erb:93
-msgid ""
-"This CD contains free software distributed under proprietary licence not "
-"allowing its inclusion to main installation media together with free open-"
-"source software. All software from this CD could be downloaded from NON-OSS "
-"repository."
-msgstr ""
-"Aquest CD conté programari gratuït distribuït sota llicència privada que no "
-"permet incloure'l al mitjà d'instal·lació principal conjuntament amb el "
-"programari lliure de codi obert. Tot el programari d'aquest CD es pot "
-"descarregar des del repositori NON-OSS."
 
 #: ../app/views/distributions/testing.html.erb:36
 msgid ""
@@ -1321,35 +857,23 @@ msgstr ""
 "verificadors\n"
 "        de l'openSUSE a trobar errors abans de la publicació."
 
-#: ../app/views/main/_options.html.erb:37
-msgid ""
-"This version runs on all PCs including those that support 64 Bit. If you "
-"have more than 3 GB of RAM you should prefer the 64 Bit version though. "
-"openSUSE does not support processors before Pentium - the live CDs even "
-"support only i686 (Pentium Pro and later)."
-msgstr ""
-"Aquesta versió funciona en tots els PC, fins i tot amb els de 64 bits. Si "
-"teniu més de 3 GB de RAM, hauríeu de preferir la versió de 64 bits. OpenSUSE "
-"no té suport per a processadors més antics que els Pentium - els CD vius "
-"fins i tot per a i686 (Pentium Pro i posteriors)."
-
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
 msgstr "Commuta la navegació"
 
-#: ../app/views/distributions/index.html.erb:85
+#: ../app/views/distributions/index.html.erb:81
+#, fuzzy
+#| msgid ""
+#| "Tumbleweed is recommended for <strong>Developers</strong>,\n"
+#| "        <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS\n"
+#| "        Enthusiasts</strong>."
 msgid ""
-"Tumbleweed is recommended for <strong>Developers</strong>,\n"
-"        <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS\n"
-"        Enthusiasts</strong>."
+"Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
+"Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
 msgstr ""
 "El Tumbleweed és recomanable per a <strong>desenvolupadors</strong>,\n"
 "        <strong>col·laboradors d'openSUSE</strong> i <strong>entusiastes\n"
 "         de Linux / FOSS</strong>."
-
-#: ../app/views/main/_options.html.erb:18
-msgid "Type of Computer"
-msgstr "Tipus d'ordinador"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
 msgid "Unsupported"
@@ -1363,86 +887,13 @@ msgstr "Distribucions sense suport:"
 msgid "Upgrade Instructions"
 msgstr "Instruccions d'actualització"
 
-#: ../app/views/main/_leap_release.html.erb:57
-#: ../app/views/main/_non_leap_release.html.erb:64
-msgid ""
-"User manuals are available from <a href=\"http://activedoc.opensuse.org"
-"\">activedoc.opensuse.org</a>, for example the <a href=\"http://activedoc."
-"opensuse.org/book/opensuse-start-up/\">Official Start-Up Guide</a>."
-msgstr ""
-"Els manuals d'usuari estan disponibles a <a href=\"http://activedoc.opensuse."
-"org\">activedoc.opensuse.org</a>, per exemple <a href=\"http://activedoc."
-"opensuse.org/book/opensuse-start-up/\">la Guia oficial d'inici</a>."
-
-#: ../app/views/main/_help_method.html.erb:12
-msgid ""
-"Using <a href=\"http://en.opensuse.org/SDB:BitTorrent\">BitTorrent</a> is "
-"recommended on slow links, especially when downloading the DVD image. "
-"BitTorrent downloads have several benefits, the clients protect against data "
-"corruption and you help relieving the load on the servers by participating "
-"in the upload - if enough people participate it will also be faster than the "
-"centralized servers - for everybody. Whatsmore, it allows you to stop the "
-"download at any time and resume it later."
-msgstr ""
-"Usar <a href=\"http://en.opensuse.org/SDB:BitTorrent\">BitTorrent</a> és "
-"recomanable per a enllaços lents, especialment per a la descàrrega del DVD. "
-"Les baixades de BitTorrent tenen alguns beneficis: els clients protegeixen "
-"contra la corrupció de dades i alhora ajudeu a alleujar la càrrega dels "
-"servidors participant també a la pujada -si hi participa prou gent serà fins "
-"i tot més ràpid que els servidors centralitzats- per a tothom. Sobretot us "
-"permet aturar la descàrrega i continuar-la més tard."
-
 #: ../app/views/distributions/_verify_download.html.erb:2
 msgid "Verify Your Download Before Use"
-msgstr "Verifiqueu la descàrrega abans de fer-la servir"
-
-#: ../app/views/main/_leap_release.html.erb:60
-#: ../app/views/main/_non_leap_release.html.erb:67
-msgid "Verify your download before use"
 msgstr "Verifiqueu la descàrrega abans de fer-la servir"
 
 #: ../app/views/package/show.html.erb:190
 msgid "Version"
 msgstr "Versió"
-
-#: ../app/views/main/_non_leap_verify.html.erb:4
-msgid "We offer three different checksums:"
-msgstr "Oferim tres tipus de sumes de verificació:"
-
-#: ../app/views/order/new.html.erb:32
-msgid ""
-"We would like you, to keep us informed about your usage of the DVDs, so we\n"
-"        can help you to promote your organization, event or school on our\n"
-"        <a href='http://news.opensuse.org' title='news.opensuse.org'>news "
-"page</a>\n"
-"        or other resources. (Hint! We love photos. Take lots of them!). "
-"Please contact us at\n"
-"        <a href='mailto:opensuse-marketing@opensuse.org'>opensuse-"
-"marketing@opensuse.org</a>\n"
-"        to discuss promotion and/or other ways we can assist you."
-msgstr ""
-"Ens agradaria que ens mantinguéssiu informats de l'ús que feu del DVD, per "
-"tal que puguem\n"
-"        ajudar-vos a  promocionar la vostra organització, esdeveniment o "
-"escola a la nostra\n"
-"        <a href='http://news.opensuse.org' title='news.opensuse.org'>pàgina "
-"de notícies</a>\n"
-"        o altres recursos. (Pista! Ens agraden les fotos! Feu-ne moltes!). "
-"Si us plau, contacteu amb nosaltes a\n"
-"        <a href='mailto:opensuse-marketing@opensuse.org'>opensuse-"
-"marketing@opensuse.org</a>\n"
-"        per parlar de la promoció o d'altres maneres en què us puguem "
-"assistir."
-
-#: ../app/views/main/_help_method.html.erb:8
-msgid ""
-"When downloading images other than the CD for network installation, it is "
-"<i>strongly</i> recommended to use a proper download manager to reduce the "
-"risk of corrupted data."
-msgstr ""
-"Quan descarregueu imatges diferents del CD d'instal·lació per xarxa, és "
-"<i>molt</i> recomanable que feu servir un gestor de descàrregues adient per "
-"reduir el risc de corrupció de dades."
 
 #: ../app/views/download/package.erb:141
 msgid ""
@@ -1463,107 +914,26 @@ msgstr ""
 "Podeu provar d'ampliar la cerca als paquets de desenvolupament o cercar en "
 "una altra distribució de base (vigent)."
 
-#: ../app/views/main/_leap_verify.html.erb:3
-#: ../app/views/main/_non_leap_verify.html.erb:3
-msgid ""
-"You could verify the file in the process of downloading. For example a "
-"checksum (SHA256) will be used automatically if you choose <a href='http://"
-"en.opensuse.org/SDB:Metalink'>Metalink</a> in the field above and use the "
-"add-on DownThemAll! in <a href='http://en.opensuse.org/Firefox'>Firefox</a>."
-msgstr ""
-"Podeu verificar el fitxer durant el procés de baixada. Per exemple, es farà "
-"servir automàticament una suma de verificació (SHA256) si escolliu <a "
-"href='http://en.opensuse.org/SDB:Metalink'>Metaenllaç</a> al camp anterior i "
-"useu el complement DownThemAll! al <a href='http://en.opensuse.org/"
-"Firefox'>Firefox</a>."
-
 #: ../app/views/distributions/_unsupported_live_media.html.erb:6
+#, fuzzy
+#| msgid ""
+#| "also offers a number of unsupported LiveUSBs. These\n"
+#| "  cannot be used for Installation or Upgrade. They are not an accurate\n"
+#| "  reflection as to whether or not Tumbleweed will run on your hardware."
 msgid ""
 "also offers a number of unsupported LiveUSBs. These\n"
-"  cannot be used for Installation or Upgrade. They are not an accurate\n"
-"  reflection as to whether or not Tumbleweed will run on your hardware."
+"cannot be used for Installation or Upgrade. They are not an accurate\n"
+"reflection as to whether or not Tumbleweed will run on your hardware."
 msgstr ""
 "també ofereix un nombre d'imatges vives sense suport. No es\n"
 "  poden usar per a la instal·lació o l'actualització. No són un reflex\n"
 "  precís de si el Tumbleweed funcionarà o no amb el maquinari."
 
-#: ../app/views/distributions/index.html.erb:94
+#: ../app/views/distributions/index.html.erb:87
 msgid "annually"
 msgstr "anualment"
 
-#: ../app/views/distributions/index.html.erb:111
-msgid ""
-"as well as by human openSUSE contributors so both can be relied\n"
-"        upon to work."
-msgstr ""
-"així com per col·laboradors humans de l'openSUSE, de manera que es\n"
-"        depengui de tots dos per funcionar."
-
-#: ../app/views/main/_non_leap_verify.html.erb:8
-#: ../app/views/main/_non_leap_verify.html.erb:19
-msgid "gpg signature"
-msgstr "signatura gpg"
-
-#: ../app/views/main/release.html.erb:38
-msgid "http://doc.opensuse.org/"
-msgstr "http://doc.opensuse.org/"
-
-#: ../app/views/main/_change_install.html.erb:36
-msgid "http://en.opensuse.org/Derivatives"
-msgstr "http://en.opensuse.org/Derivatives"
-
-#: ../app/views/main/release.html.erb:39
-msgid "http://en.opensuse.org/Package_repositories"
-msgstr "http://en.opensuse.org/Package_repositories"
-
-#: ../app/views/main/release.html.erb:37
-msgid "http://en.opensuse.org/Portal:Installation"
-msgstr "http://en.opensuse.org/Portal:Installation"
-
-#: ../app/views/main/release.html.erb:35
-msgid "http://en.opensuse.org/SDB:Download_help"
-msgstr "http://en.opensuse.org/SDB:Download_help"
-
-#: ../app/views/main/release.html.erb:36
-#: ../app/views/main/_leap_release.html.erb:70
-#: ../app/views/main/_non_leap_release.html.erb:77
-msgid "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
-msgstr "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
-
-#: ../app/views/main/release.html.erb:40
-msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
-msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
-
-#: ../app/controllers/main_controller.rb:45
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
-
-#: ../app/controllers/main_controller.rb:65
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
-
-#: ../app/controllers/main_controller.rb:88
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
-
-#: ../app/controllers/main_controller.rb:111
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
-
-#: ../app/controllers/main_controller.rb:134
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
-
-#: ../app/controllers/main_controller.rb:149
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
-
-#: ../app/controllers/main_controller.rb:163
-#: ../app/controllers/main_controller.rb:177
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
-
-#: ../app/views/distributions/index.html.erb:96
+#: ../app/views/distributions/index.html.erb:88
 msgid "https://en.opensuse.org/Lifetime"
 msgstr "https://en.opensuse.org/Lifetime"
 
@@ -1601,7 +971,7 @@ msgstr "https://en.opensuse.org/SDB:Live_USB_stick"
 msgid "https://en.opensuse.org/SDB:System_upgrade"
 msgstr "https://en.opensuse.org/SDB:System_upgrade"
 
-#: ../app/views/distributions/index.html.erb:93
+#: ../app/views/distributions/index.html.erb:87
 msgid "https://en.opensuse.org/openSUSE:Roadmap"
 msgstr "https://en.opensuse.org/openSUSE:Roadmap"
 
@@ -1609,97 +979,56 @@ msgstr "https://en.opensuse.org/openSUSE:Roadmap"
 msgid "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgstr "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 
-#: ../app/views/distributions/index.html.erb:125
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:8
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
-
-#: ../app/views/distributions/index.html.erb:127
-msgid "if you change your mind later."
-msgstr "si canvieu d'idea més tard."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:30
 msgid "instead."
 msgstr "en lloc seu."
 
-#: ../app/views/distributions/index.html.erb:92
-msgid "is a <strong>regular-release</strong>. This means it releases"
-msgstr "és una <strong>versió regular</strong>. Això vol dir que es publica"
-
-#: ../app/views/distributions/index.html.erb:80
-msgid ""
-"is a <strong>rolling-release</strong>. This means the software is always\n"
-"        the latest stable versions available from the openSUSE Project. "
-"Things\n"
-"        will change regularly as Free and Open Source projects continually\n"
-"        release new versions of their software."
-msgstr ""
-"és una <strong>versió contínua</strong>. Això vol dir que el programari "
-"sempre\n"
-"        és la darrera versió estable disponible des del projecte openSUSE. "
-"Canviarà\n"
-"        regularment ja que els projectes lliures i de codi obert publiquen "
-"contínuament\n"
-"        versions noves del programari."
-
 #: ../app/views/distributions/tumbleweed.html.erb:82
+#, fuzzy
+#| msgid ""
+#| "is also available on other architectures, such as\n"
+#| "        Intel 32-bit (aka i586), AArch64 (aka ARMv8) and PPC64."
 msgid ""
-"is also available on other architectures, such as\n"
-"        Intel 32-bit (aka i586), AArch64 (aka ARMv8) and PPC64."
+"is also available on other architectures, such as Intel 32-bit (aka i586), "
+"AArch64 (aka ARMv8) and PPC64."
 msgstr ""
 "també està disponible en altres arquitectures, com ara\n"
 "        Intel 32-bit (també coneguda com a i586), AArch64 (ARMv8) i PPC64."
 
-#: ../app/views/main/_non_leap_verify.html.erb:13
-#: ../app/views/main/_non_leap_verify.html.erb:20
-msgid ""
-"is still the most commonly used checksum. Many ISO burners display it right "
-"before burning."
-msgstr ""
-"és encara la suma de verificació més usada. Molts gravadors d'ISO la mostren "
-"abans d'enregistrar-les."
-
-#: ../app/views/main/_non_leap_verify.html.erb:15
-#: ../app/views/main/_non_leap_verify.html.erb:21
-msgid "is the less known but more secure checksum than md5."
-msgstr "és menys coneguda però més segura que la suma md5."
-
-#: ../app/views/distributions/index.html.erb:96
+#: ../app/views/distributions/index.html.erb:88
 msgid "lifetime"
 msgstr "durada de vida"
 
-#: ../app/views/main/_non_leap_verify.html.erb:12
-#: ../app/views/main/_non_leap_verify.html.erb:20
-msgid "md5 checksum"
-msgstr "La suma md5"
-
-#: ../app/views/main/_non_leap_verify.html.erb:9
-#: ../app/views/main/_non_leap_verify.html.erb:19
-msgid ""
-"offers the most security as you can verify who signed it. It should be <tt>"
-"%s</tt>."
-msgstr ""
-"ofereix la màxima seguretat ja que podeu verificar qui ho ha siginat. Hauria "
-"de ser <tt>%s</tt>."
-
-#: ../app/views/main/release.html.erb:48
-msgid "openSUSE Countdown"
-msgstr "Compte enrere d'openSUSE"
-
-#: ../app/views/main/_leap_release.html.erb:51
-#: ../app/views/main/_non_leap_release.html.erb:44
-msgid "openSUSE Derivatives"
+#: ../app/views/distributions/index.html.erb:86
+#: ../app/views/distributions/index.html.erb:107
+#, fuzzy
+#| msgid "openSUSE Derivatives"
+msgid "openSUSE Leap"
 msgstr "Derivats d'openSUSE"
 
 #: ../app/views/distributions/leap.html.erb:83
+#, fuzzy
+#| msgid ""
+#| "openSUSE Leap is also available on other architectures, such as\n"
+#| "        AArch64 (aka ARMv8) and PPC64."
 msgid ""
-"openSUSE Leap is also available on other architectures, such as\n"
-"        AArch64 (aka ARMv8) and PPC64."
+"openSUSE Leap is also available on other architectures, such as AArch64 (aka "
+"ARMv8) and PPC64."
 msgstr ""
 "L'openSUSE Leap també està disponible en altres arquitectures, com ara\n"
 "        AArch64 (també coneguda com a ARMv8) i PPC64."
 
-#: ../app/views/distributions/index.html.erb:143
+#: ../app/views/distributions/index.html.erb:79
+#, fuzzy
+#| msgid "switch to openSUSE Tumbleweed"
+msgid "openSUSE Tumbleweed"
+msgstr "canvieu a l'openSUSE Tumbleweed"
+
+#: ../app/views/distributions/index.html.erb:126
 msgid ""
 "openSUSE has a number of unofficial derivative distributions.\n"
 "              These are made by our awesome community, often for special\n"
@@ -1709,65 +1038,694 @@ msgstr ""
 "              Les fa la nostra formidable comunitat, sovint per a propòsits\n"
 "              especials."
 
-#: ../app/views/main/_help_method.html.erb:4
-msgid ""
-"openSUSE is available via http (direct link) or BitTorrent. The CD for "
-"network installation is only available via http."
-msgstr ""
-"L'openSUSE està disponible a través d'http (enllaç directe) o BitTorrent. El "
-"CD d'instal·lació per xarxa només està disponible per http."
-
 #: ../app/views/distributions/index.html.erb:10
 msgid "openSUSE is completely free to download, use and share."
 msgstr ""
 "L'openSUSE és completament lliure per descarregar-lo, usar-lo i compartir-lo."
 
-#: ../app/views/main/_options.html.erb:28
-msgid "openSUSE only supports PCs with 32 Bits and 64 Bits."
-msgstr "L'openSUSE només ofereix suport per a 32 i 64 bits."
-
-#: ../app/views/main/_change_install.html.erb:36
-msgid "see Derivatives on wiki"
-msgstr "Vegeu-ne els Derivats a la wiki"
-
-#: ../app/views/main/_non_leap_verify.html.erb:14
-#: ../app/views/main/_non_leap_verify.html.erb:21
-msgid "sha1 checksum"
-msgstr "La suma sha1"
-
-#: ../app/views/distributions/index.html.erb:101
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:41
+#, fuzzy
+#| msgid ""
+#| "test results if you want an indication whether these LiveUSBs are\n"
+#| "          working as expected."
 msgid ""
-"so major architectural changes are not expected for several years, aligned\n"
-"        with each new Major Release (eg 12, 13, etc) of SUSE Linux "
-"Enterprise."
-msgstr ""
-"de manera que no s'esperen canvis d'arquitectures durant uns quants anys, "
-"alineats\n"
-"         amb cada versió principal nova (p.e. 12, 13, etc) del SUSE Linux "
-"Enterprise."
-
-#: ../app/views/main/release.html.erb:15 ../app/views/main/release.html.erb:17
-msgid "switch to"
-msgstr "canvieu a"
-
-#: ../app/views/distributions/index.html.erb:126
-msgid "switch to openSUSE Tumbleweed"
-msgstr "canvieu a l'openSUSE Tumbleweed"
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:42
-msgid ""
-"test results if you want an indication whether these LiveUSBs are\n"
-"          working as expected."
+"test results if you want an indication whether these LiveUSBs are working as "
+"expected."
 msgstr ""
 "resultats de les proves si voleu una indicació de si aquestes imatges vives\n"
 "          funcionen com s'esperava."
 
-#: ../app/views/distributions/index.html.erb:95
-msgid ""
-"with security and stability updates being the priority during each release"
-msgstr ""
-"amb actualitzacions de seguretat i estabilitat, que són la prioritat durant "
-"cada publicació"
+#~ msgid ""
+#~ "If you’re already running openSUSE you can upgrade by booting from the\n"
+#~ "  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a "
+#~ "few\n"
+#~ "  commands."
+#~ msgstr ""
+#~ "Si ja teniu l'openSUSE, podeu actualitzar-lo o bé arrencant l'ordinador "
+#~ "des del\n"
+#~ "  DVD / USB i triar l'opció d'actualització o bé fer una actualització en "
+#~ "línia amb \n"
+#~ "  poques ordres."
+
+#~ msgid "\"#{release} is not a supported release.\""
+#~ msgstr "\"#{release} no és una versió amb suport.\""
+
+#~ msgid "... and keep us informed"
+#~ msgstr "... i mantingueu-nos informats"
+
+#~ msgid "... get other marketing stuff"
+#~ msgstr "... obtingueu més coses de màrqueting"
+
+#~ msgid "4.7GB DVD (also suitable for USB stick)"
+#~ msgstr "DVD de 4.7 GB (també adient per a memòries usb)"
+
+#~ msgid "64 Bit PC"
+#~ msgstr "PC de 64 bits"
+
+#~ msgid ""
+#~ "<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">openSUSE "
+#~ "startup guide</a>"
+#~ msgstr ""
+#~ "<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">Guia "
+#~ "d'inici d'openSUSE</a>"
+
+#~ msgid ""
+#~ "<a href=\"http://en.opensuse.org/SDB:Metalink\">Metalink</a> is an open "
+#~ "standard that bundles the various ways (FTP/HTTP/BitTorrent) to get files "
+#~ "into one format for easier downloads. This makes it good for downloading "
+#~ "ISOs; particularly for people who can't use P2P because of restrictions "
+#~ "from their ISP or University. It can deliver very fast download speeds "
+#~ "since most clients support multiple connections, to multiple mirrors, "
+#~ "automatically. In addition, it can do automatic error detection, and "
+#~ "correction. It needs a special client to handle it though."
+#~ msgstr ""
+#~ "<a href=\"http://en.opensuse.org/SDB:Metalink\">Un metaenllaç</a> és un "
+#~ "estàndard obert que combina les diferents maneres (FTP/HTTP/BitTorrent) "
+#~ "d'obtenir fitxers en un sol format per a descàrregues més fàcils. Va bé "
+#~ "per a descàrregues d'ISO, particularment per a gent que no pot utilitzar "
+#~ "P2P a causa de restriccions d'ISP o de la universitat. Pot oferir "
+#~ "baixades molt ràpides ja que molts dels clients tenen suport per a "
+#~ "connexions múltiples, a múltiples miralls, automàticament. A més, pot fer "
+#~ "una detecció automàtica d'errors i correccions. Ara bé, per fer-ho "
+#~ "necessita un client especial."
+
+#~ msgid "<a href=\"http://en.opensuse.org/openSUSE:License\">License</a>"
+#~ msgstr "<a href=\"http://en.opensuse.org/openSUSE:License\">Llicència</a>"
+
+#~ msgid "<a href='%s'>Release Notes</a>"
+#~ msgstr "<a href='%s'>Notes de la versió</a>"
+
+#~ msgid ""
+#~ "A GNOME desktop you can run from %s or from USB stick.<br/>Can be "
+#~ "installed as is (no upgrade)."
+#~ msgstr ""
+#~ "Un escriptori GNOME que podeu fer servir des de %s o des d'una memòria "
+#~ "USB.<br/>Es pot instal·lar tal com és (no per actualitzar)."
+
+#~ msgid ""
+#~ "A KDE desktop you can run from %s or from USB stick.<br/>Can be installed "
+#~ "as is (no upgrade)."
+#~ msgstr ""
+#~ "Un escriptori KDE que podeu fer servir des de %s o des d'una memòria USB."
+#~ "<br/>Es pot instal·lar tal com és (no per actualitzar)."
+
+#~ msgid "Add-On Downloads (optional)"
+#~ msgstr "Descàrregues complementàries (opcional)"
+
+#~ msgid ""
+#~ "After having successfully downloaded the ISO image(s), create a bootable "
+#~ "USB stick or burn the image(s) to a DVD (or a CD if the chosen image "
+#~ "fits)."
+#~ msgstr ""
+#~ "Després d'haver descarregat correctament una imatge ISO, creeu una "
+#~ "memòria USB d'arrencada o graveu la imatge en un DVD (o CD si la imatge "
+#~ "escollida hi cap)."
+
+#~ msgid ""
+#~ "All data is used only for sending openSUSE promotional material\n"
+#~ "      and will not be spread to third parties. We store the data to\n"
+#~ "      inform the users if a new version is available. All requests have\n"
+#~ "      to be screened to fulfill the US export embargo. More information\n"
+#~ "      about the embargo and a list of countries at wikipedia <a "
+#~ "href='http://en.wikipedia.org/wiki/United_States_embargoes'>http://en."
+#~ "wikipedia.org/wiki/United_States_embargoes</a>."
+#~ msgstr ""
+#~ "Les dades només s'utilitzen per enviar material promocional d'openSUSE\n"
+#~ "      i no s'escamparan a terceres parts. Desem les dades per\n"
+#~ "      informar els usuaris de les noves versions disponibles. Totes les "
+#~ "peticions\n"
+#~ "      han d'escanejar-se per complir l'US export embargo. Més informació\n"
+#~ "      sobre l'embargo i una llista de països a la Viquipèdia <a "
+#~ "href='http://en.wikipedia.org/wiki/United_States_embargoes'>http://en."
+#~ "wikipedia.org/wiki/United_States_embargoes</a>."
+
+#~ msgid "BitTorrent"
+#~ msgstr "BitTorrent"
+
+#~ msgid ""
+#~ "Boot from the DVD, CD or USB stick. In case your computer does not "
+#~ "automatically boot from the chosen device, open the BIOS setup to allow "
+#~ "booting from it."
+#~ msgstr ""
+#~ "Arrenqueu des d'un DVD, CD o memòria USB. En cas que l'ordinador no "
+#~ "arrenqui automàticament des del mitjà escollit, entreu a la configuració "
+#~ "de la BIOS per permetre-ho."
+
+#~ msgid "Both distributions are well tested by"
+#~ msgstr "Totes dues distribucions han estat ben posades a prova per"
+
+#~ msgid "Bronze Sponsor"
+#~ msgstr "Patrocinadors de bronze"
+
+#~ msgid "Browser incompatibility"
+#~ msgstr "Incompatibilitat de navegador"
+
+#~ msgid "Burn CD/DVD Image(s)"
+#~ msgstr "Graveu una imatge de CD / DVD"
+
+#~ msgid ""
+#~ "Choose an installation medium by clicking it and hit the Download button "
+#~ "to start the download. Optionally choose your computer type or an "
+#~ "alternative download method."
+#~ msgstr ""
+#~ "Escolliu un mitjà d'instal·lació clicant-hi i després premeu el botó de "
+#~ "descàrrega per iniciar la baixada. Opcionalment, trieu el tipus "
+#~ "d'ordinador o un mètode de descàrrega alternatiu."
+
+#~ msgid "Click here to display these alternative versions."
+#~ msgstr "Cliqueu aquí per veure aquestes versions alternatives."
+
+#~ msgid "Click to Download"
+#~ msgstr "Cliqueu-hi per descarregar"
+
+#~ msgid ""
+#~ "Contains a large collection of software for desktop or server use.<br/"
+#~ ">Suitable for installation or upgrade."
+#~ msgstr ""
+#~ "Conté una gran col·lecció de programari per a ús d'escriptori o de "
+#~ "servidor.<br/>Adient per a una instal·lació o actualització."
+
+#~ msgid "Countdown"
+#~ msgstr "Compte enrere"
+
+#~ msgid "Country"
+#~ msgstr "País"
+
+#~ msgid "Development Version"
+#~ msgstr "Versió de desenvolupament"
+
+#~ msgid "Download"
+#~ msgstr "Descàrrega"
+
+#~ msgid "Download %s"
+#~ msgstr "Descarregueu l'%s"
+
+#~ msgid "Download Help"
+#~ msgstr "Ajuda sobre la baixada"
+
+#~ msgid "Download&nbsp;DVD"
+#~ msgstr "Descarregueu el&nbsp;DVD"
+
+#~ msgid "Download&nbsp;GNOME"
+#~ msgstr "Descarregueu&nbsp;GNOME"
+
+#~ msgid "Download&nbsp;KDE"
+#~ msgstr "Descarregueu&nbsp;KDE"
+
+#~ msgid "Download&nbsp;Network"
+#~ msgstr "Descarregueu&nbsp;Xarxa"
+
+#~ msgid "Download&nbsp;Rescue"
+#~ msgstr "Descarregueu&nbsp;Rescat"
+
+#~ msgid ""
+#~ "Downloads the installation system and all packages from online "
+#~ "repositories.<br/>Suitable for installation or upgrade."
+#~ msgstr ""
+#~ "Descarrega el sistema d'instal·lació i tots els paquets des dels "
+#~ "repositoris en línia.<br/>Adient per a una instal·lació o actualització."
+
+#~ msgid "Extra Languages"
+#~ msgstr "Més llengües"
+
+#~ msgid "Extra Languages (32 Bit)"
+#~ msgstr "Més llengües (32 bits)"
+
+#~ msgid "Extra Languages (64 Bit)"
+#~ msgstr "Més llengües (64 bits)"
+
+#~ msgid ""
+#~ "For extra security, you can use GPG to verify who signed those .sha256 "
+#~ "files. It should be %s."
+#~ msgstr ""
+#~ "Per a més seguretat, podeu usar GPG per verificar qui ha signat aquests "
+#~ "fitxers .sha256. Hauria de ser <tt>%s</tt>."
+
+#~ msgid "Get one of the specialized distributions built on openSUSE."
+#~ msgstr ""
+#~ "Obtingueu una de les distribucions especialitzades construïdes a partir "
+#~ "d'openSUSE."
+
+#~ msgid "Getting Help"
+#~ msgstr "Obtingueu ajuda"
+
+#~ msgid "Gold Sponsor"
+#~ msgstr "Patrocinadors d'or"
+
+#~ msgid "Help on Download Method"
+#~ msgstr "Ajuda sobre el mètode de baixada"
+
+#~ msgid "Help on Type of Computer"
+#~ msgstr "Ajuda sobre el tipus d'ordinador"
+
+#~ msgid "How to Proceed"
+#~ msgstr "Com procedir"
+
+#~ msgid ""
+#~ "If you want to use a direct link but live in a place in the world where "
+#~ "our download redirector has not enough information to redirect to the "
+#~ "fastest mirror, you can pick a mirror yourself."
+#~ msgstr ""
+#~ "Si voleu fer servir un enllaç directe però viviu en un lloc del planeta "
+#~ "on el nostre redirector de descàrregues no té prou informació per "
+#~ "redireccionar-vos al mirall més ràpid, podeu escollir vosaltres mateixos "
+#~ "el mirall."
+
+#~ msgid "Installation Guides"
+#~ msgstr "Guies d'instal·lació"
+
+#~ msgid "Installation Medium"
+#~ msgstr "Mitjà d'instal·lació"
+
+#~ msgid "It is easy to"
+#~ msgstr "És fàcil"
+
+#~ msgid ""
+#~ "Join the fast-growing community, put openSUSE into more hands by\n"
+#~ "        getting the latest PromoDVD for your group, non-profit "
+#~ "organization, school\n"
+#~ "        university or event like LUG meetings, installfests, and "
+#~ "conferences.\n"
+#~ "        Promo DVDs help to increase awareness and visibility of openSUSE!"
+#~ msgstr ""
+#~ "Uniu-vos a la comunitat creixent, poseu l'openSUSE a mans de més "
+#~ "persones\n"
+#~ "        obtenint l'últim PromoDVD per al vostre grup, organizació sense "
+#~ "ànim de lucre,\n"
+#~ "        escola, universitat o esdeveniment com ara trobades LUG, festes "
+#~ "d'instal·lació i conferències.\n"
+#~ "        Els PromoDVD ajuden a augmentar el coneixement i la visibilitat "
+#~ "d'openSUSE!"
+
+#~ msgid ""
+#~ "Konqueror of KDE 3 is unfortunately unmaintained and its javascript "
+#~ "implementation contains bugs that make it impossible to use with this "
+#~ "page. Please make sure you have javascript disabled before you <a "
+#~ "href='%s'>continue</a>."
+#~ msgstr ""
+#~ "El Konqueror del KDE 3 ja no té suport i no és mantingut i la seva "
+#~ "implementació java conté errors que el fan impossible d'utilitzar amb "
+#~ "aquesta pàgina. Si us plau, assegureu-vos de desactivar el javascript "
+#~ "abans de <a href='%s'>continuar</a>."
+
+# label for language selection
+#~ msgid "Language"
+#~ msgstr "Idioma"
+
+#~ msgid "Leap shares a Common Base System with"
+#~ msgstr "El Leap comparteix un sistema de base comuna amb"
+
+#~ msgid "Legacy 32 Bit PC"
+#~ msgstr "PC de 32 bits (llegat)"
+
+#~ msgid "Legacy 32&nbsp;Bit&nbsp;PC"
+#~ msgstr "Llegat de 32&nbsp;bits&nbsp"
+
+#~ msgid "Live GNOME"
+#~ msgstr "GNOME imatge viva"
+
+#~ msgid "Live KDE"
+#~ msgstr "KDE imatge viva"
+
+#~ msgid ""
+#~ "Many applications can verify the checksum of a download. To verify your "
+#~ "download can be important as it verifies you really have got the ISO file "
+#~ "you wanted to download and not some broken version."
+#~ msgstr ""
+#~ "Diverses aplicacions permeten verificar la suma d'una descàrrega. "
+#~ "Verificar-la pot ser important ja que comprova que tingueu la imatge ISO "
+#~ "que volíeu baixar i no una versió trencada o incorrecta."
+
+#~ msgid "Metalink"
+#~ msgstr "Metaenllaç"
+
+#~ msgid "More information on burning the ISO file to CD/DVD"
+#~ msgstr "Més informació sobre gravació d'una imatge ISO en un CD / DVD"
+
+#~ msgid ""
+#~ "More information on creating a <a href='http://en.opensuse.org/"
+#~ "Live_USB_stick'>bootable USB stick</a>"
+#~ msgstr ""
+#~ "Més informació sobre la creació d'una <a href='http://en.opensuse.org/"
+#~ "Live_USB_stick'>memòria USB d'arrencada</a>"
+
+#~ msgid ""
+#~ "More information on downloading openSUSE is available from the <a href="
+#~ "\"http://en.opensuse.org/SDB:Download_help\">Download Help</a> and <a "
+#~ "href=\"http://en.opensuse.org/SDB:Network_installation\">Network "
+#~ "Installation</a> pages in our <a href=\"http://en.opensuse.org/Portal:"
+#~ "Documentation\">Documentation Wiki</a>."
+#~ msgstr ""
+#~ "Més informació sobre la descàrrega d'openSUSE està disponible a <a href="
+#~ "\"http://en.opensuse.org/SDB:Download_help\">Ajuda sobre la baixada</a> i "
+#~ "a les pàgines de la <a href=\"http://en.opensuse.org/SDB:"
+#~ "Network_installation\">Instal·lació per xarxa</a> de la <a href=\"http://"
+#~ "en.opensuse.org/Portal:Documentation\">Wiki de documentació</a>."
+
+#~ msgid ""
+#~ "Most new computers support <a href=\"http://en.wikipedia.org/wiki/"
+#~ "X86-64\">x86-64</a> (also known as AMD64 and Intel64), but some laptop "
+#~ "processors and netbook processors do not support it. So you need to check "
+#~ "wikipedia if you want to be sure your computer supports it."
+#~ msgstr ""
+#~ "La mojoria d'ordinadors nous tenen suport per a <a href=\"http://en."
+#~ "wikipedia.org/wiki/X86-64\">x86-64</a> (també conegut com a AMD64 i "
+#~ "Intel64), però alguns processadors de portàtils o netbooks no en tenen "
+#~ "suport. Podeu consultar la Viquipèdia per saber si el vostre en té."
+
+#~ msgid "Need help?"
+#~ msgstr "Necessiteu ajuda?"
+
+#~ msgid "NonOSS CD"
+#~ msgstr "CD no OSS"
+
+#~ msgid "Official Manuals"
+#~ msgstr "Manuals oficials"
+
+#~ msgid ""
+#~ "Only DVD and Network medias are fully tested. Alternatives, like live or "
+#~ "rescue systems, are recommended for limited use only."
+#~ msgstr ""
+#~ "Només s'han provat completament els mitjans de DVD i de xarxa. Els "
+#~ "alternatius, com ara els sistemes vius o de rescat, són recomanats només "
+#~ "per a un ús limitat."
+
+#~ msgid "Package Repositories"
+#~ msgstr "Repositoris de paquets"
+
+#~ msgid "Platinum Sponsor"
+#~ msgstr "Patrocinadors de platí"
+
+#~ msgid ""
+#~ "Please enter a <b>brief</b> reason (in English!) why you need the DVDs "
+#~ "and provide a link of the event/purpose."
+#~ msgstr ""
+#~ "Si us plau, introduïu una raó <b>breu</b> (en anglès!) de per què "
+#~ "necessiteu els DVD i proporcioneu un enllaç de l'esdeveniment/propòsit."
+
+#~ msgid ""
+#~ "Please note that this is not the latest openSUSE release. You can get the "
+#~ "latest version <a href='/'>here</a>. "
+#~ msgstr ""
+#~ "Si us plau, tingueu present que aquesta no és l'última versió estable "
+#~ "d'openSUSE. Podeu obtenir-ne l'última <a href='/'>aquí</a>. "
+
+#~ msgid ""
+#~ "Promo DVDs and all the related artwork -labels and sleeve- can be\n"
+#~ "        downloaded from the <a href=\"http://download.opensuse.org/"
+#~ "promodvd/\">promodvd\n"
+#~ "        download directory %s</a>. Keep in mind that this is a special "
+#~ "version of openSUSE,\n"
+#~ "        namely designed for promotional distribution."
+#~ msgstr ""
+#~ "PromoDVD i tot l'art relacionat -etiquetes i caràtules- es pot "
+#~ "descarregar\n"
+#~ "        de <a href=\"http://download.opensuse.org/promodvd/\">promodvd\n"
+#~ "        directori de baixada %s</a>. Tingueu present que aquesta és una "
+#~ "verisó especial d'openSUSE,\n"
+#~ "        dissenyada per a una distribució promocional."
+
+#~ msgid "Released Version"
+#~ msgstr "Versió publicada"
+
+#~ msgid "Reporting Bugs"
+#~ msgstr "Informeu d'errors"
+
+#~ msgid "Rescue"
+#~ msgstr "Rescat"
+
+#~ msgid ""
+#~ "Rescue system that you can run from CD or from USB stick.<br/>Can not be "
+#~ "used for installation or upgrade."
+#~ msgstr ""
+#~ "Sistema de rescat que podeu executar des d'un CD o d'una memòria USB.<br/"
+#~ ">No es pot fer servir per a instal·lacions o actualitzacions."
+
+#~ msgid "SHA256 checksum"
+#~ msgstr "La suma SHA256"
+
+#~ msgid "Silver Sponsor"
+#~ msgstr "Patrocinadors de plata"
+
+#~ msgid ""
+#~ "Some alternative media (eg. live and rescue systems) are also available, "
+#~ "although they are less tested and recommended for limited use only."
+#~ msgstr ""
+#~ "També hi ha disponibles alguns mitjans alternatius (per exemple, sistemes "
+#~ "vius o de rescat), tot i que s'han provat menys i es recomanen només per "
+#~ "a un ús limitat."
+
+#~ msgid ""
+#~ "Some of the live distributions based on openSUSE. Those interested in "
+#~ "trying to build their own derivatives can take a look at <a href=\"http://"
+#~ "susestudio.com/\">SUSE Studio</a>."
+#~ msgstr ""
+#~ "Algunes de les distribucions vives basades en openSUSE. Tothom que "
+#~ "estigui interessat a construir-ne un derivat propi pot fer un cop d'ull a "
+#~ "<a href=\"http://susestudio.com/\">SUSE Studio</a>."
+
+#~ msgid "Sponsored by"
+#~ msgstr "Patrocinat per"
+
+#~ msgid "Sponsored by: AMD"
+#~ msgstr "Patrocinat per AMD"
+
+#~ msgid "Sponsored by: B1 Systems"
+#~ msgstr "Patrocinat per B1 Systems"
+
+#~ msgid "Sponsored by: Heinlein"
+#~ msgstr "Patrocinat per Heinlein"
+
+#~ msgid "Sponsored by: IP Exchange"
+#~ msgstr "Patrocinat per IP Exchange"
+
+#~ msgid ""
+#~ "The installation process is available in many languages but, for most of "
+#~ "them, the translation of the applications is not included in the image. "
+#~ "If you want your openSUSE system to support some additional language, you "
+#~ "need to download it from the Internet during the installation or any time "
+#~ "after it. If you have easy access to the Internet you do not need this "
+#~ "CD, but if you are planning to install openSUSE in some machine with no "
+#~ "Internet connection, it will provide you access to all the available "
+#~ "translations."
+#~ msgstr ""
+#~ "El procés d'instal·lació està disponible en moltes llengües però, per a "
+#~ "la majoria, la traducció de les aplicacions no s'inclou a la imatge. Si "
+#~ "voleu que el vostre sistema openSUSE tingui suport d'una llengua "
+#~ "addicional, l'heu de baixar d'Internet durant la instal·lació o després. "
+#~ "Si teniu accés fàcil a Internet no necessiteu aquest CD, que és només per "
+#~ "a màquines sense connexió. Si voleu tenir l'openSUSE en català l'opció "
+#~ "més fàcil és instal·lar-lo per xarxa, així ja el tindreu en català des "
+#~ "del primer moment i no us caldrà acabar d'instal·lar després els paquets "
+#~ "de llengua."
+
+#~ msgid ""
+#~ "There is no openSUSE release in testing phase at the moment. <br/> If you "
+#~ "want to use bleeding edge software, please use <a href='http://en."
+#~ "opensuse.org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>."
+#~ msgstr ""
+#~ "Ara no hi ha versió d'openSUSE en fase de proves. <br/> Si voleu fer "
+#~ "servir programari d'última generació; si us plau, utilitzeu <a "
+#~ "href='http://en.opensuse.org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>."
+
+#~ msgid ""
+#~ "This CD contains free software distributed under proprietary licence not "
+#~ "allowing its inclusion to main installation media together with free open-"
+#~ "source software. All software from this CD could be downloaded from NON-"
+#~ "OSS repository."
+#~ msgstr ""
+#~ "Aquest CD conté programari gratuït distribuït sota llicència privada que "
+#~ "no permet incloure'l al mitjà d'instal·lació principal conjuntament amb "
+#~ "el programari lliure de codi obert. Tot el programari d'aquest CD es pot "
+#~ "descarregar des del repositori NON-OSS."
+
+#~ msgid ""
+#~ "This version runs on all PCs including those that support 64 Bit. If you "
+#~ "have more than 3 GB of RAM you should prefer the 64 Bit version though. "
+#~ "openSUSE does not support processors before Pentium - the live CDs even "
+#~ "support only i686 (Pentium Pro and later)."
+#~ msgstr ""
+#~ "Aquesta versió funciona en tots els PC, fins i tot amb els de 64 bits. Si "
+#~ "teniu més de 3 GB de RAM, hauríeu de preferir la versió de 64 bits. "
+#~ "OpenSUSE no té suport per a processadors més antics que els Pentium - els "
+#~ "CD vius fins i tot per a i686 (Pentium Pro i posteriors)."
+
+#~ msgid "Type of Computer"
+#~ msgstr "Tipus d'ordinador"
+
+#~ msgid ""
+#~ "User manuals are available from <a href=\"http://activedoc.opensuse.org"
+#~ "\">activedoc.opensuse.org</a>, for example the <a href=\"http://activedoc."
+#~ "opensuse.org/book/opensuse-start-up/\">Official Start-Up Guide</a>."
+#~ msgstr ""
+#~ "Els manuals d'usuari estan disponibles a <a href=\"http://activedoc."
+#~ "opensuse.org\">activedoc.opensuse.org</a>, per exemple <a href=\"http://"
+#~ "activedoc.opensuse.org/book/opensuse-start-up/\">la Guia oficial d'inici</"
+#~ "a>."
+
+#~ msgid ""
+#~ "Using <a href=\"http://en.opensuse.org/SDB:BitTorrent\">BitTorrent</a> is "
+#~ "recommended on slow links, especially when downloading the DVD image. "
+#~ "BitTorrent downloads have several benefits, the clients protect against "
+#~ "data corruption and you help relieving the load on the servers by "
+#~ "participating in the upload - if enough people participate it will also "
+#~ "be faster than the centralized servers - for everybody. Whatsmore, it "
+#~ "allows you to stop the download at any time and resume it later."
+#~ msgstr ""
+#~ "Usar <a href=\"http://en.opensuse.org/SDB:BitTorrent\">BitTorrent</a> és "
+#~ "recomanable per a enllaços lents, especialment per a la descàrrega del "
+#~ "DVD. Les baixades de BitTorrent tenen alguns beneficis: els clients "
+#~ "protegeixen contra la corrupció de dades i alhora ajudeu a alleujar la "
+#~ "càrrega dels servidors participant també a la pujada -si hi participa "
+#~ "prou gent serà fins i tot més ràpid que els servidors centralitzats- per "
+#~ "a tothom. Sobretot us permet aturar la descàrrega i continuar-la més tard."
+
+#~ msgid "Verify your download before use"
+#~ msgstr "Verifiqueu la descàrrega abans de fer-la servir"
+
+#~ msgid "We offer three different checksums:"
+#~ msgstr "Oferim tres tipus de sumes de verificació:"
+
+#~ msgid ""
+#~ "We would like you, to keep us informed about your usage of the DVDs, so "
+#~ "we\n"
+#~ "        can help you to promote your organization, event or school on "
+#~ "our\n"
+#~ "        <a href='http://news.opensuse.org' title='news.opensuse.org'>news "
+#~ "page</a>\n"
+#~ "        or other resources. (Hint! We love photos. Take lots of them!). "
+#~ "Please contact us at\n"
+#~ "        <a href='mailto:opensuse-marketing@opensuse.org'>opensuse-"
+#~ "marketing@opensuse.org</a>\n"
+#~ "        to discuss promotion and/or other ways we can assist you."
+#~ msgstr ""
+#~ "Ens agradaria que ens mantinguéssiu informats de l'ús que feu del DVD, "
+#~ "per tal que puguem\n"
+#~ "        ajudar-vos a  promocionar la vostra organització, esdeveniment o "
+#~ "escola a la nostra\n"
+#~ "        <a href='http://news.opensuse.org' title='news.opensuse."
+#~ "org'>pàgina de notícies</a>\n"
+#~ "        o altres recursos. (Pista! Ens agraden les fotos! Feu-ne "
+#~ "moltes!). Si us plau, contacteu amb nosaltes a\n"
+#~ "        <a href='mailto:opensuse-marketing@opensuse.org'>opensuse-"
+#~ "marketing@opensuse.org</a>\n"
+#~ "        per parlar de la promoció o d'altres maneres en què us puguem "
+#~ "assistir."
+
+#~ msgid ""
+#~ "When downloading images other than the CD for network installation, it is "
+#~ "<i>strongly</i> recommended to use a proper download manager to reduce "
+#~ "the risk of corrupted data."
+#~ msgstr ""
+#~ "Quan descarregueu imatges diferents del CD d'instal·lació per xarxa, és "
+#~ "<i>molt</i> recomanable que feu servir un gestor de descàrregues adient "
+#~ "per reduir el risc de corrupció de dades."
+
+#~ msgid ""
+#~ "You could verify the file in the process of downloading. For example a "
+#~ "checksum (SHA256) will be used automatically if you choose <a "
+#~ "href='http://en.opensuse.org/SDB:Metalink'>Metalink</a> in the field "
+#~ "above and use the add-on DownThemAll! in <a href='http://en.opensuse.org/"
+#~ "Firefox'>Firefox</a>."
+#~ msgstr ""
+#~ "Podeu verificar el fitxer durant el procés de baixada. Per exemple, es "
+#~ "farà servir automàticament una suma de verificació (SHA256) si escolliu "
+#~ "<a href='http://en.opensuse.org/SDB:Metalink'>Metaenllaç</a> al camp "
+#~ "anterior i useu el complement DownThemAll! al <a href='http://en.opensuse."
+#~ "org/Firefox'>Firefox</a>."
+
+#~ msgid "gpg signature"
+#~ msgstr "signatura gpg"
+
+#~ msgid "http://doc.opensuse.org/"
+#~ msgstr "http://doc.opensuse.org/"
+
+#~ msgid "http://en.opensuse.org/Derivatives"
+#~ msgstr "http://en.opensuse.org/Derivatives"
+
+#~ msgid "http://en.opensuse.org/Package_repositories"
+#~ msgstr "http://en.opensuse.org/Package_repositories"
+
+#~ msgid "http://en.opensuse.org/Portal:Installation"
+#~ msgstr "http://en.opensuse.org/Portal:Installation"
+
+#~ msgid "http://en.opensuse.org/SDB:Download_help"
+#~ msgstr "http://en.opensuse.org/SDB:Download_help"
+
+#~ msgid "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
+#~ msgstr "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
+
+#~ msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+#~ msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
+
+#~ msgid "if you change your mind later."
+#~ msgstr "si canvieu d'idea més tard."
+
+#~ msgid "is a <strong>regular-release</strong>. This means it releases"
+#~ msgstr "és una <strong>versió regular</strong>. Això vol dir que es publica"
+
+#~ msgid ""
+#~ "is still the most commonly used checksum. Many ISO burners display it "
+#~ "right before burning."
+#~ msgstr ""
+#~ "és encara la suma de verificació més usada. Molts gravadors d'ISO la "
+#~ "mostren abans d'enregistrar-les."
+
+#~ msgid "is the less known but more secure checksum than md5."
+#~ msgstr "és menys coneguda però més segura que la suma md5."
+
+#~ msgid "md5 checksum"
+#~ msgstr "La suma md5"
+
+#~ msgid ""
+#~ "offers the most security as you can verify who signed it. It should be "
+#~ "<tt>%s</tt>."
+#~ msgstr ""
+#~ "ofereix la màxima seguretat ja que podeu verificar qui ho ha siginat. "
+#~ "Hauria de ser <tt>%s</tt>."
+
+#~ msgid "openSUSE Countdown"
+#~ msgstr "Compte enrere d'openSUSE"
+
+#~ msgid ""
+#~ "openSUSE is available via http (direct link) or BitTorrent. The CD for "
+#~ "network installation is only available via http."
+#~ msgstr ""
+#~ "L'openSUSE està disponible a través d'http (enllaç directe) o BitTorrent. "
+#~ "El CD d'instal·lació per xarxa només està disponible per http."
+
+#~ msgid "openSUSE only supports PCs with 32 Bits and 64 Bits."
+#~ msgstr "L'openSUSE només ofereix suport per a 32 i 64 bits."
+
+#~ msgid "see Derivatives on wiki"
+#~ msgstr "Vegeu-ne els Derivats a la wiki"
+
+#~ msgid "sha1 checksum"
+#~ msgstr "La suma sha1"
+
+#~ msgid "switch to"
+#~ msgstr "canvieu a"
 
 #~ msgid "An internal error happened :-("
 #~ msgstr "Hi ha hagut un error intern."

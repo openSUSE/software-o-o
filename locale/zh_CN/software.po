@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Chinese (China) (software-o-o)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 11:05+0100\n"
+"POT-Creation-Date: 2017-06-14 13:51+0200\n"
 "PO-Revision-Date: 2017-06-10 14:09+0000\n"
 "Last-Translator: Grover Chou <groverchout@gmail.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/software-"
@@ -18,25 +18,41 @@ msgstr ""
 msgid " and "
 msgstr " 和 "
 
-#: ../app/controllers/main_controller.rb:182
-msgid "\"#{release} is not a supported release.\""
-msgstr "“#{release} 不是一个受支持的版本。”"
+#: ../app/views/distributions/index.html.erb:85
+#, fuzzy
+#| msgid ""
+#| "with security and stability updates being the priority during each release"
+msgid ""
+"%{leap} is a <strong>regular-release</strong>. This means it releases "
+"%{annually}, with security and stability updates being the priority during "
+"each release %{lifetime}."
+msgstr "并且安全和稳定性更新是每个版本中的优先事项"
 
-#: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
+#: ../app/views/distributions/index.html.erb:79
+#, fuzzy
+#| msgid ""
+#| "is a <strong>rolling-release</strong>. This means the software is always\n"
+#| "        the latest stable versions available from the openSUSE Project. "
+#| "Things\n"
+#| "        will change regularly as Free and Open Source projects "
+#| "continually\n"
+#| "        release new versions of their software."
+msgid ""
+"%{tumbleweed} is a <strong>rolling-release</strong>. This means the software "
+"is always the latest stable versions available from the openSUSE Project. "
+"Things will change regularly as Free and Open Source projects continually "
+"release new versions of their software."
+msgstr ""
+"为<strong>滚动发行版</strong>。这表示它的软件总是来自 openS USE 项目的最新稳"
+"定版本。东西会随着自由和开源项目发布它们软件的新版本而定期更改。"
+
+#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
 msgid "(hide)"
 msgstr "（隐藏）"
 
-#: ../app/views/download/package.erb:7 ../app/views/download/appliance.erb:7
+#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
 msgid "(show)"
 msgstr "（显示）"
-
-#: ../app/views/order/new.html.erb:31
-msgid "... and keep us informed"
-msgstr "... 并知会我们"
-
-#: ../app/views/order/new.html.erb:40
-msgid "... get other marketing stuff"
-msgstr "... 获取其它营销材料"
 
 #: ../app/views/distributions/_requirements.html.erb:6
 msgid "2 GB system memory"
@@ -46,52 +62,6 @@ msgstr "2 GB 系统内存"
 msgid "2 Ghz dual core processor or better"
 msgstr "2 Ghz 双核或更好的处理器"
 
-#: ../app/views/main/_leap_release.html.erb:13
-#: ../app/views/main/_non_leap_release.html.erb:28
-msgid "4.7GB DVD (also suitable for USB stick)"
-msgstr "4.7GB DVD（也适用于 U 盘）"
-
-#: ../app/views/main/_options.html.erb:21
-#: ../app/views/main/_options.html.erb:30
-msgid "64 Bit PC"
-msgstr "64 位计算机"
-
-#: ../app/views/main/_options.html.erb:62
-#: ../app/views/main/_leap_release.html.erb:45
-msgid ""
-"<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">openSUSE "
-"startup guide</a>"
-msgstr ""
-"<a href=\"http://activedoc.opensuse.org/book/opensuse-startup/\">openSUSE 入"
-"门指南</a>"
-
-#: ../app/views/main/_help_method.html.erb:16
-msgid ""
-"<a href=\"http://en.opensuse.org/SDB:Metalink\">Metalink</a> is an open "
-"standard that bundles the various ways (FTP/HTTP/BitTorrent) to get files "
-"into one format for easier downloads. This makes it good for downloading "
-"ISOs; particularly for people who can't use P2P because of restrictions from "
-"their ISP or University. It can deliver very fast download speeds since most "
-"clients support multiple connections, to multiple mirrors, automatically. In "
-"addition, it can do automatic error detection, and correction. It needs a "
-"special client to handle it though."
-msgstr ""
-"<a href=\"http://zh.opensuse.org/SDB:Metalink\">Metalink</a> 是一种开源标准，"
-"它将多种撷取文件的方式 (FTP/HTTP/BT) 捆绑成了一种格式以方便下载。这使得它非常"
-"适合下载 ISO; 尤其是对于那些由于他们的 ISP 或大学限制而不能使用 P2P 的人来"
-"说。它可以提供非常快的下载速度，因为它的大多数客户端均支持自动多点连接，以及"
-"从多镜像下载。还有，它能自动查错并纠错。然而您需要特殊的客户端才能使用它。"
-
-#: ../app/views/main/_options.html.erb:64
-#: ../app/views/main/_leap_release.html.erb:49
-msgid "<a href=\"http://en.opensuse.org/openSUSE:License\">License</a>"
-msgstr "<a href=\"http://en.opensuse.org/openSUSE:License\">授权许可</a>"
-
-#: ../app/views/main/_options.html.erb:63
-#: ../app/views/main/_leap_release.html.erb:47
-msgid "<a href='%s'>Release Notes</a>"
-msgstr "<a href='%s'>发行注记</a>"
-
 #: ../app/views/package/_download_rows.html.erb:4
 msgid "<b>official release</b>"
 msgstr "<b>官方版本</b>"
@@ -100,52 +70,9 @@ msgstr "<b>官方版本</b>"
 msgid "<b>official update</b>"
 msgstr "<b>官方更新</b>"
 
-#: ../app/views/main/_non_leap_release.html.erb:35
-msgid ""
-"A GNOME desktop you can run from %s or from USB stick.<br/>Can be installed "
-"as is (no upgrade)."
-msgstr ""
-"可以在 %s 或 U 盘中运行的 GNOME 桌面。<br/>可用于安装（不能用于升级）。"
-
-#: ../app/views/main/_non_leap_release.html.erb:39
-msgid ""
-"A KDE desktop you can run from %s or from USB stick.<br/>Can be installed as "
-"is (no upgrade)."
-msgstr "可在 %s 或 U 盘中运行的 KDE 桌面。<br/>可用于安装（不能用于升级）。"
-
 #: ../app/views/download/package.erb:84
 msgid "Add repository and install manually"
 msgstr "添加软件源并手动安装"
-
-#: ../app/views/main/_non_leap_release.html.erb:86
-msgid "Add-On Downloads (optional)"
-msgstr "附加组件下载（可选）"
-
-#: ../app/views/main/_leap_release.html.erb:67
-#: ../app/views/main/_non_leap_release.html.erb:74
-msgid ""
-"After having successfully downloaded the ISO image(s), create a bootable USB "
-"stick or burn the image(s) to a DVD (or a CD if the chosen image fits)."
-msgstr ""
-"在成功下载 ISO 映像后，创建一个可引导 U 盘或将映像刻录到一张 DVD（若所选映像"
-"够小也可以刻录到 CD）上。"
-
-#: ../app/views/order/_form.html.erb:81
-msgid ""
-"All data is used only for sending openSUSE promotional material\n"
-"      and will not be spread to third parties. We store the data to\n"
-"      inform the users if a new version is available. All requests have\n"
-"      to be screened to fulfill the US export embargo. More information\n"
-"      about the embargo and a list of countries at wikipedia <a href='http://"
-"en.wikipedia.org/wiki/United_States_embargoes'>http://en.wikipedia.org/wiki/"
-"United_States_embargoes</a>."
-msgstr ""
-"全部数据仅用于投递 openSUSE 推广材料且不会扩散给第三方。\n"
-"我们存根数据是为了通知用户新版资讯。\n"
-"全部邮寄请求都必须被美国出口禁运组织审查。\n"
-"关于禁运和禁运国家名单的更多信息可参考维基百科 <a href='http://en.wikipedia."
-"org/wiki/United_States_embargoes'>http://en.wikipedia.org/wiki/"
-"United_States_embargoes</a> 词条。"
 
 #: ../app/views/search/_find_form.html.erb:18
 msgid "App Browser"
@@ -155,43 +82,26 @@ msgstr "应用浏览器"
 msgid "Available Images"
 msgstr "可用映像"
 
-#: ../app/views/main/_leap_medium.html.erb:15
-#: ../app/views/main/_help_method.html.erb:10
-#: ../app/views/main/_options.html.erb:8
-msgid "BitTorrent"
-msgstr "BitTorrent"
-
-#: ../app/views/main/_leap_release.html.erb:73
-#: ../app/views/main/_non_leap_release.html.erb:80
+#: ../app/views/distributions/index.html.erb:102
+#, fuzzy
+#| msgid ""
+#| "Both distributions are fully capable of being used on a Desktop PC,\n"
+#| "        laptop, server, or in the cloud."
 msgid ""
-"Boot from the DVD, CD or USB stick. In case your computer does not "
-"automatically boot from the chosen device, open the BIOS setup to allow "
-"booting from it."
-msgstr ""
-"从 DVD、CD 或 U 盘引导。若您的计算机没有自动从所选设备引导，请打开 BIOS 设置"
-"并允许从该设备引导。"
-
-#: ../app/views/distributions/index.html.erb:114
-msgid ""
-"Both distributions are fully capable of being used on a Desktop PC,\n"
-"        laptop, server, or in the cloud."
+"Both distributions are fully capable of being used on a Desktop PC, laptop, "
+"server, or in the cloud."
 msgstr "两种发行版本都能用于台式计算机、笔记本电脑、服务器或云端上。"
 
-#: ../app/views/distributions/index.html.erb:109
-msgid "Both distributions are well tested by"
-msgstr "两种发行版本都经过了良好的测试由"
-
-#: ../app/views/main/release.html.erb:68
-msgid "Bronze Sponsor"
-msgstr "青铜赞助商"
-
-#: ../app/views/main/redirect_with_notice.erb:1
-msgid "Browser incompatibility"
-msgstr "浏览器不兼容"
-
-#: ../app/views/main/release.html.erb:36
-msgid "Burn CD/DVD Image(s)"
-msgstr "刻录 CD/DVD 映像"
+#: ../app/views/distributions/index.html.erb:100
+#, fuzzy
+#| msgid ""
+#| "as well as by human openSUSE contributors so both can be relied\n"
+#| "        upon to work."
+msgid ""
+"Both distributions are well tested by <a href=\"https://openqa.opensuse.org"
+"\">openQA</a> as well as by human openSUSE contributors so both can be "
+"relied upon to work."
+msgstr "以及由 openSUSE 贡献人以两者可以协同工作。"
 
 #: ../app/views/package/show.html.erb:169
 msgid "Categories"
@@ -201,31 +111,22 @@ msgstr "分类"
 msgid "Category"
 msgstr "分类"
 
-#: ../app/views/distributions/tumbleweed_ports.html.erb:29
-#: ../app/views/distributions/tumbleweed_ports.html.erb:86
-#: ../app/views/distributions/tumbleweed_ports.html.erb:143
-#: ../app/views/distributions/testing.html.erb:50
+#: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:29
 #: ../app/views/distributions/leap_ports.html.erb:90
+#: ../app/views/distributions/testing.html.erb:50
 #: ../app/views/distributions/tumbleweed.html.erb:30
-#: ../app/views/distributions/leap.html.erb:28
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:53
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:132
+#: ../app/views/distributions/tumbleweed_ports.html.erb:28
+#: ../app/views/distributions/tumbleweed_ports.html.erb:85
+#: ../app/views/distributions/tumbleweed_ports.html.erb:142
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:51
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:130
 msgid "Checksum"
 msgstr "校验码"
 
 #: ../app/views/distributions/_verify_download.html.erb:26
 msgid "Checksums Help"
 msgstr "校验码帮助"
-
-#: ../app/views/main/_non_leap_release.html.erb:59
-msgid ""
-"Choose an installation medium by clicking it and hit the Download button to "
-"start the download. Optionally choose your computer type or an alternative "
-"download method."
-msgstr ""
-"通过点击来选择安装介质，然后点击下载按钮来开始下载。另外您也可以选择您的计算"
-"机架构或者额外的下载方式。"
 
 #: ../app/views/distributions/_choosing_media.html.erb:2
 msgid "Choosing Which Media to Download"
@@ -235,50 +136,23 @@ msgstr "选择要下载的媒体"
 msgid "Chosing which Distribution to Download"
 msgstr "选择要下载的发行版"
 
-#: ../app/views/main/_non_leap_release.html.erb:49
-msgid "Click here to display these alternative versions."
-msgstr "点此显示这些可选版本。"
-
-#: ../app/views/main/_download_link.html.erb:2
-msgid "Click to Download"
-msgstr "点击下载"
-
-#: ../app/views/layouts/download.html.erb:59
 #: ../app/views/layouts/application.html.erb:65
+#: ../app/views/layouts/download.html.erb:59
 msgid "Community"
 msgstr "社区"
-
-#: ../app/views/main/_leap_release.html.erb:13
-#: ../app/views/main/_non_leap_release.html.erb:28
-msgid ""
-"Contains a large collection of software for desktop or server use.<br/"
-">Suitable for installation or upgrade."
-msgstr "包含桌面或服务器使用的一篮子软件。<br/>适用于安装或升级。"
-
-#: ../app/views/main/release.html.erb:46
-msgid "Countdown"
-msgstr "倒计时"
-
-#: ../app/views/order/_form.html.erb:72
-msgid "Country"
-msgstr "国家"
 
 #: ../app/views/distributions/testing.html.erb:34
 msgid "Currently testing"
 msgstr "当前测试中"
 
-#: ../app/views/distributions/index.html.erb:136
+#: ../app/views/distributions/index.html.erb:119
 msgid "Derivatives"
 msgstr "衍生版本"
 
-#: ../app/views/layouts/download.html.erb:60
 #: ../app/views/layouts/application.html.erb:66
+#: ../app/views/layouts/download.html.erb:60
 msgid "Development"
 msgstr "开发"
-
-#: ../app/views/main/release.html.erb:15
-msgid "Development Version"
-msgstr "开发版本"
 
 #: ../app/views/search/_find_results.html.erb:92
 msgid "Development packages"
@@ -292,36 +166,31 @@ msgstr "开发-"
 msgid "Direct Install"
 msgstr "直接安装"
 
-#: ../app/views/main/_leap_medium.html.erb:13
-#: ../app/views/main/_help_method.html.erb:6
-#: ../app/views/main/_options.html.erb:6
-#: ../app/views/distributions/tumbleweed_ports.html.erb:38
-#: ../app/views/distributions/tumbleweed_ports.html.erb:60
-#: ../app/views/distributions/tumbleweed_ports.html.erb:95
-#: ../app/views/distributions/tumbleweed_ports.html.erb:117
-#: ../app/views/distributions/tumbleweed_ports.html.erb:152
-#: ../app/views/distributions/tumbleweed_ports.html.erb:174
-#: ../app/views/distributions/testing.html.erb:59
-#: ../app/views/distributions/testing.html.erb:81
+#: ../app/views/distributions/leap.html.erb:37
+#: ../app/views/distributions/leap.html.erb:63
 #: ../app/views/distributions/leap_ports.html.erb:38
 #: ../app/views/distributions/leap_ports.html.erb:64
 #: ../app/views/distributions/leap_ports.html.erb:99
 #: ../app/views/distributions/leap_ports.html.erb:121
+#: ../app/views/distributions/testing.html.erb:59
+#: ../app/views/distributions/testing.html.erb:81
 #: ../app/views/distributions/tumbleweed.html.erb:39
 #: ../app/views/distributions/tumbleweed.html.erb:61
-#: ../app/views/distributions/leap.html.erb:37
-#: ../app/views/distributions/leap.html.erb:63
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:62
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:84
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:106
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:141
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:163
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:184
+#: ../app/views/distributions/tumbleweed_ports.html.erb:37
+#: ../app/views/distributions/tumbleweed_ports.html.erb:59
+#: ../app/views/distributions/tumbleweed_ports.html.erb:94
+#: ../app/views/distributions/tumbleweed_ports.html.erb:116
+#: ../app/views/distributions/tumbleweed_ports.html.erb:151
+#: ../app/views/distributions/tumbleweed_ports.html.erb:173
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:60
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:82
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:104
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:139
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:161
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:182
 msgid "Direct Link"
 msgstr "直接链接"
 
-#: ../app/views/main/_options.html.erb:60
-#: ../app/views/main/_leap_release.html.erb:43
 #: ../app/views/distributions/_documentation.html.erb:2
 msgid "Documentation"
 msgstr "文档"
@@ -330,31 +199,16 @@ msgstr "文档"
 msgid "Don't show this warning the next time"
 msgstr "不再显示此提醒"
 
-#: ../app/views/main/_options.html.erb:45
-#: ../app/views/main/_download_link.html.erb:2
-msgid "Download"
-msgstr "下载"
-
-#: ../app/views/main/release.html.erb:4
-msgid "Download %s"
-msgstr "下载 %s"
-
-#: ../app/views/main/release.html.erb:35
-msgid "Download Help"
-msgstr "下载帮助"
-
-#: ../app/views/main/_leap_medium.html.erb:10
-#: ../app/views/main/_options.html.erb:4
-#: ../app/views/distributions/tumbleweed_ports.html.erb:28
-#: ../app/views/distributions/tumbleweed_ports.html.erb:85
-#: ../app/views/distributions/tumbleweed_ports.html.erb:142
-#: ../app/views/distributions/testing.html.erb:49
+#: ../app/views/distributions/leap.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:89
+#: ../app/views/distributions/testing.html.erb:49
 #: ../app/views/distributions/tumbleweed.html.erb:29
-#: ../app/views/distributions/leap.html.erb:27
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:52
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:131
+#: ../app/views/distributions/tumbleweed_ports.html.erb:27
+#: ../app/views/distributions/tumbleweed_ports.html.erb:84
+#: ../app/views/distributions/tumbleweed_ports.html.erb:141
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:50
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:129
 msgid "Download Method"
 msgstr "下载方式"
 
@@ -366,9 +220,13 @@ msgstr ""
 "下载 openSUSE Leap 的其他架构版本，适用于台式计算机、笔记本电脑和服务器。"
 
 #: ../app/views/distributions/tumbleweed_ports.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "Download alternative architectures of the rolling version\n"
+#| "              of openSUSE, for desktop PCs, laptops, and servers."
 msgid ""
-"Download alternative architectures of the rolling version\n"
-"              of openSUSE, for desktop PCs, laptops, and servers."
+"Download alternative architectures of the rolling version of openSUSE, for "
+"desktop PCs, laptops, and servers."
 msgstr "下载滚动版的其他架构版本，适用于台式计算机、笔记本电脑和服务器。"
 
 #: ../app/controllers/download_controller.rb:36
@@ -402,42 +260,19 @@ msgid ""
 msgstr "下载最新版本的 openSUSE Leap，适用于台式电脑、笔记本电脑和服务器。"
 
 #: ../app/views/distributions/tumbleweed.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "Download the rolling version of openSUSE, for desktop PCs,\n"
+#| "              laptops, and servers."
 msgid ""
 "Download the rolling version of openSUSE, for desktop PCs,\n"
-"              laptops, and servers."
+"laptops, and servers."
 msgstr "下载 openSUSE 的滚动版本，适用于台式电脑、笔记本电脑和服务器。"
 
-#: ../app/views/main/_options.html.erb:49
-msgid "Download&nbsp;DVD"
-msgstr "下载&nbsp;DVD"
-
-#: ../app/views/main/_options.html.erb:48
-msgid "Download&nbsp;GNOME"
-msgstr "下载&nbsp;GNOME"
-
-#: ../app/views/main/_options.html.erb:47
-msgid "Download&nbsp;KDE"
-msgstr "下载&nbsp;KDE"
-
-#: ../app/views/main/_options.html.erb:50
-msgid "Download&nbsp;Network"
-msgstr "网络下载"
-
-#: ../app/views/main/_options.html.erb:51
-msgid "Download&nbsp;Rescue"
-msgstr "下载&nbsp;救援系统"
-
-#: ../app/views/layouts/download.html.erb:57
 #: ../app/views/layouts/application.html.erb:63
+#: ../app/views/layouts/download.html.erb:57
 msgid "Downloads"
 msgstr "下载"
-
-#: ../app/views/main/_leap_release.html.erb:15
-#: ../app/views/main/_non_leap_release.html.erb:31
-msgid ""
-"Downloads the installation system and all packages from online repositories."
-"<br/>Suitable for installation or upgrade."
-msgstr "从在线软件源下载安装系统和全部软件包。<br/>适用于安装或升级。"
 
 #: ../app/views/distributions/_leap_switch.html.erb:2
 msgid "Easy Ways to Switch to openSUSE Leap"
@@ -454,18 +289,6 @@ msgstr "用于安装媒介的 DVD 驱动器或 USB 端口"
 #: ../app/views/package/show.html.erb:252
 msgid "Expand all sections ('e')"
 msgstr "展开所有部分 ('e')"
-
-#: ../app/views/main/_non_leap_release.html.erb:90
-msgid "Extra Languages"
-msgstr "额外语言"
-
-#: ../app/views/main/_non_leap_release.html.erb:88
-msgid "Extra Languages (32 Bit)"
-msgstr "额外语言（32 位）"
-
-#: ../app/views/main/_non_leap_release.html.erb:89
-msgid "Extra Languages (64 Bit)"
-msgstr "额外语言（64 位）"
 
 #: ../app/views/download/package.erb:106
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
@@ -486,7 +309,6 @@ msgstr ""
 "意 pacman.conf 中的软件源顺序是很重要的，因为 pacman 总是会下载第一个找到的软"
 "件包）："
 
-#: ../app/views/main/_leap_verify.html.erb:6
 #: ../app/views/distributions/_verify_download.html.erb:13
 msgid ""
 "For each ISO, we offer a checksum file with the corresponding SHA256 sum."
@@ -496,13 +318,6 @@ msgstr "针对每个 ISO，我们都提供了一个带有相应 SHA256 和的校
 msgid ""
 "For extra security, you can use GPG to verify who signed those .sha256 files."
 msgstr "出于额外的安全考虑，您可以使用 GPG 验证谁签发了这些 .sha256 文件。"
-
-#: ../app/views/main/_leap_verify.html.erb:7
-msgid ""
-"For extra security, you can use GPG to verify who signed those .sha256 "
-"files. It should be %s."
-msgstr ""
-"出于额外的安全考虑，您可以使用 GPG 验证谁签发了这些 .sha256 文件。应该是 %s。"
 
 #: ../app/views/distributions/_verify_download.html.erb:24
 msgid "For more help verifing your download please read"
@@ -532,48 +347,28 @@ msgstr "游戏"
 msgid "Get Unsupported Tumbleweed LiveCDs."
 msgstr "获取不受支持的 Tumbleweed LiveCDs。"
 
-#: ../app/views/main/_non_leap_release.html.erb:44
-msgid "Get one of the specialized distributions built on openSUSE."
-msgstr "获取基于 openSUSE 定制的衍生发行版。"
-
 #: ../app/views/layouts/jekyll.html.erb:8
 #: ../app/views/layouts/jekyll.html.erb:34
 #: ../app/views/distributions/index.html.erb:7
 msgid "Get openSUSE"
 msgstr "获取 openSUSE"
 
-#: ../app/views/distributions/leap.html.erb:87
+#: ../app/views/distributions/leap.html.erb:85
 msgid "Get openSUSE Leap for other architectures."
 msgstr "获取用于其他架构的 openSUSE Leap。"
 
-#: ../app/views/distributions/tumbleweed.html.erb:85
+#: ../app/views/distributions/tumbleweed.html.erb:84
 msgid "Get openSUSE Tumbleweed for other architectures."
 msgstr "获取用于其他架构的 openSUSE Tumbleweed。"
-
-#: ../app/views/main/release.html.erb:33
-msgid "Getting Help"
-msgstr "获取帮助"
-
-#: ../app/views/main/release.html.erb:59
-msgid "Gold Sponsor"
-msgstr "黄金赞助商"
 
 #: ../app/views/download/package.erb:153
 msgid "Grab binary packages directly"
 msgstr "直接抓取二进制软件包"
 
-#: ../app/views/layouts/download.html.erb:54
 #: ../app/views/layouts/application.html.erb:60
+#: ../app/views/layouts/download.html.erb:54
 msgid "Header Logo"
 msgstr "头部徽标"
-
-#: ../app/views/main/_help_method.html.erb:2
-msgid "Help on Download Method"
-msgstr "下载方式帮助"
-
-#: ../app/views/main/_options.html.erb:26
-msgid "Help on Type of Computer"
-msgstr "关于计算机架构的帮助"
 
 #: ../app/views/distributions/index.html.erb:66
 msgid ""
@@ -589,11 +384,6 @@ msgid ""
 msgstr ""
 "帮助测试下个版本的 openSUSE Leap，适用于台式计算机、笔记本电脑和服务器的常规"
 "发行版。"
-
-#: ../app/views/main/_leap_release.html.erb:65
-#: ../app/views/main/_non_leap_release.html.erb:72
-msgid "How to Proceed"
-msgstr "如何进行"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
@@ -619,25 +409,24 @@ msgstr "如何在 Linux 上创建可启动的 U 盘。"
 msgid "How to create a bootable USB stick on OS X."
 msgstr "如何在 OS X 上创建可启动的 U 盘。"
 
-#: ../app/views/distributions/index.html.erb:120
-msgid "If you are still not sure, download"
+#: ../app/views/distributions/index.html.erb:107
+#, fuzzy
+#| msgid "If you are still not sure, download"
+msgid "If you are still not sure, download %{leap}"
 msgstr "如果您还不确定，下载"
 
-#: ../app/views/main/_help_method.html.erb:20
-msgid ""
-"If you want to use a direct link but live in a place in the world where our "
-"download redirector has not enough information to redirect to the fastest "
-"mirror, you can pick a mirror yourself."
-msgstr ""
-"若您想要使用直接链接，但却居住在世界上的某个神秘角落以至于我们的下载中转器没"
-"有足够的关于该位置的信息来把您中转到最快的镜像，这时您可以自行选择一个镜像。"
-
-#: ../app/views/distributions/_tumbleweed_switch.html.erb:5
 #: ../app/views/distributions/_leap_switch.html.erb:5
+#: ../app/views/distributions/_tumbleweed_switch.html.erb:5
+#, fuzzy
+#| msgid ""
+#| "If you’re already running openSUSE you can upgrade by booting from the\n"
+#| "  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a "
+#| "few\n"
+#| "  commands."
 msgid ""
 "If you’re already running openSUSE you can upgrade by booting from the\n"
-"  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
-"  commands."
+"DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
+"commands."
 msgstr ""
 "若您已经运行 openSUSE，您可以启动 DVD/USB 从菜单中选择升级，\n"
 "或者以一些命令来执行“在线升级”。"
@@ -650,7 +439,7 @@ msgstr "映像："
 msgid "Install package %s / %s"
 msgstr "安装软件包 %s / %s"
 
-#: ../app/controllers/download_controller.rb:123
+#: ../app/controllers/download_controller.rb:121
 msgid "Install pattern %s / %s"
 msgstr "安装软件集 %s / %s"
 
@@ -658,33 +447,26 @@ msgstr "安装软件集 %s / %s"
 msgid "Install using One Click Install"
 msgstr "使用一键安装"
 
-#: ../app/views/main/release.html.erb:37
-msgid "Installation Guides"
-msgstr "安装指南"
-
-#: ../app/views/distributions/tumbleweed_ports.html.erb:22
-#: ../app/views/distributions/tumbleweed_ports.html.erb:79
-#: ../app/views/distributions/tumbleweed_ports.html.erb:136
+#: ../app/views/distributions/leap.html.erb:21
 #: ../app/views/distributions/testing.html.erb:43
 #: ../app/views/distributions/tumbleweed.html.erb:23
-#: ../app/views/distributions/leap.html.erb:21
+#: ../app/views/distributions/tumbleweed_ports.html.erb:21
+#: ../app/views/distributions/tumbleweed_ports.html.erb:78
+#: ../app/views/distributions/tumbleweed_ports.html.erb:135
 msgid "Installation Media"
-msgstr "安装介质"
-
-#: ../app/views/main/_leap_release.html.erb:10
-#: ../app/views/main/_non_leap_release.html.erb:17
-msgid "Installation Medium"
 msgstr "安装介质"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
 msgstr "互联网接入有所帮助，同时对于“网络安装”是必需的"
 
-#: ../app/views/distributions/index.html.erb:124
-msgid "It is easy to"
-msgstr "很容易"
+#: ../app/views/distributions/index.html.erb:110
+msgid ""
+"It is easy to <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
+"\">switch to openSUSE Tumbleweed</a> if you change your mind later."
+msgstr ""
 
-#: ../app/views/distributions/index.html.erb:97
+#: ../app/views/distributions/index.html.erb:90
 msgid ""
 "It is not expected to change in any significant way until its next annual "
 "release."
@@ -694,75 +476,45 @@ msgstr "在下一年度版本发行之前，预计不会有任何重大的变化
 msgid "It should be"
 msgstr "它应为"
 
-#: ../app/views/order/new.html.erb:18
+#: ../app/views/distributions/index.html.erb:96
+#, fuzzy
+#| msgid ""
+#| "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
+#| "        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgid ""
-"Join the fast-growing community, put openSUSE into more hands by\n"
-"        getting the latest PromoDVD for your group, non-profit organization, "
-"school\n"
-"        university or event like LUG meetings, installfests, and "
-"conferences.\n"
-"        Promo DVDs help to increase awareness and visibility of openSUSE!"
-msgstr ""
-"快来加入快速壮大的社区，为您的社团、非盈利组织、学校、大学，\n"
-"或如 LUG 聚会、装机市集、发布会等事件预订最新推广 DVD，\n"
-"把 openSUSE 送给更多的人吧。\n"
-"推广 DVD 能帮助提高 openSUSE 的知名度和可视性！"
-
-#: ../app/controllers/main_controller.rb:194
-msgid ""
-"Konqueror of KDE 3 is unfortunately unmaintained and its javascript "
-"implementation contains bugs that make it impossible to use with this page. "
-"Please make sure you have javascript disabled before you <a "
-"href='%s'>continue</a>."
-msgstr ""
-"KDE 3 中的 Konqueror 很不幸没人维护了，它的 javascript 实现有缺陷，使其无法正"
-"常渲染此页面。您在<a href='%s'>继续</a>前请确保禁用了 javascript。"
-
-# label for language selection
-#: ../app/views/main/release.html.erb:72
-msgid "Language"
-msgstr "语言"
-
-#: ../app/views/distributions/index.html.erb:104
-msgid ""
-"Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
-"        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
+"Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
+"Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgstr ""
 "Leap 推荐给<strong>系统管理员</strong>、<strong>企业开发者</strong>和"
 "<strong>“常规”桌面用户</strong>使用。"
 
-#: ../app/views/distributions/index.html.erb:99
-msgid "Leap shares a Common Base System with"
-msgstr "Leap 共享共同的基础系统同"
-
-#: ../app/views/main/_options.html.erb:35
-msgid "Legacy 32 Bit PC"
-msgstr "传统 32 位计算机"
-
-#: ../app/views/main/_options.html.erb:23
-msgid "Legacy 32&nbsp;Bit&nbsp;PC"
-msgstr "传统 32 位计算机"
+#: ../app/views/distributions/index.html.erb:92
+msgid ""
+"Leap shares a Common Base System with %{sles}, so major architectural "
+"changes are not expected for several years, aligned with each new Major "
+"Release (eg 12, 13, etc) of SUSE Linux Enterprise."
+msgstr ""
 
 #: ../app/views/distributions/_documentation.html.erb:18
 msgid "License"
 msgstr "许可证"
 
-#: ../app/views/main/_non_leap_release.html.erb:35
-msgid "Live GNOME"
-msgstr "GNOME LiveCD"
-
-#: ../app/views/main/_non_leap_release.html.erb:39
-msgid "Live KDE"
-msgstr "KDE LiveCD"
-
 #: ../app/views/distributions/_verify_download.html.erb:5
+#, fuzzy
+#| msgid ""
+#| "Many applications can verify the checksum of a download. To verify\n"
+#| "  your download can be important as it verifies you really have got the\n"
+#| "  ISO file you wanted to download and not some broken version. You could\n"
+#| "  verify the file in the process of downloading. For example a checksum\n"
+#| "  (SHA256) will be used automatically if you choose Metalink in the\n"
+#| "  field above and use the add-on DownThemAll! in Firefox."
 msgid ""
 "Many applications can verify the checksum of a download. To verify\n"
-"  your download can be important as it verifies you really have got the\n"
-"  ISO file you wanted to download and not some broken version. You could\n"
-"  verify the file in the process of downloading. For example a checksum\n"
-"  (SHA256) will be used automatically if you choose Metalink in the\n"
-"  field above and use the add-on DownThemAll! in Firefox."
+"your download can be important as it verifies you really have got the\n"
+"ISO file you wanted to download and not some broken version. You could\n"
+"verify the file in the process of downloading. For example a checksum\n"
+"(SHA256) will be used automatically if you choose Metalink in the\n"
+"field above and use the add-on DownThemAll! in Firefox."
 msgstr ""
 "许多程序都可以验证下载文件的校验码。验证您下载的文件挺重要的，\n"
 "因为它可以验证您是否真的撷取到了您想要下载的 ISO 文件而不是\n"
@@ -770,83 +522,21 @@ msgstr ""
 "选择 Metalink 并使用 Firefox 中的附加组件 DownThemAll! 来下载，将自动\n"
 "使用检验码 (SHA256) 。"
 
-#: ../app/views/main/_leap_verify.html.erb:2
-#: ../app/views/main/_non_leap_verify.html.erb:2
-msgid ""
-"Many applications can verify the checksum of a download. To verify your "
-"download can be important as it verifies you really have got the ISO file "
-"you wanted to download and not some broken version."
-msgstr ""
-"许多程序都可以验证下载文件的校验码。验证您下载的文件挺重要的，因为它可以验证"
-"您是否真的撷取到了您想要下载的 ISO 文件而不是一些损坏的版本。"
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:46
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:125
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:44
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:123
 msgid "Media"
 msgstr "媒介"
-
-#: ../app/views/main/_leap_medium.html.erb:17
-#: ../app/views/main/_help_method.html.erb:14
-#: ../app/views/main/_options.html.erb:10
-msgid "Metalink"
-msgstr "Metalink"
-
-#: ../app/views/main/_leap_release.html.erb:70
-#: ../app/views/main/_non_leap_release.html.erb:77
-msgid "More information on burning the ISO file to CD/DVD"
-msgstr "更多关于刻录 ISO 文件到 CD/DVD 上的信息"
-
-#: ../app/views/main/_leap_release.html.erb:69
-#: ../app/views/main/_non_leap_release.html.erb:76
-msgid ""
-"More information on creating a <a href='http://en.opensuse.org/"
-"Live_USB_stick'>bootable USB stick</a>"
-msgstr ""
-"更多关于创建<a href='http://zh.opensuse.org/Live_USB_stick'>可引导 U 盘</a> "
-"的信息"
-
-#: ../app/views/main/_leap_release.html.erb:56
-#: ../app/views/main/_non_leap_release.html.erb:63
-msgid ""
-"More information on downloading openSUSE is available from the <a href="
-"\"http://en.opensuse.org/SDB:Download_help\">Download Help</a> and <a href="
-"\"http://en.opensuse.org/SDB:Network_installation\">Network Installation</a> "
-"pages in our <a href=\"http://en.opensuse.org/Portal:Documentation"
-"\">Documentation Wiki</a>."
-msgstr ""
-"更多关于下载 openSUSE 的信息可以看一看我们<a href=\"http://zh.opensuse.org/"
-"Category:SDB:安装\">维基的支持数据库专题</a>上的 <a href=\"http://zh."
-"opensuse.org/SDB:下载帮助\">下载帮助</a> ，以及 <a href=\"http://zh.opensuse."
-"org/SDB:网络安装方式\">网络安装</a> 页面。"
-
-#: ../app/views/main/_options.html.erb:32
-msgid ""
-"Most new computers support <a href=\"http://en.wikipedia.org/wiki/"
-"X86-64\">x86-64</a> (also known as AMD64 and Intel64), but some laptop "
-"processors and netbook processors do not support it. So you need to check "
-"wikipedia if you want to be sure your computer supports it."
-msgstr ""
-"许多新计算机都支持 <a href=\"http://en.wikipedia.org/wiki/X86-64\">x86_64</"
-"a>（也叫做 AMD64 或 Intel64），但是一些笔记本或上网本处理器可能不支持它。所以"
-"若您想要确保您的计算机支持它，您需要自己去维基百科上确认一下。"
 
 #: ../app/views/package/categories.html.erb:42
 msgid "Multimedia"
 msgstr "多媒体"
 
-#: ../app/views/main/_leap_release.html.erb:54
-#: ../app/views/main/_non_leap_release.html.erb:61
-msgid "Need help?"
-msgstr "需要帮助吗？"
-
-#: ../app/views/main/_leap_release.html.erb:15
-#: ../app/views/main/_non_leap_release.html.erb:31
-#: ../app/views/distributions/tumbleweed_ports.html.erb:113
-#: ../app/views/distributions/tumbleweed_ports.html.erb:170
-#: ../app/views/distributions/testing.html.erb:77
 #: ../app/views/distributions/leap_ports.html.erb:60
 #: ../app/views/distributions/leap_ports.html.erb:117
+#: ../app/views/distributions/testing.html.erb:77
 #: ../app/views/distributions/tumbleweed.html.erb:57
+#: ../app/views/distributions/tumbleweed_ports.html.erb:112
+#: ../app/views/distributions/tumbleweed_ports.html.erb:169
 msgid "Network"
 msgstr "网络"
 
@@ -874,29 +564,13 @@ msgstr "未找到可下载的 %s 位于工程 %s 中"
 msgid "No packages found matching your search. "
 msgstr "没有找到匹配您搜索条件的软件包。 "
 
-#: ../app/views/main/_non_leap_release.html.erb:92
-msgid "NonOSS CD"
-msgstr "NonOSS CD"
-
-#: ../app/controllers/application_controller.rb:50
+#: ../app/controllers/application_controller.rb:55
 msgid "OBS Backend not available"
 msgstr "OBS 后端暂不可用"
-
-#: ../app/views/main/release.html.erb:38
-msgid "Official Manuals"
-msgstr "官方手册"
 
 #: ../app/views/distributions/_leap_switch.html.erb:9
 msgid "Online Upgrade Instructions"
 msgstr "在线升级说明"
-
-#: ../app/views/main/_non_leap_release.html.erb:22
-msgid ""
-"Only DVD and Network medias are fully tested. Alternatives, like live or "
-"rescue systems, are recommended for limited use only."
-msgstr ""
-"只有 DVD 和网络介质是完整测试过的。其它备选，如 Live 介质或救援系统，仅推荐用"
-"于有限用途。"
 
 #: ../app/views/distributions/_requirements.html.erb:7
 msgid "Over 40GB of free hard drive space"
@@ -905,10 +579,6 @@ msgstr "超过 40 GB 的可用硬盘空间"
 #: ../app/views/package/show.html.erb:149
 msgid "Package %s not found..."
 msgstr "未找到软件包 %s..."
-
-#: ../app/views/main/release.html.erb:39
-msgid "Package Repositories"
-msgstr "软件源"
 
 #: ../app/views/layouts/jekyll.html.erb:45
 #: ../app/views/search/_find_form.html.erb:23
@@ -919,37 +589,30 @@ msgstr "软件包搜索"
 msgid "Packages for %s:"
 msgstr "用于 %s 的软件包："
 
-#: ../app/views/main/_leap_medium.html.erb:18
-#: ../app/views/main/_help_method.html.erb:18
-#: ../app/views/main/_options.html.erb:11
-#: ../app/views/distributions/tumbleweed_ports.html.erb:46
-#: ../app/views/distributions/tumbleweed_ports.html.erb:68
-#: ../app/views/distributions/tumbleweed_ports.html.erb:103
-#: ../app/views/distributions/tumbleweed_ports.html.erb:125
-#: ../app/views/distributions/tumbleweed_ports.html.erb:160
-#: ../app/views/distributions/tumbleweed_ports.html.erb:182
-#: ../app/views/distributions/testing.html.erb:67
-#: ../app/views/distributions/testing.html.erb:89
+#: ../app/views/distributions/leap.html.erb:49
+#: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/leap_ports.html.erb:50
 #: ../app/views/distributions/leap_ports.html.erb:72
 #: ../app/views/distributions/leap_ports.html.erb:107
 #: ../app/views/distributions/leap_ports.html.erb:129
+#: ../app/views/distributions/testing.html.erb:67
+#: ../app/views/distributions/testing.html.erb:89
 #: ../app/views/distributions/tumbleweed.html.erb:47
 #: ../app/views/distributions/tumbleweed.html.erb:69
-#: ../app/views/distributions/leap.html.erb:49
-#: ../app/views/distributions/leap.html.erb:71
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:70
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:92
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:114
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:149
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:170
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:192
+#: ../app/views/distributions/tumbleweed_ports.html.erb:45
+#: ../app/views/distributions/tumbleweed_ports.html.erb:67
+#: ../app/views/distributions/tumbleweed_ports.html.erb:102
+#: ../app/views/distributions/tumbleweed_ports.html.erb:124
+#: ../app/views/distributions/tumbleweed_ports.html.erb:159
+#: ../app/views/distributions/tumbleweed_ports.html.erb:181
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:68
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:90
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:112
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:147
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:168
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:190
 msgid "Pick Mirror"
 msgstr "选择镜像站点"
-
-#: ../app/views/main/release.html.erb:55
-msgid "Platinum Sponsor"
-msgstr "白金赞助商"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:24
 msgid "Please Note: These LiveUSBs are not supported"
@@ -965,41 +628,13 @@ msgstr ""
 "请留神以下软件包来自于非官方的软件源。\n"
 "这意味着它们没有被 openSUSE 复核过，因此可能携带不稳定或实验性的软件。"
 
-#: ../app/views/order/_form.html.erb:63
-msgid ""
-"Please enter a <b>brief</b> reason (in English!) why you need the DVDs and "
-"provide a link of the event/purpose."
-msgstr ""
-"请输入一个<b>简短</b>的需要 DVD 的理由（英文）并提供一个事件/目的的链接。"
-
-#: ../app/controllers/main_controller.rb:228
-msgid ""
-"Please note that this is not the latest openSUSE release. You can get the "
-"latest version <a href='/'>here</a>. "
-msgstr ""
-"请注意这不是最新版本的 openSUSE。您可以在<a href='/'>这儿</a>获取最新版本。 "
-
 #: ../app/views/distributions/testing.html.erb:40
 msgid "Please report any issues you find in our Bugtracker."
 msgstr "请报告任何您在我们的缺陷追踪器上找到的问题。"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:40
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:39
 msgid "Please review"
 msgstr "请查看"
-
-#: ../app/views/order/new.html.erb:25
-msgid ""
-"Promo DVDs and all the related artwork -labels and sleeve- can be\n"
-"        downloaded from the <a href=\"http://download.opensuse.org/promodvd/"
-"\">promodvd\n"
-"        download directory %s</a>. Keep in mind that this is a special "
-"version of openSUSE,\n"
-"        namely designed for promotional distribution."
-msgstr ""
-"推广 DVD 和全部相关的艺术作品 -盘面标签和封套- 可在\n"
-"<a href=\"http://download.opensuse.org/promodvd/\">推广 DVD 下载文件夹 %s</a>"
-"下载。\n"
-"请注意这是一个特殊版本的 openSUSE，亦即设计就是用于推广分发的。"
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -1013,30 +648,12 @@ msgstr "相关分类："
 msgid "Release Notes"
 msgstr "发行注记"
 
-#: ../app/views/main/release.html.erb:17
-msgid "Released Version"
-msgstr "稳定版本"
+#: ../app/views/distributions/index.html.erb:93
+msgid "SUSE Linux Enterprise"
+msgstr ""
 
-#: ../app/views/main/release.html.erb:40
-msgid "Reporting Bugs"
-msgstr "汇报故障"
-
-#: ../app/views/main/_non_leap_release.html.erb:42
-msgid "Rescue"
-msgstr "救援系统"
-
-#: ../app/views/main/_non_leap_release.html.erb:42
-msgid ""
-"Rescue system that you can run from CD or from USB stick.<br/>Can not be "
-"used for installation or upgrade."
-msgstr "可在 CD 或 U 盘中运行的救援系统。<br/>不能用于安装或升级。"
-
-#: ../app/views/main/_leap_medium.html.erb:20
-msgid "SHA256 checksum"
-msgstr "SHA256 检验码"
-
-#: ../app/views/search/_find_form.html.erb:27
 #: ../app/views/search/find.html.erb:1
+#: ../app/views/search/_find_form.html.erb:27
 msgid "Search"
 msgstr "搜索"
 
@@ -1080,124 +697,69 @@ msgstr "显示不稳定版的软件包"
 msgid "Show unsupported packages"
 msgstr "显示不受官方支持的软件包"
 
-#: ../app/views/main/release.html.erb:63
-msgid "Silver Sponsor"
-msgstr "白银赞助商"
-
-#: ../app/views/distributions/tumbleweed_ports.html.erb:27
-#: ../app/views/distributions/tumbleweed_ports.html.erb:84
-#: ../app/views/distributions/tumbleweed_ports.html.erb:141
-#: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/leap_ports.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:88
+#: ../app/views/distributions/testing.html.erb:48
 #: ../app/views/distributions/tumbleweed.html.erb:28
-#: ../app/views/distributions/leap.html.erb:26
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:51
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:130
+#: ../app/views/distributions/tumbleweed_ports.html.erb:26
+#: ../app/views/distributions/tumbleweed_ports.html.erb:83
+#: ../app/views/distributions/tumbleweed_ports.html.erb:140
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:49
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:128
 msgid "Size"
 msgstr "大小"
 
-#: ../app/views/main/_non_leap_release.html.erb:48
-msgid ""
-"Some alternative media (eg. live and rescue systems) are also available, "
-"although they are less tested and recommended for limited use only."
-msgstr ""
-"也有一些其它的介质（例如 Live 介质和救援系统），虽然它们进行的测试较少并仅推"
-"荐用于有限用途。"
-
-#: ../app/views/main/_change_install.html.erb:34
-msgid ""
-"Some of the live distributions based on openSUSE. Those interested in trying "
-"to build their own derivatives can take a look at <a href=\"http://"
-"susestudio.com/\">SUSE Studio</a>."
-msgstr ""
-"一些还活着的基于 openSUSE 的发行版。对尝试制作自己的 openSUSE 衍生版本感兴趣"
-"的人可以看一看 <a href=\"http://susestudio.com/\">SuSE Studio</a>。"
-
-#: ../app/helpers/package_helper.rb:14 ../app/helpers/package_helper.rb:16
+#: ../app/helpers/package_helper.rb:13 ../app/helpers/package_helper.rb:15
 #: ../app/views/package/_download_rows.html.erb:26
 #: ../app/views/package/_download_rows.html.erb:33
 msgid "Source"
 msgstr "源代码"
 
-#: ../app/views/main/release.html.erb:54
-msgid "Sponsored by"
-msgstr "赞助商"
-
-#: ../app/views/main/release.html.erb:57
-msgid "Sponsored by: AMD"
-msgstr "由 AMD 赞助"
-
-#: ../app/views/main/release.html.erb:65
-msgid "Sponsored by: B1 Systems"
-msgstr "由 B1 Systems 资助"
-
-#: ../app/views/main/release.html.erb:66
-msgid "Sponsored by: Heinlein"
-msgstr "由 Heinlein 赞助"
-
-#: ../app/views/main/release.html.erb:61
-msgid "Sponsored by: IP Exchange"
-msgstr "由 IP Exchange 资助"
-
 #: ../app/views/search/_find_results.html.erb:96
 msgid "Sub-Packages"
 msgstr "子软件包"
 
-#: ../app/views/layouts/download.html.erb:58
 #: ../app/views/layouts/application.html.erb:64
+#: ../app/views/layouts/download.html.erb:58
 msgid "Support"
 msgstr "支持"
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
+#, fuzzy
+#| msgid ""
+#| "The DVD/USB Stick is typically recommended as it contains most of the\n"
+#| "  packages available in the distribution and does not require a network\n"
+#| "  connection during the installation."
 msgid ""
 "The DVD/USB Stick is typically recommended as it contains most of the\n"
-"  packages available in the distribution and does not require a network\n"
-"  connection during the installation."
+"packages available in the distribution and does not require a network\n"
+"connection during the installation."
 msgstr ""
 "通常推荐使用 DVD/U 盘，因为它包含最多发行版中的可用软件包并且在安装过程中不需"
 "要网络链接。"
 
 #: ../app/views/distributions/_choosing_media.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "The Network CD/USB Stick is recommended for users who have limited\n"
+#| "  bandwidth on their internet connections, as it will only download the\n"
+#| "  packages they choose to install, which is likely to be significantly\n"
+#| "  less than 4.7GB."
 msgid ""
 "The Network CD/USB Stick is recommended for users who have limited\n"
-"  bandwidth on their internet connections, as it will only download the\n"
-"  packages they choose to install, which is likely to be significantly\n"
-"  less than 4.7GB."
+"bandwidth on their internet connections, as it will only download the\n"
+"packages they choose to install, which is likely to be significantly\n"
+"less than 4.7GB."
 msgstr ""
 "推荐互联网连接带宽受限的用户使用 CD/U 盘，因为它只下载他们选择安装的软件包，"
 "大小可能远远小于 4.7GB。"
-
-#: ../app/views/main/_non_leap_release.html.erb:91
-msgid ""
-"The installation process is available in many languages but, for most of "
-"them, the translation of the applications is not included in the image. If "
-"you want your openSUSE system to support some additional language, you need "
-"to download it from the Internet during the installation or any time after "
-"it. If you have easy access to the Internet you do not need this CD, but if "
-"you are planning to install openSUSE in some machine with no Internet "
-"connection, it will provide you access to all the available translations."
-msgstr ""
-"安装过程可以多种语言进行，但是，对多数语言来讲，应用程序的翻译并没有收录在映"
-"像中。若您想要您的 openSUSE 系统支持一些额外语言，您需要在安装时或安装后从互"
-"联网下载该语言的翻译。若您能够轻松地访问互联网，那么您并不需要此 CD; 但是若您"
-"打算在某些没有互联网连接的计算机上安装 openSUSE，该 CD 可以让您接触到全部可用"
-"语言的翻译。"
 
 #: ../app/views/download/package.erb:95
 msgid "Then run the following as <strong>root</strong>"
 msgstr "然后以 <strong>root</strong> 身份运行以下命令"
 
-#: ../app/controllers/main_controller.rb:208
-msgid ""
-"There is no openSUSE release in testing phase at the moment. <br/> If you "
-"want to use bleeding edge software, please use <a href='http://en.opensuse."
-"org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>."
-msgstr ""
-"目前没有处在测试阶段的 openSUSE 版本。<br/>若您想要使用最前沿的软件，请使用 "
-"<a href='http://zh.opensuse.org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>。"
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:38
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
 #, fuzzy
 msgid "They are not tested as thoroughly as the"
 msgstr "它们没有被彻底地测试像"
@@ -1207,23 +769,19 @@ msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
 msgstr "它们无法用于安装和升级 Tumbleweed。请使用"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:33
+#, fuzzy
+#| msgid ""
+#| "They have a limited package/driver selection, so cannot be considered\n"
+#| "          an accurate reflection as to whether Tumbleweed will work on "
+#| "your\n"
+#| "          hardware or not."
 msgid ""
 "They have a limited package/driver selection, so cannot be considered\n"
-"          an accurate reflection as to whether Tumbleweed will work on your\n"
-"          hardware or not."
+"an accurate reflection as to whether Tumbleweed will work on your hardware "
+"or not."
 msgstr ""
 "它们有有限的软件包/驱动选择，所以无法作为 Tumbleweed 是否能在\n"
 "您的硬件上工作的精确反映。"
-
-#: ../app/views/main/_non_leap_release.html.erb:93
-msgid ""
-"This CD contains free software distributed under proprietary licence not "
-"allowing its inclusion to main installation media together with free open-"
-"source software. All software from this CD could be downloaded from NON-OSS "
-"repository."
-msgstr ""
-"此 CD 收录了在私有许可证下发布、因此不允许与自由开源软件一起放置于主安装介质"
-"内的免费软件。此 CD 中的全部软件都能从 NON-OSS 源中下载。"
 
 #: ../app/views/distributions/testing.html.erb:36
 msgid ""
@@ -1232,33 +790,22 @@ msgid ""
 msgstr ""
 "这不是受支持的发行版。提供它是为了帮助 openSUSE 测试者在发行前寻找缺陷。"
 
-#: ../app/views/main/_options.html.erb:37
-msgid ""
-"This version runs on all PCs including those that support 64 Bit. If you "
-"have more than 3 GB of RAM you should prefer the 64 Bit version though. "
-"openSUSE does not support processors before Pentium - the live CDs even "
-"support only i686 (Pentium Pro and later)."
-msgstr ""
-"这个版本可以在全部计算机上运行，包括那些支持 64 位的计算机。若您有大于 3GB 的"
-"内存，您可能会倾向于选择 64 位的版本。openSUSE 不支持奔腾之前的处理器—live "
-"CD 甚至只支持 i686（奔腾专业版和之后的处理器）。"
-
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
 msgstr "切换导航"
 
-#: ../app/views/distributions/index.html.erb:85
+#: ../app/views/distributions/index.html.erb:81
+#, fuzzy
+#| msgid ""
+#| "Tumbleweed is recommended for <strong>Developers</strong>,\n"
+#| "        <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS\n"
+#| "        Enthusiasts</strong>."
 msgid ""
-"Tumbleweed is recommended for <strong>Developers</strong>,\n"
-"        <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS\n"
-"        Enthusiasts</strong>."
+"Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
+"Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
 msgstr ""
 "Tumbleweed 推荐给<strong>开发者</strong>、<strong>openSUSE\n"
 " 贡献者</strong>和<strong> Linux/FOSS 爱好者</strong>使用。"
-
-#: ../app/views/main/_options.html.erb:18
-msgid "Type of Computer"
-msgstr "计算机类型"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
 msgid "Unsupported"
@@ -1272,79 +819,13 @@ msgstr "不受支持的发行版："
 msgid "Upgrade Instructions"
 msgstr "升级说明"
 
-#: ../app/views/main/_leap_release.html.erb:57
-#: ../app/views/main/_non_leap_release.html.erb:64
-msgid ""
-"User manuals are available from <a href=\"http://activedoc.opensuse.org"
-"\">activedoc.opensuse.org</a>, for example the <a href=\"http://activedoc."
-"opensuse.org/book/opensuse-start-up/\">Official Start-Up Guide</a>."
-msgstr ""
-"用户手册可从 <a href=\"http://activedoc.opensuse.org\">activedoc.opensuse."
-"org</a> 获取，例如<a href=\"http://activedoc.opensuse.org/book/opensuse-"
-"startup/\">官方入门指南</a>。"
-
-#: ../app/views/main/_help_method.html.erb:12
-msgid ""
-"Using <a href=\"http://en.opensuse.org/SDB:BitTorrent\">BitTorrent</a> is "
-"recommended on slow links, especially when downloading the DVD image. "
-"BitTorrent downloads have several benefits, the clients protect against data "
-"corruption and you help relieving the load on the servers by participating "
-"in the upload - if enough people participate it will also be faster than the "
-"centralized servers - for everybody. Whatsmore, it allows you to stop the "
-"download at any time and resume it later."
-msgstr ""
-"对于网速较慢的人，推荐使用 <a href=\"http://zh.opensuse.org/SDB:BitTorrent"
-"\">BitTorrent 种子</a>，尤其是下载 DVD 映像时。BT 有诸多好处，客户端能防止数"
-"据损坏，并且您还可以通过参与上传来降低服务器的负载。若参与的人数足够多，它甚"
-"至比中央服务器还快，对每个人都快。更赞的是，您可以随时停止下载，在有时间时再"
-"续传。"
-
 #: ../app/views/distributions/_verify_download.html.erb:2
 msgid "Verify Your Download Before Use"
-msgstr "请在使用前验证您下载的文件"
-
-#: ../app/views/main/_leap_release.html.erb:60
-#: ../app/views/main/_non_leap_release.html.erb:67
-msgid "Verify your download before use"
 msgstr "请在使用前验证您下载的文件"
 
 #: ../app/views/package/show.html.erb:190
 msgid "Version"
 msgstr "版本"
-
-#: ../app/views/main/_non_leap_verify.html.erb:4
-msgid "We offer three different checksums:"
-msgstr "我们提供了三种不同的校验码："
-
-#: ../app/views/order/new.html.erb:32
-msgid ""
-"We would like you, to keep us informed about your usage of the DVDs, so we\n"
-"        can help you to promote your organization, event or school on our\n"
-"        <a href='http://news.opensuse.org' title='news.opensuse.org'>news "
-"page</a>\n"
-"        or other resources. (Hint! We love photos. Take lots of them!). "
-"Please contact us at\n"
-"        <a href='mailto:opensuse-marketing@opensuse.org'>opensuse-"
-"marketing@opensuse.org</a>\n"
-"        to discuss promotion and/or other ways we can assist you."
-msgstr ""
-"我们期待您，知会我们您对 DVD 的使用情况，\n"
-"这样我们能够帮助您在我们的<a href='http://news.opensuse.org' title='news."
-"opensuse.org'>新闻页面</a>\n"
-"或其它资源中推广您的组织、事件或学校。\n"
-"（嘤嘤嘤！我们爱美图！多拍点嘛！）。\n"
-"请用 <a href='mailto:opensuse-marketing@opensuse.org'>opensuse-"
-"marketing@opensuse.org</a>\n"
-"联系我们来讨论推广和/或其它我们可协助您的方式。"
-
-#: ../app/views/main/_help_method.html.erb:8
-msgid ""
-"When downloading images other than the CD for network installation, it is "
-"<i>strongly</i> recommended to use a proper download manager to reduce the "
-"risk of corrupted data."
-msgstr ""
-"当下载映像而不是网络安装 CD 时，<i>强烈</i>建议使用下载管理器来降低数据损坏的"
-"风险。"
 
 #: ../app/views/download/package.erb:141
 msgid ""
@@ -1362,103 +843,25 @@ msgid ""
 msgstr ""
 "您可尝试将搜索条件扩展到开发软件包或搜索另一个基础发行版中的软件包（目前）。"
 
-#: ../app/views/main/_leap_verify.html.erb:3
-#: ../app/views/main/_non_leap_verify.html.erb:3
-msgid ""
-"You could verify the file in the process of downloading. For example a "
-"checksum (SHA256) will be used automatically if you choose <a href='http://"
-"en.opensuse.org/SDB:Metalink'>Metalink</a> in the field above and use the "
-"add-on DownThemAll! in <a href='http://en.opensuse.org/Firefox'>Firefox</a>."
-msgstr ""
-"你可以在下载进程中验证文件。例如若您在上面框中选择了 <a href='http://zh."
-"opensuse.org/SDB:Metalink'>Metalink</a> 下载方式，并使用 <a href='http://zh."
-"opensuse.org/Firefox'>Firefox</a> 的附加组件 DownThemAll! 下载，就会自动使用 "
-"SHA256 校验码验证。"
-
 #: ../app/views/distributions/_unsupported_live_media.html.erb:6
+#, fuzzy
+#| msgid ""
+#| "also offers a number of unsupported LiveUSBs. These\n"
+#| "  cannot be used for Installation or Upgrade. They are not an accurate\n"
+#| "  reflection as to whether or not Tumbleweed will run on your hardware."
 msgid ""
 "also offers a number of unsupported LiveUSBs. These\n"
-"  cannot be used for Installation or Upgrade. They are not an accurate\n"
-"  reflection as to whether or not Tumbleweed will run on your hardware."
+"cannot be used for Installation or Upgrade. They are not an accurate\n"
+"reflection as to whether or not Tumbleweed will run on your hardware."
 msgstr ""
 "同时提供一些不受支持的 LiveUSB。这些东西无法用于安装和升级。它们无法作为 "
 "Tumbleweed 是否能在您的硬件上工作的精确反映。"
 
-#: ../app/views/distributions/index.html.erb:94
+#: ../app/views/distributions/index.html.erb:87
 msgid "annually"
 msgstr "每年一次"
 
-#: ../app/views/distributions/index.html.erb:111
-msgid ""
-"as well as by human openSUSE contributors so both can be relied\n"
-"        upon to work."
-msgstr "以及由 openSUSE 贡献人以两者可以协同工作。"
-
-#: ../app/views/main/_non_leap_verify.html.erb:8
-#: ../app/views/main/_non_leap_verify.html.erb:19
-msgid "gpg signature"
-msgstr "GPG 签名"
-
-#: ../app/views/main/release.html.erb:38
-msgid "http://doc.opensuse.org/"
-msgstr "http://doc.opensuse.org/"
-
-#: ../app/views/main/_change_install.html.erb:36
-msgid "http://en.opensuse.org/Derivatives"
-msgstr "http://en.opensuse.org/Derivatives"
-
-#: ../app/views/main/release.html.erb:39
-msgid "http://en.opensuse.org/Package_repositories"
-msgstr "http://zh.opensuse.org/主软件源"
-
-#: ../app/views/main/release.html.erb:37
-msgid "http://en.opensuse.org/Portal:Installation"
-msgstr "https://zh.opensuse.org/Portal:安装"
-
-#: ../app/views/main/release.html.erb:35
-msgid "http://en.opensuse.org/SDB:Download_help"
-msgstr "http://zh.opensuse.org/SDB:下载帮助"
-
-#: ../app/views/main/release.html.erb:36
-#: ../app/views/main/_leap_release.html.erb:70
-#: ../app/views/main/_non_leap_release.html.erb:77
-msgid "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
-msgstr "https://zh.opensuse.org/SDB:下载帮助#烧录 ISO 映像档"
-
-#: ../app/views/main/release.html.erb:40
-msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
-msgstr "https://zh.opensuse.org/openSUSE:提交错误报告"
-
-#: ../app/controllers/main_controller.rb:45
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
-
-#: ../app/controllers/main_controller.rb:65
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
-
-#: ../app/controllers/main_controller.rb:88
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
-
-#: ../app/controllers/main_controller.rb:111
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
-
-#: ../app/controllers/main_controller.rb:134
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
-
-#: ../app/controllers/main_controller.rb:149
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
-
-#: ../app/controllers/main_controller.rb:163
-#: ../app/controllers/main_controller.rb:177
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
-
-#: ../app/views/distributions/index.html.erb:96
+#: ../app/views/distributions/index.html.erb:88
 msgid "https://en.opensuse.org/Lifetime"
 msgstr "https://zh.opensuse.org/使用期限"
 
@@ -1503,7 +906,7 @@ msgstr "https://zh.opensuse.org/SDB:Live_USB_U盘安装"
 msgid "https://en.opensuse.org/SDB:System_upgrade"
 msgstr "https://zh.opensuse.org/SDB:系统升级"
 
-#: ../app/views/distributions/index.html.erb:93
+#: ../app/views/distributions/index.html.erb:87
 msgid "https://en.opensuse.org/openSUSE:Roadmap"
 msgstr "https://zh.opensuse.org/openSUSE:Roadmap"
 
@@ -1511,90 +914,58 @@ msgstr "https://zh.opensuse.org/openSUSE:Roadmap"
 msgid "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgstr "http://zh.opensuse.org/openSUSE:提交错误报告"
 
-#: ../app/views/distributions/index.html.erb:125
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:8
 #, fuzzy
 #| msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "http://zh.opensuse.org/openSUSE:Submitting_bug_reports"
 
-#: ../app/views/distributions/index.html.erb:127
-msgid "if you change your mind later."
-msgstr "如果您以后改变主意。"
-
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:30
 msgid "instead."
 msgstr "代替。"
 
-#: ../app/views/distributions/index.html.erb:92
-msgid "is a <strong>regular-release</strong>. This means it releases"
-msgstr "为<strong>常规发行版</strong>。这表示它发布"
-
-#: ../app/views/distributions/index.html.erb:80
-msgid ""
-"is a <strong>rolling-release</strong>. This means the software is always\n"
-"        the latest stable versions available from the openSUSE Project. "
-"Things\n"
-"        will change regularly as Free and Open Source projects continually\n"
-"        release new versions of their software."
-msgstr ""
-"为<strong>滚动发行版</strong>。这表示它的软件总是来自 openS USE 项目的最新稳"
-"定版本。东西会随着自由和开源项目发布它们软件的新版本而定期更改。"
-
 #: ../app/views/distributions/tumbleweed.html.erb:82
+#, fuzzy
+#| msgid ""
+#| "is also available on other architectures, such as\n"
+#| "        Intel 32-bit (aka i586), AArch64 (aka ARMv8) and PPC64."
 msgid ""
-"is also available on other architectures, such as\n"
-"        Intel 32-bit (aka i586), AArch64 (aka ARMv8) and PPC64."
+"is also available on other architectures, such as Intel 32-bit (aka i586), "
+"AArch64 (aka ARMv8) and PPC64."
 msgstr ""
 "也可用于其他架构，比如\n"
 "Intel 32 位（又名 i586）、AArch64（又名 ARMv8）和 PPC64。"
 
-#: ../app/views/main/_non_leap_verify.html.erb:13
-#: ../app/views/main/_non_leap_verify.html.erb:20
-msgid ""
-"is still the most commonly used checksum. Many ISO burners display it right "
-"before burning."
-msgstr "依然是最常用的校验码。许多 ISO 刻录程序会在开始刻录前显示它。"
-
-#: ../app/views/main/_non_leap_verify.html.erb:15
-#: ../app/views/main/_non_leap_verify.html.erb:21
-msgid "is the less known but more secure checksum than md5."
-msgstr "比较鲜为人知但比 md5 要安全一些。"
-
-#: ../app/views/distributions/index.html.erb:96
+#: ../app/views/distributions/index.html.erb:88
 msgid "lifetime"
 msgstr "生命周期"
 
-#: ../app/views/main/_non_leap_verify.html.erb:12
-#: ../app/views/main/_non_leap_verify.html.erb:20
-msgid "md5 checksum"
-msgstr "md5 校验码"
-
-#: ../app/views/main/_non_leap_verify.html.erb:9
-#: ../app/views/main/_non_leap_verify.html.erb:19
-msgid ""
-"offers the most security as you can verify who signed it. It should be <tt>"
-"%s</tt>."
-msgstr "提供了最大安全性，您可以验证是谁签发了它。签发人应该是 <tt>%s</tt>。"
-
-#: ../app/views/main/release.html.erb:48
-msgid "openSUSE Countdown"
-msgstr "openSUSE 新版倒计时"
-
-#: ../app/views/main/_leap_release.html.erb:51
-#: ../app/views/main/_non_leap_release.html.erb:44
-msgid "openSUSE Derivatives"
+#: ../app/views/distributions/index.html.erb:86
+#: ../app/views/distributions/index.html.erb:107
+#, fuzzy
+#| msgid "openSUSE Derivatives"
+msgid "openSUSE Leap"
 msgstr "openSUSE 衍生版本"
 
 #: ../app/views/distributions/leap.html.erb:83
+#, fuzzy
+#| msgid ""
+#| "openSUSE Leap is also available on other architectures, such as\n"
+#| "        AArch64 (aka ARMv8) and PPC64."
 msgid ""
-"openSUSE Leap is also available on other architectures, such as\n"
-"        AArch64 (aka ARMv8) and PPC64."
+"openSUSE Leap is also available on other architectures, such as AArch64 (aka "
+"ARMv8) and PPC64."
 msgstr ""
 "openSUSE Leap 也可用于其他架构，比如\n"
 "AArch64（又名 ARMv8）和 PPC64。"
 
-#: ../app/views/distributions/index.html.erb:143
+#: ../app/views/distributions/index.html.erb:79
+#, fuzzy
+#| msgid "switch to openSUSE Tumbleweed"
+msgid "openSUSE Tumbleweed"
+msgstr "切换至 openSUSE Tumbleweed"
+
+#: ../app/views/distributions/index.html.erb:126
 msgid ""
 "openSUSE has a number of unofficial derivative distributions.\n"
 "              These are made by our awesome community, often for special\n"
@@ -1603,56 +974,635 @@ msgstr ""
 "openSUSE 有一些非官方的衍生发行版。\n"
 "这些都是由我们超棒的社区制作的，通常用于特殊用途。"
 
-#: ../app/views/main/_help_method.html.erb:4
-msgid ""
-"openSUSE is available via http (direct link) or BitTorrent. The CD for "
-"network installation is only available via http."
-msgstr ""
-"openSUSE 可以从 http（直接链接）或 BitTorrent 种子撷取。网络安装 CD 只能通过"
-"直接链接下载。"
-
 #: ../app/views/distributions/index.html.erb:10
 msgid "openSUSE is completely free to download, use and share."
 msgstr "openSUSE 下载、使用和分享完全自由。"
 
-#: ../app/views/main/_options.html.erb:28
-msgid "openSUSE only supports PCs with 32 Bits and 64 Bits."
-msgstr "openSUSE 只支持 32/64 位的计算机。"
-
-#: ../app/views/main/_change_install.html.erb:36
-msgid "see Derivatives on wiki"
-msgstr "请参考维基上的「衍生版本」文章"
-
-#: ../app/views/main/_non_leap_verify.html.erb:14
-#: ../app/views/main/_non_leap_verify.html.erb:21
-msgid "sha1 checksum"
-msgstr "sha1 校验码"
-
-#: ../app/views/distributions/index.html.erb:101
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:41
+#, fuzzy
+#| msgid ""
+#| "test results if you want an indication whether these LiveUSBs are\n"
+#| "          working as expected."
 msgid ""
-"so major architectural changes are not expected for several years, aligned\n"
-"        with each new Major Release (eg 12, 13, etc) of SUSE Linux "
-"Enterprise."
-msgstr ""
-
-#: ../app/views/main/release.html.erb:15 ../app/views/main/release.html.erb:17
-msgid "switch to"
-msgstr "切换至"
-
-#: ../app/views/distributions/index.html.erb:126
-msgid "switch to openSUSE Tumbleweed"
-msgstr "切换至 openSUSE Tumbleweed"
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:42
-msgid ""
-"test results if you want an indication whether these LiveUSBs are\n"
-"          working as expected."
+"test results if you want an indication whether these LiveUSBs are working as "
+"expected."
 msgstr "测试结果，若你想要 LiveUSB 是否如预期工作的指示。"
 
-#: ../app/views/distributions/index.html.erb:95
-msgid ""
-"with security and stability updates being the priority during each release"
-msgstr "并且安全和稳定性更新是每个版本中的优先事项"
+#~ msgid ""
+#~ "If you’re already running openSUSE you can upgrade by booting from the\n"
+#~ "  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a "
+#~ "few\n"
+#~ "  commands."
+#~ msgstr ""
+#~ "若您已经运行 openSUSE，您可以启动 DVD/USB 从菜单中选择升级，\n"
+#~ "或者以一些命令来执行“在线升级”。"
+
+#~ msgid "\"#{release} is not a supported release.\""
+#~ msgstr "“#{release} 不是一个受支持的版本。”"
+
+#~ msgid "... and keep us informed"
+#~ msgstr "... 并知会我们"
+
+#~ msgid "... get other marketing stuff"
+#~ msgstr "... 获取其它营销材料"
+
+#~ msgid "4.7GB DVD (also suitable for USB stick)"
+#~ msgstr "4.7GB DVD（也适用于 U 盘）"
+
+#~ msgid "64 Bit PC"
+#~ msgstr "64 位计算机"
+
+#~ msgid ""
+#~ "<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">openSUSE "
+#~ "startup guide</a>"
+#~ msgstr ""
+#~ "<a href=\"http://activedoc.opensuse.org/book/opensuse-startup/\">openSUSE "
+#~ "入门指南</a>"
+
+#~ msgid ""
+#~ "<a href=\"http://en.opensuse.org/SDB:Metalink\">Metalink</a> is an open "
+#~ "standard that bundles the various ways (FTP/HTTP/BitTorrent) to get files "
+#~ "into one format for easier downloads. This makes it good for downloading "
+#~ "ISOs; particularly for people who can't use P2P because of restrictions "
+#~ "from their ISP or University. It can deliver very fast download speeds "
+#~ "since most clients support multiple connections, to multiple mirrors, "
+#~ "automatically. In addition, it can do automatic error detection, and "
+#~ "correction. It needs a special client to handle it though."
+#~ msgstr ""
+#~ "<a href=\"http://zh.opensuse.org/SDB:Metalink\">Metalink</a> 是一种开源标"
+#~ "准，它将多种撷取文件的方式 (FTP/HTTP/BT) 捆绑成了一种格式以方便下载。这使"
+#~ "得它非常适合下载 ISO; 尤其是对于那些由于他们的 ISP 或大学限制而不能使用 "
+#~ "P2P 的人来说。它可以提供非常快的下载速度，因为它的大多数客户端均支持自动多"
+#~ "点连接，以及从多镜像下载。还有，它能自动查错并纠错。然而您需要特殊的客户端"
+#~ "才能使用它。"
+
+#~ msgid "<a href=\"http://en.opensuse.org/openSUSE:License\">License</a>"
+#~ msgstr "<a href=\"http://en.opensuse.org/openSUSE:License\">授权许可</a>"
+
+#~ msgid "<a href='%s'>Release Notes</a>"
+#~ msgstr "<a href='%s'>发行注记</a>"
+
+#~ msgid ""
+#~ "A GNOME desktop you can run from %s or from USB stick.<br/>Can be "
+#~ "installed as is (no upgrade)."
+#~ msgstr ""
+#~ "可以在 %s 或 U 盘中运行的 GNOME 桌面。<br/>可用于安装（不能用于升级）。"
+
+#~ msgid ""
+#~ "A KDE desktop you can run from %s or from USB stick.<br/>Can be installed "
+#~ "as is (no upgrade)."
+#~ msgstr "可在 %s 或 U 盘中运行的 KDE 桌面。<br/>可用于安装（不能用于升级）。"
+
+#~ msgid "Add-On Downloads (optional)"
+#~ msgstr "附加组件下载（可选）"
+
+#~ msgid ""
+#~ "After having successfully downloaded the ISO image(s), create a bootable "
+#~ "USB stick or burn the image(s) to a DVD (or a CD if the chosen image "
+#~ "fits)."
+#~ msgstr ""
+#~ "在成功下载 ISO 映像后，创建一个可引导 U 盘或将映像刻录到一张 DVD（若所选映"
+#~ "像够小也可以刻录到 CD）上。"
+
+#~ msgid ""
+#~ "All data is used only for sending openSUSE promotional material\n"
+#~ "      and will not be spread to third parties. We store the data to\n"
+#~ "      inform the users if a new version is available. All requests have\n"
+#~ "      to be screened to fulfill the US export embargo. More information\n"
+#~ "      about the embargo and a list of countries at wikipedia <a "
+#~ "href='http://en.wikipedia.org/wiki/United_States_embargoes'>http://en."
+#~ "wikipedia.org/wiki/United_States_embargoes</a>."
+#~ msgstr ""
+#~ "全部数据仅用于投递 openSUSE 推广材料且不会扩散给第三方。\n"
+#~ "我们存根数据是为了通知用户新版资讯。\n"
+#~ "全部邮寄请求都必须被美国出口禁运组织审查。\n"
+#~ "关于禁运和禁运国家名单的更多信息可参考维基百科 <a href='http://en."
+#~ "wikipedia.org/wiki/United_States_embargoes'>http://en.wikipedia.org/wiki/"
+#~ "United_States_embargoes</a> 词条。"
+
+#~ msgid "BitTorrent"
+#~ msgstr "BitTorrent"
+
+#~ msgid ""
+#~ "Boot from the DVD, CD or USB stick. In case your computer does not "
+#~ "automatically boot from the chosen device, open the BIOS setup to allow "
+#~ "booting from it."
+#~ msgstr ""
+#~ "从 DVD、CD 或 U 盘引导。若您的计算机没有自动从所选设备引导，请打开 BIOS 设"
+#~ "置并允许从该设备引导。"
+
+#~ msgid "Both distributions are well tested by"
+#~ msgstr "两种发行版本都经过了良好的测试由"
+
+#~ msgid "Bronze Sponsor"
+#~ msgstr "青铜赞助商"
+
+#~ msgid "Browser incompatibility"
+#~ msgstr "浏览器不兼容"
+
+#~ msgid "Burn CD/DVD Image(s)"
+#~ msgstr "刻录 CD/DVD 映像"
+
+#~ msgid ""
+#~ "Choose an installation medium by clicking it and hit the Download button "
+#~ "to start the download. Optionally choose your computer type or an "
+#~ "alternative download method."
+#~ msgstr ""
+#~ "通过点击来选择安装介质，然后点击下载按钮来开始下载。另外您也可以选择您的计"
+#~ "算机架构或者额外的下载方式。"
+
+#~ msgid "Click here to display these alternative versions."
+#~ msgstr "点此显示这些可选版本。"
+
+#~ msgid "Click to Download"
+#~ msgstr "点击下载"
+
+#~ msgid ""
+#~ "Contains a large collection of software for desktop or server use.<br/"
+#~ ">Suitable for installation or upgrade."
+#~ msgstr "包含桌面或服务器使用的一篮子软件。<br/>适用于安装或升级。"
+
+#~ msgid "Countdown"
+#~ msgstr "倒计时"
+
+#~ msgid "Country"
+#~ msgstr "国家"
+
+#~ msgid "Development Version"
+#~ msgstr "开发版本"
+
+#~ msgid "Download"
+#~ msgstr "下载"
+
+#~ msgid "Download %s"
+#~ msgstr "下载 %s"
+
+#~ msgid "Download Help"
+#~ msgstr "下载帮助"
+
+#~ msgid "Download&nbsp;DVD"
+#~ msgstr "下载&nbsp;DVD"
+
+#~ msgid "Download&nbsp;GNOME"
+#~ msgstr "下载&nbsp;GNOME"
+
+#~ msgid "Download&nbsp;KDE"
+#~ msgstr "下载&nbsp;KDE"
+
+#~ msgid "Download&nbsp;Network"
+#~ msgstr "网络下载"
+
+#~ msgid "Download&nbsp;Rescue"
+#~ msgstr "下载&nbsp;救援系统"
+
+#~ msgid ""
+#~ "Downloads the installation system and all packages from online "
+#~ "repositories.<br/>Suitable for installation or upgrade."
+#~ msgstr "从在线软件源下载安装系统和全部软件包。<br/>适用于安装或升级。"
+
+#~ msgid "Extra Languages"
+#~ msgstr "额外语言"
+
+#~ msgid "Extra Languages (32 Bit)"
+#~ msgstr "额外语言（32 位）"
+
+#~ msgid "Extra Languages (64 Bit)"
+#~ msgstr "额外语言（64 位）"
+
+#~ msgid ""
+#~ "For extra security, you can use GPG to verify who signed those .sha256 "
+#~ "files. It should be %s."
+#~ msgstr ""
+#~ "出于额外的安全考虑，您可以使用 GPG 验证谁签发了这些 .sha256 文件。应该是 "
+#~ "%s。"
+
+#~ msgid "Get one of the specialized distributions built on openSUSE."
+#~ msgstr "获取基于 openSUSE 定制的衍生发行版。"
+
+#~ msgid "Getting Help"
+#~ msgstr "获取帮助"
+
+#~ msgid "Gold Sponsor"
+#~ msgstr "黄金赞助商"
+
+#~ msgid "Help on Download Method"
+#~ msgstr "下载方式帮助"
+
+#~ msgid "Help on Type of Computer"
+#~ msgstr "关于计算机架构的帮助"
+
+#~ msgid "How to Proceed"
+#~ msgstr "如何进行"
+
+#~ msgid ""
+#~ "If you want to use a direct link but live in a place in the world where "
+#~ "our download redirector has not enough information to redirect to the "
+#~ "fastest mirror, you can pick a mirror yourself."
+#~ msgstr ""
+#~ "若您想要使用直接链接，但却居住在世界上的某个神秘角落以至于我们的下载中转器"
+#~ "没有足够的关于该位置的信息来把您中转到最快的镜像，这时您可以自行选择一个镜"
+#~ "像。"
+
+#~ msgid "Installation Guides"
+#~ msgstr "安装指南"
+
+#~ msgid "Installation Medium"
+#~ msgstr "安装介质"
+
+#~ msgid "It is easy to"
+#~ msgstr "很容易"
+
+#~ msgid ""
+#~ "Join the fast-growing community, put openSUSE into more hands by\n"
+#~ "        getting the latest PromoDVD for your group, non-profit "
+#~ "organization, school\n"
+#~ "        university or event like LUG meetings, installfests, and "
+#~ "conferences.\n"
+#~ "        Promo DVDs help to increase awareness and visibility of openSUSE!"
+#~ msgstr ""
+#~ "快来加入快速壮大的社区，为您的社团、非盈利组织、学校、大学，\n"
+#~ "或如 LUG 聚会、装机市集、发布会等事件预订最新推广 DVD，\n"
+#~ "把 openSUSE 送给更多的人吧。\n"
+#~ "推广 DVD 能帮助提高 openSUSE 的知名度和可视性！"
+
+#~ msgid ""
+#~ "Konqueror of KDE 3 is unfortunately unmaintained and its javascript "
+#~ "implementation contains bugs that make it impossible to use with this "
+#~ "page. Please make sure you have javascript disabled before you <a "
+#~ "href='%s'>continue</a>."
+#~ msgstr ""
+#~ "KDE 3 中的 Konqueror 很不幸没人维护了，它的 javascript 实现有缺陷，使其无"
+#~ "法正常渲染此页面。您在<a href='%s'>继续</a>前请确保禁用了 javascript。"
+
+# label for language selection
+#~ msgid "Language"
+#~ msgstr "语言"
+
+#~ msgid "Leap shares a Common Base System with"
+#~ msgstr "Leap 共享共同的基础系统同"
+
+#~ msgid "Legacy 32 Bit PC"
+#~ msgstr "传统 32 位计算机"
+
+#~ msgid "Legacy 32&nbsp;Bit&nbsp;PC"
+#~ msgstr "传统 32 位计算机"
+
+#~ msgid "Live GNOME"
+#~ msgstr "GNOME LiveCD"
+
+#~ msgid "Live KDE"
+#~ msgstr "KDE LiveCD"
+
+#~ msgid ""
+#~ "Many applications can verify the checksum of a download. To verify your "
+#~ "download can be important as it verifies you really have got the ISO file "
+#~ "you wanted to download and not some broken version."
+#~ msgstr ""
+#~ "许多程序都可以验证下载文件的校验码。验证您下载的文件挺重要的，因为它可以验"
+#~ "证您是否真的撷取到了您想要下载的 ISO 文件而不是一些损坏的版本。"
+
+#~ msgid "Metalink"
+#~ msgstr "Metalink"
+
+#~ msgid "More information on burning the ISO file to CD/DVD"
+#~ msgstr "更多关于刻录 ISO 文件到 CD/DVD 上的信息"
+
+#~ msgid ""
+#~ "More information on creating a <a href='http://en.opensuse.org/"
+#~ "Live_USB_stick'>bootable USB stick</a>"
+#~ msgstr ""
+#~ "更多关于创建<a href='http://zh.opensuse.org/Live_USB_stick'>可引导 U 盘</"
+#~ "a> 的信息"
+
+#~ msgid ""
+#~ "More information on downloading openSUSE is available from the <a href="
+#~ "\"http://en.opensuse.org/SDB:Download_help\">Download Help</a> and <a "
+#~ "href=\"http://en.opensuse.org/SDB:Network_installation\">Network "
+#~ "Installation</a> pages in our <a href=\"http://en.opensuse.org/Portal:"
+#~ "Documentation\">Documentation Wiki</a>."
+#~ msgstr ""
+#~ "更多关于下载 openSUSE 的信息可以看一看我们<a href=\"http://zh.opensuse."
+#~ "org/Category:SDB:安装\">维基的支持数据库专题</a>上的 <a href=\"http://zh."
+#~ "opensuse.org/SDB:下载帮助\">下载帮助</a> ，以及 <a href=\"http://zh."
+#~ "opensuse.org/SDB:网络安装方式\">网络安装</a> 页面。"
+
+#~ msgid ""
+#~ "Most new computers support <a href=\"http://en.wikipedia.org/wiki/"
+#~ "X86-64\">x86-64</a> (also known as AMD64 and Intel64), but some laptop "
+#~ "processors and netbook processors do not support it. So you need to check "
+#~ "wikipedia if you want to be sure your computer supports it."
+#~ msgstr ""
+#~ "许多新计算机都支持 <a href=\"http://en.wikipedia.org/wiki/"
+#~ "X86-64\">x86_64</a>（也叫做 AMD64 或 Intel64），但是一些笔记本或上网本处理"
+#~ "器可能不支持它。所以若您想要确保您的计算机支持它，您需要自己去维基百科上确"
+#~ "认一下。"
+
+#~ msgid "Need help?"
+#~ msgstr "需要帮助吗？"
+
+#~ msgid "NonOSS CD"
+#~ msgstr "NonOSS CD"
+
+#~ msgid "Official Manuals"
+#~ msgstr "官方手册"
+
+#~ msgid ""
+#~ "Only DVD and Network medias are fully tested. Alternatives, like live or "
+#~ "rescue systems, are recommended for limited use only."
+#~ msgstr ""
+#~ "只有 DVD 和网络介质是完整测试过的。其它备选，如 Live 介质或救援系统，仅推"
+#~ "荐用于有限用途。"
+
+#~ msgid "Package Repositories"
+#~ msgstr "软件源"
+
+#~ msgid "Platinum Sponsor"
+#~ msgstr "白金赞助商"
+
+#~ msgid ""
+#~ "Please enter a <b>brief</b> reason (in English!) why you need the DVDs "
+#~ "and provide a link of the event/purpose."
+#~ msgstr ""
+#~ "请输入一个<b>简短</b>的需要 DVD 的理由（英文）并提供一个事件/目的的链接。"
+
+#~ msgid ""
+#~ "Please note that this is not the latest openSUSE release. You can get the "
+#~ "latest version <a href='/'>here</a>. "
+#~ msgstr ""
+#~ "请注意这不是最新版本的 openSUSE。您可以在<a href='/'>这儿</a>获取最新版"
+#~ "本。 "
+
+#~ msgid ""
+#~ "Promo DVDs and all the related artwork -labels and sleeve- can be\n"
+#~ "        downloaded from the <a href=\"http://download.opensuse.org/"
+#~ "promodvd/\">promodvd\n"
+#~ "        download directory %s</a>. Keep in mind that this is a special "
+#~ "version of openSUSE,\n"
+#~ "        namely designed for promotional distribution."
+#~ msgstr ""
+#~ "推广 DVD 和全部相关的艺术作品 -盘面标签和封套- 可在\n"
+#~ "<a href=\"http://download.opensuse.org/promodvd/\">推广 DVD 下载文件夹 "
+#~ "%s</a>下载。\n"
+#~ "请注意这是一个特殊版本的 openSUSE，亦即设计就是用于推广分发的。"
+
+#~ msgid "Released Version"
+#~ msgstr "稳定版本"
+
+#~ msgid "Reporting Bugs"
+#~ msgstr "汇报故障"
+
+#~ msgid "Rescue"
+#~ msgstr "救援系统"
+
+#~ msgid ""
+#~ "Rescue system that you can run from CD or from USB stick.<br/>Can not be "
+#~ "used for installation or upgrade."
+#~ msgstr "可在 CD 或 U 盘中运行的救援系统。<br/>不能用于安装或升级。"
+
+#~ msgid "SHA256 checksum"
+#~ msgstr "SHA256 检验码"
+
+#~ msgid "Silver Sponsor"
+#~ msgstr "白银赞助商"
+
+#~ msgid ""
+#~ "Some alternative media (eg. live and rescue systems) are also available, "
+#~ "although they are less tested and recommended for limited use only."
+#~ msgstr ""
+#~ "也有一些其它的介质（例如 Live 介质和救援系统），虽然它们进行的测试较少并仅"
+#~ "推荐用于有限用途。"
+
+#~ msgid ""
+#~ "Some of the live distributions based on openSUSE. Those interested in "
+#~ "trying to build their own derivatives can take a look at <a href=\"http://"
+#~ "susestudio.com/\">SUSE Studio</a>."
+#~ msgstr ""
+#~ "一些还活着的基于 openSUSE 的发行版。对尝试制作自己的 openSUSE 衍生版本感兴"
+#~ "趣的人可以看一看 <a href=\"http://susestudio.com/\">SuSE Studio</a>。"
+
+#~ msgid "Sponsored by"
+#~ msgstr "赞助商"
+
+#~ msgid "Sponsored by: AMD"
+#~ msgstr "由 AMD 赞助"
+
+#~ msgid "Sponsored by: B1 Systems"
+#~ msgstr "由 B1 Systems 资助"
+
+#~ msgid "Sponsored by: Heinlein"
+#~ msgstr "由 Heinlein 赞助"
+
+#~ msgid "Sponsored by: IP Exchange"
+#~ msgstr "由 IP Exchange 资助"
+
+#~ msgid ""
+#~ "The installation process is available in many languages but, for most of "
+#~ "them, the translation of the applications is not included in the image. "
+#~ "If you want your openSUSE system to support some additional language, you "
+#~ "need to download it from the Internet during the installation or any time "
+#~ "after it. If you have easy access to the Internet you do not need this "
+#~ "CD, but if you are planning to install openSUSE in some machine with no "
+#~ "Internet connection, it will provide you access to all the available "
+#~ "translations."
+#~ msgstr ""
+#~ "安装过程可以多种语言进行，但是，对多数语言来讲，应用程序的翻译并没有收录在"
+#~ "映像中。若您想要您的 openSUSE 系统支持一些额外语言，您需要在安装时或安装后"
+#~ "从互联网下载该语言的翻译。若您能够轻松地访问互联网，那么您并不需要此 CD; "
+#~ "但是若您打算在某些没有互联网连接的计算机上安装 openSUSE，该 CD 可以让您接"
+#~ "触到全部可用语言的翻译。"
+
+#~ msgid ""
+#~ "There is no openSUSE release in testing phase at the moment. <br/> If you "
+#~ "want to use bleeding edge software, please use <a href='http://en."
+#~ "opensuse.org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>."
+#~ msgstr ""
+#~ "目前没有处在测试阶段的 openSUSE 版本。<br/>若您想要使用最前沿的软件，请使"
+#~ "用 <a href='http://zh.opensuse.org/Portal:Tumbleweed'>openSUSE "
+#~ "Tumbleweed</a>。"
+
+#~ msgid ""
+#~ "This CD contains free software distributed under proprietary licence not "
+#~ "allowing its inclusion to main installation media together with free open-"
+#~ "source software. All software from this CD could be downloaded from NON-"
+#~ "OSS repository."
+#~ msgstr ""
+#~ "此 CD 收录了在私有许可证下发布、因此不允许与自由开源软件一起放置于主安装介"
+#~ "质内的免费软件。此 CD 中的全部软件都能从 NON-OSS 源中下载。"
+
+#~ msgid ""
+#~ "This version runs on all PCs including those that support 64 Bit. If you "
+#~ "have more than 3 GB of RAM you should prefer the 64 Bit version though. "
+#~ "openSUSE does not support processors before Pentium - the live CDs even "
+#~ "support only i686 (Pentium Pro and later)."
+#~ msgstr ""
+#~ "这个版本可以在全部计算机上运行，包括那些支持 64 位的计算机。若您有大于 "
+#~ "3GB 的内存，您可能会倾向于选择 64 位的版本。openSUSE 不支持奔腾之前的处理"
+#~ "器—live CD 甚至只支持 i686（奔腾专业版和之后的处理器）。"
+
+#~ msgid "Type of Computer"
+#~ msgstr "计算机类型"
+
+#~ msgid ""
+#~ "User manuals are available from <a href=\"http://activedoc.opensuse.org"
+#~ "\">activedoc.opensuse.org</a>, for example the <a href=\"http://activedoc."
+#~ "opensuse.org/book/opensuse-start-up/\">Official Start-Up Guide</a>."
+#~ msgstr ""
+#~ "用户手册可从 <a href=\"http://activedoc.opensuse.org\">activedoc.opensuse."
+#~ "org</a> 获取，例如<a href=\"http://activedoc.opensuse.org/book/opensuse-"
+#~ "startup/\">官方入门指南</a>。"
+
+#~ msgid ""
+#~ "Using <a href=\"http://en.opensuse.org/SDB:BitTorrent\">BitTorrent</a> is "
+#~ "recommended on slow links, especially when downloading the DVD image. "
+#~ "BitTorrent downloads have several benefits, the clients protect against "
+#~ "data corruption and you help relieving the load on the servers by "
+#~ "participating in the upload - if enough people participate it will also "
+#~ "be faster than the centralized servers - for everybody. Whatsmore, it "
+#~ "allows you to stop the download at any time and resume it later."
+#~ msgstr ""
+#~ "对于网速较慢的人，推荐使用 <a href=\"http://zh.opensuse.org/SDB:BitTorrent"
+#~ "\">BitTorrent 种子</a>，尤其是下载 DVD 映像时。BT 有诸多好处，客户端能防止"
+#~ "数据损坏，并且您还可以通过参与上传来降低服务器的负载。若参与的人数足够多，"
+#~ "它甚至比中央服务器还快，对每个人都快。更赞的是，您可以随时停止下载，在有时"
+#~ "间时再续传。"
+
+#~ msgid "Verify your download before use"
+#~ msgstr "请在使用前验证您下载的文件"
+
+#~ msgid "We offer three different checksums:"
+#~ msgstr "我们提供了三种不同的校验码："
+
+#~ msgid ""
+#~ "We would like you, to keep us informed about your usage of the DVDs, so "
+#~ "we\n"
+#~ "        can help you to promote your organization, event or school on "
+#~ "our\n"
+#~ "        <a href='http://news.opensuse.org' title='news.opensuse.org'>news "
+#~ "page</a>\n"
+#~ "        or other resources. (Hint! We love photos. Take lots of them!). "
+#~ "Please contact us at\n"
+#~ "        <a href='mailto:opensuse-marketing@opensuse.org'>opensuse-"
+#~ "marketing@opensuse.org</a>\n"
+#~ "        to discuss promotion and/or other ways we can assist you."
+#~ msgstr ""
+#~ "我们期待您，知会我们您对 DVD 的使用情况，\n"
+#~ "这样我们能够帮助您在我们的<a href='http://news.opensuse.org' title='news."
+#~ "opensuse.org'>新闻页面</a>\n"
+#~ "或其它资源中推广您的组织、事件或学校。\n"
+#~ "（嘤嘤嘤！我们爱美图！多拍点嘛！）。\n"
+#~ "请用 <a href='mailto:opensuse-marketing@opensuse.org'>opensuse-"
+#~ "marketing@opensuse.org</a>\n"
+#~ "联系我们来讨论推广和/或其它我们可协助您的方式。"
+
+#~ msgid ""
+#~ "When downloading images other than the CD for network installation, it is "
+#~ "<i>strongly</i> recommended to use a proper download manager to reduce "
+#~ "the risk of corrupted data."
+#~ msgstr ""
+#~ "当下载映像而不是网络安装 CD 时，<i>强烈</i>建议使用下载管理器来降低数据损"
+#~ "坏的风险。"
+
+#~ msgid ""
+#~ "You could verify the file in the process of downloading. For example a "
+#~ "checksum (SHA256) will be used automatically if you choose <a "
+#~ "href='http://en.opensuse.org/SDB:Metalink'>Metalink</a> in the field "
+#~ "above and use the add-on DownThemAll! in <a href='http://en.opensuse.org/"
+#~ "Firefox'>Firefox</a>."
+#~ msgstr ""
+#~ "你可以在下载进程中验证文件。例如若您在上面框中选择了 <a href='http://zh."
+#~ "opensuse.org/SDB:Metalink'>Metalink</a> 下载方式，并使用 <a href='http://"
+#~ "zh.opensuse.org/Firefox'>Firefox</a> 的附加组件 DownThemAll! 下载，就会自"
+#~ "动使用 SHA256 校验码验证。"
+
+#~ msgid "gpg signature"
+#~ msgstr "GPG 签名"
+
+#~ msgid "http://doc.opensuse.org/"
+#~ msgstr "http://doc.opensuse.org/"
+
+#~ msgid "http://en.opensuse.org/Derivatives"
+#~ msgstr "http://en.opensuse.org/Derivatives"
+
+#~ msgid "http://en.opensuse.org/Package_repositories"
+#~ msgstr "http://zh.opensuse.org/主软件源"
+
+#~ msgid "http://en.opensuse.org/Portal:Installation"
+#~ msgstr "https://zh.opensuse.org/Portal:安装"
+
+#~ msgid "http://en.opensuse.org/SDB:Download_help"
+#~ msgstr "http://zh.opensuse.org/SDB:下载帮助"
+
+#~ msgid "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
+#~ msgstr "https://zh.opensuse.org/SDB:下载帮助#烧录 ISO 映像档"
+
+#~ msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+#~ msgstr "https://zh.opensuse.org/openSUSE:提交错误报告"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
+
+#~ msgid "if you change your mind later."
+#~ msgstr "如果您以后改变主意。"
+
+#~ msgid "is a <strong>regular-release</strong>. This means it releases"
+#~ msgstr "为<strong>常规发行版</strong>。这表示它发布"
+
+#~ msgid ""
+#~ "is still the most commonly used checksum. Many ISO burners display it "
+#~ "right before burning."
+#~ msgstr "依然是最常用的校验码。许多 ISO 刻录程序会在开始刻录前显示它。"
+
+#~ msgid "is the less known but more secure checksum than md5."
+#~ msgstr "比较鲜为人知但比 md5 要安全一些。"
+
+#~ msgid "md5 checksum"
+#~ msgstr "md5 校验码"
+
+#~ msgid ""
+#~ "offers the most security as you can verify who signed it. It should be "
+#~ "<tt>%s</tt>."
+#~ msgstr ""
+#~ "提供了最大安全性，您可以验证是谁签发了它。签发人应该是 <tt>%s</tt>。"
+
+#~ msgid "openSUSE Countdown"
+#~ msgstr "openSUSE 新版倒计时"
+
+#~ msgid ""
+#~ "openSUSE is available via http (direct link) or BitTorrent. The CD for "
+#~ "network installation is only available via http."
+#~ msgstr ""
+#~ "openSUSE 可以从 http（直接链接）或 BitTorrent 种子撷取。网络安装 CD 只能通"
+#~ "过直接链接下载。"
+
+#~ msgid "openSUSE only supports PCs with 32 Bits and 64 Bits."
+#~ msgstr "openSUSE 只支持 32/64 位的计算机。"
+
+#~ msgid "see Derivatives on wiki"
+#~ msgstr "请参考维基上的「衍生版本」文章"
+
+#~ msgid "sha1 checksum"
+#~ msgstr "sha1 校验码"
+
+#~ msgid "switch to"
+#~ msgstr "切换至"
 
 #~ msgid "An internal error happened :-("
 #~ msgstr "发生了一个内部错误呦 :-("

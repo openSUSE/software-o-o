@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 11:05+0100\n"
+"POT-Creation-Date: 2017-06-14 13:51+0200\n"
 "PO-Revision-Date: 2017-06-12 16:42+0100\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <opensuse-translation-sk@opensuse.org>\n"
@@ -23,25 +23,28 @@ msgstr ""
 msgid " and "
 msgstr " a "
 
-#: ../app/controllers/main_controller.rb:182
-msgid "\"#{release} is not a supported release.\""
-msgstr "\"#{release} nie je podporované vydanie.\""
+#: ../app/views/distributions/index.html.erb:85
+msgid ""
+"%{leap} is a <strong>regular-release</strong>. This means it releases "
+"%{annually}, with security and stability updates being the priority during "
+"each release %{lifetime}."
+msgstr ""
 
-#: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
+#: ../app/views/distributions/index.html.erb:79
+msgid ""
+"%{tumbleweed} is a <strong>rolling-release</strong>. This means the software "
+"is always the latest stable versions available from the openSUSE Project. "
+"Things will change regularly as Free and Open Source projects continually "
+"release new versions of their software."
+msgstr ""
+
+#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
 msgid "(hide)"
 msgstr "(skryť)"
 
-#: ../app/views/download/package.erb:7 ../app/views/download/appliance.erb:7
+#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
 msgid "(show)"
 msgstr "(ukázať)"
-
-#: ../app/views/order/new.html.erb:31
-msgid "... and keep us informed"
-msgstr "... a informovať nás"
-
-#: ../app/views/order/new.html.erb:40
-msgid "... get other marketing stuff"
-msgstr "... získať ďalšie marketingové veci"
 
 #: ../app/views/distributions/_requirements.html.erb:6
 msgid "2 GB system memory"
@@ -51,56 +54,6 @@ msgstr "2 GB systémovej pamäte"
 msgid "2 Ghz dual core processor or better"
 msgstr "2 Ghz dual core procesor alebo lepší"
 
-#: ../app/views/main/_leap_release.html.erb:13
-#: ../app/views/main/_non_leap_release.html.erb:28
-msgid "4.7GB DVD (also suitable for USB stick)"
-msgstr "4.7GB DVD (vhodné aj pre USB kľúč)"
-
-#: ../app/views/main/_options.html.erb:21
-#: ../app/views/main/_options.html.erb:30
-msgid "64 Bit PC"
-msgstr "64 bitové PC"
-
-#: ../app/views/main/_options.html.erb:62
-#: ../app/views/main/_leap_release.html.erb:45
-msgid ""
-"<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">openSUSE "
-"startup guide</a>"
-msgstr ""
-"<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">Príručka "
-"openSUSE pre začiatočníkov</a>"
-
-#: ../app/views/main/_help_method.html.erb:16
-msgid ""
-"<a href=\"http://en.opensuse.org/SDB:Metalink\">Metalink</a> is an open "
-"standard that bundles the various ways (FTP/HTTP/BitTorrent) to get files "
-"into one format for easier downloads. This makes it good for downloading "
-"ISOs; particularly for people who can't use P2P because of restrictions from "
-"their ISP or University. It can deliver very fast download speeds since most "
-"clients support multiple connections, to multiple mirrors, automatically. In "
-"addition, it can do automatic error detection, and correction. It needs a "
-"special client to handle it though."
-msgstr ""
-"<a href=\"http://en.opensuse.org/Metalink\">Metalink</a> je otvorený "
-"štandard, ktorý pre zjednodušenie sťahovania, zlučuje rôzne spôsoby (FTP/"
-"HTTP/BitTorrent) získania súborov do jedného formátu. Je to výhodné pre "
-"sťahovanie ISO obrazov; obzvlášť pre ľudí, ktorý nemôžu použiť P2P siete "
-"kvôli obmedzeniam zo strany ISP alebo univerzity. Môže poskytnúť veľmi "
-"vysoké rýchlosti sťahovania, pretože väčšina klientov podporuje automaticky "
-"viacnásobné pripojenia na viacero zrkadiel. Okrem toho môže robiť "
-"automatickú detekciu chýb a korekciu. Na to však potrebuje špeciálneho "
-"klienta."
-
-#: ../app/views/main/_options.html.erb:64
-#: ../app/views/main/_leap_release.html.erb:49
-msgid "<a href=\"http://en.opensuse.org/openSUSE:License\">License</a>"
-msgstr "<a href=\"http://en.opensuse.org/openSUSE:License\">Licencia</a>"
-
-#: ../app/views/main/_options.html.erb:63
-#: ../app/views/main/_leap_release.html.erb:47
-msgid "<a href='%s'>Release Notes</a>"
-msgstr "<a href='%s'>Poznámky k vydaniu</a>"
-
 #: ../app/views/package/_download_rows.html.erb:4
 msgid "<b>official release</b>"
 msgstr "<b>oficiálne vydanie</b>"
@@ -109,57 +62,9 @@ msgstr "<b>oficiálne vydanie</b>"
 msgid "<b>official update</b>"
 msgstr "<b>oficiálna aktualizácia</b>"
 
-#: ../app/views/main/_non_leap_release.html.erb:35
-msgid ""
-"A GNOME desktop you can run from %s or from USB stick.<br/>Can be installed "
-"as is (no upgrade)."
-msgstr ""
-"Prostredie GNOME, ktoré môžete spustiť z %s alebo USB kľúča.<br/>Môže byť "
-"nainštalované ako je (žiadne zvýšenie verzie)."
-
-#: ../app/views/main/_non_leap_release.html.erb:39
-msgid ""
-"A KDE desktop you can run from %s or from USB stick.<br/>Can be installed as "
-"is (no upgrade)."
-msgstr ""
-"Prostredie KDE, ktoré môžete spustiť z %s alebo USB kľúča.<br/>Môže byť "
-"nainštalované ako je (žiadne zvýšenie verzie)."
-
 #: ../app/views/download/package.erb:84
 msgid "Add repository and install manually"
 msgstr "Pridať repozitár a inštalovať ručne"
-
-#: ../app/views/main/_non_leap_release.html.erb:86
-msgid "Add-On Downloads (optional)"
-msgstr "Rozširujúce stiahnutia (voliteľné)"
-
-#: ../app/views/main/_leap_release.html.erb:67
-#: ../app/views/main/_non_leap_release.html.erb:74
-msgid ""
-"After having successfully downloaded the ISO image(s), create a bootable USB "
-"stick or burn the image(s) to a DVD (or a CD if the chosen image fits)."
-msgstr ""
-"Po úspešnom stiahnutí ISO obrazu(ov) vytvorte spustiteľný USB kľúč alebo "
-"napáľte obraz(y) na DVD (alebo CD, ak sa vybraný obraz zmestí)."
-
-#: ../app/views/order/_form.html.erb:81
-msgid ""
-"All data is used only for sending openSUSE promotional material\n"
-"      and will not be spread to third parties. We store the data to\n"
-"      inform the users if a new version is available. All requests have\n"
-"      to be screened to fulfill the US export embargo. More information\n"
-"      about the embargo and a list of countries at wikipedia <a href='http://"
-"en.wikipedia.org/wiki/United_States_embargoes'>http://en.wikipedia.org/wiki/"
-"United_States_embargoes</a>."
-msgstr ""
-"Všetky údaje sa používajú iba na odosielanie propagačných materiálov\n"
-"      openSUSE a nebudú šírené tretím stranám. Údaje ukladáme, aby\n"
-"      sme používateľov informovali, či je k dispozícii nová verzia. Všetky\n"
-"      žiadosti sa musia prešetriť, aby sa splnilo exportné embargo USA. "
-"Viac\n"
-"      informácií o embargu a zoznam krajín nájdete na Wikipédii <a "
-"href='http://en.wikipedia.org/wiki/United_States_embargoes'>http://en."
-"wikipedia.org/wiki/United_States_embargoes</a>."
 
 #  frame
 #: ../app/views/search/_find_form.html.erb:18
@@ -170,46 +75,24 @@ msgstr "Prehliadač aplikácií"
 msgid "Available Images"
 msgstr "Dostupné obrazy"
 
-#: ../app/views/main/_leap_medium.html.erb:15
-#: ../app/views/main/_help_method.html.erb:10
-#: ../app/views/main/_options.html.erb:8
-msgid "BitTorrent"
-msgstr "BitTorrent"
-
-#: ../app/views/main/_leap_release.html.erb:73
-#: ../app/views/main/_non_leap_release.html.erb:80
+#: ../app/views/distributions/index.html.erb:102
+#, fuzzy
+#| msgid ""
+#| "Both distributions are fully capable of being used on a Desktop PC,\n"
+#| "        laptop, server, or in the cloud."
 msgid ""
-"Boot from the DVD, CD or USB stick. In case your computer does not "
-"automatically boot from the chosen device, open the BIOS setup to allow "
-"booting from it."
-msgstr ""
-"Spustite systém z DVD, CD alebo USB kľúča. V prípade, že počítač automaticky "
-"nespustí systém zo zvoleného zariadenia, otvorte nastavenie systému BIOS, "
-"aby ste z neho umožnili štart systému."
-
-#: ../app/views/distributions/index.html.erb:114
-msgid ""
-"Both distributions are fully capable of being used on a Desktop PC,\n"
-"        laptop, server, or in the cloud."
+"Both distributions are fully capable of being used on a Desktop PC, laptop, "
+"server, or in the cloud."
 msgstr ""
 "Obe distribúcie sú plne použiteľné na stolnom počítači,\n"
 "        prenosnom počítači, serveri alebo v cloude."
 
-#: ../app/views/distributions/index.html.erb:109
-msgid "Both distributions are well tested by"
-msgstr "Obidve distribúcie sú dobre otestované"
-
-#: ../app/views/main/release.html.erb:68
-msgid "Bronze Sponsor"
-msgstr "Bronzový sponzor"
-
-#: ../app/views/main/redirect_with_notice.erb:1
-msgid "Browser incompatibility"
-msgstr "Nekompatibilita prehliadača"
-
-#: ../app/views/main/release.html.erb:36
-msgid "Burn CD/DVD Image(s)"
-msgstr "Napálenie CD/DVD obrazu"
+#: ../app/views/distributions/index.html.erb:100
+msgid ""
+"Both distributions are well tested by <a href=\"https://openqa.opensuse.org"
+"\">openQA</a> as well as by human openSUSE contributors so both can be "
+"relied upon to work."
+msgstr ""
 
 #: ../app/views/package/show.html.erb:169
 msgid "Categories"
@@ -219,32 +102,22 @@ msgstr "Kategórie"
 msgid "Category"
 msgstr "Kategória"
 
-#: ../app/views/distributions/tumbleweed_ports.html.erb:29
-#: ../app/views/distributions/tumbleweed_ports.html.erb:86
-#: ../app/views/distributions/tumbleweed_ports.html.erb:143
-#: ../app/views/distributions/testing.html.erb:50
+#: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:29
 #: ../app/views/distributions/leap_ports.html.erb:90
+#: ../app/views/distributions/testing.html.erb:50
 #: ../app/views/distributions/tumbleweed.html.erb:30
-#: ../app/views/distributions/leap.html.erb:28
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:53
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:132
+#: ../app/views/distributions/tumbleweed_ports.html.erb:28
+#: ../app/views/distributions/tumbleweed_ports.html.erb:85
+#: ../app/views/distributions/tumbleweed_ports.html.erb:142
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:51
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:130
 msgid "Checksum"
 msgstr "Kontrolný súčet"
 
 #: ../app/views/distributions/_verify_download.html.erb:26
 msgid "Checksums Help"
 msgstr "Pomocník pre kontrolný súčet"
-
-#: ../app/views/main/_non_leap_release.html.erb:59
-msgid ""
-"Choose an installation medium by clicking it and hit the Download button to "
-"start the download. Optionally choose your computer type or an alternative "
-"download method."
-msgstr ""
-"Vyberte inštalačné médium kliknutím a stlačte tlačidlo Stiahnuť pre začatie "
-"sťahovania. Pokiaľ je potrebné, vyberte typ počítača alebo iný spôsob "
-"sťahovania."
 
 #: ../app/views/distributions/_choosing_media.html.erb:2
 msgid "Choosing Which Media to Download"
@@ -254,52 +127,23 @@ msgstr "Výber média, ktoré sa stiahne"
 msgid "Chosing which Distribution to Download"
 msgstr "Výber distribúcie na stiahnutie"
 
-#: ../app/views/main/_non_leap_release.html.erb:49
-msgid "Click here to display these alternative versions."
-msgstr "Kliknutím sem zobrazíte tieto alternatívne verzie."
-
-#: ../app/views/main/_download_link.html.erb:2
-msgid "Click to Download"
-msgstr "Kliknúť pre stiahnutie"
-
-#: ../app/views/layouts/download.html.erb:59
 #: ../app/views/layouts/application.html.erb:65
+#: ../app/views/layouts/download.html.erb:59
 msgid "Community"
 msgstr "Komunita"
-
-#: ../app/views/main/_leap_release.html.erb:13
-#: ../app/views/main/_non_leap_release.html.erb:28
-msgid ""
-"Contains a large collection of software for desktop or server use.<br/"
-">Suitable for installation or upgrade."
-msgstr ""
-"Obsahuje kolekciu aplikácií určených pre domáce, alebo serverové použitie."
-"<br/>Vhodné pre inštaláciu, alebo upgrade."
-
-#: ../app/views/main/release.html.erb:46
-msgid "Countdown"
-msgstr "Odpočítavanie"
-
-#: ../app/views/order/_form.html.erb:72
-msgid "Country"
-msgstr "Krajina"
 
 #: ../app/views/distributions/testing.html.erb:34
 msgid "Currently testing"
 msgstr "Aktuálne testovanie"
 
-#: ../app/views/distributions/index.html.erb:136
+#: ../app/views/distributions/index.html.erb:119
 msgid "Derivatives"
 msgstr "Deriváty"
 
-#: ../app/views/layouts/download.html.erb:60
 #: ../app/views/layouts/application.html.erb:66
+#: ../app/views/layouts/download.html.erb:60
 msgid "Development"
 msgstr "Vývoj"
-
-#: ../app/views/main/release.html.erb:15
-msgid "Development Version"
-msgstr "Vývojová verzia"
 
 #: ../app/views/search/_find_results.html.erb:92
 msgid "Development packages"
@@ -313,36 +157,31 @@ msgstr "Vývoj-"
 msgid "Direct Install"
 msgstr "Priama inštalácia"
 
-#: ../app/views/main/_leap_medium.html.erb:13
-#: ../app/views/main/_help_method.html.erb:6
-#: ../app/views/main/_options.html.erb:6
-#: ../app/views/distributions/tumbleweed_ports.html.erb:38
-#: ../app/views/distributions/tumbleweed_ports.html.erb:60
-#: ../app/views/distributions/tumbleweed_ports.html.erb:95
-#: ../app/views/distributions/tumbleweed_ports.html.erb:117
-#: ../app/views/distributions/tumbleweed_ports.html.erb:152
-#: ../app/views/distributions/tumbleweed_ports.html.erb:174
-#: ../app/views/distributions/testing.html.erb:59
-#: ../app/views/distributions/testing.html.erb:81
+#: ../app/views/distributions/leap.html.erb:37
+#: ../app/views/distributions/leap.html.erb:63
 #: ../app/views/distributions/leap_ports.html.erb:38
 #: ../app/views/distributions/leap_ports.html.erb:64
 #: ../app/views/distributions/leap_ports.html.erb:99
 #: ../app/views/distributions/leap_ports.html.erb:121
+#: ../app/views/distributions/testing.html.erb:59
+#: ../app/views/distributions/testing.html.erb:81
 #: ../app/views/distributions/tumbleweed.html.erb:39
 #: ../app/views/distributions/tumbleweed.html.erb:61
-#: ../app/views/distributions/leap.html.erb:37
-#: ../app/views/distributions/leap.html.erb:63
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:62
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:84
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:106
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:141
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:163
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:184
+#: ../app/views/distributions/tumbleweed_ports.html.erb:37
+#: ../app/views/distributions/tumbleweed_ports.html.erb:59
+#: ../app/views/distributions/tumbleweed_ports.html.erb:94
+#: ../app/views/distributions/tumbleweed_ports.html.erb:116
+#: ../app/views/distributions/tumbleweed_ports.html.erb:151
+#: ../app/views/distributions/tumbleweed_ports.html.erb:173
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:60
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:82
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:104
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:139
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:161
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:182
 msgid "Direct Link"
 msgstr "Priamy odkaz"
 
-#: ../app/views/main/_options.html.erb:60
-#: ../app/views/main/_leap_release.html.erb:43
 #: ../app/views/distributions/_documentation.html.erb:2
 msgid "Documentation"
 msgstr "Dokumentácia"
@@ -351,31 +190,16 @@ msgstr "Dokumentácia"
 msgid "Don't show this warning the next time"
 msgstr "Toto varovanie nabudúce neukazovať"
 
-#: ../app/views/main/_options.html.erb:45
-#: ../app/views/main/_download_link.html.erb:2
-msgid "Download"
-msgstr "Stiahnuť"
-
-#: ../app/views/main/release.html.erb:4
-msgid "Download %s"
-msgstr "Stiahnuť %s"
-
-#: ../app/views/main/release.html.erb:35
-msgid "Download Help"
-msgstr "Pomocník sťahovania"
-
-#: ../app/views/main/_leap_medium.html.erb:10
-#: ../app/views/main/_options.html.erb:4
-#: ../app/views/distributions/tumbleweed_ports.html.erb:28
-#: ../app/views/distributions/tumbleweed_ports.html.erb:85
-#: ../app/views/distributions/tumbleweed_ports.html.erb:142
-#: ../app/views/distributions/testing.html.erb:49
+#: ../app/views/distributions/leap.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:89
+#: ../app/views/distributions/testing.html.erb:49
 #: ../app/views/distributions/tumbleweed.html.erb:29
-#: ../app/views/distributions/leap.html.erb:27
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:52
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:131
+#: ../app/views/distributions/tumbleweed_ports.html.erb:27
+#: ../app/views/distributions/tumbleweed_ports.html.erb:84
+#: ../app/views/distributions/tumbleweed_ports.html.erb:141
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:50
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:129
 msgid "Download Method"
 msgstr "Spôsob sťahovania"
 
@@ -388,9 +212,13 @@ msgstr ""
 "počítače, prenosné počítače a servery."
 
 #: ../app/views/distributions/tumbleweed_ports.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "Download alternative architectures of the rolling version\n"
+#| "              of openSUSE, for desktop PCs, laptops, and servers."
 msgid ""
-"Download alternative architectures of the rolling version\n"
-"              of openSUSE, for desktop PCs, laptops, and servers."
+"Download alternative architectures of the rolling version of openSUSE, for "
+"desktop PCs, laptops, and servers."
 msgstr ""
 "Stiahnuť rolujúcu verziu openSUSE s alternatívnymi architektúrami\n"
 "              pre stolné počítače, prenosné počítače a servery."
@@ -433,46 +261,21 @@ msgstr ""
 "servery."
 
 #: ../app/views/distributions/tumbleweed.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "Download the rolling version of openSUSE, for desktop PCs,\n"
+#| "              laptops, and servers."
 msgid ""
 "Download the rolling version of openSUSE, for desktop PCs,\n"
-"              laptops, and servers."
+"laptops, and servers."
 msgstr ""
 "Stiahnuť rolujúcu verziu openSUSE pre stolné počítače,\n"
 "              prenosné počítače a servery."
 
-#: ../app/views/main/_options.html.erb:49
-msgid "Download&nbsp;DVD"
-msgstr "Stiahnuť"
-
-#: ../app/views/main/_options.html.erb:48
-msgid "Download&nbsp;GNOME"
-msgstr "Stiahnuť"
-
-#: ../app/views/main/_options.html.erb:47
-msgid "Download&nbsp;KDE"
-msgstr "Stiahnuť"
-
-#: ../app/views/main/_options.html.erb:50
-msgid "Download&nbsp;Network"
-msgstr "Stiahnuť"
-
-#: ../app/views/main/_options.html.erb:51
-msgid "Download&nbsp;Rescue"
-msgstr "Stiahnuť&nbsp;Záchranné"
-
-#: ../app/views/layouts/download.html.erb:57
 #: ../app/views/layouts/application.html.erb:63
+#: ../app/views/layouts/download.html.erb:57
 msgid "Downloads"
 msgstr "Stiahnuť"
-
-#: ../app/views/main/_leap_release.html.erb:15
-#: ../app/views/main/_non_leap_release.html.erb:31
-msgid ""
-"Downloads the installation system and all packages from online repositories."
-"<br/>Suitable for installation or upgrade."
-msgstr ""
-"Stiahne inštalačný systém a všetky balíky z online zdrojov.<br/>Vhodné pre "
-"inštaláciu, alebo upgrade."
 
 #: ../app/views/distributions/_leap_switch.html.erb:2
 msgid "Easy Ways to Switch to openSUSE Leap"
@@ -489,18 +292,6 @@ msgstr "Buď DVD jednotka alebo USB port pre inštalačné médium"
 #: ../app/views/package/show.html.erb:252
 msgid "Expand all sections ('e')"
 msgstr "Rozbaliť všetky sekcie ('e')"
-
-#: ../app/views/main/_non_leap_release.html.erb:90
-msgid "Extra Languages"
-msgstr "Extra jazyky"
-
-#: ../app/views/main/_non_leap_release.html.erb:88
-msgid "Extra Languages (32 Bit)"
-msgstr "Extra jazyky (32 Bit)"
-
-#: ../app/views/main/_non_leap_release.html.erb:89
-msgid "Extra Languages (64 Bit)"
-msgstr "Extra jazyky (64 Bit)"
 
 #: ../app/views/download/package.erb:106
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
@@ -521,7 +312,6 @@ msgstr ""
 "nasledujúce (Treba upozorniť, že poradie repozitárov v pacman.conf je "
 "dôležité, pretože pacman vždy stiahne prvý nájdený balík):"
 
-#: ../app/views/main/_leap_verify.html.erb:6
 #: ../app/views/distributions/_verify_download.html.erb:13
 msgid ""
 "For each ISO, we offer a checksum file with the corresponding SHA256 sum."
@@ -535,14 +325,6 @@ msgid ""
 msgstr ""
 "Pre zvýšenú bezpečnosť môžete pomocou GPG overiť, kto podpísal tieto .sha256 "
 "súbory."
-
-#: ../app/views/main/_leap_verify.html.erb:7
-msgid ""
-"For extra security, you can use GPG to verify who signed those .sha256 "
-"files. It should be %s."
-msgstr ""
-"Pre zvýšenú bezpečnosť môžete pomocou GPG overiť, kto podpísal tieto .sha256 "
-"súbory. Mal by to byť %s."
 
 #: ../app/views/distributions/_verify_download.html.erb:24
 msgid "For more help verifing your download please read"
@@ -574,48 +356,28 @@ msgstr "Hry"
 msgid "Get Unsupported Tumbleweed LiveCDs."
 msgstr "Získať nepodporované Tumbleweed LiveCD."
 
-#: ../app/views/main/_non_leap_release.html.erb:44
-msgid "Get one of the specialized distributions built on openSUSE."
-msgstr "Získať jednu zo špecializovaných distribúcií založenej na openSUSE."
-
 #: ../app/views/layouts/jekyll.html.erb:8
 #: ../app/views/layouts/jekyll.html.erb:34
 #: ../app/views/distributions/index.html.erb:7
 msgid "Get openSUSE"
 msgstr "Získať openSUSE"
 
-#: ../app/views/distributions/leap.html.erb:87
+#: ../app/views/distributions/leap.html.erb:85
 msgid "Get openSUSE Leap for other architectures."
 msgstr "Získať openSUSE Leap pre iné architektúry."
 
-#: ../app/views/distributions/tumbleweed.html.erb:85
+#: ../app/views/distributions/tumbleweed.html.erb:84
 msgid "Get openSUSE Tumbleweed for other architectures."
 msgstr "Získať openSUSE Tumbleweed pre iné architektúry."
-
-#: ../app/views/main/release.html.erb:33
-msgid "Getting Help"
-msgstr "Získanie pomoci"
-
-#: ../app/views/main/release.html.erb:59
-msgid "Gold Sponsor"
-msgstr "Zlatý sponzor"
 
 #: ../app/views/download/package.erb:153
 msgid "Grab binary packages directly"
 msgstr "Získať binárne balíky priamo"
 
-#: ../app/views/layouts/download.html.erb:54
 #: ../app/views/layouts/application.html.erb:60
+#: ../app/views/layouts/download.html.erb:54
 msgid "Header Logo"
 msgstr "Logo hlavičky"
-
-#: ../app/views/main/_help_method.html.erb:2
-msgid "Help on Download Method"
-msgstr "Pomocník pre spôsob sťahovania"
-
-#: ../app/views/main/_options.html.erb:26
-msgid "Help on Type of Computer"
-msgstr "Pomocník pre typ počítača"
 
 #: ../app/views/distributions/index.html.erb:66
 msgid ""
@@ -634,11 +396,6 @@ msgstr ""
 "Pomôžte testovať ďalšiu verziu openSUSE Leap,\n"
 "              normálne vydanie distribúcie pre stolné počítače,\n"
 "              prenosné počítače a servery."
-
-#: ../app/views/main/_leap_release.html.erb:65
-#: ../app/views/main/_non_leap_release.html.erb:72
-msgid "How to Proceed"
-msgstr "Ako pokračovať"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
@@ -664,26 +421,24 @@ msgstr "Ako vytvoriť spustiteľný USB kľúč na Linuxe."
 msgid "How to create a bootable USB stick on OS X."
 msgstr "Ako vytvoriť spustiteľný USB kľúč na OS X."
 
-#: ../app/views/distributions/index.html.erb:120
-msgid "If you are still not sure, download"
+#: ../app/views/distributions/index.html.erb:107
+#, fuzzy
+#| msgid "If you are still not sure, download"
+msgid "If you are still not sure, download %{leap}"
 msgstr "Ak si stále nie ste istí, stiahnite si"
 
-#: ../app/views/main/_help_method.html.erb:20
-msgid ""
-"If you want to use a direct link but live in a place in the world where our "
-"download redirector has not enough information to redirect to the fastest "
-"mirror, you can pick a mirror yourself."
-msgstr ""
-"Pokiaľ si prajete použiť priamy odkaz, ale žijete v mieste kde naše "
-"presmerovanie sťahovania nemá dostatok informácií pre presmerovanie na "
-"rýchlejší server, môžete si vybrať zrkadlo podľa vlastnej voľby."
-
-#: ../app/views/distributions/_tumbleweed_switch.html.erb:5
 #: ../app/views/distributions/_leap_switch.html.erb:5
+#: ../app/views/distributions/_tumbleweed_switch.html.erb:5
+#, fuzzy
+#| msgid ""
+#| "If you’re already running openSUSE you can upgrade by booting from the\n"
+#| "  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a "
+#| "few\n"
+#| "  commands."
 msgid ""
 "If you’re already running openSUSE you can upgrade by booting from the\n"
-"  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
-"  commands."
+"DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
+"commands."
 msgstr ""
 "Ak už používate openSUSE, môžete zvýšiť verziu spustením systému\n"
 "  z DVD/USB a vybrať zvýšenie verzie alebo vykonať 'Online Upgrade'\n"
@@ -697,7 +452,7 @@ msgstr "Obraz:"
 msgid "Install package %s / %s"
 msgstr "Nainštalovať balík %s / %s"
 
-#: ../app/controllers/download_controller.rb:123
+#: ../app/controllers/download_controller.rb:121
 msgid "Install pattern %s / %s"
 msgstr "Nainštalovať šablónu %s / %s"
 
@@ -705,33 +460,26 @@ msgstr "Nainštalovať šablónu %s / %s"
 msgid "Install using One Click Install"
 msgstr "Inštalovať pomocou One Click Install"
 
-#: ../app/views/main/release.html.erb:37
-msgid "Installation Guides"
-msgstr "Inštalační sprievodcovia"
-
-#: ../app/views/distributions/tumbleweed_ports.html.erb:22
-#: ../app/views/distributions/tumbleweed_ports.html.erb:79
-#: ../app/views/distributions/tumbleweed_ports.html.erb:136
+#: ../app/views/distributions/leap.html.erb:21
 #: ../app/views/distributions/testing.html.erb:43
 #: ../app/views/distributions/tumbleweed.html.erb:23
-#: ../app/views/distributions/leap.html.erb:21
+#: ../app/views/distributions/tumbleweed_ports.html.erb:21
+#: ../app/views/distributions/tumbleweed_ports.html.erb:78
+#: ../app/views/distributions/tumbleweed_ports.html.erb:135
 msgid "Installation Media"
 msgstr "Inštalačné médiá"
-
-#: ../app/views/main/_leap_release.html.erb:10
-#: ../app/views/main/_non_leap_release.html.erb:17
-msgid "Installation Medium"
-msgstr "Inštalačné médium"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
 msgstr "Prístup k internetu je užitočný a potrebný pre sieťovú inštaláciu"
 
-#: ../app/views/distributions/index.html.erb:124
-msgid "It is easy to"
-msgstr "Je ľahké"
+#: ../app/views/distributions/index.html.erb:110
+msgid ""
+"It is easy to <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
+"\">switch to openSUSE Tumbleweed</a> if you change your mind later."
+msgstr ""
 
-#: ../app/views/distributions/index.html.erb:97
+#: ../app/views/distributions/index.html.erb:90
 msgid ""
 "It is not expected to change in any significant way until its next annual "
 "release."
@@ -743,78 +491,46 @@ msgstr ""
 msgid "It should be"
 msgstr "By malo byť"
 
-#: ../app/views/order/new.html.erb:18
+#: ../app/views/distributions/index.html.erb:96
+#, fuzzy
+#| msgid ""
+#| "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
+#| "        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgid ""
-"Join the fast-growing community, put openSUSE into more hands by\n"
-"        getting the latest PromoDVD for your group, non-profit organization, "
-"school\n"
-"        university or event like LUG meetings, installfests, and "
-"conferences.\n"
-"        Promo DVDs help to increase awareness and visibility of openSUSE!"
-msgstr ""
-"Pripojte sa k rýchlorastúcej komunite a vložte openSUSE do viacerých rúk\n"
-"        získaním najnovšieho PromoDVD pre vašu skupinu, neziskovú "
-"organizáciu, školu,\n"
-"        univerzitu alebo na akcie, ako sú stretnutia LUG, installfesty a "
-"konferencie.\n"
-"        Promo DVD pomáhajú zvyšovať povedomie a viditeľnosť openSUSE!"
-
-#: ../app/controllers/main_controller.rb:194
-msgid ""
-"Konqueror of KDE 3 is unfortunately unmaintained and its javascript "
-"implementation contains bugs that make it impossible to use with this page. "
-"Please make sure you have javascript disabled before you <a "
-"href='%s'>continue</a>."
-msgstr ""
-"Konqueror prostredia KDE 3 nie je udržiavaný a jeho javascript implementácia "
-"obsahuje chyby, s ktorými nie je možné použiť túto stránku. Uistite sa, že "
-"máte javascript zakázaný, kým budete <a href='%s'>pokračovať</a>."
-
-#: ../app/views/main/release.html.erb:72
-msgid "Language"
-msgstr "Jazyk"
-
-#: ../app/views/distributions/index.html.erb:104
-msgid ""
-"Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
-"        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
+"Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
+"Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgstr ""
 "Leap sa odporúča pre <strong>administrátorov</strong>, <strong>podnikových\n"
 "        vývojárov</strong> a <strong>'bežných' používateľov počítačov</"
 "strong>."
 
-#: ../app/views/distributions/index.html.erb:99
-msgid "Leap shares a Common Base System with"
-msgstr "Leap zdieľa spoločný základný systém s"
-
-#: ../app/views/main/_options.html.erb:35
-msgid "Legacy 32 Bit PC"
-msgstr "Staršie 32 bitové PC"
-
-#: ../app/views/main/_options.html.erb:23
-msgid "Legacy 32&nbsp;Bit&nbsp;PC"
-msgstr "Staršie 32&nbsp;bitové&nbsp;PC"
+#: ../app/views/distributions/index.html.erb:92
+msgid ""
+"Leap shares a Common Base System with %{sles}, so major architectural "
+"changes are not expected for several years, aligned with each new Major "
+"Release (eg 12, 13, etc) of SUSE Linux Enterprise."
+msgstr ""
 
 #: ../app/views/distributions/_documentation.html.erb:18
 msgid "License"
 msgstr "Licencia"
 
-#: ../app/views/main/_non_leap_release.html.erb:35
-msgid "Live GNOME"
-msgstr "Live GNOME"
-
-#: ../app/views/main/_non_leap_release.html.erb:39
-msgid "Live KDE"
-msgstr "Live KDE"
-
 #: ../app/views/distributions/_verify_download.html.erb:5
+#, fuzzy
+#| msgid ""
+#| "Many applications can verify the checksum of a download. To verify\n"
+#| "  your download can be important as it verifies you really have got the\n"
+#| "  ISO file you wanted to download and not some broken version. You could\n"
+#| "  verify the file in the process of downloading. For example a checksum\n"
+#| "  (SHA256) will be used automatically if you choose Metalink in the\n"
+#| "  field above and use the add-on DownThemAll! in Firefox."
 msgid ""
 "Many applications can verify the checksum of a download. To verify\n"
-"  your download can be important as it verifies you really have got the\n"
-"  ISO file you wanted to download and not some broken version. You could\n"
-"  verify the file in the process of downloading. For example a checksum\n"
-"  (SHA256) will be used automatically if you choose Metalink in the\n"
-"  field above and use the add-on DownThemAll! in Firefox."
+"your download can be important as it verifies you really have got the\n"
+"ISO file you wanted to download and not some broken version. You could\n"
+"verify the file in the process of downloading. For example a checksum\n"
+"(SHA256) will be used automatically if you choose Metalink in the\n"
+"field above and use the add-on DownThemAll! in Firefox."
 msgstr ""
 "Veľa aplikácií môže overiť kontrolný súčet stiahnutia. Pre overenie\n"
 "  vášho stiahnutia môže byť dôležité, či naozaj máte ISO súbor, ktorý ste\n"
@@ -824,86 +540,21 @@ msgstr ""
 "  ak v poli vyššie zvolíte Metalink a použijete doplnok DownThemAll!\n"
 "vo Firefoxe."
 
-#: ../app/views/main/_leap_verify.html.erb:2
-#: ../app/views/main/_non_leap_verify.html.erb:2
-msgid ""
-"Many applications can verify the checksum of a download. To verify your "
-"download can be important as it verifies you really have got the ISO file "
-"you wanted to download and not some broken version."
-msgstr ""
-"Veľa aplikácií môže overiť kontrolný súčet stiahnutia. Pre overenie vášho "
-"stiahnutia môže byť dôležité, či naozaj máte ISO súbor, ktorý ste chceli "
-"stiahnuť a nie nejakú poškodenú verziu."
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:46
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:125
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:44
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:123
 msgid "Media"
 msgstr "Médiá"
-
-#: ../app/views/main/_leap_medium.html.erb:17
-#: ../app/views/main/_help_method.html.erb:14
-#: ../app/views/main/_options.html.erb:10
-msgid "Metalink"
-msgstr "Metalink"
-
-#: ../app/views/main/_leap_release.html.erb:70
-#: ../app/views/main/_non_leap_release.html.erb:77
-msgid "More information on burning the ISO file to CD/DVD"
-msgstr "Ďalšie informácie o napaľovaní ISO súboru na disk CD/DVD"
-
-#: ../app/views/main/_leap_release.html.erb:69
-#: ../app/views/main/_non_leap_release.html.erb:76
-msgid ""
-"More information on creating a <a href='http://en.opensuse.org/"
-"Live_USB_stick'>bootable USB stick</a>"
-msgstr ""
-"Ďalšie informácie o vytváraní <a href='http://en.opensuse.org/"
-"Live_USB_stick'>spustiteľného USB kľúča</a>"
-
-#: ../app/views/main/_leap_release.html.erb:56
-#: ../app/views/main/_non_leap_release.html.erb:63
-msgid ""
-"More information on downloading openSUSE is available from the <a href="
-"\"http://en.opensuse.org/SDB:Download_help\">Download Help</a> and <a href="
-"\"http://en.opensuse.org/SDB:Network_installation\">Network Installation</a> "
-"pages in our <a href=\"http://en.opensuse.org/Portal:Documentation"
-"\">Documentation Wiki</a>."
-msgstr ""
-"Viac informácií o sťahovaní openSUSE je k dispozícii v <a href=\"http://en."
-"opensuse.org/SDB:Download_help\">Pomocníkovi sťahovania</a> a na stránkach "
-"<a href=\"http://en.opensuse.org/SDB:Network_installation\">Sieťovej "
-"inštalácie</a> našej <a href=\"http://en.opensuse.org/Portal:Documentation"
-"\">Documentation Wiki</a>."
-
-#: ../app/views/main/_options.html.erb:32
-msgid ""
-"Most new computers support <a href=\"http://en.wikipedia.org/wiki/"
-"X86-64\">x86-64</a> (also known as AMD64 and Intel64), but some laptop "
-"processors and netbook processors do not support it. So you need to check "
-"wikipedia if you want to be sure your computer supports it."
-msgstr ""
-"Väčšina dnešných počítačov obsahuje architektúru typu<a href=\"http://sk."
-"wikipedia.org/wiki/X86-64\">x86-64</a> (napríklad AMD64 a Intel64). "
-"Informáciu o tom, akej architektúry je váš počítač, môžete nájsť napríklad "
-"na wikipedii, prípade na stránkach výrobcu či predajcu."
 
 #: ../app/views/package/categories.html.erb:42
 msgid "Multimedia"
 msgstr "Multimédiá"
 
-#: ../app/views/main/_leap_release.html.erb:54
-#: ../app/views/main/_non_leap_release.html.erb:61
-msgid "Need help?"
-msgstr "Potrebujete pomoc?"
-
-#: ../app/views/main/_leap_release.html.erb:15
-#: ../app/views/main/_non_leap_release.html.erb:31
-#: ../app/views/distributions/tumbleweed_ports.html.erb:113
-#: ../app/views/distributions/tumbleweed_ports.html.erb:170
-#: ../app/views/distributions/testing.html.erb:77
 #: ../app/views/distributions/leap_ports.html.erb:60
 #: ../app/views/distributions/leap_ports.html.erb:117
+#: ../app/views/distributions/testing.html.erb:77
 #: ../app/views/distributions/tumbleweed.html.erb:57
+#: ../app/views/distributions/tumbleweed_ports.html.erb:112
+#: ../app/views/distributions/tumbleweed_ports.html.erb:169
 msgid "Network"
 msgstr "Sieť"
 
@@ -931,29 +582,13 @@ msgstr "Nebolo nájdené nič k stiahnutiu pre %s v projekte %s"
 msgid "No packages found matching your search. "
 msgstr "Neboli nájdené žiadne balíky vyhovujúce vášmu hľadaniu. "
 
-#: ../app/views/main/_non_leap_release.html.erb:92
-msgid "NonOSS CD"
-msgstr "NonOSS CD"
-
-#: ../app/controllers/application_controller.rb:50
+#: ../app/controllers/application_controller.rb:55
 msgid "OBS Backend not available"
 msgstr "OBS Backend nie je dostupný"
-
-#: ../app/views/main/release.html.erb:38
-msgid "Official Manuals"
-msgstr "Oficiálne manuály"
 
 #: ../app/views/distributions/_leap_switch.html.erb:9
 msgid "Online Upgrade Instructions"
 msgstr "Pokyny pre zvýšenie verzie online"
-
-#: ../app/views/main/_non_leap_release.html.erb:22
-msgid ""
-"Only DVD and Network medias are fully tested. Alternatives, like live or "
-"rescue systems, are recommended for limited use only."
-msgstr ""
-"Iba DVD a sieťové médiá sú plne testované. Alternatívy, ako napríklad live "
-"alebo záchranné systémy, sa odporúčajú len na obmedzené použitie."
 
 #: ../app/views/distributions/_requirements.html.erb:7
 msgid "Over 40GB of free hard drive space"
@@ -962,10 +597,6 @@ msgstr "Viac ako 40 GB voľného miesta na pevnom disku"
 #: ../app/views/package/show.html.erb:149
 msgid "Package %s not found..."
 msgstr "Balík %s nebol nájdený..."
-
-#: ../app/views/main/release.html.erb:39
-msgid "Package Repositories"
-msgstr "Repozitáre balíkov"
 
 #: ../app/views/layouts/jekyll.html.erb:45
 #: ../app/views/search/_find_form.html.erb:23
@@ -976,37 +607,30 @@ msgstr "Hľadať balíky"
 msgid "Packages for %s:"
 msgstr "Balíky pre %s:"
 
-#: ../app/views/main/_leap_medium.html.erb:18
-#: ../app/views/main/_help_method.html.erb:18
-#: ../app/views/main/_options.html.erb:11
-#: ../app/views/distributions/tumbleweed_ports.html.erb:46
-#: ../app/views/distributions/tumbleweed_ports.html.erb:68
-#: ../app/views/distributions/tumbleweed_ports.html.erb:103
-#: ../app/views/distributions/tumbleweed_ports.html.erb:125
-#: ../app/views/distributions/tumbleweed_ports.html.erb:160
-#: ../app/views/distributions/tumbleweed_ports.html.erb:182
-#: ../app/views/distributions/testing.html.erb:67
-#: ../app/views/distributions/testing.html.erb:89
+#: ../app/views/distributions/leap.html.erb:49
+#: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/leap_ports.html.erb:50
 #: ../app/views/distributions/leap_ports.html.erb:72
 #: ../app/views/distributions/leap_ports.html.erb:107
 #: ../app/views/distributions/leap_ports.html.erb:129
+#: ../app/views/distributions/testing.html.erb:67
+#: ../app/views/distributions/testing.html.erb:89
 #: ../app/views/distributions/tumbleweed.html.erb:47
 #: ../app/views/distributions/tumbleweed.html.erb:69
-#: ../app/views/distributions/leap.html.erb:49
-#: ../app/views/distributions/leap.html.erb:71
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:70
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:92
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:114
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:149
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:170
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:192
+#: ../app/views/distributions/tumbleweed_ports.html.erb:45
+#: ../app/views/distributions/tumbleweed_ports.html.erb:67
+#: ../app/views/distributions/tumbleweed_ports.html.erb:102
+#: ../app/views/distributions/tumbleweed_ports.html.erb:124
+#: ../app/views/distributions/tumbleweed_ports.html.erb:159
+#: ../app/views/distributions/tumbleweed_ports.html.erb:181
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:68
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:90
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:112
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:147
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:168
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:190
 msgid "Pick Mirror"
 msgstr "Vybrať zrkadlo"
-
-#: ../app/views/main/release.html.erb:55
-msgid "Platinum Sponsor"
-msgstr "Platinový sponzor"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:24
 msgid "Please Note: These LiveUSBs are not supported"
@@ -1024,46 +648,14 @@ msgstr ""
 "  To znamená, že nie sú preskúmané openSUSE  a môžu obsahovať nestabilný "
 "alebo experimentálny softvér."
 
-#: ../app/views/order/_form.html.erb:63
-msgid ""
-"Please enter a <b>brief</b> reason (in English!) why you need the DVDs and "
-"provide a link of the event/purpose."
-msgstr ""
-"Prosím, zadajte <b>stručný</b> dôvod (v angličtine!), prečo potrebujete DVD "
-"médiá a zadajte odkaz na udalosť/účel."
-
-#: ../app/controllers/main_controller.rb:228
-msgid ""
-"Please note that this is not the latest openSUSE release. You can get the "
-"latest version <a href='/'>here</a>. "
-msgstr ""
-"Upozorňujeme, že toto nie je najnovšie vydanie openSUSE. Najnovšiu verziu "
-"môžete získať <a href='/'>tu</a>. "
-
 #: ../app/views/distributions/testing.html.erb:40
 msgid "Please report any issues you find in our Bugtracker."
 msgstr ""
 "Nahláste, prosím, všetky problémy, ktoré nájdete v našom nástroji Bugtracker."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:40
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:39
 msgid "Please review"
 msgstr "Prosím, preskúmajte"
-
-#: ../app/views/order/new.html.erb:25
-msgid ""
-"Promo DVDs and all the related artwork -labels and sleeve- can be\n"
-"        downloaded from the <a href=\"http://download.opensuse.org/promodvd/"
-"\">promodvd\n"
-"        download directory %s</a>. Keep in mind that this is a special "
-"version of openSUSE,\n"
-"        namely designed for promotional distribution."
-msgstr ""
-"Promo DVD a všetky súvisiace grafické súčasti -štítky a obal- si môžete\n"
-"        stiahnuť z <a href=\"http://download.opensuse.org/promodvd/"
-"\">promodvd\n"
-"        adresára pre sťahovanie %s</a>. Majte na pamäti, že ide o špeciálnu "
-"verziu openSUSE,\n"
-"        konkrétne určenú na propagačnú distribúciu."
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -1077,32 +669,12 @@ msgstr "Súvisiace kategórie:"
 msgid "Release Notes"
 msgstr "Poznámky k vydaniu"
 
-#: ../app/views/main/release.html.erb:17
-msgid "Released Version"
-msgstr "Vydaná verzia"
-
-#: ../app/views/main/release.html.erb:40
-msgid "Reporting Bugs"
-msgstr "Hlásenie chýb"
-
-#: ../app/views/main/_non_leap_release.html.erb:42
-msgid "Rescue"
-msgstr "Záchrana"
-
-#: ../app/views/main/_non_leap_release.html.erb:42
-msgid ""
-"Rescue system that you can run from CD or from USB stick.<br/>Can not be "
-"used for installation or upgrade."
+#: ../app/views/distributions/index.html.erb:93
+msgid "SUSE Linux Enterprise"
 msgstr ""
-"Záchranný systém, ktorý môžete spustiť z CD alebo USB kľúča.<br/>Nemôže byť "
-"použitý pre inštaláciu alebo zvýšenie verzie."
 
-#: ../app/views/main/_leap_medium.html.erb:20
-msgid "SHA256 checksum"
-msgstr "Kontrolný súčet SHA256"
-
-#: ../app/views/search/_find_form.html.erb:27
 #: ../app/views/search/find.html.erb:1
+#: ../app/views/search/_find_form.html.erb:27
 msgid "Search"
 msgstr "Hľadať"
 
@@ -1146,92 +718,61 @@ msgstr "Ukázať nestabilné balíky"
 msgid "Show unsupported packages"
 msgstr "Ukázať nepodporované balíky"
 
-#: ../app/views/main/release.html.erb:63
-msgid "Silver Sponsor"
-msgstr "Strieborný sponzor"
-
-#: ../app/views/distributions/tumbleweed_ports.html.erb:27
-#: ../app/views/distributions/tumbleweed_ports.html.erb:84
-#: ../app/views/distributions/tumbleweed_ports.html.erb:141
-#: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/leap_ports.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:88
+#: ../app/views/distributions/testing.html.erb:48
 #: ../app/views/distributions/tumbleweed.html.erb:28
-#: ../app/views/distributions/leap.html.erb:26
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:51
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:130
+#: ../app/views/distributions/tumbleweed_ports.html.erb:26
+#: ../app/views/distributions/tumbleweed_ports.html.erb:83
+#: ../app/views/distributions/tumbleweed_ports.html.erb:140
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:49
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:128
 msgid "Size"
 msgstr "Veľkosť"
 
-#: ../app/views/main/_non_leap_release.html.erb:48
-msgid ""
-"Some alternative media (eg. live and rescue systems) are also available, "
-"although they are less tested and recommended for limited use only."
-msgstr ""
-"Niektoré alternatívne médiá (napr. live a záchranné systémy) sú tiež k "
-"dispozícii,  hoci sú menej testované a odporúčané len na obmedzené použitie."
-
-#: ../app/views/main/_change_install.html.erb:34
-msgid ""
-"Some of the live distributions based on openSUSE. Those interested in trying "
-"to build their own derivatives can take a look at <a href=\"http://"
-"susestudio.com/\">SUSE Studio</a>."
-msgstr ""
-"Niektoré z live distribúcií založených na openSUSE. Záujemcovia v snahe o "
-"vybudovanie vlastných derivátov sa môžu pozrieť na <a href=\"http://"
-"susestudio.com/\">SUSE Studio</a>."
-
-#: ../app/helpers/package_helper.rb:14 ../app/helpers/package_helper.rb:16
+#: ../app/helpers/package_helper.rb:13 ../app/helpers/package_helper.rb:15
 #: ../app/views/package/_download_rows.html.erb:26
 #: ../app/views/package/_download_rows.html.erb:33
 msgid "Source"
 msgstr "Zdroj"
 
-#: ../app/views/main/release.html.erb:54
-msgid "Sponsored by"
-msgstr "Sponzori"
-
-#: ../app/views/main/release.html.erb:57
-msgid "Sponsored by: AMD"
-msgstr "Sponzor: AMD"
-
-#: ../app/views/main/release.html.erb:65
-msgid "Sponsored by: B1 Systems"
-msgstr "Sponzor: B1 systémy"
-
-#: ../app/views/main/release.html.erb:66
-msgid "Sponsored by: Heinlein"
-msgstr "Sponzor: Heinlein"
-
-#: ../app/views/main/release.html.erb:61
-msgid "Sponsored by: IP Exchange"
-msgstr "Sponzor: IP Exchange"
-
 #: ../app/views/search/_find_results.html.erb:96
 msgid "Sub-Packages"
 msgstr "Podbalíky"
 
-#: ../app/views/layouts/download.html.erb:58
 #: ../app/views/layouts/application.html.erb:64
+#: ../app/views/layouts/download.html.erb:58
 msgid "Support"
 msgstr "Podpora"
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
+#, fuzzy
+#| msgid ""
+#| "The DVD/USB Stick is typically recommended as it contains most of the\n"
+#| "  packages available in the distribution and does not require a network\n"
+#| "  connection during the installation."
 msgid ""
 "The DVD/USB Stick is typically recommended as it contains most of the\n"
-"  packages available in the distribution and does not require a network\n"
-"  connection during the installation."
+"packages available in the distribution and does not require a network\n"
+"connection during the installation."
 msgstr ""
 "Odporúča sa zvyčajne DVD/USB kľúč, pretože obsahuje väčšinu\n"
 "  balíkov dostupných v distribúcii a počas inštalácie nevyžaduje\n"
 "  sieťové pripojenie."
 
 #: ../app/views/distributions/_choosing_media.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "The Network CD/USB Stick is recommended for users who have limited\n"
+#| "  bandwidth on their internet connections, as it will only download the\n"
+#| "  packages they choose to install, which is likely to be significantly\n"
+#| "  less than 4.7GB."
 msgid ""
 "The Network CD/USB Stick is recommended for users who have limited\n"
-"  bandwidth on their internet connections, as it will only download the\n"
-"  packages they choose to install, which is likely to be significantly\n"
-"  less than 4.7GB."
+"bandwidth on their internet connections, as it will only download the\n"
+"packages they choose to install, which is likely to be significantly\n"
+"less than 4.7GB."
 msgstr ""
 "Sieťové CD/USB kľúč sa odporúča pre používateľov, ktorí majú na "
 "internetových\n"
@@ -1240,39 +781,11 @@ msgstr ""
 "  zvolili pre nainštalovanie, čo je pravdepodobne podstatne menej\n"
 "  ako 4,7 GB."
 
-#: ../app/views/main/_non_leap_release.html.erb:91
-msgid ""
-"The installation process is available in many languages but, for most of "
-"them, the translation of the applications is not included in the image. If "
-"you want your openSUSE system to support some additional language, you need "
-"to download it from the Internet during the installation or any time after "
-"it. If you have easy access to the Internet you do not need this CD, but if "
-"you are planning to install openSUSE in some machine with no Internet "
-"connection, it will provide you access to all the available translations."
-msgstr ""
-"Inštalačný proces je dostupný v mnohých jazykoch, ale pre väčšinu z nich nie "
-"je preklad aplikácií zahrnutý do obrazu. Ak chcete, aby váš openSUSE systém "
-"podporoval niektorý ďalší jazyk, musíte ho počas inštalácie alebo kedykoľvek "
-"neskôr stiahnuť z internetu. Ak máte jednoduchý prístup k internetu, "
-"nepotrebujete toto CD, ale ak plánujete nainštalovať openSUSE na nejaký "
-"počítač bez pripojenia na internet, poskytne vám prístup ku všetkým "
-"dostupným prekladom."
-
 #: ../app/views/download/package.erb:95
 msgid "Then run the following as <strong>root</strong>"
 msgstr "Potom spustite ako <strong>root</strong> nasledujúce"
 
-#: ../app/controllers/main_controller.rb:208
-msgid ""
-"There is no openSUSE release in testing phase at the moment. <br/> If you "
-"want to use bleeding edge software, please use <a href='http://en.opensuse."
-"org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>."
-msgstr ""
-"V súčasnosti nie je v testovacej fáze žiadne vydanie openSUSE. <br/> Ak "
-"chcete používať najnovší rizikový softvér, prosím, využite <a href='http://"
-"en.opensuse.org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>."
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:38
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
 msgid "They are not tested as thoroughly as the"
 msgstr "Nie sú testované tak dôkladne ako"
 
@@ -1283,26 +796,20 @@ msgstr ""
 "prosím"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:33
+#, fuzzy
+#| msgid ""
+#| "They have a limited package/driver selection, so cannot be considered\n"
+#| "          an accurate reflection as to whether Tumbleweed will work on "
+#| "your\n"
+#| "          hardware or not."
 msgid ""
 "They have a limited package/driver selection, so cannot be considered\n"
-"          an accurate reflection as to whether Tumbleweed will work on your\n"
-"          hardware or not."
+"an accurate reflection as to whether Tumbleweed will work on your hardware "
+"or not."
 msgstr ""
 "Majú obmedzený výber balíkov/ovládačov, takže ich nemožno považovať\n"
 "          za presný obraz, či Tumbleweed bude fungovať na vašom hardvéri\n"
 "          alebo nie."
-
-#: ../app/views/main/_non_leap_release.html.erb:93
-msgid ""
-"This CD contains free software distributed under proprietary licence not "
-"allowing its inclusion to main installation media together with free open-"
-"source software. All software from this CD could be downloaded from NON-OSS "
-"repository."
-msgstr ""
-"Toto CD obsahuje slobodný softvér šírený pod proprietárnou licenciou "
-"neumožňujúcou jeho zaradenie do hlavného inštalačného média spolu s voľným "
-"open-source softvérom. Všetok softvér z tohoto CD sa dá stiahnuť z NON-OSS "
-"repozitára."
 
 #: ../app/views/distributions/testing.html.erb:36
 msgid ""
@@ -1312,32 +819,22 @@ msgstr ""
 "Toto nie je podporované vydanie. Je určené, aby pomohlo testerom openSUSE\n"
 "        nájsť chyby pred vydaním."
 
-#: ../app/views/main/_options.html.erb:37
-msgid ""
-"This version runs on all PCs including those that support 64 Bit. If you "
-"have more than 3 GB of RAM you should prefer the 64 Bit version though. "
-"openSUSE does not support processors before Pentium - the live CDs even "
-"support only i686 (Pentium Pro and later)."
-msgstr ""
-"Túto verziu je možné nainštalovať na všetky PC vrátane 64 bitových. Pokiaľ "
-"máte viac ako 3 GB RAM, mali by ste zvoliť 64 bitovú verziu. openSUSE "
-"nepodporuje procesory staršie ako Pentium - live CD podporuje iba i686 "
-"(Pentium Pro a vyššie)."
-
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
 msgstr "Prepnúť navigáciu"
 
-#: ../app/views/distributions/index.html.erb:85
+#: ../app/views/distributions/index.html.erb:81
+#, fuzzy
+#| msgid ""
+#| "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
+#| "        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgid ""
-"Tumbleweed is recommended for <strong>Developers</strong>,\n"
-"        <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS\n"
-"        Enthusiasts</strong>."
+"Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
+"Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
 msgstr ""
-
-#: ../app/views/main/_options.html.erb:18
-msgid "Type of Computer"
-msgstr "Typ počítača"
+"Leap sa odporúča pre <strong>administrátorov</strong>, <strong>podnikových\n"
+"        vývojárov</strong> a <strong>'bežných' používateľov počítačov</"
+"strong>."
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
 msgid "Unsupported"
@@ -1351,75 +848,13 @@ msgstr "Nepodporované distribúcie:"
 msgid "Upgrade Instructions"
 msgstr "Pokyny pre zvýšenie verzie"
 
-#: ../app/views/main/_leap_release.html.erb:57
-#: ../app/views/main/_non_leap_release.html.erb:64
-msgid ""
-"User manuals are available from <a href=\"http://activedoc.opensuse.org"
-"\">activedoc.opensuse.org</a>, for example the <a href=\"http://activedoc."
-"opensuse.org/book/opensuse-start-up/\">Official Start-Up Guide</a>."
-msgstr ""
-"Používateľské príručky sú k dispozícii na <a href=\"http://activedoc."
-"opensuse.org\">activedoc.opensuse.org</a>, napríklad <a href=\"http://"
-"activedoc.opensuse.org/book/opensuse-start-up/\">Oficiálna Príručka pre "
-"začiatočníkov</a>."
-
-#: ../app/views/main/_help_method.html.erb:12
-msgid ""
-"Using <a href=\"http://en.opensuse.org/SDB:BitTorrent\">BitTorrent</a> is "
-"recommended on slow links, especially when downloading the DVD image. "
-"BitTorrent downloads have several benefits, the clients protect against data "
-"corruption and you help relieving the load on the servers by participating "
-"in the upload - if enough people participate it will also be faster than the "
-"centralized servers - for everybody. Whatsmore, it allows you to stop the "
-"download at any time and resume it later."
-msgstr ""
-"Použitie spôsobu <a href=\"http://en.opensuse.org/SDB:BitTorrent"
-"\">BitTorrent</a> je odporúčané pre pomalé pripojenia, obzvlášť pri "
-"sťahovaní DVD obrazu. Sťahovanie cez BitTorrent má niekoľko výhod, klientov "
-"chráni proti poškodeniu dát a pomáhate znížiť zaťaženie serverov podieľaním "
-"sa na odosielaní - ak sa podieľa dostatok ľudí, bude to rýchlejšie ako "
-"centralizované servery - pre všetkých. Okrem toho vám umožňuje kedykoľvek "
-"zastaviť sťahovanie a neskôr ho obnoviť."
-
 #: ../app/views/distributions/_verify_download.html.erb:2
 msgid "Verify Your Download Before Use"
-msgstr "Pred použitím si skontrolujte, čo ste stiahli"
-
-#: ../app/views/main/_leap_release.html.erb:60
-#: ../app/views/main/_non_leap_release.html.erb:67
-msgid "Verify your download before use"
 msgstr "Pred použitím si skontrolujte, čo ste stiahli"
 
 #: ../app/views/package/show.html.erb:190
 msgid "Version"
 msgstr "Verzia"
-
-#: ../app/views/main/_non_leap_verify.html.erb:4
-msgid "We offer three different checksums:"
-msgstr "Ponúkame tri rôzne kontrolné súčty:"
-
-#: ../app/views/order/new.html.erb:32
-msgid ""
-"We would like you, to keep us informed about your usage of the DVDs, so we\n"
-"        can help you to promote your organization, event or school on our\n"
-"        <a href='http://news.opensuse.org' title='news.opensuse.org'>news "
-"page</a>\n"
-"        or other resources. (Hint! We love photos. Take lots of them!). "
-"Please contact us at\n"
-"        <a href='mailto:opensuse-marketing@opensuse.org'>opensuse-"
-"marketing@opensuse.org</a>\n"
-"        to discuss promotion and/or other ways we can assist you."
-msgstr ""
-
-#: ../app/views/main/_help_method.html.erb:8
-msgid ""
-"When downloading images other than the CD for network installation, it is "
-"<i>strongly</i> recommended to use a proper download manager to reduce the "
-"risk of corrupted data."
-msgstr ""
-"Pokiaľ sťahujete CD obrazy iné ako sieťová inštalácia, je <i>dôrazne</i> "
-"odporúčané použiť aplikáciu určenú na sťahovanie dát. Týmto spôsobom môžete "
-"znížiť riziko poškodenia dát."
 
 #: ../app/views/download/package.erb:141
 msgid ""
@@ -1434,97 +869,27 @@ msgid ""
 "another base distribution (currently )."
 msgstr ""
 
-#: ../app/views/main/_leap_verify.html.erb:3
-#: ../app/views/main/_non_leap_verify.html.erb:3
-msgid ""
-"You could verify the file in the process of downloading. For example a "
-"checksum (SHA256) will be used automatically if you choose <a href='http://"
-"en.opensuse.org/SDB:Metalink'>Metalink</a> in the field above and use the "
-"add-on DownThemAll! in <a href='http://en.opensuse.org/Firefox'>Firefox</a>."
-msgstr ""
-
 #: ../app/views/distributions/_unsupported_live_media.html.erb:6
+#, fuzzy
+#| msgid ""
+#| "They have a limited package/driver selection, so cannot be considered\n"
+#| "          an accurate reflection as to whether Tumbleweed will work on "
+#| "your\n"
+#| "          hardware or not."
 msgid ""
 "also offers a number of unsupported LiveUSBs. These\n"
-"  cannot be used for Installation or Upgrade. They are not an accurate\n"
-"  reflection as to whether or not Tumbleweed will run on your hardware."
+"cannot be used for Installation or Upgrade. They are not an accurate\n"
+"reflection as to whether or not Tumbleweed will run on your hardware."
 msgstr ""
+"Majú obmedzený výber balíkov/ovládačov, takže ich nemožno považovať\n"
+"          za presný obraz, či Tumbleweed bude fungovať na vašom hardvéri\n"
+"          alebo nie."
 
-#: ../app/views/distributions/index.html.erb:94
+#: ../app/views/distributions/index.html.erb:87
 msgid "annually"
 msgstr ""
 
-#: ../app/views/distributions/index.html.erb:111
-msgid ""
-"as well as by human openSUSE contributors so both can be relied\n"
-"        upon to work."
-msgstr ""
-
-#: ../app/views/main/_non_leap_verify.html.erb:8
-#: ../app/views/main/_non_leap_verify.html.erb:19
-msgid "gpg signature"
-msgstr "gpg podpis"
-
-#: ../app/views/main/release.html.erb:38
-msgid "http://doc.opensuse.org/"
-msgstr "http://doc.opensuse.org/"
-
-#: ../app/views/main/_change_install.html.erb:36
-msgid "http://en.opensuse.org/Derivatives"
-msgstr "http://en.opensuse.org/Derivatives"
-
-#: ../app/views/main/release.html.erb:39
-msgid "http://en.opensuse.org/Package_repositories"
-msgstr "http://en.opensuse.org/Package_repositories"
-
-#: ../app/views/main/release.html.erb:37
-msgid "http://en.opensuse.org/Portal:Installation"
-msgstr "http://en.opensuse.org/Portal:Installation"
-
-#: ../app/views/main/release.html.erb:35
-msgid "http://en.opensuse.org/SDB:Download_help"
-msgstr "http://en.opensuse.org/SDB:Download_help"
-
-#: ../app/views/main/release.html.erb:36
-#: ../app/views/main/_leap_release.html.erb:70
-#: ../app/views/main/_non_leap_release.html.erb:77
-msgid "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
-msgstr "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
-
-#: ../app/views/main/release.html.erb:40
-msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
-msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
-
-#: ../app/controllers/main_controller.rb:45
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
-
-#: ../app/controllers/main_controller.rb:65
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
-
-#: ../app/controllers/main_controller.rb:88
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
-
-#: ../app/controllers/main_controller.rb:111
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
-
-#: ../app/controllers/main_controller.rb:134
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
-
-#: ../app/controllers/main_controller.rb:149
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
-
-#: ../app/controllers/main_controller.rb:163
-#: ../app/controllers/main_controller.rb:177
-msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
-msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
-
-#: ../app/views/distributions/index.html.erb:96
+#: ../app/views/distributions/index.html.erb:88
 msgid "https://en.opensuse.org/Lifetime"
 msgstr "https://en.opensuse.org/Lifetime"
 
@@ -1562,7 +927,7 @@ msgstr "https://en.opensuse.org/SDB:Live_USB_stick"
 msgid "https://en.opensuse.org/SDB:System_upgrade"
 msgstr "https://en.opensuse.org/SDB:System_upgrade"
 
-#: ../app/views/distributions/index.html.erb:93
+#: ../app/views/distributions/index.html.erb:87
 msgid "https://en.opensuse.org/openSUSE:Roadmap"
 msgstr "https://en.opensuse.org/openSUSE:Roadmap"
 
@@ -1570,142 +935,675 @@ msgstr "https://en.opensuse.org/openSUSE:Roadmap"
 msgid "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgstr "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 
-#: ../app/views/distributions/index.html.erb:125
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:8
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
-
-#: ../app/views/distributions/index.html.erb:127
-msgid "if you change your mind later."
-msgstr ""
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:30
 msgid "instead."
 msgstr ""
 
-#: ../app/views/distributions/index.html.erb:92
-msgid "is a <strong>regular-release</strong>. This means it releases"
-msgstr ""
-
-#: ../app/views/distributions/index.html.erb:80
-msgid ""
-"is a <strong>rolling-release</strong>. This means the software is always\n"
-"        the latest stable versions available from the openSUSE Project. "
-"Things\n"
-"        will change regularly as Free and Open Source projects continually\n"
-"        release new versions of their software."
-msgstr ""
-
 #: ../app/views/distributions/tumbleweed.html.erb:82
 msgid ""
-"is also available on other architectures, such as\n"
-"        Intel 32-bit (aka i586), AArch64 (aka ARMv8) and PPC64."
+"is also available on other architectures, such as Intel 32-bit (aka i586), "
+"AArch64 (aka ARMv8) and PPC64."
 msgstr ""
 
-#: ../app/views/main/_non_leap_verify.html.erb:13
-#: ../app/views/main/_non_leap_verify.html.erb:20
-msgid ""
-"is still the most commonly used checksum. Many ISO burners display it right "
-"before burning."
-msgstr ""
-"je najčastejšie používaný kontrolný súčet. Veľa napaľovacích programov ho "
-"zobrazuje tesne pred napaľovaním."
-
-#: ../app/views/main/_non_leap_verify.html.erb:15
-#: ../app/views/main/_non_leap_verify.html.erb:21
-msgid "is the less known but more secure checksum than md5."
-msgstr "je menej známy, ale bezpečnejší kontrolný súčet ako md5."
-
-#: ../app/views/distributions/index.html.erb:96
+#: ../app/views/distributions/index.html.erb:88
 msgid "lifetime"
 msgstr ""
 
-#: ../app/views/main/_non_leap_verify.html.erb:12
-#: ../app/views/main/_non_leap_verify.html.erb:20
-msgid "md5 checksum"
-msgstr "kontrolný súčet md5"
-
-#: ../app/views/main/_non_leap_verify.html.erb:9
-#: ../app/views/main/_non_leap_verify.html.erb:19
-msgid ""
-"offers the most security as you can verify who signed it. It should be <tt>"
-"%s</tt>."
-msgstr ""
-"ponúka najväčšiu bezpečnosť, ako si môžete overiť kto ho podpísal. Mal by "
-"byť <tt>%s</tt>."
-
-#: ../app/views/main/release.html.erb:48
-msgid "openSUSE Countdown"
-msgstr "Odpočítavanie openSUSE"
-
-#: ../app/views/main/_leap_release.html.erb:51
-#: ../app/views/main/_non_leap_release.html.erb:44
-msgid "openSUSE Derivatives"
+#: ../app/views/distributions/index.html.erb:86
+#: ../app/views/distributions/index.html.erb:107
+#, fuzzy
+#| msgid "openSUSE Derivatives"
+msgid "openSUSE Leap"
 msgstr "openSUSE deriváty"
 
 #: ../app/views/distributions/leap.html.erb:83
 msgid ""
-"openSUSE Leap is also available on other architectures, such as\n"
-"        AArch64 (aka ARMv8) and PPC64."
+"openSUSE Leap is also available on other architectures, such as AArch64 (aka "
+"ARMv8) and PPC64."
 msgstr ""
 
-#: ../app/views/distributions/index.html.erb:143
+#: ../app/views/distributions/index.html.erb:79
+#, fuzzy
+#| msgid "switch to openSUSE Tumbleweed"
+msgid "openSUSE Tumbleweed"
+msgstr "prejsť na openSUSE Tumbleweed"
+
+#: ../app/views/distributions/index.html.erb:126
 msgid ""
 "openSUSE has a number of unofficial derivative distributions.\n"
 "              These are made by our awesome community, often for special\n"
 "              purposes."
 msgstr ""
 
-#: ../app/views/main/_help_method.html.erb:4
-msgid ""
-"openSUSE is available via http (direct link) or BitTorrent. The CD for "
-"network installation is only available via http."
-msgstr ""
-"openSUSE je dostupné cez http (priamy odkaz), alebo BitTorrent. CD pre "
-"sieťovú inštaláciu je dostupné len cez http."
-
 #: ../app/views/distributions/index.html.erb:10
 msgid "openSUSE is completely free to download, use and share."
 msgstr ""
 
-#: ../app/views/main/_options.html.erb:28
-msgid "openSUSE only supports PCs with 32 Bits and 64 Bits."
-msgstr "openSUSE podporuje iba 32 bitové a 64 bitové počítače."
-
-#: ../app/views/main/_change_install.html.erb:36
-msgid "see Derivatives on wiki"
-msgstr "pozrieť deriváty na wiki"
-
-#: ../app/views/main/_non_leap_verify.html.erb:14
-#: ../app/views/main/_non_leap_verify.html.erb:21
-msgid "sha1 checksum"
-msgstr "kontrolný súčet sha1"
-
-#: ../app/views/distributions/index.html.erb:101
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:41
 msgid ""
-"so major architectural changes are not expected for several years, aligned\n"
-"        with each new Major Release (eg 12, 13, etc) of SUSE Linux "
-"Enterprise."
+"test results if you want an indication whether these LiveUSBs are working as "
+"expected."
 msgstr ""
 
-#: ../app/views/main/release.html.erb:15 ../app/views/main/release.html.erb:17
-msgid "switch to"
-msgstr "prepnúť na"
+#~ msgid ""
+#~ "If you’re already running openSUSE you can upgrade by booting from the\n"
+#~ "  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a "
+#~ "few\n"
+#~ "  commands."
+#~ msgstr ""
+#~ "Ak už používate openSUSE, môžete zvýšiť verziu spustením systému\n"
+#~ "  z DVD/USB a vybrať zvýšenie verzie alebo vykonať 'Online Upgrade'\n"
+#~ "  v niekoľkých príkazoch."
 
-#: ../app/views/distributions/index.html.erb:126
-msgid "switch to openSUSE Tumbleweed"
-msgstr "prejsť na openSUSE Tumbleweed"
+#~ msgid "\"#{release} is not a supported release.\""
+#~ msgstr "\"#{release} nie je podporované vydanie.\""
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:42
-msgid ""
-"test results if you want an indication whether these LiveUSBs are\n"
-"          working as expected."
-msgstr ""
+#~ msgid "... and keep us informed"
+#~ msgstr "... a informovať nás"
 
-#: ../app/views/distributions/index.html.erb:95
-msgid ""
-"with security and stability updates being the priority during each release"
-msgstr ""
+#~ msgid "... get other marketing stuff"
+#~ msgstr "... získať ďalšie marketingové veci"
+
+#~ msgid "4.7GB DVD (also suitable for USB stick)"
+#~ msgstr "4.7GB DVD (vhodné aj pre USB kľúč)"
+
+#~ msgid "64 Bit PC"
+#~ msgstr "64 bitové PC"
+
+#~ msgid ""
+#~ "<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">openSUSE "
+#~ "startup guide</a>"
+#~ msgstr ""
+#~ "<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">Príručka "
+#~ "openSUSE pre začiatočníkov</a>"
+
+#~ msgid ""
+#~ "<a href=\"http://en.opensuse.org/SDB:Metalink\">Metalink</a> is an open "
+#~ "standard that bundles the various ways (FTP/HTTP/BitTorrent) to get files "
+#~ "into one format for easier downloads. This makes it good for downloading "
+#~ "ISOs; particularly for people who can't use P2P because of restrictions "
+#~ "from their ISP or University. It can deliver very fast download speeds "
+#~ "since most clients support multiple connections, to multiple mirrors, "
+#~ "automatically. In addition, it can do automatic error detection, and "
+#~ "correction. It needs a special client to handle it though."
+#~ msgstr ""
+#~ "<a href=\"http://en.opensuse.org/Metalink\">Metalink</a> je otvorený "
+#~ "štandard, ktorý pre zjednodušenie sťahovania, zlučuje rôzne spôsoby (FTP/"
+#~ "HTTP/BitTorrent) získania súborov do jedného formátu. Je to výhodné pre "
+#~ "sťahovanie ISO obrazov; obzvlášť pre ľudí, ktorý nemôžu použiť P2P siete "
+#~ "kvôli obmedzeniam zo strany ISP alebo univerzity. Môže poskytnúť veľmi "
+#~ "vysoké rýchlosti sťahovania, pretože väčšina klientov podporuje "
+#~ "automaticky viacnásobné pripojenia na viacero zrkadiel. Okrem toho môže "
+#~ "robiť automatickú detekciu chýb a korekciu. Na to však potrebuje "
+#~ "špeciálneho klienta."
+
+#~ msgid "<a href=\"http://en.opensuse.org/openSUSE:License\">License</a>"
+#~ msgstr "<a href=\"http://en.opensuse.org/openSUSE:License\">Licencia</a>"
+
+#~ msgid "<a href='%s'>Release Notes</a>"
+#~ msgstr "<a href='%s'>Poznámky k vydaniu</a>"
+
+#~ msgid ""
+#~ "A GNOME desktop you can run from %s or from USB stick.<br/>Can be "
+#~ "installed as is (no upgrade)."
+#~ msgstr ""
+#~ "Prostredie GNOME, ktoré môžete spustiť z %s alebo USB kľúča.<br/>Môže byť "
+#~ "nainštalované ako je (žiadne zvýšenie verzie)."
+
+#~ msgid ""
+#~ "A KDE desktop you can run from %s or from USB stick.<br/>Can be installed "
+#~ "as is (no upgrade)."
+#~ msgstr ""
+#~ "Prostredie KDE, ktoré môžete spustiť z %s alebo USB kľúča.<br/>Môže byť "
+#~ "nainštalované ako je (žiadne zvýšenie verzie)."
+
+#~ msgid "Add-On Downloads (optional)"
+#~ msgstr "Rozširujúce stiahnutia (voliteľné)"
+
+#~ msgid ""
+#~ "After having successfully downloaded the ISO image(s), create a bootable "
+#~ "USB stick or burn the image(s) to a DVD (or a CD if the chosen image "
+#~ "fits)."
+#~ msgstr ""
+#~ "Po úspešnom stiahnutí ISO obrazu(ov) vytvorte spustiteľný USB kľúč alebo "
+#~ "napáľte obraz(y) na DVD (alebo CD, ak sa vybraný obraz zmestí)."
+
+#~ msgid ""
+#~ "All data is used only for sending openSUSE promotional material\n"
+#~ "      and will not be spread to third parties. We store the data to\n"
+#~ "      inform the users if a new version is available. All requests have\n"
+#~ "      to be screened to fulfill the US export embargo. More information\n"
+#~ "      about the embargo and a list of countries at wikipedia <a "
+#~ "href='http://en.wikipedia.org/wiki/United_States_embargoes'>http://en."
+#~ "wikipedia.org/wiki/United_States_embargoes</a>."
+#~ msgstr ""
+#~ "Všetky údaje sa používajú iba na odosielanie propagačných materiálov\n"
+#~ "      openSUSE a nebudú šírené tretím stranám. Údaje ukladáme, aby\n"
+#~ "      sme používateľov informovali, či je k dispozícii nová verzia. "
+#~ "Všetky\n"
+#~ "      žiadosti sa musia prešetriť, aby sa splnilo exportné embargo USA. "
+#~ "Viac\n"
+#~ "      informácií o embargu a zoznam krajín nájdete na Wikipédii <a "
+#~ "href='http://en.wikipedia.org/wiki/United_States_embargoes'>http://en."
+#~ "wikipedia.org/wiki/United_States_embargoes</a>."
+
+#~ msgid "BitTorrent"
+#~ msgstr "BitTorrent"
+
+#~ msgid ""
+#~ "Boot from the DVD, CD or USB stick. In case your computer does not "
+#~ "automatically boot from the chosen device, open the BIOS setup to allow "
+#~ "booting from it."
+#~ msgstr ""
+#~ "Spustite systém z DVD, CD alebo USB kľúča. V prípade, že počítač "
+#~ "automaticky nespustí systém zo zvoleného zariadenia, otvorte nastavenie "
+#~ "systému BIOS, aby ste z neho umožnili štart systému."
+
+#~ msgid "Both distributions are well tested by"
+#~ msgstr "Obidve distribúcie sú dobre otestované"
+
+#~ msgid "Bronze Sponsor"
+#~ msgstr "Bronzový sponzor"
+
+#~ msgid "Browser incompatibility"
+#~ msgstr "Nekompatibilita prehliadača"
+
+#~ msgid "Burn CD/DVD Image(s)"
+#~ msgstr "Napálenie CD/DVD obrazu"
+
+#~ msgid ""
+#~ "Choose an installation medium by clicking it and hit the Download button "
+#~ "to start the download. Optionally choose your computer type or an "
+#~ "alternative download method."
+#~ msgstr ""
+#~ "Vyberte inštalačné médium kliknutím a stlačte tlačidlo Stiahnuť pre "
+#~ "začatie sťahovania. Pokiaľ je potrebné, vyberte typ počítača alebo iný "
+#~ "spôsob sťahovania."
+
+#~ msgid "Click here to display these alternative versions."
+#~ msgstr "Kliknutím sem zobrazíte tieto alternatívne verzie."
+
+#~ msgid "Click to Download"
+#~ msgstr "Kliknúť pre stiahnutie"
+
+#~ msgid ""
+#~ "Contains a large collection of software for desktop or server use.<br/"
+#~ ">Suitable for installation or upgrade."
+#~ msgstr ""
+#~ "Obsahuje kolekciu aplikácií určených pre domáce, alebo serverové použitie."
+#~ "<br/>Vhodné pre inštaláciu, alebo upgrade."
+
+#~ msgid "Countdown"
+#~ msgstr "Odpočítavanie"
+
+#~ msgid "Country"
+#~ msgstr "Krajina"
+
+#~ msgid "Development Version"
+#~ msgstr "Vývojová verzia"
+
+#~ msgid "Download"
+#~ msgstr "Stiahnuť"
+
+#~ msgid "Download %s"
+#~ msgstr "Stiahnuť %s"
+
+#~ msgid "Download Help"
+#~ msgstr "Pomocník sťahovania"
+
+#~ msgid "Download&nbsp;DVD"
+#~ msgstr "Stiahnuť"
+
+#~ msgid "Download&nbsp;GNOME"
+#~ msgstr "Stiahnuť"
+
+#~ msgid "Download&nbsp;KDE"
+#~ msgstr "Stiahnuť"
+
+#~ msgid "Download&nbsp;Network"
+#~ msgstr "Stiahnuť"
+
+#~ msgid "Download&nbsp;Rescue"
+#~ msgstr "Stiahnuť&nbsp;Záchranné"
+
+#~ msgid ""
+#~ "Downloads the installation system and all packages from online "
+#~ "repositories.<br/>Suitable for installation or upgrade."
+#~ msgstr ""
+#~ "Stiahne inštalačný systém a všetky balíky z online zdrojov.<br/>Vhodné "
+#~ "pre inštaláciu, alebo upgrade."
+
+#~ msgid "Extra Languages"
+#~ msgstr "Extra jazyky"
+
+#~ msgid "Extra Languages (32 Bit)"
+#~ msgstr "Extra jazyky (32 Bit)"
+
+#~ msgid "Extra Languages (64 Bit)"
+#~ msgstr "Extra jazyky (64 Bit)"
+
+#~ msgid ""
+#~ "For extra security, you can use GPG to verify who signed those .sha256 "
+#~ "files. It should be %s."
+#~ msgstr ""
+#~ "Pre zvýšenú bezpečnosť môžete pomocou GPG overiť, kto podpísal tieto ."
+#~ "sha256 súbory. Mal by to byť %s."
+
+#~ msgid "Get one of the specialized distributions built on openSUSE."
+#~ msgstr "Získať jednu zo špecializovaných distribúcií založenej na openSUSE."
+
+#~ msgid "Getting Help"
+#~ msgstr "Získanie pomoci"
+
+#~ msgid "Gold Sponsor"
+#~ msgstr "Zlatý sponzor"
+
+#~ msgid "Help on Download Method"
+#~ msgstr "Pomocník pre spôsob sťahovania"
+
+#~ msgid "Help on Type of Computer"
+#~ msgstr "Pomocník pre typ počítača"
+
+#~ msgid "How to Proceed"
+#~ msgstr "Ako pokračovať"
+
+#~ msgid ""
+#~ "If you want to use a direct link but live in a place in the world where "
+#~ "our download redirector has not enough information to redirect to the "
+#~ "fastest mirror, you can pick a mirror yourself."
+#~ msgstr ""
+#~ "Pokiaľ si prajete použiť priamy odkaz, ale žijete v mieste kde naše "
+#~ "presmerovanie sťahovania nemá dostatok informácií pre presmerovanie na "
+#~ "rýchlejší server, môžete si vybrať zrkadlo podľa vlastnej voľby."
+
+#~ msgid "Installation Guides"
+#~ msgstr "Inštalační sprievodcovia"
+
+#~ msgid "Installation Medium"
+#~ msgstr "Inštalačné médium"
+
+#~ msgid "It is easy to"
+#~ msgstr "Je ľahké"
+
+#~ msgid ""
+#~ "Join the fast-growing community, put openSUSE into more hands by\n"
+#~ "        getting the latest PromoDVD for your group, non-profit "
+#~ "organization, school\n"
+#~ "        university or event like LUG meetings, installfests, and "
+#~ "conferences.\n"
+#~ "        Promo DVDs help to increase awareness and visibility of openSUSE!"
+#~ msgstr ""
+#~ "Pripojte sa k rýchlorastúcej komunite a vložte openSUSE do viacerých rúk\n"
+#~ "        získaním najnovšieho PromoDVD pre vašu skupinu, neziskovú "
+#~ "organizáciu, školu,\n"
+#~ "        univerzitu alebo na akcie, ako sú stretnutia LUG, installfesty a "
+#~ "konferencie.\n"
+#~ "        Promo DVD pomáhajú zvyšovať povedomie a viditeľnosť openSUSE!"
+
+#~ msgid ""
+#~ "Konqueror of KDE 3 is unfortunately unmaintained and its javascript "
+#~ "implementation contains bugs that make it impossible to use with this "
+#~ "page. Please make sure you have javascript disabled before you <a "
+#~ "href='%s'>continue</a>."
+#~ msgstr ""
+#~ "Konqueror prostredia KDE 3 nie je udržiavaný a jeho javascript "
+#~ "implementácia obsahuje chyby, s ktorými nie je možné použiť túto stránku. "
+#~ "Uistite sa, že máte javascript zakázaný, kým budete <a "
+#~ "href='%s'>pokračovať</a>."
+
+#~ msgid "Language"
+#~ msgstr "Jazyk"
+
+#~ msgid "Leap shares a Common Base System with"
+#~ msgstr "Leap zdieľa spoločný základný systém s"
+
+#~ msgid "Legacy 32 Bit PC"
+#~ msgstr "Staršie 32 bitové PC"
+
+#~ msgid "Legacy 32&nbsp;Bit&nbsp;PC"
+#~ msgstr "Staršie 32&nbsp;bitové&nbsp;PC"
+
+#~ msgid "Live GNOME"
+#~ msgstr "Live GNOME"
+
+#~ msgid "Live KDE"
+#~ msgstr "Live KDE"
+
+#~ msgid ""
+#~ "Many applications can verify the checksum of a download. To verify your "
+#~ "download can be important as it verifies you really have got the ISO file "
+#~ "you wanted to download and not some broken version."
+#~ msgstr ""
+#~ "Veľa aplikácií môže overiť kontrolný súčet stiahnutia. Pre overenie vášho "
+#~ "stiahnutia môže byť dôležité, či naozaj máte ISO súbor, ktorý ste chceli "
+#~ "stiahnuť a nie nejakú poškodenú verziu."
+
+#~ msgid "Metalink"
+#~ msgstr "Metalink"
+
+#~ msgid "More information on burning the ISO file to CD/DVD"
+#~ msgstr "Ďalšie informácie o napaľovaní ISO súboru na disk CD/DVD"
+
+#~ msgid ""
+#~ "More information on creating a <a href='http://en.opensuse.org/"
+#~ "Live_USB_stick'>bootable USB stick</a>"
+#~ msgstr ""
+#~ "Ďalšie informácie o vytváraní <a href='http://en.opensuse.org/"
+#~ "Live_USB_stick'>spustiteľného USB kľúča</a>"
+
+#~ msgid ""
+#~ "More information on downloading openSUSE is available from the <a href="
+#~ "\"http://en.opensuse.org/SDB:Download_help\">Download Help</a> and <a "
+#~ "href=\"http://en.opensuse.org/SDB:Network_installation\">Network "
+#~ "Installation</a> pages in our <a href=\"http://en.opensuse.org/Portal:"
+#~ "Documentation\">Documentation Wiki</a>."
+#~ msgstr ""
+#~ "Viac informácií o sťahovaní openSUSE je k dispozícii v <a href=\"http://"
+#~ "en.opensuse.org/SDB:Download_help\">Pomocníkovi sťahovania</a> a na "
+#~ "stránkach <a href=\"http://en.opensuse.org/SDB:Network_installation"
+#~ "\">Sieťovej inštalácie</a> našej <a href=\"http://en.opensuse.org/Portal:"
+#~ "Documentation\">Documentation Wiki</a>."
+
+#~ msgid ""
+#~ "Most new computers support <a href=\"http://en.wikipedia.org/wiki/"
+#~ "X86-64\">x86-64</a> (also known as AMD64 and Intel64), but some laptop "
+#~ "processors and netbook processors do not support it. So you need to check "
+#~ "wikipedia if you want to be sure your computer supports it."
+#~ msgstr ""
+#~ "Väčšina dnešných počítačov obsahuje architektúru typu<a href=\"http://sk."
+#~ "wikipedia.org/wiki/X86-64\">x86-64</a> (napríklad AMD64 a Intel64). "
+#~ "Informáciu o tom, akej architektúry je váš počítač, môžete nájsť "
+#~ "napríklad na wikipedii, prípade na stránkach výrobcu či predajcu."
+
+#~ msgid "Need help?"
+#~ msgstr "Potrebujete pomoc?"
+
+#~ msgid "NonOSS CD"
+#~ msgstr "NonOSS CD"
+
+#~ msgid "Official Manuals"
+#~ msgstr "Oficiálne manuály"
+
+#~ msgid ""
+#~ "Only DVD and Network medias are fully tested. Alternatives, like live or "
+#~ "rescue systems, are recommended for limited use only."
+#~ msgstr ""
+#~ "Iba DVD a sieťové médiá sú plne testované. Alternatívy, ako napríklad "
+#~ "live alebo záchranné systémy, sa odporúčajú len na obmedzené použitie."
+
+#~ msgid "Package Repositories"
+#~ msgstr "Repozitáre balíkov"
+
+#~ msgid "Platinum Sponsor"
+#~ msgstr "Platinový sponzor"
+
+#~ msgid ""
+#~ "Please enter a <b>brief</b> reason (in English!) why you need the DVDs "
+#~ "and provide a link of the event/purpose."
+#~ msgstr ""
+#~ "Prosím, zadajte <b>stručný</b> dôvod (v angličtine!), prečo potrebujete "
+#~ "DVD médiá a zadajte odkaz na udalosť/účel."
+
+#~ msgid ""
+#~ "Please note that this is not the latest openSUSE release. You can get the "
+#~ "latest version <a href='/'>here</a>. "
+#~ msgstr ""
+#~ "Upozorňujeme, že toto nie je najnovšie vydanie openSUSE. Najnovšiu verziu "
+#~ "môžete získať <a href='/'>tu</a>. "
+
+#~ msgid ""
+#~ "Promo DVDs and all the related artwork -labels and sleeve- can be\n"
+#~ "        downloaded from the <a href=\"http://download.opensuse.org/"
+#~ "promodvd/\">promodvd\n"
+#~ "        download directory %s</a>. Keep in mind that this is a special "
+#~ "version of openSUSE,\n"
+#~ "        namely designed for promotional distribution."
+#~ msgstr ""
+#~ "Promo DVD a všetky súvisiace grafické súčasti -štítky a obal- si môžete\n"
+#~ "        stiahnuť z <a href=\"http://download.opensuse.org/promodvd/"
+#~ "\">promodvd\n"
+#~ "        adresára pre sťahovanie %s</a>. Majte na pamäti, že ide o "
+#~ "špeciálnu verziu openSUSE,\n"
+#~ "        konkrétne určenú na propagačnú distribúciu."
+
+#~ msgid "Released Version"
+#~ msgstr "Vydaná verzia"
+
+#~ msgid "Reporting Bugs"
+#~ msgstr "Hlásenie chýb"
+
+#~ msgid "Rescue"
+#~ msgstr "Záchrana"
+
+#~ msgid ""
+#~ "Rescue system that you can run from CD or from USB stick.<br/>Can not be "
+#~ "used for installation or upgrade."
+#~ msgstr ""
+#~ "Záchranný systém, ktorý môžete spustiť z CD alebo USB kľúča.<br/>Nemôže "
+#~ "byť použitý pre inštaláciu alebo zvýšenie verzie."
+
+#~ msgid "SHA256 checksum"
+#~ msgstr "Kontrolný súčet SHA256"
+
+#~ msgid "Silver Sponsor"
+#~ msgstr "Strieborný sponzor"
+
+#~ msgid ""
+#~ "Some alternative media (eg. live and rescue systems) are also available, "
+#~ "although they are less tested and recommended for limited use only."
+#~ msgstr ""
+#~ "Niektoré alternatívne médiá (napr. live a záchranné systémy) sú tiež k "
+#~ "dispozícii,  hoci sú menej testované a odporúčané len na obmedzené "
+#~ "použitie."
+
+#~ msgid ""
+#~ "Some of the live distributions based on openSUSE. Those interested in "
+#~ "trying to build their own derivatives can take a look at <a href=\"http://"
+#~ "susestudio.com/\">SUSE Studio</a>."
+#~ msgstr ""
+#~ "Niektoré z live distribúcií založených na openSUSE. Záujemcovia v snahe o "
+#~ "vybudovanie vlastných derivátov sa môžu pozrieť na <a href=\"http://"
+#~ "susestudio.com/\">SUSE Studio</a>."
+
+#~ msgid "Sponsored by"
+#~ msgstr "Sponzori"
+
+#~ msgid "Sponsored by: AMD"
+#~ msgstr "Sponzor: AMD"
+
+#~ msgid "Sponsored by: B1 Systems"
+#~ msgstr "Sponzor: B1 systémy"
+
+#~ msgid "Sponsored by: Heinlein"
+#~ msgstr "Sponzor: Heinlein"
+
+#~ msgid "Sponsored by: IP Exchange"
+#~ msgstr "Sponzor: IP Exchange"
+
+#~ msgid ""
+#~ "The installation process is available in many languages but, for most of "
+#~ "them, the translation of the applications is not included in the image. "
+#~ "If you want your openSUSE system to support some additional language, you "
+#~ "need to download it from the Internet during the installation or any time "
+#~ "after it. If you have easy access to the Internet you do not need this "
+#~ "CD, but if you are planning to install openSUSE in some machine with no "
+#~ "Internet connection, it will provide you access to all the available "
+#~ "translations."
+#~ msgstr ""
+#~ "Inštalačný proces je dostupný v mnohých jazykoch, ale pre väčšinu z nich "
+#~ "nie je preklad aplikácií zahrnutý do obrazu. Ak chcete, aby váš openSUSE "
+#~ "systém podporoval niektorý ďalší jazyk, musíte ho počas inštalácie alebo "
+#~ "kedykoľvek neskôr stiahnuť z internetu. Ak máte jednoduchý prístup k "
+#~ "internetu, nepotrebujete toto CD, ale ak plánujete nainštalovať openSUSE "
+#~ "na nejaký počítač bez pripojenia na internet, poskytne vám prístup ku "
+#~ "všetkým dostupným prekladom."
+
+#~ msgid ""
+#~ "There is no openSUSE release in testing phase at the moment. <br/> If you "
+#~ "want to use bleeding edge software, please use <a href='http://en."
+#~ "opensuse.org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>."
+#~ msgstr ""
+#~ "V súčasnosti nie je v testovacej fáze žiadne vydanie openSUSE. <br/> Ak "
+#~ "chcete používať najnovší rizikový softvér, prosím, využite <a "
+#~ "href='http://en.opensuse.org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>."
+
+#~ msgid ""
+#~ "This CD contains free software distributed under proprietary licence not "
+#~ "allowing its inclusion to main installation media together with free open-"
+#~ "source software. All software from this CD could be downloaded from NON-"
+#~ "OSS repository."
+#~ msgstr ""
+#~ "Toto CD obsahuje slobodný softvér šírený pod proprietárnou licenciou "
+#~ "neumožňujúcou jeho zaradenie do hlavného inštalačného média spolu s "
+#~ "voľným open-source softvérom. Všetok softvér z tohoto CD sa dá stiahnuť z "
+#~ "NON-OSS repozitára."
+
+#~ msgid ""
+#~ "This version runs on all PCs including those that support 64 Bit. If you "
+#~ "have more than 3 GB of RAM you should prefer the 64 Bit version though. "
+#~ "openSUSE does not support processors before Pentium - the live CDs even "
+#~ "support only i686 (Pentium Pro and later)."
+#~ msgstr ""
+#~ "Túto verziu je možné nainštalovať na všetky PC vrátane 64 bitových. "
+#~ "Pokiaľ máte viac ako 3 GB RAM, mali by ste zvoliť 64 bitovú verziu. "
+#~ "openSUSE nepodporuje procesory staršie ako Pentium - live CD podporuje "
+#~ "iba i686 (Pentium Pro a vyššie)."
+
+#~ msgid "Type of Computer"
+#~ msgstr "Typ počítača"
+
+#~ msgid ""
+#~ "User manuals are available from <a href=\"http://activedoc.opensuse.org"
+#~ "\">activedoc.opensuse.org</a>, for example the <a href=\"http://activedoc."
+#~ "opensuse.org/book/opensuse-start-up/\">Official Start-Up Guide</a>."
+#~ msgstr ""
+#~ "Používateľské príručky sú k dispozícii na <a href=\"http://activedoc."
+#~ "opensuse.org\">activedoc.opensuse.org</a>, napríklad <a href=\"http://"
+#~ "activedoc.opensuse.org/book/opensuse-start-up/\">Oficiálna Príručka pre "
+#~ "začiatočníkov</a>."
+
+#~ msgid ""
+#~ "Using <a href=\"http://en.opensuse.org/SDB:BitTorrent\">BitTorrent</a> is "
+#~ "recommended on slow links, especially when downloading the DVD image. "
+#~ "BitTorrent downloads have several benefits, the clients protect against "
+#~ "data corruption and you help relieving the load on the servers by "
+#~ "participating in the upload - if enough people participate it will also "
+#~ "be faster than the centralized servers - for everybody. Whatsmore, it "
+#~ "allows you to stop the download at any time and resume it later."
+#~ msgstr ""
+#~ "Použitie spôsobu <a href=\"http://en.opensuse.org/SDB:BitTorrent"
+#~ "\">BitTorrent</a> je odporúčané pre pomalé pripojenia, obzvlášť pri "
+#~ "sťahovaní DVD obrazu. Sťahovanie cez BitTorrent má niekoľko výhod, "
+#~ "klientov chráni proti poškodeniu dát a pomáhate znížiť zaťaženie serverov "
+#~ "podieľaním sa na odosielaní - ak sa podieľa dostatok ľudí, bude to "
+#~ "rýchlejšie ako centralizované servery - pre všetkých. Okrem toho vám "
+#~ "umožňuje kedykoľvek zastaviť sťahovanie a neskôr ho obnoviť."
+
+#~ msgid "Verify your download before use"
+#~ msgstr "Pred použitím si skontrolujte, čo ste stiahli"
+
+#~ msgid "We offer three different checksums:"
+#~ msgstr "Ponúkame tri rôzne kontrolné súčty:"
+
+#~ msgid ""
+#~ "When downloading images other than the CD for network installation, it is "
+#~ "<i>strongly</i> recommended to use a proper download manager to reduce "
+#~ "the risk of corrupted data."
+#~ msgstr ""
+#~ "Pokiaľ sťahujete CD obrazy iné ako sieťová inštalácia, je <i>dôrazne</i> "
+#~ "odporúčané použiť aplikáciu určenú na sťahovanie dát. Týmto spôsobom "
+#~ "môžete znížiť riziko poškodenia dát."
+
+#~ msgid "gpg signature"
+#~ msgstr "gpg podpis"
+
+#~ msgid "http://doc.opensuse.org/"
+#~ msgstr "http://doc.opensuse.org/"
+
+#~ msgid "http://en.opensuse.org/Derivatives"
+#~ msgstr "http://en.opensuse.org/Derivatives"
+
+#~ msgid "http://en.opensuse.org/Package_repositories"
+#~ msgstr "http://en.opensuse.org/Package_repositories"
+
+#~ msgid "http://en.opensuse.org/Portal:Installation"
+#~ msgstr "http://en.opensuse.org/Portal:Installation"
+
+#~ msgid "http://en.opensuse.org/SDB:Download_help"
+#~ msgstr "http://en.opensuse.org/SDB:Download_help"
+
+#~ msgid "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
+#~ msgstr "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
+
+#~ msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+#~ msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
+
+#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
+#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
+
+#~ msgid ""
+#~ "is still the most commonly used checksum. Many ISO burners display it "
+#~ "right before burning."
+#~ msgstr ""
+#~ "je najčastejšie používaný kontrolný súčet. Veľa napaľovacích programov ho "
+#~ "zobrazuje tesne pred napaľovaním."
+
+#~ msgid "is the less known but more secure checksum than md5."
+#~ msgstr "je menej známy, ale bezpečnejší kontrolný súčet ako md5."
+
+#~ msgid "md5 checksum"
+#~ msgstr "kontrolný súčet md5"
+
+#~ msgid ""
+#~ "offers the most security as you can verify who signed it. It should be "
+#~ "<tt>%s</tt>."
+#~ msgstr ""
+#~ "ponúka najväčšiu bezpečnosť, ako si môžete overiť kto ho podpísal. Mal by "
+#~ "byť <tt>%s</tt>."
+
+#~ msgid "openSUSE Countdown"
+#~ msgstr "Odpočítavanie openSUSE"
+
+#~ msgid ""
+#~ "openSUSE is available via http (direct link) or BitTorrent. The CD for "
+#~ "network installation is only available via http."
+#~ msgstr ""
+#~ "openSUSE je dostupné cez http (priamy odkaz), alebo BitTorrent. CD pre "
+#~ "sieťovú inštaláciu je dostupné len cez http."
+
+#~ msgid "openSUSE only supports PCs with 32 Bits and 64 Bits."
+#~ msgstr "openSUSE podporuje iba 32 bitové a 64 bitové počítače."
+
+#~ msgid "see Derivatives on wiki"
+#~ msgstr "pozrieť deriváty na wiki"
+
+#~ msgid "sha1 checksum"
+#~ msgstr "kontrolný súčet sha1"
+
+#~ msgid "switch to"
+#~ msgstr "prepnúť na"
 
 #, fuzzy
 #~ msgid "An internal error happened :-("

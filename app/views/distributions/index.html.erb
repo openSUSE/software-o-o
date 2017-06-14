@@ -76,55 +76,38 @@
         <%= _('Chosing which Distribution to Download') %>
       </h2>
       <p>
-        <%= link_to 'openSUSE Tumbleweed', tumbleweed_distributions_path %>
-        <%= _('is a <strong>rolling-release</strong>. This means the software is always
-        the latest stable versions available from the openSUSE Project. Things
-        will change regularly as Free and Open Source projects continually
-        release new versions of their software.') %>
+      <%= _('%{tumbleweed} is a <strong>rolling-release</strong>. This means the software is always the latest stable versions available from the openSUSE Project. Things will change regularly as Free and Open Source projects continually release new versions of their software.') % { tumbleweed: link_to(_('openSUSE Tumbleweed'), tumbleweed_distributions_path) } %>
         <br>
-        <%= _('Tumbleweed is recommended for <strong>Developers</strong>,
-        <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS
-        Enthusiasts</strong>.') %>
+        <%= _('Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>.') %>
       </p>
 
       <p>
-        <%= link_to 'openSUSE Leap', leap_distributions_path %>
-        <%= _('is a <strong>regular-release</strong>. This means it releases') %>
-        <a  href="<%= _('https://en.opensuse.org/openSUSE:Roadmap') %>">
-        <%= _('annually') %></a>,
-        <%= _('with security and stability updates being the priority during each release') %>
-        <a href="<%= _('https://en.opensuse.org/Lifetime') %>"><%= _('lifetime') %></a>.
+        <%= _('%{leap} is a <strong>regular-release</strong>. This means it releases %{annually}, with security and stability updates being the priority during each release %{lifetime}.') %
+            { leap: link_to(_('openSUSE Leap'), leap_distributions_path),
+              annually: link_to(_('annually'), _('https://en.opensuse.org/openSUSE:Roadmap')),
+              lifetime: link_to(_('lifetime'), _("https://en.opensuse.org/Lifetime"))
+            } %>
         <%= _('It is not expected to change in any significant way until its next annual release.') %>
         <br />
-        <%= _('Leap shares a Common Base System with') %>
-        <a href="https://www.suse.com/products/server/">SUSE Linux Enterprise</a>,
-        <%= _('so major architectural changes are not expected for several years, aligned
-        with each new Major Release (eg 12, 13, etc) of SUSE Linux Enterprise.') %>
+        <%= _('Leap shares a Common Base System with %{sles}, so major architectural changes are not expected for several years, aligned with each new Major Release (eg 12, 13, etc) of SUSE Linux Enterprise.') % {
+               sles: link_to(_('SUSE Linux Enterprise'), "https://www.suse.com/products/server/")
+               } %>
         <br />
-        <%= _('Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise
-        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>.') %>
+        <%= _('Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>.') %>
       </p>
 
       <p>
-        <%= _('Both distributions are well tested by') %>
-        <a href="https://openqa.opensuse.org">openQA</a>
-        <%= _('as well as by human openSUSE contributors so both can be relied
-        upon to work.') %>
+        <%= _('Both distributions are well tested by <a href="https://openqa.opensuse.org">openQA</a> as well as by human openSUSE contributors so both can be relied upon to work.') %>
         <br>
-        <%= _('Both distributions are fully capable of being used on a Desktop PC,
-        laptop, server, or in the cloud.') %>
+        <%= _('Both distributions are fully capable of being used on a Desktop PC, laptop, server, or in the cloud.') %>
       </p>
 
       <p>
         <strong>
-          <%= _('If you are still not sure, download') %>
-          <%= link_to 'openSUSE Leap', leap_distributions_path %>
+          <%= _('If you are still not sure, download %{leap}') % { leap: link_to(_('openSUSE Leap'), leap_distributions_path) } %>
         </strong>
         <br>
-        <%= _('It is easy to') %>
-        <a href="<%= _('https://en.opensuse.org/openSUSE:Tumbleweed_upgrade') %>">
-        <%= _('switch to openSUSE Tumbleweed')%></a>
-        <%= _('if you change your mind later.') %>
+        <%= _('It is easy to <a href="https://en.opensuse.org/openSUSE:Tumbleweed_upgrade">switch to openSUSE Tumbleweed</a> if you change your mind later.') %>
       </p>
 
       <hr>
