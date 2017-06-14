@@ -12,10 +12,10 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-14 13:51+0200\n"
-"PO-Revision-Date: 2017-06-13 16:23+0000\n"
-"Last-Translator: Victor hck <correohck@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.opensuse.org/projects/software-o-o/"
-"master/es/>\n"
+"PO-Revision-Date: 2017-06-14 20:09+0000\n"
+"Last-Translator: jc sl <trcs@gmx.com>\n"
+"Language-Team: Spanish "
+"<https://l10n.opensuse.org/projects/software-o-o/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,8 +36,9 @@ msgid ""
 "%{annually}, with security and stability updates being the priority during "
 "each release %{lifetime}."
 msgstr ""
-"con actualizaciones de seguridad y estabilidad que son la prioridad en cada "
-"versión"
+"%{leap} es una <strong>distribución cíclica</strong>. Esto quiere decir que "
+"se publica %{annually}, siendo las actualizaciones de seguridad y "
+"estabilidad la prioridad durante el %{lifetime} de cada versión."
 
 #: ../app/views/distributions/index.html.erb:79
 #, fuzzy
@@ -99,7 +100,6 @@ msgid "Available Images"
 msgstr "Imágenes disponibles"
 
 #: ../app/views/distributions/index.html.erb:102
-#, fuzzy
 #| msgid ""
 #| "Both distributions are fully capable of being used on a Desktop PC,\n"
 #| "        laptop, server, or in the cloud."
@@ -108,8 +108,7 @@ msgid ""
 "server, or in the cloud."
 msgstr ""
 "Ambas distribuciones son totalmente aptas para ser utilizadas en un PC de "
-"escritorio,\n"
-"        portátil, servidor, o en la nube."
+"escritorio, portátil, servidor, o en la nube."
 
 #: ../app/views/distributions/index.html.erb:100
 #, fuzzy
@@ -121,9 +120,9 @@ msgid ""
 "\">openQA</a> as well as by human openSUSE contributors so both can be "
 "relied upon to work."
 msgstr ""
-"también por personas que contribuyen con openSUSE así que se puede confiar "
-"en ambas\n"
-"        para trabajar."
+"Ambas distribuciones se prueban a conciencia en <a href=\""
+"https://openqa.opensuse.org\">openQA</a> y también por personas que "
+"colaboran con openSUSE, por lo que se puede confiar en ellas para trabajar."
 
 #: ../app/views/package/show.html.erb:169
 msgid "Categories"
@@ -244,7 +243,6 @@ msgstr ""
 "equipos de escritorio, portátiles y servidores."
 
 #: ../app/views/distributions/tumbleweed_ports.html.erb:10
-#, fuzzy
 #| msgid ""
 #| "Download alternative architectures of the rolling version\n"
 #| "              of openSUSE, for desktop PCs, laptops, and servers."
@@ -252,10 +250,8 @@ msgid ""
 "Download alternative architectures of the rolling version of openSUSE, for "
 "desktop PCs, laptops, and servers."
 msgstr ""
-"Descargar arquitecturas alternativas de la versión de actualización "
-"contínua\n"
-"              de openSUSE, para equipos de escritorio, portátiles y "
-"servidores."
+"Descargar arquitecturas alternativas de la versión de actualización continua "
+"de openSUSE, para equipos de escritorio, portátiles y servidores."
 
 #: ../app/controllers/download_controller.rb:36
 msgid "Download appliance from %s"
@@ -300,7 +296,6 @@ msgstr ""
 "escritorio, portátiles y servidores."
 
 #: ../app/views/distributions/tumbleweed.html.erb:10
-#, fuzzy
 #| msgid ""
 #| "Download the rolling version of openSUSE, for desktop PCs,\n"
 #| "              laptops, and servers."
@@ -308,9 +303,8 @@ msgid ""
 "Download the rolling version of openSUSE, for desktop PCs,\n"
 "laptops, and servers."
 msgstr ""
-"Descargar la versión de actualización contínua de openSUSE para equipos de "
-"escritorio,\n"
-"              portátiles y servidores."
+"Descargar la versión de actualización continua de openSUSE para equipos de "
+"escritorio, portátiles y servidores."
 
 #: ../app/views/layouts/application.html.erb:63
 #: ../app/views/layouts/download.html.erb:57
@@ -464,7 +458,7 @@ msgstr "Cómo crear en OS X una USB capaz de arrancar openSUSE."
 #, fuzzy
 #| msgid "If you are still not sure, download"
 msgid "If you are still not sure, download %{leap}"
-msgstr "Si todavía no estás seguro/a, descarga"
+msgstr "Si aún está indeciso, descargue %{leap}"
 
 #: ../app/views/distributions/_leap_switch.html.erb:5
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:5
@@ -479,10 +473,10 @@ msgid ""
 "DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
 "commands."
 msgstr ""
-"Si ya está ejecutando openSUSE puedes actualizar arrancando desde la\n"
-"  unidad de DVD o USB y escogiendo la opción de actualizar (upgrade), o "
-"realizar una actualización en línea\n"
-"  con pocos comandos."
+"Si ya tiene openSUSE instalado, puede actualizarlo arrancando desde la\n"
+"unidad de DVD/USB y escogiendo la opción de actualizar (upgrade), o realizar "
+"una actualización en línea\n"
+"con unos pocos comandos."
 
 #: ../app/views/download/appliance.erb:57
 msgid "Image:"
@@ -518,10 +512,13 @@ msgstr ""
 "mediante la red (Network Installer)"
 
 #: ../app/views/distributions/index.html.erb:110
+#, fuzzy
 msgid ""
 "It is easy to <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 "\">switch to openSUSE Tumbleweed</a> if you change your mind later."
 msgstr ""
+"Es fácil <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade\">"
+"cambiarse a openSUSE Tumbleweed</a> si cambia de opinión más tarde."
 
 #: ../app/views/distributions/index.html.erb:90
 msgid ""
@@ -536,7 +533,6 @@ msgid "It should be"
 msgstr "Debería ser"
 
 #: ../app/views/distributions/index.html.erb:96
-#, fuzzy
 #| msgid ""
 #| "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
 #| "        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
@@ -545,8 +541,8 @@ msgid ""
 "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgstr ""
 "Leap está recomendado para <strong>administradores de sistemas</strong>, "
-"<strong>desarrolladores\n"
-"        profesionales</strong>, y <strong>usuarios comunes</strong>."
+"<strong>desarrolladores profesionales</strong>, y <strong>usuarios "
+"comunes</strong>."
 
 #: ../app/views/distributions/index.html.erb:92
 #, fuzzy
