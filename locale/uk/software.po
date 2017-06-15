@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: software-opensuse-org.uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-14 13:51+0200\n"
+"POT-Creation-Date: 2017-06-15 11:03+0200\n"
 "PO-Revision-Date: 2017-03-16 11:40+0000\n"
 "Last-Translator: Andriy Bandura <andriykopanytsia@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.opensuse.org/projects/software-o-o/"
@@ -59,11 +59,11 @@ msgstr ""
 "відбуватися постійно, бо постійно виходять нові версії вільного ПЗ з "
 "відкритим вихідним кодом."
 
-#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
+#: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
 msgid "(hide)"
 msgstr "(приховати)"
 
-#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
+#: ../app/views/download/package.erb:7 ../app/views/download/appliance.erb:7
 msgid "(show)"
 msgstr "(показати)"
 
@@ -134,12 +134,10 @@ msgstr "Категорія"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:85
 #: ../app/views/distributions/tumbleweed_ports.html.erb:142
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:51
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:130
 msgid "Checksum"
 msgstr "Контрольна сума"
 
-#: ../app/views/distributions/_verify_download.html.erb:26
+#: ../app/views/distributions/_verify_download.html.erb:23
 msgid "Checksums Help"
 msgstr "Довідка з контрольних сум"
 
@@ -197,12 +195,6 @@ msgstr "Пряме встановлення"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:116
 #: ../app/views/distributions/tumbleweed_ports.html.erb:151
 #: ../app/views/distributions/tumbleweed_ports.html.erb:173
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:60
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:82
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:104
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:139
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:161
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:182
 msgid "Direct Link"
 msgstr "Пряме посилання"
 
@@ -222,8 +214,6 @@ msgstr "Більше не показувати це попередження"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:27
 #: ../app/views/distributions/tumbleweed_ports.html.erb:84
 #: ../app/views/distributions/tumbleweed_ports.html.erb:141
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:50
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:129
 msgid "Download Method"
 msgstr "Спосіб звантаження"
 
@@ -270,9 +260,13 @@ msgstr ""
 "openSUSE Project."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "Download the LiveUSBs of the rolling version of openSUSE,\n"
+#| "              for desktop PCs, laptops, and servers."
 msgid ""
-"Download the LiveUSBs of the rolling version of openSUSE,\n"
-"              for desktop PCs, laptops, and servers."
+"Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, "
+"laptops, and servers."
 msgstr ""
 "Завантаження LiveUSB ковзної версії openSUSE для ПК, ноутбуків і серверів."
 
@@ -346,8 +340,10 @@ msgstr ""
 "Для додаткової безпеки ви можете вживати GPG, щоб перевірити, ким підписано "
 "файли  .sha256."
 
-#: ../app/views/distributions/_verify_download.html.erb:24
-msgid "For more help verifing your download please read"
+#: ../app/views/distributions/_verify_download.html.erb:22
+#, fuzzy
+#| msgid "For more help verifing your download please read"
+msgid "For more help verifing your download please read %{checksums_help}"
 msgstr "Більше інформації про перевірку завантаженого матеріалу в розділі"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:6
@@ -502,7 +498,9 @@ msgid ""
 msgstr "До наступного щорічного випуску ніяких великих змін не очікується."
 
 #: ../app/views/distributions/_verify_download.html.erb:18
-msgid "It should be"
+#, fuzzy
+#| msgid "It should be"
+msgid "It should be %{fingerprint}"
 msgstr "Повинно бути"
 
 #: ../app/views/distributions/index.html.erb:96
@@ -561,11 +559,6 @@ msgstr ""
 "автоматично, якщо ви виберете Metalink у полі вище і використовуєте "
 "розширення DownThemAll! у Firefox."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:44
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:123
-msgid "Media"
-msgstr "Носій"
-
 #: ../app/views/package/categories.html.erb:42
 msgid "Multimedia"
 msgstr "Мультимедія"
@@ -580,7 +573,9 @@ msgid "Network"
 msgstr "Мережа"
 
 #: ../app/views/download/appliance.erb:2
-msgid "No appliance data for %s"
+#, fuzzy
+#| msgid "No appliance data for %s"
+msgid "No appliance data for %{project}"
 msgstr "Немає даних для %s"
 
 #: ../app/views/download/appliance.erb:47
@@ -644,24 +639,24 @@ msgstr "Пакунки для %s:"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:124
 #: ../app/views/distributions/tumbleweed_ports.html.erb:159
 #: ../app/views/distributions/tumbleweed_ports.html.erb:181
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:68
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:90
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:112
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:147
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:168
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:190
 msgid "Pick Mirror"
 msgstr "Виберіть дзеркало"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:24
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:23
 msgid "Please Note: These LiveUSBs are not supported"
 msgstr "Зверніть увагу: ці LiveUSB не підтримуються"
 
 #: ../app/views/package/show.html.erb:137
+#, fuzzy
+#| msgid ""
+#| "Please be aware that the following packages are from unofficial "
+#| "repositories.\n"
+#| "  That means they are not reviewed by openSUSE and may contain unstable "
+#| "or experimental software."
 msgid ""
 "Please be aware that the following packages are from unofficial "
 "repositories.\n"
-"  That means they are not reviewed by openSUSE and may contain unstable or "
+"That means they are not reviewed by openSUSE and may contain unstable or "
 "experimental software."
 msgstr ""
 "Будь ласка, зверніть увагу, що це пакети з неофіційних сховищ.\n"
@@ -672,8 +667,10 @@ msgstr ""
 msgid "Please report any issues you find in our Bugtracker."
 msgstr "Повідомляйте про всіх знайдених вами проблеми в наш Bugtracker."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:39
-msgid "Please review"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
+#, fuzzy
+#| msgid "Please review"
+msgid "Please review %{openqa}"
 msgstr "Вивчіть результати тестування"
 
 #: ../app/views/distributions/_requirements.html.erb:2
@@ -745,8 +742,6 @@ msgstr "Показати непідтримувані пакунки"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:26
 #: ../app/views/distributions/tumbleweed_ports.html.erb:83
 #: ../app/views/distributions/tumbleweed_ports.html.erb:140
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:49
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:128
 msgid "Size"
 msgstr "Розмір"
 
@@ -800,17 +795,23 @@ msgstr ""
 msgid "Then run the following as <strong>root</strong>"
 msgstr "Потім запустіть від імені <strong>root</strong>"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
-msgid "They are not tested as thoroughly as the"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:35
+#, fuzzy
+#| msgid "They are not tested as thoroughly as the"
+msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr "Вони не так добре протестовані як"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
-msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:27
+#, fuzzy
+#| msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
+msgid ""
+"They cannot be used to install or upgrade Tumbleweed. Please use the "
+"%{tumbleweed_media} instead."
 msgstr ""
 "Їх не можна використовувати для установки або оновлення Tumbleweed. "
 "Використовуйте"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:33
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:31
 #, fuzzy
 #| msgid ""
 #| "They have a limited package/driver selection, so cannot be considered\n"
@@ -836,6 +837,13 @@ msgstr ""
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
 msgstr "Навігація"
+
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
+#, fuzzy
+#| msgid "Installation Media"
+msgid "Tumbleweed installation media"
+msgstr "Носій встановлення"
 
 #: ../app/views/distributions/index.html.erb:81
 #, fuzzy
@@ -919,7 +927,7 @@ msgstr "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Mac_OS_x"
 msgid "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
 msgstr "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
 
-#: ../app/views/distributions/_verify_download.html.erb:25
+#: ../app/views/distributions/_verify_download.html.erb:23
 msgid "https://en.opensuse.org/SDB:Download_help#Checksums"
 msgstr "https://en.opensuse.org/SDB:Download_help#Checksums"
 
@@ -956,10 +964,6 @@ msgstr "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:8
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:30
-msgid "instead."
-msgstr "замість них."
 
 #: ../app/views/distributions/tumbleweed.html.erb:82
 #, fuzzy
@@ -1016,15 +1020,20 @@ msgid "openSUSE is completely free to download, use and share."
 msgstr ""
 "openSUSE можна повністю вільно завантажувати, використовувати і поширювати."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:41
+#~ msgid "Media"
+#~ msgstr "Носій"
+
+#~ msgid "instead."
+#~ msgstr "замість них."
+
 #, fuzzy
-#| msgid ""
-#| "test results if you want an indication whether these LiveUSBs are\n"
-#| "          working as expected."
-msgid ""
-"test results if you want an indication whether these LiveUSBs are working as "
-"expected."
-msgstr "якщо ви хочете дізнатися, чи працюють ці LiveUSB належним чином."
+#~| msgid ""
+#~| "test results if you want an indication whether these LiveUSBs are\n"
+#~| "          working as expected."
+#~ msgid ""
+#~ "test results if you want an indication whether these LiveUSBs are working "
+#~ "as expected."
+#~ msgstr "якщо ви хочете дізнатися, чи працюють ці LiveUSB належним чином."
 
 #~ msgid ""
 #~ "If you’re already running openSUSE you can upgrade by booting from the\n"

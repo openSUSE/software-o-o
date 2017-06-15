@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-14 13:51+0200\n"
+"POT-Creation-Date: 2017-06-15 11:03+0200\n"
 "PO-Revision-Date: 2017-06-14 20:56+0100\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
 "Language-Team: Slovak <opensuse-translation-sk@opensuse.org>\n"
@@ -38,11 +38,11 @@ msgid ""
 "release new versions of their software."
 msgstr ""
 
-#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
+#: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
 msgid "(hide)"
 msgstr "(skryť)"
 
-#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
+#: ../app/views/download/package.erb:7 ../app/views/download/appliance.erb:7
 msgid "(show)"
 msgstr "(ukázať)"
 
@@ -76,9 +76,6 @@ msgid "Available Images"
 msgstr "Dostupné obrazy"
 
 #: ../app/views/distributions/index.html.erb:102
-#| msgid ""
-#| "Both distributions are fully capable of being used on a Desktop PC,\n"
-#| "        laptop, server, or in the cloud."
 msgid ""
 "Both distributions are fully capable of being used on a Desktop PC, laptop, "
 "server, or in the cloud."
@@ -109,12 +106,10 @@ msgstr "Kategória"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:85
 #: ../app/views/distributions/tumbleweed_ports.html.erb:142
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:51
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:130
 msgid "Checksum"
 msgstr "Kontrolný súčet"
 
-#: ../app/views/distributions/_verify_download.html.erb:26
+#: ../app/views/distributions/_verify_download.html.erb:23
 msgid "Checksums Help"
 msgstr "Pomocník pre kontrolný súčet"
 
@@ -172,12 +167,6 @@ msgstr "Priama inštalácia"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:116
 #: ../app/views/distributions/tumbleweed_ports.html.erb:151
 #: ../app/views/distributions/tumbleweed_ports.html.erb:173
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:60
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:82
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:104
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:139
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:161
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:182
 msgid "Direct Link"
 msgstr "Priamy odkaz"
 
@@ -197,8 +186,6 @@ msgstr "Toto varovanie nabudúce neukazovať"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:27
 #: ../app/views/distributions/tumbleweed_ports.html.erb:84
 #: ../app/views/distributions/tumbleweed_ports.html.erb:141
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:50
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:129
 msgid "Download Method"
 msgstr "Spôsob sťahovania"
 
@@ -211,9 +198,6 @@ msgstr ""
 "počítače, prenosné počítače a servery."
 
 #: ../app/views/distributions/tumbleweed_ports.html.erb:10
-#| msgid ""
-#| "Download alternative architectures of the rolling version\n"
-#| "              of openSUSE, for desktop PCs, laptops, and servers."
 msgid ""
 "Download alternative architectures of the rolling version of openSUSE, for "
 "desktop PCs, laptops, and servers."
@@ -243,9 +227,13 @@ msgstr ""
 "              balíky poskytované projektom openSUSE."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "Download the LiveUSBs of the rolling version of openSUSE,\n"
+#| "              for desktop PCs, laptops, and servers."
 msgid ""
-"Download the LiveUSBs of the rolling version of openSUSE,\n"
-"              for desktop PCs, laptops, and servers."
+"Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, "
+"laptops, and servers."
 msgstr ""
 "Stiahnuť LiveUSB rolujúcej verzie openSUSE pre stolné\n"
 "              počítače, prenosné počítače a servery."
@@ -259,9 +247,6 @@ msgstr ""
 "servery."
 
 #: ../app/views/distributions/tumbleweed.html.erb:10
-#| msgid ""
-#| "Download the rolling version of openSUSE, for desktop PCs,\n"
-#| "              laptops, and servers."
 msgid ""
 "Download the rolling version of openSUSE, for desktop PCs,\n"
 "laptops, and servers."
@@ -292,7 +277,8 @@ msgstr "Rozbaliť všetky sekcie ('e')"
 
 #: ../app/views/download/package.erb:106
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
-msgstr "Pre <strong>%s</strong> spustite ako <strong>root</strong> nasledujúce:"
+msgstr ""
+"Pre <strong>%s</strong> spustite ako <strong>root</strong> nasledujúce:"
 
 #: ../app/views/download/package.erb:99
 msgid "For <strong>%s</strong> run the following:"
@@ -322,8 +308,10 @@ msgstr ""
 "Pre zvýšenú bezpečnosť môžete pomocou GPG overiť, kto podpísal tieto .sha256 "
 "súbory."
 
-#: ../app/views/distributions/_verify_download.html.erb:24
-msgid "For more help verifing your download please read"
+#: ../app/views/distributions/_verify_download.html.erb:22
+#, fuzzy
+#| msgid "For more help verifing your download please read"
+msgid "For more help verifing your download please read %{checksums_help}"
 msgstr ""
 "Ak potrebujete ďalšiu pomoc pri overovaní vášho stiahnutia, prečítajte si, "
 "prosím"
@@ -418,17 +406,11 @@ msgid "How to create a bootable USB stick on OS X."
 msgstr "Ako vytvoriť spustiteľný USB kľúč na OS X."
 
 #: ../app/views/distributions/index.html.erb:107
-#| msgid "If you are still not sure, download"
 msgid "If you are still not sure, download %{leap}"
 msgstr "Ak si stále nie ste istí, stiahnite si %{leap}"
 
 #: ../app/views/distributions/_leap_switch.html.erb:5
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:5
-#| msgid ""
-#| "If you’re already running openSUSE you can upgrade by booting from the\n"
-#| "  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a "
-#| "few\n"
-#| "  commands."
 msgid ""
 "If you’re already running openSUSE you can upgrade by booting from the\n"
 "DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
@@ -482,13 +464,12 @@ msgstr ""
 "vydania."
 
 #: ../app/views/distributions/_verify_download.html.erb:18
-msgid "It should be"
+#, fuzzy
+#| msgid "It should be"
+msgid "It should be %{fingerprint}"
 msgstr "By malo byť"
 
 #: ../app/views/distributions/index.html.erb:96
-#| msgid ""
-#| "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
-#| "        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgid ""
 "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
 "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
@@ -508,13 +489,6 @@ msgid "License"
 msgstr "Licencia"
 
 #: ../app/views/distributions/_verify_download.html.erb:5
-#| msgid ""
-#| "Many applications can verify the checksum of a download. To verify\n"
-#| "  your download can be important as it verifies you really have got the\n"
-#| "  ISO file you wanted to download and not some broken version. You could\n"
-#| "  verify the file in the process of downloading. For example a checksum\n"
-#| "  (SHA256) will be used automatically if you choose Metalink in the\n"
-#| "  field above and use the add-on DownThemAll! in Firefox."
 msgid ""
 "Many applications can verify the checksum of a download. To verify\n"
 "your download can be important as it verifies you really have got the\n"
@@ -530,11 +504,6 @@ msgstr ""
 "automaticky, ak v poli vyššie zvolíte Metalink a použijete\n"
 "doplnok DownThemAll! vo Firefoxe."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:44
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:123
-msgid "Media"
-msgstr "Médiá"
-
 #: ../app/views/package/categories.html.erb:42
 msgid "Multimedia"
 msgstr "Multimédiá"
@@ -549,7 +518,9 @@ msgid "Network"
 msgstr "Sieť"
 
 #: ../app/views/download/appliance.erb:2
-msgid "No appliance data for %s"
+#, fuzzy
+#| msgid "No appliance data for %s"
+msgid "No appliance data for %{project}"
 msgstr "Žiadne dáta predpripravených systémov pre %s"
 
 #: ../app/views/download/appliance.erb:47
@@ -613,24 +584,24 @@ msgstr "Balíky pre %s:"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:124
 #: ../app/views/distributions/tumbleweed_ports.html.erb:159
 #: ../app/views/distributions/tumbleweed_ports.html.erb:181
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:68
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:90
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:112
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:147
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:168
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:190
 msgid "Pick Mirror"
 msgstr "Vybrať zrkadlo"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:24
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:23
 msgid "Please Note: These LiveUSBs are not supported"
 msgstr "Upozorňujeme: Tieto LiveUSB nie sú podporované"
 
 #: ../app/views/package/show.html.erb:137
+#, fuzzy
+#| msgid ""
+#| "Please be aware that the following packages are from unofficial "
+#| "repositories.\n"
+#| "  That means they are not reviewed by openSUSE and may contain unstable "
+#| "or experimental software."
 msgid ""
 "Please be aware that the following packages are from unofficial "
 "repositories.\n"
-"  That means they are not reviewed by openSUSE and may contain unstable or "
+"That means they are not reviewed by openSUSE and may contain unstable or "
 "experimental software."
 msgstr ""
 "Prosím, majte na pamäti, že nasledujúce balíky sú z neoficiálnych "
@@ -643,8 +614,10 @@ msgid "Please report any issues you find in our Bugtracker."
 msgstr ""
 "Nahláste, prosím, všetky problémy, ktoré nájdete v našom nástroji Bugtracker."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:39
-msgid "Please review"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
+#, fuzzy
+#| msgid "Please review"
+msgid "Please review %{openqa}"
 msgstr "Prosím, preskúmajte"
 
 #: ../app/views/distributions/_requirements.html.erb:2
@@ -716,8 +689,6 @@ msgstr "Ukázať nepodporované balíky"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:26
 #: ../app/views/distributions/tumbleweed_ports.html.erb:83
 #: ../app/views/distributions/tumbleweed_ports.html.erb:140
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:49
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:128
 msgid "Size"
 msgstr "Veľkosť"
 
@@ -737,10 +708,6 @@ msgid "Support"
 msgstr "Podpora"
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
-#| msgid ""
-#| "The DVD/USB Stick is typically recommended as it contains most of the\n"
-#| "  packages available in the distribution and does not require a network\n"
-#| "  connection during the installation."
 msgid ""
 "The DVD/USB Stick is typically recommended as it contains most of the\n"
 "packages available in the distribution and does not require a network\n"
@@ -751,11 +718,6 @@ msgstr ""
 "sieťové pripojenie."
 
 #: ../app/views/distributions/_choosing_media.html.erb:10
-#| msgid ""
-#| "The Network CD/USB Stick is recommended for users who have limited\n"
-#| "  bandwidth on their internet connections, as it will only download the\n"
-#| "  packages they choose to install, which is likely to be significantly\n"
-#| "  less than 4.7GB."
 msgid ""
 "The Network CD/USB Stick is recommended for users who have limited\n"
 "bandwidth on their internet connections, as it will only download the\n"
@@ -772,22 +734,23 @@ msgstr ""
 msgid "Then run the following as <strong>root</strong>"
 msgstr "Potom spustite ako <strong>root</strong> nasledujúce"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
-msgid "They are not tested as thoroughly as the"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:35
+#, fuzzy
+#| msgid "They are not tested as thoroughly as the"
+msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr "Nie sú testované tak dôkladne ako"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
-msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:27
+#, fuzzy
+#| msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
+msgid ""
+"They cannot be used to install or upgrade Tumbleweed. Please use the "
+"%{tumbleweed_media} instead."
 msgstr ""
 "Nemôžu byť použité na inštaláciu alebo zvýšenie verzie Tumbleweed. Použite "
 "prosím"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:33
-#| msgid ""
-#| "They have a limited package/driver selection, so cannot be considered\n"
-#| "          an accurate reflection as to whether Tumbleweed will work on "
-#| "your\n"
-#| "          hardware or not."
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:31
 msgid ""
 "They have a limited package/driver selection, so cannot be considered\n"
 "an accurate reflection as to whether Tumbleweed will work on your hardware "
@@ -809,16 +772,21 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr "Prepnúť navigáciu"
 
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
+#, fuzzy
+#| msgid "Installation Media"
+msgid "Tumbleweed installation media"
+msgstr "Inštalačné médiá"
+
 #: ../app/views/distributions/index.html.erb:81
-#| msgid ""
-#| "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
-#| "        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
 "Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
 msgstr ""
-"Tumbleweed sa odporúča pre <strong>administrátorov</strong>, <strong>"
-"prispievateľov openSUSE</strong> a <strong>Linux/FOSS nadšenecov</strong>."
+"Tumbleweed sa odporúča pre <strong>administrátorov</strong>, "
+"<strong>prispievateľov openSUSE</strong> a <strong>Linux/FOSS nadšenecov</"
+"strong>."
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
 msgid "Unsupported"
@@ -854,11 +822,6 @@ msgid ""
 msgstr ""
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:6
-#| msgid ""
-#| "They have a limited package/driver selection, so cannot be considered\n"
-#| "          an accurate reflection as to whether Tumbleweed will work on "
-#| "your\n"
-#| "          hardware or not."
 msgid ""
 "also offers a number of unsupported LiveUSBs. These\n"
 "cannot be used for Installation or Upgrade. They are not an accurate\n"
@@ -884,7 +847,7 @@ msgstr "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Mac_OS_x"
 msgid "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
 msgstr "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
 
-#: ../app/views/distributions/_verify_download.html.erb:25
+#: ../app/views/distributions/_verify_download.html.erb:23
 msgid "https://en.opensuse.org/SDB:Download_help#Checksums"
 msgstr "https://en.opensuse.org/SDB:Download_help#Checksums"
 
@@ -922,10 +885,6 @@ msgstr "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:30
-msgid "instead."
-msgstr ""
-
 #: ../app/views/distributions/tumbleweed.html.erb:82
 msgid ""
 "is also available on other architectures, such as Intel 32-bit (aka i586), "
@@ -938,7 +897,6 @@ msgstr ""
 
 #: ../app/views/distributions/index.html.erb:86
 #: ../app/views/distributions/index.html.erb:107
-#| msgid "openSUSE Derivatives"
 msgid "openSUSE Leap"
 msgstr "openSUSE Leap"
 
@@ -949,7 +907,6 @@ msgid ""
 msgstr ""
 
 #: ../app/views/distributions/index.html.erb:79
-#| msgid "switch to openSUSE Tumbleweed"
 msgid "openSUSE Tumbleweed"
 msgstr "openSUSE Tumbleweed"
 
@@ -964,11 +921,8 @@ msgstr ""
 msgid "openSUSE is completely free to download, use and share."
 msgstr ""
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:41
-msgid ""
-"test results if you want an indication whether these LiveUSBs are working as "
-"expected."
-msgstr ""
+#~ msgid "Media"
+#~ msgstr "Médiá"
 
 #~ msgid ""
 #~ "If you’re already running openSUSE you can upgrade by booting from the\n"

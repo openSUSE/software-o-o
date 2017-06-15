@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-14 13:51+0200\n"
+"POT-Creation-Date: 2017-06-15 11:03+0200\n"
 "PO-Revision-Date: 2017-05-05 20:22+0000\n"
 "Last-Translator: mohammad alhargan <malham1@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.opensuse.org/projects/software-o-o/"
@@ -55,11 +55,11 @@ msgstr ""
 "         ستتغير بانتظام كمشاريع حرة ومفتوحة المصدر باستمرار\n"
 "         لها إصدارات جديدة من البرامج."
 
-#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
+#: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
 msgid "(hide)"
 msgstr "(إخفاء)"
 
-#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
+#: ../app/views/download/package.erb:7 ../app/views/download/appliance.erb:7
 msgid "(show)"
 msgstr "(إظهار)"
 
@@ -132,12 +132,10 @@ msgstr "الفئة"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:85
 #: ../app/views/distributions/tumbleweed_ports.html.erb:142
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:51
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:130
 msgid "Checksum"
 msgstr "اختباري"
 
-#: ../app/views/distributions/_verify_download.html.erb:26
+#: ../app/views/distributions/_verify_download.html.erb:23
 msgid "Checksums Help"
 msgstr "مساعدة الاختبارية"
 
@@ -195,12 +193,6 @@ msgstr "تثبيت مباشر"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:116
 #: ../app/views/distributions/tumbleweed_ports.html.erb:151
 #: ../app/views/distributions/tumbleweed_ports.html.erb:173
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:60
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:82
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:104
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:139
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:161
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:182
 msgid "Direct Link"
 msgstr "رابط مباشر"
 
@@ -220,8 +212,6 @@ msgstr "عدم إظهار هذا التحذير في المرة القادمة"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:27
 #: ../app/views/distributions/tumbleweed_ports.html.erb:84
 #: ../app/views/distributions/tumbleweed_ports.html.erb:141
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:50
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:129
 msgid "Download Method"
 msgstr "طريقة التحميل"
 
@@ -268,9 +258,13 @@ msgstr ""
 "               الحزم المقدمة من مشروع أوبن سوزي."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "Download the LiveUSBs of the rolling version of openSUSE,\n"
+#| "              for desktop PCs, laptops, and servers."
 msgid ""
-"Download the LiveUSBs of the rolling version of openSUSE,\n"
-"              for desktop PCs, laptops, and servers."
+"Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, "
+"laptops, and servers."
 msgstr ""
 "تحميل سواقة الفلاشة الحية من النسخة المتداولة من أوبن سوزي\n"
 "               لأجهزة الحاسب المكتبي المحمول والخوادم."
@@ -342,8 +336,10 @@ msgid ""
 "For extra security, you can use GPG to verify who signed those .sha256 files."
 msgstr "لمزيد من الأمان، يمكنك استخدام GPG للتحقق من توقيع .sha256 ملف."
 
-#: ../app/views/distributions/_verify_download.html.erb:24
-msgid "For more help verifing your download please read"
+#: ../app/views/distributions/_verify_download.html.erb:22
+#, fuzzy
+#| msgid "For more help verifing your download please read"
+msgid "For more help verifing your download please read %{checksums_help}"
 msgstr "لمزيد من المساعدة في التحقق من التحميل يرجى قراءة"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:6
@@ -500,7 +496,9 @@ msgid ""
 msgstr "من غير المتوقع أن تتغير بشكل كبير حتى الإصدار السنوي المقبل."
 
 #: ../app/views/distributions/_verify_download.html.erb:18
-msgid "It should be"
+#, fuzzy
+#| msgid "It should be"
+msgid "It should be %{fingerprint}"
 msgstr "يجب ان تكون"
 
 #: ../app/views/distributions/index.html.erb:96
@@ -559,11 +557,6 @@ msgstr ""
 " (SHA256) يستخدم تلقائيا إذا اخترت ميتالينك في\n"
 " الحقل أعلاه واستخدام الإضافة DownThemAll!  في فيرفكس."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:44
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:123
-msgid "Media"
-msgstr "وسائط"
-
 #: ../app/views/package/categories.html.erb:42
 msgid "Multimedia"
 msgstr "وسائط متعدّدة"
@@ -578,7 +571,9 @@ msgid "Network"
 msgstr "الشبكة"
 
 #: ../app/views/download/appliance.erb:2
-msgid "No appliance data for %s"
+#, fuzzy
+#| msgid "No appliance data for %s"
+msgid "No appliance data for %{project}"
 msgstr "لا توجد بيانات الأداة %s"
 
 #: ../app/views/download/appliance.erb:47
@@ -642,24 +637,24 @@ msgstr "حزم %s:"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:124
 #: ../app/views/distributions/tumbleweed_ports.html.erb:159
 #: ../app/views/distributions/tumbleweed_ports.html.erb:181
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:68
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:90
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:112
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:147
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:168
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:190
 msgid "Pick Mirror"
 msgstr "إختيار رابط"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:24
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:23
 msgid "Please Note: These LiveUSBs are not supported"
 msgstr "يرجى ملاحظة: سواقة الفلاشة الحية غير مدعومة"
 
 #: ../app/views/package/show.html.erb:137
+#, fuzzy
+#| msgid ""
+#| "Please be aware that the following packages are from unofficial "
+#| "repositories.\n"
+#| "  That means they are not reviewed by openSUSE and may contain unstable "
+#| "or experimental software."
 msgid ""
 "Please be aware that the following packages are from unofficial "
 "repositories.\n"
-"  That means they are not reviewed by openSUSE and may contain unstable or "
+"That means they are not reviewed by openSUSE and may contain unstable or "
 "experimental software."
 msgstr ""
 "نريد اخبارك بأن الحزم التالية من مستودعات غير رسمية.\n"
@@ -670,8 +665,10 @@ msgstr ""
 msgid "Please report any issues you find in our Bugtracker."
 msgstr "يرجى الإبلاغ عن أي مشاكل تواجهك باستخدام متتبع العلل."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:39
-msgid "Please review"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
+#, fuzzy
+#| msgid "Please review"
+msgid "Please review %{openqa}"
 msgstr "يرجى مراجعة"
 
 #: ../app/views/distributions/_requirements.html.erb:2
@@ -743,8 +740,6 @@ msgstr "إظهار الحزم غير المعتمدة"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:26
 #: ../app/views/distributions/tumbleweed_ports.html.erb:83
 #: ../app/views/distributions/tumbleweed_ports.html.erb:140
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:49
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:128
 msgid "Size"
 msgstr "حجم"
 
@@ -800,15 +795,21 @@ msgstr ""
 msgid "Then run the following as <strong>root</strong>"
 msgstr "ثم قم بتشغيل التالي <strong>كجذر</strong>"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
-msgid "They are not tested as thoroughly as the"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:35
+#, fuzzy
+#| msgid "They are not tested as thoroughly as the"
+msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr "لم يتم اختبارها بدقة"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
-msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:27
+#, fuzzy
+#| msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
+msgid ""
+"They cannot be used to install or upgrade Tumbleweed. Please use the "
+"%{tumbleweed_media} instead."
 msgstr "لا يمكن استخدامها لتثبيت أو لترقية Tumbleweed.  الرجاء استخدام"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:33
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:31
 #, fuzzy
 #| msgid ""
 #| "They have a limited package/driver selection, so cannot be considered\n"
@@ -835,6 +836,13 @@ msgstr ""
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
 msgstr "تبديل الملاحة"
+
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
+#, fuzzy
+#| msgid "Installation Media"
+msgid "Tumbleweed installation media"
+msgstr "وسائط التثبيت"
 
 #: ../app/views/distributions/index.html.erb:81
 #, fuzzy
@@ -918,7 +926,7 @@ msgstr "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Mac_OS_x"
 msgid "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
 msgstr "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
 
-#: ../app/views/distributions/_verify_download.html.erb:25
+#: ../app/views/distributions/_verify_download.html.erb:23
 msgid "https://en.opensuse.org/SDB:Download_help#Checksums"
 msgstr "https://en.opensuse.org/SDB:Download_help#Checksums"
 
@@ -955,10 +963,6 @@ msgstr "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:8
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:30
-msgid "instead."
-msgstr "بدلاً من."
 
 #: ../app/views/distributions/tumbleweed.html.erb:82
 #, fuzzy
@@ -1016,17 +1020,22 @@ msgstr ""
 msgid "openSUSE is completely free to download, use and share."
 msgstr "أوبن سوزي مجاني تماما لتحميله واستخدامه ومشاركته."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:41
+#~ msgid "Media"
+#~ msgstr "وسائط"
+
+#~ msgid "instead."
+#~ msgstr "بدلاً من."
+
 #, fuzzy
-#| msgid ""
-#| "test results if you want an indication whether these LiveUSBs are\n"
-#| "          working as expected."
-msgid ""
-"test results if you want an indication whether these LiveUSBs are working as "
-"expected."
-msgstr ""
-"نتائج الاختبار إذا كنت تريد إشارة ما إذا كانت هذه الفلاشة الحية\n"
-"           تعمل كما هو متوقع."
+#~| msgid ""
+#~| "test results if you want an indication whether these LiveUSBs are\n"
+#~| "          working as expected."
+#~ msgid ""
+#~ "test results if you want an indication whether these LiveUSBs are working "
+#~ "as expected."
+#~ msgstr ""
+#~ "نتائج الاختبار إذا كنت تريد إشارة ما إذا كانت هذه الفلاشة الحية\n"
+#~ "           تعمل كما هو متوقع."
 
 #~ msgid ""
 #~ "If you’re already running openSUSE you can upgrade by booting from the\n"

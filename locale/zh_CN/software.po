@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Chinese (China) (software-o-o)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-14 13:51+0200\n"
+"POT-Creation-Date: 2017-06-15 11:03+0200\n"
 "PO-Revision-Date: 2017-06-10 14:09+0000\n"
 "Last-Translator: Grover Chou <groverchout@gmail.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/software-"
@@ -46,11 +46,11 @@ msgstr ""
 "为<strong>滚动发行版</strong>。这表示它的软件总是来自 openS USE 项目的最新稳"
 "定版本。东西会随着自由和开源项目发布它们软件的新版本而定期更改。"
 
-#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
+#: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
 msgid "(hide)"
 msgstr "（隐藏）"
 
-#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
+#: ../app/views/download/package.erb:7 ../app/views/download/appliance.erb:7
 msgid "(show)"
 msgstr "（显示）"
 
@@ -119,12 +119,10 @@ msgstr "分类"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:85
 #: ../app/views/distributions/tumbleweed_ports.html.erb:142
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:51
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:130
 msgid "Checksum"
 msgstr "校验码"
 
-#: ../app/views/distributions/_verify_download.html.erb:26
+#: ../app/views/distributions/_verify_download.html.erb:23
 msgid "Checksums Help"
 msgstr "校验码帮助"
 
@@ -182,12 +180,6 @@ msgstr "直接安装"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:116
 #: ../app/views/distributions/tumbleweed_ports.html.erb:151
 #: ../app/views/distributions/tumbleweed_ports.html.erb:173
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:60
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:82
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:104
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:139
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:161
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:182
 msgid "Direct Link"
 msgstr "直接链接"
 
@@ -207,8 +199,6 @@ msgstr "不再显示此提醒"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:27
 #: ../app/views/distributions/tumbleweed_ports.html.erb:84
 #: ../app/views/distributions/tumbleweed_ports.html.erb:141
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:50
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:129
 msgid "Download Method"
 msgstr "下载方式"
 
@@ -247,9 +237,13 @@ msgid ""
 msgstr "下载 openSUSE 的滚动发行版，总是运行 openSUSE 项目提供的最新软件包。"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "Download the LiveUSBs of the rolling version of openSUSE,\n"
+#| "              for desktop PCs, laptops, and servers."
 msgid ""
-"Download the LiveUSBs of the rolling version of openSUSE,\n"
-"              for desktop PCs, laptops, and servers."
+"Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, "
+"laptops, and servers."
 msgstr ""
 "下载 openSUSE 滚动版本的 LiveUSB，适用于台式计算机、笔记本电脑和服务器。"
 
@@ -319,8 +313,10 @@ msgid ""
 "For extra security, you can use GPG to verify who signed those .sha256 files."
 msgstr "出于额外的安全考虑，您可以使用 GPG 验证谁签发了这些 .sha256 文件。"
 
-#: ../app/views/distributions/_verify_download.html.erb:24
-msgid "For more help verifing your download please read"
+#: ../app/views/distributions/_verify_download.html.erb:22
+#, fuzzy
+#| msgid "For more help verifing your download please read"
+msgid "For more help verifing your download please read %{checksums_help}"
 msgstr "更多验证您的下载的帮助请参阅"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:6
@@ -473,7 +469,9 @@ msgid ""
 msgstr "在下一年度版本发行之前，预计不会有任何重大的变化。"
 
 #: ../app/views/distributions/_verify_download.html.erb:18
-msgid "It should be"
+#, fuzzy
+#| msgid "It should be"
+msgid "It should be %{fingerprint}"
 msgstr "它应为"
 
 #: ../app/views/distributions/index.html.erb:96
@@ -522,11 +520,6 @@ msgstr ""
 "选择 Metalink 并使用 Firefox 中的附加组件 DownThemAll! 来下载，将自动\n"
 "使用检验码 (SHA256) 。"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:44
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:123
-msgid "Media"
-msgstr "媒介"
-
 #: ../app/views/package/categories.html.erb:42
 msgid "Multimedia"
 msgstr "多媒体"
@@ -541,7 +534,9 @@ msgid "Network"
 msgstr "网络"
 
 #: ../app/views/download/appliance.erb:2
-msgid "No appliance data for %s"
+#, fuzzy
+#| msgid "No appliance data for %s"
+msgid "No appliance data for %{project}"
 msgstr "没有 %s 的应用数据"
 
 #: ../app/views/download/appliance.erb:47
@@ -605,24 +600,24 @@ msgstr "用于 %s 的软件包："
 #: ../app/views/distributions/tumbleweed_ports.html.erb:124
 #: ../app/views/distributions/tumbleweed_ports.html.erb:159
 #: ../app/views/distributions/tumbleweed_ports.html.erb:181
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:68
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:90
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:112
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:147
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:168
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:190
 msgid "Pick Mirror"
 msgstr "选择镜像站点"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:24
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:23
 msgid "Please Note: These LiveUSBs are not supported"
 msgstr "请注意：这些 LiveUSB 不受支持"
 
 #: ../app/views/package/show.html.erb:137
+#, fuzzy
+#| msgid ""
+#| "Please be aware that the following packages are from unofficial "
+#| "repositories.\n"
+#| "  That means they are not reviewed by openSUSE and may contain unstable "
+#| "or experimental software."
 msgid ""
 "Please be aware that the following packages are from unofficial "
 "repositories.\n"
-"  That means they are not reviewed by openSUSE and may contain unstable or "
+"That means they are not reviewed by openSUSE and may contain unstable or "
 "experimental software."
 msgstr ""
 "请留神以下软件包来自于非官方的软件源。\n"
@@ -632,8 +627,10 @@ msgstr ""
 msgid "Please report any issues you find in our Bugtracker."
 msgstr "请报告任何您在我们的缺陷追踪器上找到的问题。"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:39
-msgid "Please review"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
+#, fuzzy
+#| msgid "Please review"
+msgid "Please review %{openqa}"
 msgstr "请查看"
 
 #: ../app/views/distributions/_requirements.html.erb:2
@@ -705,8 +702,6 @@ msgstr "显示不受官方支持的软件包"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:26
 #: ../app/views/distributions/tumbleweed_ports.html.erb:83
 #: ../app/views/distributions/tumbleweed_ports.html.erb:140
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:49
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:128
 msgid "Size"
 msgstr "大小"
 
@@ -759,16 +754,20 @@ msgstr ""
 msgid "Then run the following as <strong>root</strong>"
 msgstr "然后以 <strong>root</strong> 身份运行以下命令"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:35
 #, fuzzy
-msgid "They are not tested as thoroughly as the"
+msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr "它们没有被彻底地测试像"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
-msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:27
+#, fuzzy
+#| msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
+msgid ""
+"They cannot be used to install or upgrade Tumbleweed. Please use the "
+"%{tumbleweed_media} instead."
 msgstr "它们无法用于安装和升级 Tumbleweed。请使用"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:33
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:31
 #, fuzzy
 #| msgid ""
 #| "They have a limited package/driver selection, so cannot be considered\n"
@@ -793,6 +792,13 @@ msgstr ""
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
 msgstr "切换导航"
+
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
+#, fuzzy
+#| msgid "Installation Media"
+msgid "Tumbleweed installation media"
+msgstr "安装介质"
 
 #: ../app/views/distributions/index.html.erb:81
 #, fuzzy
@@ -877,7 +883,7 @@ msgstr "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
 msgstr "http://en.opensuse.org/Derivatives"
 
-#: ../app/views/distributions/_verify_download.html.erb:25
+#: ../app/views/distributions/_verify_download.html.erb:23
 msgid "https://en.opensuse.org/SDB:Download_help#Checksums"
 msgstr "https://zh.opensuse.org/SDB:下载帮助#校验哈希值"
 
@@ -919,10 +925,6 @@ msgstr "http://zh.opensuse.org/openSUSE:提交错误报告"
 #| msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "http://zh.opensuse.org/openSUSE:Submitting_bug_reports"
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:30
-msgid "instead."
-msgstr "代替。"
 
 #: ../app/views/distributions/tumbleweed.html.erb:82
 #, fuzzy
@@ -978,15 +980,20 @@ msgstr ""
 msgid "openSUSE is completely free to download, use and share."
 msgstr "openSUSE 下载、使用和分享完全自由。"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:41
+#~ msgid "Media"
+#~ msgstr "媒介"
+
+#~ msgid "instead."
+#~ msgstr "代替。"
+
 #, fuzzy
-#| msgid ""
-#| "test results if you want an indication whether these LiveUSBs are\n"
-#| "          working as expected."
-msgid ""
-"test results if you want an indication whether these LiveUSBs are working as "
-"expected."
-msgstr "测试结果，若你想要 LiveUSB 是否如预期工作的指示。"
+#~| msgid ""
+#~| "test results if you want an indication whether these LiveUSBs are\n"
+#~| "          working as expected."
+#~ msgid ""
+#~ "test results if you want an indication whether these LiveUSBs are working "
+#~ "as expected."
+#~ msgstr "测试结果，若你想要 LiveUSB 是否如预期工作的指示。"
 
 #~ msgid ""
 #~ "If you’re already running openSUSE you can upgrade by booting from the\n"
