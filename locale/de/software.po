@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-15 11:03+0200\n"
-"PO-Revision-Date: 2017-06-14 17:51+0000\n"
-"Last-Translator: Sarah Kriesch <ada.lovelace@gmx.de>\n"
-"Language-Team: German <https://l10n.opensuse.org/projects/software-o-o/"
-"master/de/>\n"
+"PO-Revision-Date: 2017-06-15 09:52+0000\n"
+"Last-Translator: Stephan Kulow <coolo@suse.com>\n"
+"Language-Team: German "
+"<https://l10n.opensuse.org/projects/software-o-o/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -242,7 +242,6 @@ msgstr ""
 "werden, laufen."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
-#, fuzzy
 #| msgid ""
 #| "Download the LiveUSBs of the rolling version of openSUSE,\n"
 #| "              for desktop PCs, laptops, and servers."
@@ -250,8 +249,8 @@ msgid ""
 "Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, "
 "laptops, and servers."
 msgstr ""
-"Laden Sie die LiveUSBs der rollierenden Version von openSUSE,\n"
-"              für Desktop PCs, Laptops und Server herunter."
+"Laden Sie die LiveUSBs der Rolling Release von openSUSE\n"
+"für Desktop PCs, Laptops und Server herunter."
 
 #: ../app/views/distributions/leap.html.erb:10
 msgid ""
@@ -326,10 +325,11 @@ msgstr ""
 "diese .sha256-Dateien signiert hat."
 
 #: ../app/views/distributions/_verify_download.html.erb:22
-#, fuzzy
 #| msgid "For more help verifing your download please read"
 msgid "For more help verifing your download please read %{checksums_help}"
-msgstr "Weitere Hilfe um Ihren Download zu überprüfen erhalten Sie hier"
+msgstr ""
+"Weitere Hilfe um Ihren Download zu überprüfen erhalten Sie in der "
+"%{checksums_help}"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:6
 msgid "From OS X"
@@ -482,10 +482,9 @@ msgstr ""
 "nächsten jährlichen Veröffentlichung ändern wird."
 
 #: ../app/views/distributions/_verify_download.html.erb:18
-#, fuzzy
 #| msgid "It should be"
 msgid "It should be %{fingerprint}"
-msgstr "Es sollte sein"
+msgstr "Es sollte %{fingerprint} sein"
 
 #: ../app/views/distributions/index.html.erb:96
 msgid ""
@@ -541,10 +540,9 @@ msgid "Network"
 msgstr "Netzwerk"
 
 #: ../app/views/download/appliance.erb:2
-#, fuzzy
 #| msgid "No appliance data for %s"
 msgid "No appliance data for %{project}"
-msgstr "Keine Appliance-Daten für %s"
+msgstr "Keine Appliance-Daten für %{project}"
 
 #: ../app/views/download/appliance.erb:47
 msgid "No appliances found in project %s"
@@ -615,7 +613,6 @@ msgid "Please Note: These LiveUSBs are not supported"
 msgstr "Hinweis: diese LiveUSBs werden nicht unterstützt"
 
 #: ../app/views/package/show.html.erb:137
-#, fuzzy
 #| msgid ""
 #| "Please be aware that the following packages are from unofficial "
 #| "repositories.\n"
@@ -629,18 +626,17 @@ msgid ""
 msgstr ""
 "Bitte seien Sie sich bewusst, dass die folgenden Pakete aus nicht "
 "offiziellen Installationsquellen stammen.\n"
-" Das bedeutet, dass diese nicht von openSUSE begutachtet wurden und "
-"instabile oder experimentelle Software beinhalten könnten."
+"Das bedeutet, dass diese nicht von openSUSE begutachtet wurden und instabile "
+"oder experimentelle Software beinhalten könnten."
 
 #: ../app/views/distributions/testing.html.erb:40
 msgid "Please report any issues you find in our Bugtracker."
 msgstr "Bitte melden Sie alle Fehler, die sie finden an unseren Bugtracker."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
-#, fuzzy
 #| msgid "Please review"
 msgid "Please review %{openqa}"
-msgstr "Bitte überprüfen"
+msgstr "Bitte überprüfen Sie %{openqa}"
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -757,20 +753,18 @@ msgid "Then run the following as <strong>root</strong>"
 msgstr "Führen Sie anschließend das folgende als <strong>root</strong> aus"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:35
-#, fuzzy
 #| msgid "They are not tested as thoroughly as the"
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
-msgstr "Sie werden nicht so gründlich getestet wie die"
+msgstr "Sie werden nicht so gründlich getestet wie die %{tumbleweed_media}."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:27
-#, fuzzy
 #| msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
 msgstr ""
 "Sie können nicht zum Installieren und Upgraden von Tumbleweed verwendet "
-"werden. Bitte verwenden Sie"
+"werden. Bitte verwenden Sie %{tumbleweed_media} anstatt."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:31
 msgid ""
@@ -797,10 +791,9 @@ msgstr "Umschalten der Navigation"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
-#, fuzzy
 #| msgid "Installation Media"
 msgid "Tumbleweed installation media"
-msgstr "Installationsmedien"
+msgstr "Tumbleweed-Installationsmedien"
 
 #: ../app/views/distributions/index.html.erb:81
 msgid ""
@@ -915,10 +908,9 @@ msgid "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgstr "https://de.opensuse.org/Fehler_berichten"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:8
-#, fuzzy
 #| msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
-msgstr "http://de.opensuse.org/Fehler_berichten"
+msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
 #: ../app/views/distributions/tumbleweed.html.erb:82
 msgid ""
