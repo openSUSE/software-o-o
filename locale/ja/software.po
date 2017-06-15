@@ -5,10 +5,10 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-15 11:03+0200\n"
-"PO-Revision-Date: 2017-06-14 22:38+0000\n"
+"PO-Revision-Date: 2017-06-15 10:53+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
-"Language-Team: Japanese <https://l10n.opensuse.org/projects/software-o-o/"
-"master/ja/>\n"
+"Language-Team: Japanese "
+"<https://l10n.opensuse.org/projects/software-o-o/master/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -236,16 +236,13 @@ msgstr ""
 "              最新のパッケージを常に維持することができるようになります。"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
-#, fuzzy
 #| msgid ""
 #| "Download the LiveUSBs of the rolling version of openSUSE,\n"
 #| "              for desktop PCs, laptops, and servers."
 msgid ""
 "Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, "
 "laptops, and servers."
-msgstr ""
-"デスクトップ PC ／ラップトップ／サーバ向けの openSUSE \n"
-"              ローリングリリース版ライブ USB のダウンロード"
+msgstr "デスクトップ PC ／ラップトップ／サーバに最適な、 openSUSE ローリングリリース版ライブ USB のダウンロード。"
 
 #: ../app/views/distributions/leap.html.erb:10
 msgid ""
@@ -316,11 +313,9 @@ msgstr ""
 "署名を検証することもできます。"
 
 #: ../app/views/distributions/_verify_download.html.erb:22
-#, fuzzy
 #| msgid "For more help verifing your download please read"
 msgid "For more help verifing your download please read %{checksums_help}"
-msgstr ""
-"ダウンロードしたファイルの検証方法について、詳しくは下記をお読みください:"
+msgstr "ダウンロードしたファイルの検証方法について、詳しくは %{checksums_help} をお読みください"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:6
 msgid "From OS X"
@@ -475,10 +470,9 @@ msgstr ""
 "す。"
 
 #: ../app/views/distributions/_verify_download.html.erb:18
-#, fuzzy
 #| msgid "It should be"
 msgid "It should be %{fingerprint}"
-msgstr "これは下記の値であるべきものです:"
+msgstr "これは %{fingerprint} であるべきものです:"
 
 #: ../app/views/distributions/index.html.erb:96
 msgid ""
@@ -532,10 +526,9 @@ msgid "Network"
 msgstr "ネットワーク"
 
 #: ../app/views/download/appliance.erb:2
-#, fuzzy
 #| msgid "No appliance data for %s"
 msgid "No appliance data for %{project}"
-msgstr "%s 向けのアプライアンスデータはありません"
+msgstr "%{project} 向けのアプライアンスデータはありません"
 
 #: ../app/views/download/appliance.erb:47
 msgid "No appliances found in project %s"
@@ -606,7 +599,6 @@ msgid "Please Note: These LiveUSBs are not supported"
 msgstr "注意: これらのライブ USB メモリはサポート対象外です"
 
 #: ../app/views/package/show.html.erb:137
-#, fuzzy
 #| msgid ""
 #| "Please be aware that the following packages are from unofficial "
 #| "repositories.\n"
@@ -618,20 +610,17 @@ msgid ""
 "That means they are not reviewed by openSUSE and may contain unstable or "
 "experimental software."
 msgstr ""
-"以下のパッケージは、非公式のリポジトリから公開されていることに注意してくださ"
-"い。\n"
-"  これらは openSUSE 側での動作確認は行なわれておらず、不安定であったり実験的"
-"なものであったりする場合があります。"
+"以下のパッケージは、非公式のリポジトリから公開されていることに注意してください。これらは openSUSE "
+"側での動作確認は行なわれておらず、不安定であったり実験的なものであったりする場合があります。"
 
 #: ../app/views/distributions/testing.html.erb:40
 msgid "Please report any issues you find in our Bugtracker."
 msgstr "何か問題を発見した場合は、バグトラッカーでご報告をお願いいたします。"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
-#, fuzzy
 #| msgid "Please review"
 msgid "Please review %{openqa}"
-msgstr "これらのライブ USB が問題なく動作するかどうかを確かめたい場合は、"
+msgstr "これらのライブ USB が問題なく動作するかどうかを確かめたい場合は、 %{openqa} をご覧ください"
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -745,22 +734,18 @@ msgid "Then run the following as <strong>root</strong>"
 msgstr "その後、 <strong>root</strong> で下記のコマンドを実行してください:"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:35
-#, fuzzy
 #| msgid "They are not tested as thoroughly as the"
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
-msgstr ""
-"これらはインストールメディアとして、全体を通したテストまでは実施していませ"
-"ん。"
+msgstr "これらは %{tumbleweed_media} として、全体を通したテストまでは実施していません。"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:27
-#, fuzzy
 #| msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
 msgstr ""
-"これらは Tumbleweed のインストールやアップグレードにはお使いいただけません。"
-"代わりに"
+"これらは Tumbleweed のインストールやアップグレードにはお使いいただけません。代わりに %{tumbleweed_media} "
+"をお使いください。"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:31
 msgid ""
@@ -786,10 +771,9 @@ msgstr "表示の切り替え"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
-#, fuzzy
 #| msgid "Installation Media"
 msgid "Tumbleweed installation media"
-msgstr "インストールメディア"
+msgstr "Tumbleweed のインストールメディア"
 
 #: ../app/views/distributions/index.html.erb:81
 msgid ""
