@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-15 11:03+0200\n"
-"PO-Revision-Date: 2017-06-14 17:52+0000\n"
-"Last-Translator: Sarah Kriesch <ada.lovelace@gmx.de>\n"
-"Language-Team: Lithuanian <https://l10n.opensuse.org/projects/software-o-o/"
-"master/lt/>\n"
+"PO-Revision-Date: 2017-06-15 12:50+0000\n"
+"Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
+"Language-Team: Lithuanian "
+"<https://l10n.opensuse.org/projects/software-o-o/master/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
-"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || "
+"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Generator: Weblate 2.6\n"
 
 #: ../app/views/search/_find_results.html.erb:94
@@ -32,7 +32,7 @@ msgid ""
 "%{annually}, with security and stability updates being the priority during "
 "each release %{lifetime}."
 msgstr ""
-"%{leap} (liet. „šuolis“) išleidžiama <strong>reguliariai</strong> "
+"%{leap} (liet. „Šuolis“) išleidžiama <strong>reguliariai</strong> "
 "(%{annually}), kiekvienoje laidoje pirmenybę teikiant saugumą ir stabilumą "
 "užtikrinantiems atnaujinimams; žiūrėkite %{lifetime}."
 
@@ -43,8 +43,9 @@ msgid ""
 "Things will change regularly as Free and Open Source projects continually "
 "release new versions of their software."
 msgstr ""
-"%{tumbleweed} yra <strong>nuolatinio atnaujinimo</strong> laida. Jums kas "
-"kelias dienas pateikiama atnaujintų stabilių paketų."
+"%{tumbleweed} (liet. „Vėjaričiai“) yra <strong>nuolatinio "
+"atnaujinimo</strong> laida. Jums kas kelias dienas pateikiama atnaujintų "
+"stabilių paketų."
 
 #: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
 msgid "(hide)"
@@ -150,11 +151,11 @@ msgstr "Plėtojimas"
 
 #: ../app/views/search/_find_results.html.erb:92
 msgid "Development packages"
-msgstr "Paketai programavimui"
+msgstr "paket. plėtojimui"
 
 #: ../app/views/search/_find_results.html.erb:91
 msgid "Development-"
-msgstr "Plėtojimas-"
+msgstr "paket. plėtojimui"
 
 #: ../app/views/package/show.html.erb:188
 msgid "Direct Install"
@@ -238,7 +239,6 @@ msgstr ""
 "              naudotis naujausiais openSUSE projekto siūlomais paketais."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
-#, fuzzy
 #| msgid ""
 #| "Download the LiveUSBs of the rolling version of openSUSE,\n"
 #| "              for desktop PCs, laptops, and servers."
@@ -246,9 +246,8 @@ msgid ""
 "Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, "
 "laptops, and servers."
 msgstr ""
-"Parsisiųskite openSUSE nuolatinio atnaujinimo atmainos atvaizdį \n"
-"              diegimui į stalinius kompiuterius, nešiojamuosius kompiuterius "
-"ir serverius."
+"Parsisiųskite openSUSE nuolatinio atnaujinimo atmainos atvaizdį diegimui į "
+"stalinius kompiuterius, nešiojamuosius kompiuterius ir serverius."
 
 #: ../app/views/distributions/leap.html.erb:10
 msgid ""
@@ -277,7 +276,7 @@ msgstr "Paprastas perėjimas prie „openSUSE Leap“"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:2
 msgid "Easy Ways to Switch to openSUSE Tumbleweed"
-msgstr "Paprastas perėjimas prie „openSUSE Tumbleweed“ (liet. „Vėjaričių“)"
+msgstr "Paprastas perėjimas prie „openSUSE Tumbleweed“"
 
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
@@ -318,11 +317,11 @@ msgstr ""
 "užtikrina didelį saugumą."
 
 #: ../app/views/distributions/_verify_download.html.erb:22
-#, fuzzy
 #| msgid "For more help verifing your download please read"
 msgid "For more help verifing your download please read %{checksums_help}"
 msgstr ""
-"Norėdami sužinoti daugiau apie parsisiųstųjų atvaizdžių tikrinimą, skaitykite"
+"Norėdami sužinoti daugiau apie parsisiųstųjų atvaizdžių tikrinimą, "
+"skaitykite %{checksums_help}"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:6
 msgid "From OS X"
@@ -475,10 +474,9 @@ msgid ""
 msgstr "Iš esmės nesikeičia iki kitos kartą per metus išleidžiamos versijos."
 
 #: ../app/views/distributions/_verify_download.html.erb:18
-#, fuzzy
 #| msgid "It should be"
 msgid "It should be %{fingerprint}"
-msgstr "Turėtų būti"
+msgstr "Turėtų būti %{fingerprint}"
 
 #: ../app/views/distributions/index.html.erb:96
 msgid ""
@@ -535,10 +533,9 @@ msgid "Network"
 msgstr "Mažas"
 
 #: ../app/views/download/appliance.erb:2
-#, fuzzy
 #| msgid "No appliance data for %s"
 msgid "No appliance data for %{project}"
-msgstr "Nėra %s duomenų"
+msgstr "Apie %{project} duomenų nėra"
 
 #: ../app/views/download/appliance.erb:47
 msgid "No appliances found in project %s"
@@ -609,7 +606,6 @@ msgid "Please Note: These LiveUSBs are not supported"
 msgstr "Atminkite: šie demonstraciniai atvaizdžiai atmintukams nėra palaikomi"
 
 #: ../app/views/package/show.html.erb:137
-#, fuzzy
 #| msgid ""
 #| "Please be aware that the following packages are from unofficial "
 #| "repositories.\n"
@@ -622,18 +618,17 @@ msgid ""
 "experimental software."
 msgstr ""
 "Pastaba: žemiau pateikti paketai nepriklauso oficialioms saugyklos.\n"
-"    Tai reiškia, kad openSUSE šios programinės įrangos netikrina, tad ji "
-"gali būti nestabili ir eksperimentinė."
+"Tai reiškia, kad openSUSE šios programinės įrangos netikrina, tad ji gali "
+"būti nestabili ir eksperimentinė."
 
 #: ../app/views/distributions/testing.html.erb:40
 msgid "Please report any issues you find in our Bugtracker."
 msgstr "Labai prašome pranešti apie pastebėtus nesklandumus."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
-#, fuzzy
 #| msgid "Please review"
 msgid "Please review %{openqa}"
-msgstr "Peržiūrėkite"
+msgstr "Peržiūrėkite %{openqa}"
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -716,7 +711,7 @@ msgstr "Šaltinis"
 
 #: ../app/views/search/_find_results.html.erb:96
 msgid "Sub-Packages"
-msgstr "Sudedamosios dalys"
+msgstr "sudedam. paket."
 
 #: ../app/views/layouts/application.html.erb:64
 #: ../app/views/layouts/download.html.erb:58
@@ -749,20 +744,18 @@ msgid "Then run the following as <strong>root</strong>"
 msgstr "Įvykdykite <strong>root</strong> teisėmis"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:35
-#, fuzzy
 #| msgid "They are not tested as thoroughly as the"
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
-msgstr "Jie nėra taip gerai išbandyti kaip"
+msgstr "Jie nėra taip gerai išbandyti kaip %{tumbleweed_media}."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:27
-#, fuzzy
 #| msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
 msgstr ""
-"Jų negalite naudoti Tumbleweed naujovinimui, kartais gali netikti netgi "
-"diegimui. Tam rinkitės"
+"Jų negalite naudoti „Tumbleweed“ naujovinimui, kartais gali netikti netgi "
+"diegimui. Tam rinkitės %{tumbleweed_media}."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:31
 msgid ""
@@ -788,10 +781,9 @@ msgstr ""
 # dialog title for hard disk installation
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
-#, fuzzy
 #| msgid "Installation Media"
 msgid "Tumbleweed installation media"
-msgstr "Diegimo laikmena"
+msgstr "„Tumbleweed“ diegimo ISO"
 
 #: ../app/views/distributions/index.html.erb:81
 msgid ""
@@ -812,7 +804,7 @@ msgstr "Nepalaikomos platinamųjų paketų versijos:"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:9
 msgid "Upgrade Instructions"
-msgstr "Atnaujinimo instrukcijos"
+msgstr "Naujovinimo instrukcijos"
 
 # dialog title for nfs installation
 #: ../app/views/distributions/_verify_download.html.erb:2
