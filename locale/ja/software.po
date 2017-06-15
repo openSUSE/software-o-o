@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-14 13:51+0200\n"
+"POT-Creation-Date: 2017-06-15 11:03+0200\n"
 "PO-Revision-Date: 2017-06-14 22:38+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
-"Language-Team: Japanese "
-"<https://l10n.opensuse.org/projects/software-o-o/master/ja/>\n"
+"Language-Team: Japanese <https://l10n.opensuse.org/projects/software-o-o/"
+"master/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,39 +21,32 @@ msgid " and "
 msgstr " と "
 
 #: ../app/views/distributions/index.html.erb:85
-#| msgid ""
-#| "with security and stability updates being the priority during each release"
 msgid ""
 "%{leap} is a <strong>regular-release</strong>. This means it releases "
 "%{annually}, with security and stability updates being the priority during "
 "each release %{lifetime}."
 msgstr ""
-"%{leap} は<strong>定期リリース</strong> されるディストリビューションです。通常は %{anually} リリースされ、 "
-"%{lifetime} の期間内に、各リリースに対してセキュリティ更新や安定性向上のための更新が提供されます。"
+"%{leap} は<strong>定期リリース</strong> されるディストリビューションです。通"
+"常は %{anually} リリースされ、 %{lifetime} の期間内に、各リリースに対してセ"
+"キュリティ更新や安定性向上のための更新が提供されます。"
 
 #: ../app/views/distributions/index.html.erb:79
-#| msgid ""
-#| "is a <strong>rolling-release</strong>. This means the software is always\n"
-#| "        the latest stable versions available from the openSUSE Project. "
-#| "Things\n"
-#| "        will change regularly as Free and Open Source projects "
-#| "continually\n"
-#| "        release new versions of their software."
 msgid ""
 "%{tumbleweed} is a <strong>rolling-release</strong>. This means the software "
 "is always the latest stable versions available from the openSUSE Project. "
 "Things will change regularly as Free and Open Source projects continually "
 "release new versions of their software."
 msgstr ""
-"%{tumbleweed} は <strong>ローリングリリース</strong> モデルを採用したディストリビューションです。ソフトウエアは "
-"openSUSE が提供する最新のバージョンに維持され続けることになります。フリー／オープンソースのプロジェクトが定期的に公開する新しいリリースに合わせて"
-"、機能や性能が常に変化し続けることになります。"
+"%{tumbleweed} は <strong>ローリングリリース</strong> モデルを採用したディスト"
+"リビューションです。ソフトウエアは openSUSE が提供する最新のバージョンに維持"
+"され続けることになります。フリー／オープンソースのプロジェクトが定期的に公開"
+"する新しいリリースに合わせて、機能や性能が常に変化し続けることになります。"
 
-#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
+#: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
 msgid "(hide)"
 msgstr "(隠す)"
 
-#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
+#: ../app/views/download/package.erb:7 ../app/views/download/appliance.erb:7
 msgid "(show)"
 msgstr "(表示)"
 
@@ -86,26 +79,23 @@ msgid "Available Images"
 msgstr "利用可能なイメージ"
 
 #: ../app/views/distributions/index.html.erb:102
-#| msgid ""
-#| "Both distributions are fully capable of being used on a Desktop PC,\n"
-#| "        laptop, server, or in the cloud."
 msgid ""
 "Both distributions are fully capable of being used on a Desktop PC, laptop, "
 "server, or in the cloud."
-msgstr "いずれのディストリビューションとも、デスクトップ PC やラップトップ、サーバやクラウド環境でお使いいただくことができます。"
+msgstr ""
+"いずれのディストリビューションとも、デスクトップ PC やラップトップ、サーバや"
+"クラウド環境でお使いいただくことができます。"
 
 #: ../app/views/distributions/index.html.erb:100
-#| msgid ""
-#| "as well as by human openSUSE contributors so both can be relied\n"
-#| "        upon to work."
 msgid ""
 "Both distributions are well tested by <a href=\"https://openqa.opensuse.org"
 "\">openQA</a> as well as by human openSUSE contributors so both can be "
 "relied upon to work."
 msgstr ""
-"いずれのディストリビューションも <a href=\"https://openqa.opensuse.org\">openQA</a> "
-"で十分にテストされているほか、 openSUSE "
-"への貢献者の方々もテストに参加していただいております。そのため、いずれのディストリビューションとも、日々の作業を行なうのに問題は無いものと考えております。"
+"いずれのディストリビューションも <a href=\"https://openqa.opensuse.org"
+"\">openQA</a> で十分にテストされているほか、 openSUSE への貢献者の方々もテス"
+"トに参加していただいております。そのため、いずれのディストリビューションと"
+"も、日々の作業を行なうのに問題は無いものと考えております。"
 
 #: ../app/views/package/show.html.erb:169
 msgid "Categories"
@@ -123,12 +113,10 @@ msgstr "カテゴリ"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:85
 #: ../app/views/distributions/tumbleweed_ports.html.erb:142
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:51
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:130
 msgid "Checksum"
 msgstr "チェックサム"
 
-#: ../app/views/distributions/_verify_download.html.erb:26
+#: ../app/views/distributions/_verify_download.html.erb:23
 msgid "Checksums Help"
 msgstr "チェックサムのヘルプ"
 
@@ -186,12 +174,6 @@ msgstr "直接インストール"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:116
 #: ../app/views/distributions/tumbleweed_ports.html.erb:151
 #: ../app/views/distributions/tumbleweed_ports.html.erb:173
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:60
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:82
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:104
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:139
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:161
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:182
 msgid "Direct Link"
 msgstr "直接リンク"
 
@@ -211,8 +193,6 @@ msgstr "次回以降はこの警告を表示しない"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:27
 #: ../app/views/distributions/tumbleweed_ports.html.erb:84
 #: ../app/views/distributions/tumbleweed_ports.html.erb:141
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:50
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:129
 msgid "Download Method"
 msgstr "ダウンロード手段"
 
@@ -225,14 +205,12 @@ msgstr ""
 "プ, サーバの各用途向け) のダウンロード"
 
 #: ../app/views/distributions/tumbleweed_ports.html.erb:10
-#| msgid ""
-#| "Download alternative architectures of the rolling version\n"
-#| "              of openSUSE, for desktop PCs, laptops, and servers."
 msgid ""
 "Download alternative architectures of the rolling version of openSUSE, for "
 "desktop PCs, laptops, and servers."
 msgstr ""
-"その他のアーキテクチャに対応した openSUSE のローリングリリース版 (デスクトップ PC, ラップトップ, サーバの各用途向け) のダウンロード"
+"その他のアーキテクチャに対応した openSUSE のローリングリリース版 (デスクトッ"
+"プ PC, ラップトップ, サーバの各用途向け) のダウンロード"
 
 #: ../app/controllers/download_controller.rb:36
 msgid "Download appliance from %s"
@@ -258,9 +236,13 @@ msgstr ""
 "              最新のパッケージを常に維持することができるようになります。"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
+#, fuzzy
+#| msgid ""
+#| "Download the LiveUSBs of the rolling version of openSUSE,\n"
+#| "              for desktop PCs, laptops, and servers."
 msgid ""
-"Download the LiveUSBs of the rolling version of openSUSE,\n"
-"              for desktop PCs, laptops, and servers."
+"Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, "
+"laptops, and servers."
 msgstr ""
 "デスクトップ PC ／ラップトップ／サーバ向けの openSUSE \n"
 "              ローリングリリース版ライブ USB のダウンロード"
@@ -273,13 +255,12 @@ msgstr ""
 "デスクトップ PC ／ラップトップ／サーバ向け openSUSE Leap のダウンロード"
 
 #: ../app/views/distributions/tumbleweed.html.erb:10
-#| msgid ""
-#| "Download the rolling version of openSUSE, for desktop PCs,\n"
-#| "              laptops, and servers."
 msgid ""
 "Download the rolling version of openSUSE, for desktop PCs,\n"
 "laptops, and servers."
-msgstr "デスクトップ PC ／ラップトップ／サーバ向けの openSUSE ローリングリリース版のダウンロード"
+msgstr ""
+"デスクトップ PC ／ラップトップ／サーバ向けの openSUSE ローリングリリース版の"
+"ダウンロード"
 
 #: ../app/views/layouts/application.html.erb:63
 #: ../app/views/layouts/download.html.erb:57
@@ -334,8 +315,10 @@ msgstr ""
 "また、さらなるセキュリティ確保のため、 GPG を利用して .sha256 ファイル自身の"
 "署名を検証することもできます。"
 
-#: ../app/views/distributions/_verify_download.html.erb:24
-msgid "For more help verifing your download please read"
+#: ../app/views/distributions/_verify_download.html.erb:22
+#, fuzzy
+#| msgid "For more help verifing your download please read"
+msgid "For more help verifing your download please read %{checksums_help}"
 msgstr ""
 "ダウンロードしたファイルの検証方法について、詳しくは下記をお読みください:"
 
@@ -429,24 +412,19 @@ msgid "How to create a bootable USB stick on OS X."
 msgstr "OS X で起動可能な USB メモリを作成する方法"
 
 #: ../app/views/distributions/index.html.erb:107
-#| msgid "If you are still not sure, download"
 msgid "If you are still not sure, download %{leap}"
 msgstr "どちらを選んで良いものか迷った場合は、 %{leap} をお勧めします"
 
 #: ../app/views/distributions/_leap_switch.html.erb:5
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:5
-#| msgid ""
-#| "If you’re already running openSUSE you can upgrade by booting from the\n"
-#| "  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a "
-#| "few\n"
-#| "  commands."
 msgid ""
 "If you’re already running openSUSE you can upgrade by booting from the\n"
 "DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
 "commands."
 msgstr ""
-"すでに openSUSE をお使いの場合は、 DVD/USB メモリから起動してアップグレードを選択するか、もしくはコマンドを実行して "
-"'オンラインアップグレード' を選択することで、アップグレードを実施することができます。"
+"すでに openSUSE をお使いの場合は、 DVD/USB メモリから起動してアップグレードを"
+"選択するか、もしくはコマンドを実行して 'オンラインアップグレード' を選択する"
+"ことで、アップグレードを実施することができます。"
 
 #: ../app/views/download/appliance.erb:57
 msgid "Image:"
@@ -484,8 +462,9 @@ msgid ""
 "It is easy to <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 "\">switch to openSUSE Tumbleweed</a> if you change your mind later."
 msgstr ""
-"後から気が変わった場合でも、 簡単に <a href=\"https://ja.opensuse.org/openSUSE:"
-"Tumbleweed_インストール\">openSUSE Tumbleweed に移行する</a> ことができます。"
+"後から気が変わった場合でも、 簡単に <a href=\"https://ja.opensuse.org/"
+"openSUSE:Tumbleweed_インストール\">openSUSE Tumbleweed に移行する</a> ことが"
+"できます。"
 
 #: ../app/views/distributions/index.html.erb:90
 msgid ""
@@ -496,46 +475,34 @@ msgstr ""
 "す。"
 
 #: ../app/views/distributions/_verify_download.html.erb:18
-msgid "It should be"
+#, fuzzy
+#| msgid "It should be"
+msgid "It should be %{fingerprint}"
 msgstr "これは下記の値であるべきものです:"
 
 #: ../app/views/distributions/index.html.erb:96
-#| msgid ""
-#| "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
-#| "        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgid ""
 "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
 "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgstr ""
-"Leap は特に、 <strong>システム管理者</strong> や <strong>企業内の開発者</strong> 、 <strong>"
-"'一般的な' デスクトップユーザ</strong> にお勧めです。"
+"Leap は特に、 <strong>システム管理者</strong> や <strong>企業内の開発者</"
+"strong> 、 <strong>'一般的な' デスクトップユーザ</strong> にお勧めです。"
 
 #: ../app/views/distributions/index.html.erb:92
-#| msgid ""
-#| "so major architectural changes are not expected for several years, "
-#| "aligned\n"
-#| "        with each new Major Release (eg 12, 13, etc) of SUSE Linux "
-#| "Enterprise."
 msgid ""
 "Leap shares a Common Base System with %{sles}, so major architectural "
 "changes are not expected for several years, aligned with each new Major "
 "Release (eg 12, 13, etc) of SUSE Linux Enterprise."
 msgstr ""
-"Leap は %{sles} との間で一般的な基本システムを共有しているため、 SUSE Linux Enterprise のメジャーリリース (例: "
-"12, 13, etc.) 間隔 (おおよそ数年単位) でのみ大幅なアーキテクチャ変更が行なわれます。"
+"Leap は %{sles} との間で一般的な基本システムを共有しているため、 SUSE Linux "
+"Enterprise のメジャーリリース (例: 12, 13, etc.) 間隔 (おおよそ数年単位) での"
+"み大幅なアーキテクチャ変更が行なわれます。"
 
 #: ../app/views/distributions/_documentation.html.erb:18
 msgid "License"
 msgstr "ライセンス"
 
 #: ../app/views/distributions/_verify_download.html.erb:5
-#| msgid ""
-#| "Many applications can verify the checksum of a download. To verify\n"
-#| "  your download can be important as it verifies you really have got the\n"
-#| "  ISO file you wanted to download and not some broken version. You could\n"
-#| "  verify the file in the process of downloading. For example a checksum\n"
-#| "  (SHA256) will be used automatically if you choose Metalink in the\n"
-#| "  field above and use the add-on DownThemAll! in Firefox."
 msgid ""
 "Many applications can verify the checksum of a download. To verify\n"
 "your download can be important as it verifies you really have got the\n"
@@ -544,15 +511,12 @@ msgid ""
 "(SHA256) will be used automatically if you choose Metalink in the\n"
 "field above and use the add-on DownThemAll! in Firefox."
 msgstr ""
-"様々なアプリケーションを利用して、チェックサムによるダウンロードの検証を行なうことができます。ダウンロードの検証を行なうことは、ダウンロードした ISO "
-"ファイルが壊れていないことを確認するのに重要な作業です。なお、ファイルの検証はダウンロード中にも実施することができます。"
-"たとえば上記のメタリンクを選択して Firefox の DownThemAll! アドオンを利用すると、チェックサム (SHA256) "
-"を自動的に検証します。"
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:44
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:123
-msgid "Media"
-msgstr "メディア"
+"様々なアプリケーションを利用して、チェックサムによるダウンロードの検証を行な"
+"うことができます。ダウンロードの検証を行なうことは、ダウンロードした ISO ファ"
+"イルが壊れていないことを確認するのに重要な作業です。なお、ファイルの検証はダ"
+"ウンロード中にも実施することができます。たとえば上記のメタリンクを選択して "
+"Firefox の DownThemAll! アドオンを利用すると、チェックサム (SHA256) を自動的"
+"に検証します。"
 
 #: ../app/views/package/categories.html.erb:42
 msgid "Multimedia"
@@ -568,7 +532,9 @@ msgid "Network"
 msgstr "ネットワーク"
 
 #: ../app/views/download/appliance.erb:2
-msgid "No appliance data for %s"
+#, fuzzy
+#| msgid "No appliance data for %s"
+msgid "No appliance data for %{project}"
 msgstr "%s 向けのアプライアンスデータはありません"
 
 #: ../app/views/download/appliance.erb:47
@@ -632,24 +598,24 @@ msgstr "%s 向けのパッケージ:"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:124
 #: ../app/views/distributions/tumbleweed_ports.html.erb:159
 #: ../app/views/distributions/tumbleweed_ports.html.erb:181
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:68
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:90
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:112
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:147
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:168
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:190
 msgid "Pick Mirror"
 msgstr "ミラーの選択"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:24
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:23
 msgid "Please Note: These LiveUSBs are not supported"
 msgstr "注意: これらのライブ USB メモリはサポート対象外です"
 
 #: ../app/views/package/show.html.erb:137
+#, fuzzy
+#| msgid ""
+#| "Please be aware that the following packages are from unofficial "
+#| "repositories.\n"
+#| "  That means they are not reviewed by openSUSE and may contain unstable "
+#| "or experimental software."
 msgid ""
 "Please be aware that the following packages are from unofficial "
 "repositories.\n"
-"  That means they are not reviewed by openSUSE and may contain unstable or "
+"That means they are not reviewed by openSUSE and may contain unstable or "
 "experimental software."
 msgstr ""
 "以下のパッケージは、非公式のリポジトリから公開されていることに注意してくださ"
@@ -661,8 +627,10 @@ msgstr ""
 msgid "Please report any issues you find in our Bugtracker."
 msgstr "何か問題を発見した場合は、バグトラッカーでご報告をお願いいたします。"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:39
-msgid "Please review"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
+#, fuzzy
+#| msgid "Please review"
+msgid "Please review %{openqa}"
 msgstr "これらのライブ USB が問題なく動作するかどうかを確かめたい場合は、"
 
 #: ../app/views/distributions/_requirements.html.erb:2
@@ -734,8 +702,6 @@ msgstr "サポート対象外のパッケージを表示する"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:26
 #: ../app/views/distributions/tumbleweed_ports.html.erb:83
 #: ../app/views/distributions/tumbleweed_ports.html.erb:140
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:49
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:128
 msgid "Size"
 msgstr "サイズ"
 
@@ -755,62 +721,56 @@ msgid "Support"
 msgstr "サポート"
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
-#| msgid ""
-#| "The DVD/USB Stick is typically recommended as it contains most of the\n"
-#| "  packages available in the distribution and does not require a network\n"
-#| "  connection during the installation."
 msgid ""
 "The DVD/USB Stick is typically recommended as it contains most of the\n"
 "packages available in the distribution and does not require a network\n"
 "connection during the installation."
 msgstr ""
-"DVD やその USB メモリ版はディストリビューション内の多くのファイルを含むもので、インストール時にネットワーク接続を行なう必要はありません。"
+"DVD やその USB メモリ版はディストリビューション内の多くのファイルを含むもの"
+"で、インストール時にネットワーク接続を行なう必要はありません。"
 
 #: ../app/views/distributions/_choosing_media.html.erb:10
-#| msgid ""
-#| "The Network CD/USB Stick is recommended for users who have limited\n"
-#| "  bandwidth on their internet connections, as it will only download the\n"
-#| "  packages they choose to install, which is likely to be significantly\n"
-#| "  less than 4.7GB."
 msgid ""
 "The Network CD/USB Stick is recommended for users who have limited\n"
 "bandwidth on their internet connections, as it will only download the\n"
 "packages they choose to install, which is likely to be significantly\n"
 "less than 4.7GB."
 msgstr ""
-"ネットワーク CD やその USB "
-"メモリ版は、インターネットへの接続が遅い環境での利用に適した仕組みで、インストールするよう選択したパッケージのみをダウンロードします。通常は 4.7GB "
-"よりもずっと少ないダウンロードサイズになります。"
+"ネットワーク CD やその USB メモリ版は、インターネットへの接続が遅い環境での利"
+"用に適した仕組みで、インストールするよう選択したパッケージのみをダウンロード"
+"します。通常は 4.7GB よりもずっと少ないダウンロードサイズになります。"
 
 #: ../app/views/download/package.erb:95
 msgid "Then run the following as <strong>root</strong>"
 msgstr "その後、 <strong>root</strong> で下記のコマンドを実行してください:"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
-msgid "They are not tested as thoroughly as the"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:35
+#, fuzzy
+#| msgid "They are not tested as thoroughly as the"
+msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr ""
 "これらはインストールメディアとして、全体を通したテストまでは実施していませ"
 "ん。"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
-msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:27
+#, fuzzy
+#| msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
+msgid ""
+"They cannot be used to install or upgrade Tumbleweed. Please use the "
+"%{tumbleweed_media} instead."
 msgstr ""
 "これらは Tumbleweed のインストールやアップグレードにはお使いいただけません。"
 "代わりに"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:33
-#| msgid ""
-#| "They have a limited package/driver selection, so cannot be considered\n"
-#| "          an accurate reflection as to whether Tumbleweed will work on "
-#| "your\n"
-#| "          hardware or not."
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:31
 msgid ""
 "They have a limited package/driver selection, so cannot be considered\n"
 "an accurate reflection as to whether Tumbleweed will work on your hardware "
 "or not."
 msgstr ""
-"また、これらはパッケージやドライバを限定して収録しているため、 Tumbleweed "
-"の正確な反映物にはなっていません。そのため、お使いのハードウエアで動作するかどうかも不明になっています。"
+"また、これらはパッケージやドライバを限定して収録しているため、 Tumbleweed の"
+"正確な反映物にはなっていません。そのため、お使いのハードウエアで動作するかど"
+"うかも不明になっています。"
 
 #: ../app/views/distributions/testing.html.erb:36
 msgid ""
@@ -824,17 +784,20 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr "表示の切り替え"
 
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
+#, fuzzy
+#| msgid "Installation Media"
+msgid "Tumbleweed installation media"
+msgstr "インストールメディア"
+
 #: ../app/views/distributions/index.html.erb:81
-#| msgid ""
-#| "Tumbleweed is recommended for <strong>Developers</strong>,\n"
-#| "        <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS\n"
-#| "        Enthusiasts</strong>."
 msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
 "Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
 msgstr ""
-"Tumbleweed は <strong>開発者</strong> や <strong>openSUSE の貢献者</strong> 、 そして "
-"<strong>Linux/FOSS の愛好者</strong> にお勧めです。"
+"Tumbleweed は <strong>開発者</strong> や <strong>openSUSE の貢献者</"
+"strong> 、 そして <strong>Linux/FOSS の愛好者</strong> にお勧めです。"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
 msgid "Unsupported"
@@ -876,17 +839,15 @@ msgstr ""
 "ディストリビューション向けのものも検索することができます。"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:6
-#| msgid ""
-#| "also offers a number of unsupported LiveUSBs. These\n"
-#| "  cannot be used for Installation or Upgrade. They are not an accurate\n"
-#| "  reflection as to whether or not Tumbleweed will run on your hardware."
 msgid ""
 "also offers a number of unsupported LiveUSBs. These\n"
 "cannot be used for Installation or Upgrade. They are not an accurate\n"
 "reflection as to whether or not Tumbleweed will run on your hardware."
 msgstr ""
-"サポート対象外ではありますが、様々なライブ USB メモリも提供されています。これらはインストールやアップグレードにご利用いただくことはできませんし、 "
-"Tumbleweed に対する正確な反映物でもありませんので、お使いのハードウエアで動作するかどうかも不明です。"
+"サポート対象外ではありますが、様々なライブ USB メモリも提供されています。これ"
+"らはインストールやアップグレードにご利用いただくことはできませんし、 "
+"Tumbleweed に対する正確な反映物でもありませんので、お使いのハードウエアで動作"
+"するかどうかも不明です。"
 
 #: ../app/views/distributions/index.html.erb:87
 msgid "annually"
@@ -912,7 +873,7 @@ msgstr ""
 "%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%9F%E3%83%A9%E3%82%A4%E3%83%96_USB_"
 "%E3%83%A1%E3%83%A2%E3%83%AA%E3%81%AE%E4%BD%9C%E6%88%90"
 
-#: ../app/views/distributions/_verify_download.html.erb:25
+#: ../app/views/distributions/_verify_download.html.erb:23
 msgid "https://en.opensuse.org/SDB:Download_help#Checksums"
 msgstr ""
 "https://ja.opensuse.org/SDB:Download_help#.E3.83.81.E3.82.A7.E3.83.83.E3.82."
@@ -969,20 +930,13 @@ msgstr ""
 "https://ja.opensuse.org/openSUSE:Tumbleweed_%E3%81%B8%E3%81%AE"
 "%E3%82%A2%E3%83%83%E3%83%97%E3%82%B0%E3%83%AC%E3%83%BC%E3%83%89"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:30
-msgid "instead."
-msgstr "をお使いください。"
-
 #: ../app/views/distributions/tumbleweed.html.erb:82
-#| msgid ""
-#| "is also available on other architectures, such as\n"
-#| "        Intel 32-bit (aka i586), AArch64 (aka ARMv8) and PPC64."
 msgid ""
 "is also available on other architectures, such as Intel 32-bit (aka i586), "
 "AArch64 (aka ARMv8) and PPC64."
 msgstr ""
-"はその他のアーキテクチャでもご利用いただけます。たとえば Intel 32ビット (i586), AArch64 (ARMv8), PPC64 "
-"などに対応しています。"
+"はその他のアーキテクチャでもご利用いただけます。たとえば Intel 32ビット "
+"(i586), AArch64 (ARMv8), PPC64 などに対応しています。"
 
 #: ../app/views/distributions/index.html.erb:88
 msgid "lifetime"
@@ -992,22 +946,18 @@ msgstr ""
 
 #: ../app/views/distributions/index.html.erb:86
 #: ../app/views/distributions/index.html.erb:107
-#| msgid "openSUSE Derivatives"
 msgid "openSUSE Leap"
 msgstr "openSUSE Leap"
 
 #: ../app/views/distributions/leap.html.erb:83
-#| msgid ""
-#| "openSUSE Leap is also available on other architectures, such as\n"
-#| "        AArch64 (aka ARMv8) and PPC64."
 msgid ""
 "openSUSE Leap is also available on other architectures, such as AArch64 (aka "
 "ARMv8) and PPC64."
 msgstr ""
-"openSUSE Leap はその他のアーキテクチャでもご利用いただけます。たとえば AArch64 (ARMv8), PPC64 などに対応しています。"
+"openSUSE Leap はその他のアーキテクチャでもご利用いただけます。たとえば "
+"AArch64 (ARMv8), PPC64 などに対応しています。"
 
 #: ../app/views/distributions/index.html.erb:79
-#| msgid "switch to openSUSE Tumbleweed"
 msgid "openSUSE Tumbleweed"
 msgstr "openSUSE Tumbleweed"
 
@@ -1026,14 +976,19 @@ msgid "openSUSE is completely free to download, use and share."
 msgstr ""
 "openSUSE はダウンロード、使用、共有ともすべて自由に行なうことができます。"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:41
-#| msgid ""
-#| "test results if you want an indication whether these LiveUSBs are\n"
-#| "          working as expected."
-msgid ""
-"test results if you want an indication whether these LiveUSBs are working as "
-"expected."
-msgstr "のテスト結果をご覧ください。"
+#~ msgid "Media"
+#~ msgstr "メディア"
+
+#~ msgid "instead."
+#~ msgstr "をお使いください。"
+
+#~| msgid ""
+#~| "test results if you want an indication whether these LiveUSBs are\n"
+#~| "          working as expected."
+#~ msgid ""
+#~ "test results if you want an indication whether these LiveUSBs are working "
+#~ "as expected."
+#~ msgstr "のテスト結果をご覧ください。"
 
 #~ msgid ""
 #~ "If you’re already running openSUSE you can upgrade by booting from the\n"

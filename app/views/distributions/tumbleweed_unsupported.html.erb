@@ -7,8 +7,7 @@
             <h1>Tumbleweed LiveUSBs</h1>
             <hr class="small">
             <span class="page-subheading">
-              <%= _('Download the LiveUSBs of the rolling version of openSUSE,
-              for desktop PCs, laptops, and servers.') %>
+              <%= _('Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, laptops, and servers.') %>
             </span>
           </div>
         </div>
@@ -25,23 +24,20 @@
       </h2>
       <ul>
         <li>
-          <%= _('They cannot be used to install or upgrade Tumbleweed. Please use the') %>
-          <%= link_to "_('Tumbleweed installation media')", tumbleweed_distributions_path %>
-          <%= _('instead.') %>
+          <%= _('They cannot be used to install or upgrade Tumbleweed. Please use the %{tumbleweed_media} instead.') % 
+           { tumbleweed_media: link_to _('Tumbleweed installation media'), tumbleweed_distributions_path } %>
         </li>
         <li>
           <%= _('They have a limited package/driver selection, so cannot be considered
 an accurate reflection as to whether Tumbleweed will work on your hardware or not.') %>
         </li>
         <li>
-          <%= _('They are not tested as thoroughly as the') %>
-          <%= link_to "_('Tumbleweed installation media.')", tumbleweed_distributions_path %>
-          <%= _('Please review') %>
-          <a href="https://openqa.opensuse.org/">openQA’s</a>
-          <%= _('test results if you want an indication whether these LiveUSBs are working as expected.') %>
+          <%= _('They are not tested as thoroughly as the %{tumbleweed_media}.') %
+              { tumbleweed_media: link_to _('Tumbleweed installation media'), tumbleweed_distributions_path } %>
+          <%= _('Please review %{openqa}'s test results if you want an indication whether these LiveUSBs are working as expected.') % { openqa: link_to('openQA', 'https://openqa.opensuse.org/') } %>
         </li>
       </ul>
-      <h2 id="liveusb-media-intel">LiveUSB <%= _('Media') %> - Intel 64-bit (x86_64)</h2>
+      <h2 id="liveusb-media-intel"><%= _('LiveUSB Media') %> - Intel 64-bit (x86_64)</h2>
       <table>
         <thead>
           <tr>
@@ -120,7 +116,7 @@ an accurate reflection as to whether Tumbleweed will work on your hardware or no
           </tr>
         </tbody>
       </table>
-      <h2 id="liveusb-media-intel-32">LiveUSB <%= _('Media') %> - Intel 32-bit (i686)</h2>
+      <h2 id="liveusb-media-intel-32"><%= _('LiveUSB Media') %> - Intel 32-bit (i686)</h2>
       <table>
         <thead>
           <tr>

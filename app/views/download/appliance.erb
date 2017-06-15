@@ -1,5 +1,5 @@
 <% if @data.blank? %>
-  <p><%= _("No appliance data for %s") % [ @project ] %></p>
+  <p><%= _("No appliance data for %{project}") % { project: @project } %></p>
 <% else %>
 
   <script type="text/javascript">
