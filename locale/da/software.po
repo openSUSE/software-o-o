@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-15 11:03+0200\n"
-"PO-Revision-Date: 2017-06-15 15:04+0000\n"
+"PO-Revision-Date: 2017-06-16 10:39+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish "
 "<https://l10n.opensuse.org/projects/software-o-o/master/da/>\n"
@@ -23,7 +23,6 @@ msgid " and "
 msgstr " og "
 
 #: ../app/views/distributions/index.html.erb:85
-#, fuzzy
 #| msgid ""
 #| "with security and stability updates being the priority during each release"
 msgid ""
@@ -31,10 +30,11 @@ msgid ""
 "%{annually}, with security and stability updates being the priority during "
 "each release %{lifetime}."
 msgstr ""
-"hvor sikkerheds- og stabilitetsopdateringer er prioriteten ved hver udgivelse"
+"%{leap} er en <strong>regelmæssig-udgivelse</strong>. Det betyder at den "
+"udgives %{annually}, hvor sikkerheds- og stabilitetsopdateringer er "
+"prioriteten ved hver udgivelse %{lifetime}."
 
 #: ../app/views/distributions/index.html.erb:79
-#, fuzzy
 #| msgid ""
 #| "is a <strong>rolling-release</strong>. This means the software is always\n"
 #| "        the latest stable versions available from the openSUSE Project. "
@@ -48,11 +48,10 @@ msgid ""
 "Things will change regularly as Free and Open Source projects continually "
 "release new versions of their software."
 msgstr ""
-"er en <strong>rullende udgivelse</strong>. Det betyder at softwaren altid\n"
-"        er de seneste tilgængelige stabile versioner fra openSUSE-projektet. "
-"Ting\n"
-"        ændres regelmæssigt når frie og open source-projekter kontinuerligt\n"
-"        udgiver nye versioner af deres software."
+"%{tumbleweed} er en <strong>rullende udgivelse</strong>. Det betyder at "
+"softwaren altid er de seneste tilgængelige stabile versioner fra openSUSE-"
+"projektet. Ting ændres regelmæssigt efterhånden som frie og open source-"
+"projekter kontinuerligt udgiver nye versioner af deres software."
 
 #: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
 msgid "(hide)"
@@ -91,7 +90,6 @@ msgid "Available Images"
 msgstr "Tilgængelige aftryk"
 
 #: ../app/views/distributions/index.html.erb:102
-#, fuzzy
 #| msgid ""
 #| "Both distributions are fully capable of being used on a Desktop PC,\n"
 #| "        laptop, server, or in the cloud."
@@ -100,11 +98,9 @@ msgid ""
 "server, or in the cloud."
 msgstr ""
 "Begge distributioner er fuldtud i stand til at blive brugt på en stationær "
-"pc,\n"
-"        bærbar, server eller i skyen."
+"pc, bærbar, server eller i skyen."
 
 #: ../app/views/distributions/index.html.erb:100
-#, fuzzy
 #| msgid ""
 #| "as well as by human openSUSE contributors so both can be relied\n"
 #| "        upon to work."
@@ -113,8 +109,9 @@ msgid ""
 "\">openQA</a> as well as by human openSUSE contributors so both can be "
 "relied upon to work."
 msgstr ""
-"såvel som af menneske-openSUSE-bidragsydere så du kan have tillid\n"
-"         til at de begge virker."
+"Begge distributioner er gennemtestet af <a href=\"https://openqa.opensuse."
+"org\">openQA</a> såvel som af menneske-openSUSE-bidragsydere så du kan have "
+"tillid til at de begge virker."
 
 #: ../app/views/package/show.html.erb:169
 msgid "Categories"
@@ -224,7 +221,6 @@ msgstr ""
 "pc'er, bærbare og servere."
 
 #: ../app/views/distributions/tumbleweed_ports.html.erb:10
-#, fuzzy
 #| msgid ""
 #| "Download alternative architectures of the rolling version\n"
 #| "              of openSUSE, for desktop PCs, laptops, and servers."
@@ -232,8 +228,8 @@ msgid ""
 "Download alternative architectures of the rolling version of openSUSE, for "
 "desktop PCs, laptops, and servers."
 msgstr ""
-"Download alternative arkitekturer af den rullende version\n"
-"              af openSUSE, til stationære pc'er, bærbare og servere."
+"Download alternative arkitekturer af den rullende version af openSUSE, til "
+"stationære pc'er, bærbare og servere."
 
 #: ../app/controllers/download_controller.rb:36
 msgid "Download appliance from %s"
@@ -245,7 +241,7 @@ msgid ""
 "              of both enterprise-grade engineering and community-developed "
 "innovation."
 msgstr ""
-"Download openSUSE’s almindlig udgivelse og nyd fordelene\n"
+"Download openSUSE’s regelmæssige udgivelse og nyd fordelene\n"
 "              ved både enterprise-grad ingeniørarbejde og "
 "fællesskabsudviklet innovation."
 
@@ -258,7 +254,6 @@ msgstr ""
 "              pakker leveret af openSUSE-projektet."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
-#, fuzzy
 #| msgid ""
 #| "Download the LiveUSBs of the rolling version of openSUSE,\n"
 #| "              for desktop PCs, laptops, and servers."
@@ -266,8 +261,8 @@ msgid ""
 "Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, "
 "laptops, and servers."
 msgstr ""
-"Download LiveUSB'erne af den rullende version af openSUSE,\n"
-"              til stationære pc'er, bærbare og servere."
+"Download LiveUSB'erne af den rullende version af openSUSE, til stationære "
+"pc'er, bærbare og servere."
 
 #: ../app/views/distributions/leap.html.erb:10
 msgid ""
@@ -278,7 +273,6 @@ msgstr ""
 "og servere."
 
 #: ../app/views/distributions/tumbleweed.html.erb:10
-#, fuzzy
 #| msgid ""
 #| "Download the rolling version of openSUSE, for desktop PCs,\n"
 #| "              laptops, and servers."
@@ -286,8 +280,8 @@ msgid ""
 "Download the rolling version of openSUSE, for desktop PCs,\n"
 "laptops, and servers."
 msgstr ""
-"Download den rullende version af openSUSE, til stationære pc'er,\n"
-"              bærbare og servere."
+"Download den rullende version af openSUSE, til stationære pc'er, bærbare og "
+"servere."
 
 #: ../app/views/layouts/application.html.erb:63
 #: ../app/views/layouts/download.html.erb:57
@@ -341,10 +335,11 @@ msgstr ""
 "signeret .sha256-filerne."
 
 #: ../app/views/distributions/_verify_download.html.erb:22
-#, fuzzy
 #| msgid "For more help verifing your download please read"
 msgid "For more help verifing your download please read %{checksums_help}"
-msgstr "For at få mere hjælp til at verificere din download læs venligst"
+msgstr ""
+"For at få mere hjælp til at verificere din download læs venligst "
+"%{checksums_help}"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:6
 msgid "From OS X"
@@ -407,8 +402,8 @@ msgid ""
 "              regular-release distribution for desktop PCs, laptops,\n"
 "              and servers."
 msgstr ""
-"Hjælp med at teste den næste version af openSUSE Leap, den\n"
-"              almindelig-udgivelse-distribution til stationære pc'er, "
+"Hjælp med at teste den næste version af openSUSE Leap,\n"
+"              regelmæssige-udgivelse-distributionen til stationære pc'er, "
 "bærbare,\n"
 "              og servere."
 
@@ -437,14 +432,12 @@ msgid "How to create a bootable USB stick on OS X."
 msgstr "Opret en opstartsbar USB-pen på OS X."
 
 #: ../app/views/distributions/index.html.erb:107
-#, fuzzy
 #| msgid "If you are still not sure, download"
 msgid "If you are still not sure, download %{leap}"
-msgstr "Hvis i stadig ikke er sikker, så download"
+msgstr "Hvis i stadig ikke er sikker, så download %{leap}"
 
 #: ../app/views/distributions/_leap_switch.html.erb:5
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:5
-#, fuzzy
 #| msgid ""
 #| "If you’re already running openSUSE you can upgrade by booting from the\n"
 #| "  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a "
@@ -455,9 +448,8 @@ msgid ""
 "DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
 "commands."
 msgstr ""
-"Hvis du allerede kører openSUSE kan du opgradere ved at boote fra \n"
-"  DVD/USB og vælge opgrader eller foretag en ‘Onlineopgradering’ med få\n"
-"  kommandoer."
+"Hvis du allerede kører openSUSE kan du opgradere ved at boote fra DVD/USB og "
+"vælge opgrader eller foretag en ‘Onlineopgradering’ med få kommandoer."
 
 #: ../app/views/download/appliance.erb:57
 msgid "Image:"
@@ -507,13 +499,11 @@ msgstr ""
 "årlige udgivelse."
 
 #: ../app/views/distributions/_verify_download.html.erb:18
-#, fuzzy
 #| msgid "It should be"
 msgid "It should be %{fingerprint}"
-msgstr "Det burde være"
+msgstr "Det burde være %{fingerprint}"
 
 #: ../app/views/distributions/index.html.erb:96
-#, fuzzy
 #| msgid ""
 #| "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise\n"
 #| "        Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
@@ -521,13 +511,11 @@ msgid ""
 "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
 "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgstr ""
-"Leap anbefales til <strong>Systemadministratorer</strong>, "
-"<strong>Enterprise\n"
-"        -udviklere</strong> og <strong>‘Almindelige’ desktop-brugere</"
-"strong>."
+"Leap anbefales til <strong>Systemadministratorer</strong>, <strong"
+">Enterprise-udviklere</strong> og <strong>‘Almindelige’ desktop-"
+"brugere</strong>."
 
 #: ../app/views/distributions/index.html.erb:92
-#, fuzzy
 #| msgid ""
 #| "so major architectural changes are not expected for several years, "
 #| "aligned\n"
@@ -538,16 +526,15 @@ msgid ""
 "changes are not expected for several years, aligned with each new Major "
 "Release (eg 12, 13, etc) of SUSE Linux Enterprise."
 msgstr ""
-"så større arkitektoniske ændringer er ikke ventet i flere år, afstemt\n"
-"        med hver ny større udgivelse (f.eks. 12, 13, osv.) af SUSE Linux "
-"Enterprise."
+"Leap deler et fælles basissystem med %{sles}, så større arkitektoniske "
+"ændringer er ikke ventet i flere år, afstemt med hver ny større udgivelse ("
+"f.eks. 12, 13, osv.) af SUSE Linux Enterprise."
 
 #: ../app/views/distributions/_documentation.html.erb:18
 msgid "License"
 msgstr "Licens"
 
 #: ../app/views/distributions/_verify_download.html.erb:5
-#, fuzzy
 #| msgid ""
 #| "Many applications can verify the checksum of a download. To verify\n"
 #| "  your download can be important as it verifies you really have got the\n"
@@ -563,13 +550,12 @@ msgid ""
 "(SHA256) will be used automatically if you choose Metalink in the\n"
 "field above and use the add-on DownThemAll! in Firefox."
 msgstr ""
-"Mange programmer kan verificere tjeksummen for et download. Verifikation\n"
-"  af dit download kan være vigtigt, da det sikrer at du faktisk har fået "
-"den\n"
-"  ISO-fil du ønskede at downloade og ikke en defekt fil. Du bør\n"
-"  verificere filen når du downloader. F.eks. bruges en tjeksum\n"
-"  (SHA256) automatisk hvis du vælger Metalink i\n"
-"  feltet ovenfor og bruger tilføjelsen DownThemAll! i Firefox."
+"Mange programmer kan verificere tjeksummen for et download. Verifikation af "
+"dit download kan være vigtigt, da det sikrer at du faktisk har fået den ISO-"
+"fil du ønskede at downloade og ikke en defekt fil. Du bør verificere filen "
+"når du downloader. F.eks. bruges en tjeksum (SHA256) automatisk hvis du "
+"vælger Metalink i feltet ovenfor og bruger tilføjelsen DownThemAll! i "
+"Firefox."
 
 #: ../app/views/package/categories.html.erb:42
 msgid "Multimedia"
@@ -585,10 +571,9 @@ msgid "Network"
 msgstr "Netværk"
 
 #: ../app/views/download/appliance.erb:2
-#, fuzzy
 #| msgid "No appliance data for %s"
 msgid "No appliance data for %{project}"
-msgstr "Ingen anordningsdata for %s"
+msgstr "Ingen anordningsdata for %{project}"
 
 #: ../app/views/download/appliance.erb:47
 msgid "No appliances found in project %s"
@@ -659,7 +644,6 @@ msgid "Please Note: These LiveUSBs are not supported"
 msgstr "Bemærk venligst: Der ydes ikke support til disse LiveUSB'er"
 
 #: ../app/views/package/show.html.erb:137
-#, fuzzy
 #| msgid ""
 #| "Please be aware that the following packages are from unofficial "
 #| "repositories.\n"
@@ -671,8 +655,8 @@ msgid ""
 "That means they are not reviewed by openSUSE and may contain unstable or "
 "experimental software."
 msgstr ""
-"Vær opmærksom på at følgende pakker kommer fra uofficielle softwarekilder.\n"
-"  Det betyder at de ikke er efterset af openSUSE og kan indeholde ustabil "
+"Vær opmærksom på at følgende pakker kommer fra uofficielle softwarekilder. "
+"Det betyder at de ikke er efterset af openSUSE og kan indeholde ustabil "
 "eller eksperimentel software."
 
 #: ../app/views/distributions/testing.html.erb:40
@@ -680,10 +664,9 @@ msgid "Please report any issues you find in our Bugtracker."
 msgstr "Rapportér venligst de problemer du finder, i vores fejlsporing."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
-#, fuzzy
 #| msgid "Please review"
 msgid "Please review %{openqa}"
-msgstr "Gennemgå venligst"
+msgstr "Gennemgå venligst %{openqa}"
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -773,7 +756,6 @@ msgid "Support"
 msgstr "Support"
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
-#, fuzzy
 #| msgid ""
 #| "The DVD/USB Stick is typically recommended as it contains most of the\n"
 #| "  packages available in the distribution and does not require a network\n"
@@ -783,12 +765,11 @@ msgid ""
 "packages available in the distribution and does not require a network\n"
 "connection during the installation."
 msgstr ""
-"DVD'en/USB-pennen anbefales typisk, da den indeholder de fleste\n"
-"  pakker som er tilgængelige i distributionen og ikke kræver en\n"
-"  netværksforbindelse under installationen."
+"DVD'en/USB-pennen anbefales typisk, da den indeholder de fleste pakker som "
+"er tilgængelige i distributionen og ikke kræver en netværksforbindelse under "
+"installationen."
 
 #: ../app/views/distributions/_choosing_media.html.erb:10
-#, fuzzy
 #| msgid ""
 #| "The Network CD/USB Stick is recommended for users who have limited\n"
 #| "  bandwidth on their internet connections, as it will only download the\n"
@@ -800,34 +781,30 @@ msgid ""
 "packages they choose to install, which is likely to be significantly\n"
 "less than 4.7GB."
 msgstr ""
-"Netværks-CD'en/USB-pennen anbefales til brugere med begrænset\n"
-"  båndbredde på deres internetforbindelser, eftersom den kun downloader\n"
-"  de pakker der vælges til installation, hvilket sandsynligvis vil være "
-"betydeligt\n"
-"  mindre end 4,7 GB."
+"Netværks-CD'en/USB-pennen anbefales til brugere med begrænset båndbredde på "
+"deres internetforbindelser, eftersom den kun downloader de pakker der vælges "
+"til installation, hvilket sandsynligvis vil være betydeligt mindre end 4,7 "
+"GB."
 
 #: ../app/views/download/package.erb:95
 msgid "Then run the following as <strong>root</strong>"
 msgstr "Kør så følgende som <strong>root</strong>"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:35
-#, fuzzy
 #| msgid "They are not tested as thoroughly as the"
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
-msgstr "De er ikke gennemtestet så godt som"
+msgstr "De er ikke gennemtestet så godt som %{tumbleweed_media}."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:27
-#, fuzzy
 #| msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
 msgstr ""
 "De kan ikke bruges til at installere eller opgradere Tumbleweed. Brug "
-"venligst"
+"venligst %{tumbleweed_media} i stedet."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:31
-#, fuzzy
 #| msgid ""
 #| "They have a limited package/driver selection, so cannot be considered\n"
 #| "          an accurate reflection as to whether Tumbleweed will work on "
@@ -838,10 +815,9 @@ msgid ""
 "an accurate reflection as to whether Tumbleweed will work on your hardware "
 "or not."
 msgstr ""
-"De har et begrænset udvalg af pakker/drivere, så kan ikke betrages\n"
-"          som en nøjagtig reflektion af hvorvidt Tumbleweed vil virke på "
-"dit\n"
-"          hardware eller ej."
+"De har et begrænset udvalg af pakker/drivere, så kan ikke betrages som en "
+"nøjagtig reflektion af hvorvidt Tumbleweed vil virke på dit hardware eller "
+"ej."
 
 #: ../app/views/distributions/testing.html.erb:36
 msgid ""
@@ -858,13 +834,11 @@ msgstr "Navigation til/fra"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
-#, fuzzy
 #| msgid "Installation Media"
 msgid "Tumbleweed installation media"
-msgstr "Installationsmedie"
+msgstr "Tumbleweed-installationsmedie"
 
 #: ../app/views/distributions/index.html.erb:81
-#, fuzzy
 #| msgid ""
 #| "Tumbleweed is recommended for <strong>Developers</strong>,\n"
 #| "        <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS\n"
@@ -873,9 +847,8 @@ msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
 "Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
 msgstr ""
-"Tumbleweed anbefales til <strong>Udviklere</strong>,\n"
-"        <strong>openSUSE-bidragsydere</strong> og <strong>Linux/FOSS\n"
-"        -entusiaster</strong>."
+"Tumbleweed anbefales til <strong>Udviklere</strong>, <strong>openSUSE-"
+"bidragsydere</strong> og <strong>Linux/FOSS-entusiaster</strong>."
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
 msgid "Unsupported"
@@ -917,7 +890,6 @@ msgstr ""
 "anden basisdistribution (aktuelt )."
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:6
-#, fuzzy
 #| msgid ""
 #| "also offers a number of unsupported LiveUSBs. These\n"
 #| "  cannot be used for Installation or Upgrade. They are not an accurate\n"
@@ -927,10 +899,9 @@ msgid ""
 "cannot be used for Installation or Upgrade. They are not an accurate\n"
 "reflection as to whether or not Tumbleweed will run on your hardware."
 msgstr ""
-"tilbyder også et antal LiveUSB'er uden support. Disse\n"
-"  kan ikke bruges til installation eller opgradering. De er ikke en "
-"nøjagtig\n"
-"  reflektion af hvorvidt eller ej Tumbleweed vil køre på dit hardware."
+"tilbyder også et antal LiveUSB'er uden support. Disse kan ikke bruges til "
+"installation eller opgradering. De er ikke en nøjagtig reflektion af "
+"hvorvidt eller ej Tumbleweed vil køre på dit hardware."
 
 #: ../app/views/distributions/index.html.erb:87
 msgid "annually"
@@ -987,7 +958,6 @@ msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
 #: ../app/views/distributions/tumbleweed.html.erb:82
-#, fuzzy
 #| msgid ""
 #| "is also available on other architectures, such as\n"
 #| "        Intel 32-bit (aka i586), AArch64 (aka ARMv8) and PPC64."
@@ -995,8 +965,8 @@ msgid ""
 "is also available on other architectures, such as Intel 32-bit (aka i586), "
 "AArch64 (aka ARMv8) and PPC64."
 msgstr ""
-"den er også tilgængelige på andre arkitekturer, såsom\n"
-"        Intel 32-bit (i586), AArch64 (ARMv8) og PPC64."
+"den er også tilgængelige på andre arkitekturer, såsom Intel 32-bit (i586), "
+"AArch64 (ARMv8) og PPC64."
 
 #: ../app/views/distributions/index.html.erb:88
 msgid "lifetime"
@@ -1004,13 +974,11 @@ msgstr "livstid"
 
 #: ../app/views/distributions/index.html.erb:86
 #: ../app/views/distributions/index.html.erb:107
-#, fuzzy
 #| msgid "openSUSE Derivatives"
 msgid "openSUSE Leap"
-msgstr "Specialversioner af openSUSE"
+msgstr "openSUSE Leap"
 
 #: ../app/views/distributions/leap.html.erb:83
-#, fuzzy
 #| msgid ""
 #| "openSUSE Leap is also available on other architectures, such as\n"
 #| "        AArch64 (aka ARMv8) and PPC64."
@@ -1018,14 +986,13 @@ msgid ""
 "openSUSE Leap is also available on other architectures, such as AArch64 (aka "
 "ARMv8) and PPC64."
 msgstr ""
-"openSUSE Leap er også tilgængelig på andre arkitekturer, såsom\n"
-"        AArch64 (ARMv8) og PPC64."
+"openSUSE Leap er også tilgængelig på andre arkitekturer, såsom AArch64 "
+"(ARMv8) og PPC64."
 
 #: ../app/views/distributions/index.html.erb:79
-#, fuzzy
 #| msgid "switch to openSUSE Tumbleweed"
 msgid "openSUSE Tumbleweed"
-msgstr "skift til openSUSE Tumbleweed"
+msgstr "openSUSE Tumbleweed"
 
 #: ../app/views/distributions/index.html.erb:126
 msgid ""
