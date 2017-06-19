@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-19 12:32+0200\n"
-"PO-Revision-Date: 2017-06-15 16:54+0000\n"
+"PO-Revision-Date: 2017-06-19 16:05+0000\n"
 "Last-Translator: David Medina <medipas@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.opensuse.org/projects/software-o-o/"
 "master/ca/>\n"
@@ -117,7 +117,7 @@ msgstr "La suma de verificació"
 
 #: ../app/views/distributions/_verify_download.html.erb:23
 msgid "Checksums Help"
-msgstr "Ajuda per a les sumes de verificació"
+msgstr "ajuda per a les sumes de verificació"
 
 #: ../app/views/distributions/_choosing_media.html.erb:2
 msgid "Choosing Which Media to Download"
@@ -133,10 +133,8 @@ msgid "Community"
 msgstr "Comunitat"
 
 #: ../app/views/distributions/testing.html.erb:34
-#, fuzzy
-#| msgid "Currently testing"
 msgid "Currently testing %{leap_beta}"
-msgstr "Actualment en proves"
+msgstr "Actualment en proves: %{leap_beta}"
 
 #: ../app/views/distributions/index.html.erb:117
 msgid "Derivatives"
@@ -290,7 +288,7 @@ msgstr "Maneres fàcils de canviar a l'openSUSE Tumbleweed"
 
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
-msgstr "O bé un dispositiu de DVD o un port USB per al mitjà d'instal·lació"
+msgstr "Un dispositiu de DVD o un port USB per al mitjà d'instal·lació"
 
 #: ../app/views/package/show.html.erb:252
 msgid "Expand all sections ('e')"
@@ -490,7 +488,7 @@ msgstr ""
 
 #: ../app/views/distributions/_verify_download.html.erb:18
 msgid "It should be %{fingerprint}"
-msgstr "Hauria de ser %{fingerprint}"
+msgstr "Hauria de ser %{fingerprint}."
 
 #: ../app/views/distributions/index.html.erb:94
 msgid ""
@@ -535,7 +533,7 @@ msgstr ""
 "i no una versió trencada o incorrecta. Podríeu verificar el fitxer durant el "
 "procés\n"
 "de descàrrega. Per exemple, s'usarà automàticament una suma de verificació\n"
-"(SHA256) i si trieu el metaenllaç al camp anterior i useu el complement del\n"
+"(SHA256) si trieu el metaenllaç al camp anterior i useu el complement del\n"
 "Firefox anomenat DownThemAll! (Descarrega'ls tots!)."
 
 #: ../app/views/package/categories.html.erb:42
@@ -834,10 +832,8 @@ msgstr ""
 "FOSS</strong>."
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
-#, fuzzy
-#| msgid "Unsupported"
 msgid "Unsupported LiveUSBs"
-msgstr "Sense suport"
+msgstr "Imatges vives d'USB sense suport"
 
 #: ../app/views/package/show.html.erb:239
 msgid "Unsupported distributions:"
@@ -943,7 +939,7 @@ msgstr "durada de vida"
 #: ../app/views/distributions/index.html.erb:84
 #: ../app/views/distributions/index.html.erb:105
 msgid "openSUSE Leap"
-msgstr "L'openSUSE Leap"
+msgstr "openSUSE Leap"
 
 #: ../app/views/distributions/leap.html.erb:83
 msgid ""
@@ -955,50 +951,81 @@ msgstr ""
 
 #: ../app/views/distributions/index.html.erb:77
 msgid "openSUSE Tumbleweed"
-msgstr "L'openSUSE Tumbleweed"
+msgstr "openSUSE Tumbleweed"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:5
-#, fuzzy
-#| msgid ""
-#| "also offers a number of unsupported LiveUSBs. These\n"
-#| "cannot be used for Installation or Upgrade. They are not an accurate\n"
-#| "reflection as to whether or not Tumbleweed will run on your hardware."
 msgid ""
 "openSUSE Tumbleweed also offers a number of unsupported LiveUSBs. These\n"
 "cannot be used for Installation or Upgrade. They are not an accurate\n"
 "reflection as to whether or not Tumbleweed will run on your hardware."
 msgstr ""
-"també ofereix un nombre d'imatges vives sense suport. No es\n"
-"poden usar per a la instal·lació o l'actualització. No són un reflex\n"
+"L'openSUSE Tumbleweed també ofereix un nombre d'imatges vives sense suport.\n"
+"No es poden usar per a la instal·lació o l'actualització. No són un reflex\n"
 "precís de si el Tumbleweed funcionarà o no amb el maquinari."
 
 #: ../app/views/distributions/index.html.erb:124
-#, fuzzy
-#| msgid ""
-#| "openSUSE has a number of unofficial derivative distributions.\n"
-#| "              These are made by our awesome community, often for special\n"
-#| "              purposes."
 msgid ""
 "openSUSE has a number of unofficial derivative distributions.\n"
 "These are made by our awesome community, often for special purposes."
 msgstr ""
 "L'openSUSE té un nombre de distribucions derivades no oficials.\n"
-"              Les fa la nostra formidable comunitat, sovint per a propòsits\n"
-"              especials."
+"Les fa la nostra formidable comunitat, sovint per a propòsits especials."
 
 #: ../app/views/distributions/index.html.erb:10
 msgid "openSUSE is completely free to download, use and share."
 msgstr ""
 "L'openSUSE és completament lliure per descarregar-lo, usar-lo i compartir-lo."
 
+#~ msgid ""
+#~ "Download openSUSE’s regular release and enjoy the benefits\n"
+#~ "              of both enterprise-grade engineering and community-"
+#~ "developed innovation."
+#~ msgstr ""
+#~ "Descarregueu la versió regular de l'openSUSE i gaudiu dels beneficis\n"
+#~ "              de l'enginyeria empresarial i de la innovació desenvolupada "
+#~ "per la comunitat."
+
+#~ msgid ""
+#~ "Download openSUSE’s rolling release and always run the latest\n"
+#~ "              packages provided by the openSUSE Project."
+#~ msgstr ""
+#~ "Descarregueu la versió contínua de l'openSUSE i executeu els darrers\n"
+#~ "              paquets proporcionats pel projecte openSUSE."
+
+#~ msgid "For more help verifing your download please read %{checksums_help}"
+#~ msgstr ""
+#~ "Per a més ajuda sobre la verificació de la descàrrega, llegiu "
+#~ "l'%{checksums_help}."
+
 #~ msgid "Please review %{openqa}"
 #~ msgstr "Si us plau, reviseu l'%{openqa}"
+
+#~ msgid ""
+#~ "This is not a supported release. It is provided to help openSUSE testers\n"
+#~ "        find bugs before release."
+#~ msgstr ""
+#~ "Aquesta no és una versió amb suport. Es proporciona per ajudar els "
+#~ "verificadors\n"
+#~ "        de l'openSUSE a trobar errors abans de la publicació."
+
+#~ msgid "Tumbleweed installation media"
+#~ msgstr "Mitjans d'instal·lació del Tumbleweed"
 
 #~ msgid "Media"
 #~ msgstr "Mitjans"
 
 #~ msgid "instead."
 #~ msgstr "en lloc seu."
+
+#~| msgid ""
+#~| "test results if you want an indication whether these LiveUSBs are\n"
+#~| "          working as expected."
+#~ msgid ""
+#~ "test results if you want an indication whether these LiveUSBs are working "
+#~ "as expected."
+#~ msgstr ""
+#~ "els resultats de les proves si voleu una indicació de si aquestes imatges "
+#~ "vives funcionen com s'esperava."
 
 #~ msgid ""
 #~ "If you’re already running openSUSE you can upgrade by booting from the\n"

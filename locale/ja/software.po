@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-19 12:32+0200\n"
-"PO-Revision-Date: 2017-06-19 05:57+0000\n"
+"PO-Revision-Date: 2017-06-19 10:58+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/software-o-o/"
 "master/ja/>\n"
@@ -136,10 +136,8 @@ msgid "Community"
 msgstr "コミュニティ"
 
 #: ../app/views/distributions/testing.html.erb:34
-#, fuzzy
-#| msgid "Currently testing"
 msgid "Currently testing %{leap_beta}"
-msgstr "現在テスト中の"
+msgstr "現在テスト中の %{leap_beta}"
 
 #: ../app/views/distributions/index.html.erb:117
 msgid "Derivatives"
@@ -826,10 +824,8 @@ msgstr ""
 "strong> 、 そして <strong>Linux/FOSS の愛好者</strong> にお勧めです。"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
-#, fuzzy
-#| msgid "Unsupported"
 msgid "Unsupported LiveUSBs"
-msgstr "サポート対象外"
+msgstr "サポート対象外のライブ USB"
 
 #: ../app/views/package/show.html.erb:239
 msgid "Unsupported distributions:"
@@ -957,9 +953,7 @@ msgstr ""
 
 #: ../app/views/distributions/index.html.erb:86
 msgid "lifetime"
-msgstr ""
-"ライフタイムに従って、セキュリティ更新や安定性の向上のための更新が提供されま"
-"す"
+msgstr "ライフタイム"
 
 #: ../app/views/distributions/index.html.erb:84
 #: ../app/views/distributions/index.html.erb:105
@@ -979,50 +973,82 @@ msgid "openSUSE Tumbleweed"
 msgstr "openSUSE Tumbleweed"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:5
-#, fuzzy
-#| msgid ""
-#| "also offers a number of unsupported LiveUSBs. These\n"
-#| "cannot be used for Installation or Upgrade. They are not an accurate\n"
-#| "reflection as to whether or not Tumbleweed will run on your hardware."
 msgid ""
 "openSUSE Tumbleweed also offers a number of unsupported LiveUSBs. These\n"
 "cannot be used for Installation or Upgrade. They are not an accurate\n"
 "reflection as to whether or not Tumbleweed will run on your hardware."
 msgstr ""
-"サポート対象外ではありますが、様々なライブ USB メモリも提供されています。これ"
-"らはインストールやアップグレードにご利用いただくことはできませんし、 "
-"Tumbleweed に対する正確な反映物でもありませんので、お使いのハードウエアで動作"
-"するかどうかも不明です。"
+"openSUSE Tumbleweed では、サポート対象外ではありますが、様々なライブ USB メモ"
+"リも提供されています。これらはインストールやアップグレードにご利用いただくこ"
+"とはできませんし、 Tumbleweed に対する正確な反映物でもありませんので、お使い"
+"のハードウエアで動作するかどうかも不明です。"
 
 #: ../app/views/distributions/index.html.erb:124
-#, fuzzy
-#| msgid ""
-#| "openSUSE has a number of unofficial derivative distributions.\n"
-#| "              These are made by our awesome community, often for special\n"
-#| "              purposes."
 msgid ""
 "openSUSE has a number of unofficial derivative distributions.\n"
 "These are made by our awesome community, often for special purposes."
 msgstr ""
 "openSUSE には非公式の派生ディストリビューションが多数存在しています。\n"
-"              これらは openSUSE とは異なるコミュニティで作成されていて、\n"
-"              主に特別な用途向けに開発されています。"
+"これらは openSUSE とは異なるコミュニティで作成されていて、それぞれ特別な用途"
+"向けに開発されています。"
 
 #: ../app/views/distributions/index.html.erb:10
 msgid "openSUSE is completely free to download, use and share."
 msgstr ""
 "openSUSE はダウンロード、使用、共有ともすべて自由に行なうことができます。"
 
+#~ msgid ""
+#~ "Download openSUSE’s regular release and enjoy the benefits\n"
+#~ "              of both enterprise-grade engineering and community-"
+#~ "developed innovation."
+#~ msgstr ""
+#~ "openSUSE の定期リリース版をお使いいただくことで、エンタープライズグレード"
+#~ "の\n"
+#~ "              安定性と、コミュニティが提供する革新性の両方を得ることができ"
+#~ "ます。"
+
+#~ msgid ""
+#~ "Download openSUSE’s rolling release and always run the latest\n"
+#~ "              packages provided by the openSUSE Project."
+#~ msgstr ""
+#~ "openSUSE のローリングリリース版をお使いいただくことで、 openSUSE プロジェ"
+#~ "クトが提供する\n"
+#~ "              最新のパッケージを常に維持することができるようになります。"
+
+#~ msgid "For more help verifing your download please read %{checksums_help}"
+#~ msgstr ""
+#~ "ダウンロードしたファイルの検証方法について、詳しくは %{checksums_help} を"
+#~ "お読みください"
+
 #~ msgid "Please review %{openqa}"
 #~ msgstr ""
 #~ "これらのライブ USB が問題なく動作するかどうかを確かめたい場合は、 "
 #~ "%{openqa} をご覧ください"
+
+#~ msgid ""
+#~ "This is not a supported release. It is provided to help openSUSE testers\n"
+#~ "        find bugs before release."
+#~ msgstr ""
+#~ "これはサポート対象外のリリースです。主に openSUSE のテスト参加者に対し"
+#~ "て、\n"
+#~ "         リリース前のバグを発見していただくために提供されているものです。"
+
+#~ msgid "Tumbleweed installation media"
+#~ msgstr "Tumbleweed のインストールメディア"
 
 #~ msgid "Media"
 #~ msgstr "メディア"
 
 #~ msgid "instead."
 #~ msgstr "をお使いください。"
+
+#~| msgid ""
+#~| "test results if you want an indication whether these LiveUSBs are\n"
+#~| "          working as expected."
+#~ msgid ""
+#~ "test results if you want an indication whether these LiveUSBs are working "
+#~ "as expected."
+#~ msgstr "のテスト結果をご覧ください。"
 
 #~ msgid ""
 #~ "If you’re already running openSUSE you can upgrade by booting from the\n"
