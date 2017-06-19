@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Chinese (China) (software-o-o)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-15 11:03+0200\n"
+"POT-Creation-Date: 2017-06-19 12:00+0200\n"
 "PO-Revision-Date: 2017-06-10 14:09+0000\n"
 "Last-Translator: Grover Chou <groverchout@gmail.com>\n"
 "Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/software-"
@@ -111,10 +111,10 @@ msgstr "分类"
 msgid "Category"
 msgstr "分类"
 
-#: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:29
 #: ../app/views/distributions/leap_ports.html.erb:90
 #: ../app/views/distributions/testing.html.erb:50
+#: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/tumbleweed.html.erb:30
 #: ../app/views/distributions/tumbleweed_ports.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:85
@@ -164,14 +164,14 @@ msgstr "开发-"
 msgid "Direct Install"
 msgstr "直接安装"
 
-#: ../app/views/distributions/leap.html.erb:37
-#: ../app/views/distributions/leap.html.erb:63
 #: ../app/views/distributions/leap_ports.html.erb:38
 #: ../app/views/distributions/leap_ports.html.erb:64
 #: ../app/views/distributions/leap_ports.html.erb:99
 #: ../app/views/distributions/leap_ports.html.erb:121
 #: ../app/views/distributions/testing.html.erb:59
 #: ../app/views/distributions/testing.html.erb:81
+#: ../app/views/distributions/leap.html.erb:37
+#: ../app/views/distributions/leap.html.erb:63
 #: ../app/views/distributions/tumbleweed.html.erb:39
 #: ../app/views/distributions/tumbleweed.html.erb:61
 #: ../app/views/distributions/tumbleweed_ports.html.erb:37
@@ -191,10 +191,10 @@ msgstr "文档"
 msgid "Don't show this warning the next time"
 msgstr "不再显示此提醒"
 
-#: ../app/views/distributions/leap.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:89
 #: ../app/views/distributions/testing.html.erb:49
+#: ../app/views/distributions/leap.html.erb:27
 #: ../app/views/distributions/tumbleweed.html.erb:29
 #: ../app/views/distributions/tumbleweed_ports.html.erb:27
 #: ../app/views/distributions/tumbleweed_ports.html.erb:84
@@ -339,7 +339,7 @@ msgstr "完整文档"
 msgid "Games"
 msgstr "游戏"
 
-#: ../app/views/distributions/_unsupported_live_media.html.erb:10
+#: ../app/views/distributions/_unsupported_live_media.html.erb:9
 msgid "Get Unsupported Tumbleweed LiveCDs."
 msgstr "获取不受支持的 Tumbleweed LiveCDs。"
 
@@ -443,8 +443,8 @@ msgstr "安装软件集 %s / %s"
 msgid "Install using One Click Install"
 msgstr "使用一键安装"
 
-#: ../app/views/distributions/leap.html.erb:21
 #: ../app/views/distributions/testing.html.erb:43
+#: ../app/views/distributions/leap.html.erb:21
 #: ../app/views/distributions/tumbleweed.html.erb:23
 #: ../app/views/distributions/tumbleweed_ports.html.erb:21
 #: ../app/views/distributions/tumbleweed_ports.html.erb:78
@@ -584,14 +584,14 @@ msgstr "软件包搜索"
 msgid "Packages for %s:"
 msgstr "用于 %s 的软件包："
 
-#: ../app/views/distributions/leap.html.erb:49
-#: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/leap_ports.html.erb:50
 #: ../app/views/distributions/leap_ports.html.erb:72
 #: ../app/views/distributions/leap_ports.html.erb:107
 #: ../app/views/distributions/leap_ports.html.erb:129
 #: ../app/views/distributions/testing.html.erb:67
 #: ../app/views/distributions/testing.html.erb:89
+#: ../app/views/distributions/leap.html.erb:49
+#: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/tumbleweed.html.erb:47
 #: ../app/views/distributions/tumbleweed.html.erb:69
 #: ../app/views/distributions/tumbleweed_ports.html.erb:45
@@ -694,10 +694,10 @@ msgstr "显示不稳定版的软件包"
 msgid "Show unsupported packages"
 msgstr "显示不受官方支持的软件包"
 
-#: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/leap_ports.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:88
 #: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/tumbleweed.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:26
 #: ../app/views/distributions/tumbleweed_ports.html.erb:83
@@ -814,7 +814,9 @@ msgstr ""
 " 贡献者</strong>和<strong> Linux/FOSS 爱好者</strong>使用。"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
-msgid "Unsupported"
+#, fuzzy
+#| msgid "Unsupported"
+msgid "Unsupported LiveUSBs"
 msgstr "不受支持的"
 
 #: ../app/views/package/show.html.erb:239
@@ -848,20 +850,6 @@ msgid ""
 "another base distribution (currently )."
 msgstr ""
 "您可尝试将搜索条件扩展到开发软件包或搜索另一个基础发行版中的软件包（目前）。"
-
-#: ../app/views/distributions/_unsupported_live_media.html.erb:6
-#, fuzzy
-#| msgid ""
-#| "also offers a number of unsupported LiveUSBs. These\n"
-#| "  cannot be used for Installation or Upgrade. They are not an accurate\n"
-#| "  reflection as to whether or not Tumbleweed will run on your hardware."
-msgid ""
-"also offers a number of unsupported LiveUSBs. These\n"
-"cannot be used for Installation or Upgrade. They are not an accurate\n"
-"reflection as to whether or not Tumbleweed will run on your hardware."
-msgstr ""
-"同时提供一些不受支持的 LiveUSB。这些东西无法用于安装和升级。它们无法作为 "
-"Tumbleweed 是否能在您的硬件上工作的精确反映。"
 
 #: ../app/views/distributions/index.html.erb:87
 msgid "annually"
@@ -967,11 +955,29 @@ msgstr ""
 msgid "openSUSE Tumbleweed"
 msgstr "切换至 openSUSE Tumbleweed"
 
+#: ../app/views/distributions/_unsupported_live_media.html.erb:5
+#, fuzzy
+#| msgid ""
+#| "also offers a number of unsupported LiveUSBs. These\n"
+#| "  cannot be used for Installation or Upgrade. They are not an accurate\n"
+#| "  reflection as to whether or not Tumbleweed will run on your hardware."
+msgid ""
+"openSUSE Tumbleweed also offers a number of unsupported LiveUSBs. These\n"
+"cannot be used for Installation or Upgrade. They are not an accurate\n"
+"reflection as to whether or not Tumbleweed will run on your hardware."
+msgstr ""
+"同时提供一些不受支持的 LiveUSB。这些东西无法用于安装和升级。它们无法作为 "
+"Tumbleweed 是否能在您的硬件上工作的精确反映。"
+
 #: ../app/views/distributions/index.html.erb:126
+#, fuzzy
+#| msgid ""
+#| "openSUSE has a number of unofficial derivative distributions.\n"
+#| "              These are made by our awesome community, often for special\n"
+#| "              purposes."
 msgid ""
 "openSUSE has a number of unofficial derivative distributions.\n"
-"              These are made by our awesome community, often for special\n"
-"              purposes."
+"These are made by our awesome community, often for special purposes."
 msgstr ""
 "openSUSE 有一些非官方的衍生发行版。\n"
 "这些都是由我们超棒的社区制作的，通常用于特殊用途。"

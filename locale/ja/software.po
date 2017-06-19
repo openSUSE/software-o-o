@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-15 11:03+0200\n"
+"POT-Creation-Date: 2017-06-19 12:00+0200\n"
 "PO-Revision-Date: 2017-06-19 05:57+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
-"Language-Team: Japanese "
-"<https://l10n.opensuse.org/projects/software-o-o/master/ja/>\n"
+"Language-Team: Japanese <https://l10n.opensuse.org/projects/software-o-o/"
+"master/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,8 +26,9 @@ msgid ""
 "%{annually}, with security and stability updates being the priority during "
 "each release %{lifetime}."
 msgstr ""
-"%{leap} は<strong>定期リリース</strong> されるディストリビューションです。通常は %{annually} リリースされ、 "
-"%{lifetime} の期間内に、各リリースに対してセキュリティ更新や安定性向上のための更新が提供されます。"
+"%{leap} は<strong>定期リリース</strong> されるディストリビューションです。通"
+"常は %{annually} リリースされ、 %{lifetime} の期間内に、各リリースに対してセ"
+"キュリティ更新や安定性向上のための更新が提供されます。"
 
 #: ../app/views/distributions/index.html.erb:79
 msgid ""
@@ -104,10 +105,10 @@ msgstr "カテゴリ"
 msgid "Category"
 msgstr "カテゴリ"
 
-#: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:29
 #: ../app/views/distributions/leap_ports.html.erb:90
 #: ../app/views/distributions/testing.html.erb:50
+#: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/tumbleweed.html.erb:30
 #: ../app/views/distributions/tumbleweed_ports.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:85
@@ -157,14 +158,14 @@ msgstr "開発-"
 msgid "Direct Install"
 msgstr "直接インストール"
 
-#: ../app/views/distributions/leap.html.erb:37
-#: ../app/views/distributions/leap.html.erb:63
 #: ../app/views/distributions/leap_ports.html.erb:38
 #: ../app/views/distributions/leap_ports.html.erb:64
 #: ../app/views/distributions/leap_ports.html.erb:99
 #: ../app/views/distributions/leap_ports.html.erb:121
 #: ../app/views/distributions/testing.html.erb:59
 #: ../app/views/distributions/testing.html.erb:81
+#: ../app/views/distributions/leap.html.erb:37
+#: ../app/views/distributions/leap.html.erb:63
 #: ../app/views/distributions/tumbleweed.html.erb:39
 #: ../app/views/distributions/tumbleweed.html.erb:61
 #: ../app/views/distributions/tumbleweed_ports.html.erb:37
@@ -184,10 +185,10 @@ msgstr "文書"
 msgid "Don't show this warning the next time"
 msgstr "次回以降はこの警告を表示しない"
 
-#: ../app/views/distributions/leap.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:89
 #: ../app/views/distributions/testing.html.erb:49
+#: ../app/views/distributions/leap.html.erb:27
 #: ../app/views/distributions/tumbleweed.html.erb:29
 #: ../app/views/distributions/tumbleweed_ports.html.erb:27
 #: ../app/views/distributions/tumbleweed_ports.html.erb:84
@@ -235,13 +236,12 @@ msgstr ""
 "              最新のパッケージを常に維持することができるようになります。"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
-#| msgid ""
-#| "Download the LiveUSBs of the rolling version of openSUSE,\n"
-#| "              for desktop PCs, laptops, and servers."
 msgid ""
 "Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, "
 "laptops, and servers."
-msgstr "デスクトップ PC ／ラップトップ／サーバに最適な、 openSUSE ローリングリリース版ライブ USB のダウンロード。"
+msgstr ""
+"デスクトップ PC ／ラップトップ／サーバに最適な、 openSUSE ローリングリリース"
+"版ライブ USB のダウンロード。"
 
 #: ../app/views/distributions/leap.html.erb:10
 msgid ""
@@ -312,9 +312,10 @@ msgstr ""
 "署名を検証することもできます。"
 
 #: ../app/views/distributions/_verify_download.html.erb:22
-#| msgid "For more help verifing your download please read"
 msgid "For more help verifing your download please read %{checksums_help}"
-msgstr "ダウンロードしたファイルの検証方法について、詳しくは %{checksums_help} をお読みください"
+msgstr ""
+"ダウンロードしたファイルの検証方法について、詳しくは %{checksums_help} をお読"
+"みください"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:6
 msgid "From OS X"
@@ -336,7 +337,7 @@ msgstr "完全なドキュメンテーション"
 msgid "Games"
 msgstr "ゲーム"
 
-#: ../app/views/distributions/_unsupported_live_media.html.erb:10
+#: ../app/views/distributions/_unsupported_live_media.html.erb:9
 msgid "Get Unsupported Tumbleweed LiveCDs."
 msgstr "サポート対象外の Tumbleweed ライブ CD の取得"
 
@@ -436,8 +437,8 @@ msgstr "パターンのインストール: %s / %s"
 msgid "Install using One Click Install"
 msgstr "1-クリックインストールでインストールする"
 
-#: ../app/views/distributions/leap.html.erb:21
 #: ../app/views/distributions/testing.html.erb:43
+#: ../app/views/distributions/leap.html.erb:21
 #: ../app/views/distributions/tumbleweed.html.erb:23
 #: ../app/views/distributions/tumbleweed_ports.html.erb:21
 #: ../app/views/distributions/tumbleweed_ports.html.erb:78
@@ -469,7 +470,6 @@ msgstr ""
 "す。"
 
 #: ../app/views/distributions/_verify_download.html.erb:18
-#| msgid "It should be"
 msgid "It should be %{fingerprint}"
 msgstr "これは %{fingerprint} であるべきものです:"
 
@@ -525,7 +525,6 @@ msgid "Network"
 msgstr "ネットワーク"
 
 #: ../app/views/download/appliance.erb:2
-#| msgid "No appliance data for %s"
 msgid "No appliance data for %{project}"
 msgstr "%{project} 向けのアプライアンスデータはありません"
 
@@ -574,14 +573,14 @@ msgstr "パッケージ検索"
 msgid "Packages for %s:"
 msgstr "%s 向けのパッケージ:"
 
-#: ../app/views/distributions/leap.html.erb:49
-#: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/leap_ports.html.erb:50
 #: ../app/views/distributions/leap_ports.html.erb:72
 #: ../app/views/distributions/leap_ports.html.erb:107
 #: ../app/views/distributions/leap_ports.html.erb:129
 #: ../app/views/distributions/testing.html.erb:67
 #: ../app/views/distributions/testing.html.erb:89
+#: ../app/views/distributions/leap.html.erb:49
+#: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/tumbleweed.html.erb:47
 #: ../app/views/distributions/tumbleweed.html.erb:69
 #: ../app/views/distributions/tumbleweed_ports.html.erb:45
@@ -598,28 +597,25 @@ msgid "Please Note: These LiveUSBs are not supported"
 msgstr "注意: これらのライブ USB メモリはサポート対象外です"
 
 #: ../app/views/package/show.html.erb:137
-#| msgid ""
-#| "Please be aware that the following packages are from unofficial "
-#| "repositories.\n"
-#| "  That means they are not reviewed by openSUSE and may contain unstable "
-#| "or experimental software."
 msgid ""
 "Please be aware that the following packages are from unofficial "
 "repositories.\n"
 "That means they are not reviewed by openSUSE and may contain unstable or "
 "experimental software."
 msgstr ""
-"以下のパッケージは、非公式のリポジトリから公開されていることに注意してください。これらは openSUSE "
-"側での動作確認は行なわれておらず、不安定であったり実験的なものであったりする場合があります。"
+"以下のパッケージは、非公式のリポジトリから公開されていることに注意してくださ"
+"い。これらは openSUSE 側での動作確認は行なわれておらず、不安定であったり実験"
+"的なものであったりする場合があります。"
 
 #: ../app/views/distributions/testing.html.erb:40
 msgid "Please report any issues you find in our Bugtracker."
 msgstr "何か問題を発見した場合は、バグトラッカーでご報告をお願いいたします。"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
-#| msgid "Please review"
 msgid "Please review %{openqa}"
-msgstr "これらのライブ USB が問題なく動作するかどうかを確かめたい場合は、 %{openqa} をご覧ください"
+msgstr ""
+"これらのライブ USB が問題なく動作するかどうかを確かめたい場合は、 %{openqa} "
+"をご覧ください"
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -682,10 +678,10 @@ msgstr "不安定版を表示する"
 msgid "Show unsupported packages"
 msgstr "サポート対象外のパッケージを表示する"
 
-#: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/leap_ports.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:88
 #: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/tumbleweed.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:26
 #: ../app/views/distributions/tumbleweed_ports.html.erb:83
@@ -733,18 +729,18 @@ msgid "Then run the following as <strong>root</strong>"
 msgstr "その後、 <strong>root</strong> で下記のコマンドを実行してください:"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:35
-#| msgid "They are not tested as thoroughly as the"
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
-msgstr "これらは %{tumbleweed_media} として、全体を通したテストまでは実施していません。"
+msgstr ""
+"これらは %{tumbleweed_media} として、全体を通したテストまでは実施していませ"
+"ん。"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:27
-#| msgid "They cannot be used to install or upgrade Tumbleweed. Please use the"
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
 msgstr ""
-"これらは Tumbleweed のインストールやアップグレードにはお使いいただけません。代わりに %{tumbleweed_media} "
-"をお使いください。"
+"これらは Tumbleweed のインストールやアップグレードにはお使いいただけません。"
+"代わりに %{tumbleweed_media} をお使いください。"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:31
 msgid ""
@@ -770,7 +766,6 @@ msgstr "表示の切り替え"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
-#| msgid "Installation Media"
 msgid "Tumbleweed installation media"
 msgstr "Tumbleweed のインストールメディア"
 
@@ -783,7 +778,9 @@ msgstr ""
 "strong> 、 そして <strong>Linux/FOSS の愛好者</strong> にお勧めです。"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
-msgid "Unsupported"
+#, fuzzy
+#| msgid "Unsupported"
+msgid "Unsupported LiveUSBs"
 msgstr "サポート対象外"
 
 #: ../app/views/package/show.html.erb:239
@@ -820,17 +817,6 @@ msgid ""
 msgstr ""
 "サポート対象外のパッケージについても検索するように設定できるほか、他のベース"
 "ディストリビューション向けのものも検索することができます。"
-
-#: ../app/views/distributions/_unsupported_live_media.html.erb:6
-msgid ""
-"also offers a number of unsupported LiveUSBs. These\n"
-"cannot be used for Installation or Upgrade. They are not an accurate\n"
-"reflection as to whether or not Tumbleweed will run on your hardware."
-msgstr ""
-"サポート対象外ではありますが、様々なライブ USB メモリも提供されています。これ"
-"らはインストールやアップグレードにご利用いただくことはできませんし、 "
-"Tumbleweed に対する正確な反映物でもありませんので、お使いのハードウエアで動作"
-"するかどうかも不明です。"
 
 #: ../app/views/distributions/index.html.erb:87
 msgid "annually"
@@ -944,11 +930,31 @@ msgstr ""
 msgid "openSUSE Tumbleweed"
 msgstr "openSUSE Tumbleweed"
 
+#: ../app/views/distributions/_unsupported_live_media.html.erb:5
+#, fuzzy
+#| msgid ""
+#| "also offers a number of unsupported LiveUSBs. These\n"
+#| "cannot be used for Installation or Upgrade. They are not an accurate\n"
+#| "reflection as to whether or not Tumbleweed will run on your hardware."
+msgid ""
+"openSUSE Tumbleweed also offers a number of unsupported LiveUSBs. These\n"
+"cannot be used for Installation or Upgrade. They are not an accurate\n"
+"reflection as to whether or not Tumbleweed will run on your hardware."
+msgstr ""
+"サポート対象外ではありますが、様々なライブ USB メモリも提供されています。これ"
+"らはインストールやアップグレードにご利用いただくことはできませんし、 "
+"Tumbleweed に対する正確な反映物でもありませんので、お使いのハードウエアで動作"
+"するかどうかも不明です。"
+
 #: ../app/views/distributions/index.html.erb:126
+#, fuzzy
+#| msgid ""
+#| "openSUSE has a number of unofficial derivative distributions.\n"
+#| "              These are made by our awesome community, often for special\n"
+#| "              purposes."
 msgid ""
 "openSUSE has a number of unofficial derivative distributions.\n"
-"              These are made by our awesome community, often for special\n"
-"              purposes."
+"These are made by our awesome community, often for special purposes."
 msgstr ""
 "openSUSE には非公式の派生ディストリビューションが多数存在しています。\n"
 "              これらは openSUSE とは異なるコミュニティで作成されていて、\n"

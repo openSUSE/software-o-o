@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: software-opensuse-org.uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-15 11:03+0200\n"
+"POT-Creation-Date: 2017-06-19 12:00+0200\n"
 "PO-Revision-Date: 2017-03-16 11:40+0000\n"
 "Last-Translator: Andriy Bandura <andriykopanytsia@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.opensuse.org/projects/software-o-o/"
@@ -126,10 +126,10 @@ msgstr "Категорії"
 msgid "Category"
 msgstr "Категорія"
 
-#: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:29
 #: ../app/views/distributions/leap_ports.html.erb:90
 #: ../app/views/distributions/testing.html.erb:50
+#: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/tumbleweed.html.erb:30
 #: ../app/views/distributions/tumbleweed_ports.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:85
@@ -179,14 +179,14 @@ msgstr "Розробка-"
 msgid "Direct Install"
 msgstr "Пряме встановлення"
 
-#: ../app/views/distributions/leap.html.erb:37
-#: ../app/views/distributions/leap.html.erb:63
 #: ../app/views/distributions/leap_ports.html.erb:38
 #: ../app/views/distributions/leap_ports.html.erb:64
 #: ../app/views/distributions/leap_ports.html.erb:99
 #: ../app/views/distributions/leap_ports.html.erb:121
 #: ../app/views/distributions/testing.html.erb:59
 #: ../app/views/distributions/testing.html.erb:81
+#: ../app/views/distributions/leap.html.erb:37
+#: ../app/views/distributions/leap.html.erb:63
 #: ../app/views/distributions/tumbleweed.html.erb:39
 #: ../app/views/distributions/tumbleweed.html.erb:61
 #: ../app/views/distributions/tumbleweed_ports.html.erb:37
@@ -206,10 +206,10 @@ msgstr "Документація"
 msgid "Don't show this warning the next time"
 msgstr "Більше не показувати це попередження"
 
-#: ../app/views/distributions/leap.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:89
 #: ../app/views/distributions/testing.html.erb:49
+#: ../app/views/distributions/leap.html.erb:27
 #: ../app/views/distributions/tumbleweed.html.erb:29
 #: ../app/views/distributions/tumbleweed_ports.html.erb:27
 #: ../app/views/distributions/tumbleweed_ports.html.erb:84
@@ -366,7 +366,7 @@ msgstr "Повна документація"
 msgid "Games"
 msgstr "Ігри"
 
-#: ../app/views/distributions/_unsupported_live_media.html.erb:10
+#: ../app/views/distributions/_unsupported_live_media.html.erb:9
 msgid "Get Unsupported Tumbleweed LiveCDs."
 msgstr "Отримати LiveCD Tumbleweed без підтримки."
 
@@ -472,8 +472,8 @@ msgstr "Встановити шаблон %s / %s"
 msgid "Install using One Click Install"
 msgstr "Встановити за  1 клацання"
 
-#: ../app/views/distributions/leap.html.erb:21
 #: ../app/views/distributions/testing.html.erb:43
+#: ../app/views/distributions/leap.html.erb:21
 #: ../app/views/distributions/tumbleweed.html.erb:23
 #: ../app/views/distributions/tumbleweed_ports.html.erb:21
 #: ../app/views/distributions/tumbleweed_ports.html.erb:78
@@ -623,14 +623,14 @@ msgstr "Пошук пакунків"
 msgid "Packages for %s:"
 msgstr "Пакунки для %s:"
 
-#: ../app/views/distributions/leap.html.erb:49
-#: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/leap_ports.html.erb:50
 #: ../app/views/distributions/leap_ports.html.erb:72
 #: ../app/views/distributions/leap_ports.html.erb:107
 #: ../app/views/distributions/leap_ports.html.erb:129
 #: ../app/views/distributions/testing.html.erb:67
 #: ../app/views/distributions/testing.html.erb:89
+#: ../app/views/distributions/leap.html.erb:49
+#: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/tumbleweed.html.erb:47
 #: ../app/views/distributions/tumbleweed.html.erb:69
 #: ../app/views/distributions/tumbleweed_ports.html.erb:45
@@ -734,10 +734,10 @@ msgstr "Показати нестабільні пакунки"
 msgid "Show unsupported packages"
 msgstr "Показати непідтримувані пакунки"
 
-#: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/leap_ports.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:88
 #: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/tumbleweed.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:26
 #: ../app/views/distributions/tumbleweed_ports.html.erb:83
@@ -859,7 +859,9 @@ msgstr ""
 "openSUSE</strong> і <strong>ентузіастам Linux/FOSS</strong>."
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
-msgid "Unsupported"
+#, fuzzy
+#| msgid "Unsupported"
+msgid "Unsupported LiveUSBs"
 msgstr "Без підтримки"
 
 #: ../app/views/package/show.html.erb:239
@@ -895,21 +897,6 @@ msgid ""
 msgstr ""
 "Ви можете розширити свій пошук на пакунки для розробників або шукати їх для "
 "іншого дистрибутива."
-
-#: ../app/views/distributions/_unsupported_live_media.html.erb:6
-#, fuzzy
-#| msgid ""
-#| "also offers a number of unsupported LiveUSBs. These\n"
-#| "  cannot be used for Installation or Upgrade. They are not an accurate\n"
-#| "  reflection as to whether or not Tumbleweed will run on your hardware."
-msgid ""
-"also offers a number of unsupported LiveUSBs. These\n"
-"cannot be used for Installation or Upgrade. They are not an accurate\n"
-"reflection as to whether or not Tumbleweed will run on your hardware."
-msgstr ""
-"також пропонує кілька непідтримуваних LiveUSB. Їх не можна використовувати "
-"для установки або оновлення. По них не можна однозначно стверджувати, чи "
-"запрацює Tumbleweed на вашому обладнанні."
 
 #: ../app/views/distributions/index.html.erb:87
 msgid "annually"
@@ -1006,11 +993,30 @@ msgstr ""
 msgid "openSUSE Tumbleweed"
 msgstr "перейти на openSUSE Tumbleweed"
 
+#: ../app/views/distributions/_unsupported_live_media.html.erb:5
+#, fuzzy
+#| msgid ""
+#| "also offers a number of unsupported LiveUSBs. These\n"
+#| "  cannot be used for Installation or Upgrade. They are not an accurate\n"
+#| "  reflection as to whether or not Tumbleweed will run on your hardware."
+msgid ""
+"openSUSE Tumbleweed also offers a number of unsupported LiveUSBs. These\n"
+"cannot be used for Installation or Upgrade. They are not an accurate\n"
+"reflection as to whether or not Tumbleweed will run on your hardware."
+msgstr ""
+"також пропонує кілька непідтримуваних LiveUSB. Їх не можна використовувати "
+"для установки або оновлення. По них не можна однозначно стверджувати, чи "
+"запрацює Tumbleweed на вашому обладнанні."
+
 #: ../app/views/distributions/index.html.erb:126
+#, fuzzy
+#| msgid ""
+#| "openSUSE has a number of unofficial derivative distributions.\n"
+#| "              These are made by our awesome community, often for special\n"
+#| "              purposes."
 msgid ""
 "openSUSE has a number of unofficial derivative distributions.\n"
-"              These are made by our awesome community, often for special\n"
-"              purposes."
+"These are made by our awesome community, often for special purposes."
 msgstr ""
 "У openSUSE є кілька неофіційних похідних дистрибутивів. Вони підготовлені "
 "нашою прекрасною громадою, часто для спеціальних цілей."
