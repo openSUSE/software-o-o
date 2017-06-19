@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 12:11+0200\n"
+"POT-Creation-Date: 2017-06-19 12:32+0200\n"
 "PO-Revision-Date: 2017-06-17 10:31+0000\n"
 "Last-Translator: mohammad alhargan <malham1@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.opensuse.org/projects/software-o-o/"
@@ -25,7 +25,7 @@ msgstr ""
 msgid " and "
 msgstr " أيضاً "
 
-#: ../app/views/distributions/index.html.erb:85
+#: ../app/views/distributions/index.html.erb:83
 #, fuzzy
 #| msgid ""
 #| "with security and stability updates being the priority during each release"
@@ -35,7 +35,7 @@ msgid ""
 "each release %{lifetime}."
 msgstr "مع إعطاء الأولوية لتحديثات الأمن والاستقرار خلال كل إصدار"
 
-#: ../app/views/distributions/index.html.erb:79
+#: ../app/views/distributions/index.html.erb:77
 msgid ""
 "%{tumbleweed} is a <strong>rolling-release</strong>. This means the software "
 "is always the latest stable versions available from the openSUSE Project. "
@@ -82,13 +82,13 @@ msgstr "متصفح التطبيقات"
 msgid "Available Images"
 msgstr "الصور المتاحة"
 
-#: ../app/views/distributions/index.html.erb:102
+#: ../app/views/distributions/index.html.erb:100
 msgid ""
 "Both distributions are fully capable of being used on a Desktop PC, laptop, "
 "server, or in the cloud."
 msgstr "كلا التوزيعتان يمكن استخدامها على حاسب مكتبي محمول ،خادم ،أوحتى سحابة."
 
-#: ../app/views/distributions/index.html.erb:100
+#: ../app/views/distributions/index.html.erb:98
 msgid ""
 "Both distributions are well tested by <a href=\"https://openqa.opensuse.org"
 "\">openQA</a> as well as by human openSUSE contributors so both can be "
@@ -108,6 +108,8 @@ msgstr "الفئة"
 
 #: ../app/views/distributions/leap_ports.html.erb:29
 #: ../app/views/distributions/leap_ports.html.erb:90
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:47
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:126
 #: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/tumbleweed.html.erb:30
 #: ../app/views/distributions/tumbleweed_ports.html.erb:28
@@ -125,7 +127,7 @@ msgstr "مساعدة الاختبارية"
 msgid "Choosing Which Media to Download"
 msgstr "حدد الوسائط التي تريد تنزيلها"
 
-#: ../app/views/distributions/index.html.erb:76
+#: ../app/views/distributions/index.html.erb:74
 msgid "Choosing which Distribution to Download"
 msgstr "حدد التوزيعة التي تريد تنزيلها"
 
@@ -140,7 +142,7 @@ msgstr "المجتمع"
 msgid "Currently testing %{leap_beta}"
 msgstr "تُختبر حالياً"
 
-#: ../app/views/distributions/index.html.erb:119
+#: ../app/views/distributions/index.html.erb:117
 msgid "Derivatives"
 msgstr "المشتقات"
 
@@ -165,6 +167,12 @@ msgstr "تثبيت مباشر"
 #: ../app/views/distributions/leap_ports.html.erb:64
 #: ../app/views/distributions/leap_ports.html.erb:99
 #: ../app/views/distributions/leap_ports.html.erb:121
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:56
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:78
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:100
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:135
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:157
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:178
 #: ../app/views/distributions/leap.html.erb:37
 #: ../app/views/distributions/leap.html.erb:63
 #: ../app/views/distributions/tumbleweed.html.erb:39
@@ -190,6 +198,8 @@ msgstr "عدم إظهار هذا التحذير في المرة القادمة"
 
 #: ../app/views/distributions/leap_ports.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:89
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:46
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:125
 #: ../app/views/distributions/leap.html.erb:27
 #: ../app/views/distributions/tumbleweed.html.erb:29
 #: ../app/views/distributions/tumbleweed_ports.html.erb:27
@@ -219,20 +229,28 @@ msgstr ""
 msgid "Download appliance from %s"
 msgstr "تحميل التطبيقات من %s"
 
-#: ../app/views/distributions/index.html.erb:46
+#: ../app/views/distributions/index.html.erb:45
+#, fuzzy
+#| msgid ""
+#| "Download openSUSE’s regular release and enjoy the benefits\n"
+#| "              of both enterprise-grade engineering and community-"
+#| "developed innovation."
 msgid ""
-"Download openSUSE’s regular release and enjoy the benefits\n"
-"              of both enterprise-grade engineering and community-developed "
-"innovation."
+"Download openSUSE’s regular release and enjoy the benefits of both "
+"enterprise-grade engineering and community-developed innovation."
 msgstr ""
 "تحميل الإصدار التقليدي من أوبن سوزي واستمتع بفوائد\n"
 "               المقدمة من المهندسين على مستوى المؤسسة والابتكارات المقدمة "
 "المجتمع."
 
 #: ../app/views/distributions/index.html.erb:42
+#, fuzzy
+#| msgid ""
+#| "Download openSUSE’s rolling release and always run the latest\n"
+#| "              packages provided by the openSUSE Project."
 msgid ""
-"Download openSUSE’s rolling release and always run the latest\n"
-"              packages provided by the openSUSE Project."
+"Download openSUSE’s rolling release and always run the latest packages "
+"provided by the openSUSE Project."
 msgstr ""
 "تحميل إصدار أوبن سوزي المتدحرجة وشغل أحدث\n"
 "               الحزم المقدمة من مشروع أوبن سوزي."
@@ -357,7 +375,7 @@ msgstr "سحب الحزم الثنائية مباشرة"
 msgid "Header Logo"
 msgstr "صورة الشعار"
 
-#: ../app/views/distributions/index.html.erb:66
+#: ../app/views/distributions/index.html.erb:64
 msgid ""
 "Help test openSUSE’s next version of Leap by downloading\n"
 "              the latest development milestone."
@@ -399,7 +417,7 @@ msgstr "كيفية إنشاء سواقة فلاش قابلة للإقلاع عل
 msgid "How to create a bootable USB stick on OS X."
 msgstr "كيفية إنشاء سواقة فلاش قابلة للإقلاع على OS X."
 
-#: ../app/views/distributions/index.html.erb:107
+#: ../app/views/distributions/index.html.erb:105
 msgid "If you are still not sure, download %{leap}"
 msgstr "إذا كنت مٌتردد، قم بتحميل %{leap}"
 
@@ -442,7 +460,7 @@ msgstr "وسائط التثبيت"
 msgid "Internet access is helpful, and required for the Network Installer"
 msgstr "الوصول إلى الإنترنت مفيد، ومطلوب للتثبيت عبر الشبكة"
 
-#: ../app/views/distributions/index.html.erb:110
+#: ../app/views/distributions/index.html.erb:108
 msgid ""
 "It is easy to <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 "\">switch to openSUSE Tumbleweed</a> if you change your mind later."
@@ -450,7 +468,7 @@ msgstr ""
 "من السهل <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade\"> "
 "التبديل إلى أوبن سوزي المتدحرجة </a>إذا غيرت رأيك لاحقا."
 
-#: ../app/views/distributions/index.html.erb:90
+#: ../app/views/distributions/index.html.erb:88
 msgid ""
 "It is not expected to change in any significant way until its next annual "
 "release."
@@ -460,7 +478,7 @@ msgstr "من غير المتوقع أن تتغير بشكل كبير حتى ال
 msgid "It should be %{fingerprint}"
 msgstr "يجب ان يكون %{fingerprint}"
 
-#: ../app/views/distributions/index.html.erb:96
+#: ../app/views/distributions/index.html.erb:94
 msgid ""
 "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
 "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
@@ -468,7 +486,7 @@ msgstr ""
 "Leap ينصح به <strong>Sysadmins</strong> ،<strong>مشروع التطوير</strong> "
 "و<strong> مستخدم سطح المكتب ’التقليدي’</strong>."
 
-#: ../app/views/distributions/index.html.erb:92
+#: ../app/views/distributions/index.html.erb:90
 msgid ""
 "Leap shares a Common Base System with %{sles}, so major architectural "
 "changes are not expected for several years, aligned with each new Major "
@@ -481,6 +499,11 @@ msgstr ""
 #: ../app/views/distributions/_documentation.html.erb:18
 msgid "License"
 msgstr "رخصة"
+
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:40
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:119
+msgid "LiveUSB Media"
+msgstr ""
 
 #: ../app/views/distributions/_verify_download.html.erb:5
 msgid ""
@@ -534,6 +557,12 @@ msgstr "لم يتم العثور على تحميلات %s في المشروع %s
 msgid "No packages found matching your search. "
 msgstr "لم يعثر على حزم تطابق بحثك. "
 
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
+#, fuzzy
+#| msgid "Tumbleweed installation media"
+msgid "Not Tested|Tumbleweed installation media"
+msgstr "وسائط تثبيت المتدحرجة"
+
 #: ../app/controllers/application_controller.rb:55
 msgid "OBS Backend not available"
 msgstr "OBS الخلفية غير متاحة"
@@ -563,6 +592,12 @@ msgstr "حزم %s:"
 #: ../app/views/distributions/leap_ports.html.erb:72
 #: ../app/views/distributions/leap_ports.html.erb:107
 #: ../app/views/distributions/leap_ports.html.erb:129
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:64
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:86
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:108
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:143
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:164
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:186
 #: ../app/views/distributions/leap.html.erb:49
 #: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/tumbleweed.html.erb:47
@@ -582,6 +617,12 @@ msgstr "إختيار رابط"
 msgid "Please Note: These LiveUSBs are not supported"
 msgstr "يرجى ملاحظة: سواقة الفلاشة الحية غير مدعومة"
 
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
+#, fuzzy
+#| msgid "Tumbleweed installation media"
+msgid "Please Use|Tumbleweed installation media"
+msgstr "وسائط تثبيت المتدحرجة"
+
 #: ../app/views/package/show.html.erb:137
 msgid ""
 "Please be aware that the following packages are from unofficial "
@@ -598,8 +639,16 @@ msgid "Please report any issues you find in our Bugtracker."
 msgstr "يرجى الإبلاغ عن أي مشاكل تواجهك باستخدام متتبع العلل."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
-msgid "Please review %{openqa}"
-msgstr "يرجى مراجعة %{openqa}"
+#, fuzzy
+#| msgid ""
+#| "test results if you want an indication whether these LiveUSBs are\n"
+#| "          working as expected."
+msgid ""
+"Please review %{openqa}'s test results if you want an indication whether "
+"these LiveUSBs are working as expected."
+msgstr ""
+"نتائج الاختبار إذا كنت تريد إشارة ما إذا كانت هذه الفلاشة الحية\n"
+"           تعمل كما هو متوقع."
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -613,7 +662,7 @@ msgstr "الفئات ذات الصلة:"
 msgid "Release Notes"
 msgstr "ملاحظات الإصدار"
 
-#: ../app/views/distributions/index.html.erb:93
+#: ../app/views/distributions/index.html.erb:91
 msgid "SUSE Linux Enterprise"
 msgstr "مؤسسة سوزي لينكس"
 
@@ -664,6 +713,8 @@ msgstr "إظهار الحزم غير المعتمدة"
 
 #: ../app/views/distributions/leap_ports.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:88
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:45
+#: ../app/views/distributions/tumbleweed_unsupported.html.erb:124
 #: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/tumbleweed.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:26
@@ -752,12 +803,7 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr "تبديل التصفح"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
-msgid "Tumbleweed installation media"
-msgstr "وسائط تثبيت المتدحرجة"
-
-#: ../app/views/distributions/index.html.erb:81
+#: ../app/views/distributions/index.html.erb:79
 msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
 "Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
@@ -804,11 +850,11 @@ msgid ""
 msgstr ""
 "حاول توسيع نطاق البحث لتطوير الحزم أو البحث عبر قاعدة توزيعة أخرى (حاليا)."
 
-#: ../app/views/distributions/index.html.erb:87
+#: ../app/views/distributions/index.html.erb:85
 msgid "annually"
 msgstr "سنويا"
 
-#: ../app/views/distributions/index.html.erb:88
+#: ../app/views/distributions/index.html.erb:86
 msgid "https://en.opensuse.org/Lifetime"
 msgstr "https://en.opensuse.org/Lifetime"
 
@@ -846,7 +892,7 @@ msgstr "https://en.opensuse.org/SDB:Live_USB_stick"
 msgid "https://en.opensuse.org/SDB:System_upgrade"
 msgstr "https://en.opensuse.org/SDB:System_upgrade"
 
-#: ../app/views/distributions/index.html.erb:87
+#: ../app/views/distributions/index.html.erb:85
 msgid "https://en.opensuse.org/openSUSE:Roadmap"
 msgstr "https://en.opensuse.org/openSUSE:Roadmap"
 
@@ -866,12 +912,12 @@ msgstr ""
 "متاح أيضا على معمارية أخرى، مثل إنتل 32 بت (ويعرف أيضا باسم i586)، AArch64 "
 "(ويعرف أيضا باسم ARMv8) و PPC64."
 
-#: ../app/views/distributions/index.html.erb:88
+#: ../app/views/distributions/index.html.erb:86
 msgid "lifetime"
 msgstr "دورة الإصدار"
 
-#: ../app/views/distributions/index.html.erb:86
-#: ../app/views/distributions/index.html.erb:107
+#: ../app/views/distributions/index.html.erb:84
+#: ../app/views/distributions/index.html.erb:105
 msgid "openSUSE Leap"
 msgstr "أوبن سوزي Leap"
 
@@ -883,7 +929,7 @@ msgstr ""
 "أوبن سوزي Leap متاح أيضا على معمارية أخرى، مثل AArch64 (ويعرف أيضا باسم "
 "ARMv8) و PPC64."
 
-#: ../app/views/distributions/index.html.erb:79
+#: ../app/views/distributions/index.html.erb:77
 msgid "openSUSE Tumbleweed"
 msgstr "أوبن سوزي المتدحرجة"
 
@@ -902,7 +948,7 @@ msgstr ""
 "يمكن استخدامها للتثبيت أو الترقية. فهي ليست دقيقة \n"
 "ولليست دليل على أن الحاسب سيشغل المتدحرجة."
 
-#: ../app/views/distributions/index.html.erb:126
+#: ../app/views/distributions/index.html.erb:124
 #, fuzzy
 #| msgid ""
 #| "openSUSE has a number of unofficial derivative distributions.\n"
@@ -920,22 +966,14 @@ msgstr ""
 msgid "openSUSE is completely free to download, use and share."
 msgstr "أوبن سوزي مجاني تماما لتحميله واستخدامه ومشاركته."
 
+#~ msgid "Please review %{openqa}"
+#~ msgstr "يرجى مراجعة %{openqa}"
+
 #~ msgid "Media"
 #~ msgstr "وسائط"
 
 #~ msgid "instead."
 #~ msgstr "بدلاً من."
-
-#, fuzzy
-#~| msgid ""
-#~| "test results if you want an indication whether these LiveUSBs are\n"
-#~| "          working as expected."
-#~ msgid ""
-#~ "test results if you want an indication whether these LiveUSBs are working "
-#~ "as expected."
-#~ msgstr ""
-#~ "نتائج الاختبار إذا كنت تريد إشارة ما إذا كانت هذه الفلاشة الحية\n"
-#~ "           تعمل كما هو متوقع."
 
 #~ msgid ""
 #~ "If you’re already running openSUSE you can upgrade by booting from the\n"

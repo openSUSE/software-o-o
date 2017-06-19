@@ -25,7 +25,7 @@
       <ul>
         <li>
           <%= _('They cannot be used to install or upgrade Tumbleweed. Please use the %{tumbleweed_media} instead.') % 
-           { tumbleweed_media: link_to _('Tumbleweed installation media'), tumbleweed_distributions_path } %>
+           { tumbleweed_media: link_to(s_('Please Use|Tumbleweed installation media'), tumbleweed_distributions_path) } %>
         </li>
         <li>
           <%= _('They have a limited package/driver selection, so cannot be considered
@@ -33,8 +33,8 @@ an accurate reflection as to whether Tumbleweed will work on your hardware or no
         </li>
         <li>
           <%= _('They are not tested as thoroughly as the %{tumbleweed_media}.') %
-              { tumbleweed_media: link_to _('Tumbleweed installation media'), tumbleweed_distributions_path } %>
-          <%= _('Please review %{openqa}'s test results if you want an indication whether these LiveUSBs are working as expected.') % { openqa: link_to('openQA', 'https://openqa.opensuse.org/') } %>
+              { tumbleweed_media: link_to(s_('Not Tested|Tumbleweed installation media'), tumbleweed_distributions_path) } %>
+          <%= _('Please review %{openqa}\'s test results if you want an indication whether these LiveUSBs are working as expected.') % { openqa: link_to('openQA', 'https://openqa.opensuse.org/') } %>
         </li>
       </ul>
       <h2 id="liveusb-media-intel"><%= _('LiveUSB Media') %> - Intel 64-bit (x86_64)</h2>
