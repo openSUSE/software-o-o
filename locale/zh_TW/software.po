@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-19 12:32+0200\n"
-"PO-Revision-Date: 2017-06-18 11:32+0000\n"
+"PO-Revision-Date: 2017-06-19 16:35+0000\n"
 "Last-Translator: Ramax Lo <ramaxlo@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/software-"
 "o-o/master/zh_TW/>\n"
@@ -45,8 +45,9 @@ msgid ""
 "Things will change regularly as Free and Open Source projects continually "
 "release new versions of their software."
 msgstr ""
-"%{tumbleweed} 是<strong>滾動式發行版本</strong>。這意味著使用來自 openSUSE 專"
-"案所提供最新的穩定版本。軟體會隨著自由和開源專案發布新版本而不斷更新。"
+"%{tumbleweed} 是一個<strong>滾動式發行版本</strong>。這意味著使用來自 "
+"openSUSE 專案所提供最新的穩定版本。軟體會隨著自由和開源專案發布新版本而不斷更"
+"新。"
 
 #: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
 msgid "(hide)"
@@ -97,8 +98,8 @@ msgid ""
 "\">openQA</a> as well as by human openSUSE contributors so both can be "
 "relied upon to work."
 msgstr ""
-"這二種發行版本都經過 <a href=\"https://openqa.opensuse.org\">openQA</a> 以及 "
-"openSUSE 專案貢獻者的詳盡測試，是故可確保其可用性。"
+"這兩種發行版本都經過 <a href=\"https://openqa.opensuse.org\">openQA</a> 以及 "
+"openSUSE 專案貢獻者的詳盡測試，故可確保其可用性。"
 
 #: ../app/views/package/show.html.erb:169
 msgid "Categories"
@@ -139,10 +140,8 @@ msgid "Community"
 msgstr "連絡"
 
 #: ../app/views/distributions/testing.html.erb:34
-#, fuzzy
-#| msgid "Currently testing"
 msgid "Currently testing %{leap_beta}"
-msgstr "目前正在測試"
+msgstr "目前正在測試 %{leap_beta}"
 
 #: ../app/views/distributions/index.html.erb:117
 msgid "Derivatives"
@@ -466,7 +465,7 @@ msgstr ""
 msgid ""
 "It is not expected to change in any significant way until its next annual "
 "release."
-msgstr "在下一年度發布之前，預計不會發生任何重大變化。"
+msgstr "在下一年度版本發行前，預期不會有任何重大變化。"
 
 #: ../app/views/distributions/_verify_download.html.erb:18
 msgid "It should be %{fingerprint}"
@@ -790,10 +789,8 @@ msgstr ""
 "<strong>Linux/FOSS 愛好者</strong>使用 Tumbleweed。"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
-#, fuzzy
-#| msgid "Unsupported"
 msgid "Unsupported LiveUSBs"
-msgstr "不支援的"
+msgstr "不支援的 LiveUSB 隨身碟"
 
 #: ../app/views/package/show.html.erb:239
 msgid "Unsupported distributions:"
@@ -906,26 +903,15 @@ msgid "openSUSE Tumbleweed"
 msgstr "openSUSE Tumbleweed"
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:5
-#, fuzzy
-#| msgid ""
-#| "They have a limited package/driver selection, so cannot be considered\n"
-#| "          an accurate reflection as to whether Tumbleweed will work on "
-#| "your\n"
-#| "          hardware or not."
 msgid ""
 "openSUSE Tumbleweed also offers a number of unsupported LiveUSBs. These\n"
 "cannot be used for Installation or Upgrade. They are not an accurate\n"
 "reflection as to whether or not Tumbleweed will run on your hardware."
 msgstr ""
-"它們只具備有限的套件/驅動程式選擇，故不能夠當作一個精確的 Tumbleweed 能否在您"
-"的硬體運作的指標。"
+"openSUSE Tumbleweed 也提供了一些不被官方支援的 LiveUSB 隨身碟。它們無法用來安"
+"裝或升級系統。它們也不能夠當作 Tumbleweed 能否在您的硬體運作的精確指標。"
 
 #: ../app/views/distributions/index.html.erb:124
-#, fuzzy
-#| msgid ""
-#| "openSUSE has a number of unofficial derivative distributions.\n"
-#| "              These are made by our awesome community, often for special\n"
-#| "              purposes."
 msgid ""
 "openSUSE has a number of unofficial derivative distributions.\n"
 "These are made by our awesome community, often for special purposes."
@@ -937,8 +923,35 @@ msgstr ""
 msgid "openSUSE is completely free to download, use and share."
 msgstr "openSUSE 完全免費下載，使用和分享。"
 
+#~ msgid ""
+#~ "Download openSUSE’s regular release and enjoy the benefits\n"
+#~ "              of both enterprise-grade engineering and community-"
+#~ "developed innovation."
+#~ msgstr ""
+#~ "下載 openSUSE 的定期發行版，享受企業級工程設計和社群開發創新的好處。"
+
+#~ msgid ""
+#~ "Download openSUSE’s rolling release and always run the latest\n"
+#~ "              packages provided by the openSUSE Project."
+#~ msgstr ""
+#~ "下載 openSUSE 的滾動式發行版，使用 openSUSE 專案所提供的最新軟體套件並且不"
+#~ "斷地更新。"
+
+#~ msgid "For more help verifing your download please read %{checksums_help}"
+#~ msgstr "需要有關驗證您的下載檔案的說明，請閱讀%{checksums_help}"
+
 #~ msgid "Please review %{openqa}"
 #~ msgstr "請查閱 %{openqa}"
+
+#~ msgid ""
+#~ "This is not a supported release. It is provided to help openSUSE testers\n"
+#~ "        find bugs before release."
+#~ msgstr ""
+#~ "這不是一個被支援的版本。它是在釋出前提供給 openSUSE 測試者來尋找錯誤的版"
+#~ "本。"
+
+#~ msgid "Tumbleweed installation media"
+#~ msgstr "Tumbleweed 安裝媒體"
 
 #~ msgid "Media"
 #~ msgstr "媒體"
