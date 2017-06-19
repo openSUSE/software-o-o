@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YaST (@memory@)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 12:00+0200\n"
+"POT-Creation-Date: 2017-06-19 12:04+0200\n"
 "PO-Revision-Date: 2010-07-17 12:57+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -100,12 +100,12 @@ msgstr "หมวดหมู่"
 
 #: ../app/views/distributions/leap_ports.html.erb:29
 #: ../app/views/distributions/leap_ports.html.erb:90
-#: ../app/views/distributions/testing.html.erb:50
 #: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/tumbleweed.html.erb:30
 #: ../app/views/distributions/tumbleweed_ports.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:85
 #: ../app/views/distributions/tumbleweed_ports.html.erb:142
+#: ../app/views/distributions/testing.html.erb:50
 #, fuzzy
 #| msgid "md5 checksum"
 msgid "Checksum"
@@ -131,7 +131,7 @@ msgid "Community"
 msgstr "ชุมชน"
 
 #: ../app/views/distributions/testing.html.erb:34
-msgid "Currently testing"
+msgid "Currently testing %{leap_beta}"
 msgstr ""
 
 #: ../app/views/distributions/index.html.erb:119
@@ -164,8 +164,6 @@ msgstr "การติดตั้งไว้ในไดเรกทอรี
 #: ../app/views/distributions/leap_ports.html.erb:64
 #: ../app/views/distributions/leap_ports.html.erb:99
 #: ../app/views/distributions/leap_ports.html.erb:121
-#: ../app/views/distributions/testing.html.erb:59
-#: ../app/views/distributions/testing.html.erb:81
 #: ../app/views/distributions/leap.html.erb:37
 #: ../app/views/distributions/leap.html.erb:63
 #: ../app/views/distributions/tumbleweed.html.erb:39
@@ -176,6 +174,8 @@ msgstr "การติดตั้งไว้ในไดเรกทอรี
 #: ../app/views/distributions/tumbleweed_ports.html.erb:116
 #: ../app/views/distributions/tumbleweed_ports.html.erb:151
 #: ../app/views/distributions/tumbleweed_ports.html.erb:173
+#: ../app/views/distributions/testing.html.erb:59
+#: ../app/views/distributions/testing.html.erb:81
 msgid "Direct Link"
 msgstr "ดาวน์โหลดโดยตรง"
 
@@ -191,12 +191,12 @@ msgstr "ไม่ต้องแสดงข้อความนี้อีก
 
 #: ../app/views/distributions/leap_ports.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:89
-#: ../app/views/distributions/testing.html.erb:49
 #: ../app/views/distributions/leap.html.erb:27
 #: ../app/views/distributions/tumbleweed.html.erb:29
 #: ../app/views/distributions/tumbleweed_ports.html.erb:27
 #: ../app/views/distributions/tumbleweed_ports.html.erb:84
 #: ../app/views/distributions/tumbleweed_ports.html.erb:141
+#: ../app/views/distributions/testing.html.erb:49
 msgid "Download Method"
 msgstr "วิธีการดาวน์โหลด"
 
@@ -423,12 +423,12 @@ msgstr "กำลังติดตั้งตามรูปแบบ..."
 msgid "Install using One Click Install"
 msgstr ""
 
-#: ../app/views/distributions/testing.html.erb:43
 #: ../app/views/distributions/leap.html.erb:21
 #: ../app/views/distributions/tumbleweed.html.erb:23
 #: ../app/views/distributions/tumbleweed_ports.html.erb:21
 #: ../app/views/distributions/tumbleweed_ports.html.erb:78
 #: ../app/views/distributions/tumbleweed_ports.html.erb:135
+#: ../app/views/distributions/testing.html.erb:43
 #, fuzzy
 #| msgid "Installation Medium"
 msgid "Installation Media"
@@ -494,10 +494,10 @@ msgstr "สื่อประสม"
 
 #: ../app/views/distributions/leap_ports.html.erb:60
 #: ../app/views/distributions/leap_ports.html.erb:117
-#: ../app/views/distributions/testing.html.erb:77
 #: ../app/views/distributions/tumbleweed.html.erb:57
 #: ../app/views/distributions/tumbleweed_ports.html.erb:112
 #: ../app/views/distributions/tumbleweed_ports.html.erb:169
+#: ../app/views/distributions/testing.html.erb:77
 msgid "Network"
 msgstr "ระบบเครือข่าย"
 
@@ -558,8 +558,6 @@ msgstr "แพกเกจที่จะเรียกคืนข้อมู
 #: ../app/views/distributions/leap_ports.html.erb:72
 #: ../app/views/distributions/leap_ports.html.erb:107
 #: ../app/views/distributions/leap_ports.html.erb:129
-#: ../app/views/distributions/testing.html.erb:67
-#: ../app/views/distributions/testing.html.erb:89
 #: ../app/views/distributions/leap.html.erb:49
 #: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/tumbleweed.html.erb:47
@@ -570,6 +568,8 @@ msgstr "แพกเกจที่จะเรียกคืนข้อมู
 #: ../app/views/distributions/tumbleweed_ports.html.erb:124
 #: ../app/views/distributions/tumbleweed_ports.html.erb:159
 #: ../app/views/distributions/tumbleweed_ports.html.erb:181
+#: ../app/views/distributions/testing.html.erb:67
+#: ../app/views/distributions/testing.html.erb:89
 msgid "Pick Mirror"
 msgstr "เลือกแม่ข่ายสำรอง"
 
@@ -666,12 +666,12 @@ msgstr "แพกเกจที่แนะนำ"
 
 #: ../app/views/distributions/leap_ports.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:88
-#: ../app/views/distributions/testing.html.erb:48
 #: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/tumbleweed.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:26
 #: ../app/views/distributions/tumbleweed_ports.html.erb:83
 #: ../app/views/distributions/tumbleweed_ports.html.erb:140
+#: ../app/views/distributions/testing.html.erb:48
 msgid "Size"
 msgstr ""
 

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: software-opensuse-org.km\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 12:00+0200\n"
+"POT-Creation-Date: 2017-06-19 12:04+0200\n"
 "PO-Revision-Date: 2011-02-10 08:50+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -98,12 +98,12 @@ msgstr "ប្រភេទ"
 
 #: ../app/views/distributions/leap_ports.html.erb:29
 #: ../app/views/distributions/leap_ports.html.erb:90
-#: ../app/views/distributions/testing.html.erb:50
 #: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/tumbleweed.html.erb:30
 #: ../app/views/distributions/tumbleweed_ports.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:85
 #: ../app/views/distributions/tumbleweed_ports.html.erb:142
+#: ../app/views/distributions/testing.html.erb:50
 #, fuzzy
 #| msgid "md5 checksum"
 msgid "Checksum"
@@ -129,7 +129,7 @@ msgid "Community"
 msgstr "សហគមន៍"
 
 #: ../app/views/distributions/testing.html.erb:34
-msgid "Currently testing"
+msgid "Currently testing %{leap_beta}"
 msgstr ""
 
 #: ../app/views/distributions/index.html.erb:119
@@ -161,8 +161,6 @@ msgstr "ដំឡើង​ដោយ​ផ្ទាល់"
 #: ../app/views/distributions/leap_ports.html.erb:64
 #: ../app/views/distributions/leap_ports.html.erb:99
 #: ../app/views/distributions/leap_ports.html.erb:121
-#: ../app/views/distributions/testing.html.erb:59
-#: ../app/views/distributions/testing.html.erb:81
 #: ../app/views/distributions/leap.html.erb:37
 #: ../app/views/distributions/leap.html.erb:63
 #: ../app/views/distributions/tumbleweed.html.erb:39
@@ -173,6 +171,8 @@ msgstr "ដំឡើង​ដោយ​ផ្ទាល់"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:116
 #: ../app/views/distributions/tumbleweed_ports.html.erb:151
 #: ../app/views/distributions/tumbleweed_ports.html.erb:173
+#: ../app/views/distributions/testing.html.erb:59
+#: ../app/views/distributions/testing.html.erb:81
 msgid "Direct Link"
 msgstr "តំណ​ផ្ទាល់"
 
@@ -186,12 +186,12 @@ msgstr "កុំ​បង្ហាញ​សារ​ព្រមាន​នេ
 
 #: ../app/views/distributions/leap_ports.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:89
-#: ../app/views/distributions/testing.html.erb:49
 #: ../app/views/distributions/leap.html.erb:27
 #: ../app/views/distributions/tumbleweed.html.erb:29
 #: ../app/views/distributions/tumbleweed_ports.html.erb:27
 #: ../app/views/distributions/tumbleweed_ports.html.erb:84
 #: ../app/views/distributions/tumbleweed_ports.html.erb:141
+#: ../app/views/distributions/testing.html.erb:49
 msgid "Download Method"
 msgstr "វិធីសាស្ត្រ​ទាញយក​"
 
@@ -416,12 +416,12 @@ msgstr "ដំឡើង​លំនាំ %s / %s"
 msgid "Install using One Click Install"
 msgstr "ដំឡើង​ដោយ​ប្រើ​ One Click Install"
 
-#: ../app/views/distributions/testing.html.erb:43
 #: ../app/views/distributions/leap.html.erb:21
 #: ../app/views/distributions/tumbleweed.html.erb:23
 #: ../app/views/distributions/tumbleweed_ports.html.erb:21
 #: ../app/views/distributions/tumbleweed_ports.html.erb:78
 #: ../app/views/distributions/tumbleweed_ports.html.erb:135
+#: ../app/views/distributions/testing.html.erb:43
 #, fuzzy
 #| msgid "Installation Medium"
 msgid "Installation Media"
@@ -488,10 +488,10 @@ msgstr "ពហុ​ព័ត៌មាន"
 
 #: ../app/views/distributions/leap_ports.html.erb:60
 #: ../app/views/distributions/leap_ports.html.erb:117
-#: ../app/views/distributions/testing.html.erb:77
 #: ../app/views/distributions/tumbleweed.html.erb:57
 #: ../app/views/distributions/tumbleweed_ports.html.erb:112
 #: ../app/views/distributions/tumbleweed_ports.html.erb:169
+#: ../app/views/distributions/testing.html.erb:77
 msgid "Network"
 msgstr "បណ្ដាញ​"
 
@@ -551,8 +551,6 @@ msgstr "កញ្ចប់​សម្រាប់ %s ៖"
 #: ../app/views/distributions/leap_ports.html.erb:72
 #: ../app/views/distributions/leap_ports.html.erb:107
 #: ../app/views/distributions/leap_ports.html.erb:129
-#: ../app/views/distributions/testing.html.erb:67
-#: ../app/views/distributions/testing.html.erb:89
 #: ../app/views/distributions/leap.html.erb:49
 #: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/tumbleweed.html.erb:47
@@ -563,6 +561,8 @@ msgstr "កញ្ចប់​សម្រាប់ %s ៖"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:124
 #: ../app/views/distributions/tumbleweed_ports.html.erb:159
 #: ../app/views/distributions/tumbleweed_ports.html.erb:181
+#: ../app/views/distributions/testing.html.erb:67
+#: ../app/views/distributions/testing.html.erb:89
 msgid "Pick Mirror"
 msgstr "យក​​កញ្ចក់"
 
@@ -657,12 +657,12 @@ msgstr "បង្ហាញ​កញ្ចប់​ដែល​មិន​គា
 
 #: ../app/views/distributions/leap_ports.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:88
-#: ../app/views/distributions/testing.html.erb:48
 #: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/tumbleweed.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:26
 #: ../app/views/distributions/tumbleweed_ports.html.erb:83
 #: ../app/views/distributions/tumbleweed_ports.html.erb:140
+#: ../app/views/distributions/testing.html.erb:48
 msgid "Size"
 msgstr ""
 

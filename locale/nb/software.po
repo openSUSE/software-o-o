@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 12:00+0200\n"
+"POT-Creation-Date: 2017-06-19 12:04+0200\n"
 "PO-Revision-Date: 2017-06-15 13:10+0000\n"
 "Last-Translator: Andreas Saga Romsdal <trash@ehtele.com>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.opensuse.org/projects/software-"
@@ -110,12 +110,12 @@ msgstr "Kategori"
 
 #: ../app/views/distributions/leap_ports.html.erb:29
 #: ../app/views/distributions/leap_ports.html.erb:90
-#: ../app/views/distributions/testing.html.erb:50
 #: ../app/views/distributions/leap.html.erb:28
 #: ../app/views/distributions/tumbleweed.html.erb:30
 #: ../app/views/distributions/tumbleweed_ports.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:85
 #: ../app/views/distributions/tumbleweed_ports.html.erb:142
+#: ../app/views/distributions/testing.html.erb:50
 msgid "Checksum"
 msgstr "Kontrollsum"
 
@@ -137,7 +137,9 @@ msgid "Community"
 msgstr "OpenSUSE-fellesskapet"
 
 #: ../app/views/distributions/testing.html.erb:34
-msgid "Currently testing"
+#, fuzzy
+#| msgid "Currently testing"
+msgid "Currently testing %{leap_beta}"
 msgstr "Tester nå"
 
 #: ../app/views/distributions/index.html.erb:119
@@ -165,8 +167,6 @@ msgstr "Direkte installasjon"
 #: ../app/views/distributions/leap_ports.html.erb:64
 #: ../app/views/distributions/leap_ports.html.erb:99
 #: ../app/views/distributions/leap_ports.html.erb:121
-#: ../app/views/distributions/testing.html.erb:59
-#: ../app/views/distributions/testing.html.erb:81
 #: ../app/views/distributions/leap.html.erb:37
 #: ../app/views/distributions/leap.html.erb:63
 #: ../app/views/distributions/tumbleweed.html.erb:39
@@ -177,6 +177,8 @@ msgstr "Direkte installasjon"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:116
 #: ../app/views/distributions/tumbleweed_ports.html.erb:151
 #: ../app/views/distributions/tumbleweed_ports.html.erb:173
+#: ../app/views/distributions/testing.html.erb:59
+#: ../app/views/distributions/testing.html.erb:81
 msgid "Direct Link"
 msgstr "Direkte forbindelse"
 
@@ -190,12 +192,12 @@ msgstr "Ikke vis denne advarselen igjen"
 
 #: ../app/views/distributions/leap_ports.html.erb:28
 #: ../app/views/distributions/leap_ports.html.erb:89
-#: ../app/views/distributions/testing.html.erb:49
 #: ../app/views/distributions/leap.html.erb:27
 #: ../app/views/distributions/tumbleweed.html.erb:29
 #: ../app/views/distributions/tumbleweed_ports.html.erb:27
 #: ../app/views/distributions/tumbleweed_ports.html.erb:84
 #: ../app/views/distributions/tumbleweed_ports.html.erb:141
+#: ../app/views/distributions/testing.html.erb:49
 msgid "Download Method"
 msgstr "Nedlastingsmetode"
 
@@ -438,12 +440,12 @@ msgstr "Installer mønsteret %s / %s"
 msgid "Install using One Click Install"
 msgstr "Installer med ett klikk"
 
-#: ../app/views/distributions/testing.html.erb:43
 #: ../app/views/distributions/leap.html.erb:21
 #: ../app/views/distributions/tumbleweed.html.erb:23
 #: ../app/views/distributions/tumbleweed_ports.html.erb:21
 #: ../app/views/distributions/tumbleweed_ports.html.erb:78
 #: ../app/views/distributions/tumbleweed_ports.html.erb:135
+#: ../app/views/distributions/testing.html.erb:43
 msgid "Installation Media"
 msgstr "Installasjonsmedier"
 
@@ -519,10 +521,10 @@ msgstr "Multimedia"
 
 #: ../app/views/distributions/leap_ports.html.erb:60
 #: ../app/views/distributions/leap_ports.html.erb:117
-#: ../app/views/distributions/testing.html.erb:77
 #: ../app/views/distributions/tumbleweed.html.erb:57
 #: ../app/views/distributions/tumbleweed_ports.html.erb:112
 #: ../app/views/distributions/tumbleweed_ports.html.erb:169
+#: ../app/views/distributions/testing.html.erb:77
 msgid "Network"
 msgstr "Nettverk"
 
@@ -579,8 +581,6 @@ msgstr "Pakker for %s:"
 #: ../app/views/distributions/leap_ports.html.erb:72
 #: ../app/views/distributions/leap_ports.html.erb:107
 #: ../app/views/distributions/leap_ports.html.erb:129
-#: ../app/views/distributions/testing.html.erb:67
-#: ../app/views/distributions/testing.html.erb:89
 #: ../app/views/distributions/leap.html.erb:49
 #: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/tumbleweed.html.erb:47
@@ -591,6 +591,8 @@ msgstr "Pakker for %s:"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:124
 #: ../app/views/distributions/tumbleweed_ports.html.erb:159
 #: ../app/views/distributions/tumbleweed_ports.html.erb:181
+#: ../app/views/distributions/testing.html.erb:67
+#: ../app/views/distributions/testing.html.erb:89
 msgid "Pick Mirror"
 msgstr "Velg en speilserver"
 
@@ -688,12 +690,12 @@ msgstr "Vis uoffisielle pakker"
 
 #: ../app/views/distributions/leap_ports.html.erb:27
 #: ../app/views/distributions/leap_ports.html.erb:88
-#: ../app/views/distributions/testing.html.erb:48
 #: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/tumbleweed.html.erb:28
 #: ../app/views/distributions/tumbleweed_ports.html.erb:26
 #: ../app/views/distributions/tumbleweed_ports.html.erb:83
 #: ../app/views/distributions/tumbleweed_ports.html.erb:140
+#: ../app/views/distributions/testing.html.erb:48
 msgid "Size"
 msgstr ""
 
