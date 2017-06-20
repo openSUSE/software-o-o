@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-19 12:32+0200\n"
-"PO-Revision-Date: 2017-06-18 08:47+0000\n"
-"Last-Translator: Antoine Belvire <antoine.belvire@laposte.net>\n"
-"Language-Team: French <https://l10n.opensuse.org/projects/software-o-o/"
-"master/fr/>\n"
+"PO-Revision-Date: 2017-06-20 08:11+0000\n"
+"Last-Translator: Guillaume GARDET <guillaume.gardet@opensuse.org>\n"
+"Language-Team: French "
+"<https://l10n.opensuse.org/projects/software-o-o/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -138,10 +138,9 @@ msgid "Community"
 msgstr "Communauté"
 
 #: ../app/views/distributions/testing.html.erb:34
-#, fuzzy
 #| msgid "Currently testing"
 msgid "Currently testing %{leap_beta}"
-msgstr "En cours de test"
+msgstr "Actuellement en test %{leap_beta}"
 
 #: ../app/views/distributions/index.html.erb:117
 msgid "Derivatives"
@@ -235,9 +234,11 @@ msgid ""
 "Download openSUSE’s regular release and enjoy the benefits of both "
 "enterprise-grade engineering and community-developed innovation."
 msgstr ""
+"Téléchargez la version openSUSE standard et appréciez les bénéfices à la "
+"fois de la qualité issue de l'entreprise et l'innovation apportée par la "
+"communauté."
 
 #: ../app/views/distributions/index.html.erb:42
-#, fuzzy
 #| msgid ""
 #| "Download openSUSE’s rolling release and always run the latest\n"
 #| "              packages provided by the openSUSE Project."
@@ -245,8 +246,8 @@ msgid ""
 "Download openSUSE’s rolling release and always run the latest packages "
 "provided by the openSUSE Project."
 msgstr ""
-"Téléchargez la variante en rolling release d'openSUSE et bénéficiez des "
-"derniers logiciels empaquetés par le projet openSUSE."
+"Téléchargez la version en rolling release d'openSUSE et bénéficiez des "
+"derniers logiciels fournis par le projet openSUSE."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
 msgid ""
@@ -392,6 +393,9 @@ msgid ""
 "              regular-release distribution for desktop PCs, laptops,\n"
 "              and servers."
 msgstr ""
+"Aidez à tester la prochaine version d'openSUSE Leap, la\n"
+"              version standard pour les PC de bureau, les portables,\n"
+"              et les serveurs."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
@@ -428,6 +432,10 @@ msgid ""
 "DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
 "commands."
 msgstr ""
+"Si vous utilisez déjà openSUSE, vous pouvez mettre à niveau en démarrant\n"
+"sur le DVD/USB et en choisissant Mise à niveau, ou en effectuant une 'mise à "
+"jour en ligne'\n"
+"avec quelques commandes."
 
 #: ../app/views/download/appliance.erb:57
 msgid "Image:"
@@ -506,7 +514,7 @@ msgstr "Licence"
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:40
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:119
 msgid "LiveUSB Media"
-msgstr ""
+msgstr "Média USB live"
 
 #: ../app/views/distributions/_verify_download.html.erb:5
 msgid ""
@@ -569,10 +577,9 @@ msgid "No packages found matching your search. "
 msgstr "Aucun paquet correspondant à votre recherche. "
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
-#, fuzzy
 #| msgid "Tumbleweed installation media"
 msgid "Not Tested|Tumbleweed installation media"
-msgstr "Média d'installation de Tumbleweed"
+msgstr "Non testé|Média d'installation de Tumbleweed"
 
 #: ../app/controllers/application_controller.rb:55
 msgid "OBS Backend not available"
@@ -630,10 +637,9 @@ msgid "Please Note: These LiveUSBs are not supported"
 msgstr "Veuillez noter que ces LiveUSB ne sont pas officiellement supportés"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
-#, fuzzy
 #| msgid "Tumbleweed installation media"
 msgid "Please Use|Tumbleweed installation media"
-msgstr "Média d'installation de Tumbleweed"
+msgstr "Veuillez utiliser|Média d'installation de Tumbleweed"
 
 #: ../app/views/package/show.html.erb:137
 msgid ""
@@ -656,6 +662,8 @@ msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
 "these LiveUSBs are working as expected."
 msgstr ""
+"Veuillez vérifier les résultats de test %{openqa} si vous voulez savoir si "
+"ce live USB fonctionne correctement."
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -778,13 +786,15 @@ msgstr "Puis exécutez en tant que <strong>root</strong>"
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:35
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
-msgstr ""
+msgstr "Ils ne sont pas testés aussi complètement que le %{tumbleweed_media}."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:27
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
 msgstr ""
+"Ils ne peuvent pas être utilisés pour installer ou mettre à jour Tumbleweed. "
+"Veuillez utiliser %{tumbleweed_media} à la place."
 
 #: ../app/views/distributions/tumbleweed_unsupported.html.erb:31
 msgid ""
@@ -792,12 +802,18 @@ msgid ""
 "an accurate reflection as to whether Tumbleweed will work on your hardware "
 "or not."
 msgstr ""
+"Ils disposent d'une sélection limitée de paquets/pilotes, et ne peuvent donc "
+"pas\n"
+"être considérés comme une indication précise si Tumbleweed fonctionnera ou "
+"non sur votre matériel."
 
 #: ../app/views/distributions/testing.html.erb:36
 msgid ""
 "This is not a supported release. It is provided to help openSUSE testers "
 "find bugs before release."
 msgstr ""
+"Ce n'est pas une version supportée. Elle est fournie pour aider les testeurs "
+"openSUSE à trouver des bogues avant la sortie."
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
@@ -813,10 +829,9 @@ msgstr ""
 "utilisateurs avancés</strong>."
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
-#, fuzzy
 #| msgid "Unsupported"
 msgid "Unsupported LiveUSBs"
-msgstr "Non supporté"
+msgstr "Live USB non supporté"
 
 #: ../app/views/package/show.html.erb:239
 msgid "Unsupported distributions:"
@@ -946,9 +961,13 @@ msgid ""
 "cannot be used for Installation or Upgrade. They are not an accurate\n"
 "reflection as to whether or not Tumbleweed will run on your hardware."
 msgstr ""
+"openSUSE Tumbleweed offre également plusieurs Live USB non supportés. Ils ne "
+"peuvent pas\n"
+"être utilisés pour une installation ou une mise à jour. Ils ne sont pas une "
+"indication précise si\n"
+"Tumbleweed fonctionnera ou non sur votre matériel."
 
 #: ../app/views/distributions/index.html.erb:124
-#, fuzzy
 #| msgid ""
 #| "openSUSE has a number of unofficial derivative distributions.\n"
 #| "              These are made by our awesome community, often for special\n"
@@ -957,8 +976,9 @@ msgid ""
 "openSUSE has a number of unofficial derivative distributions.\n"
 "These are made by our awesome community, often for special purposes."
 msgstr ""
-"openSUSE a un certain nombre de distribution dérivées non-officielles. Elles "
-"sont construites par notre communauté, souvent pour des besoins spécifiques."
+"openSUSE a un certain nombre de distributions dérivées non-officielles.\n"
+"Elles sont construites par notre communauté, souvent pour des besoins "
+"spécifiques."
 
 #: ../app/views/distributions/index.html.erb:10
 msgid "openSUSE is completely free to download, use and share."
