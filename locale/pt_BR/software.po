@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: software\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-19 12:32+0200\n"
-"PO-Revision-Date: 2017-06-22 19:37+0000\n"
+"PO-Revision-Date: 2017-06-22 19:55+0000\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive68@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://l10n.opensuse.org/projects/software-o-o/master/pt_BR/>\n"
@@ -32,9 +32,9 @@ msgid ""
 "%{annually}, with security and stability updates being the priority during "
 "each release %{lifetime}."
 msgstr ""
-"%{leap} é um <strong>lançamento regular</strong>. Isso significa que ele "
-"libera %{annually}, com as atualizações de segurança e estabilidade sendo a "
-"prioridade durante cada lançamento %{lifetime}."
+"%{leap} é uma versão de <strong>lançamento regular</strong>. Isto significa "
+"que é lançado %{annually}, com atualizações de segurança e estabilidade "
+"sendo a prioridade durante o %{lifetime} de cada versão."
 
 #: ../app/views/distributions/index.html.erb:77
 msgid ""
@@ -43,12 +43,11 @@ msgid ""
 "Things will change regularly as Free and Open Source projects continually "
 "release new versions of their software."
 msgstr ""
-"%{tumbleweed} é uma <strong>versão de lançamento contínuo</strong>. Isto "
-"significa que o\n"
-"        software está sempre na versão estável mais recente disponível pelo "
-"Projeto\n"
-"        openSUSE. As coisas mudam regularmente pois os projetos livres e de\n"
-"        código aberto lançam continuamente novas versões de seus softwares."
+"%{tumbleweed} é uma versão de <strong>lançamento contínuo</strong>. Isto "
+"significa que o software está sempre na versão estável mais recente "
+"disponível pelo Projeto openSUSE. As coisas mudam regularmente pois os "
+"projetos livres e de código aberto lançam continuamente novas versões de "
+"seus softwares."
 
 #: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
 msgid "(hide)"
@@ -100,9 +99,9 @@ msgid ""
 "\">openQA</a> as well as by human openSUSE contributors so both can be "
 "relied upon to work."
 msgstr ""
-"As duas distribuições são bem testadas pelo <a href=\"https://openqa."
-"opensuse.org\">openQA</a> e por colaboradores do openSUSE, portanto ambas "
-"são confiáveis para se usar."
+"Ambas distribuições são bem testadas pelo <a href=\"https://openqa.opensuse."
+"org\">openQA</a> bem como por colaboradores do openSUSE, portanto ambas são "
+"confiáveis para se usar."
 
 #: ../app/views/package/show.html.erb:169
 msgid "Categories"
@@ -218,20 +217,20 @@ msgid ""
 "Download alternative architecture versions of openSUSE Leap, for desktop "
 "PCs, laptops, and servers."
 msgstr ""
-"Baixe versões do openSUSE Leap para arquiteturas alternativas para PCs, "
-"laptops, e servidores."
+"Baixe versões de arquiteturas alternativas do openSUSE Leap para PCs, "
+"laptops e servidores."
 
 #: ../app/views/distributions/tumbleweed_ports.html.erb:10
 msgid ""
 "Download alternative architectures of the rolling version of openSUSE, for "
 "desktop PCs, laptops, and servers."
 msgstr ""
-"Baixe versões contínuas do openSUSE para arquiteturas alternativas para PCs, "
-"notebooks e servidores."
+"Baixe versões de arquiteturas alternativas do openSUSE Tumbleweed para para "
+"PCs, laptops e servidores."
 
 #: ../app/controllers/download_controller.rb:36
 msgid "Download appliance from %s"
-msgstr "Baixar o appliance apartir de %s"
+msgstr "Baixar appliance a partir de %s"
 
 #: ../app/views/distributions/index.html.erb:45
 msgid ""
@@ -254,8 +253,8 @@ msgid ""
 "Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, "
 "laptops, and servers."
 msgstr ""
-"Baixe os LiveUSBs da versão de lançamento contínuo do openSUSE,\n"
-"              para PCs, laptops e servidores."
+"Baixe o LiveUSB da versão de lançamento contínuo do openSUSE, para PCs, "
+"laptops e servidores."
 
 #: ../app/views/distributions/leap.html.erb:10
 msgid ""
@@ -268,8 +267,8 @@ msgid ""
 "Download the rolling version of openSUSE, for desktop PCs,\n"
 "laptops, and servers."
 msgstr ""
-"Baixe a versão contínua do openSUSE para PCs,\n"
-"notebooks e servidores."
+"Baixe a versão de lançamento contínuo do openSUSE para PCs,\n"
+"laptops e servidores."
 
 #: ../app/views/layouts/application.html.erb:63
 #: ../app/views/layouts/download.html.erb:57
@@ -286,7 +285,7 @@ msgstr "Modo fácil de mudar para o openSUSE Tumbleweed"
 
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
-msgstr "Ou um drive de DVD ou porta USB para a instalação da mídia"
+msgstr "Unidade de DVD ou porta USB para a instalação da mídia"
 
 #: ../app/views/package/show.html.erb:252
 msgid "Expand all sections ('e')"
@@ -307,7 +306,7 @@ msgid ""
 "(note that the order of repositories in pacman.conf is important, since "
 "pacman always downloads the first found package):"
 msgstr ""
-"Para o <strong>Arch Linux</strong>, edite o /etc/pacman.conf e adicione o "
+"Para o <strong>Arch Linux</strong>, edite /etc/pacman.conf e adicione o "
 "seguinte (note que a ordem dos repositórios no pacman.conf é importante, já "
 "que o pacman sempre baixa o primeiro pacote encontrado):"
 
@@ -391,7 +390,7 @@ msgid ""
 "              and servers."
 msgstr ""
 "Ajude a testar a próxima versão do openSUSE Leap,\n"
-"              o lançamento regular da distribuição para PCs, laptops,\n"
+"              o lançamento regular da distribuição para PCs, laptops\n"
 "              e servidores."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
@@ -420,7 +419,7 @@ msgstr "Como criar um pendrive USB inicializável no OS X."
 
 #: ../app/views/distributions/index.html.erb:105
 msgid "If you are still not sure, download %{leap}"
-msgstr "Se ainda não tiver certeza, baixe %{leap}"
+msgstr "Se ainda não tiver certeza, baixe o %{leap}"
 
 #: ../app/views/distributions/_leap_switch.html.erb:5
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:5
@@ -429,11 +428,9 @@ msgid ""
 "DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
 "commands."
 msgstr ""
-"Se você já estiver executando o openSUSE, você pode atualizá-lo reiniciando "
-"o PC pelo\n"
-"DVD/USB e escolhendo atualizar, ou fazer uma 'Atualização Online' usando "
-"alguns\n"
-"comandos."
+"Se você já estiver executando o openSUSE, você pode atualizá-lo reiniciando\n"
+"o PC pelo DVD/USB e escolhendo Atualizar, ou fazer uma 'Atualização Online'\n"
+"usando alguns comandos."
 
 #: ../app/views/download/appliance.erb:57
 msgid "Image:"
@@ -462,7 +459,7 @@ msgstr "Mídia de instalação"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
-msgstr "Acesso à Internet é útil e necessário para a instalação via rede"
+msgstr "O acesso à Internet é útil e necessário para a instalação via rede"
 
 #: ../app/views/distributions/index.html.erb:108
 msgid ""
@@ -470,7 +467,7 @@ msgid ""
 "\">switch to openSUSE Tumbleweed</a> if you change your mind later."
 msgstr ""
 "É simples <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade\"> "
-"alterar para o openSUSE Tumbleweed</a> caso você venha a mudar de ideia."
+"mudar para o openSUSE Tumbleweed</a> caso você venha a mudar de ideia."
 
 #: ../app/views/distributions/index.html.erb:88
 msgid ""
@@ -498,7 +495,7 @@ msgid ""
 "changes are not expected for several years, aligned with each new Major "
 "Release (eg 12, 13, etc) of SUSE Linux Enterprise."
 msgstr ""
-"O Leap compartilha um Sistema de Base Comum com o %{sles}, portanto grandes "
+"O Leap compartilha um sistema de base comum com o %{sles}, portanto grandes "
 "alterações arquitetônicas não são esperadas por vários anos, alinhadas com "
 "cada nova grande versão (ex 12, 13, etc) do SUSE Linux Enterprise."
 
@@ -584,7 +581,7 @@ msgstr "Mais de 40 GB de espaço livre em disco"
 
 #: ../app/views/package/show.html.erb:149
 msgid "Package %s not found..."
-msgstr "Pacote '%s' não encontrado..."
+msgstr "Pacote %s não encontrado..."
 
 #: ../app/views/layouts/jekyll.html.erb:45
 #: ../app/views/search/_find_form.html.erb:23
@@ -636,7 +633,7 @@ msgid ""
 "experimental software."
 msgstr ""
 "Note que os seguintes pacotes são de repositórios não oficiais.\n"
-"  Isto significa que eles não foram revisados pelo openSUSE e podem conter "
+"Isto significa que eles não foram revisados pelo openSUSE e podem conter "
 "software instável e experimental."
 
 #: ../app/views/distributions/testing.html.erb:39
