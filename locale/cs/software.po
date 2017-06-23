@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-19 12:32+0200\n"
-"PO-Revision-Date: 2017-03-06 13:54+0000\n"
+"PO-Revision-Date: 2017-06-23 14:31+0000\n"
 "Last-Translator: Tomáš Chvátal <tchvatal@suse.com>\n"
-"Language-Team: Czech <https://l10n.opensuse.org/projects/software-o-o/master/"
-"cs/>\n"
+"Language-Team: Czech "
+"<https://l10n.opensuse.org/projects/software-o-o/master/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.6\n"
+"X-Generator: Weblate 2.13.1\n"
 
 #: ../app/views/search/_find_results.html.erb:94
 msgid " and "
@@ -112,10 +112,8 @@ msgid "Checksums Help"
 msgstr ""
 
 #: ../app/views/distributions/_choosing_media.html.erb:2
-#, fuzzy
-#| msgid "Click to Download"
 msgid "Choosing Which Media to Download"
-msgstr "Klikněte a stáhněte"
+msgstr "Výběr média ke stažení"
 
 #: ../app/views/distributions/index.html.erb:74
 msgid "Choosing which Distribution to Download"
@@ -131,10 +129,8 @@ msgid "Currently testing %{leap_beta}"
 msgstr ""
 
 #: ../app/views/distributions/index.html.erb:117
-#, fuzzy
-#| msgid "openSUSE Derivatives"
 msgid "Derivatives"
-msgstr "Odvozeniny openSUSE"
+msgstr "Deriváty"
 
 #: ../app/views/layouts/application.html.erb:66
 #: ../app/views/layouts/download.html.erb:60
@@ -293,15 +289,11 @@ msgstr ""
 "součtem."
 
 #: ../app/views/distributions/_verify_download.html.erb:16
-#, fuzzy
-#| msgid ""
-#| "For extra security, you can use GPG to verify who signed those .sha256 "
-#| "files. It should be %s."
 msgid ""
 "For extra security, you can use GPG to verify who signed those .sha256 files."
 msgstr ""
 "Pro větší bezpečnost můžete pomocí GPG ověřit, kdo podepsal tyto .sha256 "
-"soubory. Měl by to být %s."
+"soubory."
 
 #: ../app/views/distributions/_verify_download.html.erb:22
 msgid "For more help verifying your download please read %{checksums_help}"
@@ -320,10 +312,8 @@ msgid "From an older version or other Linux distro"
 msgstr ""
 
 #: ../app/views/distributions/_documentation.html.erb:23
-#, fuzzy
-#| msgid "Documentation"
 msgid "Full Documentation"
-msgstr "Dokumentace"
+msgstr "Plná Dokumentace"
 
 #: ../app/views/package/categories.html.erb:17
 msgid "Games"
@@ -427,10 +417,8 @@ msgstr "Instalovat pomocí Instalace jedním klepnutím"
 #: ../app/views/distributions/tumbleweed_ports.html.erb:78
 #: ../app/views/distributions/tumbleweed_ports.html.erb:135
 #: ../app/views/distributions/testing.html.erb:42
-#, fuzzy
-#| msgid "Installation Medium"
 msgid "Installation Media"
-msgstr "Instalační médium"
+msgstr "Instalační média"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
@@ -598,12 +586,6 @@ msgid "Please Use|Tumbleweed installation media"
 msgstr "Instalační médium"
 
 #: ../app/views/package/show.html.erb:137
-#, fuzzy
-#| msgid ""
-#| "Please be aware that the following packages are from unofficial "
-#| "repositories.\n"
-#| "  That means they are not reviewed by openSUSE and may contain unstable "
-#| "or experimental software."
 msgid ""
 "Please be aware that the following packages are from unofficial "
 "repositories.\n"
@@ -612,7 +594,7 @@ msgid ""
 msgstr ""
 "Buďte si prosím vědomi, že následující balíčky jsou z neoficiálních "
 "repozitářů.\n"
-"  To znamená, že nebyly openSUSE prohlédnuty a mohou obsahovat nestabilní "
+"To znamená, že nebyly kontrolovány openSUSE a mohou obsahovat nestabilní "
 "nebo experimentální software."
 
 #: ../app/views/distributions/testing.html.erb:39
@@ -634,10 +616,8 @@ msgid "Related categories:"
 msgstr "Příbuzné kategorie:"
 
 #: ../app/views/distributions/_documentation.html.erb:13
-#, fuzzy
-#| msgid "Released Version"
 msgid "Release Notes"
-msgstr "Aktuální verze"
+msgstr "Poznámky k vydání"
 
 #: ../app/views/distributions/index.html.erb:91
 msgid "SUSE Linux Enterprise"
@@ -769,24 +749,18 @@ msgid ""
 msgstr ""
 
 #: ../app/views/distributions/_unsupported_live_media.html.erb:2
-#, fuzzy
-#| msgid "Support"
 msgid "Unsupported LiveUSBs"
-msgstr "Podpora"
+msgstr "Nepodporovaná LiveUSB"
 
 #: ../app/views/package/show.html.erb:239
 msgid "Unsupported distributions:"
 msgstr "Nepodporované distribuce:"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:9
-#, fuzzy
-#| msgid "Unsupported distributions:"
 msgid "Upgrade Instructions"
-msgstr "Nepodporované distribuce:"
+msgstr "Návod na migraci"
 
 #: ../app/views/distributions/_verify_download.html.erb:2
-#, fuzzy
-#| msgid "Verify your download before use"
 msgid "Verify Your Download Before Use"
 msgstr "Před použitím ověřte vaše stažené soubory"
 
@@ -818,77 +792,54 @@ msgid "annually"
 msgstr ""
 
 #: ../app/views/distributions/index.html.erb:86
-#, fuzzy
-#| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/Lifetime"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/Lifetime"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:39
-#, fuzzy
-#| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Mac_OS_x"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Mac_OS_x"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:34
-#, fuzzy
-#| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
 
 #: ../app/views/distributions/_verify_download.html.erb:23
-#, fuzzy
-#| msgid "http://en.opensuse.org/SDB:Download_help"
 msgid "https://en.opensuse.org/SDB:Download_help#Checksums"
-msgstr "http://en.opensuse.org/SDB:Download_help"
+msgstr "https://en.opensuse.org/SDB:Download_help#Checksums"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:12
-#, fuzzy
-#| msgid "http://en.opensuse.org/SDB:Download_help"
 msgid "https://en.opensuse.org/SDB:Download_help#Using_Linux"
-msgstr "http://en.opensuse.org/SDB:Download_help"
+msgstr "https://en.opensuse.org/SDB:Download_help#Using_Linux"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:22
-#, fuzzy
-#| msgid "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
 msgid ""
 "https://en.opensuse.org/SDB:Download_help#Using_MacOS_X_.2810.3_and_above.29"
-msgstr "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
+msgstr ""
+"https://en.opensuse.org/SDB:Download_help#Using_MacOS_X_.2810.3_and_above.29"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:17
-#, fuzzy
-#| msgid "http://en.opensuse.org/SDB:Download_help"
 msgid "https://en.opensuse.org/SDB:Download_help#Using_Microsoft_Windows"
-msgstr "http://en.opensuse.org/SDB:Download_help"
+msgstr "https://en.opensuse.org/SDB:Download_help#Using_Microsoft_Windows"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:29
-#, fuzzy
-#| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/SDB:Live_USB_stick"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/SDB:Live_USB_stick"
 
 #: ../app/views/distributions/_leap_switch.html.erb:8
-#, fuzzy
-#| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/SDB:System_upgrade"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/SDB:System_upgrade"
 
 #: ../app/views/distributions/index.html.erb:85
-#, fuzzy
-#| msgid "http://en.opensuse.org/Buy_openSUSE"
 msgid "https://en.opensuse.org/openSUSE:Roadmap"
-msgstr "http://en.opensuse.org/Buy_openSUSE"
+msgstr "https://en.opensuse.org/openSUSE:Roadmap"
 
 #: ../app/views/distributions/testing.html.erb:38
-#, fuzzy
-#| msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgid "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
-msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+msgstr "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:8
-#, fuzzy
-#| msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
-msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
 #: ../app/views/distributions/tumbleweed.html.erb:82
 msgid ""
@@ -902,10 +853,8 @@ msgstr ""
 
 #: ../app/views/distributions/index.html.erb:84
 #: ../app/views/distributions/index.html.erb:105
-#, fuzzy
-#| msgid "openSUSE Derivatives"
 msgid "openSUSE Leap"
-msgstr "Odvozeniny openSUSE"
+msgstr "openSUSE Leap"
 
 #: ../app/views/distributions/leap.html.erb:83
 msgid ""
