@@ -1,6 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= "software.opensuse.org: #{@page_title}" %></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Script-Type" content="text/javascript"/>
@@ -9,6 +12,8 @@
     <link rel="search" type="application/opensearchdescription+xml" title="openSUSE Software" href="/search_software.xml" />
 
     <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag "/chameleon/css/app.css" %>
+    <%= javascript_include_tag "/chameleon/js/app.js" %>
     <link href="//static.opensuse.org/themes/bento/images/favicon.png" rel="shortcut icon" />
     <%= javascript_include_tag "application"  %>
     <%= javascript_include_tag "/themes/bento/js/l10n/global-navigation-data-#{@lang || "en"}.js" %>
@@ -54,19 +59,7 @@
   </head>
   <body>
 
-    <div id="header">
-      <div id="header-content" class="container_12">
-        <a id="header-logo" href="/">
-          <%= image_tag '/themes/bento/images/header-logo.png', :width => 46, :height => 26, :alt => _("Header Logo") %>
-        </a>
-        <ul id="global-navigation">
-          <li id="item-downloads"><a href="http://en.opensuse.org/openSUSE:Browse#downloads"><%= _("Downloads") %></a></li>
-          <li id="item-support"><a href="http://en.opensuse.org/openSUSE:Browse#support"><%= _("Support") %></a></li>
-          <li id="item-community"><a href="http://en.opensuse.org/openSUSE:Browse#community"><%= _("Community") %></a></li>
-          <li id="item-development"><a href="http://en.opensuse.org/openSUSE:Browse#development"><%= _("Development") %></a></li>
-        </ul>
-      </div>
-    </div>
+    <%= render :partial => "layouts/navbar" %>
 
     <% unless flash.blank? %>
       <%= render(:partial => "layouts/flash", :object => flash) %>
