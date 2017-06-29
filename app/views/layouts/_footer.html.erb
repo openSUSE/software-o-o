@@ -1,107 +1,66 @@
-<footer>
-    <div class="container-fluid">
-      <div class="row footer-links-area">
-        <div class="col-sm-5">
-          <div class="row">
-            <div class="col-xs-4">
-              <ul>
-                <li>
-                  <a href="https://software.opensuse.org/">
-                    <span lang="en">Get software</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://en.opensuse.org/Main_Page">
-                    <span lang="en">Wiki</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://build.opensuse.org/">
-                    <span lang="en">Build Service</span>
-                  </a>
-                </li>
+<footer class="global-footer">
+  <div class="container">
+      <div class="row">
+          <div class="col-6 col-md-3">
+              <h6>Developers</h6>
+              <ul class="list-unstyled">
+                  <li><a href="#">Documentation</a></li>
+                  <li><a href="#">Build Service</a></li>
+                  <li><a href="#">Bugzilla</a></li>
+                  <li><a href="#">Github</a></li>
+                  <li><a href="#">openFATE</a></li>
+                  <li><a href="#">SUSE Studio</a></li>
               </ul>
-            </div>
-            <div class="col-xs-4">
-              <ul>
-                <li>
-                  <a href="https://connect.opensuse.org/">
-                    <span lang="en">Social Network</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://news.opensuse.org/">
-                    <span lang="en">News</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="http://forums.opensuse.org/">
-                    <span lang="en">Forums</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-xs-4">
-              <ul>
-                <li>
-                  <a href="http://shop.opensuse.org/">
-                    <span lang="en">Shop</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="http://lizards.opensuse.org/">
-                    <span lang="en">Blogs</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="mailto:press@opensuse.org">
-                    <span lang="en">Press</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
           </div>
-        </div>
-        <div class="col-sm-5 col-sm-offset-2 social-networks">
-          <a href="https://twitter.com/opensuse" target="_blank">
-            <i class="fa fa-twitter-square"></i>
-          </a>
-          <a href="https://plus.google.com/+openSUSE/posts" target="_blank">
-            <i class="fa fa-google-plus-square"></i>
-          </a>
-          <a href="https://www.facebook.com/en.openSUSE" target="_blank">
-            <i class="fa fa-facebook-square"></i>
-          </a>
-          <a href="https://www.youtube.com/user/opensusetv" target="_blank">
-            <i class="fa fa-youtube-square"></i>
-          </a>
-        </div>
+          <div class="col-6 col-md-3">
+              <h6>Information</h6>
+              <ul class="list-unstyled">
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Release notes</a></li>
+                  <li><a href="#">Events</a></li>
+                  <li><a href="#">Planet</a></li>
+                  <li><a href="#">Shop</a></li>
+              </ul>
+          </div>
+          <div class="col-6 col-md-3">
+              <h6>Community</h6>
+              <ul class="list-unstyled">
+                  <li><a href="#">Connect</a></li>
+                  <li><a href="#">Google+ Group</a></li>
+                  <li><a href="#">Facebook Group</a></li>
+                  <li><a href="#">Mail lists</a></li>
+                  <li><a href="#">IRC channels</a></li>
+              </ul>
+          </div>
+          <div class="col-6 col-md-3">
+              <h6>Social Media</h6>
+              <ul class="list-unstyled">
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Google+</a></li>
+                  <li><a href="#">Twitter</a></li>
+                  <li><a href="#">YouTube</a></li>
+              </ul>
+          </div>
       </div>
-      <div class="blue-triangular-division wow slideInDown" style="visibility: visible; animation-name: slideInDown;"></div>
-      <div class="row footer-sponsors-area text-center">
-        <div class="col-sm-6 col-sm-offset-3">
-          <h5 lang="en">Sponsored by:</h5>
-          <a href="http://en.opensuse.org/Sponsors" target="_blank">
-            <%= image_tag('jekyll/sponsors.jpg', alt: 'openSUSE Sponsor Logos') %>
-          </a>
+
+      <div class="row">
+        <div class="col-md-6">
+          &copy; 2011&ndash;2017 openSUSE contributors.
         </div>
-        <div class="col-sm-3 text-left language-selector">
-          <h5 lang="en">Change language</h5>
-          <div class="dropup dropup_language-menu">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+        <div class="col-md-6 text-right">
+          Change language
+          <div class="dropup dropup_language-menu d-inline-block">
+            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
               <span class="selected-language">English</span>
               <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu languages" aria-labelledby="dropdownMenu1">
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
               <% LANGUAGES.sort.each do |lang| %>
-                <li><a href="/?locale=<%= lang %>" class="change-language" data-language-value="<% lang %>"><%= LANGUAGE_NAMES[lang] %></a></li>
+                <li class="dropdown-item"><a href="/?locale=<%= lang %>" class="change-language" data-language-value="<% lang %>"><%= LANGUAGE_NAMES[lang] %></a></li>
               <% end -%>
             </ul>
           </div>
         </div>
-        <div class="clearfix"></div>
       </div>
-      <!-- translators: just keep the Imprint link on the English version. It's only important for German actually -->
-      <p class="text-center">© 2015-2017 SUSE LLC. <span lang="en">All Rights Reserved.</span> <a lang="en" href="https://en.opensuse.org/Imprint">Imprint.</a></p>
-    </div>
-  </footer>
+  </div><!-- /.container -->
+</footer>

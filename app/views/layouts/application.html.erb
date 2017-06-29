@@ -11,7 +11,6 @@
 
     <link rel="search" type="application/opensearchdescription+xml" title="openSUSE Software" href="/search_software.xml" />
 
-    <%= stylesheet_link_tag "application" %>
     <%= stylesheet_link_tag "/chameleon/css/app.css" %>
     <%= javascript_include_tag "/chameleon/js/app.js" %>
     <link href="//static.opensuse.org/themes/bento/images/favicon.png" rel="shortcut icon" />
@@ -69,7 +68,7 @@
 
       <% unless @hide_search_box %>
         <%# Caching is really crucial in the front page (at release date, at least) %>
-	<% if controller.controller_name == "main" && controller.action_name == "release" %>
+	    <% if controller.controller_name == "main" && controller.action_name == "release" %>
           <% cache :locale => @lang, :baseproject => (@baseproject || default_baseproject) do %>
             <%= render :partial => 'search/find_form' %>
           <% end %>
@@ -83,18 +82,7 @@
       </div>
     </div>
 
-    <div id="footer" class="container_12">
-      <div id="footer-content" class="grid_12 alpha">
-      </div>
-      <div id="footer-legal" class="border-top grid_12 alpha">
-        <p>© <span id="year"><%= Date.today.year %></span> SUSE and others. |
-          <a href="http://en.opensuse.org/Portal:Project">About openSUSE</a> |
-          <a href="http://en.opensuse.org/Terms_of_site">Legal information</a> |
-          <a href="mailto:admin@opensuse.org">Feedback</a> |
-          Source code available at <a href="https://github.com/openSUSE/software-o-o/">GitHub</a>
-        </p>
-      </div>
-    </div>
+    <%= render :partial => "layouts/footer" %>
 
   </body>
 </html>
