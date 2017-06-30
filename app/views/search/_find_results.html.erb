@@ -1,4 +1,4 @@
-<div id="search-result" class="py-5">
+<div id="search-result" class="py-3">
   <div class="container">
 
     <% if DEFAULT_SEARCHES[@search_term] %>
@@ -63,6 +63,9 @@
                   <p class="card-text"><%= highlight( summary, @search_term) %></p>
                 <% end -%>
 
+                <a href="<%= url_for :controller => :package, :action => :show, :package => package %>" class="btn btn-primary"><%= _("Get") %></a>
+
+                
                 <%
                 devel_pack_match = [package + "-devel", package + "-lang", package + "-debuginfo", package + "-debugsource", package + "-debuginfo-32bit",
                   package + "-debuginfo-x86", ]
@@ -71,53 +74,26 @@
                         name.start_with?("#{package}-") && @appdata[:apps].select{|a| a[:pkgname] == name}.blank? ) } -%>
 
                 <% unless devel_packages.blank? && sub_packages.blank? %>
-                  <p>
-                    <%= _("Show") %>
-                    <a href="#" onclick="$('#devel-packages-<%= package %>').slideToggle(); return false;">
-                      <%= devel_packages.size.to_s + " " + _("Development-") + " " if !devel_packages.blank? && !sub_packages.blank? -%>
-                      <%= devel_packages.size.to_s + " " + _("Development packages") + " " if !devel_packages.blank? && sub_packages.blank? -%>
-                    </a>
-                    <%= _(" and ") unless (devel_packages.blank? || sub_packages.blank?) -%>
-                    <a href="#" onclick="$('#sub-packages-<%= package %>').slideToggle(); return false;">
-                      <%= sub_packages.size.to_s + " " + _("Sub-Packages") + " " unless sub_packages.blank? -%>
-                    </a>
-                  </p>
-                <% end -%>
-
-                <% unless devel_packages.blank? %>
-                    <ul class="hidden extra-packages" id="devel-packages-<%= package %>">
-                      <% devel_packages.sort.each do |subpackage| %>
-                        <li><%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage  %></li>
+                  <div class="dropdown d-inline-block">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <%= _("Sub-Packages") %>
+                    </button>
+                    <div class="dropdown-menu">
+                      <% sub_packages.each do |subpackage| %>
+                        <%= link_to subpackage, { :controller => :package, :action => :show, :package => subpackage }, :class => 'dropdown-item' %>
                       <% end %>
-                    </ul>
-                  <% @packagenames.reject! {|r| devel_pack_match.include? r }  -%>
+                      <h6 class="dropdown-header"><%= _("Development packages") %></h6>
+                      <% devel_packages.each do |subpackage| %>
+                        <%= link_to subpackage, { :controller => :package, :action => :show, :package => subpackage }, :class => 'dropdown-item' %>
+                      <% end %>
+                    </div>
+                  </div>
                 <% end -%>
-
-                <% unless sub_packages.blank? -%>
-                    <ul class="hidden extra-packages" id="sub-packages-<%= package %>">
-                    <% sub_packages.each do |subpackage| %>
-                      <li><%= link_to subpackage.sub("#{package}-", ""), :controller => :package, :action => :show, :package => subpackage  %></li>
-                    <% end %>
-                      </ul>
-                  <% @packagenames.reject! {|r| r.match(/^#{Regexp.escape( package )}-/)  && @appdata[:apps].select{|a| a[:pkgname] == r}.blank? }  -%>
-                <% end -%>
-
               </div>
             </div>
           </div>
         <% end -%>
-        <div style="clear: both; "></div>
-
-
-        <% if @packagenames.size > 81 %>
-          <div id="show-more-button" class="rounded-corner hidden">
-            <p><a href="#"><%= _("Show more...") %></a></p>
-          </div>
-        <% end -%>
-
       </div>
-
     <% end %>
-
   </div>
 </div>
