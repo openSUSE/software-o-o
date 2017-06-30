@@ -3,7 +3,7 @@ require 'mini_magick'
 
 # Class to cache and resize the screenshot of a given package
 class Screenshot
-  THUMBNAIL_WIDTH = "160"
+  THUMBNAIL_WIDTH = "600"
 
   # @return [String] name of the package
   attr_reader :pkg_name
