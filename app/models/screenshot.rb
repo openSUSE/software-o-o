@@ -130,37 +130,47 @@ protected
   def default_file_path(type, fullpath: true)
     file = case pkg_name
     when /-devel$/
-      "file_settings.png"
+      "devel-package.svg"
     when /-devel-/
-      "file_settings.png"
-    when /-lang$/
-      "file_settings.png"
+      "devel-package.svg"
     when /-debug$/
-      "file_settings.png"
+      "devel-package.svg"
+    when /-lang$/
+      "lang-package.svg"
+    when /-l10n-/
+      "lang-package.svg"
+    when /-i18n-/
+      "lang-package.svg"
+    when /-translations/
+      "lang-package.svg"
     when /-doc$/
-      "files.png"
+      "doc-package.svg"
     when /-help-/
-      "files.png"
+      "doc-package.svg"
     when /-javadoc$/
-      "files.png"
+      "doc-package.svg"
     when /-debuginfo/
-      "file_settings.png"
+      "devel-package.svg"
     when /-debugsource/
-      "file_settings.png"
+      "devel-package.svg"
     when /-kmp-/
-      "file_settings.png"
+      "devel-package.svg"
     when /^rubygem-/
-      "rubygem.png"
+      "ruby-package.svg"
     when /^perl-/
-      "perl.png"
+      "perl-package.svg"
     when /^python-/
-      "python.png"
+      "python-package.svg"
+    when /^python2-/
+      "python-package.svg"
+    when /^python3-/
+      "python-package.svg"
     when /^kernel-/
-      "tux.png"
+      "kernel-package.svg"
     when /^openstack-/i
-      "openstack.png"
+      "openstack-package.svg"
     else
-      type == :thumbnail ? "no_screenshot_opensuse.png" : "no_screenshot_opensuse_big.png"
+      "package.svg"
     end
     if fullpath
       File.join(Rails.root, "app/assets/images/default-screenshots", file)
