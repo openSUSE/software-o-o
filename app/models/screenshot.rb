@@ -60,7 +60,7 @@ class Screenshot
     if cached?
       cached_blob(type)
     elsif source_url.nil?
-      default_blob(type)
+      default_blob
     else
       begin
         fetch
@@ -73,7 +73,7 @@ class Screenshot
       rescue Exception => e
         raise unless Rails.env.production?
         Rails.logger.debug("No screenshot fetched (blob) for: " + pkg_name)
-        default_blob(type)
+        default_blob
       end
     end
   end
@@ -92,8 +92,8 @@ protected
     end
   end
 
-  def default_blob(type)
-    open(default_file_path(), "rb", &:read)
+  def default_blob
+    open(default_file_path, "rb", &:read)
   end
 
   def cache_key
