@@ -50,18 +50,21 @@
               </a>
               <div class="card-block">
                 <h4 class="card-title"><%= link_to highlight(package_name, @search_term), :controller => :package, :action => :show, :package => package  %></h4>
-
-                <% if( appdata_pkg.blank? || appdata_pkg.first[:summary].blank? )
-                  desc_package = search_for_description( package, @packages )
-                  unless  desc_package.blank?
-                    summary = desc_package.summary
+                <p class="card-text">
+                  <% 
+                  if( appdata_pkg.blank? || appdata_pkg.first[:summary].blank? )
+                    desc_package = search_for_description( package, @packages )
+                    unless  desc_package.blank?
+                      summary = desc_package.summary
+                    end
+                  else
+                    summary = appdata_pkg.first[:summary]
                   end
-                else
-                  summary = appdata_pkg.first[:summary]
-                end
-                unless  summary.blank? %>
-                  <p class="card-text"><%= highlight( summary, @search_term) %></p>
-                <% end -%>
+                  
+                  unless  summary.blank? %>
+                    <%= highlight( summary, @search_term) %>
+                  <% end -%>
+                </p>
 
                 <a href="<%= url_for :controller => :package, :action => :show, :package => package %>" class="btn btn-primary"><%= _("Get") %></a>
 
