@@ -30,7 +30,7 @@ class Screenshot
     if cached?
       thumbnail_file_path(fullpath: false)
     elsif source_url.nil?
-      default_file_path(:thumbnail, fullpath: false)
+      default_file_path(fullpath: false)
     elsif fetch
       begin
         self.fetch
@@ -43,7 +43,7 @@ class Screenshot
       rescue Exception => e
         raise unless Rails.env.production?
         Rails.logger.debug("No screenshot fetched for: " + pkg_name)
-        default_file_path(:thumbnail, fullpath: false)
+        default_file_path(fullpath: false)
       end
     else
       nil
@@ -93,7 +93,7 @@ protected
   end
 
   def default_blob(type)
-    open(default_file_path(type), "rb", &:read)
+    open(default_file_path(), "rb", &:read)
   end
 
   def cache_key
@@ -127,7 +127,7 @@ protected
     fullpath ? File.join(Rails.root, "public", "images", file) : file
   end
 
-  def default_file_path(type, fullpath: true)
+  def default_file_path(fullpath: true)
     file = case pkg_name
     when /-devel$/
       "devel-package.svg"
