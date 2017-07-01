@@ -48,15 +48,17 @@
           &copy; 2011&ndash;2017 openSUSE contributors.
         </div>
         <div class="col-md-6 text-right">
-          Language
+          Language <!-- This label should not be translated! -->
           <div class="dropup dropup_language-menu d-inline-block">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
               <span class="selected-language"><%= LANGUAGE_NAMES[FastGettext.locale] %></span>
               <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+            <ul class="dropdown-menu dropdown-menu-right">
               <% LANGUAGES.sort.each do |lang| %>
-                <li class="dropdown-item"><a href="/?locale=<%= lang %>" class="change-language" data-language-value="<% lang %>"><%= LANGUAGE_NAMES[lang] %></a></li>
+                <li class="dropdown-item">
+                  <%= link_to LANGUAGE_NAMES[lang], params.merge(:locale => lang) %>
+                </li>
               <% end -%>
             </ul>
           </div>
