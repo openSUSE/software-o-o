@@ -11,11 +11,6 @@ class DistributionsController < ApplicationController
     render layout: 'download'
   end
 
-  # GET /distributions/leap/ports
-  def leap_ports
-    render layout: 'download'
-  end
-
   # GET /distributions/tumbleweed
   def tumbleweed
     render layout: 'download'
