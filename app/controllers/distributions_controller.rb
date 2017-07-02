@@ -26,11 +26,6 @@ class DistributionsController < ApplicationController
     render layout: 'download'
   end
 
-  # GET /distributions/tumbleweed/unsupported
-  def tumbleweed_unsupported
-    render layout: 'download'
-  end
-
   # GET /distributions/testing
   def testing
     render layout: 'download'
