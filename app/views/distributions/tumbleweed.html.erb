@@ -1,93 +1,172 @@
-<header class="header-section ">
-  <div class="intro-header no-img">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="page-heading">
-            <h1>Tumbleweed</h1>
-            <hr class="small">
-            <span class="page-subheading">
-              <%= _('Download the rolling version of openSUSE, for desktop PCs,
-laptops, and servers.') %>
-            </span>
-          </div>
-        </div>
-      </div>
+<header class="download-home-header jumbotron jumbotron-fluid text-center">
+  <div class="container">
+    <div class="page-heading">
+      <%= image_tag 'distributions/tumbleweed.svg', alt: "Tumbleweed Logo" %>
+      <h1 class="display-3">
+        openSUSE Tumbleweed
+      </h1>
     </div>
   </div>
 </header>
 
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <h2 id="installation-media-intel"><%= _('Installation Media') %> - Intel 64-bit (x86_64)</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Tumbleweed</th>
-            <th><%= _('Size') %></th>
-            <th><%= _('Download Method') %></th>
-            <th><%= _('Checksum') %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>DVD/USB Stick</td>
-            <td>4.7GB</td>
-            <td>
-              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso">
-                <%= _('Direct Link') %>
-                </a>
-              |
-              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.meta4">
-                Metalink
-              </a>
-              |
-              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso?mirrorlist">
-                <%= _('Pick Mirror') %>
-              </a>
-            </td>
-            <td>
-              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256">
-                SHA256
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td><%= _('Network') %> CD/USB Stick</td>
-            <td>85MB</td>
-            <td>
-              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso">
-                <%= _('Direct Link') %>
-              </a>
-              |
-              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso.meta4">
-                Metalink
-              </a>
-              |
-              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso?mirrorlist">
-                <%= _('Pick Mirror') %>
-              </a>
-            </td>
-            <td>
-              <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256">
-                SHA256
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
-        openSUSE Tumbleweed
-        <%= _('is also available on other architectures, such as Intel 32-bit (aka i586), AArch64 (aka ARMv8) and PPC64.') %>
-        <br>
-        <%= link_to _('Get openSUSE Tumbleweed for other architectures.'), tumbleweed_ports_distributions_path %>
-      </p>
-      <%= render "choosing_media" %>
-      <%= render "tumbleweed_switch" %>
-      <%= render partial: 'documentation', locals: { distro: "Tumbleweed" } %>
-      <%= render "verify_download" %>
-      <%= render "requirements" %>
-    </div>
+<section class="my-5">
+  <div class="container">
+    <h3 class="my-3">x86_64</h3>
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">
+            <span class="typcn typcn-download-outline"></span>
+            <%= _("DVD Image") %> (4.7GB)
+          </h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= _("For DVD and USB stick") %></h6>
+          <p class="card-text text-muted"><%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %></p>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso" class="card-link"><%= _('Direct Link') %></a>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.meta4" class="card-link"><%= _('Metalink') %></a>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256" class="card-link"><%= _('Checksum') %></a>
+        </div>
+      </div><!-- /.card -->
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">
+            <span class="typcn typcn-download-outline"></span>
+            <%= _("Network Image") %> (85MB)
+          </h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= _("For CD and USB stick") %></h6>
+          <p class="card-text text-muted"><%= _("Downloads the installation system and all packages from online repositories. Suitable for installation or upgrade.") %></p>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso" class="card-link"><%= _('Direct Link') %></a>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso.meta4" class="card-link"><%= _('Metalink') %></a>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256" class="card-link"><%= _('Checksum') %></a>
+        </div>
+      </div><!-- /.card -->
+    </div><!-- /.card-deck -->
+
+    <h3 class="my-3">i586</h3>
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">
+            <span class="typcn typcn-download-outline"></span>
+            <%= _("DVD Image") %> (4.7GB)
+          </h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= _("For DVD and USB stick") %></h6>
+          <p class="card-text text-muted"><%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %></p>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-i586-Current.iso" class="card-link"><%= _('Direct Link') %></a>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-i586-Current.iso.meta4" class="card-link"><%= _('Metalink') %></a>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-i586-Current.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-i586-Current.iso.sha256" class="card-link"><%= _('Checksum') %></a>
+        </div>
+      </div><!-- /.card -->
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">
+            <span class="typcn typcn-download-outline"></span>
+            <%= _("Network Image") %> (85MB)
+          </h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= _("For CD and USB stick") %></h6>
+          <p class="card-text text-muted"><%= _("Downloads the installation system and all packages from online repositories. Suitable for installation or upgrade.") %></p>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-i586-Current.iso" class="card-link"><%= _('Direct Link') %></a>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-i586-Current.iso.meta4" class="card-link"><%= _('Metalink') %></a>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-i586-Current.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
+          <a href="http://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-i586-Current.iso.sha256" class="card-link"><%= _('Checksum') %></a>
+        </div>
+      </div><!-- /.card -->
+    </div><!-- /.card-deck -->
+
+    <h3 class="my-3">ppc64le</h3>
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">
+            <span class="typcn typcn-download-outline"></span>
+            <%= _("DVD Image") %> (4.7GB)
+          </h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= _("For DVD and USB stick") %></h6>
+          <p class="card-text text-muted"><%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %></p>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-DVD-ppc64le-Current.iso" class="card-link"><%= _('Direct Link') %></a>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-DVD-ppc64le-Current.iso.meta4" class="card-link"><%= _('Metalink') %></a>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-DVD-ppc64le-Current.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-DVD-ppc64le-Current.iso.sha256" class="card-link"><%= _('Checksum') %></a>
+        </div>
+      </div><!-- /.card -->
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">
+            <span class="typcn typcn-download-outline"></span>
+            <%= _("Network Image") %> (85MB)
+          </h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= _("For CD and USB stick") %></h6>
+          <p class="card-text text-muted"><%= _("Downloads the installation system and all packages from online repositories. Suitable for installation or upgrade.") %></p>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-NET-ppc64le-Current.iso" class="card-link"><%= _('Direct Link') %></a>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-NET-ppc64le-Current.iso.meta4" class="card-link"><%= _('Metalink') %></a>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-NET-ppc64le-Current.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-NET-ppc64le-Current.iso.sha256" class="card-link"><%= _('Checksum') %></a>
+        </div>
+      </div><!-- /.card -->
+    </div><!-- /.card-deck -->
+
+    <h3 class="my-3">ppc64</h3>
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">
+            <span class="typcn typcn-download-outline"></span>
+            <%= _("DVD Image") %> (4.7GB)
+          </h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= _("For DVD and USB stick") %></h6>
+          <p class="card-text text-muted"><%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %></p>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-DVD-ppc64-Current.iso" class="card-link"><%= _('Direct Link') %></a>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-DVD-ppc64-Current.iso.meta4" class="card-link"><%= _('Metalink') %></a>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-DVD-ppc64-Current.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-DVD-ppc64-Current.iso.sha256" class="card-link"><%= _('Checksum') %></a>
+        </div>
+      </div><!-- /.card -->
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">
+            <span class="typcn typcn-download-outline"></span>
+            <%= _("Network Image") %> (85MB)
+          </h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= _("For CD and USB stick") %></h6>
+          <p class="card-text text-muted"><%= _("Downloads the installation system and all packages from online repositories. Suitable for installation or upgrade.") %></p>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-NET-ppc64-Current.iso" class="card-link"><%= _('Direct Link') %></a>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-NET-ppc64-Current.iso.meta4" class="card-link"><%= _('Metalink') %></a>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-NET-ppc64-Current.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
+          <a href="http://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-NET-ppc64-Current.iso.sha256" class="card-link"><%= _('Checksum') %></a>
+        </div>
+      </div><!-- /.card -->
+    </div><!-- /.card-deck -->
+  </div><!-- /.container -->
+</section>
+
+<section class="my-5">
+  <div class="container" role="main">
+    <%= render "choosing_media" %>
   </div>
-</div>
+</section>
+
+<section class="my-5">
+  <div class="container" role="main">
+    <%= render "tumbleweed_switch" %>
+  </div>
+</section>
+
+<section class="my-5">
+  <div class="container" role="main">
+    <%= render partial: 'documentation', locals: { distro: "Tumbleweed" } %>
+  </div>
+</section>
+
+<section class="my-5">
+  <div class="container" role="main">
+    <%= render "verify_download" %>
+  </div>
+</section>
+
+<section class="my-5">
+  <div class="container" role="main">
+    <%= render "requirements" %>
+  </div>
+</section>
