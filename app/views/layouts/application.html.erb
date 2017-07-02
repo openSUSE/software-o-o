@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%= "software.opensuse.org: #{@page_title}" %></title>
+    <title><%= @page_title || _('openSUSE Software') %></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Script-Type" content="text/javascript"/>
     <meta http-equiv="Content-Style-Type" content="text/css"/>
@@ -59,7 +59,8 @@
   </head>
   <body>
 
-    <%= render :partial => "layouts/navbar" %>
+    <% activenav ||= 'software' %>
+    <%= render :partial => "layouts/navbar", :locals => {:activenav => 'software' } %>
 
     <% unless flash.blank? %>
       <%= render(:partial => "layouts/flash", :object => flash) %>
