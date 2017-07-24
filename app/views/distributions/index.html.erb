@@ -9,6 +9,7 @@
   </div>
 </header>
 
+<<<<<<< HEAD
 <div class="container mb-5">
   <div class="card-deck">
     <div class="card">
@@ -43,6 +44,87 @@
     </div>
   </div><!-- /.card-deck -->
 </div><!-- /.container -->
+=======
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <%= link_to(tumbleweed_distributions_path) do %>
+                <%= image_tag('jekyll/Tumbleweed-green.png', alt: "Tumbleweed Logo") %>
+              <% end %>
+              <%= link_to 'Tumbleweed', tumbleweed_distributions_path %>
+            </th>
+            <th>
+              <%= link_to(leap_distributions_path) do %>
+                <%= image_tag('jekyll/Leap-green.png', alt: "Leap Logo") %>
+              <% end %>
+              <%= link_to 'Leap', leap_distributions_path %>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <%= _('Download openSUSE’s rolling release and always run the latest packages provided by the openSUSE Project.') %>
+            </td>
+            <td>
+              <%= _('Download openSUSE’s regular release and enjoy the benefits of both enterprise-grade engineering and community-developed innovation.') %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+
+<% if false %>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <%= link_to 'Testing', testing_distributions_path %>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <%= _('Help test openSUSE’s next version of Leap by downloading
+              the latest development milestone.') %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<% end %>
+
+      <hr>
+
+      <h2 id="choosing-which-distribution-to-download">
+        <%= _('Choosing which Distribution to Download') %>
+      </h2>
+      <p>
+      <%= _('%{tumbleweed} is a <strong>rolling-release</strong>. This means the software is always the latest stable versions available from the openSUSE Project. Things will change regularly as Free and Open Source projects continually release new versions of their software.') % { tumbleweed: link_to(_('openSUSE Tumbleweed'), tumbleweed_distributions_path) } %>
+        <br>
+        <%= _('Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>.') %>
+      </p>
+
+      <p>
+        <%= _('%{leap} is a <strong>regular-release</strong>. This means it releases %{annually}, with security and stability updates being the priority during each release %{lifetime}.') %
+            { leap: link_to(_('openSUSE Leap'), leap_distributions_path),
+              annually: link_to(_('annually'), _('https://en.opensuse.org/openSUSE:Roadmap')),
+              lifetime: link_to(_('lifetime'), _("https://en.opensuse.org/Lifetime"))
+            } %>
+        <%= _('It is not expected to change in any significant way until its next annual release.') %>
+        <br />
+        <%= _('Leap shares a Common Base System with %{sles}, so major architectural changes are not expected for several years, aligned with each new Major Release (eg 12, 13, etc) of SUSE Linux Enterprise.') % {
+               sles: link_to(_('SUSE Linux Enterprise'), "https://www.suse.com/products/server/")
+               } %>
+        <br />
+        <%= _('Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>.') %>
+      </p>
+>>>>>>> 0d399cc20dc0aebd59b740a94bad584182a9ae50
 
 <section class="mb-4">
   <div class="container">
