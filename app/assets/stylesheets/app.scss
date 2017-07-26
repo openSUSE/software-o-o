@@ -1,0 +1,26 @@
+// New theme
+.package-card {
+    .card-img-top {
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    // Only one line text
+    .card-title {
+        height: 1.1em;
+        white-space: nowrap;
+        overflow: hidden;
+
+        mark {
+            padding: 0;
+        }
+    }
+
+    // Only two line text
+    .card-text {
+        height: 3em;
+        overflow: hidden;
+    }
+}
