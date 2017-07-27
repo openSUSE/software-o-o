@@ -11,8 +11,9 @@ class Appdata
     data = Hash.new
     xml = Appdata.get_distribution dist, "oss"
     data = add_appdata data, xml
-#    xml = Appdata.get_distribution dist, "non-oss"
-#    data = add_appdata data, xml
+    xml = Appdata.get_distribution dist, "non-oss"
+    data = add_appdata data, xml
+    logger.debug("found #{data[:apps].size} apps")
     data
   end
 
