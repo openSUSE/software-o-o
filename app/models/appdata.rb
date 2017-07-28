@@ -1,13 +1,19 @@
 require 'open-uri'
+require 'zlib'
 
 class Appdata
+
+  def self.logger
+    Rails.logger
+  end
 
   def self.get dist = "factory"
     data = Hash.new
     xml = Appdata.get_distribution dist, "oss"
     data = add_appdata data, xml
-#    xml = Appdata.get_distribution dist, "non-oss"
-#    data = add_appdata data, xml
+    xml = Appdata.get_distribution dist, "non-oss"
+    data = add_appdata data, xml
+    logger.debug("found #{data[:apps].size} apps")
     data
   end
 
@@ -16,7 +22,7 @@ class Appdata
   def self.add_appdata data, xml
     data[:apps] = Array.new unless data[:apps]
     data[:categories] = Array.new unless data[:categories]
-      xml.xpath("/components/component").each do |app|
+    xml.xpath("/components/component").each do |app|
       appdata = Hash.new
       # Filter translated versions of name and summary out
       appdata[:name] = app.xpath('name[not(@xml:lang)]').text
@@ -39,10 +45,12 @@ class Appdata
                   else
                     "http://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
                   end
-    filename = File.join(Rails.root.join('tmp'), "appdata-" + dist + ".xml")
+    logger.debug("fetching appdata for #{dist}/#{flavour}")
+    filename = File.join(Rails.root.join('tmp'), "appdata-#{dist}-#{flavour}.xml")
     open(filename, 'wb') do |file|
-      # Gzip data will be automatically decompressed with open-uri
-      file << open(appdata_url).read
+      # Gzip data will NOT be automatically decompressed with open-uri
+      # must have changed at some point in time, so decompress explicitly
+      file << Zlib::GzipReader.new(open(appdata_url)).read
     end
     xmlfile = File.open(filename)
     doc = Nokogiri::XML(xmlfile)
