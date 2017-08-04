@@ -74,15 +74,23 @@
         <%= render :partial => 'package/download_rows', :locals => {:packages => stable, :distro => distro, :oneclick => true, :type => 'official'} %>
 
         <%
+        slug = distro[:project].downcase.strip.gsub('_', '-').gsub('/', '-').gsub(':', '-').gsub(/[^\w-]/, '')
         home, pkgs = pkgs.partition{|s| s.project.match( /^home\:/ )}
         devel = pkgs.reject{|s| @official_projects.include?( s.project ) || s.project.match( /^home\:/ ) || s.project.match( /#{distro[:project]}\:Update/ ) ||
             s.project.match( /#{distro[:project]}\:NonFree/ ) || s.project.match( /openSUSE\:Maintenance\:/ ) } %>
 
+        <p>
+          <button class="btn btn-sm btn-warning" type="button" data-toggle="collapse" data-target="#<%= slug %>-experimental-packages"><%= _("Show experimental packages") %></button>
+          <button class="btn btn-sm btn-danger" type="button" data-toggle="collapse" data-target="#<%= slug %>-community-packages"><%= _("Show community packages") %></button>
+        </p>
         <!-- experimental packages -->
-        <%= render :partial => 'package/download_rows', :locals => {:packages => devel, :distro => distro, :oneclick => true, :type => 'experimental' } %>
-        
+        <div id="<%= slug %>-experimental-packages" class="collapse">
+          <%= render :partial => 'package/download_rows', :locals => {:packages => devel, :distro => distro, :oneclick => true, :type => 'experimental' } %>
+        </div>
         <!-- community packages -->
-        <%= render :partial => 'package/download_rows', :locals => {:packages => home, :distro => distro, :oneclick => true, :type => 'community'} %>
+        <div id="<%= slug %>-community-packages" class="collapse">
+          <%= render :partial => 'package/download_rows', :locals => {:packages => home, :distro => distro, :oneclick => true, :type => 'community'} %>
+        </div>
       <% end -%>
     <% end -%>
 
