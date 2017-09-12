@@ -56,18 +56,18 @@ class DownloadController < ApplicationController
           distro = e.attributes['repository']
           if not data.has_key?(distro)
             data[distro] = {
-              :repo => "http://download.opensuse.org/repositories/#{@project}/#{distro}/",
+              :repo => "https://download.opensuse.org/repositories/#{@project}/#{distro}/",
               :package => Hash.new
             }
             data[distro][:flavor] = set_distro_flavor e.attributes['baseproject']
             case e.attributes['baseproject']
             when /^(DISCONTINUED:)?openSUSE:/, /^(DISCONTINUED:)?SUSE:SLE-/
-              data[distro][:ymp] = "http://software.opensuse.org/ymp/#{@project}/#{distro}/#{@package}.ymp"
+              data[distro][:ymp] = "https://software.opensuse.org/ymp/#{@project}/#{distro}/#{@package}.ymp"
             end
           end
           filename = e.attributes['filename']
           filepath = e.attributes['filepath']
-          data[distro][:package][filename] = 'http://download.opensuse.org/repositories/' + filepath
+          data[distro][:package][filename] = 'https://download.opensuse.org/repositories/' + filepath
         end
         data
       else
@@ -102,13 +102,13 @@ class DownloadController < ApplicationController
           distro = e.attributes['repository']
           if not data.has_key?(distro)
             data[distro] = {
-              :repo => "http://download.opensuse.org/repositories/#{@project}/#{distro}/",
+              :repo => "https://download.opensuse.org/repositories/#{@project}/#{distro}/",
               :package => Hash.new
             }
             data[distro][:flavor] = set_distro_flavor e.attributes['baseproject']
             case e.attributes['baseproject']
             when /^(DISCONTINUED:)?openSUSE:/, /^(DISCONTINUED:)?SUSE:SLE-/
-              data[distro][:ymp] = "http://download.opensuse.org/repositories/" + e.attributes['filepath']
+              data[distro][:ymp] = "https://download.opensuse.org/repositories/" + e.attributes['filepath']
             end
           end
         end
