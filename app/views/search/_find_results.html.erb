@@ -49,7 +49,7 @@
         <div class="search-result-box box-shadow rounded-corner">
 
           <div class="app-screenshot-search">
-            <a href="<%= url_for :controller => :package, :action => :show, :package => package %>">
+            <a href="<%= url_for :controller => :package, :action => :show, :package => package, :protocol => 'https' %>">
               <img src="<%= thumb_url %>" alt="<%= package %>" />
             </a>
           </div>

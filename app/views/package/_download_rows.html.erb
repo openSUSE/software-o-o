@@ -33,7 +33,7 @@
     <% if oneclick && distro[:project].match(/SUSE/) && !(archs.uniq == [_("Source")]) %>
       <% url = url_for :controller => 'download', :action => 'ymp_without_arch_and_version',
         :project => result.first, :repository => result.last.first.repository, :package => @pkgname,
-        :base => result.last.first.baseproject, :query => @pkgname%>
+        :base => result.last.first.baseproject, :query => @pkgname, :protocol => 'https' %>
       <a class="pkg-options-one-click" href="<%= url %>">1 Click Install</a>
     <% end %>
   </li>

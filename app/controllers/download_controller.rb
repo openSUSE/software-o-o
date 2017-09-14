@@ -88,7 +88,7 @@ class DownloadController < ApplicationController
     @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
 
       # api_result = ApiConnect::get("/search/published/pattern/id?match=project='#{@project}'+and+filename='#{@pattern}.ymp'")
-      # TODO: workaround - the line above does not return a thing - see http://lists.opensuse.org/opensuse-buildservice/2011-07/msg00088.html
+      # TODO: workaround - the line above does not return a thing - see https://lists.opensuse.org/opensuse-buildservice/2011-07/msg00088.html
       # so we search for all files of the project and filter for *.ymp below
       api_result = ApiConnect::get("/search/published/pattern/id?match=project='#{@project}'")
       xpath = "/collection/pattern"
