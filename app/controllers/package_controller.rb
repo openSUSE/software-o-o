@@ -34,8 +34,8 @@ class PackageController < ApplicationController
       @appscreenshot = pkg_appdata.first[:screenshots].first
     end
 
-    @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, :appscreen => @appscreenshot
-    @thumbnail = url_for :controller => :package, :action => :thumbnail, :package => @pkgname, :appscreen => @appscreenshot
+    @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, :appscreen => @appscreenshot, protocol: 'https'
+    @thumbnail = url_for :controller => :package, :action => :thumbnail, :package => @pkgname, :appscreen => @appscreenshot, protocol: 'https'
 
     # remove maintenance projects
     @packages.reject!{|p| p.project.match(/openSUSE\:Maintenance\:/) }

@@ -181,7 +181,7 @@ That means they are not reviewed by openSUSE and may contain unstable or experim
 
             <% unless @default_package.blank? %>
               <% url = url_for :controller => 'download', :action => 'ymp_without_arch_and_version', :query => @pkgname,
-                :project => @default_package.project, :repository => @default_package.repository, :package => @pkgname, :base => @default_package.baseproject %>
+                :project => @default_package.project, :repository => @default_package.repository, :package => @pkgname, :base => @default_package.baseproject, :protocol => 'https' %>
               <div id="one-click-button-box">
                 <a id="one-click-button" href="<%= url %>">
                   <%= image_tag "download-arrow.png", :width => "36", :height => "36", :alt => "Download Arrow" %>
