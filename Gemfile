@@ -32,7 +32,7 @@ group :development do
 end
 
 # MySQL is not used, as far as I know
-gem 'mysql2', '~> 0.3.1'
+gem 'mysql2', '~> 0.4.9'
 
 gem 'xmlhash', '>= 1.2.2'
 
