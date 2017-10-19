@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'zlib'
 
 class Appdata
 
@@ -37,15 +38,7 @@ class Appdata
                   else
                     "http://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
                   end
-    filename = File.join(Rails.root.join('tmp'), "appdata-" + dist + ".xml")
-    open(filename, 'wb') do |file|
-      # Gzip data will be automatically decompressed with open-uri
-      file << open(appdata_url).read
-    end
-    xmlfile = File.open(filename)
-    doc = Nokogiri::XML(xmlfile)
-    xmlfile.close
-    doc
+    Nokogiri::XML(Zlib::GzipReader.new(open(appdata_url)))
   end
 
 end
