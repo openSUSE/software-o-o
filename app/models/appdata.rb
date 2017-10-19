@@ -14,7 +14,7 @@ class Appdata
   def self.add_appdata(data, xml)
     data[:apps] = Array.new unless data[:apps]
     data[:categories] = Array.new unless data[:categories]
-      xml.xpath("/components/component").each do |app|
+    xml.xpath("/components/component").each do |app|
       appdata = Hash.new
       # Filter translated versions of name and summary out
       appdata[:name] = app.xpath('name[not(@xml:lang)]').text
