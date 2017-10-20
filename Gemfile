@@ -40,6 +40,7 @@ end
 
 group :production do
   gem 'mysql2', '~> 0.4.9'
+  gem 'puma'
 end
 
 group :test do
