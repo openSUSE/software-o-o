@@ -100,7 +100,7 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
           <pre><%=
           # don't use apt-add-repository wrapper for Ubuntu for now, because it adds source repo which we don't provide
           #        "apt-add-repository deb #{v[:repo]} /\napt-get update\napt-get install #{@package}"
-          "sudo sh -c \"echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@package}.list\"\nsudo apt-get update\nsudo apt-get install #{@package}"
+          "sudo sh -c \"echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@project}.list\"\nsudo apt-get update\nsudo apt-get install #{@package}"
           %></pre>
         <% else %>
           <p><%= (_("For <strong>%s</strong> run the following as <strong>root</strong>:") % k.gsub('_', '&nbsp;').html_safe).html_safe %></p>
@@ -122,7 +122,7 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
             when 'CentOS', 'RHEL', 'SL'
               "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
             when 'Debian', 'Univention'
-              "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@package}.list \napt-get update\napt-get install #{@package}"
+              "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@project}.list\napt-get update\napt-get install #{@package}"
             when 'Mageia', 'Mandriva'
               version = k.split("_").last
               if version == "Cauldron" or Integer(version) >= 6
