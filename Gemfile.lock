@@ -53,9 +53,8 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.2.19)
-    compass-rails (1.1.7)
+    compass-rails (2.0.0)
       compass (>= 0.12.2)
-      sprockets (<= 2.11.0)
     concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -161,7 +160,7 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
-    sprockets (2.11.0)
+    sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -197,8 +196,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  compass (< 1.0)
-  compass-rails (< 2.0)
+  compass-rails
   dalli
   fast_gettext (>= 0.7.0)
   gettext (>= 1.9.3)
