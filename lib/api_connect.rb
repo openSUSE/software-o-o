@@ -3,7 +3,7 @@ class ApiConnect
   class Error < Exception; end
 
   def self.get(path, limit = 10)
-    config = Rails.configuration.x.api
+    config = Rails.configuration.x
     uri_str = "#{config.api_host}/#{path}".gsub(' ', '%20')
     uri_str = path if path.match(/^http/)
     uri = URI.parse(uri_str)
