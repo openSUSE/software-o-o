@@ -2,7 +2,7 @@ SoftwareOO::Application.configure do
   config.cache_store = :mem_cache_store, 'localhost:11211', {namespace: 'software', compress: true}
   config.log_level = :debug
 
-  config.serve_static_assets = false
+  config.serve_static_files = false
 
   # Compress JavaScripts and CSS
   config.assets.js_compressor = :uglifier
