@@ -14,10 +14,12 @@ testing:
   # only for production use
   #opensuse_cookie: 
 stage:
+  <<: *defaults
   use_static: software.o.o-stage
   # only for production use
   #opensuse_cookie: 
 production:
+  <<: *defaults
   relative_url_root: 
   api_username: <%= ENV['API_USERNAME'] %>
   api_password: <%= ENV['API_PASSWORD'] %>
