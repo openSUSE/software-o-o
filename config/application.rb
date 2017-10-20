@@ -64,9 +64,7 @@ module SoftwareOO
     # Use the database for sessions instead of the file system
     # (create the session table with 'rake create_sessions_table')
     # config.action_controller.session_store = :active_record_store
-    
-    config.cache_store = :mem_cache_store, 'localhost:11211', {namespace: 'software', compress: true}
-    
+        
     # Activate observers that should always be running
     # config.active_record.observers = :cacher, :garbage_collector
     
@@ -84,6 +82,5 @@ module SoftwareOO
     end unless Rails.env.test?
 
     config.active_support.deprecation = :log
-
   end
 end

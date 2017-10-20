@@ -35,6 +35,7 @@ end
 gem 'mysql2', '~> 0.4.9'
 
 gem 'xmlhash', '>= 1.2.2'
+gem 'hashie'
 
 #gem 'memcache-client'
 gem 'dalli'
