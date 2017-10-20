@@ -5,18 +5,26 @@ Ruby on Rails application powering
 
 ## Installing dependencies in a (open)SUSE system
 
-Add the
-[openSUSE:infrastructure:software.opensuse.org](https://build.opensuse.org/project/show/openSUSE:infrastructure:software.opensuse.org)
-repository to your system
-```
+```console
 zypper ref
-zypper in software_opensuse_org-deps
+zypper in ruby ruby-devel rubygem-bundler gcc make libxml2-devel libxslt-devel
 ```
 
-In other systems, use the regular Ruby on Rails mechanisms to install
-dependencies (i.e. Bundler)
+For development, you will need also 
+
+```console
+zypper in sqlite3-devel
+```
+
+For production:
+
+```console
+```console
+zypper in libmysqlclient-devel
+```
 
 ## Running the application locally
+
 Just for running it in development mode. If you are playing to deploy it in a
 server, please apply good Ruby on Rails practices (like generating your own
 keys for `secrets.yml`).
@@ -27,12 +35,9 @@ cd software-o-o
 git submodule init
 git submodule update
 
-cp config/database.yml.example config/database.yml
-cp config/options.yml.example config/options.yml
-cp config/secrets.yml.example config/secrets.yml
+bundle package
 rake db:migrate
-
-rails server
+bundle exec rails s
 ```
 
 Enjoy your software.opensuse.org clone at http://127.0.0.1:3000/
@@ -62,19 +67,12 @@ Windows.
     docker attach software_web
     ```
 
-5. Configure the app
-    ```
-    cp config/database.yml.example config/database.yml
-    cp config/options.yml.example config/options.yml
-    cp config/secrets.yml.example config/secrets.yml
-    ```
-
-6. Setup the database
+5. Setup the database
     ```
     rake db:setup db:seed
     ```
 
-7. Start the app
+6. Start the app
     ```
     rails server
     ```
