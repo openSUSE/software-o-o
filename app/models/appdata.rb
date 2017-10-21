@@ -7,6 +7,8 @@ class Appdata
     data = Hash.new
     xml = Appdata.get_distribution(dist, 'oss')
     data = add_appdata(data, xml)
+    xml = Appdata.get_distribution(dist, 'non-oss')
+    data = add_appdata(data, xml)
     data
   end
 
