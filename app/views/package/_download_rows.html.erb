@@ -1,40 +1,68 @@
 <% packages.flatten.sort_by(&:project).group_by(&:project).each do |result| %>
-  <li>
-    <% if  result.first == distro[:project] || result.first == "#{distro[:project]}:NonFree"
-      name = _("<b>official release</b>")
-    elsif result.first == "#{distro[:project]}:Update"
-      name = _("<b>official update</b>")
-    else
-      name = shorten result.first, 22
-    end
+  <% if  result.first == distro[:project] || result.first == "#{distro[:project]}:NonFree"
+    name = _("<b>official release</b>")
+  elsif result.first == "#{distro[:project]}:Update"
+    name = _("<b>official update</b>")
+  else
+    name = shorten result.first, 40
+  end
 
-    if result.last.first.package.nil?
-      pkg_link = "https://build.opensuse.org/project/show/#{CGI.escape result.first}"
-    else
-      pkg_link =  "https://build.opensuse.org/package/show/#{CGI.escape result.first}/#{CGI.escape result.last.first.package}"
-    end -%>
-    <%= link_to name, pkg_link %>
+  if result.last.first.package.nil?
+    pkg_link = "https://build.opensuse.org/project/show/#{CGI.escape result.first}"
+  else
+    pkg_link =  "https://build.opensuse.org/package/show/#{CGI.escape result.first}/#{CGI.escape result.last.first.package}"
+  end -%>
+  
+  <div class="card mb-2">
+    <div class="card-block row">
+      
+      <div class="col-md-6">
+        <%= link_to name, pkg_link %>
+        <% if type.eql? 'official' %>
+          <span class="badge badge-success"><%= _('Official') %></span>
+        <% end %>
+        <% if type.eql? 'experimental' %>
+          <span class="badge badge-warning"><%= _('Experimental') %></span>
+        <% end %>
+        <% if type.eql? 'community' %>
+          <span class="badge badge-danger"><%= _('Community') %></span>
+        <% end %>
+      </div><!-- /.col- -->
+      
+      <div class="col-md-2">
+        <%# only use the latest version, obs bug: some outdated versions still listed. %>
+        <% version = result.last.map{|r| r.version }.max %>
+        <%= shorten version, 23 %>
+      </div><!-- /.col- -->
+      
+      <div class="col-md-4 text-right">
+        <% release = result.last.select{|r| r.version == version }.map{|v| "#{v.release}".sub(".", "").to_i}.max %>
+        <% items = result.last.select{|r| r.version == version && "#{r.release}".sub(".", "").to_i == release } %>
+        <% archs = items.map{|item| human_arch( item.arch ) }.uniq.sort %>
+        <%  archs << _("Source") if archs.delete(_("Source")) %>
 
-  <%# only use the latest version, obs bug: some outdated versions still listed. %>
-    <% version = result.last.map{|r| r.version }.max %>
+        <!-- 1-click install button -->
+        <% if oneclick && distro[:project].match(/SUSE/) && !(archs.uniq == [_("Source")]) %>
+          <% url = url_for :controller => 'download', :action => 'ymp_without_arch_and_version',
+            :project => result.first, :repository => result.last.first.repository, :package => @pkgname,
+            :base => result.last.first.baseproject, :query => @pkgname%>
+          <a class="btn btn-sm btn-primary" href="<%= url %>"><span class="typcn typcn-flash-outline"></span> <%= _("1 Click Install") %></a>
+        <% end %>
 
-    <% release = result.last.select{|r| r.version == version }.map{|v| "#{v.release}".sub(".", "").to_i}.max %>
-    <ul class="pkg-typ-options">
-      <li><%= shorten version, 23 %></li>
-      <% items = result.last.select{|r| r.version == version && "#{r.release}".sub(".", "").to_i == release } %>
-      <% archs = items.map{|item| human_arch( item.arch ) }.uniq.sort %>
-      <%  archs << _("Source") if archs.delete(_("Source")) %>
-      <% archs.each do |arch| %>
-        <% items.select{|item| human_arch( item.arch ) == arch}.each do |bin| %>
-          <li><%= link_to human_arch( bin.arch ), "https://download.opensuse.org/repositories/" + bin.filepath  %> </li>
-        <% end -%>
-      <% end -%>
-    </ul>
-    <% if oneclick && distro[:project].match(/SUSE/) && !(archs.uniq == [_("Source")]) %>
-      <% url = url_for :controller => 'download', :action => 'ymp_without_arch_and_version',
-        :project => result.first, :repository => result.last.first.repository, :package => @pkgname,
-        :base => result.last.first.baseproject, :query => @pkgname, :protocol => 'https' %>
-      <a class="pkg-options-one-click" href="<%= url %>">1 Click Install</a>
-    <% end %>
-  </li>
+        <div class="btn-group">
+          <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="typcn typcn-download-outline"></span> Download
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+              <% archs.each do |arch| %>
+                <% items.select{|item| human_arch( item.arch ) == arch}.each do |bin| %>
+                  <%= link_to _(human_arch( bin.arch )), "http://download.opensuse.org/repositories/" + bin.filepath, :class => 'dropdown-item'  %>
+                <% end -%>
+              <% end -%>
+          </div>
+        </div>
+
+      </div><!-- /.col- -->
+    </div><!-- /.card-block -->
+  </div><!-- /.card -->
 <% end -%>

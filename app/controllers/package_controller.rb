@@ -41,21 +41,10 @@ class PackageController < ApplicationController
     @packages.reject!{|p| p.project.match(/openSUSE\:Maintenance\:/) }
 
     @packages.each do |package|
-
-      if (package.repository.match(/Tumbleweed/) || (package.project == "openSUSE:Tumbleweed"))
-        package.baseproject = "openSUSE:Factory"
-      elsif (package.project.match(/openSUSE:Evergreen/))
+      # Backports chains up to the toolchain module for newer GCC.
+      # So break the link immediately.
+      if (package.project.match(/^openSUSE:Backports:SLE-12/))
         package.baseproject = package.project
-      elsif (package.repository.match(/^Factory$/i))
-        package.baseproject = "openSUSE:Factory"
-      elsif (package.repository.match(/^\d{2}\.\d$/))
-        package.baseproject = "openSUSE:" + package.repository
-      elsif (!(@distributions.map{|d| d[:reponame]}.include? package.repository) &&
-            (package.repository != "standard") &&
-            (package.repository != "snapshot") &&
-            (!package.repository.match(/_Update$/)))
-        logger.info("Found non-std repo: #{package.repository}")
-        package.baseproject = package.repository.gsub("_", ":")
       end
     end
 
