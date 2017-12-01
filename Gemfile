@@ -35,11 +35,9 @@ group :development do
   # no need to load the gem via require
   # we only need the rake tasks
   gem 'gettext', '>= 1.9.3', :require => false
-  gem 'sqlite3'
 end
 
 group :production do
-  gem 'mysql2', '~> 0.4.9'
   gem 'puma'
 end
 
