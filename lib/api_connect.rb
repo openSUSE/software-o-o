@@ -3,8 +3,7 @@ class ApiConnect
   class Error < Exception; end
 
   def self.get(path, limit = 10)
-    config = Rails.configuration.x
-    uri_str = "#{config.api_host}/#{path}".gsub(' ', '%20')
+    uri_str = "#{CONFIG['api_host']}/#{path}".gsub(' ', '%20')
     uri_str = path if path.match(/^http/)
     uri = URI.parse(uri_str)
     logger.debug "Loading from api: #{uri_str}"
@@ -15,10 +14,12 @@ class ApiConnect
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       end
       request = Net::HTTP::Get.new("#{uri.path}?#{uri.query}")
-      request['x-username'] = config.api_username
+      api_user = CONFIG['api_username']
+      api_pass = CONFIG['api_password']
+      request['x-username'] = api_user
       # if you know the cookie, you can bypass login - useful in production ;)
-      request['X-opensuse_data'] = config.opensuse_cookie if config.opensuse_cookie
-      request.basic_auth  config.api_username, config.api_password unless (config.api_username.blank? || config.api_password.blank?)
+      request['X-opensuse_data'] = CONFIG['opensuse_cookie'] if CONFIG['opensuse_cookie']
+      request.basic_auth  api_user, api_pass unless (api_user.blank? || api_pass.blank?)
       http.read_timeout = 15
       response = http.request(request)
       case response

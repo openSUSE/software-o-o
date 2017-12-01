@@ -1,21 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%= @page_title || _('openSUSE Software') %></title>
+    <title><%= "software.opensuse.org: #{@page_title}" %></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Script-Type" content="text/javascript"/>
     <meta http-equiv="Content-Style-Type" content="text/css"/>
 
     <link rel="search" type="application/opensearchdescription+xml" title="openSUSE Software" href="/search_software.xml" />
 
-    <%= stylesheet_link_tag "/chameleon/css/app.css" %>
-    <%= stylesheet_link_tag "app" %>
-    <%= javascript_include_tag "/chameleon/js/app.js" %>
+    <%= stylesheet_link_tag "application" %>
     <link href="//static.opensuse.org/themes/bento/images/favicon.png" rel="shortcut icon" />
     <%= javascript_include_tag "application"  %>
+    <%= javascript_include_tag "/themes/bento/js/l10n/global-navigation-data-#{@lang || "en"}.js" %>
 
     <%= yield :content_for_head %>
 
@@ -58,8 +54,19 @@
   </head>
   <body>
 
-    <% activenav ||= 'software' %>
-    <%= render :partial => "layouts/navbar", :locals => {:activenav => 'software' } %>
+    <div id="header">
+      <div id="header-content" class="container_12">
+        <a id="header-logo" href="/">
+          <%= image_tag '/themes/bento/images/header-logo.png', :width => 46, :height => 26, :alt => _("Header Logo") %>
+        </a>
+        <ul id="global-navigation">
+          <li id="item-downloads"><a href="https://en.opensuse.org/openSUSE:Browse#downloads"><%= _("Downloads") %></a></li>
+          <li id="item-support"><a href="https://en.opensuse.org/openSUSE:Browse#support"><%= _("Support") %></a></li>
+          <li id="item-community"><a href="https://en.opensuse.org/openSUSE:Browse#community"><%= _("Community") %></a></li>
+          <li id="item-development"><a href="https://en.opensuse.org/openSUSE:Browse#development"><%= _("Development") %></a></li>
+        </ul>
+      </div>
+    </div>
 
     <% unless flash.blank? %>
       <%= render(:partial => "layouts/flash", :object => flash) %>
@@ -69,7 +76,7 @@
 
       <% unless @hide_search_box %>
         <%# Caching is really crucial in the front page (at release date, at least) %>
-	    <% if controller.controller_name == "main" && controller.action_name == "release" %>
+	<% if controller.controller_name == "main" && controller.action_name == "release" %>
           <% cache :locale => @lang, :baseproject => (@baseproject || default_baseproject) do %>
             <%= render :partial => 'search/find_form' %>
           <% end %>
@@ -83,7 +90,18 @@
       </div>
     </div>
 
-    <%= render :partial => "layouts/footer" %>
+    <div id="footer" class="container_12">
+      <div id="footer-content" class="grid_12 alpha">
+      </div>
+      <div id="footer-legal" class="border-top grid_12 alpha">
+        <p>© <span id="year"><%= Date.today.year %></span> SUSE and others. |
+          <a href="https://en.opensuse.org/Portal:Project">About openSUSE</a> |
+          <a href="https://en.opensuse.org/Terms_of_site">Legal information</a> |
+          <a href="mailto:admin@opensuse.org">Feedback</a> |
+          Source code available at <a href="https://github.com/openSUSE/software-o-o/">GitHub</a>
+        </p>
+      </div>
+    </div>
 
   </body>
 </html>

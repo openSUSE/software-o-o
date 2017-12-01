@@ -14,6 +14,7 @@
 //= require jquery.ui.all
 //= require jquery_ujs
 //
+//= require bento/global-navigation.js
 //= require jquery.cookie
 //= require jquery.pjax
 

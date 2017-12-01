@@ -3,3 +3,6 @@ SoftwareOO::Application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 end
+
+CONFIG['api_username'] = 'test'
+CONFIG['api_password'] = 'test'

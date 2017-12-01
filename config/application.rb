@@ -1,9 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "sprockets/railtie"
-require "rails/test_unit/railtie"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -67,7 +64,9 @@ module SoftwareOO
     # Use the database for sessions instead of the file system
     # (create the session table with 'rake create_sessions_table')
     # config.action_controller.session_store = :active_record_store
-        
+    
+    config.cache_store = :mem_cache_store, 'localhost:11211', {namespace: 'software', compress: true}
+    
     # Activate observers that should always be running
     # config.active_record.observers = :cacher, :garbage_collector
     
@@ -85,5 +84,6 @@ module SoftwareOO
     end unless Rails.env.test?
 
     config.active_support.deprecation = :log
+
   end
 end

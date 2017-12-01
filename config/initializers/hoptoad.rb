@@ -1,15 +1,14 @@
-HoptoadNotifier.configure do |h|
-  config = Rails.configuration.x
+HoptoadNotifier.configure do |config|
   # Change this to some sensible data for your errbit instance
-  h.api_key = config.errbit_api_key || 'YOUR_ERRBIT_API_KEY'
-  h.host    = config.errbit_host || 'YOUR_ERRBIT_HOST'
-  if config.errbit_api_key.blank? || config.errbit_host.blank?
-    h.development_environments = "production development test"
+  config.api_key = CONFIG['errbit_api_key'] || 'YOUR_ERRBIT_API_KEY'
+  config.host    = CONFIG['errbit_host'] || 'YOUR_ERRBIT_HOST'
+  if CONFIG['errbit_api_key'].blank? || CONFIG['errbit_host'].blank?
+    config.development_environments = "production development test"
   else
-    h.development_environments = "development test"
+    config.development_environments = "development test"
   end
 
-  h.ignore_only = %w{ 
+  config.ignore_only = %w{ 
   ActiveRecord::RecordNotFound
   ActionController::InvalidAuthenticityToken
   CGI::Session::CookieStore::TamperedWithCookie
@@ -19,7 +18,7 @@ HoptoadNotifier.configure do |h|
   Net::HTTPBadResponse
   }
  
-  h.ignore_by_filter do |exception_data|
+  config.ignore_by_filter do |exception_data|
     ret=false
     if exception_data[:error_class] == "ActionController::RoutingError" 
       message = exception_data[:error_message]

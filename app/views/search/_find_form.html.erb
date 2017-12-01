@@ -1,58 +1,49 @@
-<div class="search-box py-5">
-  <div class="container">
-    <%= form_tag( {:controller => 'search', :action => :index}, :method => :get ) do %>
-      <div class="d-flex justify-content-center">
-        <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form", :class => 'form-control mr-2', :placeholder => 'Search packages...', :autocomplete => "off", :autofocus => true %>
-        
-        <button type="submit" class="btn btn-primary mr-2 hidden-sm-down">
-          <span class="typcn typcn-lg typcn-zoom-outline"></span>
-          <span class="hidden-xs-down">Search</span>
-        </button>
-        
-        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#search-config-modal">
-            <span class="typcn typcn-lg typcn-spanner-outline"></span>
-            <span class="hidden-xs-down">Settings</span>
-        </button>
+<script type="text/javascript">
 
-      </div>
+  $(function() {
 
-      <div class="modal fade" id="search-config-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Package Search Options</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body form">
-              <%= hidden_field_tag("search_devel", "false") %>
-              <%= hidden_field_tag("search_unsupported", "false") %>
+    $('#search-options').addClass('hidden');
 
-              <div class="form-group row">
-                <label for="recipient-name" class="form-control-label col-sm-3 col-form-label"><%= _("Distribution:") %></label>
-                <% @distributions ||= Array.new %>
-                <div class="col-sm-9">
-                  <%= select_tag 'baseproject', options_for_select((@distributions.map{|d| [d[:name], d[:project]]} || ["ALL"]), (@baseproject or default_baseproject)), :class => 'form-control' %>
-                </div>
-              </div>
+    $("#search-options-link").click(function() {
+      $("#search-options").slideToggle();
+    });
 
-              <div class="form-check">
-                <label class="form-check-label">
-                  <%= check_box_tag("search_devel", "true", @search_devel, {:id => "search_devel_checkbox" })  %>
-                  <%= _("Show development, language and debug packages") %>
-                </label>
-              </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end -%>
-  </div>
+  });
+
+
+</script>
+
+<!--
+<div class="box box-shadow pkg-header-box pkg-appstore-box">
+  <h1><%= link_to "openSUSE Factory<br/>" + _("App Browser"), {:controller => :package, :action => :categories}, :id => "apps-headline"  %></h1>
 </div>
+-->
+
+<div class="box box-shadow pkg-search-box pkg-header-box grid_12 alpha">
+  <h1><%= link_to _("Package Search"), {:controller => :search, :action => :find}, :id => "apps-headline"  %></h1>
+  <%= form_tag( {:controller => 'search', :action => :index}, :method => :get ) do %>
+    <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form",  :autocomplete => "off", :autofocus => true %>
+    <div id='search-loader' class="hidden"><span id="search-loader-txt"></span> <%= image_tag "ajax-loader.gif" %></div>
+    <%= submit_tag _('Search'), :name => nil, :class => "search-go-button" %>
+    <span id="search-options-link"><%= image_tag "configure_search.png", :width => 24, :class =>"search-options-link" %></span>
+
+    <div id="search-options" class="">
+      <p>
+        <%= hidden_field_tag("search_devel", "false") %>
+        <%= check_box_tag("search_devel", "true", @search_devel, {:id => "search_devel_checkbox" })  %>
+        <label for="search_devel_checkbox"><%= _("Show development, language and debug packages") %></label><br/>
+        <%= hidden_field_tag("search_unsupported", "false") %>
+        <!-- <%= check_box_tag("search_unsupported", "true", @search_unsupported, {:id => "search_unsupported_checkbox" })  %>
+        <label for="search_unsupported_checkbox"><%= _("Show unsupported packages") %></label><br/> -->
+        <% @distributions ||= Array.new %>
+        &nbsp;<%= _("Show distribution:") %>&nbsp;
+        <%= select_tag 'baseproject', options_for_select((@distributions.map{|d| [d[:name], d[:project]]} || ["ALL"]), (@baseproject or default_baseproject)) %>
+      </p>
+    </div>
+  <% end -%>
+</div>
+
+<div style="clear:both"/>
 
 <div class="hidden" id="search-messages" >
   <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">

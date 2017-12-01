@@ -1,96 +1,106 @@
-<% testing = false %>
-<% version = '15' %>
-
-<header class="download-home-header jumbotron jumbotron-fluid text-center">
-  <div class="container">
-    <div class="page-heading">
-      <%= image_tag 'distributions/testing.svg', alt: "Tumbleweed Logo" %>
-      <h1 class="display-3">
-        openSUSE Leap <%= version %> <sup>Beta</sup>
-      </h1>
+<header class="header-section ">
+  <div class="intro-header no-img">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="page-heading">
+            <h1>Test openSUSE</h1>
+            <hr class="small">
+            <span class="page-subheading">
+              <%= _('Help test the next version of openSUSE Leap, the
+              regular-release distribution for desktop PCs, laptops,
+              and servers.') %>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
-<% if testing %>
-
-  <section class="my-5">
-    <div class="container">
-
-      <div class="alert alert-info">
-        <%= _('Help test the next version of openSUSE Leap, the regular-release distribution for desktop PCs, laptops, and servers.') %>
-      </div>
-      
-      <h3 class="my-3">x86_64</h3>
-      <div class="card-deck">
-        <div class="card">
-          <div class="card-block">
-            <h4 class="card-title">
-              <span class="typcn typcn-download-outline"></span>
-              <%= _("DVD Image") %> (4.7GB)
-            </h4>
-            <h6 class="card-subtitle mb-2 text-muted"><%= _("For DVD and USB stick") %></h6>
-            <p class="card-text text-muted"><%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %></p>
-            <a href="http://download.opensuse.org/distribution/leap/<%= version %>/iso/openSUSE-Leap-<%= version %>-DVD-x86_64-Current.iso" class="card-link"><%= _('Direct Link') %></a>
-            <a href="http://download.opensuse.org/distribution/leap/<%= version %>/iso/openSUSE-Leap-<%= version %>-DVD-x86_64-Current.iso.meta4" class="card-link"><%= _('Metalink') %></a>
-            <a href="http://download.opensuse.org/distribution/leap/<%= version %>/iso/openSUSE-Leap-<%= version %>-DVD-x86_64-Current.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
-            <a href="http://download.opensuse.org/distribution/leap/<%= version %>/iso/openSUSE-Leap-<%= version %>-DVD-x86_64-Current.iso.sha256" class="card-link"><%= _('Checksum') %></a>
-          </div>
-        </div><!-- /.card -->
-        <div class="card">
-          <div class="card-block">
-            <h4 class="card-title">
-              <span class="typcn typcn-download-outline"></span>
-              <%= _("Network Image") %> (85MB)
-            </h4>
-            <h6 class="card-subtitle mb-2 text-muted"><%= _("For CD and USB stick") %></h6>
-            <p class="card-text text-muted"><%= _("Downloads the installation system and all packages from online repositories. Suitable for installation or upgrade.") %></p>
-            <a href="http://download.opensuse.org/distribution/leap/<%= version %>/iso/openSUSE-Leap-<%= version %>-NET-x86_64-Current.iso" class="card-link"><%= _('Direct Link') %></a>
-            <a href="http://download.opensuse.org/distribution/leap/<%= version %>/iso/openSUSE-Leap-<%= version %>-NET-x86_64-Current.iso.meta4" class="card-link"><%= _('Metalink') %></a>
-            <a href="http://download.opensuse.org/distribution/leap/<%= version %>/iso/openSUSE-Leap-<%= version %>-NET-x86_64-Current.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
-            <a href="http://download.opensuse.org/distribution/leap/<%= version %>/iso/openSUSE-Leap-<%= version %>-NET-x86_64-Current.iso.sha256" class="card-link"><%= _('Checksum') %></a>
-          </div>
-        </div><!-- /.card -->
-      </div><!-- /.card-deck -->
-    </div><!-- /.container -->
-  </section>
-
-  <section class="my-5">
-    <div class="container" role="main">
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <!--
+      <h2>No new version of Leap is currently being tested, thanks for your interest!</h2>
+      <p>
+        Please join the opensuse-factory@opensuse.org
+        <a href="https://en.opensuse.org/openSUSE:Mailing_lists">Mailing List</a>
+        and keep an eye on
+        <a href="https://news.opensuse.org">openSUSE News</a>
+        for news & discussion about openSUSE's developments.
+      </p>
+      -->
+      <h1 id="currently-testing-opensuse-leap"><%= _('Currently testing %{leap_beta}') % { leap_beta: 'openSUSE Leap 42.3 Beta' } %></h1>
+      <p>
+        <%= _('This is not a supported release. It is provided to help openSUSE testers find bugs before release.') %>
+        <br>
+        <a href="<%= _('https://en.opensuse.org/openSUSE:Submitting_bug_reports') %>">
+          <%= _('Please report any issues you find in our Bugtracker.') %>
+        </a>
+      </p>
+      <h2 id="installation-media"><%= _('Installation Media') %> - Intel 64-bit (x86_64)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Leap 42.3</th>
+            <th><%= _('Size') %></th>
+            <th><%= _('Download Method') %></th>
+            <th><%= _('Checksum') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DVD/USB Stick</td>
+            <td>4.7GB</td>
+            <td>
+              <a href="http://download.opensuse.org/distribution/leap/42.3/iso/openSUSE-Leap-42.3-DVD-x86_64-Current.iso">
+                <%= _('Direct Link') %>
+              </a>
+              |
+              <a href="http://download.opensuse.org/distribution/leap/42.3/iso/openSUSE-Leap-42.3-DVD-x86_64-Current.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/distribution/leap/42.3/iso/openSUSE-Leap-42.3-DVD-x86_64-Current.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/distribution/leap/42.3/iso/openSUSE-Leap-42.3-DVD-x86_64-Current.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><%= _('Network') %> CD/USB Stick</td>
+            <td>85MB</td>
+            <td>
+              <a href="http://download.opensuse.org/distribution/leap/42.3/iso/openSUSE-Leap-42.3-NET-x86_64-Current.iso">
+                <%= _('Direct Link') %>
+              </a>
+              |
+              <a href="http://download.opensuse.org/distribution/leap/42.3/iso/openSUSE-Leap-42.3-NET-x86_64-Current.iso.meta4">
+                Metalink
+              </a>
+              |
+              <a href="http://download.opensuse.org/distribution/leap/42.3/iso/openSUSE-Leap-42.3-NET-x86_64-Current.iso?mirrorlist">
+                <%= _('Pick Mirror') %>
+              </a>
+            </td>
+            <td>
+              <a href="http://download.opensuse.org/distribution/leap/42.3/iso/openSUSE-Leap-42.3-NET-x86_64-Current.iso.sha256">
+                SHA256
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
       <%= render "choosing_media" %>
-    </div>
-  </section>
-
-  <section class="my-5">
-    <div class="container" role="main">
       <%= render "leap_switch" %>
-    </div>
-  </section>
-
-  <section class="my-5">
-    <div class="container" role="main">
-      <%= render partial: 'documentation', locals: { distro: "Leap" } %>
-    </div>
-  </section>
-
-  <section class="my-5">
-    <div class="container" role="main">
+      <%= render partial: 'documentation', locals: {distro: "Leap", version: '42.3'} %>
       <%= render "verify_download" %>
-    </div>
-  </section>
-
-  <section class="my-5">
-    <div class="container" role="main">
       <%= render "requirements" %>
     </div>
-  </section>
-
-<% else %>
-
-  <section class="my-5">
-    <div class="container" role="main">
-      <div class="alert alert-info"><%= _("No testing distribution available.") %></div>
-    </div>
-  </section>
-
-<% end %>
+  </div>
+</div>
