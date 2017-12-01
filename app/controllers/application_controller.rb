@@ -6,9 +6,9 @@ require 'net/https'
 
 class ApplicationController < ActionController::Base
 
-  before_filter :set_language
-  before_filter :set_distributions
-  before_filter :set_baseproject
+  before_action :set_language
+  before_action :set_distributions
+  before_action :set_baseproject
 
   helper :all # include all helpers, all the time
   require "rexml/document"
@@ -28,7 +28,6 @@ class ApplicationController < ActionController::Base
       when Timeout::Error
       else
         logger.error exception.backtrace.join("\n")
-        notify_hoptoad(exception)
       end
     render :template => 'error', :formats => [:html], :layout => layout, :status => 400
   end

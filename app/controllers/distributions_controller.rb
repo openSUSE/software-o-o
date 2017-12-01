@@ -1,5 +1,5 @@
 class DistributionsController < ApplicationController
-  skip_before_filter :set_distributions
+  skip_before_action :set_distributions
 
   # GET /distributions
   def index

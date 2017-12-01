@@ -59,7 +59,7 @@
             <ul class="dropdown-menu dropdown-menu-right">
               <% LANGUAGES.sort.each do |lang| %>
                 <li class="dropdown-item">
-                  <%= link_to LANGUAGE_NAMES[lang], params.merge(:locale => lang) %>
+                  <%= link_to LANGUAGE_NAMES[lang], params.permit.merge(:locale => lang) %>
                 </li>
               <% end -%>
             </ul>
