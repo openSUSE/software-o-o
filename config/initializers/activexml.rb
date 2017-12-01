@@ -16,5 +16,3 @@ map.set_additional_header( "X-Username", config.api_username)
 map.login config.api_username, config.api_password
 map.set_additional_header( "User-Agent", "software.o.o" )
 map.set_additional_header("X-opensuse_data", config.opensuse_cookie) if config.opensuse_cookie
-
-
