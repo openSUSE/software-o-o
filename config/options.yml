@@ -1,0 +1,27 @@
+defaults: &defaults
+  api_host: https://api.opensuse.org
+  api_username: test
+  api_password: test
+  relative_url_root: 
+
+development:
+  <<: *defaults
+  api_username: wiki_hermes
+  api_password: w_h_p1
+
+testing:
+  <<: *defaults
+  # only for production use
+  #opensuse_cookie: 
+stage:
+  <<: *defaults
+  use_static: software.o.o-stage
+  # only for production use
+  #opensuse_cookie: 
+production:
+  <<: *defaults
+  relative_url_root: 
+  api_username: <%= ENV['API_USERNAME'] %>
+  api_password: <%= ENV['API_PASSWORD'] %>
+  use_static: software.o.o
+  #opensuse_cookie: 
