@@ -1,7 +1,7 @@
 class DownloadController < ApplicationController
 
-  before_filter :set_colors
-  before_filter :set_parameters
+  before_action :set_colors
+  before_action :set_parameters
 
   # display documentation
   def doc

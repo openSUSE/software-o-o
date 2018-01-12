@@ -1,10 +1,10 @@
 class PackageController < ApplicationController
 
-  #before_filter :set_beta_warning, :only => [:category, :categories]
-  before_filter :set_search_options, :only => [:show, :categories]
-  before_filter :prepare_appdata, :set_categories, :only => [:show, :categories, :category]
+  #before_action :set_beta_warning, :only => [:category, :categories]
+  before_action :set_search_options, :only => [:show, :categories]
+  before_action :prepare_appdata, :set_categories, :only => [:show, :categories, :category]
 
-  skip_before_filter :set_language, :set_distributions, :set_baseproject, :only => [:thumbnail, :screenshot]
+  skip_before_action :set_language, :set_distributions, :set_baseproject, :only => [:thumbnail, :screenshot]
 
   def show
     required_parameters :package

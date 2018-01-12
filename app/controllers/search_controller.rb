@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 
-  before_filter :set_search_options
-  before_filter :prepare_appdata
+  before_action :set_search_options
+  before_action :prepare_appdata
 
   def index
     render 'find' and return if @search_term.blank?

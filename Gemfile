@@ -1,13 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.1.1'
+gem 'rails', '~> 5.1.4'
 gem 'nokogiri'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 5.0.7'
 # With compass
-gem 'compass-rails', '< 2.0'
-gem 'compass', '< 1.0'
+gem 'compass-rails', '~> 3.0.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -22,6 +21,12 @@ gem 'fast_gettext', '>= 0.7.0'
 # rails-i18n provides translations for ActiveRecord
 # validation error messages
 gem 'rails-i18n'
+
+gem 'xmlhash', '>= 1.2.2'
+gem 'hashie'
+gem 'dalli'
+gem 'minitest'
+gem 'mini_magick'
 
 # needed to collect translatable strings
 # not needed at production

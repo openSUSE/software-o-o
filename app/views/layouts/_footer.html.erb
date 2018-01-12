@@ -94,7 +94,9 @@
             </button>
             <ul class="dropdown-menu languages" aria-labelledby="dropdownMenu1">
               <% LANGUAGES.sort.each do |lang| %>
-                <li><a href="/?locale=<%= lang %>" class="change-language" data-language-value="<% lang %>"><%= LANGUAGE_NAMES[lang] %></a></li>
+                <li class="dropdown-item">
+                  <%= link_to LANGUAGE_NAMES[lang], params.permit.merge(:locale => lang) %>
+                </li>
               <% end -%>
             </ul>
           </div>
