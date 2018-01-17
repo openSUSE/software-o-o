@@ -31,6 +31,7 @@
         <%= link_to _('Download'), leap_distributions_path, class: 'btn btn-primary' %>
       </div>
     </div>
+<% if @testing_version %>
     <div class="card">
       <%= image_tag 'distributions/testing.svg', alt: "Testing Logo", class: "card-img-top" %>
       <div class="card-block">
@@ -41,6 +42,7 @@
         <%= link_to _('Download'), testing_distributions_path, class: 'btn btn-primary' %>
       </div>
     </div>
+<% end %>
   </div><!-- /.card-deck -->
 </div><!-- /.container -->
 
