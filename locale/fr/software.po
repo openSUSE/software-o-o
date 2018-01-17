@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 12:32+0200\n"
+"POT-Creation-Date: 2018-01-17 14:54+0100\n"
 "PO-Revision-Date: 2017-06-20 08:11+0000\n"
 "Last-Translator: Guillaume GARDET <guillaume.gardet@opensuse.org>\n"
-"Language-Team: French "
-"<https://l10n.opensuse.org/projects/software-o-o/master/fr/>\n"
+"Language-Team: French <https://l10n.opensuse.org/projects/software-o-o/"
+"master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,11 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.6\n"
 
-#: ../app/views/search/_find_results.html.erb:94
-msgid " and "
-msgstr " et "
-
-#: ../app/views/distributions/index.html.erb:83
+#: ../app/views/distributions/index.html.erb:66
 msgid ""
 "%{leap} is a <strong>regular-release</strong>. This means it releases "
 "%{annually}, with security and stability updates being the priority during "
@@ -32,7 +28,7 @@ msgstr ""
 "parait %{annually}, les mises à jour de sécurité et de stabilité étant "
 "prioritaires tout au long de sa %{lifetime}."
 
-#: ../app/views/distributions/index.html.erb:77
+#: ../app/views/distributions/index.html.erb:58
 msgid ""
 "%{tumbleweed} is a <strong>rolling-release</strong>. This means the software "
 "is always the latest stable versions available from the openSUSE Project. "
@@ -44,13 +40,19 @@ msgstr ""
 "possibles. Les choses bougent régulièrement car les projets libres et Open "
 "Source publient continuellement de nouvelles versions de leurs logiciels."
 
-#: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
+#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
 msgid "(hide)"
 msgstr "(masquer)"
 
-#: ../app/views/download/package.erb:7 ../app/views/download/appliance.erb:7
+#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
 msgid "(show)"
 msgstr "(afficher)"
+
+#: ../app/views/package/_download_rows.html.erb:49
+#, fuzzy
+#| msgid "1-Click Install"
+msgid "1 Click Install"
+msgstr "1-Click Install"
 
 #: ../app/views/distributions/_requirements.html.erb:6
 msgid "2 GB system memory"
@@ -60,11 +62,11 @@ msgstr "2 Go de mémoire système"
 msgid "2 Ghz dual core processor or better"
 msgstr "Processeur dual core à 2 GHz ou supérieur"
 
-#: ../app/views/package/_download_rows.html.erb:4
+#: ../app/views/package/_download_rows.html.erb:3
 msgid "<b>official release</b>"
 msgstr "<b>Version officielle</b>"
 
-#: ../app/views/package/_download_rows.html.erb:6
+#: ../app/views/package/_download_rows.html.erb:5
 msgid "<b>official update</b>"
 msgstr "<b>Mise à jour officielle</b>"
 
@@ -72,16 +74,15 @@ msgstr "<b>Mise à jour officielle</b>"
 msgid "Add repository and install manually"
 msgstr "Ajouter le dépôt et installer manuellement"
 
-# TLABEL printer_2002_08_07_0216__246
-#: ../app/views/search/_find_form.html.erb:18
-msgid "App Browser"
-msgstr "Explorateur d'applications"
-
 #: ../app/views/download/appliance.erb:52
 msgid "Available Images"
 msgstr "Images disponibles"
 
-#: ../app/views/distributions/index.html.erb:100
+#: ../app/views/package/show.html.erb:5
+msgid "Back to home page"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:86
 msgid ""
 "Both distributions are fully capable of being used on a Desktop PC, laptop, "
 "server, or in the cloud."
@@ -89,7 +90,7 @@ msgstr ""
 "Les deux distributions peuvent parfaitement être utilisées sur un ordinateur "
 "classique, un ordinateur portable, un serveur ou dans le Cloud."
 
-#: ../app/views/distributions/index.html.erb:98
+#: ../app/views/distributions/index.html.erb:83
 msgid ""
 "Both distributions are well tested by <a href=\"https://openqa.opensuse.org"
 "\">openQA</a> as well as by human openSUSE contributors so both can be "
@@ -99,24 +100,41 @@ msgstr ""
 "opensuse.org\">openQA</a> ainsi que manuellement par des contributeurs "
 "openSUSE donc vous pouvez vous y fier pour votre travail."
 
-#: ../app/views/package/show.html.erb:169
+#: ../app/views/layouts/_footer.html.erb:8
+msgid "Build service"
+msgstr ""
+
+#: ../app/views/package/show.html.erb:25
 msgid "Categories"
 msgstr "Catégories"
 
-#: ../app/views/package/show.html.erb:169
+#: ../app/views/package/show.html.erb:25
 msgid "Category"
 msgstr "Catégorie"
 
-#: ../app/views/distributions/leap_ports.html.erb:29
-#: ../app/views/distributions/leap_ports.html.erb:90
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:47
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:126
-#: ../app/views/distributions/leap.html.erb:28
-#: ../app/views/distributions/tumbleweed.html.erb:30
-#: ../app/views/distributions/tumbleweed_ports.html.erb:28
-#: ../app/views/distributions/tumbleweed_ports.html.erb:85
-#: ../app/views/distributions/tumbleweed_ports.html.erb:142
-#: ../app/views/distributions/testing.html.erb:49
+#: ../app/views/distributions/leap.html.erb:48
+#: ../app/views/distributions/leap.html.erb:62
+#: ../app/views/distributions/leap.html.erb:87
+#: ../app/views/distributions/leap.html.erb:101
+#: ../app/views/distributions/leap.html.erb:119
+#: ../app/views/distributions/leap.html.erb:133
+#: ../app/views/distributions/tumbleweed.html.erb:55
+#: ../app/views/distributions/tumbleweed.html.erb:69
+#: ../app/views/distributions/tumbleweed.html.erb:83
+#: ../app/views/distributions/tumbleweed.html.erb:101
+#: ../app/views/distributions/tumbleweed.html.erb:115
+#: ../app/views/distributions/tumbleweed.html.erb:140
+#: ../app/views/distributions/tumbleweed.html.erb:154
+#: ../app/views/distributions/tumbleweed.html.erb:172
+#: ../app/views/distributions/tumbleweed.html.erb:186
+#: ../app/views/distributions/tumbleweed.html.erb:215
+#: ../app/views/distributions/tumbleweed.html.erb:227
+#: ../app/views/distributions/tumbleweed.html.erb:239
+#: ../app/views/distributions/tumbleweed.html.erb:255
+#: ../app/views/distributions/tumbleweed.html.erb:267
+#: ../app/views/distributions/tumbleweed.html.erb:279
+#: ../app/views/distributions/testing.html.erb:34
+#: ../app/views/distributions/testing.html.erb:48
 msgid "Checksum"
 msgstr "Somme de contrôle"
 
@@ -128,108 +146,118 @@ msgstr "Aide à propos des sommes de contrôle"
 msgid "Choosing Which Media to Download"
 msgstr "Choix du média à télécharger"
 
-#: ../app/views/distributions/index.html.erb:74
+#: ../app/views/distributions/index.html.erb:52
 msgid "Choosing which Distribution to Download"
 msgstr "Choix de la distribution à télécharger"
 
-#: ../app/views/layouts/application.html.erb:65
-#: ../app/views/layouts/download.html.erb:59
+#: ../app/views/layouts/_footer.html.erb:26
+#: ../app/views/package/_download_rows.html.erb:28
 msgid "Community"
 msgstr "Communauté"
 
-#: ../app/views/distributions/testing.html.erb:34
-#| msgid "Currently testing"
-msgid "Currently testing %{leap_beta}"
-msgstr "Actuellement en test %{leap_beta}"
+#: ../app/views/distributions/leap.html.erb:44
+#: ../app/views/distributions/leap.html.erb:83
+#: ../app/views/distributions/leap.html.erb:115
+#: ../app/views/distributions/tumbleweed.html.erb:51
+#: ../app/views/distributions/tumbleweed.html.erb:97
+#: ../app/views/distributions/tumbleweed.html.erb:136
+#: ../app/views/distributions/tumbleweed.html.erb:168
+#: ../app/views/distributions/testing.html.erb:30
+#, fuzzy
+#| msgid ""
+#| "Contains a large collection of software for desktop or server use.<br/"
+#| ">Suitable for installation or upgrade."
+msgid ""
+"Contains a large collection of software for desktop or server use. Suitable "
+"for installation or upgrade."
+msgstr ""
+"Contient une large collection de logiciels pour une utilisation de bureau ou "
+"en tant que serveur.<br/>Convient pour l'installation comme pour la mise à "
+"jour."
 
-#: ../app/views/distributions/index.html.erb:117
-msgid "Derivatives"
-msgstr "Dérivés"
+#: ../app/views/distributions/leap.html.erb:41
+#: ../app/views/distributions/leap.html.erb:80
+#: ../app/views/distributions/leap.html.erb:112
+#: ../app/views/distributions/tumbleweed.html.erb:48
+#: ../app/views/distributions/tumbleweed.html.erb:94
+#: ../app/views/distributions/tumbleweed.html.erb:133
+#: ../app/views/distributions/tumbleweed.html.erb:165
+#: ../app/views/distributions/testing.html.erb:27
+#, fuzzy
+#| msgid "Image:"
+msgid "DVD Image"
+msgstr "Image :"
 
-#: ../app/views/layouts/application.html.erb:66
-#: ../app/views/layouts/download.html.erb:60
-msgid "Development"
+#: ../app/views/layouts/_footer.html.erb:5
+#, fuzzy
+#| msgid "Development"
+msgid "Developers"
 msgstr "Développement"
 
-#: ../app/views/search/_find_results.html.erb:92
+#: ../app/views/search/_find_results.html.erb:88
 msgid "Development packages"
 msgstr "Paquets de développement"
 
-#: ../app/views/search/_find_results.html.erb:91
-msgid "Development-"
-msgstr "Développement-"
-
-#: ../app/views/package/show.html.erb:188
+#: ../app/views/package/show.html.erb:50
 msgid "Direct Install"
 msgstr "Installation directe"
 
-#: ../app/views/distributions/leap_ports.html.erb:38
-#: ../app/views/distributions/leap_ports.html.erb:64
-#: ../app/views/distributions/leap_ports.html.erb:99
-#: ../app/views/distributions/leap_ports.html.erb:121
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:56
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:78
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:100
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:135
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:157
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:178
-#: ../app/views/distributions/leap.html.erb:37
-#: ../app/views/distributions/leap.html.erb:63
-#: ../app/views/distributions/tumbleweed.html.erb:39
-#: ../app/views/distributions/tumbleweed.html.erb:61
-#: ../app/views/distributions/tumbleweed_ports.html.erb:37
-#: ../app/views/distributions/tumbleweed_ports.html.erb:59
-#: ../app/views/distributions/tumbleweed_ports.html.erb:94
-#: ../app/views/distributions/tumbleweed_ports.html.erb:116
-#: ../app/views/distributions/tumbleweed_ports.html.erb:151
-#: ../app/views/distributions/tumbleweed_ports.html.erb:173
-#: ../app/views/distributions/testing.html.erb:58
-#: ../app/views/distributions/testing.html.erb:80
+#: ../app/views/distributions/leap.html.erb:45
+#: ../app/views/distributions/leap.html.erb:59
+#: ../app/views/distributions/leap.html.erb:84
+#: ../app/views/distributions/leap.html.erb:98
+#: ../app/views/distributions/leap.html.erb:116
+#: ../app/views/distributions/leap.html.erb:130
+#: ../app/views/distributions/tumbleweed.html.erb:52
+#: ../app/views/distributions/tumbleweed.html.erb:66
+#: ../app/views/distributions/tumbleweed.html.erb:80
+#: ../app/views/distributions/tumbleweed.html.erb:98
+#: ../app/views/distributions/tumbleweed.html.erb:112
+#: ../app/views/distributions/tumbleweed.html.erb:137
+#: ../app/views/distributions/tumbleweed.html.erb:151
+#: ../app/views/distributions/tumbleweed.html.erb:169
+#: ../app/views/distributions/tumbleweed.html.erb:183
+#: ../app/views/distributions/tumbleweed.html.erb:213
+#: ../app/views/distributions/tumbleweed.html.erb:225
+#: ../app/views/distributions/tumbleweed.html.erb:237
+#: ../app/views/distributions/tumbleweed.html.erb:253
+#: ../app/views/distributions/tumbleweed.html.erb:265
+#: ../app/views/distributions/tumbleweed.html.erb:277
+#: ../app/views/distributions/testing.html.erb:31
+#: ../app/views/distributions/testing.html.erb:45
 msgid "Direct Link"
 msgstr "Lien direct"
 
+#: ../app/views/search/_find_form.html.erb:33
+#, fuzzy
+#| msgid "Show distribution:"
+msgid "Distribution:"
+msgstr "Afficher la distribution :"
+
+#: ../app/views/package/show.html.erb:60
+#, fuzzy
+#| msgid "Show distribution:"
+msgid "Distributions"
+msgstr "Afficher la distribution :"
+
+#: ../app/views/layouts/_footer.html.erb:7
+#: ../app/views/layouts/_navbar.html.erb:20
 #: ../app/views/distributions/_documentation.html.erb:2
 msgid "Documentation"
 msgstr "Documentation"
 
-#: ../app/views/package/show.html.erb:141
-msgid "Don't show this warning the next time"
-msgstr "Ne pas afficher cet avertissement la prochaine fois"
-
-#: ../app/views/distributions/leap_ports.html.erb:28
-#: ../app/views/distributions/leap_ports.html.erb:89
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:46
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:125
-#: ../app/views/distributions/leap.html.erb:27
-#: ../app/views/distributions/tumbleweed.html.erb:29
-#: ../app/views/distributions/tumbleweed_ports.html.erb:27
-#: ../app/views/distributions/tumbleweed_ports.html.erb:84
-#: ../app/views/distributions/tumbleweed_ports.html.erb:141
-#: ../app/views/distributions/testing.html.erb:48
-msgid "Download Method"
-msgstr "Type de téléchargement"
-
-#: ../app/views/distributions/leap_ports.html.erb:10
-msgid ""
-"Download alternative architecture versions of openSUSE Leap, for desktop "
-"PCs, laptops, and servers."
-msgstr ""
-"Télécharger des versions d'openSUSE Leap pour des architectures "
-"alternatives, pour PC de bureau, portables et serveurs."
-
-#: ../app/views/distributions/tumbleweed_ports.html.erb:10
-msgid ""
-"Download alternative architectures of the rolling version of openSUSE, for "
-"desktop PCs, laptops, and servers."
-msgstr ""
-"Télécharger des versions rolling release d'openSUSE pour des architectures "
-"alternatives, pour PC de bureau, portables et serveurs."
+#: ../app/views/layouts/_navbar.html.erb:14
+#: ../app/views/distributions/index.html.erb:21
+#: ../app/views/distributions/index.html.erb:31
+#: ../app/views/distributions/index.html.erb:42
+msgid "Download"
+msgstr "Télécharger"
 
 #: ../app/controllers/download_controller.rb:36
 msgid "Download appliance from %s"
 msgstr "Télécharger l'image depuis %s"
 
-#: ../app/views/distributions/index.html.erb:45
+#: ../app/views/distributions/index.html.erb:28
 msgid ""
 "Download openSUSE’s regular release and enjoy the benefits of both "
 "enterprise-grade engineering and community-developed innovation."
@@ -238,10 +266,7 @@ msgstr ""
 "fois de la qualité issue de l'entreprise et l'innovation apportée par la "
 "communauté."
 
-#: ../app/views/distributions/index.html.erb:42
-#| msgid ""
-#| "Download openSUSE’s rolling release and always run the latest\n"
-#| "              packages provided by the openSUSE Project."
+#: ../app/views/distributions/index.html.erb:18
 msgid ""
 "Download openSUSE’s rolling release and always run the latest packages "
 "provided by the openSUSE Project."
@@ -249,34 +274,25 @@ msgstr ""
 "Téléchargez la version en rolling release d'openSUSE et bénéficiez des "
 "derniers logiciels fournis par le projet openSUSE."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
+#: ../app/views/distributions/leap.html.erb:58
+#: ../app/views/distributions/leap.html.erb:97
+#: ../app/views/distributions/leap.html.erb:129
+#: ../app/views/distributions/tumbleweed.html.erb:65
+#: ../app/views/distributions/tumbleweed.html.erb:79
+#: ../app/views/distributions/tumbleweed.html.erb:111
+#: ../app/views/distributions/tumbleweed.html.erb:150
+#: ../app/views/distributions/tumbleweed.html.erb:182
+#: ../app/views/distributions/testing.html.erb:44
+#, fuzzy
+#| msgid ""
+#| "Downloads the installation system and all packages from online "
+#| "repositories.<br/>Suitable for installation or upgrade."
 msgid ""
-"Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, "
-"laptops, and servers."
+"Downloads the installation system and all packages from online repositories. "
+"Suitable for installation or upgrade."
 msgstr ""
-"Téléchargez le LiveUSB de la variante en rolling release d'openSUSE, pour "
-"les ordinateurs de bureau, les ordinateurs portables et les serveurs."
-
-#: ../app/views/distributions/leap.html.erb:10
-msgid ""
-"Download the latest version of openSUSE Leap, for desktop PCs, laptops, and "
-"servers."
-msgstr ""
-"Télécharger la dernière version d'openSUSE Leap, pour PC de bureau, "
-"portables et serveurs."
-
-#: ../app/views/distributions/tumbleweed.html.erb:10
-msgid ""
-"Download the rolling version of openSUSE, for desktop PCs,\n"
-"laptops, and servers."
-msgstr ""
-"Téléchargez la variante en rolling release d'openSUSE, pour les ordinateurs "
-"de bureau, les ordinateurs portables et les serveurs."
-
-#: ../app/views/layouts/application.html.erb:63
-#: ../app/views/layouts/download.html.erb:57
-msgid "Downloads"
-msgstr "Téléchargements"
+"Télécharge le système d'installation et tous les paquets depuis les dépôts "
+"en ligne.<br/>Convient pour l'installation comme pour la mise à jour."
 
 #: ../app/views/distributions/_leap_switch.html.erb:2
 msgid "Easy Ways to Switch to openSUSE Leap"
@@ -290,9 +306,17 @@ msgstr "Migrer facilement vers openSUSE Tumbleweed"
 msgid "Either a DVD drive or USB port for the installation media"
 msgstr "Un lecteur DVD ou un port USB pour le medium d'installation"
 
-#: ../app/views/package/show.html.erb:252
-msgid "Expand all sections ('e')"
-msgstr "Développer toutes les sections ('e')"
+#: ../app/views/layouts/_footer.html.erb:20
+msgid "Events"
+msgstr ""
+
+#: ../app/views/package/_download_rows.html.erb:25
+msgid "Experimental"
+msgstr ""
+
+#: ../app/views/layouts/_footer.html.erb:30
+msgid "Facebook group"
+msgstr ""
 
 #: ../app/views/download/package.erb:106
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
@@ -311,6 +335,35 @@ msgstr ""
 "Pour <strong>Arch Linux</strong>, modifiez /etc/pacman.conf et "
 "ajoutez (remarque : l'ordre des dépôts est important dans pacman.conf, "
 "puisque pacman télécharge toujours le premier paquet trouvé) :"
+
+#: ../app/views/distributions/leap.html.erb:57
+#: ../app/views/distributions/leap.html.erb:96
+#: ../app/views/distributions/leap.html.erb:128
+#: ../app/views/distributions/tumbleweed.html.erb:64
+#: ../app/views/distributions/tumbleweed.html.erb:78
+#: ../app/views/distributions/tumbleweed.html.erb:110
+#: ../app/views/distributions/tumbleweed.html.erb:149
+#: ../app/views/distributions/tumbleweed.html.erb:181
+#: ../app/views/distributions/tumbleweed.html.erb:236
+#: ../app/views/distributions/tumbleweed.html.erb:276
+#: ../app/views/distributions/testing.html.erb:43
+msgid "For CD and USB stick"
+msgstr ""
+
+#: ../app/views/distributions/leap.html.erb:43
+#: ../app/views/distributions/leap.html.erb:82
+#: ../app/views/distributions/leap.html.erb:114
+#: ../app/views/distributions/tumbleweed.html.erb:50
+#: ../app/views/distributions/tumbleweed.html.erb:96
+#: ../app/views/distributions/tumbleweed.html.erb:135
+#: ../app/views/distributions/tumbleweed.html.erb:167
+#: ../app/views/distributions/tumbleweed.html.erb:212
+#: ../app/views/distributions/tumbleweed.html.erb:224
+#: ../app/views/distributions/tumbleweed.html.erb:252
+#: ../app/views/distributions/tumbleweed.html.erb:264
+#: ../app/views/distributions/testing.html.erb:29
+msgid "For DVD and USB stick"
+msgstr ""
 
 #: ../app/views/distributions/_verify_download.html.erb:13
 msgid ""
@@ -332,6 +385,11 @@ msgstr ""
 "Pour plus d'aide pour vérifier votre téléchargement, veuillez lire "
 "%{checksums_help}"
 
+#: ../app/views/layouts/_footer.html.erb:28
+#: ../app/views/layouts/_navbar.html.erb:26
+msgid "Forums"
+msgstr ""
+
 #: ../app/views/distributions/_upgrade_table.html.erb:6
 msgid "From OS X"
 msgstr "Depuis OS X"
@@ -352,46 +410,46 @@ msgstr "Documentation complète"
 msgid "Games"
 msgstr "Jeux"
 
-#: ../app/views/distributions/_unsupported_live_media.html.erb:9
-msgid "Get Unsupported Tumbleweed LiveCDs."
-msgstr "Obtenir le liveCD non supporté de Tumbleweed."
+#: ../app/views/search/_find_results.html.erb:69
+msgid "Get"
+msgstr ""
 
 #: ../app/views/layouts/jekyll.html.erb:8
 #: ../app/views/layouts/jekyll.html.erb:34
-#: ../app/views/distributions/index.html.erb:7
+#: ../app/views/layouts/download.html.erb:7
+#: ../app/views/distributions/index.html.erb:4
 msgid "Get openSUSE"
 msgstr "Obtenir openSUSE"
 
-#: ../app/views/distributions/leap.html.erb:85
-msgid "Get openSUSE Leap for other architectures."
-msgstr "Obtenir openSUSE Leap pour d'autres architectures."
-
-#: ../app/views/distributions/tumbleweed.html.erb:84
-msgid "Get openSUSE Tumbleweed for other architectures."
-msgstr "Obtenir openSUSE Tumbleweed pour d'autres architectures."
+#: ../app/views/layouts/_footer.html.erb:31
+msgid "Google+ group"
+msgstr ""
 
 #: ../app/views/download/package.erb:153
 msgid "Grab binary packages directly"
 msgstr "Récupérer les paquets binaires directement"
 
-#: ../app/views/layouts/application.html.erb:60
-#: ../app/views/layouts/download.html.erb:54
-msgid "Header Logo"
-msgstr "Logo d'en-tête"
-
-#: ../app/views/distributions/index.html.erb:64
+#: ../app/views/distributions/index.html.erb:39
+#, fuzzy
+#| msgid ""
+#| "Help test openSUSE’s next version of Leap by downloading\n"
+#| "              the latest development milestone."
 msgid ""
-"Help test openSUSE’s next version of Leap by downloading\n"
-"              the latest development milestone."
+"Help test openSUSE’s next version of Leap by downloading the latest "
+"development milestone."
 msgstr ""
 "Aidez à tester la prochaine version d'openSUSE Leap en téléchargeant\n"
 "              la dernière étape de développement."
 
-#: ../app/views/distributions/testing.html.erb:10
+#: ../app/views/distributions/testing.html.erb:18
+#, fuzzy
+#| msgid ""
+#| "Help test the next version of openSUSE Leap, the\n"
+#| "              regular-release distribution for desktop PCs, laptops,\n"
+#| "              and servers."
 msgid ""
-"Help test the next version of openSUSE Leap, the\n"
-"              regular-release distribution for desktop PCs, laptops,\n"
-"              and servers."
+"Help test the next version of openSUSE Leap, the regular-release "
+"distribution for desktop PCs, laptops, and servers."
 msgstr ""
 "Aidez à tester la prochaine version d'openSUSE Leap, la\n"
 "              version standard pour les PC de bureau, les portables,\n"
@@ -421,7 +479,11 @@ msgstr "Comment créer une clé USB de démarrage sous Linux."
 msgid "How to create a bootable USB stick on OS X."
 msgstr "Comment créer une clé USB de démarrage sous OS X."
 
-#: ../app/views/distributions/index.html.erb:105
+#: ../app/views/layouts/_footer.html.erb:33
+msgid "IRC channels"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:91
 msgid "If you are still not sure, download %{leap}"
 msgstr "Si vous n'êtes pas encore sûr, téléchargez %{leap}"
 
@@ -441,6 +503,10 @@ msgstr ""
 msgid "Image:"
 msgstr "Image :"
 
+#: ../app/views/layouts/_footer.html.erb:16
+msgid "Information"
+msgstr ""
+
 #: ../app/controllers/download_controller.rb:78
 msgid "Install package %s / %s"
 msgstr "Installation du paquet %s / %s"
@@ -453,21 +519,12 @@ msgstr "Installer le modèle %s / %s"
 msgid "Install using One Click Install"
 msgstr "Installer en utilisant le One Click Install"
 
-#: ../app/views/distributions/leap.html.erb:21
-#: ../app/views/distributions/tumbleweed.html.erb:23
-#: ../app/views/distributions/tumbleweed_ports.html.erb:21
-#: ../app/views/distributions/tumbleweed_ports.html.erb:78
-#: ../app/views/distributions/tumbleweed_ports.html.erb:135
-#: ../app/views/distributions/testing.html.erb:42
-msgid "Installation Media"
-msgstr "Média d'installation"
-
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
 msgstr ""
 "L'accès à internet est utile, et nécessaire pour l'installation par le réseau"
 
-#: ../app/views/distributions/index.html.erb:108
+#: ../app/views/distributions/index.html.erb:95
 msgid ""
 "It is easy to <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 "\">switch to openSUSE Tumbleweed</a> if you change your mind later."
@@ -476,7 +533,7 @@ msgstr ""
 "Tumbleweed_upgrade\">passer à openSUSE Tumbleweed</a> si vous changez d'avis "
 "par la suite."
 
-#: ../app/views/distributions/index.html.erb:88
+#: ../app/views/distributions/index.html.erb:71
 msgid ""
 "It is not expected to change in any significant way until its next annual "
 "release."
@@ -488,7 +545,11 @@ msgstr ""
 msgid "It should be %{fingerprint}"
 msgstr "Cela devrait être %{fingerprint}"
 
-#: ../app/views/distributions/index.html.erb:94
+#: ../app/views/distributions/tumbleweed.html.erb:76
+msgid "Kubic DVD/USB Stick"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:77
 msgid ""
 "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
 "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
@@ -497,7 +558,7 @@ msgstr ""
 "<strong>développeurs en entreprise</strong> et les <strong>utilisateurs "
 "« classiques »</strong>."
 
-#: ../app/views/distributions/index.html.erb:90
+#: ../app/views/distributions/index.html.erb:72
 msgid ""
 "Leap shares a Common Base System with %{sles}, so major architectural "
 "changes are not expected for several years, aligned with each new Major "
@@ -511,10 +572,9 @@ msgstr ""
 msgid "License"
 msgstr "Licence"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:40
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:119
-msgid "LiveUSB Media"
-msgstr "Média USB live"
+#: ../app/views/layouts/_footer.html.erb:32
+msgid "Mail lists"
+msgstr ""
 
 #: ../app/views/distributions/_verify_download.html.erb:5
 msgid ""
@@ -537,20 +597,54 @@ msgstr ""
 "utilisez l'extension \n"
 "DownThemAll! dans Firefox."
 
+#: ../app/views/distributions/leap.html.erb:46
+#: ../app/views/distributions/leap.html.erb:60
+#: ../app/views/distributions/leap.html.erb:85
+#: ../app/views/distributions/leap.html.erb:99
+#: ../app/views/distributions/leap.html.erb:117
+#: ../app/views/distributions/leap.html.erb:131
+#: ../app/views/distributions/tumbleweed.html.erb:53
+#: ../app/views/distributions/tumbleweed.html.erb:67
+#: ../app/views/distributions/tumbleweed.html.erb:81
+#: ../app/views/distributions/tumbleweed.html.erb:99
+#: ../app/views/distributions/tumbleweed.html.erb:113
+#: ../app/views/distributions/tumbleweed.html.erb:138
+#: ../app/views/distributions/tumbleweed.html.erb:152
+#: ../app/views/distributions/tumbleweed.html.erb:170
+#: ../app/views/distributions/tumbleweed.html.erb:184
+#: ../app/views/distributions/tumbleweed.html.erb:214
+#: ../app/views/distributions/tumbleweed.html.erb:226
+#: ../app/views/distributions/tumbleweed.html.erb:238
+#: ../app/views/distributions/tumbleweed.html.erb:254
+#: ../app/views/distributions/tumbleweed.html.erb:266
+#: ../app/views/distributions/tumbleweed.html.erb:278
+#: ../app/views/distributions/testing.html.erb:32
+#: ../app/views/distributions/testing.html.erb:46
+msgid "Metalink"
+msgstr "Metalink"
+
 # TLABEL fr_FR_2002_02_20_2232__9
 #: ../app/views/package/categories.html.erb:42
 msgid "Multimedia"
 msgstr "Multimédia"
 
 # TLABEL linuxrc_2002_03_29_0036__161
-#: ../app/views/distributions/leap_ports.html.erb:60
-#: ../app/views/distributions/leap_ports.html.erb:117
-#: ../app/views/distributions/tumbleweed.html.erb:57
-#: ../app/views/distributions/tumbleweed_ports.html.erb:112
-#: ../app/views/distributions/tumbleweed_ports.html.erb:169
-#: ../app/views/distributions/testing.html.erb:76
-msgid "Network"
+#: ../app/views/distributions/leap.html.erb:55
+#: ../app/views/distributions/leap.html.erb:94
+#: ../app/views/distributions/leap.html.erb:126
+#: ../app/views/distributions/tumbleweed.html.erb:62
+#: ../app/views/distributions/tumbleweed.html.erb:108
+#: ../app/views/distributions/tumbleweed.html.erb:147
+#: ../app/views/distributions/tumbleweed.html.erb:179
+#: ../app/views/distributions/testing.html.erb:41
+#, fuzzy
+#| msgid "Network"
+msgid "Network Image"
 msgstr "Réseau"
+
+#: ../app/views/layouts/_footer.html.erb:18
+msgid "News"
+msgstr ""
 
 #: ../app/views/download/appliance.erb:2
 msgid "No appliance data for %{project}"
@@ -564,26 +658,39 @@ msgstr "Pas d'image trouvée dans le projet %s"
 msgid "No data for %s / %s"
 msgstr "Pas de données pour %s / %s"
 
-#: ../app/views/package/show.html.erb:179
-msgid "No description found..."
+#: ../app/views/package/show.html.erb:35
+#, fuzzy
+#| msgid "No description found..."
+msgid "No description."
 msgstr "Aucune description trouvée..."
 
 #: ../app/views/download/package.erb:69
 msgid "No downloads found for %s in project %s"
 msgstr "Aucun téléchargement trouvé pour %s dans le projet %s"
 
-#: ../app/views/search/_find_results.html.erb:22
+#: ../app/views/search/_find_results.html.erb:23
 msgid "No packages found matching your search. "
 msgstr "Aucun paquet correspondant à votre recherche. "
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
-#| msgid "Tumbleweed installation media"
+#: ../app/views/distributions/testing.html.erb:89
+msgid "No testing distribution available."
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:200
 msgid "Not Tested|Tumbleweed installation media"
 msgstr "Non testé|Média d'installation de Tumbleweed"
 
-#: ../app/controllers/application_controller.rb:55
+#: ../app/controllers/application_controller.rb:54
 msgid "OBS Backend not available"
 msgstr "Backend OBS non disponible"
+
+#: ../app/views/package/_download_rows.html.erb:22
+#: ../app/views/distributions/leap.html.erb:20
+#: ../app/views/distributions/tumbleweed.html.erb:19
+#, fuzzy
+#| msgid "Official Manuals"
+msgid "Official"
+msgstr "Manuels officiels"
 
 #: ../app/views/distributions/_leap_switch.html.erb:9
 msgid "Online Upgrade Instructions"
@@ -593,12 +700,11 @@ msgstr "Instructions de mise à niveau en ligne"
 msgid "Over 40GB of free hard drive space"
 msgstr "Plus de 40 Go d'espace de disque dur libre"
 
-#: ../app/views/package/show.html.erb:149
+#: ../app/views/package/show.html.erb:4
 msgid "Package %s not found..."
 msgstr "Paquet '%s' introuvable..."
 
 #: ../app/views/layouts/jekyll.html.erb:45
-#: ../app/views/search/_find_form.html.erb:23
 msgid "Package Search"
 msgstr "Recherche de paquets"
 
@@ -607,57 +713,39 @@ msgstr "Recherche de paquets"
 msgid "Packages for %s:"
 msgstr "Paquets pour '%s' :"
 
-#: ../app/views/distributions/leap_ports.html.erb:50
-#: ../app/views/distributions/leap_ports.html.erb:72
-#: ../app/views/distributions/leap_ports.html.erb:107
-#: ../app/views/distributions/leap_ports.html.erb:129
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:64
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:86
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:108
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:143
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:164
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:186
-#: ../app/views/distributions/leap.html.erb:49
-#: ../app/views/distributions/leap.html.erb:71
-#: ../app/views/distributions/tumbleweed.html.erb:47
-#: ../app/views/distributions/tumbleweed.html.erb:69
-#: ../app/views/distributions/tumbleweed_ports.html.erb:45
-#: ../app/views/distributions/tumbleweed_ports.html.erb:67
-#: ../app/views/distributions/tumbleweed_ports.html.erb:102
-#: ../app/views/distributions/tumbleweed_ports.html.erb:124
-#: ../app/views/distributions/tumbleweed_ports.html.erb:159
-#: ../app/views/distributions/tumbleweed_ports.html.erb:181
-#: ../app/views/distributions/testing.html.erb:66
-#: ../app/views/distributions/testing.html.erb:88
+#: ../app/views/distributions/leap.html.erb:47
+#: ../app/views/distributions/leap.html.erb:61
+#: ../app/views/distributions/leap.html.erb:86
+#: ../app/views/distributions/leap.html.erb:100
+#: ../app/views/distributions/leap.html.erb:118
+#: ../app/views/distributions/leap.html.erb:132
+#: ../app/views/distributions/tumbleweed.html.erb:54
+#: ../app/views/distributions/tumbleweed.html.erb:68
+#: ../app/views/distributions/tumbleweed.html.erb:82
+#: ../app/views/distributions/tumbleweed.html.erb:100
+#: ../app/views/distributions/tumbleweed.html.erb:114
+#: ../app/views/distributions/tumbleweed.html.erb:139
+#: ../app/views/distributions/tumbleweed.html.erb:153
+#: ../app/views/distributions/tumbleweed.html.erb:171
+#: ../app/views/distributions/tumbleweed.html.erb:185
+#: ../app/views/distributions/testing.html.erb:33
+#: ../app/views/distributions/testing.html.erb:47
 msgid "Pick Mirror"
 msgstr "Choisir un miroir"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:23
+#: ../app/views/layouts/_footer.html.erb:21
+msgid "Planet"
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:195
 msgid "Please Note: These LiveUSBs are not supported"
 msgstr "Veuillez noter que ces LiveUSB ne sont pas officiellement supportés"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
-#| msgid "Tumbleweed installation media"
+#: ../app/views/distributions/tumbleweed.html.erb:197
 msgid "Please Use|Tumbleweed installation media"
 msgstr "Veuillez utiliser|Média d'installation de Tumbleweed"
 
-#: ../app/views/package/show.html.erb:137
-msgid ""
-"Please be aware that the following packages are from unofficial "
-"repositories.\n"
-"That means they are not reviewed by openSUSE and may contain unstable or "
-"experimental software."
-msgstr ""
-"Veuillez noter que les paquets suivants sont issus de dépôts non officiels.\n"
-"Ceci signifie qu'ils ne sont pas vérifiés par openSUSE et qu'ils peuvent "
-"contenir des logiciels instables ou expérimentaux."
-
-#: ../app/views/distributions/testing.html.erb:39
-msgid "Please report any issues you find in our Bugtracker."
-msgstr ""
-"Merci de rapporter les problèmes que vous rencontrez dans notre bugtracker."
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
+#: ../app/views/distributions/tumbleweed.html.erb:201
 msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
 "these LiveUSBs are working as expected."
@@ -677,13 +765,18 @@ msgstr "Catégories liées :"
 msgid "Release Notes"
 msgstr "Notes de version"
 
-#: ../app/views/distributions/index.html.erb:91
+#: ../app/views/layouts/_footer.html.erb:19
+#, fuzzy
+#| msgid "Release Notes"
+msgid "Release notes"
+msgstr "Notes de version"
+
+#: ../app/views/distributions/index.html.erb:73
 msgid "SUSE Linux Enterprise"
 msgstr "SUSE Linux Enterprise"
 
 # TLABEL packages_2002_01_04_0147__110
 #: ../app/views/search/find.html.erb:1
-#: ../app/views/search/_find_form.html.erb:27
 msgid "Search"
 msgstr "Recherche"
 
@@ -695,67 +788,55 @@ msgstr "Sélectionnez votre système d'exploitation"
 msgid "Select the image type"
 msgstr "Sélectionnez le type d'image"
 
+#: ../app/views/layouts/_footer.html.erb:22
+msgid "Shop"
+msgstr ""
+
 # TLABEL partitioning_2002_01_04_0147__125
-#: ../app/views/search/_find_results.html.erb:89
+#: ../app/views/package/show.html.erb:104
 msgid "Show"
 msgstr "Afficher"
 
-#: ../app/views/search/_find_form.html.erb:34
+#: ../app/views/package/show.html.erb:85
+#, fuzzy
+#| msgid "Show unstable packages"
+msgid "Show community packages"
+msgstr "Afficher les paquets instables"
+
+#: ../app/views/search/_find_form.html.erb:43
 msgid "Show development, language and debug packages"
 msgstr "Afficher les paquets de développement, de langue et de debug"
 
-#: ../app/views/search/_find_form.html.erb:39
-msgid "Show distribution:"
-msgstr "Afficher la distribution :"
-
-#: ../app/views/package/show.html.erb:253
-msgid "Show more packages for unsupported distributions"
-msgstr "Afficher plus de paquets pour les distributions non supportées"
-
-#: ../app/views/search/_find_results.html.erb:127
-msgid "Show more..."
-msgstr "Afficher plus..."
-
-#: ../app/views/package/show.html.erb:192
-msgid "Show other versions"
-msgstr "Afficher les autres versions"
-
-#: ../app/views/package/show.html.erb:225
-msgid "Show unstable packages"
+#: ../app/views/package/show.html.erb:84
+#, fuzzy
+#| msgid "Show unstable packages"
+msgid "Show experimental packages"
 msgstr "Afficher les paquets instables"
 
-#: ../app/views/search/_find_form.html.erb:37
-msgid "Show unsupported packages"
-msgstr "Afficher les paquets non supportés"
-
-#: ../app/views/distributions/leap_ports.html.erb:27
-#: ../app/views/distributions/leap_ports.html.erb:88
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:45
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:124
-#: ../app/views/distributions/leap.html.erb:26
-#: ../app/views/distributions/tumbleweed.html.erb:28
-#: ../app/views/distributions/tumbleweed_ports.html.erb:26
-#: ../app/views/distributions/tumbleweed_ports.html.erb:83
-#: ../app/views/distributions/tumbleweed_ports.html.erb:140
-#: ../app/views/distributions/testing.html.erb:47
+#: ../app/views/package/show.html.erb:45
 msgid "Size"
 msgstr "Taille"
 
+#: ../app/views/layouts/_footer.html.erb:37
+msgid "Social Media"
+msgstr ""
+
+#: ../app/views/layouts/_navbar.html.erb:17
+#, fuzzy
+#| msgid "Popular Software"
+msgid "Software"
+msgstr "Logiciels populaires"
+
 # TLABEL profile-manager_2002_08_07_0216__49
 #: ../app/helpers/package_helper.rb:13 ../app/helpers/package_helper.rb:15
-#: ../app/views/package/_download_rows.html.erb:26
-#: ../app/views/package/_download_rows.html.erb:33
+#: ../app/views/package/_download_rows.html.erb:42
+#: ../app/views/package/_download_rows.html.erb:45
 msgid "Source"
 msgstr "Source"
 
-#: ../app/views/search/_find_results.html.erb:96
+#: ../app/views/search/_find_results.html.erb:82
 msgid "Sub-Packages"
 msgstr "Sous-paquets"
-
-#: ../app/views/layouts/application.html.erb:64
-#: ../app/views/layouts/download.html.erb:58
-msgid "Support"
-msgstr "Support"
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
 msgid ""
@@ -780,15 +861,28 @@ msgstr ""
 "du\n"
 "temps bien moins que 4,7 Go."
 
+#: ../app/views/package/show.html.erb:103
+msgid ""
+"The following distributions are not officially supported. Use these packages "
+"at your own risk."
+msgstr ""
+
 #: ../app/views/download/package.erb:95
 msgid "Then run the following as <strong>root</strong>"
 msgstr "Puis exécutez en tant que <strong>root</strong>"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:35
+#: ../app/views/distributions/leap.html.erb:71
+#: ../app/views/distributions/tumbleweed.html.erb:124
+msgid ""
+"These ports are not officially supported, and they are not as stable as "
+"official distributions."
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:199
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr "Ils ne sont pas testés aussi complètement que le %{tumbleweed_media}."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:27
+#: ../app/views/distributions/tumbleweed.html.erb:196
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
@@ -796,30 +890,27 @@ msgstr ""
 "Ils ne peuvent pas être utilisés pour installer ou mettre à jour Tumbleweed. "
 "Veuillez utiliser %{tumbleweed_media} à la place."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:31
+#: ../app/views/distributions/tumbleweed.html.erb:198
+#, fuzzy
+#| msgid ""
+#| "They have a limited package/driver selection, so cannot be considered\n"
+#| "an accurate reflection as to whether Tumbleweed will work on your "
+#| "hardware or not."
 msgid ""
-"They have a limited package/driver selection, so cannot be considered\n"
-"an accurate reflection as to whether Tumbleweed will work on your hardware "
-"or not."
+"They have a limited package/driver selection, so cannot be considered an "
+"accurate reflection as to whether Tumbleweed will work on your hardware or "
+"not."
 msgstr ""
 "Ils disposent d'une sélection limitée de paquets/pilotes, et ne peuvent donc "
 "pas\n"
 "être considérés comme une indication précise si Tumbleweed fonctionnera ou "
 "non sur votre matériel."
 
-#: ../app/views/distributions/testing.html.erb:36
-msgid ""
-"This is not a supported release. It is provided to help openSUSE testers "
-"find bugs before release."
-msgstr ""
-"Ce n'est pas une version supportée. Elle est fournie pour aider les testeurs "
-"openSUSE à trouver des bogues avant la sortie."
-
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
 msgstr "Changer la navigation"
 
-#: ../app/views/distributions/index.html.erb:79
+#: ../app/views/distributions/index.html.erb:61
 msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
 "Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
@@ -828,13 +919,15 @@ msgstr ""
 "<strong>contributeurs à openSUSE</strong> ainsi que les <strong>les "
 "utilisateurs avancés</strong>."
 
-#: ../app/views/distributions/_unsupported_live_media.html.erb:2
-#| msgid "Unsupported"
-msgid "Unsupported LiveUSBs"
-msgstr "Live USB non supporté"
+#: ../app/views/distributions/leap.html.erb:26
+#: ../app/views/distributions/tumbleweed.html.erb:26
+msgid "Unofficial"
+msgstr ""
 
-#: ../app/views/package/show.html.erb:239
-msgid "Unsupported distributions:"
+#: ../app/views/package/show.html.erb:100
+#, fuzzy
+#| msgid "Unsupported distributions:"
+msgid "Unsupported distributions"
 msgstr "Distribution non supportées :"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:9
@@ -845,9 +938,13 @@ msgstr "Instructions de mise à niveau"
 msgid "Verify Your Download Before Use"
 msgstr "Vérifier votre téléchargement avant utilisation"
 
-#: ../app/views/package/show.html.erb:190
+#: ../app/views/package/show.html.erb:44
 msgid "Version"
 msgstr "Version"
+
+#: ../app/views/layouts/_navbar.html.erb:23
+msgid "Wiki"
+msgstr ""
 
 #: ../app/views/download/package.erb:141
 msgid ""
@@ -860,19 +957,23 @@ msgstr ""
 "dépôts envers lesquels votre système aura confiance (<a href=\"%s\">plus "
 "d'informations</a>). Pour ajouter la clé, exécutez :"
 
-#: ../app/views/search/_find_results.html.erb:25
+#: ../app/views/search/_find_results.html.erb:26
+#, fuzzy
+#| msgid ""
+#| "You could try to extend your search to development packages or search for "
+#| "another base distribution (currently )."
 msgid ""
 "You could try to extend your search to development packages or search for "
-"another base distribution (currently )."
+"another base distribution (currently #{@baseproject})."
 msgstr ""
 "Vous pouvez essayer d'étendre votre recherche aux paquets de développement "
 "ou chercher pour une autre distribution (actuellement )."
 
-#: ../app/views/distributions/index.html.erb:85
+#: ../app/views/distributions/index.html.erb:68
 msgid "annually"
 msgstr "une fois par an"
 
-#: ../app/views/distributions/index.html.erb:86
+#: ../app/views/distributions/index.html.erb:69
 msgid "https://en.opensuse.org/Lifetime"
 msgstr "https://fr.opensuse.org/Dur%C3%A9e_de_vie"
 
@@ -914,75 +1015,206 @@ msgstr "https://en.opensuse.org/SDB:Live_USB_stick"
 msgid "https://en.opensuse.org/SDB:System_upgrade"
 msgstr "https://en.opensuse.org/SDB:System_upgrade"
 
-#: ../app/views/distributions/index.html.erb:85
+#: ../app/views/distributions/index.html.erb:68
 msgid "https://en.opensuse.org/openSUSE:Roadmap"
 msgstr "https://en.opensuse.org/openSUSE:Roadmap"
-
-#: ../app/views/distributions/testing.html.erb:38
-msgid "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
-msgstr "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:8
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
-#: ../app/views/distributions/tumbleweed.html.erb:82
-msgid ""
-"is also available on other architectures, such as Intel 32-bit (aka i586), "
-"AArch64 (aka ARMv8) and PPC64."
-msgstr ""
-"est également disponible sur d'autres architectures comme Intel 32-bit "
-"(i586), AArch64 (ARMv8) et PPC64."
-
-#: ../app/views/distributions/index.html.erb:86
+#: ../app/views/distributions/index.html.erb:69
 msgid "lifetime"
 msgstr "durée de vie"
 
-#: ../app/views/distributions/index.html.erb:84
-#: ../app/views/distributions/index.html.erb:105
+#: ../app/views/distributions/index.html.erb:67
 msgid "openSUSE Leap"
 msgstr "openSUSE Leap"
 
-#: ../app/views/distributions/leap.html.erb:83
-msgid ""
-"openSUSE Leap is also available on other architectures, such as AArch64 (aka "
-"ARMv8) and PPC64."
-msgstr ""
-"openSUSE Leap est également disponible sur d'autres architectures, telles "
-"que AArch64 (ARMv8) et PPC64."
+#: ../app/views/layouts/application.html.erb:7
+#, fuzzy
+#| msgid "openSUSE Countdown"
+msgid "openSUSE Software"
+msgstr "Décompte openSUSE"
 
-#: ../app/views/distributions/index.html.erb:77
+#: ../app/views/distributions/index.html.erb:58
 msgid "openSUSE Tumbleweed"
 msgstr "openSUSE Tumbleweed"
 
-#: ../app/views/distributions/_unsupported_live_media.html.erb:5
-msgid ""
-"openSUSE Tumbleweed also offers a number of unsupported LiveUSBs. These\n"
-"cannot be used for Installation or Upgrade. They are not an accurate\n"
-"reflection as to whether or not Tumbleweed will run on your hardware."
-msgstr ""
-"openSUSE Tumbleweed offre également plusieurs Live USB non supportés. Ils ne "
-"peuvent pas\n"
-"être utilisés pour une installation ou une mise à jour. Ils ne sont pas une "
-"indication précise si\n"
-"Tumbleweed fonctionnera ou non sur votre matériel."
+#: ../app/views/layouts/_footer.html.erb:50
+#, fuzzy
+#| msgid "openSUSE Countdown"
+msgid "openSUSE contributors"
+msgstr "Décompte openSUSE"
 
-#: ../app/views/distributions/index.html.erb:124
-#| msgid ""
-#| "openSUSE has a number of unofficial derivative distributions.\n"
-#| "              These are made by our awesome community, often for special\n"
-#| "              purposes."
-msgid ""
-"openSUSE has a number of unofficial derivative distributions.\n"
-"These are made by our awesome community, often for special purposes."
-msgstr ""
-"openSUSE a un certain nombre de distributions dérivées non-officielles.\n"
-"Elles sont construites par notre communauté, souvent pour des besoins "
-"spécifiques."
-
-#: ../app/views/distributions/index.html.erb:10
+#: ../app/views/distributions/index.html.erb:6
 msgid "openSUSE is completely free to download, use and share."
 msgstr "openSUSE est librement téléchargeable, utilisable et partageable."
+
+#~ msgid " and "
+#~ msgstr " et "
+
+# TLABEL printer_2002_08_07_0216__246
+#~ msgid "App Browser"
+#~ msgstr "Explorateur d'applications"
+
+#~| msgid "Currently testing"
+#~ msgid "Currently testing %{leap_beta}"
+#~ msgstr "Actuellement en test %{leap_beta}"
+
+#~ msgid "Derivatives"
+#~ msgstr "Dérivés"
+
+#~ msgid "Development-"
+#~ msgstr "Développement-"
+
+#~ msgid "Don't show this warning the next time"
+#~ msgstr "Ne pas afficher cet avertissement la prochaine fois"
+
+#~ msgid "Download Method"
+#~ msgstr "Type de téléchargement"
+
+#~ msgid ""
+#~ "Download alternative architecture versions of openSUSE Leap, for desktop "
+#~ "PCs, laptops, and servers."
+#~ msgstr ""
+#~ "Télécharger des versions d'openSUSE Leap pour des architectures "
+#~ "alternatives, pour PC de bureau, portables et serveurs."
+
+#~ msgid ""
+#~ "Download alternative architectures of the rolling version of openSUSE, "
+#~ "for desktop PCs, laptops, and servers."
+#~ msgstr ""
+#~ "Télécharger des versions rolling release d'openSUSE pour des "
+#~ "architectures alternatives, pour PC de bureau, portables et serveurs."
+
+#~ msgid ""
+#~ "Download the LiveUSBs of the rolling version of openSUSE, for desktop "
+#~ "PCs, laptops, and servers."
+#~ msgstr ""
+#~ "Téléchargez le LiveUSB de la variante en rolling release d'openSUSE, pour "
+#~ "les ordinateurs de bureau, les ordinateurs portables et les serveurs."
+
+#~ msgid ""
+#~ "Download the latest version of openSUSE Leap, for desktop PCs, laptops, "
+#~ "and servers."
+#~ msgstr ""
+#~ "Télécharger la dernière version d'openSUSE Leap, pour PC de bureau, "
+#~ "portables et serveurs."
+
+#~ msgid ""
+#~ "Download the rolling version of openSUSE, for desktop PCs,\n"
+#~ "laptops, and servers."
+#~ msgstr ""
+#~ "Téléchargez la variante en rolling release d'openSUSE, pour les "
+#~ "ordinateurs de bureau, les ordinateurs portables et les serveurs."
+
+#~ msgid "Downloads"
+#~ msgstr "Téléchargements"
+
+#~ msgid "Expand all sections ('e')"
+#~ msgstr "Développer toutes les sections ('e')"
+
+#~ msgid "Get Unsupported Tumbleweed LiveCDs."
+#~ msgstr "Obtenir le liveCD non supporté de Tumbleweed."
+
+#~ msgid "Get openSUSE Leap for other architectures."
+#~ msgstr "Obtenir openSUSE Leap pour d'autres architectures."
+
+#~ msgid "Get openSUSE Tumbleweed for other architectures."
+#~ msgstr "Obtenir openSUSE Tumbleweed pour d'autres architectures."
+
+#~ msgid "Header Logo"
+#~ msgstr "Logo d'en-tête"
+
+#~ msgid "Installation Media"
+#~ msgstr "Média d'installation"
+
+#~ msgid "LiveUSB Media"
+#~ msgstr "Média USB live"
+
+#~ msgid ""
+#~ "Please be aware that the following packages are from unofficial "
+#~ "repositories.\n"
+#~ "That means they are not reviewed by openSUSE and may contain unstable or "
+#~ "experimental software."
+#~ msgstr ""
+#~ "Veuillez noter que les paquets suivants sont issus de dépôts non "
+#~ "officiels.\n"
+#~ "Ceci signifie qu'ils ne sont pas vérifiés par openSUSE et qu'ils peuvent "
+#~ "contenir des logiciels instables ou expérimentaux."
+
+#~ msgid "Please report any issues you find in our Bugtracker."
+#~ msgstr ""
+#~ "Merci de rapporter les problèmes que vous rencontrez dans notre "
+#~ "bugtracker."
+
+#~ msgid "Show more packages for unsupported distributions"
+#~ msgstr "Afficher plus de paquets pour les distributions non supportées"
+
+#~ msgid "Show more..."
+#~ msgstr "Afficher plus..."
+
+#~ msgid "Show other versions"
+#~ msgstr "Afficher les autres versions"
+
+#~ msgid "Show unsupported packages"
+#~ msgstr "Afficher les paquets non supportés"
+
+#~ msgid "Support"
+#~ msgstr "Support"
+
+#~ msgid ""
+#~ "This is not a supported release. It is provided to help openSUSE testers "
+#~ "find bugs before release."
+#~ msgstr ""
+#~ "Ce n'est pas une version supportée. Elle est fournie pour aider les "
+#~ "testeurs openSUSE à trouver des bogues avant la sortie."
+
+#~| msgid "Unsupported"
+#~ msgid "Unsupported LiveUSBs"
+#~ msgstr "Live USB non supporté"
+
+#~ msgid "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
+#~ msgstr "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
+
+#~ msgid ""
+#~ "is also available on other architectures, such as Intel 32-bit (aka "
+#~ "i586), AArch64 (aka ARMv8) and PPC64."
+#~ msgstr ""
+#~ "est également disponible sur d'autres architectures comme Intel 32-bit "
+#~ "(i586), AArch64 (ARMv8) et PPC64."
+
+#~ msgid ""
+#~ "openSUSE Leap is also available on other architectures, such as AArch64 "
+#~ "(aka ARMv8) and PPC64."
+#~ msgstr ""
+#~ "openSUSE Leap est également disponible sur d'autres architectures, telles "
+#~ "que AArch64 (ARMv8) et PPC64."
+
+#~ msgid ""
+#~ "openSUSE Tumbleweed also offers a number of unsupported LiveUSBs. These\n"
+#~ "cannot be used for Installation or Upgrade. They are not an accurate\n"
+#~ "reflection as to whether or not Tumbleweed will run on your hardware."
+#~ msgstr ""
+#~ "openSUSE Tumbleweed offre également plusieurs Live USB non supportés. Ils "
+#~ "ne peuvent pas\n"
+#~ "être utilisés pour une installation ou une mise à jour. Ils ne sont pas "
+#~ "une indication précise si\n"
+#~ "Tumbleweed fonctionnera ou non sur votre matériel."
+
+#~| msgid ""
+#~| "openSUSE has a number of unofficial derivative distributions.\n"
+#~| "              These are made by our awesome community, often for "
+#~| "special\n"
+#~| "              purposes."
+#~ msgid ""
+#~ "openSUSE has a number of unofficial derivative distributions.\n"
+#~ "These are made by our awesome community, often for special purposes."
+#~ msgstr ""
+#~ "openSUSE a un certain nombre de distributions dérivées non-officielles.\n"
+#~ "Elles sont construites par notre communauté, souvent pour des besoins "
+#~ "spécifiques."
 
 #~ msgid "Please review %{openqa}"
 #~ msgstr "Veuillez examiner %{openqa}"
@@ -1125,14 +1357,6 @@ msgstr "openSUSE est librement téléchargeable, utilisable et partageable."
 #~ msgid "Click to Download"
 #~ msgstr "Cliquez pour télécharger"
 
-#~ msgid ""
-#~ "Contains a large collection of software for desktop or server use.<br/"
-#~ ">Suitable for installation or upgrade."
-#~ msgstr ""
-#~ "Contient une large collection de logiciels pour une utilisation de bureau "
-#~ "ou en tant que serveur.<br/>Convient pour l'installation comme pour la "
-#~ "mise à jour."
-
 #~ msgid "Countdown"
 #~ msgstr "Décompte"
 
@@ -1141,9 +1365,6 @@ msgstr "openSUSE est librement téléchargeable, utilisable et partageable."
 
 #~ msgid "Development Version"
 #~ msgstr "Version de développement"
-
-#~ msgid "Download"
-#~ msgstr "Télécharger"
 
 #~ msgid "Download %s"
 #~ msgstr "Télécharger %s"
@@ -1165,14 +1386,6 @@ msgstr "openSUSE est librement téléchargeable, utilisable et partageable."
 
 #~ msgid "Download&nbsp;Rescue"
 #~ msgstr "Télécharger&nbsp;le système de secours"
-
-#~ msgid ""
-#~ "Downloads the installation system and all packages from online "
-#~ "repositories.<br/>Suitable for installation or upgrade."
-#~ msgstr ""
-#~ "Télécharge le système d'installation et tous les paquets depuis les "
-#~ "dépôts en ligne.<br/>Convient pour l'installation comme pour la mise à "
-#~ "jour."
 
 #~ msgid "Extra Languages"
 #~ msgstr "Langues supplémentaires"
@@ -1285,9 +1498,6 @@ msgstr "openSUSE est librement téléchargeable, utilisable et partageable."
 #~ "important pour s'assurer que vous avez réellement obtenu le fichier ISO "
 #~ "que vous vouliez et non une version corrompue."
 
-#~ msgid "Metalink"
-#~ msgstr "Metalink"
-
 #~ msgid "More information on burning the ISO file to CD/DVD"
 #~ msgstr "Plus d'informations sur la gravure du fichier ISO sur un CD/DVD"
 
@@ -1329,9 +1539,6 @@ msgstr "openSUSE est librement téléchargeable, utilisable et partageable."
 
 #~ msgid "NonOSS CD"
 #~ msgstr "CD NonOSS"
-
-#~ msgid "Official Manuals"
-#~ msgstr "Manuels officiels"
 
 #~ msgid ""
 #~ "Only DVD and Network medias are fully tested. Alternatives, like live or "
@@ -1658,9 +1865,6 @@ msgstr "openSUSE est librement téléchargeable, utilisable et partageable."
 #~ "offre le plus de sécurité car vous pouvez vérifier qui l'a signé. Ce "
 #~ "devrait être <tt>%s</tt>."
 
-#~ msgid "openSUSE Countdown"
-#~ msgstr "Décompte openSUSE"
-
 #~ msgid ""
 #~ "openSUSE is available via http (direct link) or BitTorrent. The CD for "
 #~ "network installation is only available via http."
@@ -1799,12 +2003,6 @@ msgstr "openSUSE est librement téléchargeable, utilisable et partageable."
 
 #~ msgid "Could not perform search: "
 #~ msgstr "Impossible d'exécuter la recherche : "
-
-#~ msgid "Popular Software"
-#~ msgstr "Logiciels populaires"
-
-#~ msgid "1-Click Install"
-#~ msgstr "1-Click Install"
 
 #~ msgid "Manual Package Download"
 #~ msgstr "Téléchargement manuel des paquets"

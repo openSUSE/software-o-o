@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 12:32+0200\n"
+"POT-Creation-Date: 2018-01-17 14:54+0100\n"
 "PO-Revision-Date: 2017-10-22 06:04+0000\n"
 "Last-Translator: mohammad alhargan <malham1@gmail.com>\n"
-"Language-Team: Arabic "
-"<https://l10n.opensuse.org/projects/software-o-o/master/ar/>\n"
+"Language-Team: Arabic <https://l10n.opensuse.org/projects/software-o-o/"
+"master/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +21,7 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Weblate 2.13.1\n"
 
-#: ../app/views/search/_find_results.html.erb:94
-msgid " and "
-msgstr " أيضاً "
-
-#: ../app/views/distributions/index.html.erb:83
+#: ../app/views/distributions/index.html.erb:66
 msgid ""
 "%{leap} is a <strong>regular-release</strong>. This means it releases "
 "%{annually}, with security and stability updates being the priority during "
@@ -35,7 +31,7 @@ msgstr ""
 "%{annually}, مع إعطاء الأولوية لتحديثات الأمن والاستقرار خلال كل إصدار "
 "%{lifetime}."
 
-#: ../app/views/distributions/index.html.erb:77
+#: ../app/views/distributions/index.html.erb:58
 msgid ""
 "%{tumbleweed} is a <strong>rolling-release</strong>. This means the software "
 "is always the latest stable versions available from the openSUSE Project. "
@@ -46,13 +42,17 @@ msgstr ""
 "بأحدث الإصدارات المستقرة المتاحة على مشروع أوبن سوزي. المشاريع حرة ومفتوحة "
 "المصدر ستتغير باستمرارعند توفر  إصدارات جديدة."
 
-#: ../app/views/download/package.erb:6 ../app/views/download/appliance.erb:6
+#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
 msgid "(hide)"
 msgstr "(إخفاء)"
 
-#: ../app/views/download/package.erb:7 ../app/views/download/appliance.erb:7
+#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
 msgid "(show)"
 msgstr "(إظهار)"
+
+#: ../app/views/package/_download_rows.html.erb:49
+msgid "1 Click Install"
+msgstr ""
 
 #: ../app/views/distributions/_requirements.html.erb:6
 msgid "2 GB system memory"
@@ -62,11 +62,11 @@ msgstr "ذاكرة النظام 2 ج ب"
 msgid "2 Ghz dual core processor or better"
 msgstr "2 Ghz ثنائي النواة أو أفضل"
 
-#: ../app/views/package/_download_rows.html.erb:4
+#: ../app/views/package/_download_rows.html.erb:3
 msgid "<b>official release</b>"
 msgstr "<b>الإصدار الرسمي</b>"
 
-#: ../app/views/package/_download_rows.html.erb:6
+#: ../app/views/package/_download_rows.html.erb:5
 msgid "<b>official update</b>"
 msgstr "<b>التحديث الرسمي</b>"
 
@@ -74,21 +74,21 @@ msgstr "<b>التحديث الرسمي</b>"
 msgid "Add repository and install manually"
 msgstr "إضافة المستودع والتثبيت يدويا"
 
-#: ../app/views/search/_find_form.html.erb:18
-msgid "App Browser"
-msgstr "متصفح التطبيقات"
-
 #: ../app/views/download/appliance.erb:52
 msgid "Available Images"
 msgstr "الصور المتاحة"
 
-#: ../app/views/distributions/index.html.erb:100
+#: ../app/views/package/show.html.erb:5
+msgid "Back to home page"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:86
 msgid ""
 "Both distributions are fully capable of being used on a Desktop PC, laptop, "
 "server, or in the cloud."
 msgstr "كلا التوزيعتان يمكن استخدامها على حاسب مكتبي محمول ،خادم ،أوحتى سحابة."
 
-#: ../app/views/distributions/index.html.erb:98
+#: ../app/views/distributions/index.html.erb:83
 msgid ""
 "Both distributions are well tested by <a href=\"https://openqa.opensuse.org"
 "\">openQA</a> as well as by human openSUSE contributors so both can be "
@@ -98,24 +98,41 @@ msgstr ""
 "org\">openQA</a> وكذلك من قبل مساهمي أوبن سوزي بحيث يمكن الاعتماد عليهما في "
 "العمل."
 
-#: ../app/views/package/show.html.erb:169
+#: ../app/views/layouts/_footer.html.erb:8
+msgid "Build service"
+msgstr ""
+
+#: ../app/views/package/show.html.erb:25
 msgid "Categories"
 msgstr "الفئات"
 
-#: ../app/views/package/show.html.erb:169
+#: ../app/views/package/show.html.erb:25
 msgid "Category"
 msgstr "الفئة"
 
-#: ../app/views/distributions/leap_ports.html.erb:29
-#: ../app/views/distributions/leap_ports.html.erb:90
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:47
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:126
-#: ../app/views/distributions/leap.html.erb:28
-#: ../app/views/distributions/tumbleweed.html.erb:30
-#: ../app/views/distributions/tumbleweed_ports.html.erb:28
-#: ../app/views/distributions/tumbleweed_ports.html.erb:85
-#: ../app/views/distributions/tumbleweed_ports.html.erb:142
-#: ../app/views/distributions/testing.html.erb:49
+#: ../app/views/distributions/leap.html.erb:48
+#: ../app/views/distributions/leap.html.erb:62
+#: ../app/views/distributions/leap.html.erb:87
+#: ../app/views/distributions/leap.html.erb:101
+#: ../app/views/distributions/leap.html.erb:119
+#: ../app/views/distributions/leap.html.erb:133
+#: ../app/views/distributions/tumbleweed.html.erb:55
+#: ../app/views/distributions/tumbleweed.html.erb:69
+#: ../app/views/distributions/tumbleweed.html.erb:83
+#: ../app/views/distributions/tumbleweed.html.erb:101
+#: ../app/views/distributions/tumbleweed.html.erb:115
+#: ../app/views/distributions/tumbleweed.html.erb:140
+#: ../app/views/distributions/tumbleweed.html.erb:154
+#: ../app/views/distributions/tumbleweed.html.erb:172
+#: ../app/views/distributions/tumbleweed.html.erb:186
+#: ../app/views/distributions/tumbleweed.html.erb:215
+#: ../app/views/distributions/tumbleweed.html.erb:227
+#: ../app/views/distributions/tumbleweed.html.erb:239
+#: ../app/views/distributions/tumbleweed.html.erb:255
+#: ../app/views/distributions/tumbleweed.html.erb:267
+#: ../app/views/distributions/tumbleweed.html.erb:279
+#: ../app/views/distributions/testing.html.erb:34
+#: ../app/views/distributions/testing.html.erb:48
 msgid "Checksum"
 msgstr "اختباري"
 
@@ -127,107 +144,106 @@ msgstr "مساعدة الاختبارية"
 msgid "Choosing Which Media to Download"
 msgstr "حدد الوسائط التي تريد تنزيلها"
 
-#: ../app/views/distributions/index.html.erb:74
+#: ../app/views/distributions/index.html.erb:52
 msgid "Choosing which Distribution to Download"
 msgstr "حدد التوزيعة التي تريد تنزيلها"
 
-#: ../app/views/layouts/application.html.erb:65
-#: ../app/views/layouts/download.html.erb:59
+#: ../app/views/layouts/_footer.html.erb:26
+#: ../app/views/package/_download_rows.html.erb:28
 msgid "Community"
 msgstr "المجتمع"
 
-#: ../app/views/distributions/testing.html.erb:34
-msgid "Currently testing %{leap_beta}"
-msgstr "تُختبر حالياً %{leap_beta}"
+#: ../app/views/distributions/leap.html.erb:44
+#: ../app/views/distributions/leap.html.erb:83
+#: ../app/views/distributions/leap.html.erb:115
+#: ../app/views/distributions/tumbleweed.html.erb:51
+#: ../app/views/distributions/tumbleweed.html.erb:97
+#: ../app/views/distributions/tumbleweed.html.erb:136
+#: ../app/views/distributions/tumbleweed.html.erb:168
+#: ../app/views/distributions/testing.html.erb:30
+msgid ""
+"Contains a large collection of software for desktop or server use. Suitable "
+"for installation or upgrade."
+msgstr ""
 
-#: ../app/views/distributions/index.html.erb:117
-msgid "Derivatives"
-msgstr "المشتقات"
+#: ../app/views/distributions/leap.html.erb:41
+#: ../app/views/distributions/leap.html.erb:80
+#: ../app/views/distributions/leap.html.erb:112
+#: ../app/views/distributions/tumbleweed.html.erb:48
+#: ../app/views/distributions/tumbleweed.html.erb:94
+#: ../app/views/distributions/tumbleweed.html.erb:133
+#: ../app/views/distributions/tumbleweed.html.erb:165
+#: ../app/views/distributions/testing.html.erb:27
+msgid "DVD Image"
+msgstr ""
 
-#: ../app/views/layouts/application.html.erb:66
-#: ../app/views/layouts/download.html.erb:60
-msgid "Development"
+#: ../app/views/layouts/_footer.html.erb:5
+#, fuzzy
+msgid "Developers"
 msgstr "التطوير"
 
-#: ../app/views/search/_find_results.html.erb:92
+#: ../app/views/search/_find_results.html.erb:88
 msgid "Development packages"
 msgstr "حزم التطوير"
 
-#: ../app/views/search/_find_results.html.erb:91
-msgid "Development-"
-msgstr "التطوير"
-
-#: ../app/views/package/show.html.erb:188
+#: ../app/views/package/show.html.erb:50
 msgid "Direct Install"
 msgstr "تثبيت مباشر"
 
-#: ../app/views/distributions/leap_ports.html.erb:38
-#: ../app/views/distributions/leap_ports.html.erb:64
-#: ../app/views/distributions/leap_ports.html.erb:99
-#: ../app/views/distributions/leap_ports.html.erb:121
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:56
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:78
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:100
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:135
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:157
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:178
-#: ../app/views/distributions/leap.html.erb:37
-#: ../app/views/distributions/leap.html.erb:63
-#: ../app/views/distributions/tumbleweed.html.erb:39
-#: ../app/views/distributions/tumbleweed.html.erb:61
-#: ../app/views/distributions/tumbleweed_ports.html.erb:37
-#: ../app/views/distributions/tumbleweed_ports.html.erb:59
-#: ../app/views/distributions/tumbleweed_ports.html.erb:94
-#: ../app/views/distributions/tumbleweed_ports.html.erb:116
-#: ../app/views/distributions/tumbleweed_ports.html.erb:151
-#: ../app/views/distributions/tumbleweed_ports.html.erb:173
-#: ../app/views/distributions/testing.html.erb:58
-#: ../app/views/distributions/testing.html.erb:80
+#: ../app/views/distributions/leap.html.erb:45
+#: ../app/views/distributions/leap.html.erb:59
+#: ../app/views/distributions/leap.html.erb:84
+#: ../app/views/distributions/leap.html.erb:98
+#: ../app/views/distributions/leap.html.erb:116
+#: ../app/views/distributions/leap.html.erb:130
+#: ../app/views/distributions/tumbleweed.html.erb:52
+#: ../app/views/distributions/tumbleweed.html.erb:66
+#: ../app/views/distributions/tumbleweed.html.erb:80
+#: ../app/views/distributions/tumbleweed.html.erb:98
+#: ../app/views/distributions/tumbleweed.html.erb:112
+#: ../app/views/distributions/tumbleweed.html.erb:137
+#: ../app/views/distributions/tumbleweed.html.erb:151
+#: ../app/views/distributions/tumbleweed.html.erb:169
+#: ../app/views/distributions/tumbleweed.html.erb:183
+#: ../app/views/distributions/tumbleweed.html.erb:213
+#: ../app/views/distributions/tumbleweed.html.erb:225
+#: ../app/views/distributions/tumbleweed.html.erb:237
+#: ../app/views/distributions/tumbleweed.html.erb:253
+#: ../app/views/distributions/tumbleweed.html.erb:265
+#: ../app/views/distributions/tumbleweed.html.erb:277
+#: ../app/views/distributions/testing.html.erb:31
+#: ../app/views/distributions/testing.html.erb:45
 msgid "Direct Link"
 msgstr "رابط مباشر"
 
+#: ../app/views/search/_find_form.html.erb:33
+#, fuzzy
+msgid "Distribution:"
+msgstr "إظهار التوزيعة:"
+
+#: ../app/views/package/show.html.erb:60
+msgid "Distributions"
+msgstr ""
+
+#: ../app/views/layouts/_footer.html.erb:7
+#: ../app/views/layouts/_navbar.html.erb:20
 #: ../app/views/distributions/_documentation.html.erb:2
 msgid "Documentation"
 msgstr "الوثائق"
 
-#: ../app/views/package/show.html.erb:141
-msgid "Don't show this warning the next time"
-msgstr "عدم إظهار هذا التحذير في المرة القادمة"
-
-#: ../app/views/distributions/leap_ports.html.erb:28
-#: ../app/views/distributions/leap_ports.html.erb:89
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:46
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:125
-#: ../app/views/distributions/leap.html.erb:27
-#: ../app/views/distributions/tumbleweed.html.erb:29
-#: ../app/views/distributions/tumbleweed_ports.html.erb:27
-#: ../app/views/distributions/tumbleweed_ports.html.erb:84
-#: ../app/views/distributions/tumbleweed_ports.html.erb:141
-#: ../app/views/distributions/testing.html.erb:48
-msgid "Download Method"
-msgstr "طريقة التحميل"
-
-#: ../app/views/distributions/leap_ports.html.erb:10
-msgid ""
-"Download alternative architecture versions of openSUSE Leap, for desktop "
-"PCs, laptops, and servers."
-msgstr ""
-"تحميل بنية بديلة من النسخة المتداولة من أوبن سوزي Leap, لأجهزة الحاسب "
-"المكتبية والمحمولة والخوادم."
-
-#: ../app/views/distributions/tumbleweed_ports.html.erb:10
-msgid ""
-"Download alternative architectures of the rolling version of openSUSE, for "
-"desktop PCs, laptops, and servers."
-msgstr ""
-"تحميل بنية بديلة من النسخة المتداولة من أوبن سوزي الدوار  لأجهزة الحاسب "
-"المكتبية والمحمولة والخوادم."
+#: ../app/views/layouts/_navbar.html.erb:14
+#: ../app/views/distributions/index.html.erb:21
+#: ../app/views/distributions/index.html.erb:31
+#: ../app/views/distributions/index.html.erb:42
+#, fuzzy
+msgid "Download"
+msgstr "التحميلات"
 
 #: ../app/controllers/download_controller.rb:36
 msgid "Download appliance from %s"
 msgstr "تحميل التطبيقات من %s"
 
-#: ../app/views/distributions/index.html.erb:45
+#: ../app/views/distributions/index.html.erb:28
 msgid ""
 "Download openSUSE’s regular release and enjoy the benefits of both "
 "enterprise-grade engineering and community-developed innovation."
@@ -235,35 +251,25 @@ msgstr ""
 "حمل الإصدار التقليدي من أوبن سوزي واستمتع بالفوائد المقدمة من المهندسين على "
 "مستوى المؤسسة والابتكارات المقدمة من المجتمع."
 
-#: ../app/views/distributions/index.html.erb:42
+#: ../app/views/distributions/index.html.erb:18
 msgid ""
 "Download openSUSE’s rolling release and always run the latest packages "
 "provided by the openSUSE Project."
 msgstr "حمل إصدار أوبن سوزي الدوار وشغل أحدث الحزم المقدمة من مشروع أوبن سوزي."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:10
+#: ../app/views/distributions/leap.html.erb:58
+#: ../app/views/distributions/leap.html.erb:97
+#: ../app/views/distributions/leap.html.erb:129
+#: ../app/views/distributions/tumbleweed.html.erb:65
+#: ../app/views/distributions/tumbleweed.html.erb:79
+#: ../app/views/distributions/tumbleweed.html.erb:111
+#: ../app/views/distributions/tumbleweed.html.erb:150
+#: ../app/views/distributions/tumbleweed.html.erb:182
+#: ../app/views/distributions/testing.html.erb:44
+#, fuzzy
 msgid ""
-"Download the LiveUSBs of the rolling version of openSUSE, for desktop PCs, "
-"laptops, and servers."
-msgstr ""
-"تحميل سواقة فلاش حية من النسخة الدوار من أوبن سوزي لأجهزة الحاسب المكتبي "
-"والمحمول والخوادم."
-
-#: ../app/views/distributions/leap.html.erb:10
-msgid ""
-"Download the latest version of openSUSE Leap, for desktop PCs, laptops, and "
-"servers."
-msgstr "حمل أحدث إصدارات أوبن سوزي Leap, للحاسب المكتبي والمحمول والخوادم."
-
-#: ../app/views/distributions/tumbleweed.html.erb:10
-msgid ""
-"Download the rolling version of openSUSE, for desktop PCs,\n"
-"laptops, and servers."
-msgstr "حمل أحدث إصدارات أوبن سوزي Leap, للحاسب المكتبي والمحمول والخوادم."
-
-#: ../app/views/layouts/application.html.erb:63
-#: ../app/views/layouts/download.html.erb:57
-msgid "Downloads"
+"Downloads the installation system and all packages from online repositories. "
+"Suitable for installation or upgrade."
 msgstr "التحميلات"
 
 #: ../app/views/distributions/_leap_switch.html.erb:2
@@ -278,9 +284,17 @@ msgstr "طرق سهلة للتبديل إلى أوبن سوزي الدوار"
 msgid "Either a DVD drive or USB port for the installation media"
 msgstr "ايضا إصدارات على وسائط التثبيت DVD وUSB"
 
-#: ../app/views/package/show.html.erb:252
-msgid "Expand all sections ('e')"
-msgstr "قم بتوسيع كافة المقاطع ('e')"
+#: ../app/views/layouts/_footer.html.erb:20
+msgid "Events"
+msgstr ""
+
+#: ../app/views/package/_download_rows.html.erb:25
+msgid "Experimental"
+msgstr ""
+
+#: ../app/views/layouts/_footer.html.erb:30
+msgid "Facebook group"
+msgstr ""
 
 #: ../app/views/download/package.erb:106
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
@@ -300,6 +314,37 @@ msgstr ""
 "ترتيب المستودعات في pacman.conf مهم، منذ أن أصبح pacman يقوم دوماً بتحميل "
 "الحزم التي يعثر عليها أولاً):"
 
+#: ../app/views/distributions/leap.html.erb:57
+#: ../app/views/distributions/leap.html.erb:96
+#: ../app/views/distributions/leap.html.erb:128
+#: ../app/views/distributions/tumbleweed.html.erb:64
+#: ../app/views/distributions/tumbleweed.html.erb:78
+#: ../app/views/distributions/tumbleweed.html.erb:110
+#: ../app/views/distributions/tumbleweed.html.erb:149
+#: ../app/views/distributions/tumbleweed.html.erb:181
+#: ../app/views/distributions/tumbleweed.html.erb:236
+#: ../app/views/distributions/tumbleweed.html.erb:276
+#: ../app/views/distributions/testing.html.erb:43
+#, fuzzy
+msgid "For CD and USB stick"
+msgstr " أيضاً "
+
+#: ../app/views/distributions/leap.html.erb:43
+#: ../app/views/distributions/leap.html.erb:82
+#: ../app/views/distributions/leap.html.erb:114
+#: ../app/views/distributions/tumbleweed.html.erb:50
+#: ../app/views/distributions/tumbleweed.html.erb:96
+#: ../app/views/distributions/tumbleweed.html.erb:135
+#: ../app/views/distributions/tumbleweed.html.erb:167
+#: ../app/views/distributions/tumbleweed.html.erb:212
+#: ../app/views/distributions/tumbleweed.html.erb:224
+#: ../app/views/distributions/tumbleweed.html.erb:252
+#: ../app/views/distributions/tumbleweed.html.erb:264
+#: ../app/views/distributions/testing.html.erb:29
+#, fuzzy
+msgid "For DVD and USB stick"
+msgstr " أيضاً "
+
 #: ../app/views/distributions/_verify_download.html.erb:13
 msgid ""
 "For each ISO, we offer a checksum file with the corresponding SHA256 sum."
@@ -313,6 +358,11 @@ msgstr "لمزيد من الأمان، يمكنك استخدام GPG للتحق�
 #: ../app/views/distributions/_verify_download.html.erb:22
 msgid "For more help verifying your download please read %{checksums_help}"
 msgstr "لمزيد من المساعدة في التحقق من التحميل يرجى قراءة %{checksums_help}"
+
+#: ../app/views/layouts/_footer.html.erb:28
+#: ../app/views/layouts/_navbar.html.erb:26
+msgid "Forums"
+msgstr ""
 
 #: ../app/views/distributions/_upgrade_table.html.erb:6
 msgid "From OS X"
@@ -334,46 +384,39 @@ msgstr "الوثائق الكاملة"
 msgid "Games"
 msgstr "ألعاب"
 
-#: ../app/views/distributions/_unsupported_live_media.html.erb:9
-msgid "Get Unsupported Tumbleweed LiveCDs."
-msgstr "احصل على قرص حي غير معتمد من الدوار."
+#: ../app/views/search/_find_results.html.erb:69
+msgid "Get"
+msgstr ""
 
 #: ../app/views/layouts/jekyll.html.erb:8
 #: ../app/views/layouts/jekyll.html.erb:34
-#: ../app/views/distributions/index.html.erb:7
+#: ../app/views/layouts/download.html.erb:7
+#: ../app/views/distributions/index.html.erb:4
 msgid "Get openSUSE"
 msgstr "احصل على أوبن سوزي"
 
-#: ../app/views/distributions/leap.html.erb:85
-msgid "Get openSUSE Leap for other architectures."
-msgstr "احصل على أوبن سوزي Leap لمعماريات أخرى."
-
-#: ../app/views/distributions/tumbleweed.html.erb:84
-msgid "Get openSUSE Tumbleweed for other architectures."
-msgstr "احصل على أوبن سوزي الدوار لمعماريات أخرى."
+#: ../app/views/layouts/_footer.html.erb:31
+msgid "Google+ group"
+msgstr ""
 
 #: ../app/views/download/package.erb:153
 msgid "Grab binary packages directly"
 msgstr "سحب الحزم الثنائية مباشرة"
 
-#: ../app/views/layouts/application.html.erb:60
-#: ../app/views/layouts/download.html.erb:54
-msgid "Header Logo"
-msgstr "صورة الشعار"
-
-#: ../app/views/distributions/index.html.erb:64
+#: ../app/views/distributions/index.html.erb:39
+#, fuzzy
 msgid ""
-"Help test openSUSE’s next version of Leap by downloading\n"
-"              the latest development milestone."
+"Help test openSUSE’s next version of Leap by downloading the latest "
+"development milestone."
 msgstr ""
 "ساعد في اختبار الإصدار التالي من أوبن سوزي Leap بتحميل\n"
 "               آخر النسخ قيد التطوير."
 
-#: ../app/views/distributions/testing.html.erb:10
+#: ../app/views/distributions/testing.html.erb:18
+#, fuzzy
 msgid ""
-"Help test the next version of openSUSE Leap, the\n"
-"              regular-release distribution for desktop PCs, laptops,\n"
-"              and servers."
+"Help test the next version of openSUSE Leap, the regular-release "
+"distribution for desktop PCs, laptops, and servers."
 msgstr ""
 "ساعد في اختبار الإصدار التالي من أوبن سوزي Leap, و\n"
 "               الإصدارات التقليدية للحاسب المكتبي والمحمول،\n"
@@ -403,7 +446,11 @@ msgstr "كيفية إنشاء سواقة فلاش قابلة للإقلاع عل
 msgid "How to create a bootable USB stick on OS X."
 msgstr "كيفية إنشاء سواقة فلاش قابلة للإقلاع على OS X."
 
-#: ../app/views/distributions/index.html.erb:105
+#: ../app/views/layouts/_footer.html.erb:33
+msgid "IRC channels"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:91
 msgid "If you are still not sure, download %{leap}"
 msgstr "إذا كنت مٌتردد، قم بتحميل %{leap}"
 
@@ -421,6 +468,10 @@ msgstr ""
 msgid "Image:"
 msgstr "صورة:"
 
+#: ../app/views/layouts/_footer.html.erb:16
+msgid "Information"
+msgstr ""
+
 #: ../app/controllers/download_controller.rb:78
 msgid "Install package %s / %s"
 msgstr "تثبيت الحزمة %s / %s"
@@ -433,20 +484,11 @@ msgstr "تثبيت نمط %s / %s"
 msgid "Install using One Click Install"
 msgstr "تثبيت بإستعمال التثبيت بضغطة زر واحدة"
 
-#: ../app/views/distributions/leap.html.erb:21
-#: ../app/views/distributions/tumbleweed.html.erb:23
-#: ../app/views/distributions/tumbleweed_ports.html.erb:21
-#: ../app/views/distributions/tumbleweed_ports.html.erb:78
-#: ../app/views/distributions/tumbleweed_ports.html.erb:135
-#: ../app/views/distributions/testing.html.erb:42
-msgid "Installation Media"
-msgstr "وسائط التثبيت"
-
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
 msgstr "الوصول إلى الإنترنت مفيد، ومطلوب للتثبيت عبر الشبكة"
 
-#: ../app/views/distributions/index.html.erb:108
+#: ../app/views/distributions/index.html.erb:95
 msgid ""
 "It is easy to <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 "\">switch to openSUSE Tumbleweed</a> if you change your mind later."
@@ -454,7 +496,7 @@ msgstr ""
 "من السهل <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade\"> "
 "التبديل إلى أوبن سوزي الدوار </a>إذا غيرت رأيك لاحقا."
 
-#: ../app/views/distributions/index.html.erb:88
+#: ../app/views/distributions/index.html.erb:71
 msgid ""
 "It is not expected to change in any significant way until its next annual "
 "release."
@@ -464,7 +506,11 @@ msgstr "من غير المتوقع أن تتغير بشكل كبير حتى ال
 msgid "It should be %{fingerprint}"
 msgstr "يجب ان يكون %{fingerprint}"
 
-#: ../app/views/distributions/index.html.erb:94
+#: ../app/views/distributions/tumbleweed.html.erb:76
+msgid "Kubic DVD/USB Stick"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:77
 msgid ""
 "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
 "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
@@ -472,7 +518,7 @@ msgstr ""
 "Leap ينصح به <strong>Sysadmins</strong> ،<strong>مشروع التطوير</strong> "
 "و<strong> مستخدم سطح المكتب ’التقليدي’</strong>."
 
-#: ../app/views/distributions/index.html.erb:90
+#: ../app/views/distributions/index.html.erb:72
 msgid ""
 "Leap shares a Common Base System with %{sles}, so major architectural "
 "changes are not expected for several years, aligned with each new Major "
@@ -486,10 +532,9 @@ msgstr ""
 msgid "License"
 msgstr "رخصة"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:40
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:119
-msgid "LiveUSB Media"
-msgstr "وسيط USB حي"
+#: ../app/views/layouts/_footer.html.erb:32
+msgid "Mail lists"
+msgstr ""
 
 #: ../app/views/distributions/_verify_download.html.erb:5
 msgid ""
@@ -506,18 +551,51 @@ msgstr ""
 "(SHA256) يستخدم تلقائيا إذا اخترت ميتالينك في الحقل أعلاه واستخدمت الإضافة "
 "DownThemAll! في فيرفكس."
 
+#: ../app/views/distributions/leap.html.erb:46
+#: ../app/views/distributions/leap.html.erb:60
+#: ../app/views/distributions/leap.html.erb:85
+#: ../app/views/distributions/leap.html.erb:99
+#: ../app/views/distributions/leap.html.erb:117
+#: ../app/views/distributions/leap.html.erb:131
+#: ../app/views/distributions/tumbleweed.html.erb:53
+#: ../app/views/distributions/tumbleweed.html.erb:67
+#: ../app/views/distributions/tumbleweed.html.erb:81
+#: ../app/views/distributions/tumbleweed.html.erb:99
+#: ../app/views/distributions/tumbleweed.html.erb:113
+#: ../app/views/distributions/tumbleweed.html.erb:138
+#: ../app/views/distributions/tumbleweed.html.erb:152
+#: ../app/views/distributions/tumbleweed.html.erb:170
+#: ../app/views/distributions/tumbleweed.html.erb:184
+#: ../app/views/distributions/tumbleweed.html.erb:214
+#: ../app/views/distributions/tumbleweed.html.erb:226
+#: ../app/views/distributions/tumbleweed.html.erb:238
+#: ../app/views/distributions/tumbleweed.html.erb:254
+#: ../app/views/distributions/tumbleweed.html.erb:266
+#: ../app/views/distributions/tumbleweed.html.erb:278
+#: ../app/views/distributions/testing.html.erb:32
+#: ../app/views/distributions/testing.html.erb:46
+msgid "Metalink"
+msgstr ""
+
 #: ../app/views/package/categories.html.erb:42
 msgid "Multimedia"
 msgstr "وسائط متعدّدة"
 
-#: ../app/views/distributions/leap_ports.html.erb:60
-#: ../app/views/distributions/leap_ports.html.erb:117
-#: ../app/views/distributions/tumbleweed.html.erb:57
-#: ../app/views/distributions/tumbleweed_ports.html.erb:112
-#: ../app/views/distributions/tumbleweed_ports.html.erb:169
-#: ../app/views/distributions/testing.html.erb:76
-msgid "Network"
+#: ../app/views/distributions/leap.html.erb:55
+#: ../app/views/distributions/leap.html.erb:94
+#: ../app/views/distributions/leap.html.erb:126
+#: ../app/views/distributions/tumbleweed.html.erb:62
+#: ../app/views/distributions/tumbleweed.html.erb:108
+#: ../app/views/distributions/tumbleweed.html.erb:147
+#: ../app/views/distributions/tumbleweed.html.erb:179
+#: ../app/views/distributions/testing.html.erb:41
+#, fuzzy
+msgid "Network Image"
 msgstr "الشبكة"
+
+#: ../app/views/layouts/_footer.html.erb:18
+msgid "News"
+msgstr ""
 
 #: ../app/views/download/appliance.erb:2
 msgid "No appliance data for %{project}"
@@ -531,25 +609,35 @@ msgstr "لا توجد أدوات في المشروع %s"
 msgid "No data for %s / %s"
 msgstr "لا توجد بيانات %s / %s"
 
-#: ../app/views/package/show.html.erb:179
-msgid "No description found..."
-msgstr "لم يتم العثور على وصف..."
+#: ../app/views/package/show.html.erb:35
+msgid "No description."
+msgstr ""
 
 #: ../app/views/download/package.erb:69
 msgid "No downloads found for %s in project %s"
 msgstr "لم يتم العثور على تحميلات %s في المشروع %s"
 
-#: ../app/views/search/_find_results.html.erb:22
+#: ../app/views/search/_find_results.html.erb:23
 msgid "No packages found matching your search. "
 msgstr "لم يعثر على حزم تطابق بحثك. "
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:36
+#: ../app/views/distributions/testing.html.erb:89
+msgid "No testing distribution available."
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:200
 msgid "Not Tested|Tumbleweed installation media"
 msgstr "لم تختبر|وسائط تثبيت الدوار"
 
-#: ../app/controllers/application_controller.rb:55
+#: ../app/controllers/application_controller.rb:54
 msgid "OBS Backend not available"
 msgstr "OBS الخلفية غير متاحة"
+
+#: ../app/views/package/_download_rows.html.erb:22
+#: ../app/views/distributions/leap.html.erb:20
+#: ../app/views/distributions/tumbleweed.html.erb:19
+msgid "Official"
+msgstr ""
 
 #: ../app/views/distributions/_leap_switch.html.erb:9
 msgid "Online Upgrade Instructions"
@@ -559,12 +647,11 @@ msgstr "تعليمات الترقية عبر الإنترنت"
 msgid "Over 40GB of free hard drive space"
 msgstr "أكثر من 40GB خالية من مساحة القرص الصلب"
 
-#: ../app/views/package/show.html.erb:149
+#: ../app/views/package/show.html.erb:4
 msgid "Package %s not found..."
 msgstr "الحزمة %s غير موجودة..."
 
 #: ../app/views/layouts/jekyll.html.erb:45
-#: ../app/views/search/_find_form.html.erb:23
 msgid "Package Search"
 msgstr "البحث عن حزم"
 
@@ -572,55 +659,39 @@ msgstr "البحث عن حزم"
 msgid "Packages for %s:"
 msgstr "حزم %s:"
 
-#: ../app/views/distributions/leap_ports.html.erb:50
-#: ../app/views/distributions/leap_ports.html.erb:72
-#: ../app/views/distributions/leap_ports.html.erb:107
-#: ../app/views/distributions/leap_ports.html.erb:129
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:64
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:86
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:108
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:143
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:164
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:186
-#: ../app/views/distributions/leap.html.erb:49
-#: ../app/views/distributions/leap.html.erb:71
-#: ../app/views/distributions/tumbleweed.html.erb:47
-#: ../app/views/distributions/tumbleweed.html.erb:69
-#: ../app/views/distributions/tumbleweed_ports.html.erb:45
-#: ../app/views/distributions/tumbleweed_ports.html.erb:67
-#: ../app/views/distributions/tumbleweed_ports.html.erb:102
-#: ../app/views/distributions/tumbleweed_ports.html.erb:124
-#: ../app/views/distributions/tumbleweed_ports.html.erb:159
-#: ../app/views/distributions/tumbleweed_ports.html.erb:181
-#: ../app/views/distributions/testing.html.erb:66
-#: ../app/views/distributions/testing.html.erb:88
+#: ../app/views/distributions/leap.html.erb:47
+#: ../app/views/distributions/leap.html.erb:61
+#: ../app/views/distributions/leap.html.erb:86
+#: ../app/views/distributions/leap.html.erb:100
+#: ../app/views/distributions/leap.html.erb:118
+#: ../app/views/distributions/leap.html.erb:132
+#: ../app/views/distributions/tumbleweed.html.erb:54
+#: ../app/views/distributions/tumbleweed.html.erb:68
+#: ../app/views/distributions/tumbleweed.html.erb:82
+#: ../app/views/distributions/tumbleweed.html.erb:100
+#: ../app/views/distributions/tumbleweed.html.erb:114
+#: ../app/views/distributions/tumbleweed.html.erb:139
+#: ../app/views/distributions/tumbleweed.html.erb:153
+#: ../app/views/distributions/tumbleweed.html.erb:171
+#: ../app/views/distributions/tumbleweed.html.erb:185
+#: ../app/views/distributions/testing.html.erb:33
+#: ../app/views/distributions/testing.html.erb:47
 msgid "Pick Mirror"
 msgstr "إختيار رابط"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:23
+#: ../app/views/layouts/_footer.html.erb:21
+msgid "Planet"
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:195
 msgid "Please Note: These LiveUSBs are not supported"
 msgstr "يرجى ملاحظة: سواقة الفلاشة الحية غير مدعومة"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:28
+#: ../app/views/distributions/tumbleweed.html.erb:197
 msgid "Please Use|Tumbleweed installation media"
 msgstr "الرجاء استخدام |وسائط تثبيت الدوار"
 
-#: ../app/views/package/show.html.erb:137
-msgid ""
-"Please be aware that the following packages are from unofficial "
-"repositories.\n"
-"That means they are not reviewed by openSUSE and may contain unstable or "
-"experimental software."
-msgstr ""
-"نريد اخبارك بأن الحزم التالية من مستودعات غير رسمية.\n"
-"هذا يعني أنه لم تتم مراجعتها من قبل أوبن سوزي وقد تحتوي على برامج تجريبية أو "
-"غير مستقرة."
-
-#: ../app/views/distributions/testing.html.erb:39
-msgid "Please report any issues you find in our Bugtracker."
-msgstr "يرجى الإبلاغ عن أي مشاكل تواجهك باستخدام متتبع العلل."
-
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:37
+#: ../app/views/distributions/tumbleweed.html.erb:201
 msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
 "these LiveUSBs are working as expected."
@@ -640,12 +711,16 @@ msgstr "الفئات ذات الصلة:"
 msgid "Release Notes"
 msgstr "ملاحظات الإصدار"
 
-#: ../app/views/distributions/index.html.erb:91
+#: ../app/views/layouts/_footer.html.erb:19
+#, fuzzy
+msgid "Release notes"
+msgstr "ملاحظات الإصدار"
+
+#: ../app/views/distributions/index.html.erb:73
 msgid "SUSE Linux Enterprise"
 msgstr "مؤسسة سوزي لينكس"
 
 #: ../app/views/search/find.html.erb:1
-#: ../app/views/search/_find_form.html.erb:27
 msgid "Search"
 msgstr "البحث"
 
@@ -657,65 +732,50 @@ msgstr "إختر نظام التشغيل"
 msgid "Select the image type"
 msgstr "حدد نوع الصورة"
 
-#: ../app/views/search/_find_results.html.erb:89
+#: ../app/views/layouts/_footer.html.erb:22
+#, fuzzy
+msgid "Shop"
+msgstr "إظهار"
+
+#: ../app/views/package/show.html.erb:104
 msgid "Show"
 msgstr "إظهار"
 
-#: ../app/views/search/_find_form.html.erb:34
+#: ../app/views/package/show.html.erb:85
+#, fuzzy
+msgid "Show community packages"
+msgstr "إظهار"
+
+#: ../app/views/search/_find_form.html.erb:43
 msgid "Show development, language and debug packages"
 msgstr "إظهار حزم التطوير واللغة والتصحيح"
 
-#: ../app/views/search/_find_form.html.erb:39
-msgid "Show distribution:"
-msgstr "إظهار التوزيعة:"
+#: ../app/views/package/show.html.erb:84
+#, fuzzy
+msgid "Show experimental packages"
+msgstr "إظهار"
 
-#: ../app/views/package/show.html.erb:253
-msgid "Show more packages for unsupported distributions"
-msgstr "إظهار المزيد من الحزم للتوزيعات غير المعتمدة"
-
-#: ../app/views/search/_find_results.html.erb:127
-msgid "Show more..."
-msgstr "إظهار المزيد..."
-
-#: ../app/views/package/show.html.erb:192
-msgid "Show other versions"
-msgstr "إظهار الإصدارات الأخرى"
-
-#: ../app/views/package/show.html.erb:225
-msgid "Show unstable packages"
-msgstr "إظهار الحزم غير المستقرة"
-
-#: ../app/views/search/_find_form.html.erb:37
-msgid "Show unsupported packages"
-msgstr "إظهار الحزم غير المعتمدة"
-
-#: ../app/views/distributions/leap_ports.html.erb:27
-#: ../app/views/distributions/leap_ports.html.erb:88
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:45
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:124
-#: ../app/views/distributions/leap.html.erb:26
-#: ../app/views/distributions/tumbleweed.html.erb:28
-#: ../app/views/distributions/tumbleweed_ports.html.erb:26
-#: ../app/views/distributions/tumbleweed_ports.html.erb:83
-#: ../app/views/distributions/tumbleweed_ports.html.erb:140
-#: ../app/views/distributions/testing.html.erb:47
+#: ../app/views/package/show.html.erb:45
 msgid "Size"
 msgstr "حجم"
 
+#: ../app/views/layouts/_footer.html.erb:37
+msgid "Social Media"
+msgstr ""
+
+#: ../app/views/layouts/_navbar.html.erb:17
+msgid "Software"
+msgstr ""
+
 #: ../app/helpers/package_helper.rb:13 ../app/helpers/package_helper.rb:15
-#: ../app/views/package/_download_rows.html.erb:26
-#: ../app/views/package/_download_rows.html.erb:33
+#: ../app/views/package/_download_rows.html.erb:42
+#: ../app/views/package/_download_rows.html.erb:45
 msgid "Source"
 msgstr "المصدر"
 
-#: ../app/views/search/_find_results.html.erb:96
+#: ../app/views/search/_find_results.html.erb:82
 msgid "Sub-Packages"
 msgstr "حزم فرعية"
-
-#: ../app/views/layouts/application.html.erb:64
-#: ../app/views/layouts/download.html.erb:58
-msgid "Support"
-msgstr "الدعم"
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
 msgid ""
@@ -739,58 +799,67 @@ msgstr ""
 "فقط للتثبيت، والتي من المرجح أن تكون\n"
 "أقل من 4.7GB."
 
+#: ../app/views/package/show.html.erb:103
+msgid ""
+"The following distributions are not officially supported. Use these packages "
+"at your own risk."
+msgstr ""
+
 #: ../app/views/download/package.erb:95
 msgid "Then run the following as <strong>root</strong>"
 msgstr "ثم قم بتشغيل التالي <strong>كجذر</strong>"
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:35
+#: ../app/views/distributions/leap.html.erb:71
+#: ../app/views/distributions/tumbleweed.html.erb:124
+#, fuzzy
+msgid ""
+"These ports are not officially supported, and they are not as stable as "
+"official distributions."
+msgstr " أيضاً "
+
+#: ../app/views/distributions/tumbleweed.html.erb:199
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr "لم يتم اختبارها بدقة مثل %{tumbleweed_media}."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:27
+#: ../app/views/distributions/tumbleweed.html.erb:196
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
 msgstr ""
-"لا يمكن استخدامها لتثبيت أو لترقية الدوار. الرجاء استخدام %{tumbleweed_media}"
-" في هذه الحالة."
+"لا يمكن استخدامها لتثبيت أو لترقية الدوار. الرجاء استخدام "
+"%{tumbleweed_media} في هذه الحالة."
 
-#: ../app/views/distributions/tumbleweed_unsupported.html.erb:31
+#: ../app/views/distributions/tumbleweed.html.erb:198
+#, fuzzy
 msgid ""
-"They have a limited package/driver selection, so cannot be considered\n"
-"an accurate reflection as to whether Tumbleweed will work on your hardware "
-"or not."
+"They have a limited package/driver selection, so cannot be considered an "
+"accurate reflection as to whether Tumbleweed will work on your hardware or "
+"not."
 msgstr ""
 "لديها مجموعة محدودة من السواقات/التطبيقات، لذلك لا يمكن اعتبارها\n"
 "حكم دقيق لما إذا كان الدوار سيعمل على\n"
 "جهازك أم لا."
 
-#: ../app/views/distributions/testing.html.erb:36
-msgid ""
-"This is not a supported release. It is provided to help openSUSE testers "
-"find bugs before release."
-msgstr ""
-"هذا الإصدار غير معتمد.  يتم توفيره للمساعدة في اختبار أوبن سوزي لكشف العلل "
-"قبل إطلاق الإصدارة."
-
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
 msgstr "تبديل التصفح"
 
-#: ../app/views/distributions/index.html.erb:79
+#: ../app/views/distributions/index.html.erb:61
 msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
 "Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
 msgstr ""
-"الدوار يفضله عادة <strong>المطورون</strong>, <strong>المساهمون في أوبن "
-"سوزي</strong>, و <strong> مجموعات داعمي ومحبي لنكس</strong>."
+"الدوار يفضله عادة <strong>المطورون</strong>, <strong>المساهمون في أوبن سوزي</"
+"strong>, و <strong> مجموعات داعمي ومحبي لنكس</strong>."
 
-#: ../app/views/distributions/_unsupported_live_media.html.erb:2
-msgid "Unsupported LiveUSBs"
-msgstr "لا يدعم الفلاشة الحية"
+#: ../app/views/distributions/leap.html.erb:26
+#: ../app/views/distributions/tumbleweed.html.erb:26
+msgid "Unofficial"
+msgstr ""
 
-#: ../app/views/package/show.html.erb:239
-msgid "Unsupported distributions:"
+#: ../app/views/package/show.html.erb:100
+#, fuzzy
+msgid "Unsupported distributions"
 msgstr "توزيعات غير معتمدة:"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:9
@@ -801,9 +870,13 @@ msgstr "تعليمات الترقية"
 msgid "Verify Your Download Before Use"
 msgstr "تحقق من التحميل قبل الاستخدام"
 
-#: ../app/views/package/show.html.erb:190
+#: ../app/views/package/show.html.erb:44
 msgid "Version"
 msgstr "الإصدار"
+
+#: ../app/views/layouts/_navbar.html.erb:23
+msgid "Wiki"
+msgstr ""
 
 #: ../app/views/download/package.erb:141
 msgid ""
@@ -815,18 +888,19 @@ msgstr ""
 "والحزم والمستودعات والتي سيقوم النظام بالثقة بها (<a href=\"%s\">مزيد من "
 "المعلومات</a>). لإضافة المفتاح، قم بتشغيل:"
 
-#: ../app/views/search/_find_results.html.erb:25
+#: ../app/views/search/_find_results.html.erb:26
+#, fuzzy
 msgid ""
 "You could try to extend your search to development packages or search for "
-"another base distribution (currently )."
+"another base distribution (currently #{@baseproject})."
 msgstr ""
 "حاول توسيع نطاق البحث لتطوير الحزم أو البحث عبر قاعدة توزيعة أخرى (حاليا)."
 
-#: ../app/views/distributions/index.html.erb:85
+#: ../app/views/distributions/index.html.erb:68
 msgid "annually"
 msgstr "سنويا"
 
-#: ../app/views/distributions/index.html.erb:86
+#: ../app/views/distributions/index.html.erb:69
 msgid "https://en.opensuse.org/Lifetime"
 msgstr "https://en.opensuse.org/Lifetime"
 
@@ -864,884 +938,34 @@ msgstr "https://en.opensuse.org/SDB:Live_USB_stick"
 msgid "https://en.opensuse.org/SDB:System_upgrade"
 msgstr "https://en.opensuse.org/SDB:System_upgrade"
 
-#: ../app/views/distributions/index.html.erb:85
+#: ../app/views/distributions/index.html.erb:68
 msgid "https://en.opensuse.org/openSUSE:Roadmap"
 msgstr "https://en.opensuse.org/openSUSE:Roadmap"
-
-#: ../app/views/distributions/testing.html.erb:38
-msgid "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
-msgstr "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:8
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
-#: ../app/views/distributions/tumbleweed.html.erb:82
-msgid ""
-"is also available on other architectures, such as Intel 32-bit (aka i586), "
-"AArch64 (aka ARMv8) and PPC64."
-msgstr ""
-"متاح أيضا على معمارية أخرى، مثل إنتل 32 بت (ويعرف أيضا باسم i586)، AArch64 "
-"(ويعرف أيضا باسم ARMv8) و PPC64."
-
-#: ../app/views/distributions/index.html.erb:86
+#: ../app/views/distributions/index.html.erb:69
 msgid "lifetime"
 msgstr "دورة الإصدار"
 
-#: ../app/views/distributions/index.html.erb:84
-#: ../app/views/distributions/index.html.erb:105
+#: ../app/views/distributions/index.html.erb:67
 msgid "openSUSE Leap"
 msgstr "أوبن سوزي Leap"
 
-#: ../app/views/distributions/leap.html.erb:83
-msgid ""
-"openSUSE Leap is also available on other architectures, such as AArch64 (aka "
-"ARMv8) and PPC64."
+#: ../app/views/layouts/application.html.erb:7
+msgid "openSUSE Software"
 msgstr ""
-"أوبن سوزي Leap متاح أيضا على معمارية أخرى، مثل AArch64 (ويعرف أيضا باسم "
-"ARMv8) و PPC64."
 
-#: ../app/views/distributions/index.html.erb:77
+#: ../app/views/distributions/index.html.erb:58
 msgid "openSUSE Tumbleweed"
 msgstr "أوبن سوزي الدوار"
 
-#: ../app/views/distributions/_unsupported_live_media.html.erb:5
-msgid ""
-"openSUSE Tumbleweed also offers a number of unsupported LiveUSBs. These\n"
-"cannot be used for Installation or Upgrade. They are not an accurate\n"
-"reflection as to whether or not Tumbleweed will run on your hardware."
+#: ../app/views/layouts/_footer.html.erb:50
+msgid "openSUSE contributors"
 msgstr ""
-"أوبن سوزي الدوار يقدم أيضاً عددا من سواقات الفلاش الحية غير المدعومة. لا \n"
-"يمكن استخدامها للتثبيت أو الترقية. فهي ليست دقيقة \n"
-"ولليست دليل على أن الحاسب سيشغل الدوار."
 
-#: ../app/views/distributions/index.html.erb:124
-msgid ""
-"openSUSE has a number of unofficial derivative distributions.\n"
-"These are made by our awesome community, often for special purposes."
-msgstr ""
-"أوبن سوزي لديه عدد من التوزيعات المشتقة غير الرسمية.\n"
-"تصدر من قبل مجتمعات رائعة، في أغلب الأحيان تكون لأهداف\n"
-"خاصة."
-
-#: ../app/views/distributions/index.html.erb:10
+#: ../app/views/distributions/index.html.erb:6
 msgid "openSUSE is completely free to download, use and share."
 msgstr "أوبن سوزي مجاني تماما لتحميله واستخدامه ومشاركته."
-
-#~ msgid "Please review %{openqa}"
-#~ msgstr "يرجى مراجعة %{openqa}"
-
-#~ msgid "Media"
-#~ msgstr "وسائط"
-
-#~ msgid "instead."
-#~ msgstr "بدلاً من."
-
-#~ msgid ""
-#~ "If you’re already running openSUSE you can upgrade by booting from the\n"
-#~ "  DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a "
-#~ "few\n"
-#~ "  commands."
-#~ msgstr ""
-#~ "إذا كنت تقوم بتشغيل أوبن سوزي بالفعل يمكنك الترقية عن طريق الإقلاع من\n"
-#~ "   DVD/USB واختيار الترقية، أو إجراء ‘ترقية عبر الإنترنت‘ بعدد قليل\n"
-#~ "   من الأوامر."
-
-#~ msgid "\"#{release} is not a supported release.\""
-#~ msgstr "\"#{إصدار} ليس إصدار معتمد.\""
-
-#~ msgid "... and keep us informed"
-#~ msgstr "... أبقنى على إطلاع"
-
-#~ msgid "... get other marketing stuff"
-#~ msgstr "... احصل على منتجات أخرى"
-
-#~ msgid "4.7GB DVD (also suitable for USB stick)"
-#~ msgstr "DVD 4.7 غيغابايت (مناسبة أيضا لذاكرة الفلاش USB العام)"
-
-#~ msgid "64 Bit PC"
-#~ msgstr "جهاز 64 بت"
-
-#~ msgid ""
-#~ "<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">openSUSE "
-#~ "startup guide</a>"
-#~ msgstr ""
-#~ "<a href=\"http://activedoc.opensuse.org/book/opensuse-start-up\">دليل "
-#~ "تشغيل أوبن سوزي</a>"
-
-#~ msgid ""
-#~ "<a href=\"http://en.opensuse.org/SDB:Metalink\">Metalink</a> is an open "
-#~ "standard that bundles the various ways (FTP/HTTP/BitTorrent) to get files "
-#~ "into one format for easier downloads. This makes it good for downloading "
-#~ "ISOs; particularly for people who can't use P2P because of restrictions "
-#~ "from their ISP or University. It can deliver very fast download speeds "
-#~ "since most clients support multiple connections, to multiple mirrors, "
-#~ "automatically. In addition, it can do automatic error detection, and "
-#~ "correction. It needs a special client to handle it though."
-#~ msgstr ""
-#~ "<a href=\"http://en.opensuse.org/SDB:Metalink\">ميتالينك</a> هو معيار "
-#~ "مفتوح يقوم بتحميل الحزم بطرق مختلفة (FTP/HTTP/تورنت) للحصول على الملفات "
-#~ "بتنسيق واحد لتسهيل عملية التحميل. وهذا جيد لتحميل ملفات Iso؛ خاصة بالنسبة "
-#~ "للأشخاص الذين لا يمكنهم استخدام P2P بسبب قيود المفروضة من موفر خدمة "
-#~ "إنترنت أو الجامعات. بمكن تقديم سرعات تحميل عالية جداً إذا كان العميل يدعم "
-#~ "الاتصالات المتعددة, بمرايا متعددة، تلقائياً. وبالإضافة إلى ذلك، يمكن "
-#~ "القيام بالكشف عن الأخطأء التلقائي وتصحيحها. وهذا يتطلب عميل خاصة بذلك."
-
-#~ msgid "<a href=\"http://en.opensuse.org/openSUSE:License\">License</a>"
-#~ msgstr "<a href=\"http://en.opensuse.org/openSUSE:License\">الرخصة</a>"
-
-#~ msgid "<a href='%s'>Release Notes</a>"
-#~ msgstr "<a href='%s'>ملاحظات الإصدار</a>"
-
-#~ msgid ""
-#~ "A GNOME desktop you can run from %s or from USB stick.<br/>Can be "
-#~ "installed as is (no upgrade)."
-#~ msgstr ""
-#~ "سطح مكتب جنوم يمكنك تشغيله من %s او من فلاشة USB,<br/>ويمكن تثبيته فقط "
-#~ "(لا توجد ترقية)."
-
-#~ msgid ""
-#~ "A KDE desktop you can run from %s or from USB stick.<br/>Can be installed "
-#~ "as is (no upgrade)."
-#~ msgstr ""
-#~ "سطح مكتب كدي يمكنك تشغيله من %s او من فلاشة USB,<br/>ويمكن تثبيته فقط (لا "
-#~ "توجد ترقية)."
-
-#~ msgid "Add-On Downloads (optional)"
-#~ msgstr "تحميل الإضافات (اختياري)"
-
-#~ msgid ""
-#~ "After having successfully downloaded the ISO image(s), create a bootable "
-#~ "USB stick or burn the image(s) to a DVD (or a CD if the chosen image "
-#~ "fits)."
-#~ msgstr ""
-#~ "بعد بنجاح بعد تنزيل صورة ISO(s)، قم بإنشاء ذاكرة فلاش USB قابلة للإقلاع "
-#~ "أو احرق الصورة(s)على قرص DVD (أو قرص مضغوط) بحسب حجم التحميل."
-
-#~ msgid ""
-#~ "All data is used only for sending openSUSE promotional material\n"
-#~ "      and will not be spread to third parties. We store the data to\n"
-#~ "      inform the users if a new version is available. All requests have\n"
-#~ "      to be screened to fulfill the US export embargo. More information\n"
-#~ "      about the embargo and a list of countries at wikipedia <a "
-#~ "href='http://en.wikipedia.org/wiki/United_States_embargoes'>http://en."
-#~ "wikipedia.org/wiki/United_States_embargoes</a>."
-#~ msgstr ""
-#~ "جميع البيانات يتم استخدامها فقط لإرسال مواد سوزي الترويجية\n"
-#~ "      ولن ترسل لطراف ثالث. نقوم بتخزين البيانات إعلام المستخدمين\n"
-#~ "      إذا كان يتوفر إصدار جديد. جميع الطلبات \n"
-#~ "      خاضعة لنظام الحظر الأمريكي. لمزيد من المعلومات\n"
-#~ "       حول هذا وقائمة بالبلدان في ويكيبيديا <a href='http://en.wikipedia."
-#~ "org/wiki/United_States_embargoes'>http://en.wikipedia.org/wiki/"
-#~ "United_States_embargoes</a>."
-
-#~ msgid "BitTorrent"
-#~ msgstr "تورنت"
-
-#~ msgid ""
-#~ "Boot from the DVD, CD or USB stick. In case your computer does not "
-#~ "automatically boot from the chosen device, open the BIOS setup to allow "
-#~ "booting from it."
-#~ msgstr ""
-#~ "أقلع من قرص DVD او CD, في حال كان حاسوبك لايدعم الإقلاع التلقائي من هذه "
-#~ "الأقراص. إفتح إعدادات BIOS و قم بتغيير إعدادات الإقلاع التلقائي ليقلع من "
-#~ "هذه الأقراص."
-
-#~ msgid "Both distributions are well tested by"
-#~ msgstr "يتم اختبار التوزيعات بشكل جيد بواسطة"
-
-#~ msgid "Bronze Sponsor"
-#~ msgstr "الراعي البرونزي"
-
-#~ msgid "Browser incompatibility"
-#~ msgstr "المتصفُح غير متوافق"
-
-#~ msgid "Burn CD/DVD Image(s)"
-#~ msgstr "DVD/CD (s)حرق نسخـة"
-
-#~ msgid ""
-#~ "Choose an installation medium by clicking it and hit the Download button "
-#~ "to start the download. Optionally choose your computer type or an "
-#~ "alternative download method."
-#~ msgstr ""
-#~ "إختر قرص تثبيت عن طريق الضغط عليه وإضغط زر التحميل لبدأ التحميل. وكخيار "
-#~ "إضافي إختر نوع حاسوبك او طريق تحميل بديلة."
-
-#~ msgid "Click here to display these alternative versions."
-#~ msgstr "انقر هنا لعرض الإصدارات البديلة."
-
-#~ msgid "Click to Download"
-#~ msgstr "إضغط لبدء التحميل"
-
-#~ msgid ""
-#~ "Contains a large collection of software for desktop or server use.<br/"
-#~ ">Suitable for installation or upgrade."
-#~ msgstr ""
-#~ "يحتوي على مجموعة كبيرة من البرامج لإستعمالات سطح المكتب او للسيرفرات,<br/"
-#~ ">مناسب للتثبيت أو للترقية."
-
-#~ msgid "Countdown"
-#~ msgstr "العد التنازلي"
-
-#~ msgid "Country"
-#~ msgstr "البلد"
-
-#~ msgid "Development Version"
-#~ msgstr "الإصدار التطويري"
-
-#~ msgid "Download"
-#~ msgstr "تحميل"
-
-#~ msgid "Download %s"
-#~ msgstr "تحميل %s"
-
-#~ msgid "Download Help"
-#~ msgstr "مساعدة التحميل"
-
-#~ msgid "Download&nbsp;DVD"
-#~ msgstr "تحميل&nbsp;DVD"
-
-#~ msgid "Download&nbsp;GNOME"
-#~ msgstr "تحميل&nbsp;جنوم"
-
-#~ msgid "Download&nbsp;KDE"
-#~ msgstr "تحميل&nbsp;كدي"
-
-#~ msgid "Download&nbsp;Network"
-#~ msgstr "تحميل&nbsp;الشبكة"
-
-#~ msgid "Download&nbsp;Rescue"
-#~ msgstr "تحميل&nbsp;إنقاذ"
-
-#~ msgid ""
-#~ "Downloads the installation system and all packages from online "
-#~ "repositories.<br/>Suitable for installation or upgrade."
-#~ msgstr ""
-#~ "يقوم بتحميل قرص التثبيت وكل الحزم الضرورية من المستودعات.<br/>مناسب "
-#~ "للتثبيت او للترقية."
-
-#~ msgid "Extra Languages"
-#~ msgstr "اللغات الإضافية"
-
-#~ msgid "Extra Languages (32 Bit)"
-#~ msgstr "اللغات الإضافية (32 بت)"
-
-#~ msgid "Extra Languages (64 Bit)"
-#~ msgstr "اللغات الإضافية (64 بت)"
-
-#~ msgid ""
-#~ "For extra security, you can use GPG to verify who signed those .sha256 "
-#~ "files. It should be %s."
-#~ msgstr ""
-#~ "لمزيد من الأمان، يمكنك استخدام GPG للتحقق من توقيع .sha256 ملف  يجب أن "
-#~ "يكون  %s."
-
-#~ msgid "Get one of the specialized distributions built on openSUSE."
-#~ msgstr "إحصل على واحدة من التوزيعات المبنية على أوبن سوزي."
-
-#~ msgid "Getting Help"
-#~ msgstr "الحصول على المساعدة"
-
-#~ msgid "Gold Sponsor"
-#~ msgstr "الراعي الذهبي"
-
-#~ msgid "Help on Download Method"
-#~ msgstr "المساعدة في أسلوب التحميل"
-
-#~ msgid "Help on Type of Computer"
-#~ msgstr "المساعدة في نوع الحاسوب"
-
-#~ msgid "How to Proceed"
-#~ msgstr "كيف أبدء العمل"
-
-#~ msgid ""
-#~ "If you want to use a direct link but live in a place in the world where "
-#~ "our download redirector has not enough information to redirect to the "
-#~ "fastest mirror, you can pick a mirror yourself."
-#~ msgstr ""
-#~ "إذا أردت استخدام وصلة مباشرة ولكن تعيش في مكان يعيد توجيه التحميل "
-#~ "بمعلومات غير كافية لإعادة توجيه التحميل لمرآة أسرع، يمكنك اختيار المرآة "
-#~ "بنفسك."
-
-#~ msgid "Installation Guides"
-#~ msgstr "إرشادات التثبيت"
-
-#~ msgid "Installation Medium"
-#~ msgstr "قرص التثبيت"
-
-#~ msgid "It is easy to"
-#~ msgstr "انه لمن السهل ان"
-
-#~ msgid ""
-#~ "Join the fast-growing community, put openSUSE into more hands by\n"
-#~ "        getting the latest PromoDVD for your group, non-profit "
-#~ "organization, school\n"
-#~ "        university or event like LUG meetings, installfests, and "
-#~ "conferences.\n"
-#~ "        Promo DVDs help to increase awareness and visibility of openSUSE!"
-#~ msgstr ""
-#~ "انضم إلى المجتمع المتنامي بسرعة، ساعد في دعم أوبن سوزي        أطلب آخر "
-#~ "إصدار\n"
-#~ "من أقراص DVD لمجموعتك أو منظمتك غير الربحيت أوجامعتك        \n"
-#~ "أو للأحداث الهامة مثل اجتماعات مستخدمي لنكس        ، تثبيت.\n"
-#~ " وإعداد سهل وسريع تساعد على زيادة الوعي والتعريف بأوبن سوزي!"
-
-#~ msgid ""
-#~ "Konqueror of KDE 3 is unfortunately unmaintained and its javascript "
-#~ "implementation contains bugs that make it impossible to use with this "
-#~ "page. Please make sure you have javascript disabled before you <a "
-#~ "href='%s'>continue</a>."
-#~ msgstr ""
-#~ "كونكيورُر لكدي 3 هو للأسف غير مدعوم ويحتوي على العديد من العلل التي تجعل "
-#~ "من المستحيل إستعماله مع هذه الصفحة. رجاء تأكد من أن جافا سكربت معطلة عندك "
-#~ "قبل أن <a href='%s'>تتابع</a>."
-
-#~ msgid "Language"
-#~ msgstr "اللغة"
-
-#~ msgid "Leap shares a Common Base System with"
-#~ msgstr "Leap تشارك قاعدة النظام مع"
-
-#~ msgid "Legacy 32 Bit PC"
-#~ msgstr "أجهزة الكمبيوتر القديمة 32 بت"
-
-#~ msgid "Legacy 32&nbsp;Bit&nbsp;PC"
-#~ msgstr "أجهزة الكمبيوتر القديمة 32 بت"
-
-#~ msgid "Live GNOME"
-#~ msgstr "قرص جنوم الحي"
-
-#~ msgid "Live KDE"
-#~ msgstr "قرص كدي الحي"
-
-#~ msgid ""
-#~ "Many applications can verify the checksum of a download. To verify your "
-#~ "download can be important as it verifies you really have got the ISO file "
-#~ "you wanted to download and not some broken version."
-#~ msgstr ""
-#~ "العديد من التطبيقات يمكن فحصها عن طريق رقم التحقق للتطبيق. التحقق من "
-#~ "التحميل يفيد في التحقق من حصولك على ملف الآيزو الذي أردت تحميله وليس "
-#~ "إصدار محطما من التوزيعة."
-
-#~ msgid "Metalink"
-#~ msgstr "رابط ثنائي"
-
-#~ msgid "More information on burning the ISO file to CD/DVD"
-#~ msgstr "المزيد من المعلومات حول حرق ملف ISO إلى CD/DVD"
-
-#~ msgid ""
-#~ "More information on creating a <a href='http://en.opensuse.org/"
-#~ "Live_USB_stick'>bootable USB stick</a>"
-#~ msgstr ""
-#~ "المزيد من المعلومات حول إنشاء <a href='http://en.opensuse.org/"
-#~ "Live_USB_stick'>قرص USB قابل للإقلاع</a>"
-
-#~ msgid ""
-#~ "More information on downloading openSUSE is available from the <a href="
-#~ "\"http://en.opensuse.org/SDB:Download_help\">Download Help</a> and <a "
-#~ "href=\"http://en.opensuse.org/SDB:Network_installation\">Network "
-#~ "Installation</a> pages in our <a href=\"http://en.opensuse.org/Portal:"
-#~ "Documentation\">Documentation Wiki</a>."
-#~ msgstr ""
-#~ "المزيد من المعلومات حول تحميل أوبن سوزي متوفرة في <a href=\"http://en."
-#~ "opensuse.org/SDB:Download_help\">مساعدة التحميل</a> و <a href=\"http://en."
-#~ "opensuse.org/SDB:Network_installation\">التثبيت من الويب</a> شاهد الصفحات "
-#~ "في <a href=\"http://en.opensuse.org/Portal:Documentation\">ويكي الوثائق</"
-#~ "a>."
-
-#~ msgid ""
-#~ "Most new computers support <a href=\"http://en.wikipedia.org/wiki/"
-#~ "X86-64\">x86-64</a> (also known as AMD64 and Intel64), but some laptop "
-#~ "processors and netbook processors do not support it. So you need to check "
-#~ "wikipedia if you want to be sure your computer supports it."
-#~ msgstr ""
-#~ "معظم الحواسيب الجديدة تدعم <a href=\"http://en.wikipedia.org/wiki/"
-#~ "X86-64\">x86-64</a> (والمعروفة أيضا كـADM64 و Intel64), لكن بعض معالجات "
-#~ "الحواسب المحمولة لاتدعمها. لذلك عليك التحقق من ويكيبيديا إذا كان حاسوبك "
-#~ "يدعمها فعلا."
-
-#~ msgid "Need help?"
-#~ msgstr "تحتاج مساعدة؟"
-
-#~ msgid "NonOSS CD"
-#~ msgstr "القرص غير الحر"
-
-#~ msgid "Official Manuals"
-#~ msgstr "الكتيبات الرسمية"
-
-#~ msgid ""
-#~ "Only DVD and Network medias are fully tested. Alternatives, like live or "
-#~ "rescue systems, are recommended for limited use only."
-#~ msgstr ""
-#~ "يتم اختبار الاقراص المضغوطة والشبكة فقط بشكل كامل. البدائل، مثل النسخ "
-#~ "الحية أو قرص إنقاذ النظام، ينصح باستخدامها بشكل محدود فقط."
-
-#~ msgid "Package Repositories"
-#~ msgstr "مستودعات الحزم"
-
-#~ msgid "Platinum Sponsor"
-#~ msgstr "الراعي البلاتيني"
-
-#~ msgid ""
-#~ "Please enter a <b>brief</b> reason (in English!) why you need the DVDs "
-#~ "and provide a link of the event/purpose."
-#~ msgstr ""
-#~ "الرجاء إدخال سبب <b>مختصر</b> (بالانكليزية!) لماذا تحتاج أقراص DVD وقدم "
-#~ "روابط للحدث/الغرض."
-
-#~ msgid ""
-#~ "Please note that this is not the latest openSUSE release. You can get the "
-#~ "latest version <a href='/'>here</a>. "
-#~ msgstr ""
-#~ "يرجى ملاحظة أن هذا ليس أحدث إصدار openSUSE. يمكنك الحصول على أحدث نسخة <a "
-#~ "href='/'>هنا</a>. "
-
-#~ msgid ""
-#~ "Promo DVDs and all the related artwork -labels and sleeve- can be\n"
-#~ "        downloaded from the <a href=\"http://download.opensuse.org/"
-#~ "promodvd/\">promodvd\n"
-#~ "        download directory %s</a>. Keep in mind that this is a special "
-#~ "version of openSUSE,\n"
-#~ "        namely designed for promotional distribution."
-#~ msgstr ""
-#~ "يمكن تحميل عروض دي في دي الترويجية وجميع الأعمال الفنية ذات \n"
-#~ "        من <a href=\"http://download.opensuse.org/promodvd/\">دليل قرص "
-#~ "التروج\n"
-#~ "         يمكنك تجميله من المجلد %s</a>. نضع في اعتبارنا أن هذا إصدار خاص "
-#~ "من أوبن سوزي،\n"
-#~ "        وهي مصممة لتوزيع الترويجية."
-
-#~ msgid "Released Version"
-#~ msgstr "الإصدار المستقر"
-
-#~ msgid "Reporting Bugs"
-#~ msgstr "الإبلاغ عن العلل"
-
-#~ msgid "Rescue"
-#~ msgstr "إنقاذ"
-
-#~ msgid ""
-#~ "Rescue system that you can run from CD or from USB stick.<br/>Can not be "
-#~ "used for installation or upgrade."
-#~ msgstr ""
-#~ "نظام الإنقاذ اللذي يمكنك تشغيلها من القرص المضغوط أو من وسيط تخزين USB."
-#~ "<br/>لا يمكن أن تستخدم للتثبيت أو الترقية."
-
-#~ msgid "SHA256 checksum"
-#~ msgstr "المجموع الاختباري SHA256"
-
-#~ msgid "Silver Sponsor"
-#~ msgstr "الراعي الفضي"
-
-#~ msgid ""
-#~ "Some alternative media (eg. live and rescue systems) are also available, "
-#~ "although they are less tested and recommended for limited use only."
-#~ msgstr ""
-#~ "بعض الوسائط البديلة (على سبيل المثال-القرص الحي وقرص الإنقاذ) متاحة أيضا، "
-#~ "بالرغم من أنه لم يتم إختبارها وموصى بها للاستخدام المحدود فقط."
-
-#~ msgid ""
-#~ "Some of the live distributions based on openSUSE. Those interested in "
-#~ "trying to build their own derivatives can take a look at <a href=\"http://"
-#~ "susestudio.com/\">SUSE Studio</a>."
-#~ msgstr ""
-#~ "هذه بعض من التوزيعات المبنية على أوبن سوزي. وهم مهتمون ببناء مشتقاتهم "
-#~ "الخاصة ويمكنك أخذ جولة في <a href=\"http://susestudio.com/\">SUSE Studio</"
-#~ "a>."
-
-#~ msgid "Sponsored by"
-#~ msgstr "الرعاة"
-
-#~ msgid "Sponsored by: AMD"
-#~ msgstr "برعاية: AMD"
-
-#~ msgid "Sponsored by: B1 Systems"
-#~ msgstr "برعاية: B1 Systems"
-
-#~ msgid "Sponsored by: Heinlein"
-#~ msgstr "برعاية: Heinlein"
-
-#~ msgid "Sponsored by: IP Exchange"
-#~ msgstr "برعاية: IP Exchange"
-
-#~ msgid ""
-#~ "The installation process is available in many languages but, for most of "
-#~ "them, the translation of the applications is not included in the image. "
-#~ "If you want your openSUSE system to support some additional language, you "
-#~ "need to download it from the Internet during the installation or any time "
-#~ "after it. If you have easy access to the Internet you do not need this "
-#~ "CD, but if you are planning to install openSUSE in some machine with no "
-#~ "Internet connection, it will provide you access to all the available "
-#~ "translations."
-#~ msgstr ""
-#~ "عملية التثبيت متاحة بالعديد من اللغات، ولكن معظمها، لا يتم تضمين ترجمة "
-#~ "التطبيقات في الصورة. إذا أردت أن تدعم أوبن سوزي بعض اللغات الإضافية، "
-#~ "تحتاج إلى تحميلها من الإنترنت أثناء التثبيت أو في أي وقت لاحق. إذا كان "
-#~ "لديك وصول سهلة إلى شبكة الإنترنت لا تحتاج هذا القرص المضغوط، ولكن إذا كنت "
-#~ "تخطط لتثبيت أوبن سوزي على جهاز لايتصال بالإنترنت، سيوفر لك هذا القرص "
-#~ "الوصول إلى جميع الترجمات المتاحة."
-
-#~ msgid ""
-#~ "There is no openSUSE release in testing phase at the moment. <br/> If you "
-#~ "want to use bleeding edge software, please use <a href='http://en."
-#~ "opensuse.org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>."
-#~ msgstr ""
-#~ "ليس هناك أي إصدار لأوبن سوزي في مرحلة الاختبار في الوقت الحالي.<br/> إذا "
-#~ "كنت ترغب في استخدام البرمجيات في آخر إصداراتها. الرجاء استخدام <a "
-#~ "href='http://en.opensuse.org/Portal:Tumbleweed'>openSUSE Tumbleweed</a>."
-
-#~ msgid ""
-#~ "This CD contains free software distributed under proprietary licence not "
-#~ "allowing its inclusion to main installation media together with free open-"
-#~ "source software. All software from this CD could be downloaded from NON-"
-#~ "OSS repository."
-#~ msgstr ""
-#~ "يحتوي هذا القرص المدمج على برمجيات حرة موزعة تحت رخص مغلقة ولاتسمح "
-#~ "بإضافتها إلى قرص التثبيت الرئيسي بجانب البرمجيات الحرة بالكامل. كل "
-#~ "البرمجيات الموجودة داخل هذا القرص بالإمكان تحميلها من المستودعات المغلقة "
-#~ "المصدر."
-
-#~ msgid ""
-#~ "This version runs on all PCs including those that support 64 Bit. If you "
-#~ "have more than 3 GB of RAM you should prefer the 64 Bit version though. "
-#~ "openSUSE does not support processors before Pentium - the live CDs even "
-#~ "support only i686 (Pentium Pro and later)."
-#~ msgstr ""
-#~ "هذا الإصدار يعمل على كل الحواسيب بما في ذلك الحواسيب التي تدعم 64 بت,إذا "
-#~ "كان عندك أكثر من 3جيجابايت من الرام فمن لمستحسن ان تستعمل الإصدار 64 بت. "
-#~ "أوبن سوزي لاتدعم المعالجات قبل Pentium الأقراص الحية لاتدعم أيضا إلا "
-#~ "بنية ,i686 (Pentium Pro وأعلى)."
-
-#~ msgid "Type of Computer"
-#~ msgstr "نوع الحاسوب"
-
-#~ msgid ""
-#~ "User manuals are available from <a href=\"http://activedoc.opensuse.org"
-#~ "\">activedoc.opensuse.org</a>, for example the <a href=\"http://activedoc."
-#~ "opensuse.org/book/opensuse-start-up/\">Official Start-Up Guide</a>."
-#~ msgstr ""
-#~ "ويتوفر دليل المستخدم في <a href=\"http://activedoc.opensuse.org"
-#~ "\">activedoc.opensuse.org</a>، على سبيل المثال <a href=\"http://activedoc."
-#~ "opensuse.org/book/opensuse-start-up/\">دليل بدء التشغيل الرسمي</a>."
-
-#~ msgid ""
-#~ "Using <a href=\"http://en.opensuse.org/SDB:BitTorrent\">BitTorrent</a> is "
-#~ "recommended on slow links, especially when downloading the DVD image. "
-#~ "BitTorrent downloads have several benefits, the clients protect against "
-#~ "data corruption and you help relieving the load on the servers by "
-#~ "participating in the upload - if enough people participate it will also "
-#~ "be faster than the centralized servers - for everybody. Whatsmore, it "
-#~ "allows you to stop the download at any time and resume it later."
-#~ msgstr ""
-#~ "يستحسن استخدام <a href=\"http://en.opensuse.org/SDB:BitTorrent\">تورنت</"
-#~ "a> للروابط البطيئة، خاصة عند تحميل صورة DVD. التورنت له فوائد عدة، "
-#~ "كالحماية من فقد البيانات والمساعدة في تخفيف الحمل على الخادم بمشاركة "
-#~ "التحميل - إذا قام ما يكفي من الناس بالمشاركة سيكون التحميل أسرع للجميع من "
-#~ "استخدام خادم مركزي. يضاً، ويسمح لك بإيقاف التحميل في أي وقت واستئنافه في "
-#~ "وقت لاحق."
-
-#~ msgid "Verify your download before use"
-#~ msgstr "تحقق من التحميل قبل استخدامه"
-
-#~ msgid "We offer three different checksums:"
-#~ msgstr "نحن نعرض ثلاثة أرقام مختلفة للتحقق:"
-
-#~ msgid ""
-#~ "We would like you, to keep us informed about your usage of the DVDs, so "
-#~ "we\n"
-#~ "        can help you to promote your organization, event or school on "
-#~ "our\n"
-#~ "        <a href='http://news.opensuse.org' title='news.opensuse.org'>news "
-#~ "page</a>\n"
-#~ "        or other resources. (Hint! We love photos. Take lots of them!). "
-#~ "Please contact us at\n"
-#~ "        <a href='mailto:opensuse-marketing@opensuse.org'>opensuse-"
-#~ "marketing@opensuse.org</a>\n"
-#~ "        to discuss promotion and/or other ways we can assist you."
-#~ msgstr ""
-#~ "نود أن تبقينا على إطلاع بنتائج تجربتك واستخدامك لأقراص أوبن سوزي. نستطيع\n"
-#~ "        يمكننا أن نساعدك في دعم مدرستك أو منظمتك أو جامعتك في\n"
-#~ "        <a href='http://news.opensuse.org' title='news.opensuse.org'>صفحة "
-#~ "الأخبار</a>\n"
-#~ "        أو المصادر الأخرى. (ملاحظة! نحن نحب الصور كثيراً الرجاء ارسال "
-#~ "الكثير منها). إتصل بنا على\n"
-#~ "        <a href='mailto:opensuse-marketing@opensuse.org'>opensuse-"
-#~ "marketing@opensuse.org</a>\n"
-#~ "        لبحث ومناقشة طرق أخرى لمساعدتك."
-
-#~ msgid ""
-#~ "When downloading images other than the CD for network installation, it is "
-#~ "<i>strongly</i> recommended to use a proper download manager to reduce "
-#~ "the risk of corrupted data."
-#~ msgstr ""
-#~ "عند تنزيل صور آخر غير القرص المضغوط للتثبيت عبر شبكة الاتصال، "
-#~ "يوصى<i>بشدة</i> باستخدام مدير تحميل للتقليل من خطر تلف البيانات."
-
-#~ msgid ""
-#~ "You could verify the file in the process of downloading. For example a "
-#~ "checksum (SHA256) will be used automatically if you choose <a "
-#~ "href='http://en.opensuse.org/SDB:Metalink'>Metalink</a> in the field "
-#~ "above and use the add-on DownThemAll! in <a href='http://en.opensuse.org/"
-#~ "Firefox'>Firefox</a>."
-#~ msgstr ""
-#~ "يمكنك فحص الملف أثناء عملية التحميل,كمثال التحقق من رقم (SHA256) سيتم "
-#~ "تلقائيا إذا إخترت <a href='http://en.opensuse.org/SDB:Metalink'>الرابط "
-#~ "الثنائي</a> في الحقل أعلاه وإستعملت إضافة Downthemall! في <a href='http://"
-#~ "en.opensuse.org/Firefox'>فيرفكس</a>."
-
-#~ msgid "gpg signature"
-#~ msgstr "توقع gpg"
-
-#~ msgid "http://doc.opensuse.org/"
-#~ msgstr "http://doc.opensuse.org/"
-
-#~ msgid "http://en.opensuse.org/Derivatives"
-#~ msgstr "http://en.opensuse.org/Derivatives"
-
-#~ msgid "http://en.opensuse.org/Package_repositories"
-#~ msgstr "http://en.opensuse.org/Package_repositories"
-
-#~ msgid "http://en.opensuse.org/Portal:Installation"
-#~ msgstr "http://en.opensuse.org/Portal:Installation"
-
-#~ msgid "http://en.opensuse.org/SDB:Download_help"
-#~ msgstr "http://en.opensuse.org/SDB:Download_help"
-
-#~ msgid "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
-#~ msgstr "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
-
-#~ msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
-#~ msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
-
-#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
-#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
-
-#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
-#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.2/"
-
-#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
-#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.3/"
-
-#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
-#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.1"
-
-#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
-#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2"
-
-#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
-#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1/"
-
-#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
-#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.2/"
-
-#~ msgid "if you change your mind later."
-#~ msgstr "إذا غيرت رأيك لاحقا."
-
-#~ msgid "is a <strong>regular-release</strong>. This means it releases"
-#~ msgstr "تعتبر <strong>إصدار تقليدي</strong>. هذا يعني إصدارها"
-
-#~ msgid ""
-#~ "is still the most commonly used checksum. Many ISO burners display it "
-#~ "right before burning."
-#~ msgstr ""
-#~ "ماتزال الطريقة الأكثر إستعمال للتحقق من التحميلات. العديد من برامج حرق "
-#~ "ملفات الآيزو تعرضها قبل بدأ الحرق."
-
-#~ msgid "is the less known but more secure checksum than md5."
-#~ msgstr "وهي الطريقة الأقل إنتشارا لكن أكثر أمانا من رقم md5."
-
-#~ msgid "md5 checksum"
-#~ msgstr "رقم التحقق md5"
-
-#~ msgid ""
-#~ "offers the most security as you can verify who signed it. It should be "
-#~ "<tt>%s</tt>."
-#~ msgstr ""
-#~ "الطريقة الأكثر أمانا لكي تتحقق من مَن قام بتوقيعها. ويجب ان تكون <tt>%s</"
-#~ "tt>."
-
-#~ msgid "openSUSE Countdown"
-#~ msgstr "العد التنازلي لأوبن سوزي"
-
-#~ msgid ""
-#~ "openSUSE is available via http (direct link) or BitTorrent. The CD for "
-#~ "network installation is only available via http."
-#~ msgstr ""
-#~ "أوبن سوزي تتوفر عبر http (وصلة مباشرة) أو تورنت. القرص المضغوط للتثبيت "
-#~ "عبر شبكة اتصال متوفر عبر http."
-
-#~ msgid "openSUSE only supports PCs with 32 Bits and 64 Bits."
-#~ msgstr "أوبن سوزي تدعم فقط حواسيب 32 و 64 بت."
-
-#~ msgid "see Derivatives on wiki"
-#~ msgstr "مشاهدة المشتقات على الويكي"
-
-#~ msgid "sha1 checksum"
-#~ msgstr "رقم sha1"
-
-#~ msgid "switch to"
-#~ msgstr "تحويل إلى"
-
-#~ msgid "An internal error happened :-("
-#~ msgstr "حدث خطأ داخلي:-("
-
-#~ msgid "Please enter more than 2 characters"
-#~ msgstr "يرجى إدخال أكثر من حرفين 2"
-
-#, fuzzy
-#~| msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
-#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap/42.1"
-#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
-
-#, fuzzy
-#~| msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
-#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/Leap42.1/"
-#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/12.1/"
-
-#~ msgid "Last searches:"
-#~ msgstr "عمليات البحث الأخيرة:"
-
-#~ msgid "Statistics"
-#~ msgstr "الإحصائيات"
-
-#~ msgid "Top 1-click downloads:"
-#~ msgstr "أكثر 1-نقرة تحميلا:"
-
-#~ msgid "Top searches without hits:"
-#~ msgstr "الأكثر بحثا من دون النقر:"
-
-#~ msgid "Top searches:"
-#~ msgstr "الأكثر بحثا:"
-
-#~ msgid "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2/"
-#~ msgstr "https://doc.opensuse.org/release-notes/x86_64/openSUSE/13.2/"
-
-#~ msgid ""
-#~ "We currently don't have a Factory Snapshot that is more recent than our "
-#~ "last openSUSE release. <br/>Please check <a href='http://en.opensuse.org/"
-#~ "Portal:Factory'>http://en.opensuse.org/Portal:Factory</a> for more "
-#~ "information."
-#~ msgstr ""
-#~ "حاليا لا يوجد فرع لتطوير لقطة أكثر حداثة من نسختنا الأخيرة من أوبن سوزي. "
-#~ "<br/>رجاءا تحقق من<a href='http://en.opensuse.org/Portal:Factory'>http://"
-#~ "en.opensuse.org/Portal:Factory</a> للمزيد من المعلومات."
-
-#~ msgid "You can add the repository key to apt like this: "
-#~ msgstr "يمكنك إضافة مفتاح المستودع لملائمة مثل هذا: "
-
-#~ msgid "4.7GB DVD"
-#~ msgstr "ديفيدي 4.7 جيجا"
-
-#~ msgid ""
-#~ "Live CDs contain only four languages (English, German, Russian and "
-#~ "Italian). If you want to have support for remaining languages you need to "
-#~ "download it from the Internet during the installation or any time after "
-#~ "it. If you have easy access to the Internet or if you use DVD containing "
-#~ "all languages, you do not need this CD."
-#~ msgstr ""
-#~ "الأقرص الحية تحتوي فقط على أربع لغات (الإنكليزية, الألمانية, الروسية و "
-#~ "الإيطالية). إذا كنت تريد الحصول على دعم كامل لباقي اللغات فعليك تحميلها "
-#~ "من الويب أثناء التثبيت أو في أي وقت لاحق. إذا كان لديك وصول سهل للويب او "
-#~ "كنت تستعمل DVD يحتوي على كل اللغات ,فلن تحتاج لهذا القرص."
-
-#~ msgid ""
-#~ "After having successfully downloaded the ISO image(s), burn the image(s) "
-#~ "with your favorite burning application to a DVD or CD. Please do <em>not</"
-#~ "em> burn a data DVD/CD, but rather choose the option to burn an ISO image."
-#~ msgstr ""
-#~ "بعد تحميل ملفات(s) الآيزو بشكل صحيح إحرق النسخة(s), بواسطة برنامجك المفضل "
-#~ "على قرص ديفيدي او سيدي رجاءا <em>لا</em> تحرق الملفات على شكل بيانات. لكن "
-#~ "إستعمل خيار الحرق بشكل ملفات ISO."
-
-#~ msgid ""
-#~ "A GNOME desktop you can run from CD or from USB stick.<br/>Can be "
-#~ "installed as is (no upgrade)."
-#~ msgstr ""
-#~ "سطح مكتب جنوم يمكنك تشغيله من قرص السيدي او من فلاشة USB,<br/>ويمكن "
-#~ "تثبيته فقط (لا توجد ترقية)."
-
-#~ msgid ""
-#~ "A KDE desktop you can run from CD or from USB stick.<br/>Can be installed "
-#~ "as is (no upgrade)."
-#~ msgstr ""
-#~ "سطح مكتب كدي يمكنك تشغيله من قرص السيدي او من فلاشة USB,<br/>ويمكن تثبيته "
-#~ "فقط (لا توجد ترقية)."
-
-#~ msgid ""
-#~ "You could try to extend your search to unsupported packages or search for "
-#~ "another base distribution (currently )."
-#~ msgstr ""
-#~ "قد تحاول توسيع نطاق البحث إلى مجموعات غير معتمدة أو البحث على قاعدة "
-#~ "توزيعة أخرى (حاليا)."
-
-#~ msgid "http://www.suse.de/relnotes/i386/openSUSE/11.3/RELEASE-NOTES.en.html"
-#~ msgstr ""
-#~ "http://www.suse.de/relnotes/i386/openSUSE/11.3/RELEASE-NOTES.en.html"
-
-#~ msgid "http://www.suse.de/relnotes/i386/openSUSE/11.4/RELEASE-NOTES.en.html"
-#~ msgstr ""
-#~ "http://www.suse.de/relnotes/i386/openSUSE/11.4/RELEASE-NOTES.en.html"
-
-#~ msgid "Please use search strings of at least 2 characters"
-#~ msgstr "رجاءا إستعمل دوال البحث على الأقل حرفان 2"
-
-#~ msgid "Switched to exact match due to too many hits on substring search."
-#~ msgstr ""
-#~ "تم التحويل إلى التطابق التام نتيجة لعدد النقرات الكثيرة على دوال البحث "
-#~ "الفرعية."
-
-#~ msgid "Please be more precise in your search, search limit reached."
-#~ msgstr "رجاءا كن أكثر دقة في بحثك, تم الوصول إلى أقصى حد للبحث."
-
-#~ msgid "Could not perform search: "
-#~ msgstr "لم يُتمكن من تنفيذ البحث: "
-
-#~ msgid "Popular Software"
-#~ msgstr "البرامج الأكثر شيوعا"
-
-#~ msgid "1-Click Install"
-#~ msgstr "1-ضغطة واحدة للتثبيت"
-
-#~ msgid "Manual Package Download"
-#~ msgstr "تحميل الحزم يدويا"
-
-#~ msgid "Go to OBS Project"
-#~ msgstr "إذهب إلى مشروع OBS"
-
-#~ msgid "[Software collection]"
-#~ msgstr "[مجموعة البرامج]"
-
-#~ msgid "Search Results"
-#~ msgstr "نتائج البحث"
-
-#~ msgid ""
-#~ "No packages found in the openSUSE build service that matched your query."
-#~ msgstr "لم يتم العثور على نتائج تطابق ماتبحث عنه في خدمة بناء أوبن سوزي."
-
-#~ msgid "%d collections and %d binaries from %d source packages"
-#~ msgstr "%d مجموعات و %d حزم ثنائية من %d حزم المصدر"
-
-#~ msgid "Screenshot of  "
-#~ msgstr "لقطة للشاشة  "
-
-#~ msgid "Search Statistics:"
-#~ msgstr "إحصائيات البحث:"
-
-#~ msgid "Download Statistics:"
-#~ msgstr "إحصائيات التحميل:"
-
-#~ msgid ""
-#~ "Search and install software packages from the <a href=\"http://build."
-#~ "opensuse.org\">openSUSE Build Service</a>:"
-#~ msgstr ""
-#~ "البحث وتثبيت حزم البرامج من <a href=\"http://build.opensuse.org\">خدمة "
-#~ "بناء أوبن سوزي</a>:"
-
-#~ msgid "Search options"
-#~ msgstr "خيارات البحث"
-
-#~ msgid "Include users' home projects"
-#~ msgstr "تضمين المستخدمين' مشاريع المنزل"
-
-#~ msgid "Exclude debug packages"
-#~ msgstr "إستثناء حزم التنقيح"
