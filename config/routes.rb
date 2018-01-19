@@ -17,6 +17,8 @@ SoftwareOO::Application.routes.draw do
   end
   get 'find', to: 'search#find', :format => false
 
+  get 'images.xml', to: 'images#images'
+
   controller :package do
     get 'package/:package' => :show, :constraints => { :package => /[-+\w\.:\@]+/ }
     get 'package/thumbnail/:package.png' => :thumbnail, :constraints => { :package => /[-+\w\.:\@]+/ }
