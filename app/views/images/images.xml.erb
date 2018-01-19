@@ -1,0 +1,103 @@
+<%
+leap_versions = ['42.3', '42.2']
+leap_current = '42.3'
+leap_snapshot = '15.0'
+
+if leap_snapshot != '' then
+  leap_snapshot_build = get_version("/distribution/leap/#{leap_snapshot}/iso/openSUSE-Leap-#{leap_snapshot}-DVD-x86_64-Current.iso", /Build([0-9.]+)-/)
+end
+
+tw_snapshot = get_version('/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso', /Snapshot(\d+)-/)
+%>
+<?xml version="1.0" encoding="UTF-8"?>
+<decision name="<%= _("Distribution") %>">
+    <% leap_versions.each do |leap_version| %>
+    <option name="openSUSE Leap <%= leap_version %>" preselected="<%= leap_version == leap_current ? 'true' : 'false' %>">
+        <decision name="<%= _("Installation Source") %>">
+            <option name="<%= _("DVD") %>" preselected="true">
+                <%= image_element("/distribution/leap/#{leap_version}/iso/openSUSE-Leap-#{leap_version}-DVD-x86_64.iso", _("Leap %s DVD") % leap_version) %>
+            </option>
+            <option name="<%= _("Network") %>">
+                <%= image_element("/distribution/leap/#{leap_version}/iso/openSUSE-Leap-#{leap_version}-NET-x86_64.iso", _("Leap %s Network Installation") % leap_version) %>
+            </option>
+        </decision>
+    </option>
+    <% end -%>
+    <option name="<%= _("openSUSE Tumbleweed") %>">
+         <decision name="<%= _("Medium") %>">
+             <option name="<%= _("Installation") %>" preselected="true">
+                 <decision name="<%= _("Source") %>">
+                     <option name="<%= _("DVD") %>" preselected="true">
+                         <decision name="<%= _("Architecture") %>">
+                             <option name="<%= _("i586") %>">
+                                 <%= image_element("/tumbleweed/iso/openSUSE-Tumbleweed-DVD-i586-Snapshot#{tw_snapshot}-Media.iso", _("Tumbleweed %s DVD (i586)") % tw_snapshot) %>
+                             </option>
+                             <option name="<%= _("x86_64") %>" preselected="true">
+                                 <%= image_element("/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Snapshot#{tw_snapshot}-Media.iso", _("Tumbleweed %s DVD (x86_64)") % tw_snapshot) %>
+                             </option>
+                         </decision>
+                     </option>
+                     <option name="<%= _("Network") %>">
+                         <decision name="<%= _("Architecture") %>">
+                             <option name="<%= _("i586") %>">
+                                 <%= image_element("/tumbleweed/iso/openSUSE-Tumbleweed-NET-i586-Snapshot#{tw_snapshot}-Media.iso", _("Tumbleweed %s Network Installation (i586)") % tw_snapshot) %>
+                             </option>
+                             <option name="<%= _("x86_64") %>" preselected="true">
+                                 <%= image_element("/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Snapshot#{tw_snapshot}-Media.iso", _("Tumbleweed %s Network Installation (x86_64)") % tw_snapshot) %>
+                             </option>
+                         </decision>
+                     </option>
+                 </decision>
+             </option>
+             <option name="<%= _("Live") %>">
+                 <decision name="<%= _("Desktop") %>">
+                     <option name="GNOME">
+                         <decision name="<%= _("Architecture") %>">
+                             <option name="<%= _("i586") %>">
+                                 <%= image_element("/tumbleweed/iso/openSUSE-Tumbleweed-GNOME-Live-i686-Snapshot#{tw_snapshot}-Media.iso", _("Tumbleweed %s GNOME Live (i686)") % tw_snapshot) %>
+                             </option>
+                             <option name="<%= _("x86_64") %>" preselected="true">
+                                 <%= image_element("/tumbleweed/iso/openSUSE-Tumbleweed-GNOME-Live-x86_64-Snapshot#{tw_snapshot}-Media.iso", _("Tumbleweed %s GNOME Live (x86_64)") % tw_snapshot) %>
+                             </option>
+                         </decision>
+                     </option>
+                     <option name="KDE" preselected="true">
+                         <decision name="<%= _("Architecture") %>">
+                             <option name="<%= _("i586") %>">
+                                 <%= image_element("/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-i686-Snapshot#{tw_snapshot}-Media.iso", _("Tumbleweed %s KDE Live (i686)") % tw_snapshot) %>
+                             </option>
+                             <option name="<%= _("x86_64") %>" preselected="true">
+                                 <%= image_element("/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot#{tw_snapshot}-Media.iso", _("Tumbleweed %s KDE Live (x86_64)") % tw_snapshot) %>
+                             </option>
+                         </decision>
+                     </option>
+                     <option name="<%= _("Rescue") %>">
+                         <decision name="<%= _("Architecture") %>">
+                             <option name="<%= _("i586") %>">
+                                 <%= image_element("/tumbleweed/iso/openSUSE-Tumbleweed-Rescue-CD-i686-Snapshot#{tw_snapshot}-Media.iso", _("Tumbleweed %s Rescue CD (i686)") % tw_snapshot) %>
+                             </option>
+                             <option name="<%= _("x86_64") %>" preselected="true">
+                                 <%= image_element("/tumbleweed/iso/openSUSE-Tumbleweed-Rescue-CD-x86_64-Snapshot#{tw_snapshot}-Media.iso", _("Tumbleweed %s Rescue CD (x86_64)") % tw_snapshot) %>
+                             </option>
+                         </decision>
+                     </option>
+             </decision>
+            </option>
+        </decision>
+    </option>
+    <% if leap_snapshot != "" then %>
+    <option name="openSUSE Leap <%= leap_snapshot %> (In development)">
+        <decision name="<%= _("Installation Source") %>">
+            <option name="<%= _("DVD") %>" preselected="true">
+                <%= image_element("/distribution/leap/#{leap_snapshot}/iso/openSUSE-Leap-#{leap_snapshot}-DVD-x86_64-Build#{leap_snapshot_build}-Media.iso",
+                                  _("Leap %s DVD (Build %s)") % [leap_snapshot, leap_snapshot_build]) %>
+            </option>
+            <option name="<%= _("Network") %>">
+                <%= image_element("/distribution/leap/#{leap_snapshot}/iso/openSUSE-Leap-#{leap_snapshot}-NET-x86_64-Build#{leap_snapshot_build}-Media.iso",
+                                  _("Leap %s Network Installation (Build %s)") % [leap_snapshot, leap_snapshot_build]) %>
+            </option>
+        </decision>
+    </option>
+    <%- end %>
+</decision>
+
