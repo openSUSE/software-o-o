@@ -18,7 +18,7 @@ LANGUAGE_NAMES = {'en' => 'English', 'de' => 'Deutsch', 'bg' => 'българс�
                   'el' => 'ελληνικά', 'ar' => 'العربية', 'ca' => 'Català'}
 
 # Use po files for development/test...
-FastGettext.add_text_domain('software', path: 'locale', type: :po) unless Rails.env.production?
+FastGettext.add_text_domain('software', path: 'locale', type: :po, ignore_fuzzy: true, report_warning: false) unless Rails.env.production?
 # and mo files in production for performance
 FastGettext.add_text_domain('software', path: 'locale') if Rails.env.production?
 
