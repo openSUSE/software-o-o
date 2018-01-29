@@ -4,7 +4,7 @@ class DistributionsController < ApplicationController
 
   def set_parameters
     @testing_version = '15.0'
-    @testing_state = 'Alpha'
+    @testing_state = 'Beta'
   end
 
   # GET /distributions
