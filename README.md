@@ -10,19 +10,6 @@ zypper ref
 zypper in ruby ruby-devel rubygem-bundler gcc make libxml2-devel libxslt-devel
 ```
 
-For development, you will need also 
-
-```console
-zypper in sqlite3-devel
-```
-
-For production:
-
-```console
-```console
-zypper in libmysqlclient-devel
-```
-
 ## Running the application locally
 
 Just for running it in development mode. If you are playing to deploy it in a
