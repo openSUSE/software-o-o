@@ -36,10 +36,40 @@ The application will take the following environment variables:
 * `SECRET_KEY_BASE`: See [Encrypted Session Storage](http://edgeguides.rubyonrails.org/security.html#encrypted-session-storage) in Rails documentation.
 * `API_USERNAME` and `API_PASSWORD`: Credentials to the Open Build Service API end-point
   * These can be replaced with `OPENSUSE_COOKIE` if you have admin access to the Open Build Service instance.
-or alternatively
-{% set num_range = 99999999 %}
-SECRET_KEY_BASE={{ salt['pillar.get']('software_opensuse_org:secret_key_base', num_range | rand_str('sha512')) }}
+* `RAILS_ENV`
 
+Puma will honor other variables too:
+
+* `WEB_CONCURRENCY`
+* `RAILS_MAX_THREADS`
+* `PORT`
+* `RACK_ENV`
+
+### Memcache
+
+`memcache` should be running. It seems to be hardcoded in `environments/production.rb` to `localhost:11211`.
+This probably needs to be fixed, as the `dalli` gem, automatically uses `MEMCACHE_SERVERS` env variable or
+`127.0.0.1:11211` as default.
+
+### PaaS
+
+If you plan to run the application on PaaS, make sure you set all the above variables correctly.
+
+* There is an included `manifest.yml` tested with [SUSE Cloud Application Platform](https://www.suse.com/de-de/products/cloud-application-platform/), and it should not be hard to get it running on other [Cloud Foundry](https://www.cloudfoundry.org/) distributions or hosted PaaS like [Heroku](http://heroku.com/).
+
+## Official instance
+
+The official instance is deployed using an [rpm package](https://build.opensuse.org/package/show/openSUSE:infrastructure:software.opensuse.org/software_opensuse_org). The rpm package bundles all the required gems.
+
+There is a `software_opensuse_org.service` you can control via [systemd](https://www.freedesktop.org/wiki/Software/systemd/).
+
+The `systemd` service will read the variables described above from `/etc/software_opensuse_org.conf` in the form of an `EnvironmentFile`:
+
+```
+VAR1=value1
+VAR2=value2
+...
+```
 
 ## Development environment using Vagrant
 There is also a [Vagrant](https://www.vagrantup.com/) setup to create our development
