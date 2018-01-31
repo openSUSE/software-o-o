@@ -42,6 +42,18 @@ bundle exec rails s
 
 Enjoy your software.opensuse.org clone at http://127.0.0.1:3000/
 
+## Running the application in production
+
+The application will take the following environment variables:
+
+* `SECRET_KEY_BASE`: See [Encrypted Session Storage](http://edgeguides.rubyonrails.org/security.html#encrypted-session-storage) in Rails documentation.
+* `API_USERNAME` and `API_PASSWORD`: Credentials to the Open Build Service API end-point
+  * These can be replaced with `OPENSUSE_COOKIE` if you have admin access to the Open Build Service instance.
+or alternatively
+{% set num_range = 99999999 %}
+SECRET_KEY_BASE={{ salt['pillar.get']('software_opensuse_org:secret_key_base', num_range | rand_str('sha512')) }}
+
+
 ## Development environment using Vagrant
 There is also a [Vagrant](https://www.vagrantup.com/) setup to create our development
 environment. All the tools needed for this are available for Linux, MacOS and
