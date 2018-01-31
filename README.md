@@ -23,7 +23,6 @@ git submodule init
 git submodule update
 
 bundle package
-rake db:migrate
 bundle exec rails s
 ```
 
