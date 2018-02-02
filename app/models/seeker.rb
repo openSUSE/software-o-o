@@ -18,14 +18,14 @@ class Seeker < ActiveXML::Node
 
   class SearchResult < Array
     def self.search(query, baseproject, project = nil, exclude_filter = nil, exclude_debug = false)
-      words = query.split(" ").select {|part| !part.match(/^[0-9_\.-]+$/) }
+      words = query.split(" ").reject {|part| part.match(/^[0-9_\.-]+$/) }
       versrel = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
       logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
       raise InvalidSearchTerm.new "Please provide a valid search term" if words.blank? && project.blank?
 
       xpath_items = Array.new
       xpath_items << "@project = '#{project}' " unless project.blank?
-      substring_words = words.select{|word| !word.match(/^".+"$/) }.map{|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ")
+      substring_words = words.reject{|word| word.match(/^".+"$/) }.map{|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ")
       unless (substring_words.blank?)
         xpath_items << "contains-ic(@name, " + substring_words + ")"
       end
@@ -354,13 +354,13 @@ class Seeker < ActiveXML::Node
       attr_accessor :fragment_type
 
       def initialize(element)
-        %w(project repository name filename filepath arch type baseproject type version release package).each do |att|
+        %w[project repository name filename filepath arch type baseproject type version release package].each do |att|
           self[att] = element.value att
         end
       end
 
       def __key
-        @__key ||= @fragment_type.to_s + "|" + %w(project repository name).map{|x| self[x]}.join('|')
+        @__key ||= @fragment_type.to_s + "|" + %w[project repository name].map{|x| self[x]}.join('|')
       end
 
       def dump

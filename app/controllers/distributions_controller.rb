@@ -1,6 +1,6 @@
 class DistributionsController < ApplicationController
   skip_before_action :set_distributions
-  before_action :set_parameters, only: [:index, :testing]
+  before_action :set_parameters, only: %i[index testing]
 
   def set_parameters
     @testing_version = '15.0'

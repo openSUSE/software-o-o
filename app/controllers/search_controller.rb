@@ -9,7 +9,7 @@ class SearchController < ApplicationController
     base = (@baseproject == "ALL") ? "" : @baseproject
 
     #if we have a baseproject, and don't show unsupported packages, shortcut: '
-    if !@baseproject.blank? && !(@baseproject == "ALL") && !@search_unsupported && !@search_project
+    if !@baseproject.blank? && @baseproject != "ALL" && !@search_unsupported && !@search_project
       @search_project = @baseproject
     end
 
@@ -31,7 +31,7 @@ class SearchController < ApplicationController
     end
 
     # only show packages
-    @packages = @packages.select { |p| p.first.type != 'ymp' }
+    @packages = @packages.reject { |p| p.first.type == 'ymp' }
     @packagenames = @packages.map { |p| p.name }
 
     # mix in searchresults from appdata, as the api can't search in summary and description atm

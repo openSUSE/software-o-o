@@ -2,9 +2,6 @@
 inherit_from: .rubocop_todo.yml
 
 AllCops:
-  Include:
-    - '**/Rakefile'
-    - '**/config.ru'
   Exclude:
     - 'bin/*'
     - 'bundle/**/*'
@@ -12,7 +9,7 @@ AllCops:
     - 'db/**/*'
     - 'db/schema.rb'
     - 'script/**/*'
-    - 'vendor/bundle/**/*'
+    - 'vendor/**/*'
 
 # FIXME: Cop disabled as it Rubocop fails when enabling it. Enable it when the bug is solved.
 # Checks for array literals made up of word-like strings, that are not using the %w() syntax.    
