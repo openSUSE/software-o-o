@@ -1,5 +1,7 @@
 # software.opensuse.org
 
+[![Build Status](https://travis-ci.org/openSUSE/software-o-o.svg?branch=master)](https://travis-ci.org/openSUSE/software-o-o)
+
 Ruby on Rails application powering
 [https://software.opensuse.org](https://software.opensuse.org)
 
