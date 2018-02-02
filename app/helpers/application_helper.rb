@@ -46,7 +46,7 @@ module ApplicationHelper
     description_package = Rails.cache.fetch(cache_key, :expires_in => 12.hours) do
       if packages.blank?
         packages = Seeker.prepare_result("\"#{pkgname}\"", nil, nil, nil, nil)
-        packages = packages.select{|p| p.first.type != 'ymp'}
+        packages = packages.reject{|p| p.first.type == 'ymp'}
       end
       packages.select{|p| p.name == pkgname}.each do |package|
         description_package = nil
