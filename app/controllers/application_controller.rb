@@ -6,6 +6,7 @@ require 'net/https'
 
 class ApplicationController < ActionController::Base
 
+  before_action :validate_configuration
   before_action :set_language
   before_action :set_distributions
   before_action :set_baseproject
@@ -30,6 +31,16 @@ class ApplicationController < ActionController::Base
         logger.error exception.backtrace.join("\n")
       end
     render :template => 'error', :formats => [:html], :layout => layout, :status => 400
+  end
+
+  def validate_configuration
+    config = Rails.configuration.x
+    layout = request.xhr? ? false : "application"
+
+    if config.api_username.blank? && config.opensuse_cookie.blank?
+      @message = _("The authentication to the OBS API has not been configured correctly.")
+      render :template => 'error', :formats => [:html], :layout => layout, :status => 503
+    end
   end
 
   def set_language
