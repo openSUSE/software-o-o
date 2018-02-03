@@ -9,13 +9,8 @@ development:
   api_username: wiki_hermes
   api_password: w_h_p1
 
-testing:
+test:
   <<: *defaults
-  # only for production use
-  #opensuse_cookie: 
-stage:
-  <<: *defaults
-  use_static: software.o.o-stage
   # only for production use
   #opensuse_cookie: 
 production:

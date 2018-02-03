@@ -6,7 +6,7 @@ module SearchHelper
   end
 
   def default_baseproject
-    'openSUSE:Leap:42.2'
+    'openSUSE:Leap:42.3'
   end
 
 end
