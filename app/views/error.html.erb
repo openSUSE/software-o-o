@@ -1,11 +1,8 @@
-<% @page_title = "Error" -%>
+<% @page_title = "Error" if @page_title.blank? -%>
 
-<div class="box box-shadow">
-  <h2 class="box-header">
-    <span class="alignleft"><%= @page_title -%></span></h2>
-  <div>
-
+<div class="container">
+  <h2Y<%= @page_title -%></h2>
+  <div class="alert alert-danger">
     <p><%=h @message %></p>
-
   </div>
 </div>
