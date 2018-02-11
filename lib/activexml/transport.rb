@@ -55,7 +55,7 @@ module ActiveXML
     require 'net/https'
     require 'net/http'
 
-    attr_accessor :target_uri
+    attr_reader :target_uri
     attr_accessor :details
 
     def logger
@@ -63,7 +63,7 @@ module ActiveXML
     end
 
     def connect(model, target, opt = {})
-      opt.each do |key, value|
+      opt.each_key do |key|
         opt[key] = URI(opt[key])
         replace_server_if_needed(opt[key])
       end
@@ -164,7 +164,7 @@ module ActiveXML
         raise RuntimeError.new("GET to %s returned no data" % url) if objdata.empty?
       else
         #use post-method
-        logger.debug"[REST] Transport.find using POST-method"
+        logger.debug "[REST] Transport.find using POST-method"
         #logger.debug"[REST] POST-data as xml: #{data.to_s}"
         objdata = http_do('post', url, :data => data.to_s, :content_type => own_mimetype)
         raise RuntimeError.new("POST to %s returned no data" % url) if objdata.empty?
@@ -227,7 +227,7 @@ module ActiveXML
 
       u = uri.clone
       u.scheme = uri.scheme
-      u.path = URI.escape(uri.path.split(/\//).map { |x| x =~ /^:(\w+)/ ? params[$1.to_sym] : x }.join("/"))
+      u.path = URI.encode_www_form(uri.path.split(/\//).map { |x| x =~ /^:(\w+)/ ? params[$1.to_sym] : x }.join("/"))
       if uri.query
         new_pairs = []
         pairs = u.query.split(/&/).map{|x| x.split(/=/, 2)}

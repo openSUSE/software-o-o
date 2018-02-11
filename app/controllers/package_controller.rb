@@ -1,10 +1,10 @@
 class PackageController < ApplicationController
 
   #before_action :set_beta_warning, :only => [:category, :categories]
-  before_action :set_search_options, :only => [:show, :categories]
-  before_action :prepare_appdata, :set_categories, :only => [:show, :categories, :category]
+  before_action :set_search_options, :only => %i[show categories]
+  before_action :prepare_appdata, :set_categories, :only => %i[show categories category]
 
-  skip_before_action :set_language, :set_distributions, :set_baseproject, :only => [:thumbnail, :screenshot]
+  skip_before_action :set_language, :set_distributions, :set_baseproject, :only => %i[thumbnail screenshot]
 
   def show
     required_parameters :package
@@ -66,7 +66,7 @@ class PackageController < ApplicationController
     mapping = @main_sections.select{|s| s[:id].downcase == @category.downcase }
     categories = (mapping.blank? ? [@category] : mapping.first[:categories])
 
-    app_pkgs = @appdata[:apps].select{|app| !(app[:categories].map{|c| c.downcase} & categories.map{|c| c.downcase}).blank? }
+    app_pkgs = @appdata[:apps].reject{|app| (app[:categories].map{|c| c.downcase} & categories.map{|c| c.downcase}).blank? }
     @packagenames = app_pkgs.map{|p| p[:pkgname]}.uniq.sort_by {|x| @appdata[:apps].select{|a| a[:pkgname] == x}.first[:name] }
 
     app_categories = app_pkgs.map{|p| p[:categories]}.flatten

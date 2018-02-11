@@ -153,7 +153,7 @@ module ActiveXML
           else
             objdata, params = ActiveXML::transport.find(self, *args)
           end
-          obj = self.new(objdata) unless obj
+          obj ||= self.new(objdata)
           obj.instance_variable_set('@cache_key', cache_key) if cache_key
           obj.instance_variable_set('@init_options', params)
           obj.instance_variable_set('@hash_cache', objhash) if objhash
@@ -262,7 +262,8 @@ module ActiveXML
     end
 
     # remember: this function does not exist!
-    def _data #nodoc
+    #nodoc
+    def _data
       if !@data && @raw_data
         parse(@raw_data)
         # save memory
@@ -557,7 +558,8 @@ module ActiveXML
     end
 
     # stay away from this
-    def internal_data #nodoc
+    #nodoc
+    def internal_data
       _data
     end
 

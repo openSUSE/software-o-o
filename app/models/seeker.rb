@@ -18,14 +18,14 @@ class Seeker < ActiveXML::Node
 
   class SearchResult < Array
     def self.search(query, baseproject, project = nil, exclude_filter = nil, exclude_debug = false)
-      words = query.split(" ").select {|part| !part.match(/^[0-9_\.-]+$/) }
+      words = query.split(" ").reject {|part| part.match(/^[0-9_\.-]+$/) }
       versrel = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
       logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
       raise InvalidSearchTerm.new "Please provide a valid search term" if words.blank? && project.blank?
 
       xpath_items = Array.new
       xpath_items << "@project = '#{project}' " unless project.blank?
-      substring_words = words.select{|word| !word.match(/^".+"$/) }.map{|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ")
+      substring_words = words.reject{|word| word.match(/^".+"$/) }.map{|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ")
       unless (substring_words.blank?)
         xpath_items << "contains-ic(@name, " + substring_words + ")"
       end
@@ -176,10 +176,6 @@ class Seeker < ActiveXML::Node
         return out
       end
 
-      def description
-        # implement in derived classes
-      end
-
       def logger
         Rails.logger
       end
@@ -227,14 +223,7 @@ class Seeker < ActiveXML::Node
       attr_reader :arch
       attr_reader :version
       attr_reader :release
-      attr_reader :description
       attr_reader :src_package
-      attr_reader :summary
-      attr_reader :size
-      attr_reader :mtime
-      attr_reader :requires
-      attr_reader :provides
-      attr_reader :quality
 
       def initialize(key, query)
         super(key, query)
@@ -253,7 +242,7 @@ class Seeker < ActiveXML::Node
           begin
             info = ::Published.find_cached bin.filename, :view => :fileinfo, :project => @project,
               :repository => @repository, :arch => bin.arch.to_s, :expires_in => 12.hours
-          rescue => e
+          rescue StandardError => e
             logger.error "Error fetching info for binary: #{e.message}"
           end
           if info
@@ -311,7 +300,7 @@ class Seeker < ActiveXML::Node
             :attribute => 'OBS:QualityCategory', :expires_in => 12.hours
           @quality = quality_xml.attribute.text.strip unless quality_xml.nil? || quality_xml.attribute.nil?
         end
-        @quality = "" unless @quality
+        @quality ||= ""
         @quality
       end
 
@@ -342,7 +331,7 @@ class Seeker < ActiveXML::Node
           begin
             pat = ::Published.find @filename, :project => @project, :repository => @repository, :view => :fileinfo
             @description = pat.description.to_s if pat.has_element? :description
-          rescue
+          rescue StandardError
           end
           @description
         end
@@ -354,13 +343,13 @@ class Seeker < ActiveXML::Node
       attr_accessor :fragment_type
 
       def initialize(element)
-        %w(project repository name filename filepath arch type baseproject type version release package).each do |att|
+        %w[project repository name filename filepath arch type baseproject type version release package].each do |att|
           self[att] = element.value att
         end
       end
 
       def __key
-        @__key ||= @fragment_type.to_s + "|" + %w(project repository name).map{|x| self[x]}.join('|')
+        @__key ||= @fragment_type.to_s + "|" + %w[project repository name].map{|x| self[x]}.join('|')
       end
 
       def dump
