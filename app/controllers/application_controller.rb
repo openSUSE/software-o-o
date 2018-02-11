@@ -128,9 +128,9 @@ class ApplicationController < ActionController::Base
     @search_unsupported = params[:search_unsupported] unless params[:search_unsupported].blank?
     #FIXME: remove @search_unsupported when redesigning search options
     @search_unsupported = "true"
-    @search_devel = (@search_devel == "true" ? true : false)
+    @search_devel = @search_devel == "true"
     @search_project = params[:search_project]
-    @search_unsupported = (@search_unsupported == "true" ? true : false)
+    @search_unsupported = @search_unsupported == "true"
     @exclude_debug = @search_devel ? false : true
     @exclude_filter = @search_unsupported ? nil : 'home:'
     cookies[:search_devel] = { :value => @search_devel, :expires => 1.year.from_now }

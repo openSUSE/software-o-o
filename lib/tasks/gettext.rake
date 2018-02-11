@@ -2,14 +2,14 @@
 # Added for Ruby-GetText-Package
 #
 
-POT_FILE = "locale/software.pot"
+POT_FILE = "locale/software.pot".freeze
 
-def each_po_file(&block)
+def each_po_file
   @po_files ||= Dir.glob("locale/*/software.po")
 
   @po_files.each do |file|
     lang = file_to_lang(file)
-    block.call(file, lang)
+    yield(file, lang)
   end
 end
 
@@ -18,13 +18,13 @@ def file_to_lang(file)
 end
 
 def backup_po_files
-  each_po_file do |file, lang|
+  each_po_file do |file, _lang|
     system("cp #{file} #{file}.back")
   end
 end
 
 def restore_po_files
-  each_po_file do |file, lang|
+  each_po_file do |file, _lang|
     system("mv #{file}.back #{file}")
   end
 end

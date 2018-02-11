@@ -15,7 +15,7 @@ class ActiveSupport::TestCase
   # Helper to associate queries to OBS with the corresponding file in
   # test/support
   def stub_remote_file(url, filename)
-    %w(http https).each do |protocol|
+    %w[http https].each do |protocol|
       stub_request(:any, "#{protocol}://test:test@#{url}").to_return(body: File.read(Rails.root.join('test', 'support', filename)))
     end
   end
