@@ -3,7 +3,6 @@ require 'nokogiri'
 
 # Controller for /images.xml
 class ImagesController < ApplicationController
-
   attr_accessor :base_url
 
   def initialize
