@@ -26,7 +26,7 @@ class ImagesController < ApplicationController
         matches[1]
       rescue OpenURI::HTTPError, RuntimeError => e
         filename = File.basename(URI.parse(abs_url).path)
-        raise MetadataError.new "Could not get version of #{filename}: #{e}"
+        raise MetadataError, "Could not get version of #{filename}: #{e}"
       end
     end
   end
