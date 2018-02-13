@@ -3,7 +3,12 @@ require 'nokogiri'
 
 # Controller for /images.xml
 class ImagesController < ApplicationController
-  @@base_url = "http://download.opensuse.org"
+
+  attr_accessor :base_url
+
+  def initialize
+    @base_url = "http://download.opensuse.org"
+  end
 
   class MetadataError < RuntimeError; end
 
@@ -12,7 +17,7 @@ class ImagesController < ApplicationController
 
   # Returns the first capture of regex applied to the file name of URL's redirection target
   def get_version(url, regex)
-    abs_url = @@base_url + url
+    abs_url = @base_url + url
     Rails.cache.fetch("/build_number/#{abs_url}", expires_in: 10.minutes) do
       begin
         meta = meta_file(abs_url)
@@ -28,7 +33,7 @@ class ImagesController < ApplicationController
 
   # Returns a string containing a XML <image> element with all necessary content for url and name
   def image_element(url, name)
-    abs_url = @@base_url + url
+    abs_url = @base_url + url
     size = content_size(abs_url)
 
     ret  = "<image url=#{abs_url.encode(xml: :attr)} name=#{name.encode(xml: :attr)} size=\"#{size}\">\n"
