@@ -207,6 +207,8 @@ class DownloadController < ApplicationController
       'VMWare'
     when /pxe\.tar\.bz2$/
       'PXE'
+    when /lxc\.tar\.bz2$/
+      'LXC'
     else
       'Unknown'
     end
