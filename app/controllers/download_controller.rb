@@ -15,19 +15,31 @@ class DownloadController < ApplicationController
     cache_key = "soo_download_appliances_#{@project}"
     @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
       api_result_images = ApiConnect::get("/published/#{@project}/images")
-      #api_result_iso = ApiConnect::get("/published/#{@project}/images/iso")
+      api_result_iso = ApiConnect::get("/published/#{@project}/images/iso")
       xpath = "/directory/entry"
       if api_result_images
         doc = REXML::Document.new api_result_images.body
         data = Hash.new
         doc.elements.each(xpath) do |e|
           filename = e.attributes['name']
-          if (File.extname(filename) == '.bz2')
+          ext = ['.bz2','.xz','.qcow2','.vdi','.vmdk','.vmx', '.ova']
+          if (ext.include? File.extname(filename) )
             data[filename] = { :flavor => get_image_type(filename) }
           end
 
         end
         data
+        if api_result_iso
+          dociso = REXML::Document.new api_result_iso.body
+          dociso.elements.each(xpath) do |e|
+            filename = e.attributes['name']
+            if (File.extname(filename) == '.iso' )
+              data[filename] = { :flavor => get_image_type(filename) }
+            end
+
+          end
+          data
+        end
       else
         nil
       end
@@ -52,6 +64,7 @@ class DownloadController < ApplicationController
       if api_result
         doc = REXML::Document.new api_result.body
         data = Hash.new
+        print doc
         doc.elements.each(xpath) do |e|
           distro = e.attributes['repository']
           if not data.has_key?(distro)
@@ -185,6 +198,8 @@ class DownloadController < ApplicationController
       'Univention'
     when /^Arch:/
       'Arch'
+    when /AppImage/
+      'AppImage'
     else
       'Unknown'
     end
@@ -201,14 +216,24 @@ class DownloadController < ApplicationController
 
   def get_image_type filename
     case filename
-    when /raw\.bz2$/, /raw\.tar\.bz2$/
+    when /raw\.bz2$/, /raw\.tar\.bz2$/, /raw\.xz$/
       'Raw'
-    when /vmx\.tar\.bz2$/
+    when /vmx\.tar\.bz2$/, /\.vmdk$/, /\.vmx$/
       'VMWare'
     when /pxe\.tar\.bz2$/
       'PXE'
     when /lxc\.tar\.bz2$/
       'LXC'
+    when /\.qcow2$/
+      'QEMU'
+    when /\.vdi$/
+      'VirtualBox'
+    when /\.iso$/
+      'ISO'
+    when /\.ova$/
+      'OVA'
+    when /docker/
+      'Docker'
     else
       'Unknown'
     end
