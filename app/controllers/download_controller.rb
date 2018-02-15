@@ -22,24 +22,22 @@ class DownloadController < ApplicationController
         data = Hash.new
         doc.elements.each(xpath) do |e|
           filename = e.attributes['name']
-          ext = ['.bz2','.xz','.qcow2','.vdi','.vmdk','.vmx', '.ova']
-          if (ext.include? File.extname(filename) )
+          ext = ['.bz2', '.xz', '.qcow2', '.vdi', '.vmdk', '.vmx', '.ova']
+          if (ext.include? File.extname(filename))
             data[filename] = { :flavor => get_image_type(filename) }
           end
 
         end
-        data
         if api_result_iso
           dociso = REXML::Document.new api_result_iso.body
           dociso.elements.each(xpath) do |e|
             filename = e.attributes['name']
-            if (File.extname(filename) == '.iso' )
+            if (File.extname(filename) == '.iso')
               data[filename] = { :flavor => get_image_type(filename) }
             end
-
           end
-          data
         end
+      data
       else
         nil
       end
