@@ -8,7 +8,7 @@
     <ul class="nav justify-content-center">
       <% @related_categories[0..7].each do |cat| %>
         <li class="nav-item">
-        <%= link_to (cat[:name].split /(?=[A-Z])/).join(" "), { :controller => :package, :action => :category, :category => cat[:name]}, :class => "nav-link" %>
+        <%= link_to (cat[:name].split /(?=[A-Z][a-z])/).join(" "), { :controller => :package, :action => :category, :category => cat[:name]}, :class => "nav-link" %>
         </li>
       <% end -%>
     </ul>
