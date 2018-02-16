@@ -37,7 +37,7 @@ class DownloadController < ApplicationController
             end
           end
         end
-      data
+        data
       else
         nil
       end
@@ -62,7 +62,6 @@ class DownloadController < ApplicationController
       if api_result
         doc = REXML::Document.new api_result.body
         data = Hash.new
-        print doc
         doc.elements.each(xpath) do |e|
           distro = e.attributes['repository']
           if not data.has_key?(distro)
