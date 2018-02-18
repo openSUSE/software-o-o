@@ -12,15 +12,16 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org.fi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-17 14:54+0100\n"
-"PO-Revision-Date: 2015-09-27 21:13+0200\n"
-"Last-Translator: Harri Miettinen <harmie@opensuse.fi>\n"
-"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2018-02-18 15:37+0000\n"
+"Last-Translator: Tommi Nieminen <software@legisign.org>\n"
+"Language-Team: Finnish "
+"<https://l10n.opensuse.org/projects/software-o-o/master/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.18\n"
 
 #: ../app/views/distributions/index.html.erb:66
 msgid ""
@@ -28,6 +29,9 @@ msgid ""
 "%{annually}, with security and stability updates being the priority during "
 "each release %{lifetime}."
 msgstr ""
+"%{leap} on <strong>kausijulkaisu</strong>. Tämä tarkoittaa, että se "
+"julkaisee %{annually} etusijanaan kunkin julkaisun %{lifetime} turvallisuus- "
+"ja vakauspäivitykset."
 
 #: ../app/views/distributions/index.html.erb:58
 msgid ""
@@ -36,6 +40,10 @@ msgid ""
 "Things will change regularly as Free and Open Source projects continually "
 "release new versions of their software."
 msgstr ""
+"%{tumbleweed} on <strong>jatkuva julkaisu</strong>. Tämä tarkoittaa, että "
+"ohjelmat ovat aina openSUSE-projektin viimeisimpiä vakaita versioita. Asiat "
+"muuttuvat säännöllisesti, koska vapaan ja avoimen lähdekoodin projektit "
+"julkaisevat jatkuvasti uusia versioita ohjelmistaan."
 
 #: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
 msgid "(hide)"
@@ -46,18 +54,16 @@ msgid "(show)"
 msgstr "(näytä)"
 
 #: ../app/views/package/_download_rows.html.erb:49
-#, fuzzy
-#| msgid "1-Click Install"
 msgid "1 Click Install"
-msgstr "1-Click -asennus"
+msgstr "1-Click-asennus"
 
 #: ../app/views/distributions/_requirements.html.erb:6
 msgid "2 GB system memory"
-msgstr ""
+msgstr "2 Gt järjestelmämuistia"
 
 #: ../app/views/distributions/_requirements.html.erb:5
 msgid "2 Ghz dual core processor or better"
-msgstr ""
+msgstr "2 GHz kaksiytiminen suoritin tai parempi"
 
 #: ../app/views/package/_download_rows.html.erb:3
 msgid "<b>official release</b>"
@@ -69,7 +75,7 @@ msgstr "<b>virallinen päivitys</b>"
 
 #: ../app/views/download/package.erb:84
 msgid "Add repository and install manually"
-msgstr "Lisää asennuslähde ja asenna käsin"
+msgstr "Lisää asennuslähde ja asenna itse"
 
 #: ../app/views/download/appliance.erb:52
 msgid "Available Images"
@@ -77,13 +83,15 @@ msgstr "Saatavilla olevat levykuvat"
 
 #: ../app/views/package/show.html.erb:5
 msgid "Back to home page"
-msgstr ""
+msgstr "Palaa kotisivulle"
 
 #: ../app/views/distributions/index.html.erb:86
 msgid ""
 "Both distributions are fully capable of being used on a Desktop PC, laptop, "
 "server, or in the cloud."
 msgstr ""
+"Kumpaakin jakelua voi täysin käyttää työpöytätietokoneessa, kannettavassa, "
+"palvelimessa tai pilvessä."
 
 #: ../app/views/distributions/index.html.erb:83
 msgid ""
@@ -91,10 +99,13 @@ msgid ""
 "\">openQA</a> as well as by human openSUSE contributors so both can be "
 "relied upon to work."
 msgstr ""
+"Kumpikin jakelu on <a href=\"https//openqa.opensuse.org/\">openQA</a>:n "
+"samoin kuin openSUSEn avustajien testaama, joten kummankin toimintaan voi "
+"luottaa."
 
 #: ../app/views/layouts/_footer.html.erb:8
 msgid "Build service"
-msgstr ""
+msgstr "Koostamispalvelu"
 
 #: ../app/views/package/show.html.erb:25
 msgid "Categories"
@@ -127,24 +138,20 @@ msgstr "Luokka"
 #: ../app/views/distributions/tumbleweed.html.erb:279
 #: ../app/views/distributions/testing.html.erb:34
 #: ../app/views/distributions/testing.html.erb:48
-#, fuzzy
-#| msgid "md5 checksum"
 msgid "Checksum"
-msgstr "MD5-tarkistussumma"
+msgstr "Tarkistussumma"
 
 #: ../app/views/distributions/_verify_download.html.erb:23
 msgid "Checksums Help"
-msgstr ""
+msgstr "Tarkistussummien ohje"
 
 #: ../app/views/distributions/_choosing_media.html.erb:2
-#, fuzzy
-#| msgid "Click to Download"
 msgid "Choosing Which Media to Download"
-msgstr "Napsauta ladataksesi"
+msgstr "Miten valita ladattava tietoväline"
 
 #: ../app/views/distributions/index.html.erb:52
 msgid "Choosing which Distribution to Download"
-msgstr ""
+msgstr "Miten valita ladattava jakelu"
 
 #: ../app/views/layouts/_footer.html.erb:26
 #: ../app/views/package/_download_rows.html.erb:28
@@ -159,16 +166,12 @@ msgstr "Yhteisö"
 #: ../app/views/distributions/tumbleweed.html.erb:136
 #: ../app/views/distributions/tumbleweed.html.erb:168
 #: ../app/views/distributions/testing.html.erb:30
-#, fuzzy
-#| msgid ""
-#| "Contains a large collection of software for desktop or server use.<br/"
-#| ">Suitable for installation or upgrade."
 msgid ""
 "Contains a large collection of software for desktop or server use. Suitable "
 "for installation or upgrade."
 msgstr ""
-"Sisältää laajan kokoelman ohjelmistoja työpöytä- tai palvelinkäyttöön.<br/"
-">Soveltuu asennukseen tai päivitykseen."
+"Sisältää laajan kokoelman ohjelmia työpöytä- tai palvelinkäyttöön. Soveltuu "
+"asennukseen tai päivitykseen."
 
 #: ../app/views/distributions/leap.html.erb:41
 #: ../app/views/distributions/leap.html.erb:80
@@ -178,16 +181,12 @@ msgstr ""
 #: ../app/views/distributions/tumbleweed.html.erb:133
 #: ../app/views/distributions/tumbleweed.html.erb:165
 #: ../app/views/distributions/testing.html.erb:27
-#, fuzzy
-#| msgid "Image:"
 msgid "DVD Image"
-msgstr "Levykuva:"
+msgstr "DVD-levykuva"
 
 #: ../app/views/layouts/_footer.html.erb:5
-#, fuzzy
-#| msgid "Development"
 msgid "Developers"
-msgstr "Kehitys"
+msgstr "Kehittäjät"
 
 #: ../app/views/search/_find_results.html.erb:88
 msgid "Development packages"
@@ -224,16 +223,12 @@ msgid "Direct Link"
 msgstr "Suora linkki"
 
 #: ../app/views/search/_find_form.html.erb:33
-#, fuzzy
-#| msgid "Show distribution:"
 msgid "Distribution:"
-msgstr "Näytä jakeluversio:"
+msgstr "Jakelu:"
 
 #: ../app/views/package/show.html.erb:60
-#, fuzzy
-#| msgid "Show distribution:"
 msgid "Distributions"
-msgstr "Näytä jakeluversio:"
+msgstr "Jakelut"
 
 #: ../app/views/layouts/_footer.html.erb:7
 #: ../app/views/layouts/_navbar.html.erb:20
@@ -257,12 +252,16 @@ msgid ""
 "Download openSUSE’s regular release and enjoy the benefits of both "
 "enterprise-grade engineering and community-developed innovation."
 msgstr ""
+"Lataa openSUSen kausijulkaisu ja nauti niin yritystason ohjelmointityöstä "
+"kuin yhteisön innovaatioista."
 
 #: ../app/views/distributions/index.html.erb:18
 msgid ""
 "Download openSUSE’s rolling release and always run the latest packages "
 "provided by the openSUSE Project."
 msgstr ""
+"Lataa openSUSEn jatkuva jakelu ja käytä aina viimeisimpiä openSUSE-projektin "
+"tarjoamia paketteja."
 
 #: ../app/views/distributions/leap.html.erb:58
 #: ../app/views/distributions/leap.html.erb:97
@@ -273,40 +272,36 @@ msgstr ""
 #: ../app/views/distributions/tumbleweed.html.erb:150
 #: ../app/views/distributions/tumbleweed.html.erb:182
 #: ../app/views/distributions/testing.html.erb:44
-#, fuzzy
-#| msgid ""
-#| "Downloads the installation system and all packages from online "
-#| "repositories.<br/>Suitable for installation or upgrade."
 msgid ""
 "Downloads the installation system and all packages from online repositories. "
 "Suitable for installation or upgrade."
 msgstr ""
-"Lataa asennusjärjestelmän ja kaikki paketit verkkoasennuslähteistä.<br/"
-">Sopii asennukseen tai päivitykseen."
+"Lataa asennusjärjestelmän ja kaikki paketit verkkoasennuslähteistä. Sopii "
+"asennukseen tai päivitykseen."
 
 #: ../app/views/distributions/_leap_switch.html.erb:2
 msgid "Easy Ways to Switch to openSUSE Leap"
-msgstr ""
+msgstr "Helppoja tapoja vaihtaa openSUSE Leapiin"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:2
 msgid "Easy Ways to Switch to openSUSE Tumbleweed"
-msgstr ""
+msgstr "Helppoja tapoja vaihtaa openSUSE Tumbleweediin"
 
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
-msgstr ""
+msgstr "Joko DVD-asema tai USB-portti asennustietovälineelle"
 
 #: ../app/views/layouts/_footer.html.erb:20
 msgid "Events"
-msgstr ""
+msgstr "Tapahtumat"
 
 #: ../app/views/package/_download_rows.html.erb:25
 msgid "Experimental"
-msgstr ""
+msgstr "Kokeellinen"
 
 #: ../app/views/layouts/_footer.html.erb:30
 msgid "Facebook group"
-msgstr ""
+msgstr "Facebook-ryhmä"
 
 #: ../app/views/download/package.erb:106
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
@@ -338,7 +333,7 @@ msgstr ""
 #: ../app/views/distributions/tumbleweed.html.erb:276
 #: ../app/views/distributions/testing.html.erb:43
 msgid "For CD and USB stick"
-msgstr ""
+msgstr "CD:lle tai USB-tikulle"
 
 #: ../app/views/distributions/leap.html.erb:43
 #: ../app/views/distributions/leap.html.erb:82
@@ -353,50 +348,46 @@ msgstr ""
 #: ../app/views/distributions/tumbleweed.html.erb:264
 #: ../app/views/distributions/testing.html.erb:29
 msgid "For DVD and USB stick"
-msgstr ""
+msgstr "DVD:lle tai USB-tikulle"
 
 #: ../app/views/distributions/_verify_download.html.erb:13
 msgid ""
 "For each ISO, we offer a checksum file with the corresponding SHA256 sum."
 msgstr ""
+"Tarjoamme kullekin ISOlle tiedoston, joka sisältää vastaavan "
+"SHA256-tarkistussumman."
 
 #: ../app/views/distributions/_verify_download.html.erb:16
-#, fuzzy
-#| msgid ""
-#| "offers the most security as you can verify who signed it. It should be "
-#| "<tt>%s</tt>."
 msgid ""
 "For extra security, you can use GPG to verify who signed those .sha256 files."
 msgstr ""
-"tarjoaa parhaimman turvatason, koska voit tarkistaa kuka allekirjoittaja on. "
-"Sen tulisi olla <tt>%s</tt>."
+"Lisävarmuudeksi voit GPG:llä tarkistaa .sha256-tiedostojen allekirjoittajat."
 
 #: ../app/views/distributions/_verify_download.html.erb:22
 msgid "For more help verifying your download please read %{checksums_help}"
 msgstr ""
+"Lue %{checksums_help}, jos tarvitset lisätietoa lataustesi todentamisesta."
 
 #: ../app/views/layouts/_footer.html.erb:28
 #: ../app/views/layouts/_navbar.html.erb:26
 msgid "Forums"
-msgstr ""
+msgstr "Foorumit"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:6
 msgid "From OS X"
-msgstr ""
+msgstr "OS X:stä"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:5
 msgid "From Windows"
-msgstr ""
+msgstr "Windowsista"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:4
 msgid "From an older version or other Linux distro"
-msgstr ""
+msgstr "Aiemmasta versiosta tai toisesta Linux-jakelusta"
 
 #: ../app/views/distributions/_documentation.html.erb:23
-#, fuzzy
-#| msgid "Documentation"
 msgid "Full Documentation"
-msgstr "Dokumentaatio"
+msgstr "Kaikki ohjeet"
 
 #: ../app/views/package/categories.html.erb:17
 msgid "Games"
@@ -404,20 +395,18 @@ msgstr "Pelit"
 
 #: ../app/views/search/_find_results.html.erb:69
 msgid "Get"
-msgstr ""
+msgstr "Nouda"
 
 #: ../app/views/layouts/jekyll.html.erb:8
 #: ../app/views/layouts/jekyll.html.erb:34
 #: ../app/views/layouts/download.html.erb:7
 #: ../app/views/distributions/index.html.erb:4
-#, fuzzy
-#| msgid "Buy openSUSE"
 msgid "Get openSUSE"
-msgstr "Osta openSUSE"
+msgstr "Hanki openSUSE"
 
 #: ../app/views/layouts/_footer.html.erb:31
 msgid "Google+ group"
-msgstr ""
+msgstr "Google+-ryhmä"
 
 #: ../app/views/download/package.erb:153
 msgid "Grab binary packages directly"
@@ -428,44 +417,48 @@ msgid ""
 "Help test openSUSE’s next version of Leap by downloading the latest "
 "development milestone."
 msgstr ""
+"Auta testaamaan openSUSEn seuraavaa Leap-versiota lataamalla viimeisin "
+"kehitysvirstanpylväs."
 
 #: ../app/views/distributions/testing.html.erb:18
 msgid ""
 "Help test the next version of openSUSE Leap, the regular-release "
 "distribution for desktop PCs, laptops, and servers."
 msgstr ""
+"Auta testaamaan openSUSE Leapin seuraava versiota – työpöytäkoneiden, "
+"kannettavien ja palvelinten kausijulkaisua."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
-msgstr ""
+msgstr "Miten polttaa DVD Linuxissa."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:23
 msgid "How to burn a DVD on OS X."
-msgstr ""
+msgstr "Miten polttaa DVD OS X:ssä."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:18
 msgid "How to burn a DVD on Windows."
-msgstr ""
+msgstr "Miten polttaa DVD Windowsissa."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:35
 msgid "How to create a Bootable USB stick on Windows."
-msgstr ""
+msgstr "Kuinka luoda käynnistettävä USB-tikku Windowsissa."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:30
 msgid "How to create a bootable USB stick on Linux."
-msgstr ""
+msgstr "Kuinka luoda käynnistettävä USB-tikku Linuxissa."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:40
 msgid "How to create a bootable USB stick on OS X."
-msgstr ""
+msgstr "Kuinka luoda käynnistettävä USB-tikku OS X:ssä."
 
 #: ../app/views/layouts/_footer.html.erb:33
 msgid "IRC channels"
-msgstr ""
+msgstr "IRC-kanavat"
 
 #: ../app/views/distributions/index.html.erb:91
 msgid "If you are still not sure, download %{leap}"
-msgstr ""
+msgstr "Ellet vieläkään ole varma, lataa %{leap}"
 
 #: ../app/views/distributions/_leap_switch.html.erb:5
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:5
@@ -474,16 +467,17 @@ msgid ""
 "DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
 "commands."
 msgstr ""
+"Jos käytät jo openSUSEa, voit päivittää käynnistämällä DVD:n tai USB:n ja\n"
+"valitsemalla päivityksen. Voit myös tehdä muutamalla komennolla\n"
+"verkkopäivityksen."
 
 #: ../app/views/download/appliance.erb:57
 msgid "Image:"
 msgstr "Levykuva:"
 
 #: ../app/views/layouts/_footer.html.erb:16
-#, fuzzy
-#| msgid "More information"
 msgid "Information"
-msgstr "Lisätietoa"
+msgstr "Tietoa"
 
 #: ../app/controllers/download_controller.rb:78
 msgid "Install package %s / %s"
@@ -499,33 +493,39 @@ msgstr "Asenna käyttäen 1-Click asennusta"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
-msgstr ""
+msgstr "Internet-yhteydestä on apua, ja verkkoasennus vaatii sitä"
 
 #: ../app/views/distributions/index.html.erb:95
 msgid ""
 "It is easy to <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 "\">switch to openSUSE Tumbleweed</a> if you change your mind later."
 msgstr ""
+"<a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade\">openSUSE "
+"Tumbleweediin</a> voi helposti vaihtaa, jos myöhemmin muutat mieltäsi."
 
 #: ../app/views/distributions/index.html.erb:71
 msgid ""
 "It is not expected to change in any significant way until its next annual "
 "release."
 msgstr ""
+"Sen ei odoteta muuttuvan merkittävästi ennen seuraavaa vuotuista julkaisua."
 
 #: ../app/views/distributions/_verify_download.html.erb:18
 msgid "It should be %{fingerprint}"
-msgstr ""
+msgstr "Sen tulisi olla %{fingerprint}"
 
 #: ../app/views/distributions/tumbleweed.html.erb:76
 msgid "Kubic DVD/USB Stick"
-msgstr ""
+msgstr "Kubic-DVD tai -USB-tikku"
 
 #: ../app/views/distributions/index.html.erb:77
 msgid ""
 "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
 "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgstr ""
+"Leapiä suositellaan <strong>järjestelmän ylläpitäjille</strong>, <strong>"
+"yritysten kehittäjille</strong> ja <strong>tavallisille "
+"työpöytäkäyttäjille</strong>."
 
 #: ../app/views/distributions/index.html.erb:72
 msgid ""
@@ -533,21 +533,19 @@ msgid ""
 "changes are not expected for several years, aligned with each new Major "
 "Release (eg 12, 13, etc) of SUSE Linux Enterprise."
 msgstr ""
+"Leap ja %{sles} jakavat yhteisen perusjärjestelmän, joten suuria "
+"arkkitehtuurimuutoksia ei odoteta vuosiin; ne ajoittuvat SUSE Linux "
+"Enterprisen pääversioihin (esim. 12, 13 jne.)."
 
 #: ../app/views/distributions/_documentation.html.erb:18
 msgid "License"
-msgstr ""
+msgstr "Lisenssi"
 
 #: ../app/views/layouts/_footer.html.erb:32
 msgid "Mail lists"
-msgstr ""
+msgstr "Postituslistat"
 
 #: ../app/views/distributions/_verify_download.html.erb:5
-#, fuzzy
-#| msgid ""
-#| "Many applications can verify the checksum of a download. To verify your "
-#| "download can be important as it verifies you really have got the ISO file "
-#| "you wanted to download and not some broken version."
 msgid ""
 "Many applications can verify the checksum of a download. To verify\n"
 "your download can be important as it verifies you really have got the\n"
@@ -556,9 +554,12 @@ msgid ""
 "(SHA256) will be used automatically if you choose Metalink in the\n"
 "field above and use the add-on DownThemAll! in Firefox."
 msgstr ""
-"Monet sovellukset voivat verrata latauksen tarkistussummaa. Ladatun median "
-"tarkistus voi olla tärkeää koska se vertaa, että lataamasi ISO-tiedosto on "
-"todella haluamasi eikä rikkoutunut versio. "
+"Monet sovellukset osaavat tarkistaa latauksen tarkistussumman.\n"
+"Latauksen todentaminen voi olla tärkeää, koska se varmistaa, että\n"
+"lataat todella haluamasi ISO-tiedoston etkä viallista versiota. Voit\n"
+"todentaa tiedoston ladatessasi. Tarkistussummaa (SHA256) käytetään\n"
+"esimerkiksi automaattisesti, jos valitset yltä Metalinkin ja käytät\n"
+"Firefoxin DownThemAll!-lisäosaa."
 
 #: ../app/views/distributions/leap.html.erb:46
 #: ../app/views/distributions/leap.html.erb:60
@@ -598,20 +599,16 @@ msgstr "Multimedia"
 #: ../app/views/distributions/tumbleweed.html.erb:147
 #: ../app/views/distributions/tumbleweed.html.erb:179
 #: ../app/views/distributions/testing.html.erb:41
-#, fuzzy
-#| msgid "Network"
 msgid "Network Image"
-msgstr "Verkko"
+msgstr "Verkkolevykuva"
 
 #: ../app/views/layouts/_footer.html.erb:18
 msgid "News"
-msgstr ""
+msgstr "Uutiset"
 
 #: ../app/views/download/appliance.erb:2
-#, fuzzy
-#| msgid "No appliance data for %s"
 msgid "No appliance data for %{project}"
-msgstr "Ei ohjelmakokonaisuus dataa %s"
+msgstr "Ei sovellustietoja kohteelle %{project}"
 
 #: ../app/views/download/appliance.erb:47
 msgid "No appliances found in project %s"
@@ -622,10 +619,8 @@ msgid "No data for %s / %s"
 msgstr "Ei dataa %s / %s"
 
 #: ../app/views/package/show.html.erb:35
-#, fuzzy
-#| msgid "No description found..."
 msgid "No description."
-msgstr "Kuvausta ei löytynyt..."
+msgstr "Ei kuvausta."
 
 #: ../app/views/download/package.erb:69
 msgid "No downloads found for %s in project %s"
@@ -637,13 +632,11 @@ msgstr "Mikään paketti ei vastaa hakuasi. "
 
 #: ../app/views/distributions/testing.html.erb:89
 msgid "No testing distribution available."
-msgstr ""
+msgstr "Testausjakelua ei ole saatavilla."
 
 #: ../app/views/distributions/tumbleweed.html.erb:200
-#, fuzzy
-#| msgid "Installation Medium"
 msgid "Not Tested|Tumbleweed installation media"
-msgstr "Asennusmedia"
+msgstr "Testaamaton|Tumbleweed-asennustietoväline"
 
 #: ../app/controllers/application_controller.rb:54
 msgid "OBS Backend not available"
@@ -652,18 +645,16 @@ msgstr "OBS-taustaosa ei ole saatavilla"
 #: ../app/views/package/_download_rows.html.erb:22
 #: ../app/views/distributions/leap.html.erb:20
 #: ../app/views/distributions/tumbleweed.html.erb:19
-#, fuzzy
-#| msgid "Official Manuals"
 msgid "Official"
-msgstr "Viralliset käsikirjat"
+msgstr "Viralliset"
 
 #: ../app/views/distributions/_leap_switch.html.erb:9
 msgid "Online Upgrade Instructions"
-msgstr ""
+msgstr "Päivitysohjeet verkossa"
 
 #: ../app/views/distributions/_requirements.html.erb:7
 msgid "Over 40GB of free hard drive space"
-msgstr ""
+msgstr "Yli 40 Gt vapaata kiintolevytilaa"
 
 #: ../app/views/package/show.html.erb:4
 msgid "Package %s not found..."
@@ -699,47 +690,43 @@ msgstr "Valitse peilipalvelin"
 
 #: ../app/views/layouts/_footer.html.erb:21
 msgid "Planet"
-msgstr ""
+msgstr "Planet"
 
 #: ../app/views/distributions/tumbleweed.html.erb:195
 msgid "Please Note: These LiveUSBs are not supported"
-msgstr ""
+msgstr "Huomaa: näitä LiveUSB:itä ei tueta"
 
 #: ../app/views/distributions/tumbleweed.html.erb:197
-#, fuzzy
-#| msgid "Installation Medium"
 msgid "Please Use|Tumbleweed installation media"
-msgstr "Asennusmedia"
+msgstr "Käytä|Tumbleweed-asennustietovälinettä"
 
 #: ../app/views/distributions/tumbleweed.html.erb:201
 msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
 "these LiveUSBs are working as expected."
 msgstr ""
+"Etsi %{openqa}:n testituloksista lisätietoa siitä, toimivatko nämä LiveUSB:t "
+"odotetusti."
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
-msgstr ""
+msgstr "Suositellut järjestelmävaatimukset"
 
 #: ../app/views/search/_category_header.html.erb:9
 msgid "Related categories:"
 msgstr "Aiheeseen liittyvät luokat:"
 
 #: ../app/views/distributions/_documentation.html.erb:13
-#, fuzzy
-#| msgid "Released Version"
 msgid "Release Notes"
-msgstr "Julkaistu versio"
+msgstr "Julkaisutiedot"
 
 #: ../app/views/layouts/_footer.html.erb:19
-#, fuzzy
-#| msgid "Released Version"
 msgid "Release notes"
-msgstr "Julkaistu versio"
+msgstr "Julkaisutiedot"
 
 #: ../app/views/distributions/index.html.erb:73
 msgid "SUSE Linux Enterprise"
-msgstr ""
+msgstr "SUSE Linux Enterprise"
 
 #: ../app/views/search/find.html.erb:1
 msgid "Search"
@@ -755,41 +742,35 @@ msgstr "Valitse levykuvan tyyppi"
 
 #: ../app/views/layouts/_footer.html.erb:22
 msgid "Shop"
-msgstr ""
+msgstr "Kauppa"
 
 #: ../app/views/package/show.html.erb:104
 msgid "Show"
 msgstr "Näytä"
 
 #: ../app/views/package/show.html.erb:85
-#, fuzzy
-#| msgid "Show unstable packages"
 msgid "Show community packages"
-msgstr "Näytä epävakaat paketit"
+msgstr "Näytä yhteisöpaketit"
 
 #: ../app/views/search/_find_form.html.erb:43
 msgid "Show development, language and debug packages"
 msgstr "Näytä kehitys, kieli- ja virheenetsintäpaketit"
 
 #: ../app/views/package/show.html.erb:84
-#, fuzzy
-#| msgid "Show unstable packages"
 msgid "Show experimental packages"
-msgstr "Näytä epävakaat paketit"
+msgstr "Näytä kokeelliset paketit"
 
 #: ../app/views/package/show.html.erb:45
 msgid "Size"
-msgstr ""
+msgstr "Koko"
 
 #: ../app/views/layouts/_footer.html.erb:37
 msgid "Social Media"
-msgstr ""
+msgstr "Sosiaalinen media"
 
 #: ../app/views/layouts/_navbar.html.erb:17
-#, fuzzy
-#| msgid "Popular Software"
 msgid "Software"
-msgstr "Suositut ohjelmistot"
+msgstr "Ohjelmat"
 
 #: ../app/helpers/package_helper.rb:13 ../app/helpers/package_helper.rb:15
 #: ../app/views/package/_download_rows.html.erb:42
@@ -807,6 +788,8 @@ msgid ""
 "packages available in the distribution and does not require a network\n"
 "connection during the installation."
 msgstr ""
+"Yleisesti suositellaan DVD:tä tai USB-tikkua, koska se sisältää useimmat\n"
+"jakelun paketeista eikä vaadi verkkoyhteyttä asennettaessa."
 
 #: ../app/views/distributions/_choosing_media.html.erb:10
 msgid ""
@@ -815,12 +798,17 @@ msgid ""
 "packages they choose to install, which is likely to be significantly\n"
 "less than 4.7GB."
 msgstr ""
+"Verkko-CD:tä tai -USB-tikkua suositellaan käyttäjille, joiden\n"
+"internetyhteyden kaista on rajallinen, koska tällöin ladataan vain\n"
+"asennettavat paketit eli luultavasti vähemmän kuin 4,7 Gt."
 
 #: ../app/views/package/show.html.erb:103
 msgid ""
 "The following distributions are not officially supported. Use these packages "
 "at your own risk."
 msgstr ""
+"Seuraavia jakeluja ei virallisesti tueta. Käytä näitä paketteja omalla "
+"vastuullasi."
 
 #: ../app/views/download/package.erb:95
 msgid "Then run the following as <strong>root</strong>"
@@ -832,16 +820,20 @@ msgid ""
 "These ports are not officially supported, and they are not as stable as "
 "official distributions."
 msgstr ""
+"Näitä siirroksia ei virallisesti tueta, eivätkä ne ole yhtä vakaita kuin "
+"viralliset jakelut."
 
 #: ../app/views/distributions/tumbleweed.html.erb:199
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
-msgstr ""
+msgstr "Niitä ei ole testattu yhtä huolellisesti kuin %{tumbleweed_media} on."
 
 #: ../app/views/distributions/tumbleweed.html.erb:196
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
 msgstr ""
+"Niitä ei voi käyttää Tumbleweedin asennukseen tai päivitykseen. Näihin "
+"tarvitaan %{tumbleweed_media}."
 
 #: ../app/views/distributions/tumbleweed.html.erb:198
 msgid ""
@@ -849,39 +841,37 @@ msgid ""
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not."
 msgstr ""
+"Niiden pakettien ja ajurien valikoima on rajallinen, joten ne eivät "
+"tarkalleen vastaa sitä, miten Tumbleweed toimii laitteistossasi."
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Näytä tai piilota navigointi"
 
 #: ../app/views/distributions/index.html.erb:61
 msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
 "Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
 msgstr ""
+"Tumbleweediä suositellaan <strong>kehittäjille</strong>, <strong>openSUSEn "
+"avustajille</strong> ja <strong>LINUX- tai FOSS-intoilijoille</strong>."
 
 #: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/tumbleweed.html.erb:26
 msgid "Unofficial"
-msgstr ""
+msgstr "Epäviralliset"
 
 #: ../app/views/package/show.html.erb:100
-#, fuzzy
-#| msgid "Unsupported distributions:"
 msgid "Unsupported distributions"
-msgstr "Tukematon jakeluversio:"
+msgstr "Ei-tuetut jakelut"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:9
-#, fuzzy
-#| msgid "Unsupported distributions:"
 msgid "Upgrade Instructions"
-msgstr "Tukematon jakeluversio:"
+msgstr "Päivitysohjeet"
 
 #: ../app/views/distributions/_verify_download.html.erb:2
-#, fuzzy
-#| msgid "Verify your download before use"
 msgid "Verify Your Download Before Use"
-msgstr "Tarkista ladattu media ennen käyttöä"
+msgstr "Tarkista latauksesi ennen käyttöä"
 
 #: ../app/views/package/show.html.erb:44
 msgid "Version"
@@ -889,7 +879,7 @@ msgstr "Versio"
 
 #: ../app/views/layouts/_navbar.html.erb:23
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: ../app/views/download/package.erb:141
 msgid ""
@@ -903,117 +893,86 @@ msgstr ""
 "lisäämiseksi, suorita:"
 
 #: ../app/views/search/_find_results.html.erb:26
-#, fuzzy
-#| msgid ""
-#| "You could try to extend your search to development packages or search for "
-#| "another base distribution (currently )."
 msgid ""
 "You could try to extend your search to development packages or search for "
 "another base distribution (currently #{@baseproject})."
 msgstr ""
-"Voit koettaa laajentaa hakuasi kehityspaketteihin tai etsiä toisella "
-"jakeluversiolla (nykyinen )."
+"Voit yrittää laajentaa hakua kehityspaketteihin tai etsiä toista "
+"pohjajulkaisua (nykyään #{@baseproject})."
 
 #: ../app/views/distributions/index.html.erb:68
 msgid "annually"
-msgstr ""
+msgstr "vuosittain"
 
 #: ../app/views/distributions/index.html.erb:69
-#, fuzzy
-#| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/Lifetime"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/Lifetime"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:39
-#, fuzzy
-#| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Mac_OS_x"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Mac_OS_x"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:34
-#, fuzzy
-#| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows"
 
 #: ../app/views/distributions/_verify_download.html.erb:23
-#, fuzzy
-#| msgid "http://en.opensuse.org/SDB:Download_help"
 msgid "https://en.opensuse.org/SDB:Download_help#Checksums"
-msgstr "http://en.opensuse.org/SDB:Download_help"
+msgstr "https://en.opensuse.org/SDB:Download_help#Checksums"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:12
-#, fuzzy
-#| msgid "http://en.opensuse.org/SDB:Download_help"
 msgid "https://en.opensuse.org/SDB:Download_help#Using_Linux"
-msgstr "http://en.opensuse.org/SDB:Download_help"
+msgstr "https://en.opensuse.org/SDB:Download_help#Using_Linux"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:22
-#, fuzzy
-#| msgid "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
 msgid ""
 "https://en.opensuse.org/SDB:Download_help#Using_MacOS_X_.2810.3_and_above.29"
-msgstr "http://en.opensuse.org/SDB:Download_help#Burn_the_ISO_image.28s.29"
+msgstr ""
+"https://en.opensuse.org/SDB:Download_help#Using_MacOS_X_.2810.3_and_above.29"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:17
-#, fuzzy
-#| msgid "http://en.opensuse.org/SDB:Download_help"
 msgid "https://en.opensuse.org/SDB:Download_help#Using_Microsoft_Windows"
-msgstr "http://en.opensuse.org/SDB:Download_help"
+msgstr "https://en.opensuse.org/SDB:Download_help#Using_Microsoft_Windows"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:29
-#, fuzzy
-#| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/SDB:Live_USB_stick"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/SDB:Live_USB_stick"
 
 #: ../app/views/distributions/_leap_switch.html.erb:8
-#, fuzzy
-#| msgid "http://en.opensuse.org/Derivatives"
 msgid "https://en.opensuse.org/SDB:System_upgrade"
-msgstr "http://en.opensuse.org/Derivatives"
+msgstr "https://en.opensuse.org/SDB:System_upgrade"
 
 #: ../app/views/distributions/index.html.erb:68
-#, fuzzy
-#| msgid "http://en.opensuse.org/Buy_openSUSE"
 msgid "https://en.opensuse.org/openSUSE:Roadmap"
-msgstr "http://en.opensuse.org/Buy_openSUSE"
+msgstr "https://en.opensuse.org/openSUSE:Roadmap"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:8
-#, fuzzy
-#| msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
-msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
+msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
 #: ../app/views/distributions/index.html.erb:69
 msgid "lifetime"
-msgstr ""
+msgstr "eliniän"
 
 #: ../app/views/distributions/index.html.erb:67
-#, fuzzy
-#| msgid "openSUSE Derivatives"
 msgid "openSUSE Leap"
-msgstr "openSUSE-johdannaiset"
+msgstr "openSUSE Leap"
 
 #: ../app/views/layouts/application.html.erb:7
-#, fuzzy
-#| msgid "openSUSE Countdown"
 msgid "openSUSE Software"
-msgstr "openSUSEn lähtölaskenta"
+msgstr "openSUSEn ohjelmat"
 
 #: ../app/views/distributions/index.html.erb:58
 msgid "openSUSE Tumbleweed"
-msgstr ""
+msgstr "openSUSE Tumbleweed"
 
 #: ../app/views/layouts/_footer.html.erb:50
-#, fuzzy
-#| msgid "openSUSE Countdown"
 msgid "openSUSE contributors"
-msgstr "openSUSEn lähtölaskenta"
+msgstr "openSUSEn avustajat"
 
 #: ../app/views/distributions/index.html.erb:6
 msgid "openSUSE is completely free to download, use and share."
-msgstr ""
+msgstr "openSUSE on täysin ilmainen ladata, käyttää ja jakaa."
 
 #~ msgid " and "
 #~ msgstr " ja "
