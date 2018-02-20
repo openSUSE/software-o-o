@@ -32,6 +32,10 @@ class ActiveSupport::TestCase
     stub_remote_file("api.opensuse.org/published/openSUSE:13.1/standard/i586/pidgin-2.10.7-4.1.3.i586.rpm?view=fileinfo", "pidgin-fileinfo.xml")
     stub_content("api.opensuse.org/source/openSUSE:13.1/_attribute/OBS:QualityCategory", "<attributes/>")
   end
+
+  teardown do
+    WebMock.reset!
+  end
 end
 
 class ActionDispatch::IntegrationTest
