@@ -12,15 +12,16 @@ WebMock.disable_net_connect!(:allow_localhost => true)
 class ActiveSupport::TestCase
   # Helper to associate queries to OBS with the corresponding file in
   # test/support
-  def stub_content(url, body)
+  def stub_content(url, what = {})
+    what = { body: what } if what.is_a?(String)
     %w[http https].each do |protocol|
-      stub = stub_request(:any, "#{protocol}://#{url}").to_return(body: body)
+      stub = stub_request(:any, "#{protocol}://#{url}").to_return(what)
       stub.with(basic_auth: ['test', 'test']) if url =~ /^api/
     end
   end
 
   def stub_remote_file(url, filename)
-    stub_content(url, File.read(Rails.root.join('test', 'support', filename)))
+    stub_content(url, body: File.read(Rails.root.join('test', 'support', filename)))
   end
 
   setup do
