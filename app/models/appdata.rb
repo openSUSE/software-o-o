@@ -40,7 +40,13 @@ class Appdata
                   else
                     "http://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
                   end
-    Nokogiri::XML(Zlib::GzipReader.new(open(appdata_url)))
+    begin
+      Nokogiri::XML(Zlib::GzipReader.new(open(appdata_url)))
+    rescue StandardError => e
+      Rails.logger.error e
+      Rails.logger.error "Can't retrieve appdata from: '#{appdata_url}'"
+      Nokogiri::XML('<?xml version="1.0" encoding="UTF-8"?><components origin="appdata" version="0.8"></components>')
+    end
   end
 
 end
