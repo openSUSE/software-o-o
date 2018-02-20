@@ -1,67 +1,52 @@
+<%= render(:partial => "download", :formats => [:css]) %>
+<div class="container" id="content">
+<div id="soo_download_appliances_#{@project}">
 <% if @data.blank? %>
-  <p><%= _("No appliance data for %{project}") % { project: @project } %></p>
+  <h2><%= _("No appliance data for %{project}") % { project: @project } %></h2>
 <% else %>
-
-  <script type="text/javascript">
-    var hidetext = '<%= _("(hide)") %>';
-    var showtext = '<%= _("(show)") %>';
-    $(function(){
-      $('.soo_button').click(function(){
-        $('.soo_line').show();
-        $('.soo_button').removeClass('soo_button_chosen');
-        $(this).addClass('soo_button_chosen');
-        var distro = $(this).attr('id').replace('soo_button_','');
-        $('.soo_distro').hide();
-        $('.soo_distro_' + distro).show();
-        $('#soo_section_pkg').show();  $('#soo_section_toggle_pkg span').text(hidetext);
-      });
-
-      $('.soo_line').click(function(){
-        $('#' + $(this).attr('id').replace('toggle_', '')).toggle();
-        $(this).children('span').text($(this).children('span').text() == hidetext ? showtext : hidetext);
-      });
-    });
-  </script>
-
-  <%
-  def gradient(top, mid, btm)
-    "  background: #{mid};\n" +
-      "  background: -webkit-gradient(linear, left top, left bottom, from(#{top}), to(#{btm}));\n" +
-      "  background: -moz-linear-gradient(top,  #{top},  #{btm});\n" +
-      "  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{top}', endColorstr='#{btm}');"
-  end
-%>
-
-  <%= render(:partial => "download", :formats => [:css]) %>
-
   <% unless @flavors.blank? %>
-    <div class="soo_box">
-      <p class="soo_line soo_line_visible"><%= _("Select the image type") %></p>
-      <div class="soo_flavour_line">
+    <h1 class="font-weight-normal"><%= _("<b>%s</b> project") % [@project] %></h1>
+      <h2><%= _("Select the image type") %></h2>
+      <div class="row py-3">
         <% @flavors.each do |flavor| %>
-          <div class="soo_button" id="soo_button_<%= flavor %>"><img src="<%= image_path('download/' + flavor.downcase + '.png') %>" alt="<%= flavor %>" /><p><%= flavor %></p></div>
+        <button class="col btn btn-link align-items-center p-0" id="<%= flavor %>_button" data-toggle="collapse" data-target="#<%= flavor %>" aria-expanded="false" aria-controls="<%= flavor %>">
+           <img src="<%= image_path('download/' + flavor.downcase + '.png') %>" alt="<%= flavor %>" />
+           <h6><%= flavor %></h6>
+        </button>
+        </h5>
         <% end %>
       </div>
-    </div>
   <% else %>
-    <p><%= _("No appliances found in project %s") % @project %>.</p>
+    <h2><%= _("No appliances found in project %s") % @project %>.</h2>
   <% end %>
 
 
-  <div id="soo_pkg" class="soo_box">
-    <p class="soo_line" id="soo_section_toggle_pkg"><%= _("Available Images") %><span></span></p>
-    <div id="soo_section_pkg">
-      <table>
-        <% @data.each do |k,v| %>
-          <tr class="soo_pkginfo soo_distro soo_distro_<%= v[:flavor] %> soo_distro_<%= k %>">
-            <td><%= v[:flavor] + " " + _("Image:") %></td>
-            <td><ul>
-                <li><a href="https://download.opensuse.org/repositories/<%= @project %>/images/<%= k %>"><%= k %></a></li>
-              </ul></td>
-          </tr>
+  <div id="accordion">
+  
+        <% @flavors.each do |flavor| %>
+        <div class="card border-0">
+          <div id="<%= flavor %>" class="collapse" aria-labelledby="heading<%= flavor %>" data-parent="#accordion">
+            <div class="card-body p-3">
+              <div class="row w-100">
+                <% @data.select {|k,v| v[:flavor] == flavor }.each do |k,v| %>
+                <div class="text-center col">
+               
+                  <h5><%= v[:flavor] + " " + _("Image:") %></h5>
+                  <a href="https://download.opensuse.org/repositories/<%= @project %>/images/<%= k %>">
+                    <button class="mb-3 mr-3 w-100 btn btn-primary">
+                      <span class="typcn typcn-lg typcn-download"></span>
+                      <span><%= k %></span>
+                    </button>
+                  </a>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
         <% end %>
-      </table>
-    </div>
   </div>
 
 <% end %>
+</div>
+</div>

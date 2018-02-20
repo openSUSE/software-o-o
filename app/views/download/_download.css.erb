@@ -1,88 +1,37 @@
 <style type="text/css">
-  body {
-    <%= "background: #{@bcolor};" if defined?(@bcolor) %>
-    <%= "color: #{@fcolor};" if defined?(@fcolor) %>
-    font: 0.8em "DejaVu Sans", "Bitstream Vera Sans", Verdana, sans-serif;
-    margin: 16px;
-    margin-top: 0px;
-    padding: 0;
-  }
-  #soo_pkg a {
-    color: <%= defined?(@acolor) ? @acolor : '#00f' %>;
-  }
-  .soo_line {
-    color: <%= defined?(@hcolor) ? @hcolor : '#480' %>;
-    clear: both;
-    border-bottom: 1px solid rgb(128,128,128);
-    border-bottom: 1px solid rgba(128,128,128,0.25);
-    padding-top: 10px;
-    font-size: 1.1em;
-    display: none;
-    cursor: pointer;
-  }
-  .soo_line span {
-    float: right;
-  }
-  .soo_line_visible {
-    display: block;
-  }
-  .soo_button {
-    display: block;
-    float: left;
-    cursor: pointer;
-    border: 1px solid transparent;
-    padding: 3px 5px;
-    margin: 0 .5em 0 1em;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-  }
-  .soo_button:hover, .soo_button_chosen {
-    border: 1px solid rgb(128,128,128);
-    border: 1px solid rgba(128,128,128,0.25);
-    background: rgb(128,128,128);
-    background: rgba(128,128,128,0.1);
-  }
-  .soo_button p {
-    font-size: 1em;
-    text-align: center;
-    margin: 0;
-  }
-  .soo_ymplink {
-    color: white !important;
-    display: block;
-    margin: 6px;
-    line-height: 20px;
-    font-weight: bolder;
-    float: left;
-    text-decoration: none;
-    text-align: center;
-    -moz-border-radius: 12px;
-    border-radius: 12px;
-    padding-left: 8px;
-    padding-right: 8px;
-    <%= gradient('#9D0','#7B0','#580') %>
-    border: 1px solid #490;
-    min-width: 112px;
-    font-size: 1em;
-  }
-  #soo_repo pre {
-    background: rgb(128,128,128);
-    background: rgba(128,128,128,0.1);
-    border: 1px dotted #808080;
-    padding: 4px;
-    margin-left: 2em;
-    font-size: 1.2em;
-    overflow-x: auto;
-  }
-  #soo_repo pre a {
-    text-decoration: none;
-    color: #008;
-  }
-  .soo_distro {
-    display: none;
-  }
-  #soo_pkg li {
-    margin: 6px;
-  }
+body {
+  <%= "background: #{@bcolor};" if defined?(@bcolor) %>
+}
+h1, h2 {
+  
+  <%= "color: #{@fcolor};" if defined?(@fcolor) %>
+}
+body a, .btn-link {
+  color: <%= defined?(@acolor) ? @acolor : '#00a489' %>;
+}
+body a:hover, .btn-link:focus, .btn-link:hover {
+  color: <%= defined?(@hcolor) ? @hcolor : '#005849' %>;
+}
+.btn:focus, .btn.focus {
+  <%= "box-shadow: 0 0 0 2px #{@acolor};" if defined?(@acolor) %>;
+}
+.btn-primary {
+  border-color: <%= defined?(@acolor) ? @acolor : '#00a489' %>;
+  background: <%= defined?(@acolor) ? @acolor : '#00a489' %>;
+}
+.btn-primary:hover, btn-primary:focus {
+  background: <%= defined?(@hcolor) ? @hcolor : '#005849' %>;
+  border-color: <%= defined?(@hcolor) ? @hcolor : '#005849' %>;
+}
+html, body {
+  min-height:100vh;
+}
+body {
+  display: flex;
+  flex-flow: column;
+}
+#content {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
 </style>
-

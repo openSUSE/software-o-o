@@ -1,46 +1,106 @@
-
-<script type="text/javascript">
-  $(function() {
-
-    //$('.appstore-category-box').each( function(index) {
-    //  $(this).delay(100 * index).fadeIn('slow');
-    //});
-    
-  });
-
-</script>
-
-<div class="appstore-container grid_12 alpha omega">
-
-  <div class="box box-shadow grid_6 appstore-category-box alpha "
-       style="background: url('/assets/categories/games.gif') repeat scroll 0 0 #FFFFFF;">
-    <h2 class="box-header"><%= _("Games") %></h2>
-    <%= link_to "", {:controller => :package, :action => :category, :category =>"Games"}, :class => "appstore-category-box-hover" %>
-  </div>
-  <% @main_sections = @main_sections.delete_if{|section| section[:name] == "Games" } %>
-  <% @main_sections = @main_sections.delete_if{|section| section[:name] == "Multimedia" } %>
-
-
-  <% @main_sections.each do |section| %>
-    <% apps = @appdata[:apps].select{|app| !(app[:categories] & section[:categories]).blank? } %>
-    <div class="box box-shadow grid_3 appstore-category-box alpha"
-         style="background: url('/assets/categories/<%= section[:id].downcase %>_box.png') repeat scroll 0 0 #FFFFFF;">
-      <h2 class="box-header"><%=  section[:name]  %></h2>
-      <%= link_to "", {:controller => :package, :action => :category, :category => section[:id]}, :class => "appstore-category-box-hover" %>
-      <p>
-  <%# apps[0..16].each do |app| %>
-  <%# = link_to app[:name], :controller => :package, :action => :show, :package => app[:pkgname] %>
-  <%# end -%>
-      </p>
-    </div>
-
-  <% end %>
-
-
-  <div class="box box-shadow grid_6 appstore-category-box alpha "
-       style="background: url('/assets/categories/multimedia_wide.png') repeat scroll 0 0 #FFFFFF;">
-    <h2 class="box-header"><%= _("Multimedia") %></h2>
-    <%= link_to "", {:controller => :package, :action => :category, :category => "Multimedia" }, :class => "appstore-category-box-hover" %>
-  </div>
-
+<div class="container">
+<% apps = @appdata[:apps].select{|a| !a[:screenshots].blank? } %>
+<% if not apps.blank? %>
+<div id="featuredApps" class="carousel slide mb-5" data-ride="carousel">
+   <ol class="carousel-indicators">
+      <li data-target="#featuredApps" data-slide-to="0" class="active"></li>
+      <li data-target="#featuredApps" data-slide-to="1"></li>
+      <li data-target="#featuredApps" data-slide-to="2"></li>
+   </ol>
+   <div class="carousel-inner">
+      <% apps.sample(1).each do |package| %>
+      <div style="height: 400px;background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(<%= screenshot_thumb_url( package[:pkgname], package[:screenshots][0]) %>); background-size: 100%;" class="carousel-item active">
+         <div class="carousel-caption text-left">
+            <h1><%= package[:pkgname] %></h1>
+            <p><%= package[:summary] %></p>
+            <p><a class="btn btn-lg btn-primary" href="<%= url_for :controller => :package, :action => :show, :package => package[:pkgname] %>" role="button">Learn more</a></p>
+         </div>
+      </div>
+      <%end%>
+      <% apps.sample(2).each do |package| %>
+      <div style="height: 400px;background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(<%= screenshot_thumb_url( package[:pkgname], package[:screenshots][0]) %>); background-size: 100%;" class="carousel-item">
+         <div class="carousel-caption text-left">
+            <h1><%= package[:pkgname] %></h1>
+            <p><%= package[:summary] %></p>
+            <p><a class="btn btn-lg btn-primary" href="<%= url_for :controller => :package, :action => :show, :package => package[:pkgname] %>" role="button">Learn more</a></p>
+         </div>
+      </div>
+      <%end%>
+   </div>
+   <a class="carousel-control-prev" href="#featuredApps" role="button" data-slide="prev">
+   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+   <span class="sr-only">Previous</span>
+   </a>
+   <a class="carousel-control-next" href="#featuredApps" role="button" data-slide="next">
+   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+   <span class="sr-only">Next</span>
+   </a>
+</div>
+<%end%>
+<div class="row justify-content-center">
+   <% @main_sections.each do |section| %>
+   <% apps = @appdata[:apps].select{|a| !(a[:categories] & section[:categories]).blank? } %>
+   <%= link_to "", {:controller => :package, :action => :category, :category => section[:id]}, :class => "card-body" %>
+   <% if section[:name] == "Games" || section[:name] == "Multimedia"%>
+   <div class="col-md-5 card px-0 mr-2 mb-2"
+      >
+      <h4 class="card-header bg-primary text-white"><span class="mr-1 typcn typcn-md typcn-<%=
+      case section[:name]
+        when /Games/
+          'puzzle'
+        else
+          'film'
+      end
+      %>"></span><span><%= link_to section[:name] ,{:controller => :package, :action => :category, :category => section[:id]}, :class => "text-white" %></span></h4>
+      <div class="row">
+         <div class="col">
+            <ul class=" card-body nav flex-column">
+               <% apps[0..7].each do |package|
+                  appdata_pkg = @appdata[:apps].select{|a| a[:pkgname] == package}
+                  %>
+               <li class="nav-item">
+                  <%= link_to package[:name] ,{:controller => :package, :action => :show, :package => package[:pkgname]}, :class => "nav-link" %>
+               </li>
+               <% end -%>
+            </ul>
+         </div>
+         <div class="col">
+            <ul class="card-body nav flex-column">
+               <% apps[8..15].each do |package|
+                  appdata_pkg = @appdata[:apps].select{|a| a[:pkgname] == package}
+                  %>
+               <li class="nav-item">
+                  <%= link_to package[:name] ,{:controller => :package, :action => :show, :package => package[:pkgname]}, :class => "nav-link" %>
+               </li>
+               <% end -%>
+            </ul>
+         </div>
+      </div>
+      <% else %>
+      <div class="col-md-3 card px-0 mr-2 mb-2">
+         <h4 class="card-header bg-primary text-white"><span class="mr-1 typcn typcn-md typcn-<%=
+         case section[:name]
+           when /Development/
+             'keyboard'
+           when /Tools/
+             'spanner'
+           when /Education & Science/
+            'beaker'
+           else
+             'edit'
+         end
+         %>"></span><span><%= link_to section[:name] ,{:controller => :package, :action => :category, :category => section[:id]}, :class => "text-white" %></span></h4>
+         <ul class="card-body nav flex-column">
+            <% apps[0..8].each do |package|
+               appdata_pkg = @appdata[:apps].select{|a| a[:pkgname] == package}
+               %>
+            <li class="nav-item">
+               <%= link_to package[:name] ,{:controller => :package, :action => :show, :package => package[:pkgname]}, :class => "nav-link" %>
+            </li>
+            <% end -%>
+         </ul>
+         <% end %>
+      </div>
+      <% end -%>
+   </div>
 </div>

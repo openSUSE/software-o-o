@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= javascript_include_tag "//static.opensuse.org/themes/bento/js/jquery.js" %>
-
     <%= yield :content_for_head %>
-
+    <%= stylesheet_link_tag "/chameleon/css/app.css" %>
+    <%= stylesheet_link_tag "app" %>
+    <%= javascript_include_tag "/chameleon/js/app.js" %>
     <script type="text/javascript">
      /* <![CDATA[ */
     <%= yield :head_javascript %>

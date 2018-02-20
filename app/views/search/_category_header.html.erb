@@ -1,15 +1,16 @@
-
-<div class="rounded-corner gey box-shadow " id="category-header">
-  <span id="category-text"><%= @category %></span>
+<div id="category-header">
+  <h2><%= @category %></h2>
 </div>
 
 <% unless @related_categories.blank? %>
-  <div id="related-categories">
-    <p class="pkg-categorie-note">
-      <%= _("Related categories:") %>
+  <nav class="mb-3" id="related-categories">
+  <h5 class="text-center">Related categories</h5>
+    <ul class="nav justify-content-center">
       <% @related_categories[0..7].each do |cat| %>
-        <%= link_to cat[:name], :controller => :package, :action => :category, :category => cat[:name] %>
+        <li class="nav-item">
+        <%= link_to (cat[:name].split /(?=[A-Z][a-z])/).join(" "), { :controller => :package, :action => :category, :category => cat[:name]}, :class => "nav-link" %>
+        </li>
       <% end -%>
-    </p>
-  </div>
+    </ul>
+  </nav>
 <% end -%>

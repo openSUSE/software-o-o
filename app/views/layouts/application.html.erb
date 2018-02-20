@@ -14,7 +14,7 @@
     <%= stylesheet_link_tag "/chameleon/css/app.css" %>
     <%= stylesheet_link_tag "app" %>
     <%= javascript_include_tag "/chameleon/js/app.js" %>
-    <link href="//static.opensuse.org/themes/bento/images/favicon.png" rel="shortcut icon" />
+    <link href="https://software.opensuse.org/favicon.ico" rel="shortcut icon" />
     <%= javascript_include_tag "application"  %>
 
     <%= yield :content_for_head %>
@@ -54,6 +54,19 @@
         body {direction:rtl}
       </style>
     <% end %>
+    <style>
+      html, body {
+        min-height:100vh;
+      }
+      body {
+        display: flex;
+        flex-flow: column;
+      }
+      #content {
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+      }
+    </style>
 
   </head>
   <body>
