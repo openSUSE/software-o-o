@@ -17,7 +17,7 @@
 
 #### **Did you fix whitespace, format code, or make a purely cosmetic patch?**
 
-With the rubocop version we are pinned to, there should be no warnings, and the only way to fix "pending" violations we have with rules is to disable some "ignored" issues in '.rubocop_todo.yml', re-run rubocop, fix those issues, and commit both '.rubocop_todo.yml' and the fixes at the same time.
+With the rubocop version we are pinned to, there should be no warnings, and the only way to fix "pending" violations we have with rules is to disable some "ignored" issues in '.rubocop_todo.yml', re-run rubocop, fix those issues, and commit both '.rubocop_todo.yml' and the fixes at the same time. Please have one commit per "cop" type.
 
 If you are not going to fix all issues of a certain type on all files, but just on a subset, you can as well disable the ignore in '.rubocop_todo.yml' locally, fix the issues in a few files, and commit those, without committing '.rubocop_todo.yml', so that it keeps ignoring the files that still have the issue.
 
