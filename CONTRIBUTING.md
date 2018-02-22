@@ -33,6 +33,6 @@ Other changes that are cosmetic in nature and do not add anything substantial to
 
 * Do not open an issue on GitHub until you have collected positive feedback about the change. GitHub issues are primarily intended for bug reports and fixes.
 
-Thanks! :heart: :heart: :heart:
+Thanks! :green_heart: :green_heart: :green_heart:
 
 software.opensuse.org team
