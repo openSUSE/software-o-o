@@ -5,6 +5,8 @@
 Ruby on Rails application powering
 [https://software.opensuse.org](https://software.opensuse.org)
 
+We hope you'll get involved! Read our [Contributors' Guide](https://github.com/openSUSE/software-o-o/blob/master/CONTRIBUTING.md) for details.
+
 ## Installing dependencies in a (open)SUSE system
 
 ```console
