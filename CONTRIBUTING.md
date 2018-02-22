@@ -14,6 +14,7 @@
 * Open a new GitHub pull request with the patch.
 
 * Ensure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.
+* Screenshots are appreciated for visual changes.
 
 #### **Did you fix whitespace, format code, or make a purely cosmetic patch?**
 
