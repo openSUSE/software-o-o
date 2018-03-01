@@ -134,7 +134,6 @@ class DownloadController < ApplicationController
 
   def ymp_with_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
-    DownloadHistory.create :query => params[:query], :base => params[:base], :ymp => path
     res = Rails.cache.fetch("ymp_#{path}", :expires_in => 1.hour) do
       ApiConnect::get(path)
     end
@@ -143,7 +142,6 @@ class DownloadController < ApplicationController
 
   def ymp_without_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:package]}?view=ymp"
-    DownloadHistory.create :query => params[:query], :base => params[:base], :ymp => path
     res = Rails.cache.fetch("ymp_#{path}", :expires_in => 1.hour) do
       ApiConnect::get(path)
     end
