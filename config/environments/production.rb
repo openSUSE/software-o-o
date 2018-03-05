@@ -1,8 +1,6 @@
 SoftwareOO::Application.configure do
   config.cache_store = :mem_cache_store, 'localhost:11211', {namespace: 'software', compress: true}
 
-  config.log_level = :debug
-
   # disabled until we figure the static.opensuse.org magic
   # config.serve_static_files = false
 
@@ -23,8 +21,11 @@ SoftwareOO::Application.configure do
   config.eager_load = true
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
+    log_level        = String(ENV['RAILS_LOG_LEVEL'] || "warn").upcase
     logger           = ActiveSupport::Logger.new(STDOUT)
+    logger.level     = Logger.const_get(log_level)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
+    config.log_level = log_level
   end
 end
