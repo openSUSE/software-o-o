@@ -15,6 +15,9 @@ body a:hover, .btn-link:focus, .btn-link:hover {
 .btn:focus, .btn.focus {
   <%= "box-shadow: 0 0 0 2px #{@acolor};" if defined?(@acolor) %>;
 }
+.btn-pointer {
+  cursor: pointer;
+}
 .btn-primary {
   border-color: <%= defined?(@acolor) ? @acolor : '#00a489' %>;
   background: <%= defined?(@acolor) ? @acolor : '#00a489' %>;

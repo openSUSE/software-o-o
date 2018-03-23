@@ -9,7 +9,7 @@
       <h2><%= _("Select the image type") %></h2>
       <div class="row py-3">
         <% @flavors.each do |flavor| %>
-        <button class="col btn btn-link align-items-center p-0" id="<%= flavor %>_button" data-toggle="collapse" data-target="#<%= flavor %>" aria-expanded="false" aria-controls="<%= flavor %>">
+        <button class="col btn btn-link btn-pointer align-items-center p-0" id="<%= flavor %>_button" data-toggle="collapse" data-target="#<%= flavor %>" aria-expanded="false" aria-controls="<%= flavor %>">
            <img src="<%= image_path('download/' + flavor.downcase + '.png') %>" alt="<%= flavor %>" />
            <h6><%= flavor %></h6>
         </button>
