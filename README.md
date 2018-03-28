@@ -9,10 +9,25 @@ We hope you'll get involved! Read our [Contributors' Guide](https://github.com/o
 
 ## Installing dependencies in a (open)SUSE system
 
+We recommend the usage of Ruby 2.4 or higher for the development. 
+
+If you are an openSUSE Tumbleweed user, it comes with the latest Ruby releases as default so you can configure your environment doing: 
+
 ```console
 zypper ref
-zypper in ruby ruby-devel rubygem-bundler gcc make libxml2-devel libxslt-devel
+zypper in ruby ruby-devel rubygem-bundler nodejs gcc make libxml2-devel libxslt-devel
 ```
+
+On openSUSE Leap 42.3 you will need to install the Ruby 2.4 environment doing:
+
+```console
+zypper ref
+zypper in ruby2.4 ruby2.4-devel ruby2.4-rubygem-bundler nodejs6 gcc make libxml2-devel libxslt-devel
+```
+
+You can find more information about Ruby development and packaging on openSUSE distributions [here](https://en.opensuse.org/Ruby).
+
+
 
 ## Running the application locally
 
