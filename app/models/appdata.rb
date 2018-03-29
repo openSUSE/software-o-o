@@ -35,8 +35,13 @@ class Appdata
 
   # Get the appdata xml for a distribution
   def self.get_distribution(dist = 'factory', flavour = 'oss')
-    appdata_url = if dist == "factory"
-                    "http://download.opensuse.org/tumbleweed/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
+    appdata_url = case dist
+                  when "factory"
+                    index_url = "http://download.opensuse.org/tumbleweed/repo/#{flavour}/repodata/repomd.xml"
+                    repomd = Nokogiri::XML(open(index_url))
+                    repomd.remove_namespaces!
+                    href = repomd.xpath('/repomd/data[@type="appdata"]/location').attr('href').text
+                    "http://download.opensuse.org/tumbleweed/repo/#{flavour}/#{href}"
                   else
                     "http://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
                   end

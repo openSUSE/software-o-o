@@ -10,7 +10,7 @@ class AppdataTest < ActiveSupport::TestCase
   end
 
   test 'Missing appdata should not raise anything' do
-    stub_content("download.opensuse.org/tumbleweed/repo/oss/suse/setup/descr/appdata.xml.gz", status: [404, "Not found"])
+    stub_content("download.opensuse.org/tumbleweed/repo/oss/repodata/#{APPDATA_CHECKSUM}-appdata.xml.gz", status: [404, "Not found"])
     appdata = Appdata.get('factory')
     # Should at least include the standard searches
     assert_not_empty appdata[:apps]
