@@ -3,6 +3,7 @@
 
 require 'api_connect'
 require 'net/https'
+require 'nokogiri'
 
 class ApplicationController < ActionController::Base
 
@@ -12,7 +13,6 @@ class ApplicationController < ActionController::Base
   before_action :set_baseproject
 
   helper :all # include all helpers, all the time
-  require "rexml/document"
 
   class MissingParameterError < Exception; end
 
@@ -77,14 +77,13 @@ class ApplicationController < ActionController::Base
     @distributions = Array.new
     begin
       response = ApiConnect::get("public/distributions")
-      doc = REXML::Document.new response.body
-      doc.elements.each("distributions/distribution") { |element|
-        dist = Hash[:name => element.elements['name'].text, :project => element.elements['project'].text,
-          :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text,
-          :dist_id => element.attributes['id'].sub(".", "")]
-        @distributions << dist
-        logger.debug "Added Distribution: #{dist[:name]}"
-      }
+      doc = Nokogiri::XML(response.body)
+      @distributions = doc.xpath('/distributions/distribution').map do |dist|
+        h = dist.children.select(&:'element?').map {|el| [el.name.to_sym, el.text]}.to_h
+        h[:dist_id] = dist['id'].sub('.', '')
+        logger.debug "Added Distribution: #{h[:name]}"
+        h
+      end
       @distributions << Hash[:name => "ALL Distributions", :project => 'ALL']
     rescue Exception => e
       logger.error "Error while loading distributions: " + e.to_s

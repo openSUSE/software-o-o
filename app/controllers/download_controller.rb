@@ -1,3 +1,5 @@
+require 'rexml/document'
+
 class DownloadController < ApplicationController
 
   before_action :set_colors
