@@ -17,3 +17,11 @@ on_worker_boot do
     ObjectSpace.trace_object_allocations_start
   end
 end
+
+after_worker_fork do
+  require 'prometheus_exporter'  
+  require 'prometheus_exporter/instrumentation' # todo needed?
+#  client = PrometheusExporter::Client.new(host: '172.17.0.3')
+  PrometheusExporter::Instrumentation::Process.start(type:"web")
+end
+

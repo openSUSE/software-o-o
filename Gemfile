@@ -30,6 +30,8 @@ gem 'mini_magick'
 gem 'minitest'
 gem 'xmlhash', '>= 1.2.2'
 
+gem 'prometheus_exporter'
+
 # needed to collect translatable strings
 # not needed at production
 group :development do
