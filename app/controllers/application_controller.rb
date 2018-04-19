@@ -50,10 +50,8 @@ class ApplicationController < ActionController::Base
     # the short form without underscore
     unless LANGUAGES.include? requested_locale
       requested_locale = requested_locale.split('_').first
-      if LANGUAGES.include? requested_locale
-        params[:locale] = requested_locale
-        set_gettext_locale
-      end
+      params[:locale] = LANGUAGES.include?(requested_locale) ? requested_locale : 'en'
+      set_gettext_locale
     end
     @lang = FastGettext.locale
   end
