@@ -28,4 +28,6 @@ SoftwareOO::Application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
     config.log_level = log_level
   end
+
+  config.cache_classes = true
 end
