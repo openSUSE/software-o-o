@@ -1,3 +1,5 @@
+<% @page_title = _('openSUSE Appstore') -%>
+
 <div class="container">
 <% apps = @appdata[:apps].select{|a| !a[:screenshots].blank? } %>
 <% if not apps.blank? %>
