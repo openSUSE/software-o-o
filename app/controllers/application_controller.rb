@@ -83,7 +83,7 @@ class ApplicationController < ActionController::Base
         @distributions << dist
         logger.debug "Added Distribution: #{dist[:name]}"
       }
-      @distributions << Hash[:name => "ALL Distributions", :project => 'ALL']
+      @distributions.unshift(Hash[:name => "ALL Distributions", :project => 'ALL'])
     rescue Exception => e
       logger.error "Error while loading distributions: " + e.to_s
       @distributions = nil
