@@ -1,4 +1,11 @@
-<% @page_title = _("Search") -%>
+<% if @search_term == "" %>
+<% @page_title = _('openSUSE Software Search') -%>
+<% else if @category != "" && @search_term == "" %>
+<% @page_title = _("Category:") + " " + (@category.split /(?=[A-Z][a-z])/).join(" ") + " | " + _('openSUSE Software') -%>
+<% else %>
+<% @page_title = _("Searching for") + " " + @search_term + " | " + _('openSUSE Software') -%>
+<% end %>
+<% end %>
 
 <% unless @packagenames.nil? %>
   <%= render :partial => 'search/find_results' %>

@@ -1,5 +1,5 @@
 <div id="category-header">
-  <h2><%= @category %></h2>
+  <h2><%= (@category.split /(?=[A-Z][a-z])/).join(" ") %></h2>
 </div>
 
 <% unless @related_categories.blank? %>

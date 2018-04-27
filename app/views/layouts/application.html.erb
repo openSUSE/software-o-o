@@ -8,6 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Script-Type" content="text/javascript"/>
     <meta http-equiv="Content-Style-Type" content="text/css"/>
+    <meta name="theme-color" content="#73BA25">
 
     <link rel="search" type="application/opensearchdescription+xml" title="openSUSE Software" href="/search_software.xml" />
 
@@ -16,6 +17,26 @@
     <%= javascript_include_tag "/chameleon/js/app.js" %>
     <link href="https://software.opensuse.org/favicon.ico" rel="shortcut icon" />
     <%= javascript_include_tag "application"  %>
+
+    <!-- Meta data to help Facebook generate the right advertisement -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="<%= @page_title || _('openSUSE Software') %>">
+    <% if @packages.blank? %>
+      <meta property="og:description" content="Search and download openSUSE, Fedora, Ubuntu, Debian, Mageia, Arch, Scientific Linux, IBM zSystems, AppImage, Flatpak software">
+    <% else %>
+      <% if @packagenames.nil? %>
+      <% desc_package = search_for_description( @pkgname, @packages ) %>
+        <meta property="og:image" content="<%= @screenshot %>">
+        <% unless desc_package.blank? %>
+          <meta property="og:description" content="<%=  desc_package.summary %>">
+        <%else %>
+          <meta property="og:description" content="<%= _("No description.") %>">
+        <% end -%>
+      <% end %>
+    <% end -%>
+    <meta property="og:site_name" content="<%= _('openSUSE Software') %>">
+    <meta property="og:url" content="<%= request.original_url %>">
+    
 
     <%= yield :content_for_head %>
 

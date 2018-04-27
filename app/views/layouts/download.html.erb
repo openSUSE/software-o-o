@@ -8,6 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Script-Type" content="text/javascript"/>
     <meta http-equiv="Content-Style-Type" content="text/css"/>
+    <meta name="theme-color" content="#73BA25">
 
     <link rel="search" type="application/opensearchdescription+xml" title="openSUSE Software" href="/search_software.xml" />
 
@@ -16,6 +17,16 @@
     <%= javascript_include_tag "/chameleon/js/app.js" %>
     <link href="https://software.opensuse.org/favicon.ico" rel="shortcut icon" />
     <%= javascript_include_tag "application"  %>
+
+    <!-- Meta data to help Facebook generate the right advertisement -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="<%= @page_title || _('Get openSUSE') %>">
+    <meta property="og:site_name" content="openSUSE Software">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <% if !@page_image.nil? %>
+    <meta property="og:image" content="<%= root_url + @page_image %>">
+    <% end %>
+    <meta property="og:description" content="<%= @page_desc || _('openSUSE is completely free to download, use and share.') %>">
 
     <%= yield :content_for_head %>
 
