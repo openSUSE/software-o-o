@@ -7,3 +7,13 @@ preload_app!
 rackup      DefaultRackup
 port        ENV['PORT']     || 3000
 environment ENV['RACK_ENV'] || 'development'
+
+on_worker_boot do
+  if ENV['SOFTWARE_O_O_RBTRACE']
+    # Trace objects to generate heap dump in production
+    puts "Enabling rbtrace and object allocation tracing"
+    require 'rbtrace'
+    require 'objspace'
+    ObjectSpace.trace_object_allocations_start
+  end
+end
