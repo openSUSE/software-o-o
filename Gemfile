@@ -46,3 +46,6 @@ group :test do
   gem 'rubocop', "~> 0.49.0"
   gem 'webmock'
 end
+
+# Debugging gems
+gem 'rbtrace', require: false

@@ -62,6 +62,11 @@ Puma will honor other variables too:
 * `RAILS_MAX_THREADS`
 * `PORT`
 * `RACK_ENV`
+* `SOFTWARE_O_O_RBTRACE`
+
+### Debugging
+
+* If `SOFTWARE_O_O_RBTRACE` is set, you can use [rbtrace](https://github.com/tmm1/rbtrace) to debug the application.
 
 ### Memcache
 
