@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Greek (software-o-o)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-27 14:51+0000\n"
-"PO-Revision-Date: 2018-04-27 21:02+0000\n"
+"POT-Creation-Date: 2018-04-27 18:40+0000\n"
+"PO-Revision-Date: 2018-04-28 20:29+0000\n"
 "Last-Translator: Konstantina Tsolakoglou <konstantina@accountant.com>\n"
 "Language-Team: Greek "
 "<https://l10n.opensuse.org/projects/software-o-o/master/el/>\n"
@@ -237,23 +237,16 @@ msgid "Download"
 msgstr "Λήψη"
 
 #: ../app/controllers/download_controller.rb:36
-#, fuzzy
 msgid "Download appliance from %s"
 msgstr "Λήψη εφαρμογής από %s"
 
 #: ../app/views/distributions/index.html.erb:28
-#, fuzzy
-#| msgid ""
-#| "Download openSUSE’s regular release and enjoy the benefits\n"
-#| "              of both enterprise-grade engineering and community-"
-#| "developed innovation."
 msgid ""
 "Download openSUSE’s regular release and enjoy the benefits of both "
 "enterprise-grade engineering and community-developed innovation."
 msgstr ""
-"Κατεβάστε την τακτική έκδοση του openSUSE και απολαύστε τα οφέλη\n"
-"              της εταιρικού επιπέδου μηχανικής και της καινοτομίας από την "
-"κοινότητα."
+"Κατεβάστε την τακτική έκδοση του openSUSE και απολαύστε τα οφέλη της "
+"εταιρικού επιπέδου διανομή και της καινοτομίας από την κοινότητα."
 
 #: ../app/views/distributions/index.html.erb:18
 msgid ""
@@ -419,18 +412,16 @@ msgid ""
 "Help test openSUSE’s next version of Leap by downloading the latest "
 "development milestone."
 msgstr ""
+"Βοηθήστε στις δοκιμές της επόμενης έκδοσης Leap του openSUSE με λήψη της πιο "
+"πρόσφατης υπό ανάπτυξη έκδοσης."
 
 #: ../app/views/distributions/testing.html.erb:18
-#, fuzzy
-#| msgid ""
-#| "Download the latest version of openSUSE Leap, for desktop PCs, laptops, "
-#| "and servers."
 msgid ""
 "Help test the next version of openSUSE Leap, the regular-release "
 "distribution for desktop PCs, laptops, and servers."
 msgstr ""
-"Κατεβάστε την τελευταία έκδοση του openSUSE Leap, για προσωπικούς "
-"υπολογιστές, laptops, και servers."
+"Βοηθήστε δοκιμάζοντας την επόμενη έκδοση του openSUSE Leap, της τακτικής "
+"έκδοσης της διανομής για προσωπικούς υπολογιστές, φορητούς και διακομιστές."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
@@ -512,6 +503,7 @@ msgid ""
 "It is not expected to change in any significant way until its next annual "
 "release."
 msgstr ""
+"Δεν αναμένεται να αλλάξει σημαντικά μέχρι την επόμενη ετήσια κυκλοφορία."
 
 #: ../app/views/distributions/_verify_download.html.erb:18
 msgid "It should be %{fingerprint}"
@@ -536,6 +528,10 @@ msgid ""
 "changes are not expected for several years, aligned with each new Major "
 "Release (eg 12, 13, etc) of SUSE Linux Enterprise."
 msgstr ""
+"Η Leap μοιράζεται ένα κοινό σύστημα βάσης με το %{sles}, έτσι δεν "
+"αναμένονται μεγάλες αρχιτεκτονικές αλλαγές για αρκετά χρόνια, "
+"ευθυγραμμισμένη με κάθε νέα κύρια έκδοση (π.χ. 12, 13, κλπ) του SUSE Linux "
+"Enterprise."
 
 #: ../app/views/distributions/_documentation.html.erb:18
 msgid "License"
@@ -609,10 +605,8 @@ msgid "News"
 msgstr "Νέα"
 
 #: ../app/views/download/appliance.erb:2
-#, fuzzy
-#| msgid "No appliance data for %s"
 msgid "No appliance data for %{project}"
-msgstr "Δεν υπάρχουν δεδομένα μεταφορτώσεων για %s"
+msgstr "Δεν υπάρχουν δεδομένα εφαρμογής για %{project}"
 
 #: ../app/views/download/appliance.erb:47
 msgid "No appliances found in project %s"
@@ -639,10 +633,8 @@ msgid "No testing distribution available."
 msgstr "Δεν υπάρχει διαθέσιμη δοκιμαστική διανομή."
 
 #: ../app/views/distributions/tumbleweed.html.erb:200
-#, fuzzy
-#| msgid "Installation Medium"
 msgid "Not Tested|Tumbleweed installation media"
-msgstr "Μέσο Eγκατάστασης"
+msgstr "Μη  δοκιμασμένoΜέσο εγκατάστασης Tumbleweed"
 
 #: ../app/controllers/application_controller.rb:54
 msgid "OBS Backend not available"
@@ -711,6 +703,8 @@ msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
 "these LiveUSBs are working as expected."
 msgstr ""
+"Ανατρέξτε στα αποτελέσματα δοκιμών του %{openqa} αν θέλετε να μάθετε εάν "
+"αυτά τα LiveUSB λειτουργούν όπως αναμένεται."
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -826,10 +820,12 @@ msgid ""
 "These ports are not officially supported, and they are not as stable as "
 "official distributions."
 msgstr ""
+"Αυτές οι εκδόσεις δεν υποστηρίζονται επίσημα, και δεν είναι τόσο σταθερές "
+"όσο είναι οι επίσημες διανομές."
 
 #: ../app/views/distributions/tumbleweed.html.erb:199
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
-msgstr ""
+msgstr "Δεν ελέγχονται τόσο καλά όσο το %{tumbleweed_media}."
 
 #: ../app/views/distributions/tumbleweed.html.erb:196
 msgid ""
@@ -845,16 +841,22 @@ msgid ""
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not."
 msgstr ""
+"Έχουν περιορισμένη επιλογή πακέτου/οδηγού, οπότε δεν μπορεί να θεωρηθεί "
+"ακριβής προβληματισμός σχετικά με το εάν το Tumbleweed θα λειτουργήσει με το "
+"υλικό σας ή όχι."
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Εναλλαγή πλοήγησης"
 
 #: ../app/views/distributions/index.html.erb:61
 msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
 "Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
 msgstr ""
+"Η Tumbleweed συνίσταται για <strong>προγραμματιστές</strong>, <strong>"
+"συνεισφέροντες στο openSUSE</strong>, και <strong>λάτρεις του "
+"Linux/ΕΛΛΑΚ</strong>."
 
 #: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/tumbleweed.html.erb:26
