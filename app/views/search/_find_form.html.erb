@@ -2,16 +2,16 @@
   <div class="container">
     <%= form_tag( {:controller => 'search', :action => :index}, :method => :get ) do %>
       <div class="d-flex justify-content-center">
-        <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form", :class => 'form-control mr-2', :placeholder => 'Search packages...', :autocomplete => "off", :autofocus => true %>
+        <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form", :class => 'form-control mr-2', :placeholder => _('Search packages...'), :autocomplete => "off", :autofocus => true %>
         
         <button type="submit" class="btn btn-primary mr-2 hidden-sm-down">
           <span class="typcn typcn-lg typcn-zoom-outline"></span>
-          <span class="hidden-xs-down">Search</span>
+          <span class="hidden-xs-down"><%= _("Search") %></span>
         </button>
         
         <button type="button" class="btn btn-link" data-toggle="modal" data-target="#search-config-modal">
             <span class="typcn typcn-lg typcn-spanner-outline"></span>
-            <span class="hidden-xs-down">Settings</span>
+            <span class="hidden-xs-down"><%= _("Settings") %></span>
         </button>
 
       </div>
@@ -20,7 +20,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Package Search Options</h5>
+              <h5 class="modal-title" id="exampleModalLabel"><%= _("Search settings") %></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
               </button>
