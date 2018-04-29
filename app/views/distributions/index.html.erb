@@ -13,7 +13,7 @@
   <div class="card-deck">
     <div class="card">
       <%= image_tag 'distributions/tumbleweed.svg', alt: "Tumbleweed Logo", class: "card-img-top" %>
-      <div class="card-block">
+      <div class="card-body">
         <h4 class="card-title">openSUSE Tumbleweed</h4>
         <p class="card-text"><%= _('Download openSUSE’s rolling release and always run the latest packages provided by the openSUSE Project.') %></p>
       </div>
@@ -23,7 +23,7 @@
     </div>
     <div class="card">
       <%= image_tag 'distributions/leap.svg', alt: "Leap Logo", class: "card-img-top" %>
-      <div class="card-block">
+      <div class="card-body">
         <h4 class="card-title">openSUSE Leap</h4>
         <p class="card-text"><%= _('Download openSUSE’s regular release and enjoy the benefits of both enterprise-grade engineering and community-developed innovation.') %></p>
       </div>
@@ -34,7 +34,7 @@
 <% if @testing_version %>
     <div class="card">
       <%= image_tag 'distributions/testing.svg', alt: "Testing Logo", class: "card-img-top" %>
-      <div class="card-block">
+      <div class="card-body">
         <h4 class="card-title">openSUSE Testing</h4>
         <p class="card-text"><%= _('Help test openSUSE’s next version of Leap by downloading the latest development milestone.') %></p>
       </div>
