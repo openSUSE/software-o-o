@@ -1,3 +1,15 @@
+<%
+puts case @lang
+when 'zh_CN'
+  wiki_url = 'https://zh.opensuse.org/'
+when 'zh_TW'
+  wiki_url = 'https://zh-tw.opensuse.org/'
+when 'pt_BR'
+  wiki_url = 'https://pt.opensuse.org/'
+else
+  wiki_url = 'https://' + @lang + '.opensuse.org/'
+end
+%>
 <nav id="global-navbar" class="navbar navbar-expand-md navbar-toggleable navbar-dark bg-dark">
 
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +32,7 @@
                 <a class="nav-link" href="https://doc.opensuse.org/"><%= _("Documentation") %></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://en.opensuse.org/"><%= _("Wiki") %></a>
+                <a class="nav-link" href="<%= wiki_url %>"><%= _("Wiki") %></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="https://forums.opensuse.org/"><%= _("Forums") %></a>
