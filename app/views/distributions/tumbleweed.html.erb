@@ -69,7 +69,7 @@
               <a href="https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256" class="card-link"><%= _('Checksum') %></a>
             </div>
           </div><!-- /.card -->
-	  <div class="card">
+	        <div class="card">
             <div class="card-body">
               <h4 class="card-title">
                 <span class="typcn typcn-download-outline"></span>
@@ -192,14 +192,15 @@
       <div class="tab-pane" id="livecd-ports" role="tabpanel">
 
         <div class="alert alert-warning my-3">
-          <%= _('Please be aware of the following limitations of the live images:') %><br>
-	  <ul>
-	    <li> <%= _('They cannot be used to install or upgrade Tumbleweed. Please use the %{tumbleweed_media} instead.') %
-	    { tumbleweed_media: link_to(s_('Tumbleweed installation media'), tumbleweed_distributions_path) } %></li>
-	    <li><%= _('They have a limited package and driver selection, so cannot be considered an accurate reflection as to whether Tumbleweed will work on your hardware or not.') %></li>
+          <p><%= _('Please be aware of the following limitations of the live images:') %></p>
+	        <ul>
+	          <li><%= _('They cannot be used to install or upgrade Tumbleweed. Please use the %{tumbleweed_media} instead.') %
+	            { tumbleweed_media: link_to(s_('Tumbleweed installation media'), tumbleweed_distributions_path) } %></li>
+	          <li><%= _('They have a limited package and driver selection, so cannot be considered an accurate reflection as to whether Tumbleweed will work on your hardware or not.') %></li>
             <li><%= _('They are not tested as thoroughly as the %{tumbleweed_media}.') %
-	    { tumbleweed_media: link_to(s_('Tumbleweed installation media'), tumbleweed_distributions_path) } %></li>
-	    <li><%= _('Please review %{openqa}\'s test results if you want an indication whether these live medias are working as expected.') % { openqa: link_to('openQA', 'https://openqa.opensuse.org/') } %></li>
+	            { tumbleweed_media: link_to(s_('Tumbleweed installation media'), tumbleweed_distributions_path) } %></li>
+            <li><%= _('Please review %{openqa}\'s test results if you want an indication whether these live medias are working as expected.') % { openqa: link_to('openQA', 'https://openqa.opensuse.org/') } %></li>
+          </ul>
         </div>
 
         <h3 class="my-3">x86_64</h3>
@@ -282,6 +283,7 @@
           </div><!-- /.card -->
         </div><!-- /.card-deck -->
       </div><!-- /#unofficial-ports.tab-pane -->
+    </div><!-- /.tab-content -->
   </div><!-- /.container -->
 </section>
 
