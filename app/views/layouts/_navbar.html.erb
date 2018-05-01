@@ -19,15 +19,17 @@ end
 %>
 <nav id="global-navbar" class="navbar navbar-expand-md navbar-toggleable navbar-dark bg-dark">
 
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+  <a class="navbar-brand" href="https://www.opensuse.org/">
+    <img src="/chameleon/images/logo/logo-white.svg" width="48" height="30" class="d-inline-block align-top" alt="openSUSE Logo">
+  </a>
 
-    <a class="navbar-brand" href="https://www.opensuse.org/">
-        <img src="/chameleon/images/logo/logo-white.svg" width="48" height="30" class="d-inline-block align-top" alt="openSUSE Logo">
-    </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#global-navbar-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+    <div class="collapse navbar-collapse" id="global-navbar-content">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item <%= 'active' if defined?(activenav) && (activenav == 'download') %>">
                 <a class="nav-link" href="/"><%= _("Download") %></a>
