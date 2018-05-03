@@ -1,10 +1,13 @@
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require 'nokogiri'
+require 'faker'
 
 require 'capybara/rails'
 class ActionDispatch::SystemTestCase
   driven_by :selenium, using: :headless_firefox, screen_size: [1400, 1400]
 end
+Capybara.default_driver = :poltergeist
 
 require 'webmock/minitest'
 # Prevent webmock to prevent capybara to connect to localhost
@@ -23,6 +26,58 @@ class ActiveSupport::TestCase
 
   def stub_remote_file(url, filename)
     stub_content(url, body: File.read(Rails.root.join('test', 'support', filename)))
+  end
+
+  # Stubs a search for a term and a project with random data
+  # opts :matches sets the number of results, otherwise random
+  def stub_search_random(term, baseproject, opts = {})
+    xpath = "contains-ic(@name,%20'#{term}')%20and%20path/project='#{baseproject}'%20and%20not(contains-ic(@name,%20'-debuginfo'))%20and%20not(contains-ic(@name,%20'-debugsource'))%20and%20not(contains-ic(@name,%20'-devel'))%20and%20not(contains-ic(@name,%20'-lang'))"
+
+    matches = (opts[:matches] || (1..10).to_a.sample).to_i
+
+    builder = Nokogiri::XML::Builder.new do |xml|
+      xml.collection(matches: matches) do
+        matches.times.each do
+          pkg = term
+          bin = "#{pkg}-#{Faker::Lorem.unique.word}"
+          user = Faker::Internet.user_name
+          ver = "#{(1..10).to_a.sample}.#{(1..10).to_a.sample}"
+          rel = "#{(1..10).to_a.sample}.#{(1..10).to_a.sample}"
+          arch = ['x86_64', 'noarch'].sample
+          file = "#{bin}-#{ver}-#{rel}.#{arch}.rpm"
+          repo = baseproject.tr(':', '_')
+          project = "home:#{user}"
+          filepath = "#{project.gsub(':', ':/')}/#{repo}/#{arch}/#{file}"
+          xml.binary do
+            xml.name bin
+            xml.project project
+            xml.package pkg
+            xml.repository repo
+            xml.version ver
+            xml.release rel
+            xml.arch arch
+            xml.filename file
+            xml.filepath filepath
+            xml.baseproject project
+            xml.type 'rpm'
+          end
+          builder_fileinfo = Nokogiri::XML::Builder.new do |info_xml|
+            info_xml.fileinfo(filename: file) do
+              info_xml.name bin
+              info_xml.version ver
+              info_xml.release rel
+              info_xml.arch arch
+              info_xml.summary Faker::Lorem.sentence
+              info_xml.description Faker::Lorem.paragraph
+              info_xml.size 10_000
+              info_xml.mtime Time.now.to_i
+            end
+          end
+          stub_content("api.opensuse.org/published/#{project}/#{repo}/#{arch}/#{file}?view=fileinfo", builder_fileinfo.to_xml)
+        end
+      end
+    end
+    stub_content("api.opensuse.org/search/published/binary/id?match=#{xpath}", builder.to_xml)
   end
 
   APPDATA_CHECKSUM = "a63a63d45b002d5ff8f37c09315cda2c4a9d89ae698f56e95b92f1274332c157".freeze
