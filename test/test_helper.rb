@@ -2,8 +2,9 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 require 'capybara/rails'
-require 'capybara/poltergeist'
-Capybara.default_driver = :poltergeist
+class ActionDispatch::SystemTestCase
+  driven_by :selenium, using: :headless_firefox, screen_size: [1400, 1400]
+end
 
 require 'webmock/minitest'
 # Prevent webmock to prevent capybara to connect to localhost
@@ -42,15 +43,5 @@ class ActiveSupport::TestCase
 
   teardown do
     WebMock.reset!
-  end
-end
-
-class ActionDispatch::IntegrationTest
-  # Make the Capybara DSL available in all integration tests
-  include Capybara::DSL
-
-  teardown do
-    Capybara.reset_sessions!
-    Capybara.use_default_driver
   end
 end

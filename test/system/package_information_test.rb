@@ -1,7 +1,6 @@
 require File.expand_path('../../test_helper', __FILE__)
 
-class PackageInformationTest < ActionDispatch::IntegrationTest
-
+class PackageInformationTest < ActionDispatch::SystemTestCase
   def test_package_information
     # Check that package information is displayed
     visit '/package/pidgin'

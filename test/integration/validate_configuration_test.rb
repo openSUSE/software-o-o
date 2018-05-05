@@ -7,9 +7,9 @@ class ValidateConfigurationTest < ActionDispatch::IntegrationTest
     Rails.configuration.x.api_username = nil
     Rails.configuration.x.opensuse_cookie = nil
 
-    visit '/'
-    page.assert_text 'The authentication to the OBS API has not been configured correctly.'
-    assert_equal 503, page.status_code
+    get '/'
+    assert_includes body, 'The authentication to the OBS API has not been configured correctly.'
+    assert_equal 503, status
 
     # Restore normal configuration values for other tests
     Rails.configuration.x = x
