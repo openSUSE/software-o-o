@@ -30,7 +30,11 @@ SoftwareOO::Application.routes.draw do
     get 'appstore/:category' => :category, :constraints => { :category => /[\w\-\.: ]+/ }
   end
 
-  get '/download/:action(.:format)', :controller => 'download'
+  namespace 'download' do
+    %w(doc appliance package pattern).each do |action|
+      get action
+    end
+  end
   get 'ymp/:project/:repository/:package.ymp', to: 'download#ymp_without_arch_and_version',
       :constraints => { :project => /[\w\-\.:\+]+/, :repository => /[\w\-\.:\+]+/, :package => /[-+\w\.:\@]+/ }
   get 'ymp/:project/:repository/:arch/:binary.ymp', to: 'download#ymp_with_arch_and_version',
