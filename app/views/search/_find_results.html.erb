@@ -48,7 +48,7 @@
 
               <a class="card-img-top" style="background-image: url(<%= thumb_url %>)" href="<%= url_for :controller => :package, :action => :show, :package => package, :protocol => 'https' %>">
               </a>
-              <div class="card-block">
+              <div class="card-body">
                 <h4 class="card-title"><%= link_to highlight(package_name, @search_term), :controller => :package, :action => :show, :package => package  %></h4>
                 <p class="card-text">
                   <% 

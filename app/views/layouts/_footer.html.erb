@@ -45,24 +45,22 @@
           </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6">
+      <div class="footer-copyright-language-row">
+        <div class="footer-copyright">
           &copy; 2011&ndash;2017 <%= _("openSUSE contributors") %>
         </div>
-        <div class="col-md-6 text-right">
+        <div class="footer-language">
           Language <!-- This label should not be translated! -->
-          <div class="dropup dropup_language-menu d-inline-block">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-              <span class="selected-language"><%= LANGUAGE_NAMES[FastGettext.locale] %></span>
+          <div class="btn-group dropup language-menu">
+            <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+              <span class="selected-language"><%= LANGUAGE_NAMES[@lang] %></span>
               <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-right">
+            <div class="dropdown-menu dropdown-menu-right">
               <% LANGUAGES.sort.each do |lang| %>
-                <li class="dropdown-item">
-                  <%= link_to LANGUAGE_NAMES[lang], params.permit.merge(:locale => lang) %>
-                </li>
+                <%= link_to LANGUAGE_NAMES[lang], params.permit.merge(:locale => lang), class: "dropdown-item" %>
               <% end -%>
-            </ul>
+            </div>
           </div>
         </div>
       </div>

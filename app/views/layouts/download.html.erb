@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%= @lang %>" lang="<%= @lang %>">
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,18 +75,6 @@
 
     <% unless flash.blank? %>
       <%= render(:partial => "layouts/flash", :object => flash) %>
-    <% end %>
-
-
-    <% unless @hide_search_box %>
-      <%# Caching is really crucial in the front page (at release date, at least) %>
-    <% if controller.controller_name == "main" && controller.action_name == "release" %>
-        <% cache :locale => @lang, :baseproject => (@baseproject || default_baseproject) do %>
-          <%= render :partial => 'search/find_form' %>
-        <% end %>
-      <% else %>
-        <%= render :partial => 'search/find_form' %>
-      <% end %>
     <% end %>
 
     <%= yield %>
