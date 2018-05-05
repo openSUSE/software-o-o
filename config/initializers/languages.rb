@@ -8,14 +8,43 @@ Dir.glob("#{Rails.root.join('locale')}/*/software.po").each { |file|
    LANGUAGES << lang
 }
 
-LANGUAGE_NAMES = {'en' => 'English', 'de' => 'Deutsch', 'bg' => 'български', 'da' => 'dansk',
-                  'cs' => 'čeština', 'es' => 'español', 'fi' => 'suomi', 'fr' => 'français',
-                  'gl' => 'Galego', 'hu' => 'magyar', 'ja' => '日本語', 'it' => 'italiano',
-                  'km' => 'ភាសាខ្មែរ', 'ko' => '한국어 [韓國語]', 'lt' => 'lietuvių kalba', 'nb' => 'Bokmål',
-                  'nl' => 'Nederlands', 'pl' => 'polski', 'ro' => 'român', 'ru' => 'Русский язык',
-                  'sk' => 'slovenčina', 'th' => 'ภาษาไทย', 'uk' => 'Українська', 'wa' => 'walon',
-                  'pt_BR' => 'português', 'zh_TW' => '台語', 'zh_CN' => '简体中文',
-                  'el' => 'ελληνικά', 'ar' => 'العربية', 'ca' => 'Català'}
+LANGUAGE_NAMES = {
+  'ar' => 'العربية',
+  'bg' => 'български',
+  'ca' => 'Català',
+  'cs' => 'čeština',
+  'da' => 'dansk',
+  'de' => 'Deutsch',
+  'el' => 'ελληνικά',
+  'en' => 'English',
+  'es' => 'español',
+  'fa' => 'زبان فارسی',
+  'fi' => 'suomi',
+  'fr' => 'français',
+  'gl' => 'Galego',
+  'hi' => 'हिन्दी',
+  'hu' => 'magyar',
+  'id' => 'Bahasa Indonesia',
+  'it' => 'italiano',
+  'ja' => '日本語',
+  'km' => 'ភាសាខ្មែរ',
+  'ko' => '한국어 [韓國語]',
+  'lt' => 'lietuvių kalba',
+  'nb' => 'Bokmål',
+  'nl' => 'Nederlands',
+  'nn' => 'Norsk',
+  'pl' => 'polski',
+  'pt_BR' => 'português',
+  'ro' => 'român',
+  'ru' => 'Русский язык',
+  'sk' => 'slovenčina',
+  'sv' => 'Svenska',
+  'th' => 'ภาษาไทย',
+  'uk' => 'Українська',
+  'wa' => 'walon',
+  'zh_TW' => '繁體中文',
+  'zh_CN' => '简体中文',
+}
 
 # Use po files for development/test...
 FastGettext.add_text_domain('software', path: 'locale', type: :po, ignore_fuzzy: true, report_warning: false) unless Rails.env.production?
