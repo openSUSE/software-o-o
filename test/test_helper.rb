@@ -2,8 +2,13 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 require 'capybara/rails'
-require 'capybara/poltergeist'
-Capybara.default_driver = :poltergeist
+Capybara.register_driver :firefox_headless do |app|
+  options = ::Selenium::WebDriver::Firefox::Options.new
+  options.args << '--headless'
+
+  Capybara::Selenium::Driver.new(app, browser: :firefox, options: options)
+end
+Capybara.default_driver = :firefox_headless
 
 require 'webmock/minitest'
 # Prevent webmock to prevent capybara to connect to localhost
