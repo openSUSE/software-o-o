@@ -2,7 +2,7 @@ class PackageController < ApplicationController
 
   #before_action :set_beta_warning, :only => [:category, :categories]
   before_action :set_search_options, :only => %i[show categories]
-  before_action :prepare_appdata, :set_categories, :only => %i[show categories category]
+  before_action :prepare_appdata, :set_categories, :only => %i[show explore category]
 
   skip_before_action :set_language, :set_distributions, :set_baseproject, :only => %i[thumbnail screenshot]
 
@@ -55,7 +55,7 @@ class PackageController < ApplicationController
 
   end
 
-  def categories
+  def explore
   end
 
   def category
