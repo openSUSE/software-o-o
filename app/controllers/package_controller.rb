@@ -97,14 +97,17 @@ class PackageController < ApplicationController
     render :body => content, :content_type => 'image/png'
   end
 
+  # See https://specifications.freedesktop.org/menu-spec/1.0/apa.html
   def set_categories
     @main_sections = [
-      { :name => "Games", :id => "Games", :categories => ["Game"] },
-      { :name => "Education & Science", :id => "Education", :categories => ["Education", "Science"] },
-      { :name => "Development", :id => "Development", :categories => ["Development"] },
-      { :name => "Office & Productivity", :id => "Office", :categories => ["Office"] },
-      { :name => "Tools", :id => "Tools", :categories => ["Network", "Settings", "System", "Utility"] },
-      { :name => "Multimedia", :id => "Multimedia", :categories => ["AudioVideo", "Audio", "Video", "Graphics"] },
+      { :name => _("Games"), :id => "Games", :icon => "puzzle-outline", :categories => ["Game"] },
+      { :name => _("Development"), :id => "Development", :icon => "code-outline", :categories => ["Development"] },
+      { :name => _("Education & Science"), :id => "Education", :icon => "globe-outline", :categories => ["Education", "Science"] },
+      { :name => _("Multimedia"), :id => "Multimedia", :icon => "notes-outline", :categories => ["AudioVideo", "Audio", "Video"] },
+      { :name => _("Graphics"), :id => "Graphics", :icon => "brush", :categories => ["Graphics"] },
+      { :name => _("Office & Productivity"), :id => "Office", :icon => "document", :categories => ["Office"] },
+      { :name => _("Network"), :id => "Network", :icon => "world-outline", :categories => ["Network"] },
+      { :name => _("System & Utility"), :id => "Tools", :icon => "spanner-outline", :categories => ["Settings", "System", "Utility"] },
     ]
   end
 
