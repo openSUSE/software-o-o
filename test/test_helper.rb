@@ -31,10 +31,9 @@ class ActiveSupport::TestCase
   # Stubs a search for a term and a project with random data
   # opts :matches sets the number of results, otherwise random
   def stub_search_random(term, baseproject, opts = {})
-    xpath = "contains-ic(@name,%20'#{term}')%20and%20path/project='#{baseproject}'%20and%20not(contains-ic(@name,%20'-debuginfo'))%20and%20not(contains-ic(@name,%20'-debugsource'))%20and%20not(contains-ic(@name,%20'-devel'))%20and%20not(contains-ic(@name,%20'-lang'))"
-
     matches = (opts[:matches] || (1..10).to_a.sample).to_i
 
+    # rubocop:disable Metrics/BlockLength
     builder = Nokogiri::XML::Builder.new do |xml|
       xml.collection(matches: matches) do
         matches.times.each do
@@ -77,7 +76,14 @@ class ActiveSupport::TestCase
         end
       end
     end
-    stub_content("api.opensuse.org/search/published/binary/id?match=#{xpath}", builder.to_xml)
+    # rubocop:enable Metrics/BlockLength
+
+    xpath = %{
+    contains-ic(@name, '#{term}') and path/project='#{baseproject}' and
+      not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) and
+      not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))
+    }
+    stub_content("api.opensuse.org/search/published/binary/id?match=#{URI.escape(xpath)}", builder.to_xml)
   end
 
   APPDATA_CHECKSUM = "a63a63d45b002d5ff8f37c09315cda2c4a9d89ae698f56e95b92f1274332c157".freeze

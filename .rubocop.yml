@@ -11,13 +11,6 @@ AllCops:
     - 'script/**/*'
     - 'vendor/**/*'
 
-Metrics/BlockLength:
-  Exclude:
-    - 'test/test_helper.rb'
-Metrics/LineLength:
-  Exclude:
-    - 'test/test_helper.rb'
-
 # FIXME: Cop disabled as it Rubocop fails when enabling it. Enable it when the bug is solved.
 # Checks for array literals made up of word-like strings, that are not using the %w() syntax.    
 Style/WordArray:
