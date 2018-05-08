@@ -1,6 +1,6 @@
 SoftwareOO::Application.routes.draw do
 
-  root to: 'distributions#index'
+  root to: 'package#explore'
 
   resources :distributions, only: [:index] do
     collection do
