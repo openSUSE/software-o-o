@@ -42,8 +42,9 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'poltergeist'
+  gem 'geckodriver-helper'
   gem 'rubocop', "~> 0.49.0"
+  gem 'selenium-webdriver'
   gem 'webmock'
 end
 
