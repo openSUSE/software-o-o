@@ -43,10 +43,10 @@ class Appdata
                     href = repomd.xpath('/repomd/data[@type="appdata"]/location').attr('href').text
                     "http://download.opensuse.org/tumbleweed/repo/#{flavour}/#{href}"
                   else
-                    "http://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
+                    "http://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml"
                   end
     begin
-      Nokogiri::XML(Zlib::GzipReader.new(open(appdata_url)))
+      Nokogiri::XML(open(appdata_url))
     rescue StandardError => e
       Rails.logger.error e
       Rails.logger.error "Can't retrieve appdata from: '#{appdata_url}'"

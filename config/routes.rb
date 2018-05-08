@@ -24,8 +24,9 @@ SoftwareOO::Application.routes.draw do
     get 'package/thumbnail/:package.png' => :thumbnail, :constraints => { :package => /[-+\w\.:\@]+/ }
     get 'package/screenshot/:package.png' => :screenshot, :constraints => { :package => /[-+\w\.:\@]+/ }
 
-    get 'packages' => :categories
-    get 'appstore' => :categories
+    get 'explore' => :explore
+    get 'packages' => :explore
+    get 'appstore' => :explore
     get 'packages/:category' => :category, :constraints => { :category => /[\w\-\.: ]+/ }
     get 'appstore/:category' => :category, :constraints => { :category => /[\w\-\.: ]+/ }
   end
