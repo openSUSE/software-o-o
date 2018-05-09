@@ -82,7 +82,7 @@ class ActiveSupport::TestCase
     contains-ic(@name, '#{term}') and path/project='#{baseproject}' and
       not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) and
       not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))
-    }
+    }.squish
     stub_content("api.opensuse.org/search/published/binary/id?match=#{URI.escape(xpath)}", builder.to_xml)
   end
 
