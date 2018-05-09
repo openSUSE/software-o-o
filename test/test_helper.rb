@@ -7,7 +7,6 @@ require 'capybara/rails'
 class ActionDispatch::SystemTestCase
   driven_by :selenium, using: :headless_firefox, screen_size: [1400, 1400]
 end
-Capybara.default_driver = :poltergeist
 
 require 'webmock/minitest'
 # Prevent webmock to prevent capybara to connect to localhost
