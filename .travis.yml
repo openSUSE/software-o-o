@@ -9,3 +9,4 @@ rvm:
 script:
   - 'bundle exec rubocop -D'
   - 'bundle exec rails test'
+  - 'bundle exec rails test:system'
