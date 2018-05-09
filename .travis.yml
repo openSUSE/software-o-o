@@ -2,8 +2,11 @@ sudo: required
 dist: trusty
 language: ruby
 cache: bundler
+addons:
+  firefox: latest
 rvm:
   - 2.4.3
 script:
   - 'bundle exec rubocop -D'
   - 'bundle exec rails test'
+  - 'bundle exec rails test:system'

@@ -1,9 +1,12 @@
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require 'nokogiri'
+require 'faker'
 
 require 'capybara/rails'
-require 'capybara/poltergeist'
-Capybara.default_driver = :poltergeist
+class ActionDispatch::SystemTestCase
+  driven_by :selenium, using: :headless_firefox, screen_size: [1400, 1400]
+end
 
 require 'webmock/minitest'
 # Prevent webmock to prevent capybara to connect to localhost
@@ -24,6 +27,64 @@ class ActiveSupport::TestCase
     stub_content(url, body: File.read(Rails.root.join('test', 'support', filename)))
   end
 
+  # Stubs a search for a term and a project with random data
+  # opts :matches sets the number of results, otherwise random
+  def stub_search_random(term, baseproject, opts = {})
+    matches = (opts[:matches] || (1..10).to_a.sample).to_i
+
+    # rubocop:disable Metrics/BlockLength
+    builder = Nokogiri::XML::Builder.new do |xml|
+      xml.collection(matches: matches) do
+        matches.times.each do
+          pkg = term
+          bin = "#{pkg}-#{Faker::Lorem.unique.word}"
+          user = Faker::Internet.user_name
+          ver = "#{(1..10).to_a.sample}.#{(1..10).to_a.sample}"
+          rel = "#{(1..10).to_a.sample}.#{(1..10).to_a.sample}"
+          arch = ['x86_64', 'noarch'].sample
+          file = "#{bin}-#{ver}-#{rel}.#{arch}.rpm"
+          repo = baseproject.tr(':', '_')
+          project = "home:#{user}"
+          filepath = "#{project.gsub(':', ':/')}/#{repo}/#{arch}/#{file}"
+          xml.binary do
+            xml.name bin
+            xml.project project
+            xml.package pkg
+            xml.repository repo
+            xml.version ver
+            xml.release rel
+            xml.arch arch
+            xml.filename file
+            xml.filepath filepath
+            xml.baseproject project
+            xml.type 'rpm'
+          end
+          builder_fileinfo = Nokogiri::XML::Builder.new do |info_xml|
+            info_xml.fileinfo(filename: file) do
+              info_xml.name bin
+              info_xml.version ver
+              info_xml.release rel
+              info_xml.arch arch
+              info_xml.summary Faker::Lorem.sentence
+              info_xml.description Faker::Lorem.paragraph
+              info_xml.size 10_000
+              info_xml.mtime Time.now.to_i
+            end
+          end
+          stub_content("api.opensuse.org/published/#{project}/#{repo}/#{arch}/#{file}?view=fileinfo", builder_fileinfo.to_xml)
+        end
+      end
+    end
+    # rubocop:enable Metrics/BlockLength
+
+    xpath = %{
+    contains-ic(@name, '#{term}') and path/project='#{baseproject}' and
+      not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) and
+      not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))
+    }.squish
+    stub_content("api.opensuse.org/search/published/binary/id?match=#{URI.escape(xpath)}", builder.to_xml)
+  end
+
   APPDATA_CHECKSUM = "a63a63d45b002d5ff8f37c09315cda2c4a9d89ae698f56e95b92f1274332c157".freeze
   APPDATA_NON_OSS_CHECKSUM = "be1fe70d7bf5a73e1e0e9e4a8bd6ea84c752bef85b02b2e7ea97cb4ac232d353".freeze
 
@@ -42,15 +103,5 @@ class ActiveSupport::TestCase
 
   teardown do
     WebMock.reset!
-  end
-end
-
-class ActionDispatch::IntegrationTest
-  # Make the Capybara DSL available in all integration tests
-  include Capybara::DSL
-
-  teardown do
-    Capybara.reset_sessions!
-    Capybara.use_default_driver
   end
 end
