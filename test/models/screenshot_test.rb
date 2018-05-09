@@ -1,6 +1,7 @@
 require File.expand_path('../../test_helper', __FILE__)
 require 'faker'
 require 'fileutils'
+require 'mini_magick'
 
 class ScreenshotTest < ActiveSupport::TestCase
   test 'Screenshot with nil url should return default screenshot' do
@@ -14,13 +15,15 @@ class ScreenshotTest < ActiveSupport::TestCase
     assert_equal 'default-screenshots/devel-package.png', screenshot.thumbnail_path
   end
 
-  test 'Screenshot should work' do
+  test 'Screenshot should be able to get a correct thumbnail' do
     pkg = Faker::Lorem.word
     screenshot = Screenshot.new(pkg, Rails.root.join('test', 'support', 'screenshot.png'))
     begin
-      assert_equal "thumbnails/#{pkg}.png", screenshot.thumbnail_path
-    ensure
       thumbnail_full_path = File.join(Rails.root, "public", "images", screenshot.thumbnail_path)
+      assert_equal "thumbnails/#{pkg}.png", screenshot.thumbnail_path
+      image = MiniMagick::Image.open(thumbnail_full_path)
+      assert_equal 600, image.width
+    ensure
       FileUtils.rm_f thumbnail_full_path if File.exist?(thumbnail_full_path)
     end
   end
