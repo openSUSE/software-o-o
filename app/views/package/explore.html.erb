@@ -1,3 +1,6 @@
+<% @page_title = _('openSUSE Explore') -%>
+<% @page_desc = _('Discover new software with openSUSE Explore') -%>
+
 <div class="container">
 
   <% apps = @appdata[:apps].select{|a| !a[:screenshots].blank? } %>

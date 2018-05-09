@@ -4,6 +4,7 @@
 <% if @data.blank? %>
   <h2><%= _("No appliance data for %{project}") % { project: @project } %></h2>
 <% else %>
+  <% @page_title = _("Appliance download for %{project}") % { project: @project } -%>
   <% unless @flavors.blank? %>
     <h1 class="font-weight-normal"><%= _("<b>%s</b> project") % [@project] %></h1>
       <h2><%= _("Select the image type") %></h2>

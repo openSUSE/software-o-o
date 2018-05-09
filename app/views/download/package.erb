@@ -5,6 +5,7 @@
    <% if @data.blank? %>
    <h1 class="my-5"><%= _("No data for %s / %s") % [ @project, @package.nil? ? @pattern : @package] %></h1>
    <% else %>
+   <% @page_title = _("Package download for %s from %s") % [ @project, @package.nil? ? @pattern : @package] -%>
    <% unless @flavors.blank? %>
    <h1 class="font-weight-normal"><%= _("<b>%s</b> from <b>%s</b> project") % [ @package.nil? ? @pattern : @package, @project] %></h1>
    <h2 class="my-4"><%= _("Select Your Operating System") %></h2>

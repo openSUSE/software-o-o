@@ -7,6 +7,8 @@
   </div>
 
 <% else %>
+  <% @page_title = @pkgname + " | " + _('openSUSE Software') -%>
+  <% @page_image = @screenshot -%>
 
   <header class="my-5">
     <div class="container">
@@ -20,6 +22,7 @@
           <h1><%= @name || @pkgname %></h1>
           <% desc_package = search_for_description( @pkgname, @packages ) %>
           <% unless desc_package.blank? %>
+            <% @page_desc = desc_package.summary -%>
             <% unless @appcategories.blank? %>
               <p class="pkg-categorie-note">
                 <strong><%=  @appcategories.size > 1 ? _("Categories") : _("Category") %>:</strong>
