@@ -119,7 +119,6 @@ module NodeMatcher #:nodoc:
   #              :descendant => { :tag => "span",
   #                               :child => /hello world/ }
   def self.match(node, conditions)
-
     return false unless node
 
     case conditions
