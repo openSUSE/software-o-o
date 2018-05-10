@@ -1,6 +1,5 @@
 
 module NodeMatcher #:nodoc:
-
   class Conditions < Hash #:nodoc:
     def initialize(hash)
       super()
@@ -272,5 +271,4 @@ module NodeMatcher #:nodoc:
       false
     end
   end
-
 end

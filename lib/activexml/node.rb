@@ -3,7 +3,6 @@ require 'json'
 require 'xmlhash'
 
 module ActiveXML
-
   class GeneralError < StandardError; end
   class NotFoundError < GeneralError; end
   class CreationError < GeneralError; end
@@ -597,5 +596,4 @@ module ActiveXML
       Rails.cache.delete @cache_key if @cache_key
     end
   end
-
 end
