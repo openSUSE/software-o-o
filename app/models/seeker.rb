@@ -1,7 +1,6 @@
 require 'digest/md5'
 
 class Seeker < ActiveXML::Node
-
   def self.prepare_result(query, baseproject = nil, project = nil, exclude_filter = nil, exclude_debug = false)
     cache_key = query
     cache_key += "_#{baseproject}" if baseproject
@@ -314,7 +313,6 @@ class Seeker < ActiveXML::Node
         @quality = "" unless @quality
         @quality
       end
-
     end
 
     class Pattern < Item
@@ -347,7 +345,6 @@ class Seeker < ActiveXML::Node
           @description
         end
       end
-
     end
 
     class Fragment < Hash
@@ -383,6 +380,5 @@ class Seeker < ActiveXML::Node
         super(symbol, *args, &block)
       end
     end
-
   end
 end

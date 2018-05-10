@@ -10,7 +10,6 @@ module ActiveXML
   class ParseError < GeneralError; end
 
   class Node
-
     @@elements = {}
     @@xml_time = 0
 
@@ -18,7 +17,6 @@ module ActiveXML
     attr_reader :cache_key
 
     class << self
-
       def logger
         Rails.logger
       end
@@ -198,7 +196,6 @@ module ActiveXML
         @@object_cache.delete key
         Rails.cache.delete(key)
       end
-
     end
 
     #instance methods

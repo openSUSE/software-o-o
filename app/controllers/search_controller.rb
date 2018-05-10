@@ -1,5 +1,4 @@
 class SearchController < ApplicationController
-
   before_action :set_search_options
   before_action :prepare_appdata
 
@@ -52,5 +51,4 @@ class SearchController < ApplicationController
   end
 
   def find; end
-
 end

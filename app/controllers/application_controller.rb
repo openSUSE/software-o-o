@@ -5,7 +5,6 @@ require 'api_connect'
 require 'net/https'
 
 class ApplicationController < ActionController::Base
-
   before_action :validate_configuration
   before_action :set_language
   before_action :set_distributions
@@ -160,5 +159,4 @@ class ApplicationController < ActionController::Base
     flash.now[:info] = "This is a beta version of the new app browser, part of " +
       "the <a href='https://trello.com/board/appstream/4f156e1c9ce0824a2e1b8831'>current boosters sprint</a>!"
   end
-
 end

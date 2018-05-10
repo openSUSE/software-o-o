@@ -1,5 +1,4 @@
 class DownloadController < ApplicationController
-
   before_action :set_colors
   before_action :set_parameters
 
@@ -254,5 +253,4 @@ class DownloadController < ApplicationController
   def valid_color? color
     color =~ /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
   end
-
 end

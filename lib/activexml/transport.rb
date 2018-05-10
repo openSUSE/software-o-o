@@ -8,9 +8,7 @@ module ActiveXML
   end
 
   class Transport
-
     class Error < StandardError
-
       def parse!
         return @xml if @xml
 
@@ -408,6 +406,5 @@ module ActiveXML
       message = http_response.to_s if message.blank?
       raise Error, message.force_encoding("UTF-8")
     end
-
   end
 end

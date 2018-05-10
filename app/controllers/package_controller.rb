@@ -1,5 +1,4 @@
 class PackageController < ApplicationController
-
   #before_action :set_beta_warning, :only => [:category, :categories]
   before_action :set_search_options, :only => %i[show categories]
   before_action :prepare_appdata, :set_categories, :only => %i[show explore category]
@@ -110,5 +109,4 @@ class PackageController < ApplicationController
       { :name => _("System & Utility"), :id => "Tools", :icon => "spanner-outline", :categories => ["Settings", "System", "Utility"] },
     ]
   end
-
 end

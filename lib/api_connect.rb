@@ -1,5 +1,4 @@
 class ApiConnect
-
   class Error < Exception; end
 
   def self.get(path, limit = 10)
@@ -40,5 +39,4 @@ class ApiConnect
   def self.logger
     Rails.logger
   end
-
 end
