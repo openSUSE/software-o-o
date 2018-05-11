@@ -45,6 +45,23 @@ bundle exec rails s
 
 Enjoy your software.opensuse.org clone at http://127.0.0.1:3000/
 
+You can also run the _unit tests_ locally using the command:
+
+```bash
+bundle exec rails test
+```
+and also the _System Tests_ that will simulate user interaction using a headless browser:
+
+```bash
+bundle exec rails test:system
+```
+**IMPORTANT**: For the _System Tests_, the project is configured to use _Firefox Headless Mode_ feature, available on:
+
+- **Linux:** Firefox 55 or higher;
+- **Windows/Mac:** Firefox 56 or higher.
+
+See more [here.](https://developer.mozilla.org/en-US/Firefox/Headless_mode)
+
 ## Running the application in production
 
 The application will take the following environment variables:
