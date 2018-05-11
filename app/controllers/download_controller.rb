@@ -1,5 +1,4 @@
 class DownloadController < ApplicationController
-
   before_action :set_colors
   before_action :set_parameters
 
@@ -26,7 +25,6 @@ class DownloadController < ApplicationController
           if (ext.include? File.extname(filename))
             data[filename] = { :flavor => get_image_type(filename) }
           end
-
         end
         if api_result_iso
           dociso = REXML::Document.new api_result_iso.body
@@ -96,7 +94,6 @@ class DownloadController < ApplicationController
 
     cache_key = "soo_download_#{@project}_#{@pattern}"
     @data = Rails.cache.fetch(cache_key, :expires_in => 10.minutes) do
-
       # api_result = ApiConnect::get("/search/published/pattern/id?match=project='#{@project}'+and+filename='#{@pattern}.ymp'")
       # TODO: workaround - the line above does not return a thing - see https://lists.opensuse.org/opensuse-buildservice/2011-07/msg00088.html
       # so we search for all files of the project and filter for *.ymp below
@@ -256,5 +253,4 @@ class DownloadController < ApplicationController
   def valid_color? color
     color =~ /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
   end
-
 end

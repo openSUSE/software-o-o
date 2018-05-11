@@ -2,7 +2,6 @@ require 'open-uri'
 require 'zlib'
 
 class Appdata
-
   def self.get(dist = 'factory')
     data = Hash.new
     xml = Appdata.get_distribution(dist, 'oss')
@@ -53,5 +52,4 @@ class Appdata
       Nokogiri::XML('<?xml version="1.0" encoding="UTF-8"?><components origin="appdata" version="0.8"></components>')
     end
   end
-
 end
