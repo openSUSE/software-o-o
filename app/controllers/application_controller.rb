@@ -57,8 +57,13 @@ class ApplicationController < ActionController::Base
   end
 
   def set_distributions
-    @distributions = Rails.cache.fetch('distributions', :expires_in => 120.minutes) do
-      load_distributions
+    begin
+      @distributions = Rails.cache.fetch('distributions',
+                                         :expires_in => 120.minutes) do
+        load_distributions
+      end
+    rescue
+      @distributions = nil
     end
     raise ApiConnect::Error.new(_("OBS Backend not available")) if @distributions.nil?
   end
@@ -72,7 +77,7 @@ class ApplicationController < ActionController::Base
   # load available distributions
   def load_distributions
     logger.debug "Loading distributions"
-    @distributions = Array.new
+    distributions = Array.new
     begin
       response = ApiConnect::get("public/distributions")
       doc = REXML::Document.new response.body
@@ -80,15 +85,15 @@ class ApplicationController < ActionController::Base
         dist = Hash[:name => element.elements['name'].text, :project => element.elements['project'].text,
           :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text,
           :dist_id => element.attributes['id'].sub(".", "")]
-        @distributions << dist
+        distributions << dist
         logger.debug "Added Distribution: #{dist[:name]}"
       }
-      @distributions.unshift(Hash[:name => "ALL Distributions", :project => 'ALL'])
+      distributions.unshift(Hash[:name => "ALL Distributions", :project => 'ALL'])
     rescue Exception => e
       logger.error "Error while loading distributions: " + e.to_s
-      @distributions = nil
+      raise
     end
-    return @distributions
+    return distributions
   end
 
   # special version of render json with JSONP capabilities (only needed for rails < 3.0)
