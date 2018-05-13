@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%= "#{@page_title} | #{_('Get openSUSE')}" || _('Get openSUSE') %></title>
+    <title><%= @page_title ? "#{@page_title} | #{_('Get openSUSE')}" : _('Get openSUSE') %></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Script-Type" content="text/javascript"/>
     <meta http-equiv="Content-Style-Type" content="text/css"/>
@@ -19,7 +19,7 @@
 
     <!-- Meta data to help Facebook generate the right advertisement -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="<%= "#{@page_title} | #{_('Get openSUSE')}" || _('Get openSUSE') %>">
+    <meta property="og:title" content="<%= @page_title ? "#{@page_title} | #{_('Get openSUSE')}" : _('Get openSUSE') %>">
     <meta property="og:description" content="<%= @page_desc || _('openSUSE is completely free to download, use and share. Get it!) %>">
     <meta property="og:site_name" content="<%= _('openSUSE Software') %>">
     <meta property="og:url" content="<%= request.original_url %>">
