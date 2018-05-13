@@ -1,9 +1,9 @@
 class DistributionsController < ApplicationController
-  before_action :set_parameters, only: %i[index testing]
+  before_action :set_testing, only: %i[index testing]
 
-  def set_parameters
-    @testing_version = '15.0'
-    @testing_state = 'RC'
+  def set_testing
+    @testing_version = current_release[:testing_version]
+    @testing_state = current_release[:testing_state]
   end
 
   # GET /distributions

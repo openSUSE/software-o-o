@@ -12,7 +12,9 @@ class ImagesController < ApplicationController
   class MetadataError < RuntimeError; end
 
   # GET /images.xml
-  def images; end
+  def images
+    @testing_version = current_release[:testing_version]
+  end
 
   # Returns the first capture of regex applied to the file name of URL's redirection target
   def get_version(url, regex)
