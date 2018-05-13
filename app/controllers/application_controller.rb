@@ -32,6 +32,15 @@ class ApplicationController < ActionController::Base
     render :template => 'error', :formats => [:html], :layout => layout, :status => 400
   end
 
+  def current_release
+    { 
+      version: '42.3',
+      testing_version: '15',
+      testing_state: 'RC',
+      legacy_release: '42.2'
+    }
+  end
+
   def validate_configuration
     config = Rails.configuration.x
     layout = request.xhr? ? false : "application"
