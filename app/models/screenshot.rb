@@ -108,14 +108,7 @@ protected
 
   def fetch
     Rails.logger.debug("Fetching screenshot from #{source_url}")
-    begin
-      content = open(source_url, "rb", :read_timeout => 6)
-    rescue Exception => e
-      # redirects will fail https://bugs.ruby-lang.org/issues/859 so try to follow
-      url_regex = /https?:\/\/[\S]+/
-      redirect_url = e.to_s.scan(url_regex).last
-      content = open(redirect_url, "rb", :read_timeout => 6)
-    end
+    content = open(source_url, "rb", :read_timeout => 6)
     generate_thumbnail(content)
     Rails.cache.write(cache_key, content.read)
   ensure
