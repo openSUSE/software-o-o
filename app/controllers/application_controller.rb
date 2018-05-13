@@ -33,12 +33,9 @@ class ApplicationController < ActionController::Base
   end
 
   def current_release
-    { 
-      version: '42.3',
-      testing_version: '15',
-      testing_state: 'RC',
-      legacy_release: '42.2'
-    }
+    Rails.configuration.releases.reject{ |release_hash| release_hash[:from] > Time.now }
+                                .sort_by{ |release_hash| release_hash[:from]}
+                                .last
   end
 
   def validate_configuration
