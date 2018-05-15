@@ -1,7 +1,7 @@
 class PackageController < ApplicationController
   #before_action :set_beta_warning, :only => [:category, :categories]
   before_action :set_search_options, :only => %i[show categories]
-  before_action :prepare_appdata, :set_categories, :only => %i[show explore category]
+  before_action :prepare_appdata, :set_categories, :only => %i[show explore category thumbnail screenshot]
 
   skip_before_action :set_language, :set_distributions, :set_baseproject, :only => %i[thumbnail screenshot]
 
@@ -33,8 +33,8 @@ class PackageController < ApplicationController
       @appscreenshot = pkg_appdata.first[:screenshots].first
     end
 
-    @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, :appscreen => @appscreenshot, protocol: request.protocol
-    @thumbnail = url_for :controller => :package, :action => :thumbnail, :package => @pkgname, :appscreen => @appscreenshot, protocol: request.protocol
+    @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, protocol: request.protocol
+    @thumbnail = url_for :controller => :package, :action => :thumbnail, :package => @pkgname, protocol: request.protocol
 
     # remove maintenance projects
     @packages.reject!{|p| p.project.match(/openSUSE\:Maintenance\:/) }
@@ -54,6 +54,11 @@ class PackageController < ApplicationController
   end
 
   def explore
+    # Workaround to know in advance non-cached screenshots
+    # Ideally the apps structure should include Screenshot objects from the beginning
+    @apps = @appdata[:apps].reject do |a|
+      a[:screenshots].blank? || !Screenshot.new(a[:pkgname], a[:screenshots][0]).thumbnail_generated?
+    end
   end
 
   def category
@@ -77,22 +82,37 @@ class PackageController < ApplicationController
 
   def screenshot
     required_parameters :package
-    image params[:package], "screenshot", params[:appscreen]
+    image params[:package], :screenshot
   end
 
   def thumbnail
     required_parameters :package
-    image params[:package], "thumbnail", params[:appscreen]
+    image params[:package], :thumbnail
   end
 
   private
 
-  def image pkgname, type, image_url
-    response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
-    response.headers['Content-Disposition'] = 'inline'
-    screenshot = Screenshot.new(pkgname, image_url)
-    content = screenshot.blob(type.to_sym)
-    render :body => content, :content_type => 'image/png'
+  def image(pkgname, type)
+    apps = @appdata[:apps].reject{|a| a[:screenshots].blank? }
+    packages = apps.select {|p| p[:pkgname] == pkgname}
+    image_url = begin
+                  packages[0][:screenshots][0]
+                rescue
+                  nil
+                end
+
+    if type == :screenshot && image_url
+      redirect_to image_url
+    else
+      # a screenshot object with nil url returns default thumbnails
+      screenshot = Screenshot.new(pkgname, image_url)
+      path = screenshot.thumbnail_path(fetch: false)
+      if type == :screenshot && !image_url
+        head 404, "content_type" => 'text/plain'
+      else
+        redirect_to '/' + path
+      end
+    end
   end
 
   # See https://specifications.freedesktop.org/menu-spec/1.0/apa.html

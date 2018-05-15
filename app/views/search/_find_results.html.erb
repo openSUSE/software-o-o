@@ -40,7 +40,7 @@
           package_name = appdata_pkg.first[:name] unless ( appdata_pkg.blank? || appdata_pkg.first[:name].blank? )
           package_img = nil
           package_img = appdata_pkg.first[:screenshots].first unless ( appdata_pkg.blank? || appdata_pkg.first[:screenshots].blank? )
-          thumb_url = screenshot_thumb_url(package, package_img)
+          thumb_url = screenshot_thumb_url(package)
         %>
 
           <div class="col-sm-6 col-md-4">

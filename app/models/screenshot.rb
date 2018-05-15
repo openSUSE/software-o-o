@@ -27,100 +27,54 @@ class Screenshot
   #
   # @return [String]
   def thumbnail_path(fetch: true)
-    if cached?
-      thumbnail_file_path(fullpath: false)
-    elsif source_url.nil?
-      default_file_path(fullpath: false)
-    elsif fetch
-      begin
-        self.fetch
-        thumbnail_file_path(fullpath: false)
+    begin
+      generate_thumbnail unless cached? || !fetch || !source_url
+    # This is sensitive enough (depending on an external system) to
+    # justify an agressive rescue. #open can produce the following
+    # rescue Errno::ETIMEDOUT, Net::ReadTimeout, OpenURI::HTTPError => e
+    # And also there is a chance of exception generating the thumbnail
+    rescue Exception => e
+      raise unless Rails.env.production?
+      Rails.logger.debug("No screenshot fetched for: " + pkg_name)
+    end
 
-      # This is sensitive enough (depending on an external system) to
-      # justify an agressive rescue. #open can produce the following
-      # rescue Errno::ETIMEDOUT, Net::ReadTimeout, OpenURI::HTTPError => e
-      # And also there is a chance of exception generating the thumbnail
-      rescue Exception => e
-        raise unless Rails.env.production?
-        Rails.logger.debug("No screenshot fetched for: " + pkg_name)
-        default_file_path(fullpath: false)
-      end
+    if cached?
+      generated_thumbnail_path
     else
-      nil
+      default_thumbnail_path
     end
   end
 
-  # Image content ready to be served.
+  # @return [Boolean] true if a proper thumbnail is available (not a default thumbnail)
   #
-  # If the content is already available locally, it will be served from the
-  # cache. Otherwise, it will be downloaded and processed first.
-  #
-  # @param type [Symbol] :thumbnail or :screenshot
-  def blob(type = :screenshot)
-    if cached?
-      cached_blob(type)
-    elsif source_url.nil?
-      default_blob
-    else
-      begin
-        fetch
-        cached_blob(type)
-
-      # This is sensitive enough (depending on an external system) to
-      # justify an agressive rescue. #open can produce the following
-      # rescue Errno::ETIMEDOUT, Net::ReadTimeout, OpenURI::HTTPError => e
-      # And also there is a chance of exception generating the thumbnail
-      rescue Exception => e
-        raise unless Rails.env.production?
-        Rails.logger.debug("No screenshot fetched (blob) for: " + pkg_name)
-        default_blob
-      end
-    end
+  # This is useful for carousel screenshots, where we don't want to show default thumbnails.
+  def thumbnail_generated?
+    cached?
   end
 
 protected
 
   def cached?
-    Rails.cache.exist? cache_key
+    File.exist?(File.join(Rails.root, "public", generated_thumbnail_path))
   end
 
-  def cached_blob(type)
-    if type == :thumbnail
-      open(thumbnail_file_path, "rb", &:read)
-    else
-      Rails.cache.read(cache_key)
-    end
-  end
-
-  def default_blob
-    open(default_file_path, "rb", &:read)
-  end
-
-  def cache_key
-    "t:screenshot-p:#{pkg_name}"
-  end
-
-  def generate_thumbnail(content)
-    img = MiniMagick::Image.read(content)
-    img.resize THUMBNAIL_WIDTH
-    img.write thumbnail_file_path
-  end
-
-  def fetch
+  def generate_thumbnail
     Rails.logger.debug("Fetching screenshot from #{source_url}")
-    content = open(source_url, "rb", :read_timeout => 6)
-    generate_thumbnail(content)
-    Rails.cache.write(cache_key, content.read)
-  ensure
-    content.close if content && !content.closed?
+    img = MiniMagick::Image.open(source_url)
+    img.resize THUMBNAIL_WIDTH
+    file_path = File.join(Rails.root, "public", generated_thumbnail_path)
+    img.write file_path
   end
 
-  def thumbnail_file_path(fullpath: true)
-    file = "thumbnails/#{pkg_name}.png"
-    fullpath ? File.join(Rails.root, "public", "images", file) : file
+  # Path to the generated thumbnail image
+  # This is served from /public, and not from the asset pipeline.
+  def generated_thumbnail_path
+    "images/thumbnails/#{pkg_name}.png"
   end
 
-  def default_file_path(fullpath: true)
+  # Default thumbnail path, based on the package name.
+  # This is served from the asset pipeline.
+  def default_thumbnail_path
     file = case pkg_name
     when /-devel$/
       "devel-package.png"
@@ -165,10 +119,6 @@ protected
     else
       "package.png"
     end
-    if fullpath
-      File.join(Rails.root, "app/assets/images/default-screenshots", file)
-    else
-      "default-screenshots/#{file}"
-    end
+    "assets/default-screenshots/#{file}"
   end
 end
