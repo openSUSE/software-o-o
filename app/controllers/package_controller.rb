@@ -30,7 +30,6 @@ class PackageController < ApplicationController
       @name = pkg_appdata.first[:name]
       @appcategories = pkg_appdata.first[:categories]
       @homepage = pkg_appdata.first[:homepage]
-      @appscreenshot = pkg_appdata.first[:screenshots].first
     end
 
     @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, protocol: request.protocol
