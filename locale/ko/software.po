@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: software-opensuse-org.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-17 14:54+0100\n"
+"POT-Creation-Date: 2018-05-16 16:41+0300\n"
 "PO-Revision-Date: 2010-08-31 02:22+0900\n"
 "Last-Translator: Yunseok Choi <xein@naver.com>\n"
 "Language-Team: Korean <xein@naver.com>\n"
@@ -30,14 +30,6 @@ msgid ""
 "release new versions of their software."
 msgstr ""
 
-#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
-msgid "(hide)"
-msgstr ""
-
-#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
-msgid "(show)"
-msgstr ""
-
 #: ../app/views/package/_download_rows.html.erb:49
 #, fuzzy
 #| msgid "1-Click Install"
@@ -52,6 +44,14 @@ msgstr ""
 msgid "2 Ghz dual core processor or better"
 msgstr ""
 
+#: ../app/views/download/package.erb:9
+msgid "<b>%s</b> from <b>%s</b> project"
+msgstr ""
+
+#: ../app/views/download/appliance.erb:8
+msgid "<b>%s</b> project"
+msgstr ""
+
 #: ../app/views/package/_download_rows.html.erb:3
 #, fuzzy
 msgid "<b>official release</b>"
@@ -62,14 +62,15 @@ msgstr "공식 설명서"
 msgid "<b>official update</b>"
 msgstr "중요하지 않은 업데이트"
 
-#: ../app/views/download/package.erb:84
+#: ../app/views/download/package.erb:37
 msgid "Add repository and install manually"
 msgstr ""
 
-#: ../app/views/download/appliance.erb:52
-#, fuzzy
-msgid "Available Images"
-msgstr "사용 가능한 업데이트"
+#: ../app/views/images/images.xml.erb:31 ../app/views/images/images.xml.erb:41
+#: ../app/views/images/images.xml.erb:55 ../app/views/images/images.xml.erb:65
+#: ../app/views/images/images.xml.erb:75
+msgid "Architecture"
+msgstr ""
 
 #: ../app/views/package/show.html.erb:5
 msgid "Back to home page"
@@ -109,6 +110,10 @@ msgstr "범주"
 #: ../app/views/distributions/leap.html.erb:101
 #: ../app/views/distributions/leap.html.erb:119
 #: ../app/views/distributions/leap.html.erb:133
+#: ../app/views/distributions/testing.html.erb:53
+#: ../app/views/distributions/testing.html.erb:67
+#: ../app/views/distributions/testing.html.erb:87
+#: ../app/views/distributions/testing.html.erb:100
 #: ../app/views/distributions/tumbleweed.html.erb:55
 #: ../app/views/distributions/tumbleweed.html.erb:69
 #: ../app/views/distributions/tumbleweed.html.erb:83
@@ -118,14 +123,12 @@ msgstr "범주"
 #: ../app/views/distributions/tumbleweed.html.erb:154
 #: ../app/views/distributions/tumbleweed.html.erb:172
 #: ../app/views/distributions/tumbleweed.html.erb:186
-#: ../app/views/distributions/tumbleweed.html.erb:215
-#: ../app/views/distributions/tumbleweed.html.erb:227
-#: ../app/views/distributions/tumbleweed.html.erb:239
-#: ../app/views/distributions/tumbleweed.html.erb:255
-#: ../app/views/distributions/tumbleweed.html.erb:267
-#: ../app/views/distributions/tumbleweed.html.erb:279
-#: ../app/views/distributions/testing.html.erb:34
-#: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/tumbleweed.html.erb:217
+#: ../app/views/distributions/tumbleweed.html.erb:229
+#: ../app/views/distributions/tumbleweed.html.erb:241
+#: ../app/views/distributions/tumbleweed.html.erb:257
+#: ../app/views/distributions/tumbleweed.html.erb:269
+#: ../app/views/distributions/tumbleweed.html.erb:281
 #, fuzzy
 #| msgid "md5 checksum"
 msgid "Checksum"
@@ -150,14 +153,19 @@ msgstr ""
 msgid "Community"
 msgstr "커뮤니티"
 
+#: ../app/views/distributions/tumbleweed.html.erb:79
+msgid ""
+"Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
+msgstr ""
+
 #: ../app/views/distributions/leap.html.erb:44
 #: ../app/views/distributions/leap.html.erb:83
 #: ../app/views/distributions/leap.html.erb:115
+#: ../app/views/distributions/testing.html.erb:49
 #: ../app/views/distributions/tumbleweed.html.erb:51
 #: ../app/views/distributions/tumbleweed.html.erb:97
 #: ../app/views/distributions/tumbleweed.html.erb:136
 #: ../app/views/distributions/tumbleweed.html.erb:168
-#: ../app/views/distributions/testing.html.erb:30
 msgid ""
 "Contains a large collection of software for desktop or server use. Suitable "
 "for installation or upgrade."
@@ -165,23 +173,37 @@ msgstr ""
 "데스크탑 및 서버용으로 사용할 수 있는 용량이 큰 설치 매체 입니다. 이것을 사용"
 "하여 설치 또는 업그레이드를 할 수 있습니다."
 
+#: ../app/views/images/images.xml.erb:17 ../app/views/images/images.xml.erb:30
+#: ../app/views/images/images.xml.erb:91
+msgid "DVD"
+msgstr ""
+
 #: ../app/views/distributions/leap.html.erb:41
 #: ../app/views/distributions/leap.html.erb:80
 #: ../app/views/distributions/leap.html.erb:112
+#: ../app/views/distributions/testing.html.erb:46
 #: ../app/views/distributions/tumbleweed.html.erb:48
 #: ../app/views/distributions/tumbleweed.html.erb:94
 #: ../app/views/distributions/tumbleweed.html.erb:133
 #: ../app/views/distributions/tumbleweed.html.erb:165
-#: ../app/views/distributions/testing.html.erb:27
 #, fuzzy
 #| msgid "Burn CD/DVD Image(s)"
 msgid "DVD Image"
 msgstr "CD/DVD이미지 굽기"
 
+#: ../app/views/images/images.xml.erb:53
+msgid "Desktop"
+msgstr ""
+
 #: ../app/views/layouts/_footer.html.erb:5
 #, fuzzy
 #| msgid "Development"
 msgid "Developers"
+msgstr "개발"
+
+#: ../app/controllers/package_controller.rb:102
+#, fuzzy
+msgid "Development"
 msgstr "개발"
 
 #: ../app/views/search/_find_results.html.erb:88
@@ -200,6 +222,10 @@ msgstr "원클릭 설치"
 #: ../app/views/distributions/leap.html.erb:98
 #: ../app/views/distributions/leap.html.erb:116
 #: ../app/views/distributions/leap.html.erb:130
+#: ../app/views/distributions/testing.html.erb:50
+#: ../app/views/distributions/testing.html.erb:64
+#: ../app/views/distributions/testing.html.erb:84
+#: ../app/views/distributions/testing.html.erb:97
 #: ../app/views/distributions/tumbleweed.html.erb:52
 #: ../app/views/distributions/tumbleweed.html.erb:66
 #: ../app/views/distributions/tumbleweed.html.erb:80
@@ -209,18 +235,21 @@ msgstr "원클릭 설치"
 #: ../app/views/distributions/tumbleweed.html.erb:151
 #: ../app/views/distributions/tumbleweed.html.erb:169
 #: ../app/views/distributions/tumbleweed.html.erb:183
-#: ../app/views/distributions/tumbleweed.html.erb:213
-#: ../app/views/distributions/tumbleweed.html.erb:225
-#: ../app/views/distributions/tumbleweed.html.erb:237
-#: ../app/views/distributions/tumbleweed.html.erb:253
-#: ../app/views/distributions/tumbleweed.html.erb:265
-#: ../app/views/distributions/tumbleweed.html.erb:277
-#: ../app/views/distributions/testing.html.erb:31
-#: ../app/views/distributions/testing.html.erb:45
+#: ../app/views/distributions/tumbleweed.html.erb:215
+#: ../app/views/distributions/tumbleweed.html.erb:227
+#: ../app/views/distributions/tumbleweed.html.erb:239
+#: ../app/views/distributions/tumbleweed.html.erb:255
+#: ../app/views/distributions/tumbleweed.html.erb:267
+#: ../app/views/distributions/tumbleweed.html.erb:279
 msgid "Direct Link"
 msgstr "직접 다운"
 
-#: ../app/views/search/_find_form.html.erb:33
+#: ../app/views/images/images.xml.erb:13
+#, fuzzy
+msgid "Distribution"
+msgstr "알 수 없는 배포판"
+
+#: ../app/views/search/_find_form.html.erb:31
 #, fuzzy
 msgid "Distribution:"
 msgstr "알 수 없는 배포판"
@@ -230,20 +259,21 @@ msgstr "알 수 없는 배포판"
 msgid "Distributions"
 msgstr "알 수 없는 배포판"
 
-#: ../app/views/layouts/_footer.html.erb:7
-#: ../app/views/layouts/_navbar.html.erb:20
 #: ../app/views/distributions/_documentation.html.erb:2
+#: ../app/views/layouts/_footer.html.erb:7
+#: ../app/views/layouts/_navbar.html.erb:41
 msgid "Documentation"
 msgstr "설명서"
 
-#: ../app/views/layouts/_navbar.html.erb:14
 #: ../app/views/distributions/index.html.erb:21
 #: ../app/views/distributions/index.html.erb:31
 #: ../app/views/distributions/index.html.erb:42
+#: ../app/views/layouts/_navbar.html.erb:38
+#: ../app/views/package/_download_rows.html.erb:54
 msgid "Download"
 msgstr "다운로드"
 
-#: ../app/controllers/download_controller.rb:36
+#: ../app/controllers/download_controller.rb:44
 #, fuzzy
 msgid "Download appliance from %s"
 msgstr "그룹 다운로드 중"
@@ -263,12 +293,11 @@ msgstr ""
 #: ../app/views/distributions/leap.html.erb:58
 #: ../app/views/distributions/leap.html.erb:97
 #: ../app/views/distributions/leap.html.erb:129
+#: ../app/views/distributions/testing.html.erb:63
 #: ../app/views/distributions/tumbleweed.html.erb:65
-#: ../app/views/distributions/tumbleweed.html.erb:79
 #: ../app/views/distributions/tumbleweed.html.erb:111
 #: ../app/views/distributions/tumbleweed.html.erb:150
 #: ../app/views/distributions/tumbleweed.html.erb:182
-#: ../app/views/distributions/testing.html.erb:44
 #, fuzzy
 #| msgid ""
 #| "Downloads the installation system and all packages from online "
@@ -288,6 +317,10 @@ msgstr ""
 msgid "Easy Ways to Switch to openSUSE Tumbleweed"
 msgstr ""
 
+#: ../app/controllers/package_controller.rb:103
+msgid "Education & Science"
+msgstr ""
+
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
 msgstr ""
@@ -304,15 +337,15 @@ msgstr ""
 msgid "Facebook group"
 msgstr ""
 
-#: ../app/views/download/package.erb:106
+#: ../app/views/download/package.erb:59
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
 msgstr ""
 
-#: ../app/views/download/package.erb:99
+#: ../app/views/download/package.erb:52
 msgid "For <strong>%s</strong> run the following:"
 msgstr ""
 
-#: ../app/views/download/package.erb:90
+#: ../app/views/download/package.erb:43
 msgid ""
 "For <strong>Arch Linux</strong>, edit /etc/pacman.conf and add the following "
 "(note that the order of repositories in pacman.conf is important, since "
@@ -322,29 +355,31 @@ msgstr ""
 #: ../app/views/distributions/leap.html.erb:57
 #: ../app/views/distributions/leap.html.erb:96
 #: ../app/views/distributions/leap.html.erb:128
+#: ../app/views/distributions/testing.html.erb:62
 #: ../app/views/distributions/tumbleweed.html.erb:64
-#: ../app/views/distributions/tumbleweed.html.erb:78
 #: ../app/views/distributions/tumbleweed.html.erb:110
 #: ../app/views/distributions/tumbleweed.html.erb:149
 #: ../app/views/distributions/tumbleweed.html.erb:181
-#: ../app/views/distributions/tumbleweed.html.erb:236
-#: ../app/views/distributions/tumbleweed.html.erb:276
-#: ../app/views/distributions/testing.html.erb:43
+#: ../app/views/distributions/tumbleweed.html.erb:238
+#: ../app/views/distributions/tumbleweed.html.erb:278
 msgid "For CD and USB stick"
 msgstr ""
 
 #: ../app/views/distributions/leap.html.erb:43
 #: ../app/views/distributions/leap.html.erb:82
 #: ../app/views/distributions/leap.html.erb:114
+#: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/testing.html.erb:83
+#: ../app/views/distributions/testing.html.erb:96
 #: ../app/views/distributions/tumbleweed.html.erb:50
+#: ../app/views/distributions/tumbleweed.html.erb:78
 #: ../app/views/distributions/tumbleweed.html.erb:96
 #: ../app/views/distributions/tumbleweed.html.erb:135
 #: ../app/views/distributions/tumbleweed.html.erb:167
-#: ../app/views/distributions/tumbleweed.html.erb:212
-#: ../app/views/distributions/tumbleweed.html.erb:224
-#: ../app/views/distributions/tumbleweed.html.erb:252
-#: ../app/views/distributions/tumbleweed.html.erb:264
-#: ../app/views/distributions/testing.html.erb:29
+#: ../app/views/distributions/tumbleweed.html.erb:214
+#: ../app/views/distributions/tumbleweed.html.erb:226
+#: ../app/views/distributions/tumbleweed.html.erb:254
+#: ../app/views/distributions/tumbleweed.html.erb:266
 msgid "For DVD and USB stick"
 msgstr ""
 
@@ -369,7 +404,7 @@ msgid "For more help verifying your download please read %{checksums_help}"
 msgstr ""
 
 #: ../app/views/layouts/_footer.html.erb:28
-#: ../app/views/layouts/_navbar.html.erb:26
+#: ../app/views/layouts/_navbar.html.erb:47
 msgid "Forums"
 msgstr "포럼"
 
@@ -385,13 +420,13 @@ msgstr ""
 msgid "From an older version or other Linux distro"
 msgstr ""
 
-#: ../app/views/distributions/_documentation.html.erb:23
+#: ../app/views/distributions/_documentation.html.erb:21
 #, fuzzy
 #| msgid "Documentation"
 msgid "Full Documentation"
 msgstr "설명서"
 
-#: ../app/views/package/categories.html.erb:17
+#: ../app/controllers/package_controller.rb:101
 msgid "Games"
 msgstr "게임"
 
@@ -401,10 +436,10 @@ msgstr "게임"
 msgid "Get"
 msgstr "무료 다운"
 
+#: ../app/views/distributions/index.html.erb:4
 #: ../app/views/layouts/jekyll.html.erb:8
 #: ../app/views/layouts/jekyll.html.erb:34
 #: ../app/views/layouts/download.html.erb:7
-#: ../app/views/distributions/index.html.erb:4
 msgid "Get openSUSE"
 msgstr "오픈수세 다운로드"
 
@@ -412,8 +447,12 @@ msgstr "오픈수세 다운로드"
 msgid "Google+ group"
 msgstr ""
 
-#: ../app/views/download/package.erb:153
+#: ../app/views/download/package.erb:105
 msgid "Grab binary packages directly"
+msgstr ""
+
+#: ../app/controllers/package_controller.rb:105
+msgid "Graphics"
 msgstr ""
 
 #: ../app/views/distributions/index.html.erb:39
@@ -423,9 +462,7 @@ msgid ""
 msgstr ""
 
 #: ../app/views/distributions/testing.html.erb:18
-msgid ""
-"Help test the next version of openSUSE Leap, the regular-release "
-"distribution for desktop PCs, laptops, and servers."
+msgid "Help test the next version of openSUSE Leap!"
 msgstr ""
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
@@ -468,7 +505,7 @@ msgid ""
 "commands."
 msgstr ""
 
-#: ../app/views/download/appliance.erb:57
+#: ../app/views/download/appliance.erb:34
 msgid "Image:"
 msgstr ""
 
@@ -478,19 +515,29 @@ msgstr ""
 msgid "Information"
 msgstr "기타 정보"
 
-#: ../app/controllers/download_controller.rb:78
+#: ../app/controllers/download_controller.rb:86
 #, fuzzy
 msgid "Install package %s / %s"
 msgstr "꾸러미 설치"
 
-#: ../app/controllers/download_controller.rb:121
+#: ../app/controllers/download_controller.rb:128
 #, fuzzy
 msgid "Install pattern %s / %s"
 msgstr "꾸러미 설치"
 
-#: ../app/views/download/package.erb:74
-msgid "Install using One Click Install"
-msgstr ""
+#: ../app/views/distributions/testing.html.erb:25
+#: ../app/views/images/images.xml.erb:28
+#, fuzzy
+#| msgid "Installation Medium"
+msgid "Installation"
+msgstr "설치 미디어"
+
+# /usr/share/applications/YaST2/sw_source.desktop
+#: ../app/views/images/images.xml.erb:16 ../app/views/images/images.xml.erb:90
+#, fuzzy
+#| msgid "Installation Guides"
+msgid "Installation Source"
+msgstr "설치 길잡이"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
@@ -513,8 +560,30 @@ msgid "It should be %{fingerprint}"
 msgstr ""
 
 #: ../app/views/distributions/tumbleweed.html.erb:76
-msgid "Kubic DVD/USB Stick"
+#, fuzzy
+#| msgid "Burn CD/DVD Image(s)"
+msgid "Kubic Image"
+msgstr "CD/DVD이미지 굽기"
+
+#: ../app/views/images/images.xml.erb:18
+msgid "Leap %s DVD"
 msgstr ""
+
+#: ../app/views/images/images.xml.erb:93
+msgid "Leap %s DVD (Build %s)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:21
+#, fuzzy
+#| msgid "Network Installation"
+msgid "Leap %s Network Installation"
+msgstr "네트워크 설치"
+
+#: ../app/views/images/images.xml.erb:97
+#, fuzzy
+#| msgid "Network Installation"
+msgid "Leap %s Network Installation (Build %s)"
+msgstr "네트워크 설치"
 
 #: ../app/views/distributions/index.html.erb:77
 msgid ""
@@ -529,9 +598,16 @@ msgid ""
 "Release (eg 12, 13, etc) of SUSE Linux Enterprise."
 msgstr ""
 
-#: ../app/views/distributions/_documentation.html.erb:18
+#: ../app/views/distributions/_documentation.html.erb:16
 msgid "License"
 msgstr ""
+
+#: ../app/views/distributions/testing.html.erb:31
+#: ../app/views/images/images.xml.erb:52
+#, fuzzy
+#| msgid "Live KDE"
+msgid "Live"
+msgstr "KDE 라이브"
 
 #: ../app/views/layouts/_footer.html.erb:32
 msgid "Mail lists"
@@ -552,12 +628,22 @@ msgstr ""
 "졌는지 확인하는것은 매우 중요합니다. 오픈수세에서는 3개의 각각 다른 체크섬을 "
 "제공합니다:"
 
+#: ../app/views/images/images.xml.erb:27
+#, fuzzy
+#| msgid "Multimedia"
+msgid "Medium"
+msgstr "멀티미디어"
+
 #: ../app/views/distributions/leap.html.erb:46
 #: ../app/views/distributions/leap.html.erb:60
 #: ../app/views/distributions/leap.html.erb:85
 #: ../app/views/distributions/leap.html.erb:99
 #: ../app/views/distributions/leap.html.erb:117
 #: ../app/views/distributions/leap.html.erb:131
+#: ../app/views/distributions/testing.html.erb:51
+#: ../app/views/distributions/testing.html.erb:65
+#: ../app/views/distributions/testing.html.erb:85
+#: ../app/views/distributions/testing.html.erb:98
 #: ../app/views/distributions/tumbleweed.html.erb:53
 #: ../app/views/distributions/tumbleweed.html.erb:67
 #: ../app/views/distributions/tumbleweed.html.erb:81
@@ -567,29 +653,35 @@ msgstr ""
 #: ../app/views/distributions/tumbleweed.html.erb:152
 #: ../app/views/distributions/tumbleweed.html.erb:170
 #: ../app/views/distributions/tumbleweed.html.erb:184
-#: ../app/views/distributions/tumbleweed.html.erb:214
-#: ../app/views/distributions/tumbleweed.html.erb:226
-#: ../app/views/distributions/tumbleweed.html.erb:238
-#: ../app/views/distributions/tumbleweed.html.erb:254
-#: ../app/views/distributions/tumbleweed.html.erb:266
-#: ../app/views/distributions/tumbleweed.html.erb:278
-#: ../app/views/distributions/testing.html.erb:32
-#: ../app/views/distributions/testing.html.erb:46
+#: ../app/views/distributions/tumbleweed.html.erb:216
+#: ../app/views/distributions/tumbleweed.html.erb:228
+#: ../app/views/distributions/tumbleweed.html.erb:240
+#: ../app/views/distributions/tumbleweed.html.erb:256
+#: ../app/views/distributions/tumbleweed.html.erb:268
+#: ../app/views/distributions/tumbleweed.html.erb:280
 msgid "Metalink"
 msgstr "메타링크"
 
-#: ../app/views/package/categories.html.erb:42
+#: ../app/controllers/package_controller.rb:104
 msgid "Multimedia"
 msgstr "멀티미디어"
+
+#: ../app/controllers/package_controller.rb:107
+#: ../app/views/images/images.xml.erb:20 ../app/views/images/images.xml.erb:40
+#: ../app/views/images/images.xml.erb:95
+#, fuzzy
+#| msgid "Network"
+msgid "Network"
+msgstr "네트워크"
 
 #: ../app/views/distributions/leap.html.erb:55
 #: ../app/views/distributions/leap.html.erb:94
 #: ../app/views/distributions/leap.html.erb:126
+#: ../app/views/distributions/testing.html.erb:60
 #: ../app/views/distributions/tumbleweed.html.erb:62
 #: ../app/views/distributions/tumbleweed.html.erb:108
 #: ../app/views/distributions/tumbleweed.html.erb:147
 #: ../app/views/distributions/tumbleweed.html.erb:179
-#: ../app/views/distributions/testing.html.erb:41
 #, fuzzy
 #| msgid "Network"
 msgid "Network Image"
@@ -599,16 +691,16 @@ msgstr "네트워크"
 msgid "News"
 msgstr "뉴스"
 
-#: ../app/views/download/appliance.erb:2
+#: ../app/views/download/appliance.erb:5
 #, fuzzy
 msgid "No appliance data for %{project}"
 msgstr "%s %s에 대한 정보:"
 
-#: ../app/views/download/appliance.erb:47
+#: ../app/views/download/appliance.erb:20
 msgid "No appliances found in project %s"
 msgstr ""
 
-#: ../app/views/download/package.erb:2
+#: ../app/views/download/package.erb:6
 #, fuzzy
 msgid "No data for %s / %s"
 msgstr "%s %s에 대한 정보:"
@@ -618,7 +710,7 @@ msgstr "%s %s에 대한 정보:"
 msgid "No description."
 msgstr "저장소가 없습니다."
 
-#: ../app/views/download/package.erb:69
+#: ../app/views/download/package.erb:131
 msgid "No downloads found for %s in project %s"
 msgstr ""
 
@@ -627,24 +719,22 @@ msgstr ""
 msgid "No packages found matching your search. "
 msgstr "'%s' 에 해당하는 꾸러미는 설치되고 있지 않습니다."
 
-#: ../app/views/distributions/testing.html.erb:89
+#: ../app/views/distributions/testing.html.erb:146
 msgid "No testing distribution available."
 msgstr ""
 
-#: ../app/views/distributions/tumbleweed.html.erb:200
-#, fuzzy
-#| msgid "Installation Medium"
-msgid "Not Tested|Tumbleweed installation media"
-msgstr "설치 미디어"
-
-#: ../app/controllers/application_controller.rb:54
+#: ../app/controllers/application_controller.rb:67
 #, fuzzy
 msgid "OBS Backend not available"
 msgstr "scdb 사용 할 수 없음"
 
-#: ../app/views/package/_download_rows.html.erb:22
+#: ../app/controllers/package_controller.rb:106
+msgid "Office & Productivity"
+msgstr ""
+
 #: ../app/views/distributions/leap.html.erb:20
 #: ../app/views/distributions/tumbleweed.html.erb:19
+#: ../app/views/package/_download_rows.html.erb:22
 #, fuzzy
 #| msgid "Official Manuals"
 msgid "Official"
@@ -667,7 +757,7 @@ msgstr "'%s' 패치를 찾을 수 없습니다."
 msgid "Package Search"
 msgstr "꾸러미 검색"
 
-#: ../app/views/download/package.erb:158
+#: ../app/views/download/package.erb:111
 #, fuzzy
 msgid "Packages for %s:"
 msgstr "Cleaning packages for '%s' 에 대한 꾸러미를 청소 중입니다."
@@ -678,6 +768,10 @@ msgstr "Cleaning packages for '%s' 에 대한 꾸러미를 청소 중입니다."
 #: ../app/views/distributions/leap.html.erb:100
 #: ../app/views/distributions/leap.html.erb:118
 #: ../app/views/distributions/leap.html.erb:132
+#: ../app/views/distributions/testing.html.erb:52
+#: ../app/views/distributions/testing.html.erb:66
+#: ../app/views/distributions/testing.html.erb:86
+#: ../app/views/distributions/testing.html.erb:99
 #: ../app/views/distributions/tumbleweed.html.erb:54
 #: ../app/views/distributions/tumbleweed.html.erb:68
 #: ../app/views/distributions/tumbleweed.html.erb:82
@@ -687,8 +781,6 @@ msgstr "Cleaning packages for '%s' 에 대한 꾸러미를 청소 중입니다."
 #: ../app/views/distributions/tumbleweed.html.erb:153
 #: ../app/views/distributions/tumbleweed.html.erb:171
 #: ../app/views/distributions/tumbleweed.html.erb:185
-#: ../app/views/distributions/testing.html.erb:33
-#: ../app/views/distributions/testing.html.erb:47
 msgid "Pick Mirror"
 msgstr "미러 가져오기"
 
@@ -697,31 +789,20 @@ msgid "Planet"
 msgstr ""
 
 #: ../app/views/distributions/tumbleweed.html.erb:195
-msgid "Please Note: These LiveUSBs are not supported"
+msgid "Please be aware of the following limitations of the live images:"
 msgstr ""
 
-#: ../app/views/distributions/tumbleweed.html.erb:197
-#, fuzzy
-#| msgid "Installation Medium"
-msgid "Please Use|Tumbleweed installation media"
-msgstr "설치 미디어"
-
-#: ../app/views/distributions/tumbleweed.html.erb:201
+#: ../app/views/distributions/tumbleweed.html.erb:202
 msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
-"these LiveUSBs are working as expected."
+"these live medias are working as expected."
 msgstr ""
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
 msgstr ""
 
-#: ../app/views/search/_category_header.html.erb:9
-#, fuzzy
-msgid "Related categories:"
-msgstr "범주"
-
-#: ../app/views/distributions/_documentation.html.erb:13
+#: ../app/views/distributions/_documentation.html.erb:11
 #, fuzzy
 #| msgid "Released Version"
 msgid "Release Notes"
@@ -733,23 +814,46 @@ msgstr "출시 버전"
 msgid "Release notes"
 msgstr "출시 버전"
 
+#: ../app/views/images/images.xml.erb:74
+#, fuzzy
+#| msgid "Rescue System"
+msgid "Rescue"
+msgstr "시스템 복구(콘솔)"
+
 #: ../app/views/distributions/index.html.erb:73
 msgid "SUSE Linux Enterprise"
 msgstr ""
 
 #: ../app/views/search/find.html.erb:1
+#: ../app/views/search/_find_form.html.erb:8
 msgid "Search"
 msgstr "검색"
 
-#: ../app/views/download/package.erb:61
+#: ../app/views/search/_find_form.html.erb:5
+msgid "Search packages..."
+msgstr ""
+
+#: ../app/views/search/_find_form.html.erb:21
+#, fuzzy
+#| msgid "Search options"
+msgid "Search settings"
+msgstr "검색 옵션"
+
+#: ../app/views/download/package.erb:10
 #, fuzzy
 msgid "Select Your Operating System"
 msgstr "운영체제 시작"
 
-#: ../app/views/download/appliance.erb:39
+#: ../app/views/download/appliance.erb:9
 #, fuzzy
 msgid "Select the image type"
 msgstr "화면 타입을 선택하세요."
+
+#: ../app/views/search/_find_form.html.erb:13
+#, fuzzy
+#| msgid "Getting Help"
+msgid "Settings"
+msgstr "도움말 보기"
 
 #: ../app/views/layouts/_footer.html.erb:22
 msgid "Shop"
@@ -764,7 +868,7 @@ msgstr ""
 msgid "Show community packages"
 msgstr "설치된 꾸러미 표시"
 
-#: ../app/views/search/_find_form.html.erb:43
+#: ../app/views/search/_find_form.html.erb:41
 #, fuzzy
 msgid "Show development, language and debug packages"
 msgstr "KDE 개발 꾸러미"
@@ -782,13 +886,14 @@ msgstr ""
 msgid "Social Media"
 msgstr ""
 
-#: ../app/views/layouts/_navbar.html.erb:17
+#: ../app/views/layouts/_navbar.html.erb:35
 msgid "Software"
 msgstr "소프트웨어"
 
 #: ../app/helpers/package_helper.rb:13 ../app/helpers/package_helper.rb:15
 #: ../app/views/package/_download_rows.html.erb:42
 #: ../app/views/package/_download_rows.html.erb:45
+#: ../app/views/images/images.xml.erb:29
 msgid "Source"
 msgstr "소스"
 
@@ -796,6 +901,10 @@ msgstr "소스"
 #, fuzzy
 msgid "Sub-Packages"
 msgstr "부가꾸러미 숨김(_H)"
+
+#: ../app/controllers/package_controller.rb:108
+msgid "System & Utility"
+msgstr ""
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
 msgid ""
@@ -812,13 +921,17 @@ msgid ""
 "less than 4.7GB."
 msgstr ""
 
+#: ../app/controllers/application_controller.rb:40
+msgid "The authentication to the OBS API has not been configured correctly."
+msgstr ""
+
 #: ../app/views/package/show.html.erb:103
 msgid ""
 "The following distributions are not officially supported. Use these packages "
 "at your own risk."
 msgstr ""
 
-#: ../app/views/download/package.erb:95
+#: ../app/views/download/package.erb:48
 msgid "Then run the following as <strong>root</strong>"
 msgstr ""
 
@@ -829,19 +942,19 @@ msgid ""
 "official distributions."
 msgstr ""
 
-#: ../app/views/distributions/tumbleweed.html.erb:199
+#: ../app/views/distributions/tumbleweed.html.erb:200
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr ""
 
-#: ../app/views/distributions/tumbleweed.html.erb:196
+#: ../app/views/distributions/tumbleweed.html.erb:197
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
 msgstr ""
 
-#: ../app/views/distributions/tumbleweed.html.erb:198
+#: ../app/views/distributions/tumbleweed.html.erb:199
 msgid ""
-"They have a limited package/driver selection, so cannot be considered an "
+"They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not."
 msgstr ""
@@ -849,6 +962,57 @@ msgstr ""
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
 msgstr ""
+
+#: ../app/views/images/images.xml.erb:33
+msgid "Tumbleweed %s DVD (i586)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:36
+msgid "Tumbleweed %s DVD (x86_64)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:57
+msgid "Tumbleweed %s GNOME Live (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:60
+msgid "Tumbleweed %s GNOME Live (x86_64)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:67
+msgid "Tumbleweed %s KDE Live (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:70
+msgid "Tumbleweed %s KDE Live (x86_64)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:43
+#, fuzzy
+#| msgid "Network Installation"
+msgid "Tumbleweed %s Network Installation (i586)"
+msgstr "네트워크 설치"
+
+#: ../app/views/images/images.xml.erb:46
+#, fuzzy
+#| msgid "Network Installation"
+msgid "Tumbleweed %s Network Installation (x86_64)"
+msgstr "네트워크 설치"
+
+#: ../app/views/images/images.xml.erb:77
+msgid "Tumbleweed %s Rescue CD (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:80
+msgid "Tumbleweed %s Rescue CD (x86_64)"
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:198
+#: ../app/views/distributions/tumbleweed.html.erb:201
+#, fuzzy
+#| msgid "Installation Medium"
+msgid "Tumbleweed installation media"
+msgstr "설치 미디어"
 
 #: ../app/views/distributions/index.html.erb:61
 msgid ""
@@ -880,11 +1044,11 @@ msgstr "다운로드된것 확인 (전문가용 옵션)"
 msgid "Version"
 msgstr "버전"
 
-#: ../app/views/layouts/_navbar.html.erb:23
+#: ../app/views/layouts/_navbar.html.erb:44
 msgid "Wiki"
 msgstr "위키"
 
-#: ../app/views/download/package.erb:141
+#: ../app/views/download/package.erb:93
 msgid ""
 "You can add the repository key to apt. Keep in mind that the owner of the "
 "key may distribute updates, packages and repositories that your system will "
@@ -957,6 +1121,12 @@ msgstr "http://en.opensuse.org/INSTALL_Internet"
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "http://en.opensuse.org/Buy_openSUSE"
 
+#: ../app/views/images/images.xml.erb:32 ../app/views/images/images.xml.erb:42
+#: ../app/views/images/images.xml.erb:56 ../app/views/images/images.xml.erb:66
+#: ../app/views/images/images.xml.erb:76
+msgid "i586"
+msgstr ""
+
 #: ../app/views/distributions/index.html.erb:69
 msgid "lifetime"
 msgstr ""
@@ -973,7 +1143,14 @@ msgstr "오픈수세 계열"
 msgid "openSUSE Software"
 msgstr "소프트웨어 다운"
 
+#: ../app/views/distributions/_documentation.html.erb:6
+#, fuzzy
+#| msgid "Get Software"
+msgid "openSUSE Startup Guide"
+msgstr "소프트웨어 다운"
+
 #: ../app/views/distributions/index.html.erb:58
+#: ../app/views/images/images.xml.erb:26
 msgid "openSUSE Tumbleweed"
 msgstr ""
 
@@ -986,6 +1163,25 @@ msgstr "오픈수세 11.3 카운터"
 msgid "openSUSE is completely free to download, use and share."
 msgstr ""
 
+#: ../app/views/images/images.xml.erb:35 ../app/views/images/images.xml.erb:45
+#: ../app/views/images/images.xml.erb:59 ../app/views/images/images.xml.erb:69
+#: ../app/views/images/images.xml.erb:79
+msgid "x86_64"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Available Images"
+#~ msgstr "사용 가능한 업데이트"
+
+#, fuzzy
+#~| msgid "Installation Medium"
+#~ msgid "Please Use|Tumbleweed installation media"
+#~ msgstr "설치 미디어"
+
+#, fuzzy
+#~ msgid "Related categories:"
+#~ msgstr "범주"
+
 #  frame
 #, fuzzy
 #~ msgid "App Browser"
@@ -995,10 +1191,6 @@ msgstr ""
 #~| msgid "openSUSE Derivatives"
 #~ msgid "Derivatives"
 #~ msgstr "오픈수세 계열"
-
-#, fuzzy
-#~ msgid "Development-"
-#~ msgstr "개발"
 
 #, fuzzy
 #~ msgid "Don't show this warning the next time"
@@ -1012,11 +1204,6 @@ msgstr ""
 
 #~ msgid "Header Logo"
 #~ msgstr "헤더 로고"
-
-#, fuzzy
-#~| msgid "Installation Medium"
-#~ msgid "Installation Media"
-#~ msgstr "설치 미디어"
 
 #, fuzzy
 #~ msgid "Show other versions"
@@ -1037,11 +1224,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 #~ msgstr "http://en.opensuse.org/Buy_openSUSE"
-
-#, fuzzy
-#~| msgid "Multimedia"
-#~ msgid "Media"
-#~ msgstr "멀티미디어"
 
 #~ msgid "64 Bit PC"
 #~ msgstr "64 비트 PC"
@@ -1206,9 +1388,6 @@ msgstr ""
 #~ "은 서명을 검증하는 기능으로 보안 유지에 최적의 방법입니다. 지문은 <tt>%s</"
 #~ "tt> 입니다."
 
-#~ msgid "Getting Help"
-#~ msgstr "도움말 보기"
-
 #~ msgid "Gold Sponsor"
 #~ msgstr "골드 스폰서"
 
@@ -1230,10 +1409,6 @@ msgstr ""
 #~ "직접 다운로드를 할 때, 가장 빠른 미러 사이트에서 다운로드 하기 위해 다운로"
 #~ "드 리다이렉터가 사이트를 감지하지 못할때 직접 미러를 선택하여 다운로드 할 "
 #~ "수 있습니다."
-
-# /usr/share/applications/YaST2/sw_source.desktop
-#~ msgid "Installation Guides"
-#~ msgstr "설치 길잡이"
 
 #~ msgid "Installation Medium"
 #~ msgstr "설치 미디어"
@@ -1264,9 +1439,6 @@ msgstr ""
 
 #~ msgid "Live GNOME"
 #~ msgstr "그놈 라이브"
-
-#~ msgid "Live KDE"
-#~ msgstr "KDE 라이브"
 
 #, fuzzy
 #~ msgid ""
@@ -1315,11 +1487,6 @@ msgstr ""
 
 #~ msgid "Reporting Bugs"
 #~ msgstr "버그 보고"
-
-#, fuzzy
-#~| msgid "Rescue System"
-#~ msgid "Rescue"
-#~ msgstr "시스템 복구(콘솔)"
 
 #, fuzzy
 #~| msgid ""
@@ -1643,9 +1810,6 @@ msgstr ""
 #~ "<a href=\"http://build.opensuse.org\">오픈수세 빌드 서비스</a>로부터 소프"
 #~ "트웨어 꾸러미를 검색하고 설치:"
 
-#~ msgid "Search options"
-#~ msgstr "검색 옵션"
-
 #~ msgid "Additional Information"
 #~ msgstr "추가 정보"
 
@@ -1677,9 +1841,6 @@ msgstr ""
 
 #~ msgid "Step-by-step installation guide"
 #~ msgstr "단계별 설치 길잡이"
-
-#~ msgid "Network Installation"
-#~ msgstr "네트워크 설치"
 
 #, fuzzy
 #~| msgid "http://en.opensuse.org/INSTALL_Internet"
