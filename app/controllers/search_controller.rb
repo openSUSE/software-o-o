@@ -32,6 +32,11 @@ class SearchController < ApplicationController
     # only show packages
     @packages = @packages.reject { |p| p.first.type == 'ymp' }
 
+    # filter out devel, language, debug packages
+    if !@search_devel
+      @packages.reject! { |p| p.name.end_with?("-devel", "-lang", "-buildsymbols") || p.name.include?("-translations-") || p.name.include?("-l10n-") }
+    end
+
     # sort by package name length
     @packages.sort! { |a, b| a.name.length <=> b.name.length }
     # show official package first
