@@ -31,6 +31,12 @@ class SearchController < ApplicationController
 
     # only show packages
     @packages = @packages.reject { |p| p.first.type == 'ymp' }
+
+    # sort by package name length
+    @packages.sort! { |a, b| a.name.length <=> b.name.length }
+    # show official package first
+    @packages.sort! { |a, b| trust_level(b, base) - trust_level(a, base)}
+
     @packagenames = @packages.map { |p| p.name }
 
     # mix in searchresults from appdata, as the api can't search in summary and description atm
@@ -39,7 +45,7 @@ class SearchController < ApplicationController
           a[:name].match(/#{Regexp.quote(@search_term)}/i)) }.map { |a| a[:pkgname] }
       @packagenames = (@packagenames + appdata_hits)
     end
-    @packagenames = @packagenames.uniq.sort_by { |x| x.length }
+    @packagenames = @packagenames.uniq
 
     if @packagenames.size == 1
       redirect_to(:controller => :package, :action => :show, :package => @packagenames.first, :search_term => @search_term) and return
@@ -51,4 +57,20 @@ class SearchController < ApplicationController
   end
 
   def find; end
+
+
+  # 3: official package
+  # 2: official package in Factory
+  # 1: experimental package
+  # 0: community package
+  def trust_level(package, project)
+    if package.project == project || package.project == "#{project}:Update" || package.project == "#{project}:NonFree"
+      return 3
+    elsif package.project == "openSUSE:Factory"
+      return 2
+    elsif (package.project.start_with?('home'))
+      return 0
+    end
+      return 1
+  end
 end
