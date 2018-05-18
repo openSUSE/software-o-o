@@ -16,7 +16,7 @@ class PackageController < ApplicationController
     @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
     # only show rpms
     @packages = @packages.select{|p| p.first.type != 'ymp' && p.quality != "Private"}
-    @default_project = @baseproject || view_context.default_baseproject
+    @default_project = @baseproject
     @default_project_name = @distributions.select{|d| d[:project] == @default_project}.first[:name]
     @default_repo = @distributions.select{|d| d[:project] == @default_project}.first[:repository]
     @default_package = if (!@packages.select{|s| s.project == "#{@default_project}:Update"}.empty?)

@@ -31,7 +31,7 @@
                 <label for="recipient-name" class="form-control-label col-sm-3 col-form-label"><%= _("Distribution:") %></label>
                 <% @distributions ||= Array.new %>
                 <div class="col-sm-9">
-                  <%= select_tag 'baseproject', options_for_select((@distributions.map{|d| [d[:name], d[:project]]} || ["ALL"]), (@baseproject or default_baseproject)), :class => 'form-control' %>
+                  <%= select_tag 'baseproject', options_for_select((@distributions.map{|d| [d[:name], d[:project]]} || ["ALL"]), baseproject), :class => 'form-control' %>
                 </div>
               </div>
 

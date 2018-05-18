@@ -9,7 +9,7 @@ class DistributionsTest < ActionDispatch::IntegrationTest
       assert_equal 200, status
 
       get '/distributions/testing'
-      assert_includes body, 'openSUSE Leap 15'
+      assert_includes body, 'openSUSE Leap 15.0'
       assert_includes body, 'Help test the next version of openSUSE Leap!'
 
       assert_equal 200, status
@@ -19,7 +19,7 @@ class DistributionsTest < ActionDispatch::IntegrationTest
       Rails.cache.delete('software-o-o/releases')
 
       get '/distributions/leap'
-      assert_includes body, 'openSUSE Leap 15'
+      assert_includes body, 'openSUSE Leap 15.0'
       assert_includes body, 'Choosing Which Media to Download'
       assert_equal 200, status
 
