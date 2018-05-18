@@ -31,7 +31,7 @@
         <%= link_to _('Download'), leap_distributions_path, class: 'btn btn-success' %>
       </div>
     </div>
-<% if @testing_version %>
+<% if @testing_version.present? %>
     <div class="card">
       <%= image_tag 'distributions/testing.svg', alt: "Testing Logo", class: "card-img-top animated bounceIn", width: "256", height: "256" %>
       <div class="card-body">
