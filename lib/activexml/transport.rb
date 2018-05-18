@@ -18,7 +18,7 @@ module ActiveXML
         rescue TypeError
           Rails.logger.error "Couldn't parse error xml: #{self.message[0..120]}"
         end
-  @xml ||= { 'summary' => self.message[0..120], 'code' => '500' }
+        @xml ||= { 'summary' => self.message[0..120], 'code' => '500' }
       end
 
       def api_exception
@@ -298,11 +298,11 @@ module ActiveXML
       when :put, :post, :delete
         @http.finish if @http && @http.started?
         @http = nil
-  keepalive = false
+        keepalive = false
       when :get
         # if the http existed before, we shall retry
         max_retries = 2 if @http
-  keepalive = true
+        keepalive = true
       end
       retries = 0
       begin
@@ -314,7 +314,7 @@ module ActiveXML
         end
         @http.read_timeout = opt[:timeout]
 
-  raise "url.path.nil" if url.path.nil?
+        raise "url.path.nil" if url.path.nil?
         path = url.path
         path += "?" + url.query if url.query
         logger.debug "http_do ##{retries}: method: #{method} url: " +
