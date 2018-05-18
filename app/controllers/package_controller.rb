@@ -98,9 +98,9 @@ class PackageController < ApplicationController
 
       app[:screenshots].each do |image_url|
         return redirect_to image_url if type == :screenshot && image_url
+        next if image_url.blank?
 
         path = begin
-                 # a screenshot object with nil url returns default thumbnails
                  screenshot = Screenshot.new(pkgname, image_url)
                  screenshot.thumbnail_path(fetch: true)
                rescue => e
@@ -112,8 +112,11 @@ class PackageController < ApplicationController
     end
 
     head 404, "content_type" => 'text/plain' if type == :screenshot
+    # a screenshot object with nil url returns default thumbnails
     screenshot = Screenshot.new(pkgname, nil)
-    redirect_to '/' + screenshot.thumbnail_path(fetch: true)
+    path = screenshot.thumbnail_path(fetch: true)
+    url = ActionController::Base.helpers.asset_url(path)
+    redirect_to url
   end
 
   # See https://specifications.freedesktop.org/menu-spec/1.0/apa.html

@@ -119,6 +119,6 @@ protected
     else
       "package.png"
     end
-    "assets/default-screenshots/#{file}"
+    "default-screenshots/#{file}"
   end
 end
