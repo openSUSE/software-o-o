@@ -105,7 +105,7 @@ class PackageController < ApplicationController
     else
       # a screenshot object with nil url returns default thumbnails
       screenshot = Screenshot.new(pkgname, image_url)
-      path = screenshot.thumbnail_path(fetch: false)
+      path = screenshot.thumbnail_path(fetch: true)
       if type == :screenshot && !image_url
         head 404, "content_type" => 'text/plain'
       else
