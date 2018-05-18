@@ -26,7 +26,8 @@ class SearchController < ApplicationController
     # filter out devel projects on user setting
     unless (@search_unsupported || @search_project)
       @packages = @packages.select { |p| (@distributions.map { |d| d[:project] }.include? p.project) ||
-          @distributions.map { |d| "#{d[:project]}:Update" }.include?(p.project) || @distributions.map { |d| "#{d[:project]}:NonFree" }.include?(p.project) }
+          @distributions.map { |d| "#{d[:project]}:Update" }.include?(p.project) || @distributions.map { |d| "#{d[:project]}:NonFree" }.include?(p.project)
+      }
     end
 
     # only show packages
@@ -36,7 +37,8 @@ class SearchController < ApplicationController
     # mix in searchresults from appdata, as the api can't search in summary and description atm
     if (!@search_project)
       appdata_hits = @appdata[:apps].select { |a| (a[:summary].match(/#{Regexp.quote(@search_term)}/i) ||
-          a[:name].match(/#{Regexp.quote(@search_term)}/i)) }.map { |a| a[:pkgname] }
+          a[:name].match(/#{Regexp.quote(@search_term)}/i))
+      }.map { |a| a[:pkgname] }
       @packagenames = (@packagenames + appdata_hits)
     end
     @packagenames = @packagenames.uniq.sort_by { |x| x.length }
