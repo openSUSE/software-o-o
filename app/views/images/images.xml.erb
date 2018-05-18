@@ -1,10 +1,9 @@
 <%
 leap_versions = ['42.3', '42.2']
 leap_current = '42.3'
-leap_snapshot = '15.0'
 
-if leap_snapshot != '' then
-  leap_snapshot_build = get_version("/distribution/leap/#{leap_snapshot}/iso/openSUSE-Leap-#{leap_snapshot}-DVD-x86_64-Current.iso", /Build([0-9.]+)-/)
+if @testing_version.present?
+  @testing_version_build = get_version("/distribution/leap/#{@testing_version}/iso/openSUSE-Leap-#{@testing_version}-DVD-x86_64-Current.iso", /Build([0-9.]+)-/)
 end
 
 tw_snapshot = get_version('/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso', /Snapshot(\d+)-/)
@@ -85,16 +84,16 @@ tw_snapshot = get_version('/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Curren
             </option>
         </decision>
     </option>
-    <% if leap_snapshot != "" then %>
-    <option name="openSUSE Leap <%= leap_snapshot %> (In development)">
+    <% if @testing_version.present? %>
+    <option name="openSUSE Leap <%= @testing_version %> (In development)">
         <decision name="<%= _("Installation Source") %>">
             <option name="<%= _("DVD") %>" preselected="true">
-                <%= image_element("/distribution/leap/#{leap_snapshot}/iso/openSUSE-Leap-#{leap_snapshot}-DVD-x86_64-Build#{leap_snapshot_build}-Media.iso",
-                                  _("Leap %s DVD (Build %s)") % [leap_snapshot, leap_snapshot_build]) %>
+                <%= image_element("/distribution/leap/#{@testing_version}/iso/openSUSE-Leap-#{@testing_version}-DVD-x86_64-Build#{@testing_version_build}-Media.iso",
+                                  _("Leap %s DVD (Build %s)") % [@testing_version, @testing_version_build]) %>
             </option>
             <option name="<%= _("Network") %>">
-                <%= image_element("/distribution/leap/#{leap_snapshot}/iso/openSUSE-Leap-#{leap_snapshot}-NET-x86_64-Build#{leap_snapshot_build}-Media.iso",
-                                  _("Leap %s Network Installation (Build %s)") % [leap_snapshot, leap_snapshot_build]) %>
+                <%= image_element("/distribution/leap/#{@testing_version}/iso/openSUSE-Leap-#{@testing_version}-NET-x86_64-Build#{@testing_version_build}-Media.iso",
+                                  _("Leap %s Network Installation (Build %s)") % [@testing_version, @testing_version_build]) %>
             </option>
         </decision>
     </option>

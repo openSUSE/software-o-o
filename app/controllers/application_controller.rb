@@ -32,6 +32,12 @@ class ApplicationController < ActionController::Base
     render :template => 'error', :formats => [:html], :layout => layout, :status => 400
   end
 
+  def current_release
+    Rails.configuration.releases.reject{ |release_hash| release_hash[:from] > Time.now }
+                                .sort_by{ |release_hash| release_hash[:from]}
+                                .last
+  end
+
   def validate_configuration
     config = Rails.configuration.x
     layout = request.xhr? ? false : "application"

@@ -85,5 +85,28 @@ module SoftwareOO
     end unless Rails.env.test?
 
     config.active_support.deprecation = :log
+
+    Rails.application.configure do
+      config.releases = [
+        { from: Time.parse('2016-03-02 19:05:37'),
+          version: '42.3',
+          testing_version: '15',
+          testing_state: 'RC',
+          legacy_release: '42.2'
+        },
+        { from: Time.parse('2015-03-02 19:05:37'),
+          version: '42.3',
+          testing_version: '15',
+          testing_state: 'RC',
+          legacy_release: '42.2'
+        },
+        { from: Time.parse('2019-03-02 19:05:37'),
+          version: '42.3',
+          testing_version: '15',
+          testing_state: 'RC',
+          legacy_release: '42.2'
+        }
+      ]
+    end
   end
 end
