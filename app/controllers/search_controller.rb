@@ -29,6 +29,9 @@ class SearchController < ApplicationController
           @distributions.map { |d| "#{d[:project]}:Update" }.include?(p.project) || @distributions.map { |d| "#{d[:project]}:NonFree" }.include?(p.project) }
     end
 
+    # remove maintenance projects
+    @packages.reject!{|p| p.project.match(/openSUSE\:Maintenance\:/) || p.project == "openSUSE:Factory:Rebuild" }
+
     # only show packages
     @packages = @packages.reject { |p| p.first.type == 'ymp' }
 

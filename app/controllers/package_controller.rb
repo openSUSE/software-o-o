@@ -44,7 +44,7 @@ class PackageController < ApplicationController
     end
 
     # remove maintenance projects
-    @packages.reject!{|p| p.project.match(/openSUSE\:Maintenance\:/) }
+    @packages.reject!{|p| p.project.match(/openSUSE\:Maintenance\:/) || p.project == "openSUSE:Factory:Rebuild" }
 
     @packages.each do |package|
       # Backports chains up to the toolchain module for newer GCC.
