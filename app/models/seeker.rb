@@ -251,7 +251,7 @@ class Seeker < ActiveXML::Node
           bin = self[0]
           begin
             info = ::Published.find_cached bin.filename, :view => :fileinfo, :project => @project,
-              :repository => @repository, :arch => bin.arch.to_s, :expires_in => 12.hours
+                                                         :repository => @repository, :arch => bin.arch.to_s, :expires_in => 12.hours
           rescue => e
             logger.error "Error fetching info for binary: #{e.message}"
           end
@@ -307,7 +307,7 @@ class Seeker < ActiveXML::Node
       def quality
         unless @quality
           quality_xml = ::Attribute.find_cached 'att', :prj => @project,
-            :attribute => 'OBS:QualityCategory', :expires_in => 12.hours
+                                                       :attribute => 'OBS:QualityCategory', :expires_in => 12.hours
           @quality = quality_xml.attribute.text.strip unless quality_xml.nil? || quality_xml.attribute.nil?
         end
         @quality = "" unless @quality

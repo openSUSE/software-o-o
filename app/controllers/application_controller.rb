@@ -131,8 +131,8 @@ class ApplicationController < ActionController::Base
       doc = REXML::Document.new response.body
       doc.elements.each("distributions/distribution") { |element|
         dist = Hash[:name => element.elements['name'].text, :project => element.elements['project'].text,
-          :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text,
-          :dist_id => element.attributes['id'].sub(".", "")]
+                    :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text,
+                    :dist_id => element.attributes['id'].sub(".", "")]
         distributions << dist
         logger.debug "Added Distribution: #{dist[:name]}"
       }
