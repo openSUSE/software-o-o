@@ -7,7 +7,7 @@ class SearchController < ApplicationController
 
     base = (@baseproject == "ALL") ? "" : @baseproject
 
-    #if we have a baseproject, and don't show unsupported packages, shortcut: '
+    # if we have a baseproject, and don't show unsupported packages, shortcut: '
     if !@baseproject.blank? && @baseproject != "ALL" && !@search_unsupported && !@search_project
       @search_project = @baseproject
     end

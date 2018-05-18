@@ -98,7 +98,7 @@ class DownloadController < ApplicationController
       # so we search for all files of the project and filter for *.ymp below
       api_result = ApiConnect::get("/search/published/pattern/id?match=project='#{@project}'")
       xpath = "/collection/pattern"
-      #logger.debug doc
+      # logger.debug doc
 
       if api_result
         doc = REXML::Document.new api_result.body
