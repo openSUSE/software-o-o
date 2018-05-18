@@ -37,6 +37,13 @@ class SearchController < ApplicationController
       @packages.reject! { |p| p.name.end_with?("-devel", "-lang", "-buildsymbols") || p.name.include?("-translations-") || p.name.include?("-l10n-") }
     end
 
+    # filter out ports for different arch
+    # this rule is very basic, need further improvement
+    # TODO: detect user agent of aarch64, armv7l, ppc64, etc.
+    if request.user_agent.include?("x86_64") || request.user_agent.include?("i686")
+      @packages.reject! { |p| p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") || p.project.include?("ARM") || p.project.include?("PowerPC") || p.project.include?("zSystems") }
+    end
+
     # sort by package name length
     @packages.sort! { |a, b| a.name.length <=> b.name.length }
     # show official package first

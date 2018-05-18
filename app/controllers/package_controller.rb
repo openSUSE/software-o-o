@@ -36,6 +36,13 @@ class PackageController < ApplicationController
     @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, :appscreen => @appscreenshot, protocol: request.protocol
     @thumbnail = url_for :controller => :package, :action => :thumbnail, :package => @pkgname, :appscreen => @appscreenshot, protocol: request.protocol
 
+    # filter out ports for different arch
+    # this rule is very basic, need further improvement
+    # TODO: detect user agent of aarch64, armv7l, ppc64, etc.
+    if request.user_agent.include?("x86_64") || request.user_agent.include?("i686")
+      @packages.reject! { |p| p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") || p.project.include?("ARM") || p.project.include?("PowerPC") || p.project.include?("zSystems") }
+    end
+
     # remove maintenance projects
     @packages.reject!{|p| p.project.match(/openSUSE\:Maintenance\:/) }
 
