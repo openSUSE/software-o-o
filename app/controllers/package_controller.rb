@@ -40,11 +40,14 @@ class PackageController < ApplicationController
     # this rule is very basic, need further improvement
     # TODO: detect user agent of aarch64, armv7l, ppc64, etc.
     if request.user_agent.include?("x86_64") || request.user_agent.include?("i686")
-      @packages.reject! { |p| p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") || p.project.include?("ARM") || p.project.include?("PowerPC") || p.project.include?("zSystems") }
+      @packages.reject! do |p|
+        p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") ||
+          p.project.include?("ARM") || p.project.include?("PowerPC") || p.project.include?("zSystems")
+      end
     end
 
     # remove maintenance projects
-    @packages.reject!{|p| p.project.match(/openSUSE\:Maintenance\:/) || p.project == "openSUSE:Factory:Rebuild" }
+    @packages.reject! { |p| p.project.match(/openSUSE\:Maintenance\:/) || p.project == "openSUSE:Factory:Rebuild" }
 
     @packages.each do |package|
       # Backports chains up to the toolchain module for newer GCC.

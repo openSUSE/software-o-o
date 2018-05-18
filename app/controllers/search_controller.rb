@@ -30,7 +30,7 @@ class SearchController < ApplicationController
     end
 
     # remove maintenance projects
-    @packages.reject!{|p| p.project.match(/openSUSE\:Maintenance\:/) || p.project == "openSUSE:Factory:Rebuild" }
+    @packages.reject! { |p| p.project.match(/openSUSE\:Maintenance\:/) || p.project == "openSUSE:Factory:Rebuild" }
 
     # only show packages
     @packages = @packages.reject { |p| p.first.type == 'ymp' }
@@ -44,13 +44,16 @@ class SearchController < ApplicationController
     # this rule is very basic, need further improvement
     # TODO: detect user agent of aarch64, armv7l, ppc64, etc.
     if request.user_agent.include?("x86_64") || request.user_agent.include?("i686")
-      @packages.reject! { |p| p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") || p.project.include?("ARM") || p.project.include?("PowerPC") || p.project.include?("zSystems") }
+      @packages.reject! do |p|
+        p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") ||
+          p.project.include?("ARM") || p.project.include?("PowerPC") || p.project.include?("zSystems")
+      end
     end
 
     # sort by package name length
     @packages.sort! { |a, b| a.name.length <=> b.name.length }
     # show official package first
-    @packages.sort! { |a, b| trust_level(b, base) - trust_level(a, base)}
+    @packages.sort! { |a, b| trust_level(b, base) - trust_level(a, base) }
 
     @packagenames = @packages.map { |p| p.name }
 
@@ -73,19 +76,19 @@ class SearchController < ApplicationController
 
   def find; end
 
-
-  # 3: official package
-  # 2: official package in Factory
-  # 1: experimental package
-  # 0: community package
   def trust_level(package, project)
+    # 3: official package
+    # 2: official package in Factory
+    # 1: experimental package
+    # 0: community package
     if package.project == project || package.project == "#{project}:Update" || package.project == "#{project}:NonFree"
-      return 3
+      3
     elsif package.project == "openSUSE:Factory"
-      return 2
+      2
     elsif (package.project.start_with?('home'))
-      return 0
+      0
+    else
+      1
     end
-      return 1
   end
 end
