@@ -92,26 +92,28 @@ class PackageController < ApplicationController
   private
 
   def image(pkgname, type)
-    apps = @appdata[:apps].reject{|a| a[:screenshots].blank? }
-    packages = apps.select {|p| p[:pkgname] == pkgname}
-    image_url = begin
-                  packages[0][:screenshots][0]
-                rescue
-                  nil
-                end
+    @appdata[:apps].each do |app|
+      next unless app[:pkgname] == pkgname
+      next if app[:screenshots].blank?
 
-    if type == :screenshot && image_url
-      redirect_to image_url
-    else
-      # a screenshot object with nil url returns default thumbnails
-      screenshot = Screenshot.new(pkgname, image_url)
-      path = screenshot.thumbnail_path(fetch: true)
-      if type == :screenshot && !image_url
-        head 404, "content_type" => 'text/plain'
-      else
-        redirect_to '/' + path
+      app[:screenshots].each do |image_url|
+        return redirect_to image_url if type == :screenshot && image_url
+
+        path = begin
+                 # a screenshot object with nil url returns default thumbnails
+                 screenshot = Screenshot.new(pkgname, image_url)
+                 screenshot.thumbnail_path(fetch: true)
+               rescue => e
+                 Rails.logger.error "Error retrieving #{image_url}: #{e}"
+                 next
+               end
+        return redirect_to '/' + path
       end
     end
+
+    head 404, "content_type" => 'text/plain' if type == :screenshot
+    screenshot = Screenshot.new(pkgname, nil)
+    redirect_to '/' + screenshot.thumbnail_path(fetch: true)
   end
 
   # See https://specifications.freedesktop.org/menu-spec/1.0/apa.html
