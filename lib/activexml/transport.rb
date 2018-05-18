@@ -29,7 +29,7 @@ module ActiveXML
       def summary
         parse!
         if @xml.has_key? 'summary'
-    return @xml['summary']
+          return @xml['summary']
         else
           return self.message
         end
@@ -268,9 +268,9 @@ module ActiveXML
       symbolified_model = object.class.name.downcase.to_sym
       options = options_for(symbolified_model)
       uri = if path_id and options.has_key? path_id
-        options[path_id]
+              options[path_id]
             else
-        target_for(symbolified_model)
+              target_for(symbolified_model)
             end
       substitute_uri(uri, object.instance_variable_get("@init_options").merge(opt))
     end
