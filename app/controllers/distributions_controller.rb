@@ -8,6 +8,7 @@ class DistributionsController < ApplicationController
 
   # GET /distributions/leap
   def leap
+    @hide_search_box = true
     unless @stable_version
       redirect_to '/', flash: { error: _("No stable release available") }
       return
@@ -18,11 +19,13 @@ class DistributionsController < ApplicationController
 
   # GET /distributions/tumbleweed
   def tumbleweed
+    @hide_search_box = true
     render layout: 'download'
   end
 
   # GET /distributions/testing
   def testing
+    @hide_search_box = true
     unless @testing_version
       redirect_to '/distributions/leap', flash: { error: _("No testing distribution available.") }
       return
