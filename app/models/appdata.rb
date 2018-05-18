@@ -27,8 +27,8 @@ class Appdata
       appdata[:screenshots] = app.xpath('screenshots/screenshot/image').map{|s| s.text}
       data[:apps] << appdata
     end
-    data[:categories] += xml.xpath("/components/component/categories/category").
-      map{|cat| cat.text}.reject{|c| c.match(/^X-/)}.uniq
+    data[:categories] += xml.xpath("/components/component/categories/category")
+      .map{|cat| cat.text}.reject{|c| c.match(/^X-/)}.uniq
     data
   end
 
