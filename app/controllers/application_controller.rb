@@ -116,7 +116,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_baseproject
-    unless (@distributions.blank? || @distributions.select{|d| d[:project] == cookies[:search_baseproject]}.blank?)
+    unless (@distributions.blank? || @distributions.select {|d| d[:project] == cookies[:search_baseproject]}.blank?)
       @baseproject = cookies[:search_baseproject]
     end
     @baseproject = "openSUSE:Leap:#{@stable_version}" if @baseproject.blank?
@@ -183,7 +183,7 @@ class ApplicationController < ActionController::Base
 
   def set_search_options
     @search_term = params[:q] || ""
-    @baseproject = params[:baseproject] unless @distributions.select{|d| d[:project] == params[:baseproject]}.blank?
+    @baseproject = params[:baseproject] unless @distributions.select {|d| d[:project] == params[:baseproject]}.blank?
     @search_devel = cookies[:search_devel] unless cookies[:search_devel].blank?
     @search_devel = params[:search_devel] unless params[:search_devel].blank?
     @search_unsupported = cookies[:search_unsupported] unless cookies[:search_unsupported].blank?
