@@ -7,12 +7,12 @@ class ScreenshotTest < ActiveSupport::TestCase
   test 'Screenshot with nil url should return default screenshot' do
     pkg = Faker::Lorem.word
     screenshot = Screenshot.new(pkg, nil)
-    assert_equal "assets/default-screenshots/package.png", screenshot.thumbnail_path
+    assert_equal "default-screenshots/package.png", screenshot.thumbnail_path
   end
 
   test 'Screenshot with nil url but common name should return known default screenshot' do
     screenshot = Screenshot.new("#{Faker::Lorem.word}-devel", nil)
-    assert_equal 'assets/default-screenshots/devel-package.png', screenshot.thumbnail_path
+    assert_equal 'default-screenshots/devel-package.png', screenshot.thumbnail_path
   end
 
   test 'Screenshot should be able to get a correct thumbnail' do
