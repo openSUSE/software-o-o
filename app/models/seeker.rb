@@ -35,7 +35,7 @@ class Seeker < ActiveXML::Node
       xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" if (!exclude_filter.blank? && project.blank?)
       xpath_items << versrel.map {|part| "starts-with(@versrel,'#{part}')"}.join(" and ") unless versrel.blank?
       xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " +
-        "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))" if exclude_debug
+                     "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))" if exclude_debug
       xpath = xpath_items.join(' and ')
 
       bin = Seeker.find :binary, :match => xpath
