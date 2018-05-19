@@ -39,7 +39,7 @@ class Seeker < ActiveXML::Node
       xpath = xpath_items.join(' and ')
 
       bin = Seeker.find :binary, :match => xpath
-      raise "Backend not responding" if(bin.nil?)
+      raise "Backend not responding" if (bin.nil?)
 
       result = new(query)
       result.add_binlist(bin)

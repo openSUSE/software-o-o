@@ -505,7 +505,7 @@ module ActiveXML
       # puts "called method: #{symbol}(#{args.map do |a| a.inspect end.join ', '})"
 
       symbols = symbol.to_s
-      if(symbols =~ /^each_(.*)$/)
+      if symbols =~ /^each_(.*)$/
         elem = $1
         return [] if not has_element? elem
         result = Array.new
