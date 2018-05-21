@@ -26,8 +26,7 @@ class SearchController < ApplicationController
     # filter out devel projects on user setting
     unless (@search_unsupported || @search_project)
       @packages = @packages.select do |p|
-        @distributions.map { |d| d[:project] }.include?(p.project) ||
-          @distributions.map { |d| "#{d[:project]}:Update" }.include?(p.project) || @distributions.map { |d| "#{d[:project]}:NonFree" }.include?(p.project)
+        @distributions.flat_map { |d| [d[:project], "#{d[:project]}:Update", "#{d[:project]}:NonFree"] }.include? p.project
       end
     end
 
@@ -40,8 +39,8 @@ class SearchController < ApplicationController
       appdata_hits = @appdata[:apps].select do |a|
         (a[:summary].match(/#{Regexp.quote(@search_term)}/i) ||
           a[:name].match(/#{Regexp.quote(@search_term)}/i))
-      end.map { |a| a[:pkgname] }
-      @packagenames = (@packagenames + appdata_hits)
+      end
+      @packagenames += appdata_hits.map { |a| a[:pkgname] }
     end
     @packagenames = @packagenames.uniq.sort_by { |x| x.length }
 
