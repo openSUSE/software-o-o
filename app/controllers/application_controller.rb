@@ -116,7 +116,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_baseproject
-    unless (@distributions.blank? || @distributions.select{|d| d[:project] == cookies[:search_baseproject]}.blank?)
+    unless (@distributions.blank? || @distributions.select {|d| d[:project] == cookies[:search_baseproject]}.blank?)
       @baseproject = cookies[:search_baseproject]
     end
     @baseproject = "openSUSE:Leap:#{@stable_version}" if @baseproject.blank?
@@ -131,8 +131,8 @@ class ApplicationController < ActionController::Base
       doc = REXML::Document.new response.body
       doc.elements.each("distributions/distribution") { |element|
         dist = Hash[:name => element.elements['name'].text, :project => element.elements['project'].text,
-          :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text,
-          :dist_id => element.attributes['id'].sub(".", "")]
+                    :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text,
+                    :dist_id => element.attributes['id'].sub(".", "")]
         distributions << dist
         logger.debug "Added Distribution: #{dist[:name]}"
       }
@@ -183,12 +183,12 @@ class ApplicationController < ActionController::Base
 
   def set_search_options
     @search_term = params[:q] || ""
-    @baseproject = params[:baseproject] unless @distributions.select{|d| d[:project] == params[:baseproject]}.blank?
+    @baseproject = params[:baseproject] unless @distributions.select {|d| d[:project] == params[:baseproject]}.blank?
     @search_devel = cookies[:search_devel] unless cookies[:search_devel].blank?
     @search_devel = params[:search_devel] unless params[:search_devel].blank?
     @search_unsupported = cookies[:search_unsupported] unless cookies[:search_unsupported].blank?
     @search_unsupported = params[:search_unsupported] unless params[:search_unsupported].blank?
-    #FIXME: remove @search_unsupported when redesigning search options
+    # FIXME: remove @search_unsupported when redesigning search options
     @search_unsupported = "true"
     @search_devel = (@search_devel == "true" ? true : false)
     @search_project = params[:search_project]
@@ -203,7 +203,7 @@ class ApplicationController < ActionController::Base
   # TODO: atm obs only offers appdata for Factory
   def prepare_appdata
     @appdata = Rails.cache.fetch("appdata", :expires_in => 12.hours) do
-        Appdata.get "factory"
+      Appdata.get "factory"
     end
   end
 
@@ -211,6 +211,6 @@ class ApplicationController < ActionController::Base
 
   def set_beta_warning
     flash.now[:info] = "This is a beta version of the new app browser, part of " +
-      "the <a href='https://trello.com/board/appstream/4f156e1c9ce0824a2e1b8831'>current boosters sprint</a>!"
+                       "the <a href='https://trello.com/board/appstream/4f156e1c9ce0824a2e1b8831'>current boosters sprint</a>!"
   end
 end

@@ -24,28 +24,28 @@ class Seeker < ActiveXML::Node
 
       xpath_items = Array.new
       xpath_items << "@project = '#{project}' " unless project.blank?
-      substring_words = words.reject{|word| word.match(/^".+"$/) }.map{|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ")
+      substring_words = words.reject {|word| word.match(/^".+"$/) }.map {|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ")
       unless (substring_words.blank?)
         xpath_items << "contains-ic(@name, " + substring_words + ")"
       end
-      words.select{|word| word.match(/^".+"$/) }.map{|word| word.gsub("\"", "") }.each do |word|
+      words.select {|word| word.match(/^".+"$/) }.map {|word| word.gsub("\"", "") }.each do |word|
         xpath_items << "@name = '#{word.gsub(/['"()]/, "")}' "
       end
       xpath_items << "path/project='#{baseproject}'" unless baseproject.blank?
       xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" if (!exclude_filter.blank? && project.blank?)
       xpath_items << versrel.map {|part| "starts-with(@versrel,'#{part}')"}.join(" and ") unless versrel.blank?
       xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " +
-        "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))" if exclude_debug
+                     "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))" if exclude_debug
       xpath = xpath_items.join(' and ')
 
       bin = Seeker.find :binary, :match => xpath
-      raise "Backend not responding" if(bin.nil?)
+      raise "Backend not responding" if (bin.nil?)
 
       result = new(query)
       result.add_binlist(bin)
 
       # remove this hack when the backend can filter for project names
-      result.reject!{|res| /#{exclude_filter}/.match(res.project) } if (!exclude_filter.blank? && project.blank?)
+      result.reject! {|res| /#{exclude_filter}/.match(res.project) } if (!exclude_filter.blank? && project.blank?)
       result.sort! {|x, y| y.relevance <=> x.relevance}
       logger.info "Seeker found #{result.size} results"
       return result
@@ -251,7 +251,7 @@ class Seeker < ActiveXML::Node
           bin = self[0]
           begin
             info = ::Published.find_cached bin.filename, :view => :fileinfo, :project => @project,
-              :repository => @repository, :arch => bin.arch.to_s, :expires_in => 12.hours
+                                                         :repository => @repository, :arch => bin.arch.to_s, :expires_in => 12.hours
           rescue => e
             logger.error "Error fetching info for binary: #{e.message}"
           end
@@ -261,8 +261,8 @@ class Seeker < ActiveXML::Node
             @summary = info.summary.to_s if info.has_element? :summary
             @size = info.size.to_s if info.has_element? :size
             @mtime = info.mtime.to_s if info.has_element? :mtime
-            @requires = info.each_requires.map{|r| r.text} if info.has_element? :requires
-            @provides = info.each_provides.map{|r| r.text} if info.has_element? :provides
+            @requires = info.each_requires.map {|r| r.text} if info.has_element? :requires
+            @provides = info.each_provides.map {|r| r.text} if info.has_element? :provides
           end
         end
       end
@@ -307,7 +307,7 @@ class Seeker < ActiveXML::Node
       def quality
         unless @quality
           quality_xml = ::Attribute.find_cached 'att', :prj => @project,
-            :attribute => 'OBS:QualityCategory', :expires_in => 12.hours
+                                                       :attribute => 'OBS:QualityCategory', :expires_in => 12.hours
           @quality = quality_xml.attribute.text.strip unless quality_xml.nil? || quality_xml.attribute.nil?
         end
         @quality = "" unless @quality
@@ -357,7 +357,7 @@ class Seeker < ActiveXML::Node
       end
 
       def __key
-        @__key ||= @fragment_type.to_s + "|" + %w[project repository name].map{|x| self[x]}.join('|')
+        @__key ||= @fragment_type.to_s + "|" + %w[project repository name].map {|x| self[x]}.join('|')
       end
 
       def dump
