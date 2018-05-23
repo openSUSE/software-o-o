@@ -13,17 +13,8 @@
             <span class="hidden-xs-down"><%= _("Settings") %></span>
         </button>
       </div>
-
-      <%= render :partial => 'search/settings' %>
-
     <% end -%>
   </div>
 </div>
 
-<div class="hidden" id="search-messages" >
-  <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">
-    <p id="msg">
-      <span class="ui-icon ui-icon-info"></span>
-    </p>
-  </div>
-</div>
+<%= render :partial => 'search/settings' %>

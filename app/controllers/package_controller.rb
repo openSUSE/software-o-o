@@ -3,7 +3,7 @@ class PackageController < ApplicationController
   before_action :set_search_options, :only => %i[show categories]
   before_action :prepare_appdata, :set_categories, :only => %i[show explore category]
 
-  skip_before_action :set_language, :set_distributions, :set_baseproject, :only => %i[thumbnail screenshot]
+  skip_before_action :set_language, :set_distributions, :only => %i[thumbnail screenshot]
 
   def show
     required_parameters :package
@@ -36,18 +36,7 @@ class PackageController < ApplicationController
     @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, :appscreen => @appscreenshot, protocol: request.protocol
     @thumbnail = url_for :controller => :package, :action => :thumbnail, :package => @pkgname, :appscreen => @appscreenshot, protocol: request.protocol
 
-    # filter out ports for different arch
-    # this rule is very basic, need further improvement
-    # TODO: detect user agent of aarch64, armv7l, ppc64, etc.
-    if request.user_agent.include?("x86_64") || request.user_agent.include?("i686")
-      @packages.reject! do |p|
-        p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") ||
-          p.project.include?("ARM") || p.project.include?("PowerPC") || p.project.include?("zSystems")
-      end
-    end
-
-    # remove maintenance projects
-    @packages.reject! { |p| p.project.match(/openSUSE\:Maintenance\:/) || p.project == "openSUSE:Factory:Rebuild" }
+    filter_packages
 
     @packages.each do |package|
       # Backports chains up to the toolchain module for newer GCC.

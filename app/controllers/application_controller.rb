@@ -68,8 +68,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_baseproject
-    unless (@distributions.blank? || @distributions.select{|d| d[:project] == cookies[:search_baseproject]}.blank?)
-      @baseproject = cookies[:search_baseproject]
+    unless (@distributions.blank? || @distributions.select{|d| d[:project] == cookies[:baseproject]}.blank?)
+      @baseproject = cookies[:baseproject]
     end
   end
 
@@ -134,21 +134,48 @@ class ApplicationController < ActionController::Base
 
   def set_search_options
     @search_term = params[:q] || ""
-    @baseproject = params[:baseproject] unless @distributions.select{|d| d[:project] == params[:baseproject]}.blank?
-    @search_devel = cookies[:search_devel] unless cookies[:search_devel].blank?
-    @search_devel = params[:search_devel] unless params[:search_devel].blank?
-    @search_unsupported = cookies[:search_unsupported] unless cookies[:search_unsupported].blank?
-    @search_unsupported = params[:search_unsupported] unless params[:search_unsupported].blank?
-    #FIXME: remove @search_unsupported when redesigning search options
-    @search_unsupported = "true"
-    @search_devel = (@search_devel == "true" ? true : false)
-    @search_project = params[:search_project]
-    @search_unsupported = (@search_unsupported == "true" ? true : false)
-    @exclude_debug = @search_devel ? false : true
-    @exclude_filter = @search_unsupported ? nil : 'home:'
-    cookies[:search_devel] = { :value => @search_devel, :expires => 1.year.from_now }
-    cookies[:search_unsupported] = { :value => @search_unsupported, :expires => 1.year.from_now }
-    cookies[:search_baseproject] = { :value => @baseproject, :expires => 1.year.from_now }
+    if !cookies[:baseproject].nil? && @distributions.select{ |d| d[:project] == cookies[:baseproject] }
+      @baseproject = cookies[:baseproject]
+    else
+      @baseproject = "openSUSE:Factory"
+    end
+    @search_devel = (cookies[:search_devel] == "true" ? true : false)
+    @search_lang = (cookies[:search_lang] == "true" ? true : false)
+    @search_debug = (cookies[:search_debug] == "true" ? true : false)
+  end
+
+  def filter_packages
+    # remove maintenance projects, they are not meant for end users
+    @packages.reject! { |p| p.project.match(/openSUSE\:Maintenance\:/) }
+    @packages.reject! { |p| p.project == "openSUSE:Factory:Rebuild" }
+    @packages.reject! { |p| p.project.start_with?("openSUSE:Factory:Staging") }
+
+    # only show packages
+    @packages = @packages.reject { |p| p.first.type == 'ymp' }
+
+    unless @search_devel
+      @packages.reject! { |p| p.name.end_with?("-devel") }
+    end
+
+    unless @search_lang
+      @packages.reject! { |p| p.name.end_with?("-lang") || p.name.include?("-translations-") || p.name.include?("-l10n-") }
+    end
+
+    unless @search_debug
+      @packages.reject! { |p| p.name.end_with?("-buildsymbols") || p.name.end_with?("-debuginfo") || p.name.end_with?("-debugsource") }
+    end
+
+    # filter out ports for different arch
+    if @baseproject.end_with?("ARM")
+      @packages.filter! { |p| p.project.include?("ARM") || p.repository.include?("ARM") }
+    elsif @baseproject.end_with?("PowerPC")
+      @packages.filter! { |p| p.project.include?("PowerPC") || p.repository.include?("PowerPC") }
+    else # x86
+      @packages.reject! do |p|
+        p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") ||
+          p.project.include?("ARM") || p.project.include?("PowerPC") || p.project.include?("zSystems")
+      end
+    end
   end
 
   # TODO: atm obs only offers appdata for Factory

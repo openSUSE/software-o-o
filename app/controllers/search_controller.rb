@@ -23,32 +23,7 @@ class SearchController < ApplicationController
       raise e if @packages.nil?
     end
 
-    # filter out devel projects on user setting
-    unless (@search_unsupported || @search_project)
-      @packages = @packages.select { |p| (@distributions.map { |d| d[:project] }.include? p.project) ||
-          @distributions.map { |d| "#{d[:project]}:Update" }.include?(p.project) || @distributions.map { |d| "#{d[:project]}:NonFree" }.include?(p.project) }
-    end
-
-    # remove maintenance projects
-    @packages.reject! { |p| p.project.match(/openSUSE\:Maintenance\:/) || p.project == "openSUSE:Factory:Rebuild" }
-
-    # only show packages
-    @packages = @packages.reject { |p| p.first.type == 'ymp' }
-
-    # filter out devel, language, debug packages
-    if !@search_devel
-      @packages.reject! { |p| p.name.end_with?("-devel", "-lang", "-buildsymbols") || p.name.include?("-translations-") || p.name.include?("-l10n-") }
-    end
-
-    # filter out ports for different arch
-    # this rule is very basic, need further improvement
-    # TODO: detect user agent of aarch64, armv7l, ppc64, etc.
-    if request.user_agent.include?("x86_64") || request.user_agent.include?("i686")
-      @packages.reject! do |p|
-        p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") ||
-          p.project.include?("ARM") || p.project.include?("PowerPC") || p.project.include?("zSystems")
-      end
-    end
+    filter_packages
 
     # sort by package name length
     @packages.sort! { |a, b| a.name.length <=> b.name.length }
