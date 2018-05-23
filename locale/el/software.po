@@ -2,11 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Greek (software-o-o)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-27 18:40+0000\n"
+"POT-Creation-Date: 2018-05-16 16:41+0300\n"
 "PO-Revision-Date: 2018-04-28 20:29+0000\n"
 "Last-Translator: Konstantina Tsolakoglou <konstantina@accountant.com>\n"
-"Language-Team: Greek "
-"<https://l10n.opensuse.org/projects/software-o-o/master/el/>\n"
+"Language-Team: Greek <https://l10n.opensuse.org/projects/software-o-o/master/"
+"el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,14 +37,6 @@ msgstr ""
 "λογισμικού και λογισμικού ανοικτού κώδικα εκδίδουν συνεχώς νέες εκδόσεις του "
 "λογισμικού τους."
 
-#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
-msgid "(hide)"
-msgstr "(απόκρυψη)"
-
-#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
-msgid "(show)"
-msgstr "(εμφάνιση)"
-
 #: ../app/views/package/_download_rows.html.erb:49
 msgid "1 Click Install"
 msgstr "Εγκατάσταση με 1 κλικ"
@@ -57,6 +49,14 @@ msgstr "Σύστημα με μνήμη 2 GB"
 msgid "2 Ghz dual core processor or better"
 msgstr "Διπύρηνος επεξεργαστής 2 Ghz ή καλύτερος"
 
+#: ../app/views/download/package.erb:9
+msgid "<b>%s</b> from <b>%s</b> project"
+msgstr ""
+
+#: ../app/views/download/appliance.erb:8
+msgid "<b>%s</b> project"
+msgstr ""
+
 #: ../app/views/package/_download_rows.html.erb:3
 msgid "<b>official release</b>"
 msgstr "<b>επίσημη έκδοση</b>"
@@ -65,13 +65,15 @@ msgstr "<b>επίσημη έκδοση</b>"
 msgid "<b>official update</b>"
 msgstr "<b>επίσημη ενημέρωση</b>"
 
-#: ../app/views/download/package.erb:84
+#: ../app/views/download/package.erb:37
 msgid "Add repository and install manually"
 msgstr "Προσθήκη αποθετηρίου και εγκατάσταση με το χέρι"
 
-#: ../app/views/download/appliance.erb:52
-msgid "Available Images"
-msgstr "Διαθέσιμες εικόνες"
+#: ../app/views/images/images.xml.erb:31 ../app/views/images/images.xml.erb:41
+#: ../app/views/images/images.xml.erb:55 ../app/views/images/images.xml.erb:65
+#: ../app/views/images/images.xml.erb:75
+msgid "Architecture"
+msgstr ""
 
 #: ../app/views/package/show.html.erb:5
 msgid "Back to home page"
@@ -91,10 +93,9 @@ msgid ""
 "\">openQA</a> as well as by human openSUSE contributors so both can be "
 "relied upon to work."
 msgstr ""
-"Και οι δυο διανομές είναι απολύτως δοκιμασμένες από το <a href=\""
-"https://openqa.opensuse.org\">openQA</a> καθώς και από ανθρώπινους "
-"συνεισφέροντες στο openSUSE, ώστε και οι δύο να μπορούν να βασίζονται ότι "
-"δουλεύει."
+"Και οι δυο διανομές είναι απολύτως δοκιμασμένες από το <a href=\"https://"
+"openqa.opensuse.org\">openQA</a> καθώς και από ανθρώπινους συνεισφέροντες "
+"στο openSUSE, ώστε και οι δύο να μπορούν να βασίζονται ότι δουλεύει."
 
 #: ../app/views/layouts/_footer.html.erb:8
 msgid "Build service"
@@ -114,6 +115,10 @@ msgstr "Κατηγορία"
 #: ../app/views/distributions/leap.html.erb:101
 #: ../app/views/distributions/leap.html.erb:119
 #: ../app/views/distributions/leap.html.erb:133
+#: ../app/views/distributions/testing.html.erb:53
+#: ../app/views/distributions/testing.html.erb:67
+#: ../app/views/distributions/testing.html.erb:87
+#: ../app/views/distributions/testing.html.erb:100
 #: ../app/views/distributions/tumbleweed.html.erb:55
 #: ../app/views/distributions/tumbleweed.html.erb:69
 #: ../app/views/distributions/tumbleweed.html.erb:83
@@ -123,14 +128,12 @@ msgstr "Κατηγορία"
 #: ../app/views/distributions/tumbleweed.html.erb:154
 #: ../app/views/distributions/tumbleweed.html.erb:172
 #: ../app/views/distributions/tumbleweed.html.erb:186
-#: ../app/views/distributions/tumbleweed.html.erb:215
-#: ../app/views/distributions/tumbleweed.html.erb:227
-#: ../app/views/distributions/tumbleweed.html.erb:239
-#: ../app/views/distributions/tumbleweed.html.erb:255
-#: ../app/views/distributions/tumbleweed.html.erb:267
-#: ../app/views/distributions/tumbleweed.html.erb:279
-#: ../app/views/distributions/testing.html.erb:34
-#: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/tumbleweed.html.erb:217
+#: ../app/views/distributions/tumbleweed.html.erb:229
+#: ../app/views/distributions/tumbleweed.html.erb:241
+#: ../app/views/distributions/tumbleweed.html.erb:257
+#: ../app/views/distributions/tumbleweed.html.erb:269
+#: ../app/views/distributions/tumbleweed.html.erb:281
 msgid "Checksum"
 msgstr "Έλεγχος συνόλου"
 
@@ -151,14 +154,19 @@ msgstr "Επιλέξτε διανομή προς λήψη"
 msgid "Community"
 msgstr "Κοινότητα"
 
+#: ../app/views/distributions/tumbleweed.html.erb:79
+msgid ""
+"Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
+msgstr ""
+
 #: ../app/views/distributions/leap.html.erb:44
 #: ../app/views/distributions/leap.html.erb:83
 #: ../app/views/distributions/leap.html.erb:115
+#: ../app/views/distributions/testing.html.erb:49
 #: ../app/views/distributions/tumbleweed.html.erb:51
 #: ../app/views/distributions/tumbleweed.html.erb:97
 #: ../app/views/distributions/tumbleweed.html.erb:136
 #: ../app/views/distributions/tumbleweed.html.erb:168
-#: ../app/views/distributions/testing.html.erb:30
 msgid ""
 "Contains a large collection of software for desktop or server use. Suitable "
 "for installation or upgrade."
@@ -166,20 +174,35 @@ msgstr ""
 "Περιέχει μεγάλη συλλογή εφαρμογών για χρήση σε προσωπικό υπολογιστή ή "
 "διακομιστή. Κατάλληλο για εγκατάσταση ή αναβάθμιση."
 
+#: ../app/views/images/images.xml.erb:17 ../app/views/images/images.xml.erb:30
+#: ../app/views/images/images.xml.erb:91
+msgid "DVD"
+msgstr ""
+
 #: ../app/views/distributions/leap.html.erb:41
 #: ../app/views/distributions/leap.html.erb:80
 #: ../app/views/distributions/leap.html.erb:112
+#: ../app/views/distributions/testing.html.erb:46
 #: ../app/views/distributions/tumbleweed.html.erb:48
 #: ../app/views/distributions/tumbleweed.html.erb:94
 #: ../app/views/distributions/tumbleweed.html.erb:133
 #: ../app/views/distributions/tumbleweed.html.erb:165
-#: ../app/views/distributions/testing.html.erb:27
 msgid "DVD Image"
 msgstr "Εικόνα DVD"
+
+#: ../app/views/images/images.xml.erb:53
+msgid "Desktop"
+msgstr ""
 
 #: ../app/views/layouts/_footer.html.erb:5
 msgid "Developers"
 msgstr "Προγραμματιστές"
+
+#: ../app/controllers/package_controller.rb:102
+#, fuzzy
+#| msgid "Development-"
+msgid "Development"
+msgstr "Ανάπτυξη-"
 
 #: ../app/views/search/_find_results.html.erb:88
 msgid "Development packages"
@@ -195,6 +218,10 @@ msgstr "Άμεση Εγκατάσταση"
 #: ../app/views/distributions/leap.html.erb:98
 #: ../app/views/distributions/leap.html.erb:116
 #: ../app/views/distributions/leap.html.erb:130
+#: ../app/views/distributions/testing.html.erb:50
+#: ../app/views/distributions/testing.html.erb:64
+#: ../app/views/distributions/testing.html.erb:84
+#: ../app/views/distributions/testing.html.erb:97
 #: ../app/views/distributions/tumbleweed.html.erb:52
 #: ../app/views/distributions/tumbleweed.html.erb:66
 #: ../app/views/distributions/tumbleweed.html.erb:80
@@ -204,18 +231,22 @@ msgstr "Άμεση Εγκατάσταση"
 #: ../app/views/distributions/tumbleweed.html.erb:151
 #: ../app/views/distributions/tumbleweed.html.erb:169
 #: ../app/views/distributions/tumbleweed.html.erb:183
-#: ../app/views/distributions/tumbleweed.html.erb:213
-#: ../app/views/distributions/tumbleweed.html.erb:225
-#: ../app/views/distributions/tumbleweed.html.erb:237
-#: ../app/views/distributions/tumbleweed.html.erb:253
-#: ../app/views/distributions/tumbleweed.html.erb:265
-#: ../app/views/distributions/tumbleweed.html.erb:277
-#: ../app/views/distributions/testing.html.erb:31
-#: ../app/views/distributions/testing.html.erb:45
+#: ../app/views/distributions/tumbleweed.html.erb:215
+#: ../app/views/distributions/tumbleweed.html.erb:227
+#: ../app/views/distributions/tumbleweed.html.erb:239
+#: ../app/views/distributions/tumbleweed.html.erb:255
+#: ../app/views/distributions/tumbleweed.html.erb:267
+#: ../app/views/distributions/tumbleweed.html.erb:279
 msgid "Direct Link"
 msgstr "Απευθείας σύνδεσμος"
 
-#: ../app/views/search/_find_form.html.erb:33
+#: ../app/views/images/images.xml.erb:13
+#, fuzzy
+#| msgid "Distribution:"
+msgid "Distribution"
+msgstr "Διανομή:"
+
+#: ../app/views/search/_find_form.html.erb:31
 msgid "Distribution:"
 msgstr "Διανομή:"
 
@@ -223,20 +254,21 @@ msgstr "Διανομή:"
 msgid "Distributions"
 msgstr "Διανομές"
 
-#: ../app/views/layouts/_footer.html.erb:7
-#: ../app/views/layouts/_navbar.html.erb:20
 #: ../app/views/distributions/_documentation.html.erb:2
+#: ../app/views/layouts/_footer.html.erb:7
+#: ../app/views/layouts/_navbar.html.erb:41
 msgid "Documentation"
 msgstr "Τεκμηρίωση"
 
-#: ../app/views/layouts/_navbar.html.erb:14
 #: ../app/views/distributions/index.html.erb:21
 #: ../app/views/distributions/index.html.erb:31
 #: ../app/views/distributions/index.html.erb:42
+#: ../app/views/layouts/_navbar.html.erb:38
+#: ../app/views/package/_download_rows.html.erb:54
 msgid "Download"
 msgstr "Λήψη"
 
-#: ../app/controllers/download_controller.rb:36
+#: ../app/controllers/download_controller.rb:44
 msgid "Download appliance from %s"
 msgstr "Λήψη εφαρμογής από %s"
 
@@ -259,12 +291,11 @@ msgstr ""
 #: ../app/views/distributions/leap.html.erb:58
 #: ../app/views/distributions/leap.html.erb:97
 #: ../app/views/distributions/leap.html.erb:129
+#: ../app/views/distributions/testing.html.erb:63
 #: ../app/views/distributions/tumbleweed.html.erb:65
-#: ../app/views/distributions/tumbleweed.html.erb:79
 #: ../app/views/distributions/tumbleweed.html.erb:111
 #: ../app/views/distributions/tumbleweed.html.erb:150
 #: ../app/views/distributions/tumbleweed.html.erb:182
-#: ../app/views/distributions/testing.html.erb:44
 msgid ""
 "Downloads the installation system and all packages from online repositories. "
 "Suitable for installation or upgrade."
@@ -279,6 +310,10 @@ msgstr "Εύκολοι τρόποι για να αλλάξετε σε openSUSE L
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:2
 msgid "Easy Ways to Switch to openSUSE Tumbleweed"
 msgstr "Εύκολοι τρόποι για να αλλάξετε σε openSUSE Tumbleweed"
+
+#: ../app/controllers/package_controller.rb:103
+msgid "Education & Science"
+msgstr ""
 
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
@@ -296,15 +331,15 @@ msgstr "Πειραματικό"
 msgid "Facebook group"
 msgstr "Ομάδα στο Facebook"
 
-#: ../app/views/download/package.erb:106
+#: ../app/views/download/package.erb:59
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
 msgstr "Εκτελέστε το <strong>%s</strong> ως χρήστης <strong>root</strong>:"
 
-#: ../app/views/download/package.erb:99
+#: ../app/views/download/package.erb:52
 msgid "For <strong>%s</strong> run the following:"
 msgstr "Για <strong>%s</strong> εκτελέστε το παρακάτω:"
 
-#: ../app/views/download/package.erb:90
+#: ../app/views/download/package.erb:43
 msgid ""
 "For <strong>Arch Linux</strong>, edit /etc/pacman.conf and add the following "
 "(note that the order of repositories in pacman.conf is important, since "
@@ -318,29 +353,31 @@ msgstr ""
 #: ../app/views/distributions/leap.html.erb:57
 #: ../app/views/distributions/leap.html.erb:96
 #: ../app/views/distributions/leap.html.erb:128
+#: ../app/views/distributions/testing.html.erb:62
 #: ../app/views/distributions/tumbleweed.html.erb:64
-#: ../app/views/distributions/tumbleweed.html.erb:78
 #: ../app/views/distributions/tumbleweed.html.erb:110
 #: ../app/views/distributions/tumbleweed.html.erb:149
 #: ../app/views/distributions/tumbleweed.html.erb:181
-#: ../app/views/distributions/tumbleweed.html.erb:236
-#: ../app/views/distributions/tumbleweed.html.erb:276
-#: ../app/views/distributions/testing.html.erb:43
+#: ../app/views/distributions/tumbleweed.html.erb:238
+#: ../app/views/distributions/tumbleweed.html.erb:278
 msgid "For CD and USB stick"
 msgstr "Για CD και USB"
 
 #: ../app/views/distributions/leap.html.erb:43
 #: ../app/views/distributions/leap.html.erb:82
 #: ../app/views/distributions/leap.html.erb:114
+#: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/testing.html.erb:83
+#: ../app/views/distributions/testing.html.erb:96
 #: ../app/views/distributions/tumbleweed.html.erb:50
+#: ../app/views/distributions/tumbleweed.html.erb:78
 #: ../app/views/distributions/tumbleweed.html.erb:96
 #: ../app/views/distributions/tumbleweed.html.erb:135
 #: ../app/views/distributions/tumbleweed.html.erb:167
-#: ../app/views/distributions/tumbleweed.html.erb:212
-#: ../app/views/distributions/tumbleweed.html.erb:224
-#: ../app/views/distributions/tumbleweed.html.erb:252
-#: ../app/views/distributions/tumbleweed.html.erb:264
-#: ../app/views/distributions/testing.html.erb:29
+#: ../app/views/distributions/tumbleweed.html.erb:214
+#: ../app/views/distributions/tumbleweed.html.erb:226
+#: ../app/views/distributions/tumbleweed.html.erb:254
+#: ../app/views/distributions/tumbleweed.html.erb:266
 msgid "For DVD and USB stick"
 msgstr "Για DVD και USB"
 
@@ -364,7 +401,7 @@ msgstr ""
 "διαβάστε %{checksums_help}"
 
 #: ../app/views/layouts/_footer.html.erb:28
-#: ../app/views/layouts/_navbar.html.erb:26
+#: ../app/views/layouts/_navbar.html.erb:47
 msgid "Forums"
 msgstr "Φόρυμ"
 
@@ -380,11 +417,11 @@ msgstr "Από Windows"
 msgid "From an older version or other Linux distro"
 msgstr "Από παλαιότερη έκδοση ή άλλη διανομή linux"
 
-#: ../app/views/distributions/_documentation.html.erb:23
+#: ../app/views/distributions/_documentation.html.erb:21
 msgid "Full Documentation"
 msgstr "Πλήρης τεκμηρίωση"
 
-#: ../app/views/package/categories.html.erb:17
+#: ../app/controllers/package_controller.rb:101
 msgid "Games"
 msgstr "Παιχνίδια"
 
@@ -392,10 +429,10 @@ msgstr "Παιχνίδια"
 msgid "Get"
 msgstr "Λήψη"
 
+#: ../app/views/distributions/index.html.erb:4
 #: ../app/views/layouts/jekyll.html.erb:8
 #: ../app/views/layouts/jekyll.html.erb:34
 #: ../app/views/layouts/download.html.erb:7
-#: ../app/views/distributions/index.html.erb:4
 msgid "Get openSUSE"
 msgstr "Λήψη openSUSE"
 
@@ -403,9 +440,13 @@ msgstr "Λήψη openSUSE"
 msgid "Google+ group"
 msgstr "Ομάδα στο Google+"
 
-#: ../app/views/download/package.erb:153
+#: ../app/views/download/package.erb:105
 msgid "Grab binary packages directly"
 msgstr "Λήψη εκτελέσιμων πακέτα απευθείας"
+
+#: ../app/controllers/package_controller.rb:105
+msgid "Graphics"
+msgstr ""
 
 #: ../app/views/distributions/index.html.erb:39
 msgid ""
@@ -416,12 +457,8 @@ msgstr ""
 "πρόσφατης υπό ανάπτυξη έκδοσης."
 
 #: ../app/views/distributions/testing.html.erb:18
-msgid ""
-"Help test the next version of openSUSE Leap, the regular-release "
-"distribution for desktop PCs, laptops, and servers."
+msgid "Help test the next version of openSUSE Leap!"
 msgstr ""
-"Βοηθήστε δοκιμάζοντας την επόμενη έκδοση του openSUSE Leap, της τακτικής "
-"έκδοσης της διανομής για προσωπικούς υπολογιστές, φορητούς και διακομιστές."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
@@ -463,7 +500,7 @@ msgid ""
 "commands."
 msgstr ""
 
-#: ../app/views/download/appliance.erb:57
+#: ../app/views/download/appliance.erb:34
 msgid "Image:"
 msgstr "Εικόνα:"
 
@@ -471,17 +508,26 @@ msgstr "Εικόνα:"
 msgid "Information"
 msgstr "Πληροφορίες"
 
-#: ../app/controllers/download_controller.rb:78
+#: ../app/controllers/download_controller.rb:86
 msgid "Install package %s / %s"
 msgstr "Εγκατάσταση πακέτου %s / %s"
 
-#: ../app/controllers/download_controller.rb:121
+#: ../app/controllers/download_controller.rb:128
 msgid "Install pattern %s / %s"
 msgstr "Εγκατάσταση pattern %s / %s"
 
-#: ../app/views/download/package.erb:74
-msgid "Install using One Click Install"
-msgstr "Εγκατάσταση με χρήση ενός κλικ"
+#: ../app/views/distributions/testing.html.erb:25
+#: ../app/views/images/images.xml.erb:28
+#, fuzzy
+#| msgid "Installation Medium"
+msgid "Installation"
+msgstr "Μέσο Eγκατάστασης"
+
+#: ../app/views/images/images.xml.erb:16 ../app/views/images/images.xml.erb:90
+#, fuzzy
+#| msgid "Installation Guides"
+msgid "Installation Source"
+msgstr "Οδηγοί Εγκατάστασης"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
@@ -510,16 +556,40 @@ msgid "It should be %{fingerprint}"
 msgstr "Θα έπρεπε να είναι %{fingerprint}"
 
 #: ../app/views/distributions/tumbleweed.html.erb:76
-msgid "Kubic DVD/USB Stick"
-msgstr "Kubic DVD/USB Stick"
+#, fuzzy
+#| msgid "DVD Image"
+msgid "Kubic Image"
+msgstr "Εικόνα DVD"
+
+#: ../app/views/images/images.xml.erb:18
+msgid "Leap %s DVD"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:93
+msgid "Leap %s DVD (Build %s)"
+msgstr ""
+
+# dialog title for nfs installation
+#: ../app/views/images/images.xml.erb:21
+#, fuzzy
+#| msgid "NFS Installation"
+msgid "Leap %s Network Installation"
+msgstr "Εγκατάσταση NFS"
+
+# dialog title for nfs installation
+#: ../app/views/images/images.xml.erb:97
+#, fuzzy
+#| msgid "NFS Installation"
+msgid "Leap %s Network Installation (Build %s)"
+msgstr "Εγκατάσταση NFS"
 
 #: ../app/views/distributions/index.html.erb:77
 msgid ""
 "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
 "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgstr ""
-"Η Leap συνίσταται για τους <strong>διαχειριστές συστήματος</strong>, <strong>"
-"εταιρικούς προγραμματιστές</strong>, και <strong>τελικούς χρήστες "
+"Η Leap συνίσταται για τους <strong>διαχειριστές συστήματος</strong>, "
+"<strong>εταιρικούς προγραμματιστές</strong>, και <strong>τελικούς χρήστες "
 "υπολογιστών</strong>."
 
 #: ../app/views/distributions/index.html.erb:72
@@ -533,9 +603,16 @@ msgstr ""
 "ευθυγραμμισμένη με κάθε νέα κύρια έκδοση (π.χ. 12, 13, κλπ) του SUSE Linux "
 "Enterprise."
 
-#: ../app/views/distributions/_documentation.html.erb:18
+#: ../app/views/distributions/_documentation.html.erb:16
 msgid "License"
 msgstr "Άδεια χρήσης"
+
+#: ../app/views/distributions/testing.html.erb:31
+#: ../app/views/images/images.xml.erb:52
+#, fuzzy
+#| msgid "Live KDE"
+msgid "Live"
+msgstr "Live KDE"
 
 #: ../app/views/layouts/_footer.html.erb:32
 msgid "Mail lists"
@@ -559,12 +636,22 @@ msgstr ""
 "(SHA256) θα χρησιμοποιηθεί αυτόματα αν επιλέξετε Metalink στο\n"
 "πεδίο παραπάνω και χρησιμοποιήστε το πρόσθετο DownThemAll! στο Firefox."
 
+#: ../app/views/images/images.xml.erb:27
+#, fuzzy
+#| msgid "Multimedia"
+msgid "Medium"
+msgstr "Πολυμέσα"
+
 #: ../app/views/distributions/leap.html.erb:46
 #: ../app/views/distributions/leap.html.erb:60
 #: ../app/views/distributions/leap.html.erb:85
 #: ../app/views/distributions/leap.html.erb:99
 #: ../app/views/distributions/leap.html.erb:117
 #: ../app/views/distributions/leap.html.erb:131
+#: ../app/views/distributions/testing.html.erb:51
+#: ../app/views/distributions/testing.html.erb:65
+#: ../app/views/distributions/testing.html.erb:85
+#: ../app/views/distributions/testing.html.erb:98
 #: ../app/views/distributions/tumbleweed.html.erb:53
 #: ../app/views/distributions/tumbleweed.html.erb:67
 #: ../app/views/distributions/tumbleweed.html.erb:81
@@ -574,29 +661,35 @@ msgstr ""
 #: ../app/views/distributions/tumbleweed.html.erb:152
 #: ../app/views/distributions/tumbleweed.html.erb:170
 #: ../app/views/distributions/tumbleweed.html.erb:184
-#: ../app/views/distributions/tumbleweed.html.erb:214
-#: ../app/views/distributions/tumbleweed.html.erb:226
-#: ../app/views/distributions/tumbleweed.html.erb:238
-#: ../app/views/distributions/tumbleweed.html.erb:254
-#: ../app/views/distributions/tumbleweed.html.erb:266
-#: ../app/views/distributions/tumbleweed.html.erb:278
-#: ../app/views/distributions/testing.html.erb:32
-#: ../app/views/distributions/testing.html.erb:46
+#: ../app/views/distributions/tumbleweed.html.erb:216
+#: ../app/views/distributions/tumbleweed.html.erb:228
+#: ../app/views/distributions/tumbleweed.html.erb:240
+#: ../app/views/distributions/tumbleweed.html.erb:256
+#: ../app/views/distributions/tumbleweed.html.erb:268
+#: ../app/views/distributions/tumbleweed.html.erb:280
 msgid "Metalink"
 msgstr "Metalink"
 
-#: ../app/views/package/categories.html.erb:42
+#: ../app/controllers/package_controller.rb:104
 msgid "Multimedia"
 msgstr "Πολυμέσα"
+
+#: ../app/controllers/package_controller.rb:107
+#: ../app/views/images/images.xml.erb:20 ../app/views/images/images.xml.erb:40
+#: ../app/views/images/images.xml.erb:95
+#, fuzzy
+#| msgid "Network Image"
+msgid "Network"
+msgstr "Εικόνα εγκατάστασης μέσω δικτύου"
 
 #: ../app/views/distributions/leap.html.erb:55
 #: ../app/views/distributions/leap.html.erb:94
 #: ../app/views/distributions/leap.html.erb:126
+#: ../app/views/distributions/testing.html.erb:60
 #: ../app/views/distributions/tumbleweed.html.erb:62
 #: ../app/views/distributions/tumbleweed.html.erb:108
 #: ../app/views/distributions/tumbleweed.html.erb:147
 #: ../app/views/distributions/tumbleweed.html.erb:179
-#: ../app/views/distributions/testing.html.erb:41
 msgid "Network Image"
 msgstr "Εικόνα εγκατάστασης μέσω δικτύου"
 
@@ -604,15 +697,15 @@ msgstr "Εικόνα εγκατάστασης μέσω δικτύου"
 msgid "News"
 msgstr "Νέα"
 
-#: ../app/views/download/appliance.erb:2
+#: ../app/views/download/appliance.erb:5
 msgid "No appliance data for %{project}"
 msgstr "Δεν υπάρχουν δεδομένα εφαρμογής για %{project}"
 
-#: ../app/views/download/appliance.erb:47
+#: ../app/views/download/appliance.erb:20
 msgid "No appliances found in project %s"
 msgstr "Δεν βρέθηκαν μεταφορτώσεις στο έργο %s"
 
-#: ../app/views/download/package.erb:2
+#: ../app/views/download/package.erb:6
 msgid "No data for %s / %s"
 msgstr "Κανένα δεδομένο για %s / %s"
 
@@ -620,7 +713,7 @@ msgstr "Κανένα δεδομένο για %s / %s"
 msgid "No description."
 msgstr "Καμία περιγραφή."
 
-#: ../app/views/download/package.erb:69
+#: ../app/views/download/package.erb:131
 msgid "No downloads found for %s in project %s"
 msgstr "Δεν βρέθηκαν λήψεις για %s στο έργο %s"
 
@@ -628,21 +721,21 @@ msgstr "Δεν βρέθηκαν λήψεις για %s στο έργο %s"
 msgid "No packages found matching your search. "
 msgstr "Δεν βρέθηκαν πακέτα που να ταιριάζουν στην αναζήτησή σας. "
 
-#: ../app/views/distributions/testing.html.erb:89
+#: ../app/views/distributions/testing.html.erb:146
 msgid "No testing distribution available."
 msgstr "Δεν υπάρχει διαθέσιμη δοκιμαστική διανομή."
 
-#: ../app/views/distributions/tumbleweed.html.erb:200
-msgid "Not Tested|Tumbleweed installation media"
-msgstr "Μη  δοκιμασμένoΜέσο εγκατάστασης Tumbleweed"
-
-#: ../app/controllers/application_controller.rb:54
+#: ../app/controllers/application_controller.rb:67
 msgid "OBS Backend not available"
 msgstr "Δεν είναι διαθέσιμο το σύστημα υποστήριξης OBS"
 
-#: ../app/views/package/_download_rows.html.erb:22
+#: ../app/controllers/package_controller.rb:106
+msgid "Office & Productivity"
+msgstr ""
+
 #: ../app/views/distributions/leap.html.erb:20
 #: ../app/views/distributions/tumbleweed.html.erb:19
+#: ../app/views/package/_download_rows.html.erb:22
 msgid "Official"
 msgstr "Επίσημο"
 
@@ -662,7 +755,7 @@ msgstr "Δεν βρέθηκε το πακέτο %s..."
 msgid "Package Search"
 msgstr "Αναζήτηση πακέτων"
 
-#: ../app/views/download/package.erb:158
+#: ../app/views/download/package.erb:111
 msgid "Packages for %s:"
 msgstr "Πακέτα για το %s:"
 
@@ -672,6 +765,10 @@ msgstr "Πακέτα για το %s:"
 #: ../app/views/distributions/leap.html.erb:100
 #: ../app/views/distributions/leap.html.erb:118
 #: ../app/views/distributions/leap.html.erb:132
+#: ../app/views/distributions/testing.html.erb:52
+#: ../app/views/distributions/testing.html.erb:66
+#: ../app/views/distributions/testing.html.erb:86
+#: ../app/views/distributions/testing.html.erb:99
 #: ../app/views/distributions/tumbleweed.html.erb:54
 #: ../app/views/distributions/tumbleweed.html.erb:68
 #: ../app/views/distributions/tumbleweed.html.erb:82
@@ -681,8 +778,6 @@ msgstr "Πακέτα για το %s:"
 #: ../app/views/distributions/tumbleweed.html.erb:153
 #: ../app/views/distributions/tumbleweed.html.erb:171
 #: ../app/views/distributions/tumbleweed.html.erb:185
-#: ../app/views/distributions/testing.html.erb:33
-#: ../app/views/distributions/testing.html.erb:47
 msgid "Pick Mirror"
 msgstr "Επιλογή πηγής"
 
@@ -691,17 +786,17 @@ msgid "Planet"
 msgstr "Πλανήτης"
 
 #: ../app/views/distributions/tumbleweed.html.erb:195
-msgid "Please Note: These LiveUSBs are not supported"
-msgstr "Παρακαλούμε σημειώστε: Αυτά τα LiveUSB δεν υποστηρίζονται"
+msgid "Please be aware of the following limitations of the live images:"
+msgstr ""
 
-#: ../app/views/distributions/tumbleweed.html.erb:197
-msgid "Please Use|Tumbleweed installation media"
-msgstr "Παρακαλούμε χρησιμοποιήστε|Μέσο εγκατάστασης Tumbleweed"
-
-#: ../app/views/distributions/tumbleweed.html.erb:201
+#: ../app/views/distributions/tumbleweed.html.erb:202
+#, fuzzy
+#| msgid ""
+#| "Please review %{openqa}'s test results if you want an indication whether "
+#| "these LiveUSBs are working as expected."
 msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
-"these LiveUSBs are working as expected."
+"these live medias are working as expected."
 msgstr ""
 "Ανατρέξτε στα αποτελέσματα δοκιμών του %{openqa} αν θέλετε να μάθετε εάν "
 "αυτά τα LiveUSB λειτουργούν όπως αναμένεται."
@@ -710,11 +805,7 @@ msgstr ""
 msgid "Recommended System Requirements"
 msgstr "Συνιστώμενες απαιτήσεις συστήματος"
 
-#: ../app/views/search/_category_header.html.erb:9
-msgid "Related categories:"
-msgstr "Σχετικές κατηγορίες:"
-
-#: ../app/views/distributions/_documentation.html.erb:13
+#: ../app/views/distributions/_documentation.html.erb:11
 msgid "Release Notes"
 msgstr "Σημειώσεις έκδοσης"
 
@@ -722,21 +813,42 @@ msgstr "Σημειώσεις έκδοσης"
 msgid "Release notes"
 msgstr "Σημειώσεις έκδοσης"
 
+#: ../app/views/images/images.xml.erb:74
+msgid "Rescue"
+msgstr "Σύστημα Διάσωσης"
+
 #: ../app/views/distributions/index.html.erb:73
 msgid "SUSE Linux Enterprise"
 msgstr "SUSE Linux Enterprise"
 
 #: ../app/views/search/find.html.erb:1
+#: ../app/views/search/_find_form.html.erb:8
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: ../app/views/download/package.erb:61
+#: ../app/views/search/_find_form.html.erb:5
+msgid "Search packages..."
+msgstr ""
+
+#: ../app/views/search/_find_form.html.erb:21
+#, fuzzy
+#| msgid "Search options"
+msgid "Search settings"
+msgstr "Επιλογές αναζήτησης"
+
+#: ../app/views/download/package.erb:10
 msgid "Select Your Operating System"
 msgstr "Επιλογή λειτουργικού συστήματος"
 
-#: ../app/views/download/appliance.erb:39
+#: ../app/views/download/appliance.erb:9
 msgid "Select the image type"
 msgstr "Επιλέξτε τον τύπο εικόνας"
+
+#: ../app/views/search/_find_form.html.erb:13
+#, fuzzy
+#| msgid "Getting Help"
+msgid "Settings"
+msgstr "Λήψη Βοήθειας"
 
 #: ../app/views/layouts/_footer.html.erb:22
 msgid "Shop"
@@ -750,7 +862,7 @@ msgstr "Προβολή"
 msgid "Show community packages"
 msgstr "Εμφάνιση μη κοινοτικών πακέτων"
 
-#: ../app/views/search/_find_form.html.erb:43
+#: ../app/views/search/_find_form.html.erb:41
 msgid "Show development, language and debug packages"
 msgstr "Εμφάνιση πακέτων ανάπτυξης, γλώσσας και αποσφαλμάτωσης"
 
@@ -766,19 +878,24 @@ msgstr "Μέγεθος"
 msgid "Social Media"
 msgstr "Κοινωνικά δίκτυα"
 
-#: ../app/views/layouts/_navbar.html.erb:17
+#: ../app/views/layouts/_navbar.html.erb:35
 msgid "Software"
 msgstr "Λογισμικό"
 
 #: ../app/helpers/package_helper.rb:13 ../app/helpers/package_helper.rb:15
 #: ../app/views/package/_download_rows.html.erb:42
 #: ../app/views/package/_download_rows.html.erb:45
+#: ../app/views/images/images.xml.erb:29
 msgid "Source"
 msgstr "Πηγή"
 
 #: ../app/views/search/_find_results.html.erb:82
 msgid "Sub-Packages"
 msgstr "Υπό-πακέτα"
+
+#: ../app/controllers/package_controller.rb:108
+msgid "System & Utility"
+msgstr ""
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
 msgid ""
@@ -802,6 +919,10 @@ msgstr ""
 "των πακέτων που επιλέγουν προς εγκατάσταση, τα οποία πιθανό να είναι\n"
 "λιγότερα από 4.7GB."
 
+#: ../app/controllers/application_controller.rb:40
+msgid "The authentication to the OBS API has not been configured correctly."
+msgstr ""
+
 #: ../app/views/package/show.html.erb:103
 msgid ""
 "The following distributions are not officially supported. Use these packages "
@@ -810,7 +931,7 @@ msgstr ""
 "Οι παρακάτω διανομές δεν υποστηρίζονται επίσημα. Χρησιμοποιήστε αυτά τα "
 "πακέτα με δικιά σας ευθύνη."
 
-#: ../app/views/download/package.erb:95
+#: ../app/views/download/package.erb:48
 msgid "Then run the following as <strong>root</strong>"
 msgstr "Μετά εκτελέστε την παρακάτω ως χρήστης <strong>root</strong>"
 
@@ -823,11 +944,11 @@ msgstr ""
 "Αυτές οι εκδόσεις δεν υποστηρίζονται επίσημα, και δεν είναι τόσο σταθερές "
 "όσο είναι οι επίσημες διανομές."
 
-#: ../app/views/distributions/tumbleweed.html.erb:199
+#: ../app/views/distributions/tumbleweed.html.erb:200
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr "Δεν ελέγχονται τόσο καλά όσο το %{tumbleweed_media}."
 
-#: ../app/views/distributions/tumbleweed.html.erb:196
+#: ../app/views/distributions/tumbleweed.html.erb:197
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
@@ -835,9 +956,14 @@ msgstr ""
 "Δεν μπορούν να χρησιμοποιηθούν για εγκατάσταση ή αναβάθμιση του Tumbleweed. "
 "Παρακαλούμε αντί αυτού χρησιμοποιήστε το %{tumbleweed_media}."
 
-#: ../app/views/distributions/tumbleweed.html.erb:198
+#: ../app/views/distributions/tumbleweed.html.erb:199
+#, fuzzy
+#| msgid ""
+#| "They have a limited package/driver selection, so cannot be considered an "
+#| "accurate reflection as to whether Tumbleweed will work on your hardware "
+#| "or not."
 msgid ""
-"They have a limited package/driver selection, so cannot be considered an "
+"They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not."
 msgstr ""
@@ -849,14 +975,67 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr "Εναλλαγή πλοήγησης"
 
+#: ../app/views/images/images.xml.erb:33
+msgid "Tumbleweed %s DVD (i586)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:36
+msgid "Tumbleweed %s DVD (x86_64)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:57
+msgid "Tumbleweed %s GNOME Live (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:60
+msgid "Tumbleweed %s GNOME Live (x86_64)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:67
+msgid "Tumbleweed %s KDE Live (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:70
+msgid "Tumbleweed %s KDE Live (x86_64)"
+msgstr ""
+
+# dialog title for nfs installation
+#: ../app/views/images/images.xml.erb:43
+#, fuzzy
+#| msgid "NFS Installation"
+msgid "Tumbleweed %s Network Installation (i586)"
+msgstr "Εγκατάσταση NFS"
+
+# dialog title for nfs installation
+#: ../app/views/images/images.xml.erb:46
+#, fuzzy
+#| msgid "NFS Installation"
+msgid "Tumbleweed %s Network Installation (x86_64)"
+msgstr "Εγκατάσταση NFS"
+
+#: ../app/views/images/images.xml.erb:77
+msgid "Tumbleweed %s Rescue CD (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:80
+msgid "Tumbleweed %s Rescue CD (x86_64)"
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:198
+#: ../app/views/distributions/tumbleweed.html.erb:201
+#, fuzzy
+#| msgid "Not Tested|Tumbleweed installation media"
+msgid "Tumbleweed installation media"
+msgstr "Μη  δοκιμασμένoΜέσο εγκατάστασης Tumbleweed"
+
 #: ../app/views/distributions/index.html.erb:61
 msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
 "Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
 msgstr ""
-"Η Tumbleweed συνίσταται για <strong>προγραμματιστές</strong>, <strong>"
-"συνεισφέροντες στο openSUSE</strong>, και <strong>λάτρεις του "
-"Linux/ΕΛΛΑΚ</strong>."
+"Η Tumbleweed συνίσταται για <strong>προγραμματιστές</strong>, "
+"<strong>συνεισφέροντες στο openSUSE</strong>, και <strong>λάτρεις του Linux/"
+"ΕΛΛΑΚ</strong>."
 
 #: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/tumbleweed.html.erb:26
@@ -879,11 +1058,11 @@ msgstr "Επαλήθευση λήψης πριν τη χρήση"
 msgid "Version"
 msgstr "Έκδοση"
 
-#: ../app/views/layouts/_navbar.html.erb:23
+#: ../app/views/layouts/_navbar.html.erb:44
 msgid "Wiki"
 msgstr "Wiki"
 
-#: ../app/views/download/package.erb:141
+#: ../app/views/download/package.erb:93
 msgid ""
 "You can add the repository key to apt. Keep in mind that the owner of the "
 "key may distribute updates, packages and repositories that your system will "
@@ -952,6 +1131,12 @@ msgstr "https://en.opensuse.org/openSUSE:Roadmap"
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
+#: ../app/views/images/images.xml.erb:32 ../app/views/images/images.xml.erb:42
+#: ../app/views/images/images.xml.erb:56 ../app/views/images/images.xml.erb:66
+#: ../app/views/images/images.xml.erb:76
+msgid "i586"
+msgstr ""
+
 #: ../app/views/distributions/index.html.erb:69
 msgid "lifetime"
 msgstr ""
@@ -964,7 +1149,14 @@ msgstr "openSUSE Leap"
 msgid "openSUSE Software"
 msgstr "Λογισμικό openSUSE"
 
+#: ../app/views/distributions/_documentation.html.erb:6
+#, fuzzy
+#| msgid "openSUSE Software"
+msgid "openSUSE Startup Guide"
+msgstr "Λογισμικό openSUSE"
+
 #: ../app/views/distributions/index.html.erb:58
+#: ../app/views/images/images.xml.erb:26
 msgid "openSUSE Tumbleweed"
 msgstr "openSUSE Tumbleweed"
 
@@ -975,6 +1167,44 @@ msgstr "Συνεισφέροντες στο openSUSE"
 #: ../app/views/distributions/index.html.erb:6
 msgid "openSUSE is completely free to download, use and share."
 msgstr "Το openSUSE είναι πλήρως ελεύθερο προς λήψη, χρήση και διαμοιρασμό."
+
+#: ../app/views/images/images.xml.erb:35 ../app/views/images/images.xml.erb:45
+#: ../app/views/images/images.xml.erb:59 ../app/views/images/images.xml.erb:69
+#: ../app/views/images/images.xml.erb:79
+msgid "x86_64"
+msgstr ""
+
+#~ msgid "(hide)"
+#~ msgstr "(απόκρυψη)"
+
+#~ msgid "(show)"
+#~ msgstr "(εμφάνιση)"
+
+#~ msgid "Available Images"
+#~ msgstr "Διαθέσιμες εικόνες"
+
+#~ msgid ""
+#~ "Help test the next version of openSUSE Leap, the regular-release "
+#~ "distribution for desktop PCs, laptops, and servers."
+#~ msgstr ""
+#~ "Βοηθήστε δοκιμάζοντας την επόμενη έκδοση του openSUSE Leap, της τακτικής "
+#~ "έκδοσης της διανομής για προσωπικούς υπολογιστές, φορητούς και "
+#~ "διακομιστές."
+
+#~ msgid "Install using One Click Install"
+#~ msgstr "Εγκατάσταση με χρήση ενός κλικ"
+
+#~ msgid "Kubic DVD/USB Stick"
+#~ msgstr "Kubic DVD/USB Stick"
+
+#~ msgid "Please Note: These LiveUSBs are not supported"
+#~ msgstr "Παρακαλούμε σημειώστε: Αυτά τα LiveUSB δεν υποστηρίζονται"
+
+#~ msgid "Please Use|Tumbleweed installation media"
+#~ msgstr "Παρακαλούμε χρησιμοποιήστε|Μέσο εγκατάστασης Tumbleweed"
+
+#~ msgid "Related categories:"
+#~ msgstr "Σχετικές κατηγορίες:"
 
 #~ msgid " and "
 #~ msgstr " και "
@@ -991,9 +1221,6 @@ msgstr "Το openSUSE είναι πλήρως ελεύθερο προς λήψη
 #~| msgid "openSUSE Derivatives"
 #~ msgid "Derivatives"
 #~ msgstr "Παράγωγα openSUSE"
-
-#~ msgid "Development-"
-#~ msgstr "Ανάπτυξη-"
 
 #~ msgid "Don't show this warning the next time"
 #~ msgstr "Να μην εμφανιστεί την επόμενη φορά αυτή η προειδοποίηση."
@@ -1060,11 +1287,6 @@ msgstr "Το openSUSE είναι πλήρως ελεύθερο προς λήψη
 #~ msgstr "Λογότυπο Επικεφαλίδας"
 
 #, fuzzy
-#~| msgid "Installation Medium"
-#~ msgid "Installation Media"
-#~ msgstr "Μέσο Eγκατάστασης"
-
-#, fuzzy
 #~| msgid ""
 #~| "Please be aware that the following packages are from unofficial "
 #~| "repositories.\n"
@@ -1104,11 +1326,6 @@ msgstr "Το openSUSE είναι πλήρως ελεύθερο προς λήψη
 #~| msgid "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
 #~ msgid "https://en.opensuse.org/openSUSE:Submitting_bug_reports"
 #~ msgstr "http://en.opensuse.org/openSUSE:Submitting_bug_reports"
-
-#, fuzzy
-#~| msgid "Multimedia"
-#~ msgid "Media"
-#~ msgstr "Πολυμέσα"
 
 #~ msgid "\"#{release} is not a supported release.\""
 #~ msgstr "\"Η #{release} δεν είναι υποστηριζόμενη έκδοση.\""
@@ -1294,9 +1511,6 @@ msgstr "Το openSUSE είναι πλήρως ελεύθερο προς λήψη
 #~ msgstr ""
 #~ "Λάβετε μία από τις ειδικευμένες διανομές που χτίστηκαν πάνω στο openSUSE."
 
-#~ msgid "Getting Help"
-#~ msgstr "Λήψη Βοήθειας"
-
 #~ msgid "Gold Sponsor"
 #~ msgstr "Χρυσός Χορηγός"
 
@@ -1318,9 +1532,6 @@ msgstr "Το openSUSE είναι πλήρως ελεύθερο προς λήψη
 #~ "ο ανακατευθυντής μεταφορτώσεων δεν έχει αρκετές πληροφορίες να σας "
 #~ "ανακατευθύνει στον ταχύτερο διακομιστή, μπορείτε να επιλέξετε μόνοι σας "
 #~ "διακομιστή."
-
-#~ msgid "Installation Guides"
-#~ msgstr "Οδηγοί Εγκατάστασης"
 
 #~ msgid "Installation Medium"
 #~ msgstr "Μέσο Eγκατάστασης"
@@ -1364,9 +1575,6 @@ msgstr "Το openSUSE είναι πλήρως ελεύθερο προς λήψη
 
 #~ msgid "Live GNOME"
 #~ msgstr "Live Gnome"
-
-#~ msgid "Live KDE"
-#~ msgstr "Live KDE"
 
 #~ msgid ""
 #~ "Many applications can verify the checksum of a download. To verify your "
@@ -1468,9 +1676,6 @@ msgstr "Το openSUSE είναι πλήρως ελεύθερο προς λήψη
 
 #~ msgid "Reporting Bugs"
 #~ msgstr "Αναφορά Σφαλμάτων"
-
-#~ msgid "Rescue"
-#~ msgstr "Σύστημα Διάσωσης"
 
 #~ msgid ""
 #~ "Rescue system that you can run from CD or from USB stick.<br/>Can not be "
@@ -1904,9 +2109,6 @@ msgstr "Το openSUSE είναι πλήρως ελεύθερο προς λήψη
 #~ "Αναζήτηση και εγκατάσταση πακέτων λογισμικού από το <a href=\"http://"
 #~ "build.opensuse.org\">openSUSE Build Service</a>:"
 
-#~ msgid "Search options"
-#~ msgstr "Επιλογές αναζήτησης"
-
 #~ msgid "Include users' home projects"
 #~ msgstr "Συμπεριλάβετε τα έργα από το home του χρήστη"
 
@@ -1937,12 +2139,6 @@ msgstr "Το openSUSE είναι πλήρως ελεύθερο προς λήψη
 #~| msgid "YaST installation source"
 #~ msgid "Step-by-step installation guide"
 #~ msgstr "Πηγή εγκατάστασης YaST"
-
-# dialog title for nfs installation
-#, fuzzy
-#~| msgid "NFS Installation"
-#~ msgid "Network Installation"
-#~ msgstr "Εγκατάσταση NFS"
 
 #, fuzzy
 #~| msgid "http://opensuse.org/Projects/KNetworkManager"
