@@ -77,11 +77,7 @@ class ActiveSupport::TestCase
     end
     # rubocop:enable Metrics/BlockLength
 
-    xpath = %{
-    contains-ic(@name, '#{term}') and path/project='#{baseproject}' and
-      not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) and
-      not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))
-    }.squish
+    xpath = "@project = '#{baseproject}'  and contains-ic(@name, '#{term}') and path/project='#{baseproject}'"
     stub_content("api.opensuse.org/search/published/binary/id?match=#{URI.escape(xpath)}", builder.to_xml)
   end
 
