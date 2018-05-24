@@ -131,8 +131,8 @@ class ApplicationController < ActionController::Base
       doc = REXML::Document.new response.body
       doc.elements.each("distributions/distribution") { |element|
         dist = Hash[:name => element.elements['name'].text, :project => element.elements['project'].text,
-          :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text,
-          :dist_id => element.attributes['id'].sub(".", "")]
+                    :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text,
+                    :dist_id => element.attributes['id'].sub(".", "")]
         distributions << dist
         logger.debug "Added Distribution: #{dist[:name]}"
       }
@@ -230,7 +230,7 @@ class ApplicationController < ActionController::Base
   # TODO: atm obs only offers appdata for Factory
   def prepare_appdata
     @appdata = Rails.cache.fetch("appdata", :expires_in => 12.hours) do
-        Appdata.get "factory"
+      Appdata.get "factory"
     end
   end
 
@@ -238,6 +238,6 @@ class ApplicationController < ActionController::Base
 
   def set_beta_warning
     flash.now[:info] = "This is a beta version of the new app browser, part of " +
-      "the <a href='https://trello.com/board/appstream/4f156e1c9ce0824a2e1b8831'>current boosters sprint</a>!"
+                       "the <a href='https://trello.com/board/appstream/4f156e1c9ce0824a2e1b8831'>current boosters sprint</a>!"
   end
 end
