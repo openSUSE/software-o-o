@@ -6,11 +6,13 @@ class DistributionsTest < ActionDispatch::IntegrationTest
       get '/distributions/leap'
       assert_includes body, 'openSUSE Leap 42.3'
       assert_includes body, 'Choosing Which Media to Download'
+      assert_match %r{assets\/distributions\/leap(.*)\.svg}, body
       assert_equal 200, status
 
       get '/distributions/testing'
       assert_includes body, 'openSUSE Leap 15.0'
       assert_includes body, 'Help test the next version of openSUSE Leap!'
+      assert_match %r{assets\/distributions\/testing(.*)\.svg}, body
 
       assert_equal 200, status
     end
@@ -21,6 +23,8 @@ class DistributionsTest < ActionDispatch::IntegrationTest
       get '/distributions/leap'
       assert_includes body, 'openSUSE Leap 15.0'
       assert_includes body, 'Choosing Which Media to Download'
+      assert_match %r{assets\/distributions\/leap(.*)\.svg}, body
+
       assert_equal 200, status
 
       get '/distributions/testing'
