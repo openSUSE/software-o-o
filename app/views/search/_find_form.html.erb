@@ -2,14 +2,14 @@
   <div class="container">
     <%= form_tag( {:controller => 'search', :action => :index}, :method => :get ) do %>
       <div class="d-flex justify-content-center">
-        <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form", :class => 'form-control mr-2', :placeholder => _('Search packages...'), :autocomplete => "off", :autofocus => true %>
+        <%= text_field_tag 'q', @search_term, :size => 30, :type => "search", :id => "search-form", :class => 'form-control mr-2', :placeholder => _('Search packages...'), :autocomplete => "off", :autofocus => true %>
 
-        <button type="submit" class="btn btn-primary mr-2 hidden-sm-down">
+        <button id="search-button" type="submit" class="btn btn-primary mr-2 hidden-sm-down">
           <span class="typcn typcn-lg typcn-zoom-outline"></span>
           <span class="hidden-xs-down"><%= _("Search") %></span>
         </button>
 
-        <button id="settings" type="button" class="btn btn-link" data-toggle="modal" data-target="#search-settings">
+        <button id="settings-button" type="button" class="btn btn-link" data-toggle="modal" data-target="#search-settings">
             <span class="typcn typcn-lg typcn-spanner-outline"></span>
             <span class="hidden-xs-down"><%= _("Settings") %></span>
         </button>
