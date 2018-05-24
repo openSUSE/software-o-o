@@ -1,21 +1,21 @@
 <%
-puts case @lang
-when 'zh_CN'
-  @wiki_url = 'https://zh.opensuse.org/'
-when 'zh_TW'
-  @wiki_url = 'https://zh-tw.opensuse.org/'
-when 'pt_BR'
-  @wiki_url = 'https://pt.opensuse.org/'
-else
-  @wiki_url = "https://#{@lang}.opensuse.org/"
-end
+@wiki_url = case @lang
+            when 'zh_CN'
+              'https://zh.opensuse.org/'
+            when 'zh_TW'
+              'https://zh-tw.opensuse.org/'
+            when 'pt_BR'
+              'https://pt.opensuse.org/'
+            else
+              "https://#{@lang}.opensuse.org/"
+            end
 
-puts case @lang
-when 'zh_CN'
-  @forum_url = 'https://forum.suse.org.cn/'
-else
-  @forum_url = 'https://forums.opensuse.org/'
-end
+@forum_url =  case @lang
+              when 'zh_CN'
+                @forum_url = 'https://forum.suse.org.cn/'
+              else
+                @forum_url = 'https://forums.opensuse.org/'
+              end
 %>
 <nav id="global-navbar" class="navbar navbar-expand-md navbar-toggleable navbar-dark bg-dark">
 
