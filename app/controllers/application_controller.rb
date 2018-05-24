@@ -116,7 +116,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_baseproject
-    unless (@distributions.blank? || @distributions.select{|d| d[:project] == cookies[:baseproject]}.blank?)
+    unless (@distributions.blank? || @distributions.select { |d| d[:project] == cookies[:baseproject] }.blank?)
       @baseproject = cookies[:baseproject]
     end
     @baseproject = "openSUSE:Leap:#{@stable_version}" if @baseproject.blank?
@@ -183,11 +183,11 @@ class ApplicationController < ActionController::Base
 
   def set_search_options
     @search_term = params[:q] || ""
-    if !cookies[:baseproject].nil? && @distributions.select{ |d| d[:project] == cookies[:baseproject] }
-      @baseproject = cookies[:baseproject]
-    else
-      @baseproject = "openSUSE:Factory"
-    end
+    @baseproject =  if !cookies[:baseproject].nil? && @distributions.select { |d| d[:project] == cookies[:baseproject] }
+                      cookies[:baseproject]
+                    else
+                      "openSUSE:Factory"
+                    end
     @search_devel = (cookies[:search_devel] == "true" ? true : false)
     @search_lang = (cookies[:search_lang] == "true" ? true : false)
     @search_debug = (cookies[:search_debug] == "true" ? true : false)
@@ -202,16 +202,14 @@ class ApplicationController < ActionController::Base
     # only show packages
     @packages = @packages.reject { |p| p.first.type == 'ymp' }
 
-    unless @search_devel
-      @packages.reject! { |p| p.name.end_with?("-devel") }
-    end
+    @packages.reject! { |p| p.name.end_with?("-devel") } unless @search_devel
 
     unless @search_lang
       @packages.reject! { |p| p.name.end_with?("-lang") || p.name.include?("-translations-") || p.name.include?("-l10n-") }
     end
 
     unless @search_debug
-      @packages.reject! { |p| p.name.end_with?("-buildsymbols") || p.name.end_with?("-debuginfo") || p.name.end_with?("-debugsource") }
+      @packages.reject! { |p| p.name.end_with?("-buildsymbols", "-debuginfo", "-debugsource") }
     end
 
     # filter out ports for different arch
