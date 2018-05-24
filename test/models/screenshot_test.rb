@@ -19,8 +19,8 @@ class ScreenshotTest < ActiveSupport::TestCase
     pkg = Faker::Lorem.word
     screenshot = Screenshot.new(pkg, Rails.root.join('test', 'support', 'screenshot.png'))
     begin
-      thumbnail_full_path = File.join(Rails.root, "public", "images", screenshot.thumbnail_path)
-      assert_equal "thumbnails/#{pkg}.png", screenshot.thumbnail_path
+      thumbnail_full_path = File.join(Rails.root, "public", screenshot.thumbnail_path)
+      assert_equal "images/thumbnails/#{pkg}.png", screenshot.thumbnail_path
       image = MiniMagick::Image.open(thumbnail_full_path)
       assert_equal 600, image.width
     ensure

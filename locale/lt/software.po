@@ -9,17 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-17 14:54+0100\n"
+"POT-Creation-Date: 2018-05-24 09:32+0200\n"
 "PO-Revision-Date: 2018-03-31 19:03+0000\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
-"Language-Team: Lithuanian "
-"<https://l10n.opensuse.org/projects/software-o-o/master/lt/>\n"
+"Language-Team: Lithuanian <https://l10n.opensuse.org/projects/software-o-o/"
+"master/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
-"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
 "X-Generator: Weblate 2.18\n"
 
 #: ../app/views/distributions/index.html.erb:66
@@ -42,14 +42,6 @@ msgstr ""
 "%{tumbleweed} (liet. „Vėjaričiai“) yra <strong>nuolatinio atnaujinimo</"
 "strong> laida. Jums kas kelias dienas pateikiama atnaujintų stabilių paketų."
 
-#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
-msgid "(hide)"
-msgstr "(slėpti)"
-
-#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
-msgid "(show)"
-msgstr "(rodyti)"
-
 #: ../app/views/package/_download_rows.html.erb:49
 msgid "1 Click Install"
 msgstr "Diegti tuoj pat"
@@ -62,6 +54,14 @@ msgstr "2 GB laisvosios prieigos atminties"
 msgid "2 Ghz dual core processor or better"
 msgstr "2 GHz bent dviejų branduolių procesorius"
 
+#: ../app/views/download/package.erb:9
+msgid "<b>%s</b> from <b>%s</b> project"
+msgstr ""
+
+#: ../app/views/download/appliance.erb:8
+msgid "<b>%s</b> project"
+msgstr ""
+
 #: ../app/views/package/_download_rows.html.erb:3
 msgid "<b>official release</b>"
 msgstr "<b>oficiali laida</b>"
@@ -70,13 +70,15 @@ msgstr "<b>oficiali laida</b>"
 msgid "<b>official update</b>"
 msgstr "<b>oficialus atnaujinimas</b>"
 
-#: ../app/views/download/package.erb:84
+#: ../app/views/download/package.erb:37
 msgid "Add repository and install manually"
 msgstr "Pridėti saugyklą ir diegti rankiniu būdu"
 
-#: ../app/views/download/appliance.erb:52
-msgid "Available Images"
-msgstr "Galimi parsisiųsti atvaizdžiai"
+#: ../app/views/images/images.xml.erb:31 ../app/views/images/images.xml.erb:41
+#: ../app/views/images/images.xml.erb:55 ../app/views/images/images.xml.erb:65
+#: ../app/views/images/images.xml.erb:75
+msgid "Architecture"
+msgstr ""
 
 #: ../app/views/package/show.html.erb:5
 msgid "Back to home page"
@@ -111,12 +113,6 @@ msgstr "Kategorijos"
 msgid "Category"
 msgstr "Kategorija"
 
-#: ../app/views/distributions/leap.html.erb:48
-#: ../app/views/distributions/leap.html.erb:62
-#: ../app/views/distributions/leap.html.erb:87
-#: ../app/views/distributions/leap.html.erb:101
-#: ../app/views/distributions/leap.html.erb:119
-#: ../app/views/distributions/leap.html.erb:133
 #: ../app/views/distributions/tumbleweed.html.erb:55
 #: ../app/views/distributions/tumbleweed.html.erb:69
 #: ../app/views/distributions/tumbleweed.html.erb:83
@@ -126,14 +122,22 @@ msgstr "Kategorija"
 #: ../app/views/distributions/tumbleweed.html.erb:154
 #: ../app/views/distributions/tumbleweed.html.erb:172
 #: ../app/views/distributions/tumbleweed.html.erb:186
-#: ../app/views/distributions/tumbleweed.html.erb:215
-#: ../app/views/distributions/tumbleweed.html.erb:227
-#: ../app/views/distributions/tumbleweed.html.erb:239
-#: ../app/views/distributions/tumbleweed.html.erb:255
-#: ../app/views/distributions/tumbleweed.html.erb:267
-#: ../app/views/distributions/tumbleweed.html.erb:279
-#: ../app/views/distributions/testing.html.erb:34
-#: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/tumbleweed.html.erb:217
+#: ../app/views/distributions/tumbleweed.html.erb:229
+#: ../app/views/distributions/tumbleweed.html.erb:241
+#: ../app/views/distributions/tumbleweed.html.erb:257
+#: ../app/views/distributions/tumbleweed.html.erb:269
+#: ../app/views/distributions/tumbleweed.html.erb:281
+#: ../app/views/distributions/leap-42.3.html.erb:46
+#: ../app/views/distributions/leap-42.3.html.erb:60
+#: ../app/views/distributions/leap-42.3.html.erb:85
+#: ../app/views/distributions/leap-42.3.html.erb:99
+#: ../app/views/distributions/leap-42.3.html.erb:117
+#: ../app/views/distributions/leap-42.3.html.erb:131
+#: ../app/views/distributions/leap-15.0.html.erb:46
+#: ../app/views/distributions/leap-15.0.html.erb:60
+#: ../app/views/distributions/leap-15.0.html.erb:80
+#: ../app/views/distributions/leap-15.0.html.erb:93
 msgid "Checksum"
 msgstr "Kontrolinė suma"
 
@@ -149,19 +153,24 @@ msgstr "Laikmenos pasirinkimas"
 msgid "Choosing which Distribution to Download"
 msgstr "Platinamojo paketo pasirinkimas"
 
-#: ../app/views/layouts/_footer.html.erb:26
+#: ../app/views/layouts/_footer.html.erb:25
 #: ../app/views/package/_download_rows.html.erb:28
 msgid "Community"
 msgstr "Bendruomenė"
 
-#: ../app/views/distributions/leap.html.erb:44
-#: ../app/views/distributions/leap.html.erb:83
-#: ../app/views/distributions/leap.html.erb:115
+#: ../app/views/distributions/tumbleweed.html.erb:79
+msgid ""
+"Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
+msgstr ""
+
 #: ../app/views/distributions/tumbleweed.html.erb:51
 #: ../app/views/distributions/tumbleweed.html.erb:97
 #: ../app/views/distributions/tumbleweed.html.erb:136
 #: ../app/views/distributions/tumbleweed.html.erb:168
-#: ../app/views/distributions/testing.html.erb:30
+#: ../app/views/distributions/leap-42.3.html.erb:42
+#: ../app/views/distributions/leap-42.3.html.erb:81
+#: ../app/views/distributions/leap-42.3.html.erb:113
+#: ../app/views/distributions/leap-15.0.html.erb:42
 msgid ""
 "Contains a large collection of software for desktop or server use. Suitable "
 "for installation or upgrade."
@@ -169,22 +178,37 @@ msgstr ""
 "Turi didžiulę programinės įrangos kolekciją, skirtą naudojimui "
 "darbastaliuose ar serveriuose. Tinkama diegimui ar atnaujinimui."
 
-#: ../app/views/distributions/leap.html.erb:41
-#: ../app/views/distributions/leap.html.erb:80
-#: ../app/views/distributions/leap.html.erb:112
+#: ../app/views/images/images.xml.erb:17 ../app/views/images/images.xml.erb:30
+#: ../app/views/images/images.xml.erb:91
+msgid "DVD"
+msgstr ""
+
 #: ../app/views/distributions/tumbleweed.html.erb:48
 #: ../app/views/distributions/tumbleweed.html.erb:94
 #: ../app/views/distributions/tumbleweed.html.erb:133
 #: ../app/views/distributions/tumbleweed.html.erb:165
-#: ../app/views/distributions/testing.html.erb:27
+#: ../app/views/distributions/leap-42.3.html.erb:39
+#: ../app/views/distributions/leap-42.3.html.erb:78
+#: ../app/views/distributions/leap-42.3.html.erb:110
+#: ../app/views/distributions/leap-15.0.html.erb:39
 msgid "DVD Image"
 msgstr "DVD atvaizdis"
+
+#: ../app/views/images/images.xml.erb:53
+msgid "Desktop"
+msgstr ""
 
 #: ../app/views/layouts/_footer.html.erb:5
 msgid "Developers"
 msgstr "Programuotojai"
 
-#: ../app/views/search/_find_results.html.erb:88
+#: ../app/controllers/package_controller.rb:126
+#, fuzzy
+#| msgid "Development-"
+msgid "Development"
+msgstr "paket. plėtojimui"
+
+#: ../app/views/search/_find_results.html.erb:82
 msgid "Development packages"
 msgstr "paket. plėtojimui"
 
@@ -192,12 +216,6 @@ msgstr "paket. plėtojimui"
 msgid "Direct Install"
 msgstr "Diegti tuoj pat"
 
-#: ../app/views/distributions/leap.html.erb:45
-#: ../app/views/distributions/leap.html.erb:59
-#: ../app/views/distributions/leap.html.erb:84
-#: ../app/views/distributions/leap.html.erb:98
-#: ../app/views/distributions/leap.html.erb:116
-#: ../app/views/distributions/leap.html.erb:130
 #: ../app/views/distributions/tumbleweed.html.erb:52
 #: ../app/views/distributions/tumbleweed.html.erb:66
 #: ../app/views/distributions/tumbleweed.html.erb:80
@@ -207,18 +225,32 @@ msgstr "Diegti tuoj pat"
 #: ../app/views/distributions/tumbleweed.html.erb:151
 #: ../app/views/distributions/tumbleweed.html.erb:169
 #: ../app/views/distributions/tumbleweed.html.erb:183
-#: ../app/views/distributions/tumbleweed.html.erb:213
-#: ../app/views/distributions/tumbleweed.html.erb:225
-#: ../app/views/distributions/tumbleweed.html.erb:237
-#: ../app/views/distributions/tumbleweed.html.erb:253
-#: ../app/views/distributions/tumbleweed.html.erb:265
-#: ../app/views/distributions/tumbleweed.html.erb:277
-#: ../app/views/distributions/testing.html.erb:31
-#: ../app/views/distributions/testing.html.erb:45
+#: ../app/views/distributions/tumbleweed.html.erb:215
+#: ../app/views/distributions/tumbleweed.html.erb:227
+#: ../app/views/distributions/tumbleweed.html.erb:239
+#: ../app/views/distributions/tumbleweed.html.erb:255
+#: ../app/views/distributions/tumbleweed.html.erb:267
+#: ../app/views/distributions/tumbleweed.html.erb:279
+#: ../app/views/distributions/leap-42.3.html.erb:43
+#: ../app/views/distributions/leap-42.3.html.erb:57
+#: ../app/views/distributions/leap-42.3.html.erb:82
+#: ../app/views/distributions/leap-42.3.html.erb:96
+#: ../app/views/distributions/leap-42.3.html.erb:114
+#: ../app/views/distributions/leap-42.3.html.erb:128
+#: ../app/views/distributions/leap-15.0.html.erb:43
+#: ../app/views/distributions/leap-15.0.html.erb:57
+#: ../app/views/distributions/leap-15.0.html.erb:77
+#: ../app/views/distributions/leap-15.0.html.erb:90
 msgid "Direct Link"
 msgstr "Tiesioginė nuoroda"
 
-#: ../app/views/search/_find_form.html.erb:33
+#: ../app/views/images/images.xml.erb:13
+#, fuzzy
+#| msgid "Distribution:"
+msgid "Distribution"
+msgstr "Platinamasis paketas:"
+
+#: ../app/views/search/_find_form.html.erb:31
 msgid "Distribution:"
 msgstr "Platinamasis paketas:"
 
@@ -226,20 +258,21 @@ msgstr "Platinamasis paketas:"
 msgid "Distributions"
 msgstr "Platinamieji paketai"
 
+#: ../app/views/layouts/_navbar.html.erb:41
 #: ../app/views/layouts/_footer.html.erb:7
-#: ../app/views/layouts/_navbar.html.erb:20
 #: ../app/views/distributions/_documentation.html.erb:2
 msgid "Documentation"
 msgstr "Dokumentacija"
 
-#: ../app/views/layouts/_navbar.html.erb:14
+#: ../app/views/layouts/_navbar.html.erb:38
+#: ../app/views/package/_download_rows.html.erb:54
 #: ../app/views/distributions/index.html.erb:21
 #: ../app/views/distributions/index.html.erb:31
 #: ../app/views/distributions/index.html.erb:42
 msgid "Download"
 msgstr "Parsisiųsti"
 
-#: ../app/controllers/download_controller.rb:36
+#: ../app/controllers/download_controller.rb:43
 msgid "Download appliance from %s"
 msgstr "Parsisiųsti vedinį iš %s"
 
@@ -259,15 +292,14 @@ msgstr ""
 "Parsisiųskite openSUSE nuolatinio atnaujinimo atmainą, leidžiančią naudotis "
 "naujausiais openSUSE projekto siūlomais paketais."
 
-#: ../app/views/distributions/leap.html.erb:58
-#: ../app/views/distributions/leap.html.erb:97
-#: ../app/views/distributions/leap.html.erb:129
 #: ../app/views/distributions/tumbleweed.html.erb:65
-#: ../app/views/distributions/tumbleweed.html.erb:79
 #: ../app/views/distributions/tumbleweed.html.erb:111
 #: ../app/views/distributions/tumbleweed.html.erb:150
 #: ../app/views/distributions/tumbleweed.html.erb:182
-#: ../app/views/distributions/testing.html.erb:44
+#: ../app/views/distributions/leap-42.3.html.erb:56
+#: ../app/views/distributions/leap-42.3.html.erb:95
+#: ../app/views/distributions/leap-42.3.html.erb:127
+#: ../app/views/distributions/leap-15.0.html.erb:56
 msgid ""
 "Downloads the installation system and all packages from online repositories. "
 "Suitable for installation or upgrade."
@@ -283,11 +315,15 @@ msgstr "Paprastas perėjimas prie „openSUSE Leap“"
 msgid "Easy Ways to Switch to openSUSE Tumbleweed"
 msgstr "Paprastas perėjimas prie „openSUSE Tumbleweed“"
 
+#: ../app/controllers/package_controller.rb:127
+msgid "Education & Science"
+msgstr ""
+
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
 msgstr "DVD skaitytuvo ar USB lizdo diegimo laikmenai įdėti"
 
-#: ../app/views/layouts/_footer.html.erb:20
+#: ../app/views/layouts/_footer.html.erb:19
 msgid "Events"
 msgstr "Įvykiai"
 
@@ -295,19 +331,19 @@ msgstr "Įvykiai"
 msgid "Experimental"
 msgstr "Bandomasis"
 
-#: ../app/views/layouts/_footer.html.erb:30
+#: ../app/views/layouts/_footer.html.erb:29
 msgid "Facebook group"
 msgstr "Facebook grupė"
 
-#: ../app/views/download/package.erb:106
+#: ../app/views/download/package.erb:59
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
 msgstr "<strong>%s</strong>. Įvykdykite <strong>root</strong> teisėmis:"
 
-#: ../app/views/download/package.erb:99
+#: ../app/views/download/package.erb:52
 msgid "For <strong>%s</strong> run the following:"
 msgstr "<strong>%s</strong>. Įvykdykite:"
 
-#: ../app/views/download/package.erb:90
+#: ../app/views/download/package.erb:43
 msgid ""
 "For <strong>Arch Linux</strong>, edit /etc/pacman.conf and add the following "
 "(note that the order of repositories in pacman.conf is important, since "
@@ -317,32 +353,34 @@ msgstr ""
 "(atminkite, kad pacman.conf saugyklų tvarka yra svarbi, nes pacman "
 "parsiunčia pirmą surastą paketą):"
 
-#: ../app/views/distributions/leap.html.erb:57
-#: ../app/views/distributions/leap.html.erb:96
-#: ../app/views/distributions/leap.html.erb:128
 #: ../app/views/distributions/tumbleweed.html.erb:64
-#: ../app/views/distributions/tumbleweed.html.erb:78
 #: ../app/views/distributions/tumbleweed.html.erb:110
 #: ../app/views/distributions/tumbleweed.html.erb:149
 #: ../app/views/distributions/tumbleweed.html.erb:181
-#: ../app/views/distributions/tumbleweed.html.erb:236
-#: ../app/views/distributions/tumbleweed.html.erb:276
-#: ../app/views/distributions/testing.html.erb:43
+#: ../app/views/distributions/tumbleweed.html.erb:238
+#: ../app/views/distributions/tumbleweed.html.erb:278
+#: ../app/views/distributions/leap-42.3.html.erb:55
+#: ../app/views/distributions/leap-42.3.html.erb:94
+#: ../app/views/distributions/leap-42.3.html.erb:126
+#: ../app/views/distributions/leap-15.0.html.erb:55
 msgid "For CD and USB stick"
 msgstr "CD ir atmintukui"
 
-#: ../app/views/distributions/leap.html.erb:43
-#: ../app/views/distributions/leap.html.erb:82
-#: ../app/views/distributions/leap.html.erb:114
 #: ../app/views/distributions/tumbleweed.html.erb:50
+#: ../app/views/distributions/tumbleweed.html.erb:78
 #: ../app/views/distributions/tumbleweed.html.erb:96
 #: ../app/views/distributions/tumbleweed.html.erb:135
 #: ../app/views/distributions/tumbleweed.html.erb:167
-#: ../app/views/distributions/tumbleweed.html.erb:212
-#: ../app/views/distributions/tumbleweed.html.erb:224
-#: ../app/views/distributions/tumbleweed.html.erb:252
-#: ../app/views/distributions/tumbleweed.html.erb:264
-#: ../app/views/distributions/testing.html.erb:29
+#: ../app/views/distributions/tumbleweed.html.erb:214
+#: ../app/views/distributions/tumbleweed.html.erb:226
+#: ../app/views/distributions/tumbleweed.html.erb:254
+#: ../app/views/distributions/tumbleweed.html.erb:266
+#: ../app/views/distributions/leap-42.3.html.erb:41
+#: ../app/views/distributions/leap-42.3.html.erb:80
+#: ../app/views/distributions/leap-42.3.html.erb:112
+#: ../app/views/distributions/leap-15.0.html.erb:41
+#: ../app/views/distributions/leap-15.0.html.erb:76
+#: ../app/views/distributions/leap-15.0.html.erb:89
 msgid "For DVD and USB stick"
 msgstr "DVD ir atmintukui"
 
@@ -364,8 +402,8 @@ msgstr ""
 "Norėdami sužinoti daugiau apie parsisiųstųjų atvaizdžių tikrinimą, "
 "skaitykite %{checksums_help}"
 
-#: ../app/views/layouts/_footer.html.erb:28
-#: ../app/views/layouts/_navbar.html.erb:26
+#: ../app/views/layouts/_navbar.html.erb:47
+#: ../app/views/layouts/_footer.html.erb:27
 msgid "Forums"
 msgstr "Diskusijos"
 
@@ -381,15 +419,15 @@ msgstr "iš Windows"
 msgid "From an older version or other Linux distro"
 msgstr "iš senesnės Linux sistemos ar kito Linux platinamojo paketo"
 
-#: ../app/views/distributions/_documentation.html.erb:23
+#: ../app/views/distributions/_documentation.html.erb:21
 msgid "Full Documentation"
 msgstr "Visa dokumentacija"
 
-#: ../app/views/package/categories.html.erb:17
+#: ../app/controllers/package_controller.rb:125
 msgid "Games"
 msgstr "Žaidimai"
 
-#: ../app/views/search/_find_results.html.erb:69
+#: ../app/views/search/_find_results.html.erb:63
 msgid "Get"
 msgstr "Atsisiųsti"
 
@@ -400,13 +438,17 @@ msgstr "Atsisiųsti"
 msgid "Get openSUSE"
 msgstr "Parsisiųsti openSUSE"
 
-#: ../app/views/layouts/_footer.html.erb:31
+#: ../app/views/layouts/_footer.html.erb:30
 msgid "Google+ group"
 msgstr "Google+ grupė"
 
-#: ../app/views/download/package.erb:153
+#: ../app/views/download/package.erb:105
 msgid "Grab binary packages directly"
 msgstr "Siųstis dvejetainius paketus"
+
+#: ../app/controllers/package_controller.rb:129
+msgid "Graphics"
+msgstr ""
 
 #: ../app/views/distributions/index.html.erb:39
 msgid ""
@@ -416,14 +458,9 @@ msgstr ""
 "Padėkite tikrinti būsimą „openSUSE Leap“ versiją – parsisiųskite paskiausią "
 "jos kūrimo atvaizdį."
 
-#: ../app/views/distributions/testing.html.erb:18
-msgid ""
-"Help test the next version of openSUSE Leap, the regular-release "
-"distribution for desktop PCs, laptops, and servers."
+#: ../app/controllers/distributions_controller.rb:34
+msgid "Help test the next version of openSUSE Leap!"
 msgstr ""
-"Padėkite tikrinti būsimą „openSUSE Leap“ versiją, kuri išleidžiama kasmet ir "
-"skirta diegti į stalinius kompiuterius, nešiojamuosius kompiuterius ir "
-"serverius."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
@@ -449,7 +486,7 @@ msgstr "Kaip Linux sistemoje sukurti iš atmintuko paleidžiamą sistemą."
 msgid "How to create a bootable USB stick on OS X."
 msgstr "Kaip OS X sistemoje sukurti iš atmintuko paleidžiamą sistemą."
 
-#: ../app/views/layouts/_footer.html.erb:33
+#: ../app/views/layouts/_footer.html.erb:32
 msgid "IRC channels"
 msgstr "Pokalbių internete kanalai"
 
@@ -468,25 +505,35 @@ msgstr ""
 "a) paleidę kompiuterį iš diegimo laikmenos ir pasirinkę „atnaujinti“,\n"
 "b) esamoje sistemoje vykdydami naujovinimo internetu komandas."
 
-#: ../app/views/download/appliance.erb:57
+#: ../app/views/download/appliance.erb:34
 msgid "Image:"
 msgstr "Atvaizdis:"
 
-#: ../app/views/layouts/_footer.html.erb:16
+#: ../app/views/layouts/_footer.html.erb:15
 msgid "Information"
 msgstr "Informacija"
 
-#: ../app/controllers/download_controller.rb:78
+#: ../app/controllers/download_controller.rb:85
 msgid "Install package %s / %s"
 msgstr "Diegti paketą %s / %s"
 
-#: ../app/controllers/download_controller.rb:121
+#: ../app/controllers/download_controller.rb:127
 msgid "Install pattern %s / %s"
 msgstr "Diegti šabloną %s / %s"
 
-#: ../app/views/download/package.erb:74
-msgid "Install using One Click Install"
-msgstr "Diegti tuoj pat"
+# dialog title for hard disk installation
+#: ../app/views/distributions/leap-15.0.html.erb:18
+#: ../app/views/images/images.xml.erb:28
+#, fuzzy
+#| msgid "Installation Media"
+msgid "Installation"
+msgstr "Diegimo laikmena"
+
+#: ../app/views/images/images.xml.erb:16 ../app/views/images/images.xml.erb:90
+#, fuzzy
+#| msgid "Installation Guides"
+msgid "Installation Source"
+msgstr "Diegimo vedikliai"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
@@ -511,8 +558,32 @@ msgid "It should be %{fingerprint}"
 msgstr "Turėtų būti %{fingerprint}"
 
 #: ../app/views/distributions/tumbleweed.html.erb:76
-msgid "Kubic DVD/USB Stick"
-msgstr "Kubic DVD/atmintukas"
+#, fuzzy
+#| msgid "DVD Image"
+msgid "Kubic Image"
+msgstr "DVD atvaizdis"
+
+#: ../app/views/images/images.xml.erb:18
+msgid "Leap %s DVD"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:93
+msgid "Leap %s DVD (Build %s)"
+msgstr ""
+
+# dialog title for nfs installation
+#: ../app/views/images/images.xml.erb:21
+#, fuzzy
+#| msgid "Network Installation"
+msgid "Leap %s Network Installation"
+msgstr "Diegimas per tinklą"
+
+# dialog title for nfs installation
+#: ../app/views/images/images.xml.erb:97
+#, fuzzy
+#| msgid "Network Installation"
+msgid "Leap %s Network Installation (Build %s)"
+msgstr "Diegimas per tinklą"
 
 #: ../app/views/distributions/index.html.erb:77
 msgid ""
@@ -535,11 +606,18 @@ msgstr ""
 "tarp pagrindinių versijų, susietų su pagrindinėmis „SUSE Linux Enterprise“ "
 "versijomis (12, 13 ir kt.)."
 
-#: ../app/views/distributions/_documentation.html.erb:18
+#: ../app/views/distributions/_documentation.html.erb:16
 msgid "License"
 msgstr "Licencija"
 
-#: ../app/views/layouts/_footer.html.erb:32
+#: ../app/views/distributions/leap-15.0.html.erb:24
+#: ../app/views/images/images.xml.erb:52
+#, fuzzy
+#| msgid "Live KDE"
+msgid "Live"
+msgstr "Demonstracinis KDE (LiveCD/LiveUSB)"
+
+#: ../app/views/layouts/_footer.html.erb:31
 msgid "Mail lists"
 msgstr "Elektroninio pašto grupė"
 
@@ -559,12 +637,12 @@ msgstr ""
 "kontrolinė suma (SHA256) tikrinama automatiškai, jei pasirenkate meta "
 "nuorodą, jei naudojatės „Firefox“ naršyklės „DownThemAll!“ papildiniu."
 
-#: ../app/views/distributions/leap.html.erb:46
-#: ../app/views/distributions/leap.html.erb:60
-#: ../app/views/distributions/leap.html.erb:85
-#: ../app/views/distributions/leap.html.erb:99
-#: ../app/views/distributions/leap.html.erb:117
-#: ../app/views/distributions/leap.html.erb:131
+#: ../app/views/images/images.xml.erb:27
+#, fuzzy
+#| msgid "Media"
+msgid "Medium"
+msgstr "Laikmena"
+
 #: ../app/views/distributions/tumbleweed.html.erb:53
 #: ../app/views/distributions/tumbleweed.html.erb:67
 #: ../app/views/distributions/tumbleweed.html.erb:81
@@ -574,45 +652,61 @@ msgstr ""
 #: ../app/views/distributions/tumbleweed.html.erb:152
 #: ../app/views/distributions/tumbleweed.html.erb:170
 #: ../app/views/distributions/tumbleweed.html.erb:184
-#: ../app/views/distributions/tumbleweed.html.erb:214
-#: ../app/views/distributions/tumbleweed.html.erb:226
-#: ../app/views/distributions/tumbleweed.html.erb:238
-#: ../app/views/distributions/tumbleweed.html.erb:254
-#: ../app/views/distributions/tumbleweed.html.erb:266
-#: ../app/views/distributions/tumbleweed.html.erb:278
-#: ../app/views/distributions/testing.html.erb:32
-#: ../app/views/distributions/testing.html.erb:46
+#: ../app/views/distributions/tumbleweed.html.erb:216
+#: ../app/views/distributions/tumbleweed.html.erb:228
+#: ../app/views/distributions/tumbleweed.html.erb:240
+#: ../app/views/distributions/tumbleweed.html.erb:256
+#: ../app/views/distributions/tumbleweed.html.erb:268
+#: ../app/views/distributions/tumbleweed.html.erb:280
+#: ../app/views/distributions/leap-42.3.html.erb:44
+#: ../app/views/distributions/leap-42.3.html.erb:58
+#: ../app/views/distributions/leap-42.3.html.erb:83
+#: ../app/views/distributions/leap-42.3.html.erb:97
+#: ../app/views/distributions/leap-42.3.html.erb:115
+#: ../app/views/distributions/leap-42.3.html.erb:129
+#: ../app/views/distributions/leap-15.0.html.erb:44
+#: ../app/views/distributions/leap-15.0.html.erb:58
+#: ../app/views/distributions/leap-15.0.html.erb:78
+#: ../app/views/distributions/leap-15.0.html.erb:91
 msgid "Metalink"
 msgstr "Meta nuoroda"
 
-#: ../app/views/package/categories.html.erb:42
+#: ../app/controllers/package_controller.rb:128
 msgid "Multimedia"
 msgstr "Įvairialypė terpė"
 
-#: ../app/views/distributions/leap.html.erb:55
-#: ../app/views/distributions/leap.html.erb:94
-#: ../app/views/distributions/leap.html.erb:126
+#: ../app/controllers/package_controller.rb:131
+#: ../app/views/images/images.xml.erb:20 ../app/views/images/images.xml.erb:40
+#: ../app/views/images/images.xml.erb:95
+#, fuzzy
+#| msgid "Network Image"
+msgid "Network"
+msgstr "Atvaizdis diegimui per tinklą"
+
 #: ../app/views/distributions/tumbleweed.html.erb:62
 #: ../app/views/distributions/tumbleweed.html.erb:108
 #: ../app/views/distributions/tumbleweed.html.erb:147
 #: ../app/views/distributions/tumbleweed.html.erb:179
-#: ../app/views/distributions/testing.html.erb:41
+#: ../app/views/distributions/leap-42.3.html.erb:53
+#: ../app/views/distributions/leap-42.3.html.erb:92
+#: ../app/views/distributions/leap-42.3.html.erb:124
+#: ../app/views/distributions/leap-15.0.html.erb:53
 msgid "Network Image"
 msgstr "Atvaizdis diegimui per tinklą"
 
-#: ../app/views/layouts/_footer.html.erb:18
+#: ../app/views/layouts/_footer.html.erb:17
 msgid "News"
 msgstr "Naujienos"
 
-#: ../app/views/download/appliance.erb:2
+#: ../app/views/download/appliance.erb:5
 msgid "No appliance data for %{project}"
 msgstr "Apie %{project} duomenų nėra"
 
-#: ../app/views/download/appliance.erb:47
+#: ../app/views/download/appliance.erb:20
 msgid "No appliances found in project %s"
 msgstr "Vedinių %s projekte rasti nepavyko"
 
-#: ../app/views/download/package.erb:2
+#: ../app/views/download/package.erb:6
 msgid "No data for %s / %s"
 msgstr "Nėra %s / %s duomenų"
 
@@ -620,30 +714,33 @@ msgstr "Nėra %s / %s duomenų"
 msgid "No description."
 msgstr "Aprašo nėra."
 
-#: ../app/views/download/package.erb:69
+#: ../app/views/download/package.erb:131
 msgid "No downloads found for %s in project %s"
 msgstr "Nieko nerasta %s parsisiuntimui iš %s projekto"
 
-#: ../app/views/search/_find_results.html.erb:23
+#: ../app/views/search/_find_results.html.erb:18
 msgid "No packages found matching your search. "
 msgstr "Paketų, kurie atitiktų paieškos kriterijų, nerasta. "
 
-#: ../app/views/distributions/testing.html.erb:89
+#: ../app/controllers/distributions_controller.rb:13
+msgid "No stable release available"
+msgstr ""
+
+#: ../app/controllers/distributions_controller.rb:30
 msgid "No testing distribution available."
 msgstr "Bandomųjų platinamųjų paketų nėra."
 
-# dialog title for hard disk installation
-#: ../app/views/distributions/tumbleweed.html.erb:200
-msgid "Not Tested|Tumbleweed installation media"
-msgstr "pagrindiniai „Tumbleweed“ diegimo atvaizdžiai"
-
-#: ../app/controllers/application_controller.rb:54
+#: ../app/controllers/application_controller.rb:69
 msgid "OBS Backend not available"
 msgstr "OBS variklis nepasiekiamas"
 
+#: ../app/controllers/package_controller.rb:130
+msgid "Office & Productivity"
+msgstr ""
+
 #: ../app/views/package/_download_rows.html.erb:22
-#: ../app/views/distributions/leap.html.erb:20
 #: ../app/views/distributions/tumbleweed.html.erb:19
+#: ../app/views/distributions/leap-42.3.html.erb:18
 msgid "Official"
 msgstr "Oficialus"
 
@@ -663,16 +760,10 @@ msgstr "Paketo, kurio pavadinimas „%s“, rasti nepavyko ..."
 msgid "Package Search"
 msgstr "Paketų paieška"
 
-#: ../app/views/download/package.erb:158
+#: ../app/views/download/package.erb:111
 msgid "Packages for %s:"
 msgstr "%s paketai:"
 
-#: ../app/views/distributions/leap.html.erb:47
-#: ../app/views/distributions/leap.html.erb:61
-#: ../app/views/distributions/leap.html.erb:86
-#: ../app/views/distributions/leap.html.erb:100
-#: ../app/views/distributions/leap.html.erb:118
-#: ../app/views/distributions/leap.html.erb:132
 #: ../app/views/distributions/tumbleweed.html.erb:54
 #: ../app/views/distributions/tumbleweed.html.erb:68
 #: ../app/views/distributions/tumbleweed.html.erb:82
@@ -682,28 +773,35 @@ msgstr "%s paketai:"
 #: ../app/views/distributions/tumbleweed.html.erb:153
 #: ../app/views/distributions/tumbleweed.html.erb:171
 #: ../app/views/distributions/tumbleweed.html.erb:185
-#: ../app/views/distributions/testing.html.erb:33
-#: ../app/views/distributions/testing.html.erb:47
+#: ../app/views/distributions/leap-42.3.html.erb:45
+#: ../app/views/distributions/leap-42.3.html.erb:59
+#: ../app/views/distributions/leap-42.3.html.erb:84
+#: ../app/views/distributions/leap-42.3.html.erb:98
+#: ../app/views/distributions/leap-42.3.html.erb:116
+#: ../app/views/distributions/leap-42.3.html.erb:130
+#: ../app/views/distributions/leap-15.0.html.erb:45
+#: ../app/views/distributions/leap-15.0.html.erb:59
+#: ../app/views/distributions/leap-15.0.html.erb:79
+#: ../app/views/distributions/leap-15.0.html.erb:92
 msgid "Pick Mirror"
 msgstr "Išsirinkti veidrodį"
 
-#: ../app/views/layouts/_footer.html.erb:21
+#: ../app/views/layouts/_footer.html.erb:20
 msgid "Planet"
 msgstr ""
 
 #: ../app/views/distributions/tumbleweed.html.erb:195
-msgid "Please Note: These LiveUSBs are not supported"
-msgstr "Atminkite: šie demonstraciniai atvaizdžiai atmintukams nėra palaikomi"
+msgid "Please be aware of the following limitations of the live images:"
+msgstr ""
 
-# dialog title for hard disk installation
-#: ../app/views/distributions/tumbleweed.html.erb:197
-msgid "Please Use|Tumbleweed installation media"
-msgstr "pagrindinius „Tumbleweed“ diegimo atvaizdžius"
-
-#: ../app/views/distributions/tumbleweed.html.erb:201
+#: ../app/views/distributions/tumbleweed.html.erb:202
+#, fuzzy
+#| msgid ""
+#| "Please review %{openqa}'s test results if you want an indication whether "
+#| "these LiveUSBs are working as expected."
 msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
-"these LiveUSBs are working as expected."
+"these live medias are working as expected."
 msgstr ""
 "Norėdami sužinoti, ar atmintukams skirti atvaizdžiai veikia tinkamai, "
 "peržiūrėkite %{openqa} patikros rezultatus."
@@ -712,35 +810,52 @@ msgstr ""
 msgid "Recommended System Requirements"
 msgstr "Rekomenduojami sistemos parametrai"
 
-#: ../app/views/search/_category_header.html.erb:9
-msgid "Related categories:"
-msgstr "Susijusios kategorijos:"
-
-#: ../app/views/distributions/_documentation.html.erb:13
+#: ../app/views/distributions/_documentation.html.erb:11
 msgid "Release Notes"
 msgstr "Pastabos apie laidą"
 
-#: ../app/views/layouts/_footer.html.erb:19
+#: ../app/views/layouts/_footer.html.erb:18
 msgid "Release notes"
 msgstr "Pastabos apie laidą"
+
+#: ../app/views/images/images.xml.erb:74
+msgid "Rescue"
+msgstr "Avarinė sistema"
 
 #: ../app/views/distributions/index.html.erb:73
 msgid "SUSE Linux Enterprise"
 msgstr "„SUSE Linux Enterprise“"
 
 #: ../app/views/search/find.html.erb:1
+#: ../app/views/search/_find_form.html.erb:8
 msgid "Search"
 msgstr "Ieškoti"
 
-#: ../app/views/download/package.erb:61
+#: ../app/views/search/_find_form.html.erb:5
+msgid "Search packages..."
+msgstr ""
+
+#: ../app/views/search/_find_form.html.erb:21
+#, fuzzy
+#| msgid "Search options"
+msgid "Search settings"
+msgstr "Paieškos parinktys"
+
+#: ../app/views/download/package.erb:10
 msgid "Select Your Operating System"
 msgstr "Pasirinkite operacinę sistemą"
 
-#: ../app/views/download/appliance.erb:39
+#: ../app/views/download/appliance.erb:9
 msgid "Select the image type"
 msgstr "Pasirinkite atvaizdžio tipą"
 
-#: ../app/views/layouts/_footer.html.erb:22
+#: ../app/views/search/_find_form.html.erb:13
+#, fuzzy
+#| msgid "Getting Help"
+msgid "Settings"
+msgstr "Pagalba žinynuose"
+
+#: ../app/views/layouts/_footer.html.erb:21
 msgid "Shop"
 msgstr "Parduotuvė"
 
@@ -752,7 +867,7 @@ msgstr "Rodyti"
 msgid "Show community packages"
 msgstr "Rodyti bendruomenės paketus"
 
-#: ../app/views/search/_find_form.html.erb:43
+#: ../app/views/search/_find_form.html.erb:41
 msgid "Show development, language and debug packages"
 msgstr ""
 "Rodyti kalbos, derinimo (-debug) ir programavimui skirtus (-devel) paketus"
@@ -765,23 +880,28 @@ msgstr "Rodyti bandomuosius paketus"
 msgid "Size"
 msgstr "Dydis"
 
-#: ../app/views/layouts/_footer.html.erb:37
+#: ../app/views/layouts/_footer.html.erb:36
 msgid "Social Media"
 msgstr "Socialiniai tinklai"
 
-#: ../app/views/layouts/_navbar.html.erb:17
+#: ../app/views/layouts/_navbar.html.erb:35
 msgid "Software"
 msgstr "Programinė įranga"
 
 #: ../app/helpers/package_helper.rb:13 ../app/helpers/package_helper.rb:15
 #: ../app/views/package/_download_rows.html.erb:42
 #: ../app/views/package/_download_rows.html.erb:45
+#: ../app/views/images/images.xml.erb:29
 msgid "Source"
 msgstr "Šaltinis"
 
-#: ../app/views/search/_find_results.html.erb:82
+#: ../app/views/search/_find_results.html.erb:76
 msgid "Sub-Packages"
 msgstr "sudedam. paket."
+
+#: ../app/controllers/package_controller.rb:132
+msgid "System & Utility"
+msgstr ""
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
 msgid ""
@@ -804,6 +924,10 @@ msgstr ""
 "išeikvoti duomenų: diegiant siunčiami tik pasirinkti paketai, o tai "
 "paprastai turėtų sudaryti gerokai mažiau nei 4 GiB."
 
+#: ../app/controllers/application_controller.rb:42
+msgid "The authentication to the OBS API has not been configured correctly."
+msgstr ""
+
 #: ../app/views/package/show.html.erb:103
 msgid ""
 "The following distributions are not officially supported. Use these packages "
@@ -812,12 +936,12 @@ msgstr ""
 "Šie platinamieji paketai nėra oficialiai palaikomi. Už šių paketų naudojimą "
 "atsakomybę turėtumėte prisiimti patys."
 
-#: ../app/views/download/package.erb:95
+#: ../app/views/download/package.erb:48
 msgid "Then run the following as <strong>root</strong>"
 msgstr "Įvykdykite <strong>root</strong> teisėmis"
 
-#: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/tumbleweed.html.erb:124
+#: ../app/views/distributions/leap-42.3.html.erb:69
 msgid ""
 "These ports are not officially supported, and they are not as stable as "
 "official distributions."
@@ -825,11 +949,11 @@ msgstr ""
 "Šie variantai nėra oficialiai palaikomi, jie nėra tokie stabilūs kaip "
 "oficialūs platinamieji paketai."
 
-#: ../app/views/distributions/tumbleweed.html.erb:199
+#: ../app/views/distributions/tumbleweed.html.erb:200
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr "Jie nėra taip gerai išbandyti kaip %{tumbleweed_media}."
 
-#: ../app/views/distributions/tumbleweed.html.erb:196
+#: ../app/views/distributions/tumbleweed.html.erb:197
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
@@ -837,9 +961,14 @@ msgstr ""
 "Jų negalite naudoti „Tumbleweed“ naujovinimui, kartais gali netikti netgi "
 "diegimui. Tam rinkitės %{tumbleweed_media}."
 
-#: ../app/views/distributions/tumbleweed.html.erb:198
+#: ../app/views/distributions/tumbleweed.html.erb:199
+#, fuzzy
+#| msgid ""
+#| "They have a limited package/driver selection, so cannot be considered an "
+#| "accurate reflection as to whether Tumbleweed will work on your hardware "
+#| "or not."
 msgid ""
-"They have a limited package/driver selection, so cannot be considered an "
+"They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not."
 msgstr ""
@@ -850,6 +979,60 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr "Navigacija"
 
+#: ../app/views/images/images.xml.erb:33
+msgid "Tumbleweed %s DVD (i586)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:36
+msgid "Tumbleweed %s DVD (x86_64)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:57
+msgid "Tumbleweed %s GNOME Live (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:60
+msgid "Tumbleweed %s GNOME Live (x86_64)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:67
+msgid "Tumbleweed %s KDE Live (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:70
+msgid "Tumbleweed %s KDE Live (x86_64)"
+msgstr ""
+
+# dialog title for nfs installation
+#: ../app/views/images/images.xml.erb:43
+#, fuzzy
+#| msgid "Network Installation"
+msgid "Tumbleweed %s Network Installation (i586)"
+msgstr "Diegimas per tinklą"
+
+# dialog title for nfs installation
+#: ../app/views/images/images.xml.erb:46
+#, fuzzy
+#| msgid "Network Installation"
+msgid "Tumbleweed %s Network Installation (x86_64)"
+msgstr "Diegimas per tinklą"
+
+#: ../app/views/images/images.xml.erb:77
+msgid "Tumbleweed %s Rescue CD (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:80
+msgid "Tumbleweed %s Rescue CD (x86_64)"
+msgstr ""
+
+# dialog title for hard disk installation
+#: ../app/views/distributions/tumbleweed.html.erb:198
+#: ../app/views/distributions/tumbleweed.html.erb:201
+#, fuzzy
+#| msgid "Not Tested|Tumbleweed installation media"
+msgid "Tumbleweed installation media"
+msgstr "pagrindiniai „Tumbleweed“ diegimo atvaizdžiai"
+
 #: ../app/views/distributions/index.html.erb:61
 msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
@@ -859,8 +1042,8 @@ msgstr ""
 "<strong>openSUSE talkininkams</strong> ir <strong>Linukso bei atviro kodo "
 "naujovių mėgėjams</strong>."
 
-#: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/tumbleweed.html.erb:26
+#: ../app/views/distributions/leap-42.3.html.erb:24
 msgid "Unofficial"
 msgstr "Neoficialus"
 
@@ -881,11 +1064,11 @@ msgstr "Parsisiųstųjų rinkmenų tikrinimas"
 msgid "Version"
 msgstr "Versija"
 
-#: ../app/views/layouts/_navbar.html.erb:23
+#: ../app/views/layouts/_navbar.html.erb:44
 msgid "Wiki"
 msgstr "Vikis"
 
-#: ../app/views/download/package.erb:141
+#: ../app/views/download/package.erb:93
 msgid ""
 "You can add the repository key to apt. Keep in mind that the owner of the "
 "key may distribute updates, packages and repositories that your system will "
@@ -895,7 +1078,7 @@ msgstr ""
 "platinti atnaujinimus, paketus ir saugyklas, kuriomis jūsų sistema pasitikės "
 "(<a href=\"%s\">daugiau informacijos</a>). Raktą pridėsite įvykdę:"
 
-#: ../app/views/search/_find_results.html.erb:26
+#: ../app/views/search/_find_results.html.erb:21
 msgid ""
 "You could try to extend your search to development packages or search for "
 "another base distribution (currently #{@baseproject})."
@@ -953,6 +1136,12 @@ msgstr "https://en.opensuse.org/openSUSE:Roadmap"
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
+#: ../app/views/images/images.xml.erb:32 ../app/views/images/images.xml.erb:42
+#: ../app/views/images/images.xml.erb:56 ../app/views/images/images.xml.erb:66
+#: ../app/views/images/images.xml.erb:76
+msgid "i586"
+msgstr ""
+
 #: ../app/views/distributions/index.html.erb:69
 msgid "lifetime"
 msgstr "informaciją apie išleidimo ir palaikymo laikotarpius"
@@ -965,11 +1154,18 @@ msgstr "„openSUSE Leap“"
 msgid "openSUSE Software"
 msgstr "openSUSE programinė įranga"
 
+#: ../app/views/distributions/_documentation.html.erb:6
+#, fuzzy
+#| msgid "openSUSE Software"
+msgid "openSUSE Startup Guide"
+msgstr "openSUSE programinė įranga"
+
 #: ../app/views/distributions/index.html.erb:58
+#: ../app/views/images/images.xml.erb:26
 msgid "openSUSE Tumbleweed"
 msgstr "„openSUSE Tumbleweed“"
 
-#: ../app/views/layouts/_footer.html.erb:50
+#: ../app/views/layouts/_footer.html.erb:49
 msgid "openSUSE contributors"
 msgstr "openSUSE talkininkai"
 
@@ -978,6 +1174,46 @@ msgid "openSUSE is completely free to download, use and share."
 msgstr ""
 "Galite parsisiųsti, naudoti ir dalintis openSUSE sistema visiškai nemokamai "
 "bei laisvai."
+
+#: ../app/views/images/images.xml.erb:35 ../app/views/images/images.xml.erb:45
+#: ../app/views/images/images.xml.erb:59 ../app/views/images/images.xml.erb:69
+#: ../app/views/images/images.xml.erb:79
+msgid "x86_64"
+msgstr ""
+
+#~ msgid "(hide)"
+#~ msgstr "(slėpti)"
+
+#~ msgid "(show)"
+#~ msgstr "(rodyti)"
+
+#~ msgid "Available Images"
+#~ msgstr "Galimi parsisiųsti atvaizdžiai"
+
+#~ msgid ""
+#~ "Help test the next version of openSUSE Leap, the regular-release "
+#~ "distribution for desktop PCs, laptops, and servers."
+#~ msgstr ""
+#~ "Padėkite tikrinti būsimą „openSUSE Leap“ versiją, kuri išleidžiama kasmet "
+#~ "ir skirta diegti į stalinius kompiuterius, nešiojamuosius kompiuterius ir "
+#~ "serverius."
+
+#~ msgid "Install using One Click Install"
+#~ msgstr "Diegti tuoj pat"
+
+#~ msgid "Kubic DVD/USB Stick"
+#~ msgstr "Kubic DVD/atmintukas"
+
+#~ msgid "Please Note: These LiveUSBs are not supported"
+#~ msgstr ""
+#~ "Atminkite: šie demonstraciniai atvaizdžiai atmintukams nėra palaikomi"
+
+# dialog title for hard disk installation
+#~ msgid "Please Use|Tumbleweed installation media"
+#~ msgstr "pagrindinius „Tumbleweed“ diegimo atvaizdžius"
+
+#~ msgid "Related categories:"
+#~ msgstr "Susijusios kategorijos:"
 
 #~ msgid " and "
 #~ msgstr " ir "
@@ -991,9 +1227,6 @@ msgstr ""
 
 #~ msgid "Derivatives"
 #~ msgstr "Vediniai"
-
-#~ msgid "Development-"
-#~ msgstr "paket. plėtojimui"
 
 #~ msgid "Don't show this warning the next time"
 #~ msgstr "Pranešimo neberodyti"
@@ -1057,10 +1290,6 @@ msgstr ""
 
 #~ msgid "Header Logo"
 #~ msgstr "Logotipas"
-
-# dialog title for hard disk installation
-#~ msgid "Installation Media"
-#~ msgstr "Diegimo laikmena"
 
 #~ msgid "LiveUSB Media"
 #~ msgstr "Laikmena demonstraciniam atmintukui (LiveUSB)"
@@ -1156,9 +1385,6 @@ msgstr ""
 
 #~ msgid "Please review %{openqa}"
 #~ msgstr "Peržiūrėkite %{openqa}"
-
-#~ msgid "Media"
-#~ msgstr "Laikmena"
 
 #~ msgid "instead."
 #~ msgstr "."
@@ -1365,9 +1591,6 @@ msgstr ""
 #~ msgid "Get one of the specialized distributions built on openSUSE."
 #~ msgstr "Parsisiųskite openSUSE pagrindu sukurtus platinamuosius paketus."
 
-#~ msgid "Getting Help"
-#~ msgstr "Pagalba žinynuose"
-
 #~ msgid "Gold Sponsor"
 #~ msgstr "Auksinis rėmėjas"
 
@@ -1388,9 +1611,6 @@ msgstr ""
 #~ "Jei norite naudoti tiesioginę nuorodą, bet šiuo metu mūsų parsiuntimų "
 #~ "nukreipėjas neturi pakankamai informacijos tam, kad būtų nukreipta į "
 #~ "greičiausią veidrodį, tuomet galite patys išsirinkti veidrodį."
-
-#~ msgid "Installation Guides"
-#~ msgstr "Diegimo vedikliai"
 
 # dialog title for hard disk installation
 #~ msgid "Installation Medium"
@@ -1440,9 +1660,6 @@ msgstr ""
 
 #~ msgid "Live GNOME"
 #~ msgstr "Demonstracinis GNOME (LiveCD/LiveUSB)"
-
-#~ msgid "Live KDE"
-#~ msgstr "Demonstracinis KDE (LiveCD/LiveUSB)"
 
 #~ msgid ""
 #~ "Many applications can verify the checksum of a download. To verify your "
@@ -1540,9 +1757,6 @@ msgstr ""
 
 #~ msgid "Reporting Bugs"
 #~ msgstr "Pranešti apie klaidą"
-
-#~ msgid "Rescue"
-#~ msgstr "Avarinė sistema"
 
 #~ msgid ""
 #~ "Rescue system that you can run from CD or from USB stick.<br/>Can not be "
@@ -1955,9 +2169,6 @@ msgstr ""
 #~ "<a href=\"http://build.opensuse.org\">openSUSE Kūrimo Paslaugos</a> "
 #~ "paketų paieška ir diegimas"
 
-#~ msgid "Search options"
-#~ msgstr "Paieškos parinktys"
-
 #~ msgid "Include users' home projects"
 #~ msgstr "įtraukti naudotojų namų projektų"
 
@@ -1998,10 +2209,6 @@ msgstr ""
 
 #~ msgid "Step-by-step installation guide"
 #~ msgstr "Pažingsninio diegimo vediklis"
-
-# dialog title for nfs installation
-#~ msgid "Network Installation"
-#~ msgstr "Diegimas per tinklą"
 
 #~ msgid "http://en.opensuse.org/SDB:Network_installation"
 #~ msgstr "http://en.opensuse.org/SDB:Network_installation"

@@ -14,7 +14,7 @@
           </button>
         </div>
         <div class="col-6 col-sm-3 col-lg-2">
-          <button type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#search-config-modal">
+          <button id="settings" type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#search-config-modal">
               <span class="typcn typcn-lg typcn-spanner-outline"></span>
               <%= _("Settings") %>
           </button>
@@ -38,7 +38,7 @@
                 <label for="recipient-name" class="form-control-label col-sm-3 col-form-label"><%= _("Distribution:") %></label>
                 <% @distributions ||= Array.new %>
                 <div class="col-sm-9">
-                  <%= select_tag 'baseproject', options_for_select((@distributions.map{|d| [d[:name], d[:project]]} || ["ALL"]), (@baseproject or default_baseproject)), :class => 'form-control' %>
+                  <%= select_tag 'baseproject', options_for_select((@distributions.map{|d| [d[:name], d[:project]]} || ["ALL"]), baseproject), :class => 'form-control'%>
                 </div>
               </div>
 

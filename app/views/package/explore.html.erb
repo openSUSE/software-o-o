@@ -1,8 +1,6 @@
 <div class="container">
 
-  <% apps = @appdata[:apps].select{|a| !a[:screenshots].blank? } %>
-
-  <% if not apps.blank? %>
+  <% if not @apps.blank? %>
     <div id="featuredApps" class="carousel slide mb-5" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#featuredApps" data-slide-to="0" class="active"></li>
@@ -13,9 +11,9 @@
       </ol>
       <div class="carousel-inner">
         <% active = true %>
-        <% apps.sample(5).each do |package| %>
+        <% @apps.sample(5).each do |package| %>
           <div class="carousel-item <%= active ? 'active' : '' %> ">
-            <img src="<%= screenshot_thumb_url( package[:pkgname], package[:screenshots][0]) %>" style="width: 100%; height: 500px; object-fit: cover; object-position: center;">
+            <img src="<%= screenshot_thumb_url(package[:pkgname]) %>" style="width: 100%; height: 500px; object-fit: cover; object-position: center;">
             <div class="carousel-caption">
               <h1><%= package[:name] %></h1>
               <p><%= package[:summary] %></p>
