@@ -1,22 +1,3 @@
-<%
-@wiki_url = case @lang
-            when 'zh_CN'
-              'https://zh.opensuse.org/'
-            when 'zh_TW'
-              'https://zh-tw.opensuse.org/'
-            when 'pt_BR'
-              'https://pt.opensuse.org/'
-            else
-              "https://#{@lang}.opensuse.org/"
-            end
-
-@forum_url =  case @lang
-              when 'zh_CN'
-                @forum_url = 'https://forum.suse.org.cn/'
-              else
-                @forum_url = 'https://forums.opensuse.org/'
-              end
-%>
 <nav id="global-navbar" class="navbar navbar-expand-md navbar-toggleable navbar-dark bg-dark">
 
   <a class="navbar-brand" href="https://www.opensuse.org/">

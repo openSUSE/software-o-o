@@ -7,6 +7,7 @@ require 'net/https'
 class ApplicationController < ActionController::Base
   before_action :validate_configuration
   before_action :set_language
+  before_action :set_external_urls
   before_action :set_distributions
   before_action :set_releases_parameters
   # depends on releases
@@ -237,5 +238,26 @@ class ApplicationController < ActionController::Base
   def set_beta_warning
     flash.now[:info] = "This is a beta version of the new app browser, part of " +
                        "the <a href='https://trello.com/board/appstream/4f156e1c9ce0824a2e1b8831'>current boosters sprint</a>!"
+  end
+
+  # set wiki and forum urls, which are different for each language
+  def set_external_urls
+    @wiki_url = case @lang
+                when 'zh_CN'
+                  'https://zh.opensuse.org/'
+                when 'zh_TW'
+                  'https://zh-tw.opensuse.org/'
+                when 'pt_BR'
+                  'https://pt.opensuse.org/'
+                else
+                  "https://#{@lang}.opensuse.org/"
+                end
+
+    @forum_url =  case @lang
+                  when 'zh_CN'
+                    'https://forum.suse.org.cn/'
+                  else
+                    'https://forums.opensuse.org/'
+                  end
   end
 end
