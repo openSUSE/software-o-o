@@ -6,11 +6,10 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
     visit '/'
     page.fill_in 'q', with: 'nvidia'
     page.find(:css, 'button#settings').click
-    within '#search-config-modal' do
+    within '#search-settings' do
       find('option[value="openSUSE:Leap:42.3"]').click
     end
-    page.click_on 'Done'
-    page.find('button[type="submit"]').click
+    page.click_on 'OK'
 
     page.assert_text 'for instructions how to configure your NVIDIA graphics card'
   end
@@ -20,11 +19,10 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
     visit '/'
     page.fill_in 'q', with: 'paralapapiricoipi'
     page.find(:css, 'button#settings').click
-    within '#search-config-modal' do
+    within '#search-settings' do
       find('option[value="openSUSE:Leap:42.3"]').click
     end
-    page.click_on 'Done'
-    page.find('button[type="submit"]').click
+    page.click_on 'OK'
 
     page.assert_text 'No packages found matching your search.'
   end
