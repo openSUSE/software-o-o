@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-17 14:54+0100\n"
+"POT-Creation-Date: 2018-05-24 09:32+0200\n"
 "PO-Revision-Date: 2018-02-01 02:01+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
-"Language-Team: Danish "
-"<https://l10n.opensuse.org/projects/software-o-o/master/da/>\n"
+"Language-Team: Danish <https://l10n.opensuse.org/projects/software-o-o/"
+"master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,14 +40,6 @@ msgstr ""
 "projektet. Ting ændres regelmæssigt efterhånden som frie og open source-"
 "projekter kontinuerligt udgiver nye versioner af deres software."
 
-#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
-msgid "(hide)"
-msgstr "(skjul)"
-
-#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
-msgid "(show)"
-msgstr "(vis)"
-
 #: ../app/views/package/_download_rows.html.erb:49
 msgid "1 Click Install"
 msgstr "Et-klik-installation"
@@ -60,6 +52,14 @@ msgstr "2 GB systemhukommelse"
 msgid "2 Ghz dual core processor or better"
 msgstr "2 Ghz dual core-processor eller bedre"
 
+#: ../app/views/download/package.erb:9
+msgid "<b>%s</b> from <b>%s</b> project"
+msgstr ""
+
+#: ../app/views/download/appliance.erb:8
+msgid "<b>%s</b> project"
+msgstr ""
+
 #: ../app/views/package/_download_rows.html.erb:3
 msgid "<b>official release</b>"
 msgstr "<b>officiel udgivelse</b>"
@@ -68,13 +68,15 @@ msgstr "<b>officiel udgivelse</b>"
 msgid "<b>official update</b>"
 msgstr "<b>officiel opdatering</b>"
 
-#: ../app/views/download/package.erb:84
+#: ../app/views/download/package.erb:37
 msgid "Add repository and install manually"
 msgstr "Tilføj softwarekilde og installér manuelt"
 
-#: ../app/views/download/appliance.erb:52
-msgid "Available Images"
-msgstr "Tilgængelige aftryk"
+#: ../app/views/images/images.xml.erb:31 ../app/views/images/images.xml.erb:41
+#: ../app/views/images/images.xml.erb:55 ../app/views/images/images.xml.erb:65
+#: ../app/views/images/images.xml.erb:75
+msgid "Architecture"
+msgstr ""
 
 #: ../app/views/package/show.html.erb:5
 msgid "Back to home page"
@@ -110,12 +112,6 @@ msgstr "Kategorier"
 msgid "Category"
 msgstr "Kategori"
 
-#: ../app/views/distributions/leap.html.erb:48
-#: ../app/views/distributions/leap.html.erb:62
-#: ../app/views/distributions/leap.html.erb:87
-#: ../app/views/distributions/leap.html.erb:101
-#: ../app/views/distributions/leap.html.erb:119
-#: ../app/views/distributions/leap.html.erb:133
 #: ../app/views/distributions/tumbleweed.html.erb:55
 #: ../app/views/distributions/tumbleweed.html.erb:69
 #: ../app/views/distributions/tumbleweed.html.erb:83
@@ -125,14 +121,22 @@ msgstr "Kategori"
 #: ../app/views/distributions/tumbleweed.html.erb:154
 #: ../app/views/distributions/tumbleweed.html.erb:172
 #: ../app/views/distributions/tumbleweed.html.erb:186
-#: ../app/views/distributions/tumbleweed.html.erb:215
-#: ../app/views/distributions/tumbleweed.html.erb:227
-#: ../app/views/distributions/tumbleweed.html.erb:239
-#: ../app/views/distributions/tumbleweed.html.erb:255
-#: ../app/views/distributions/tumbleweed.html.erb:267
-#: ../app/views/distributions/tumbleweed.html.erb:279
-#: ../app/views/distributions/testing.html.erb:34
-#: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/tumbleweed.html.erb:217
+#: ../app/views/distributions/tumbleweed.html.erb:229
+#: ../app/views/distributions/tumbleweed.html.erb:241
+#: ../app/views/distributions/tumbleweed.html.erb:257
+#: ../app/views/distributions/tumbleweed.html.erb:269
+#: ../app/views/distributions/tumbleweed.html.erb:281
+#: ../app/views/distributions/leap-42.3.html.erb:46
+#: ../app/views/distributions/leap-42.3.html.erb:60
+#: ../app/views/distributions/leap-42.3.html.erb:85
+#: ../app/views/distributions/leap-42.3.html.erb:99
+#: ../app/views/distributions/leap-42.3.html.erb:117
+#: ../app/views/distributions/leap-42.3.html.erb:131
+#: ../app/views/distributions/leap-15.0.html.erb:46
+#: ../app/views/distributions/leap-15.0.html.erb:60
+#: ../app/views/distributions/leap-15.0.html.erb:80
+#: ../app/views/distributions/leap-15.0.html.erb:93
 msgid "Checksum"
 msgstr "Tjeksum"
 
@@ -148,19 +152,24 @@ msgstr "Valg a medie som skal downloades"
 msgid "Choosing which Distribution to Download"
 msgstr "Vælg hvilken distribution som skal downloades"
 
-#: ../app/views/layouts/_footer.html.erb:26
+#: ../app/views/layouts/_footer.html.erb:25
 #: ../app/views/package/_download_rows.html.erb:28
 msgid "Community"
 msgstr "Fællesskab"
 
-#: ../app/views/distributions/leap.html.erb:44
-#: ../app/views/distributions/leap.html.erb:83
-#: ../app/views/distributions/leap.html.erb:115
+#: ../app/views/distributions/tumbleweed.html.erb:79
+msgid ""
+"Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
+msgstr ""
+
 #: ../app/views/distributions/tumbleweed.html.erb:51
 #: ../app/views/distributions/tumbleweed.html.erb:97
 #: ../app/views/distributions/tumbleweed.html.erb:136
 #: ../app/views/distributions/tumbleweed.html.erb:168
-#: ../app/views/distributions/testing.html.erb:30
+#: ../app/views/distributions/leap-42.3.html.erb:42
+#: ../app/views/distributions/leap-42.3.html.erb:81
+#: ../app/views/distributions/leap-42.3.html.erb:113
+#: ../app/views/distributions/leap-15.0.html.erb:42
 msgid ""
 "Contains a large collection of software for desktop or server use. Suitable "
 "for installation or upgrade."
@@ -168,22 +177,37 @@ msgstr ""
 "Indeholder en stor samling af software til desktop- eller serverbrug. Egnet "
 "til installation eller opgradering."
 
-#: ../app/views/distributions/leap.html.erb:41
-#: ../app/views/distributions/leap.html.erb:80
-#: ../app/views/distributions/leap.html.erb:112
+#: ../app/views/images/images.xml.erb:17 ../app/views/images/images.xml.erb:30
+#: ../app/views/images/images.xml.erb:91
+msgid "DVD"
+msgstr ""
+
 #: ../app/views/distributions/tumbleweed.html.erb:48
 #: ../app/views/distributions/tumbleweed.html.erb:94
 #: ../app/views/distributions/tumbleweed.html.erb:133
 #: ../app/views/distributions/tumbleweed.html.erb:165
-#: ../app/views/distributions/testing.html.erb:27
+#: ../app/views/distributions/leap-42.3.html.erb:39
+#: ../app/views/distributions/leap-42.3.html.erb:78
+#: ../app/views/distributions/leap-42.3.html.erb:110
+#: ../app/views/distributions/leap-15.0.html.erb:39
 msgid "DVD Image"
 msgstr "DVD-aftryk"
+
+#: ../app/views/images/images.xml.erb:53
+msgid "Desktop"
+msgstr ""
 
 #: ../app/views/layouts/_footer.html.erb:5
 msgid "Developers"
 msgstr "Udviklere"
 
-#: ../app/views/search/_find_results.html.erb:88
+#: ../app/controllers/package_controller.rb:126
+#, fuzzy
+#| msgid "Development-"
+msgid "Development"
+msgstr "Udvikling-"
+
+#: ../app/views/search/_find_results.html.erb:82
 msgid "Development packages"
 msgstr "Udviklingspakker"
 
@@ -191,12 +215,6 @@ msgstr "Udviklingspakker"
 msgid "Direct Install"
 msgstr "Direkte installation"
 
-#: ../app/views/distributions/leap.html.erb:45
-#: ../app/views/distributions/leap.html.erb:59
-#: ../app/views/distributions/leap.html.erb:84
-#: ../app/views/distributions/leap.html.erb:98
-#: ../app/views/distributions/leap.html.erb:116
-#: ../app/views/distributions/leap.html.erb:130
 #: ../app/views/distributions/tumbleweed.html.erb:52
 #: ../app/views/distributions/tumbleweed.html.erb:66
 #: ../app/views/distributions/tumbleweed.html.erb:80
@@ -206,18 +224,32 @@ msgstr "Direkte installation"
 #: ../app/views/distributions/tumbleweed.html.erb:151
 #: ../app/views/distributions/tumbleweed.html.erb:169
 #: ../app/views/distributions/tumbleweed.html.erb:183
-#: ../app/views/distributions/tumbleweed.html.erb:213
-#: ../app/views/distributions/tumbleweed.html.erb:225
-#: ../app/views/distributions/tumbleweed.html.erb:237
-#: ../app/views/distributions/tumbleweed.html.erb:253
-#: ../app/views/distributions/tumbleweed.html.erb:265
-#: ../app/views/distributions/tumbleweed.html.erb:277
-#: ../app/views/distributions/testing.html.erb:31
-#: ../app/views/distributions/testing.html.erb:45
+#: ../app/views/distributions/tumbleweed.html.erb:215
+#: ../app/views/distributions/tumbleweed.html.erb:227
+#: ../app/views/distributions/tumbleweed.html.erb:239
+#: ../app/views/distributions/tumbleweed.html.erb:255
+#: ../app/views/distributions/tumbleweed.html.erb:267
+#: ../app/views/distributions/tumbleweed.html.erb:279
+#: ../app/views/distributions/leap-42.3.html.erb:43
+#: ../app/views/distributions/leap-42.3.html.erb:57
+#: ../app/views/distributions/leap-42.3.html.erb:82
+#: ../app/views/distributions/leap-42.3.html.erb:96
+#: ../app/views/distributions/leap-42.3.html.erb:114
+#: ../app/views/distributions/leap-42.3.html.erb:128
+#: ../app/views/distributions/leap-15.0.html.erb:43
+#: ../app/views/distributions/leap-15.0.html.erb:57
+#: ../app/views/distributions/leap-15.0.html.erb:77
+#: ../app/views/distributions/leap-15.0.html.erb:90
 msgid "Direct Link"
 msgstr "Direkte link"
 
-#: ../app/views/search/_find_form.html.erb:33
+#: ../app/views/images/images.xml.erb:13
+#, fuzzy
+#| msgid "Distribution:"
+msgid "Distribution"
+msgstr "Distribution:"
+
+#: ../app/views/search/_find_form.html.erb:31
 msgid "Distribution:"
 msgstr "Distribution:"
 
@@ -225,20 +257,21 @@ msgstr "Distribution:"
 msgid "Distributions"
 msgstr "Distributioner"
 
+#: ../app/views/layouts/_navbar.html.erb:41
 #: ../app/views/layouts/_footer.html.erb:7
-#: ../app/views/layouts/_navbar.html.erb:20
 #: ../app/views/distributions/_documentation.html.erb:2
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: ../app/views/layouts/_navbar.html.erb:14
+#: ../app/views/layouts/_navbar.html.erb:38
+#: ../app/views/package/_download_rows.html.erb:54
 #: ../app/views/distributions/index.html.erb:21
 #: ../app/views/distributions/index.html.erb:31
 #: ../app/views/distributions/index.html.erb:42
 msgid "Download"
 msgstr "Download"
 
-#: ../app/controllers/download_controller.rb:36
+#: ../app/controllers/download_controller.rb:43
 msgid "Download appliance from %s"
 msgstr "Downloader anordning fra %s"
 
@@ -258,15 +291,14 @@ msgstr ""
 "Download openSUSE’s rullende udgivelse og kør altid de seneste pakker "
 "leveret af openSUSE-projektet."
 
-#: ../app/views/distributions/leap.html.erb:58
-#: ../app/views/distributions/leap.html.erb:97
-#: ../app/views/distributions/leap.html.erb:129
 #: ../app/views/distributions/tumbleweed.html.erb:65
-#: ../app/views/distributions/tumbleweed.html.erb:79
 #: ../app/views/distributions/tumbleweed.html.erb:111
 #: ../app/views/distributions/tumbleweed.html.erb:150
 #: ../app/views/distributions/tumbleweed.html.erb:182
-#: ../app/views/distributions/testing.html.erb:44
+#: ../app/views/distributions/leap-42.3.html.erb:56
+#: ../app/views/distributions/leap-42.3.html.erb:95
+#: ../app/views/distributions/leap-42.3.html.erb:127
+#: ../app/views/distributions/leap-15.0.html.erb:56
 msgid ""
 "Downloads the installation system and all packages from online repositories. "
 "Suitable for installation or upgrade."
@@ -282,11 +314,15 @@ msgstr "Lette måder at skifte til openSUSE Leap"
 msgid "Easy Ways to Switch to openSUSE Tumbleweed"
 msgstr "Lette måder at skifte til openSUSE Tumbleweed"
 
+#: ../app/controllers/package_controller.rb:127
+msgid "Education & Science"
+msgstr ""
+
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
 msgstr "Enten et DVD-drev eller USB-port til installationsmediet"
 
-#: ../app/views/layouts/_footer.html.erb:20
+#: ../app/views/layouts/_footer.html.erb:19
 msgid "Events"
 msgstr "Begivenheder"
 
@@ -294,19 +330,19 @@ msgstr "Begivenheder"
 msgid "Experimental"
 msgstr "Eksperimentel"
 
-#: ../app/views/layouts/_footer.html.erb:30
+#: ../app/views/layouts/_footer.html.erb:29
 msgid "Facebook group"
 msgstr "Facebook-gruppe"
 
-#: ../app/views/download/package.erb:106
+#: ../app/views/download/package.erb:59
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
 msgstr "For <strong>%s</strong> kør følgende som <strong>root</strong>:"
 
-#: ../app/views/download/package.erb:99
+#: ../app/views/download/package.erb:52
 msgid "For <strong>%s</strong> run the following:"
 msgstr "For <strong>%s</strong> kør følgende:"
 
-#: ../app/views/download/package.erb:90
+#: ../app/views/download/package.erb:43
 msgid ""
 "For <strong>Arch Linux</strong>, edit /etc/pacman.conf and add the following "
 "(note that the order of repositories in pacman.conf is important, since "
@@ -316,32 +352,34 @@ msgstr ""
 "(bemærk at rækkefølgen af softwarekilder i pacman.conf er vigtig, da pacman "
 "altid downloader den først fundne pakke):"
 
-#: ../app/views/distributions/leap.html.erb:57
-#: ../app/views/distributions/leap.html.erb:96
-#: ../app/views/distributions/leap.html.erb:128
 #: ../app/views/distributions/tumbleweed.html.erb:64
-#: ../app/views/distributions/tumbleweed.html.erb:78
 #: ../app/views/distributions/tumbleweed.html.erb:110
 #: ../app/views/distributions/tumbleweed.html.erb:149
 #: ../app/views/distributions/tumbleweed.html.erb:181
-#: ../app/views/distributions/tumbleweed.html.erb:236
-#: ../app/views/distributions/tumbleweed.html.erb:276
-#: ../app/views/distributions/testing.html.erb:43
+#: ../app/views/distributions/tumbleweed.html.erb:238
+#: ../app/views/distributions/tumbleweed.html.erb:278
+#: ../app/views/distributions/leap-42.3.html.erb:55
+#: ../app/views/distributions/leap-42.3.html.erb:94
+#: ../app/views/distributions/leap-42.3.html.erb:126
+#: ../app/views/distributions/leap-15.0.html.erb:55
 msgid "For CD and USB stick"
 msgstr "Til CD og USB-pen"
 
-#: ../app/views/distributions/leap.html.erb:43
-#: ../app/views/distributions/leap.html.erb:82
-#: ../app/views/distributions/leap.html.erb:114
 #: ../app/views/distributions/tumbleweed.html.erb:50
+#: ../app/views/distributions/tumbleweed.html.erb:78
 #: ../app/views/distributions/tumbleweed.html.erb:96
 #: ../app/views/distributions/tumbleweed.html.erb:135
 #: ../app/views/distributions/tumbleweed.html.erb:167
-#: ../app/views/distributions/tumbleweed.html.erb:212
-#: ../app/views/distributions/tumbleweed.html.erb:224
-#: ../app/views/distributions/tumbleweed.html.erb:252
-#: ../app/views/distributions/tumbleweed.html.erb:264
-#: ../app/views/distributions/testing.html.erb:29
+#: ../app/views/distributions/tumbleweed.html.erb:214
+#: ../app/views/distributions/tumbleweed.html.erb:226
+#: ../app/views/distributions/tumbleweed.html.erb:254
+#: ../app/views/distributions/tumbleweed.html.erb:266
+#: ../app/views/distributions/leap-42.3.html.erb:41
+#: ../app/views/distributions/leap-42.3.html.erb:80
+#: ../app/views/distributions/leap-42.3.html.erb:112
+#: ../app/views/distributions/leap-15.0.html.erb:41
+#: ../app/views/distributions/leap-15.0.html.erb:76
+#: ../app/views/distributions/leap-15.0.html.erb:89
 msgid "For DVD and USB stick"
 msgstr "Til DVD og USB-pen"
 
@@ -363,8 +401,8 @@ msgstr ""
 "For at få mere hjælp til at verificere din download læs venligst "
 "%{checksums_help}"
 
-#: ../app/views/layouts/_footer.html.erb:28
-#: ../app/views/layouts/_navbar.html.erb:26
+#: ../app/views/layouts/_navbar.html.erb:47
+#: ../app/views/layouts/_footer.html.erb:27
 msgid "Forums"
 msgstr "Fora"
 
@@ -380,15 +418,15 @@ msgstr "Fra Windows"
 msgid "From an older version or other Linux distro"
 msgstr "Fra en ældre version eller anden Linux-distrio"
 
-#: ../app/views/distributions/_documentation.html.erb:23
+#: ../app/views/distributions/_documentation.html.erb:21
 msgid "Full Documentation"
 msgstr "Fuld dokumentation"
 
-#: ../app/views/package/categories.html.erb:17
+#: ../app/controllers/package_controller.rb:125
 msgid "Games"
 msgstr "Spil"
 
-#: ../app/views/search/_find_results.html.erb:69
+#: ../app/views/search/_find_results.html.erb:63
 msgid "Get"
 msgstr "Hent"
 
@@ -399,13 +437,17 @@ msgstr "Hent"
 msgid "Get openSUSE"
 msgstr "Hent openSUSE"
 
-#: ../app/views/layouts/_footer.html.erb:31
+#: ../app/views/layouts/_footer.html.erb:30
 msgid "Google+ group"
 msgstr "Google+-gruppe"
 
-#: ../app/views/download/package.erb:153
+#: ../app/views/download/package.erb:105
 msgid "Grab binary packages directly"
 msgstr "Hent binære pakker direkte"
+
+#: ../app/controllers/package_controller.rb:129
+msgid "Graphics"
+msgstr ""
 
 #: ../app/views/distributions/index.html.erb:39
 msgid ""
@@ -415,13 +457,9 @@ msgstr ""
 "Hjælp med at teste openSUSE’s næste version af Leap ved at downloade den "
 "seneste udviklings-milestone."
 
-#: ../app/views/distributions/testing.html.erb:18
-msgid ""
-"Help test the next version of openSUSE Leap, the regular-release "
-"distribution for desktop PCs, laptops, and servers."
+#: ../app/controllers/distributions_controller.rb:34
+msgid "Help test the next version of openSUSE Leap!"
 msgstr ""
-"Hjælp med at teste den næste version af openSUSE Leap, regelmæssige-"
-"udgivelse-distributionen til stationære pc'er, bærbare, og servere."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
@@ -447,7 +485,7 @@ msgstr "Opret en opstartsbar USB-pen på Linux."
 msgid "How to create a bootable USB stick on OS X."
 msgstr "Opret en opstartsbar USB-pen på OS X."
 
-#: ../app/views/layouts/_footer.html.erb:33
+#: ../app/views/layouts/_footer.html.erb:32
 msgid "IRC channels"
 msgstr "IRC-kanaler"
 
@@ -465,25 +503,34 @@ msgstr ""
 "Hvis du allerede kører openSUSE kan du opgradere ved at boote fra DVD/USB og "
 "vælge opgrader eller foretag en ‘Onlineopgradering’ med få kommandoer."
 
-#: ../app/views/download/appliance.erb:57
+#: ../app/views/download/appliance.erb:34
 msgid "Image:"
 msgstr "Aftryk:"
 
-#: ../app/views/layouts/_footer.html.erb:16
+#: ../app/views/layouts/_footer.html.erb:15
 msgid "Information"
 msgstr "Information"
 
-#: ../app/controllers/download_controller.rb:78
+#: ../app/controllers/download_controller.rb:85
 msgid "Install package %s / %s"
 msgstr "Installér pakken %s / %s"
 
-#: ../app/controllers/download_controller.rb:121
+#: ../app/controllers/download_controller.rb:127
 msgid "Install pattern %s / %s"
 msgstr "Installér mønstret %s / %s"
 
-#: ../app/views/download/package.erb:74
-msgid "Install using One Click Install"
-msgstr "Installér med 1-klik-installation"
+#: ../app/views/distributions/leap-15.0.html.erb:18
+#: ../app/views/images/images.xml.erb:28
+#, fuzzy
+#| msgid "Installation Media"
+msgid "Installation"
+msgstr "Installationsmedie"
+
+#: ../app/views/images/images.xml.erb:16 ../app/views/images/images.xml.erb:90
+#, fuzzy
+#| msgid "Installation Guides"
+msgid "Installation Source"
+msgstr "Installationsguides"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
@@ -511,8 +558,26 @@ msgid "It should be %{fingerprint}"
 msgstr "Det burde være %{fingerprint}"
 
 #: ../app/views/distributions/tumbleweed.html.erb:76
-msgid "Kubic DVD/USB Stick"
-msgstr "Kubic DVD/USB-pen"
+#, fuzzy
+#| msgid "DVD Image"
+msgid "Kubic Image"
+msgstr "DVD-aftryk"
+
+#: ../app/views/images/images.xml.erb:18
+msgid "Leap %s DVD"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:93
+msgid "Leap %s DVD (Build %s)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:21
+msgid "Leap %s Network Installation"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:97
+msgid "Leap %s Network Installation (Build %s)"
+msgstr ""
 
 #: ../app/views/distributions/index.html.erb:77
 msgid ""
@@ -533,11 +598,18 @@ msgstr ""
 "ændringer er ikke ventet i flere år, afstemt med hver ny større udgivelse (f."
 "eks. 12, 13, osv.) af SUSE Linux Enterprise."
 
-#: ../app/views/distributions/_documentation.html.erb:18
+#: ../app/views/distributions/_documentation.html.erb:16
 msgid "License"
 msgstr "Licens"
 
-#: ../app/views/layouts/_footer.html.erb:32
+#: ../app/views/distributions/leap-15.0.html.erb:24
+#: ../app/views/images/images.xml.erb:52
+#, fuzzy
+#| msgid "Live KDE"
+msgid "Live"
+msgstr "Live KDE"
+
+#: ../app/views/layouts/_footer.html.erb:31
 msgid "Mail lists"
 msgstr "Maillister"
 
@@ -557,12 +629,12 @@ msgstr ""
 "vælger Metalink i feltet ovenfor og bruger tilføjelsen DownThemAll! i "
 "Firefox."
 
-#: ../app/views/distributions/leap.html.erb:46
-#: ../app/views/distributions/leap.html.erb:60
-#: ../app/views/distributions/leap.html.erb:85
-#: ../app/views/distributions/leap.html.erb:99
-#: ../app/views/distributions/leap.html.erb:117
-#: ../app/views/distributions/leap.html.erb:131
+#: ../app/views/images/images.xml.erb:27
+#, fuzzy
+#| msgid "Media"
+msgid "Medium"
+msgstr "Medie"
+
 #: ../app/views/distributions/tumbleweed.html.erb:53
 #: ../app/views/distributions/tumbleweed.html.erb:67
 #: ../app/views/distributions/tumbleweed.html.erb:81
@@ -572,45 +644,61 @@ msgstr ""
 #: ../app/views/distributions/tumbleweed.html.erb:152
 #: ../app/views/distributions/tumbleweed.html.erb:170
 #: ../app/views/distributions/tumbleweed.html.erb:184
-#: ../app/views/distributions/tumbleweed.html.erb:214
-#: ../app/views/distributions/tumbleweed.html.erb:226
-#: ../app/views/distributions/tumbleweed.html.erb:238
-#: ../app/views/distributions/tumbleweed.html.erb:254
-#: ../app/views/distributions/tumbleweed.html.erb:266
-#: ../app/views/distributions/tumbleweed.html.erb:278
-#: ../app/views/distributions/testing.html.erb:32
-#: ../app/views/distributions/testing.html.erb:46
+#: ../app/views/distributions/tumbleweed.html.erb:216
+#: ../app/views/distributions/tumbleweed.html.erb:228
+#: ../app/views/distributions/tumbleweed.html.erb:240
+#: ../app/views/distributions/tumbleweed.html.erb:256
+#: ../app/views/distributions/tumbleweed.html.erb:268
+#: ../app/views/distributions/tumbleweed.html.erb:280
+#: ../app/views/distributions/leap-42.3.html.erb:44
+#: ../app/views/distributions/leap-42.3.html.erb:58
+#: ../app/views/distributions/leap-42.3.html.erb:83
+#: ../app/views/distributions/leap-42.3.html.erb:97
+#: ../app/views/distributions/leap-42.3.html.erb:115
+#: ../app/views/distributions/leap-42.3.html.erb:129
+#: ../app/views/distributions/leap-15.0.html.erb:44
+#: ../app/views/distributions/leap-15.0.html.erb:58
+#: ../app/views/distributions/leap-15.0.html.erb:78
+#: ../app/views/distributions/leap-15.0.html.erb:91
 msgid "Metalink"
 msgstr "Metalink"
 
-#: ../app/views/package/categories.html.erb:42
+#: ../app/controllers/package_controller.rb:128
 msgid "Multimedia"
 msgstr "Multimedie"
 
-#: ../app/views/distributions/leap.html.erb:55
-#: ../app/views/distributions/leap.html.erb:94
-#: ../app/views/distributions/leap.html.erb:126
+#: ../app/controllers/package_controller.rb:131
+#: ../app/views/images/images.xml.erb:20 ../app/views/images/images.xml.erb:40
+#: ../app/views/images/images.xml.erb:95
+#, fuzzy
+#| msgid "Network Image"
+msgid "Network"
+msgstr "Netværksaftryk"
+
 #: ../app/views/distributions/tumbleweed.html.erb:62
 #: ../app/views/distributions/tumbleweed.html.erb:108
 #: ../app/views/distributions/tumbleweed.html.erb:147
 #: ../app/views/distributions/tumbleweed.html.erb:179
-#: ../app/views/distributions/testing.html.erb:41
+#: ../app/views/distributions/leap-42.3.html.erb:53
+#: ../app/views/distributions/leap-42.3.html.erb:92
+#: ../app/views/distributions/leap-42.3.html.erb:124
+#: ../app/views/distributions/leap-15.0.html.erb:53
 msgid "Network Image"
 msgstr "Netværksaftryk"
 
-#: ../app/views/layouts/_footer.html.erb:18
+#: ../app/views/layouts/_footer.html.erb:17
 msgid "News"
 msgstr "Nyheder"
 
-#: ../app/views/download/appliance.erb:2
+#: ../app/views/download/appliance.erb:5
 msgid "No appliance data for %{project}"
 msgstr "Ingen anordningsdata for %{project}"
 
-#: ../app/views/download/appliance.erb:47
+#: ../app/views/download/appliance.erb:20
 msgid "No appliances found in project %s"
 msgstr "Ingen anordninger fundet i projektet %s"
 
-#: ../app/views/download/package.erb:2
+#: ../app/views/download/package.erb:6
 msgid "No data for %s / %s"
 msgstr "Ingen data for %s / %s"
 
@@ -618,29 +706,33 @@ msgstr "Ingen data for %s / %s"
 msgid "No description."
 msgstr "Ingen beskrivelse."
 
-#: ../app/views/download/package.erb:69
+#: ../app/views/download/package.erb:131
 msgid "No downloads found for %s in project %s"
 msgstr "Ingen downloads til %s fundet i projektet %s"
 
-#: ../app/views/search/_find_results.html.erb:23
+#: ../app/views/search/_find_results.html.erb:18
 msgid "No packages found matching your search. "
 msgstr "Der blev ikke fundet nogen pakker som matcher din søgning. "
 
-#: ../app/views/distributions/testing.html.erb:89
+#: ../app/controllers/distributions_controller.rb:13
+msgid "No stable release available"
+msgstr ""
+
+#: ../app/controllers/distributions_controller.rb:30
 msgid "No testing distribution available."
 msgstr "Ingen testdistributioner tilgængelig."
 
-#: ../app/views/distributions/tumbleweed.html.erb:200
-msgid "Not Tested|Tumbleweed installation media"
-msgstr "Utestet Tumbleweed-installationsmedie"
-
-#: ../app/controllers/application_controller.rb:54
+#: ../app/controllers/application_controller.rb:69
 msgid "OBS Backend not available"
 msgstr "OBS-backenden er ikke tilgængelig"
 
+#: ../app/controllers/package_controller.rb:130
+msgid "Office & Productivity"
+msgstr ""
+
 #: ../app/views/package/_download_rows.html.erb:22
-#: ../app/views/distributions/leap.html.erb:20
 #: ../app/views/distributions/tumbleweed.html.erb:19
+#: ../app/views/distributions/leap-42.3.html.erb:18
 msgid "Official"
 msgstr "Officielle"
 
@@ -660,16 +752,10 @@ msgstr "Pakken %s blev ikke fundet..."
 msgid "Package Search"
 msgstr "Pakkesøgning"
 
-#: ../app/views/download/package.erb:158
+#: ../app/views/download/package.erb:111
 msgid "Packages for %s:"
 msgstr "Pakker til %s:"
 
-#: ../app/views/distributions/leap.html.erb:47
-#: ../app/views/distributions/leap.html.erb:61
-#: ../app/views/distributions/leap.html.erb:86
-#: ../app/views/distributions/leap.html.erb:100
-#: ../app/views/distributions/leap.html.erb:118
-#: ../app/views/distributions/leap.html.erb:132
 #: ../app/views/distributions/tumbleweed.html.erb:54
 #: ../app/views/distributions/tumbleweed.html.erb:68
 #: ../app/views/distributions/tumbleweed.html.erb:82
@@ -679,27 +765,35 @@ msgstr "Pakker til %s:"
 #: ../app/views/distributions/tumbleweed.html.erb:153
 #: ../app/views/distributions/tumbleweed.html.erb:171
 #: ../app/views/distributions/tumbleweed.html.erb:185
-#: ../app/views/distributions/testing.html.erb:33
-#: ../app/views/distributions/testing.html.erb:47
+#: ../app/views/distributions/leap-42.3.html.erb:45
+#: ../app/views/distributions/leap-42.3.html.erb:59
+#: ../app/views/distributions/leap-42.3.html.erb:84
+#: ../app/views/distributions/leap-42.3.html.erb:98
+#: ../app/views/distributions/leap-42.3.html.erb:116
+#: ../app/views/distributions/leap-42.3.html.erb:130
+#: ../app/views/distributions/leap-15.0.html.erb:45
+#: ../app/views/distributions/leap-15.0.html.erb:59
+#: ../app/views/distributions/leap-15.0.html.erb:79
+#: ../app/views/distributions/leap-15.0.html.erb:92
 msgid "Pick Mirror"
 msgstr "Vælg mirror"
 
-#: ../app/views/layouts/_footer.html.erb:21
+#: ../app/views/layouts/_footer.html.erb:20
 msgid "Planet"
 msgstr "Planet"
 
 #: ../app/views/distributions/tumbleweed.html.erb:195
-msgid "Please Note: These LiveUSBs are not supported"
-msgstr "Bemærk venligst: Der ydes ikke support til disse LiveUSB'er"
+msgid "Please be aware of the following limitations of the live images:"
+msgstr ""
 
-#: ../app/views/distributions/tumbleweed.html.erb:197
-msgid "Please Use|Tumbleweed installation media"
-msgstr "Brug venligst|Tumbleweed-installationsmedie"
-
-#: ../app/views/distributions/tumbleweed.html.erb:201
+#: ../app/views/distributions/tumbleweed.html.erb:202
+#, fuzzy
+#| msgid ""
+#| "Please review %{openqa}'s test results if you want an indication whether "
+#| "these LiveUSBs are working as expected."
 msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
-"these LiveUSBs are working as expected."
+"these live medias are working as expected."
 msgstr ""
 "Gennemgå venligst %{openqa}'s testresultater hvis du vil have en indikation "
 "om hvorvidt disse LiveUSB'er virker som ventet."
@@ -708,35 +802,50 @@ msgstr ""
 msgid "Recommended System Requirements"
 msgstr "Anbefalede systemkrav"
 
-#: ../app/views/search/_category_header.html.erb:9
-msgid "Related categories:"
-msgstr "Relaterede kategorier:"
-
-#: ../app/views/distributions/_documentation.html.erb:13
+#: ../app/views/distributions/_documentation.html.erb:11
 msgid "Release Notes"
 msgstr "Udgivelsesnoter"
 
-#: ../app/views/layouts/_footer.html.erb:19
+#: ../app/views/layouts/_footer.html.erb:18
 msgid "Release notes"
 msgstr "Udgivelsesnoter"
+
+#: ../app/views/images/images.xml.erb:74
+msgid "Rescue"
+msgstr "Redningssystem"
 
 #: ../app/views/distributions/index.html.erb:73
 msgid "SUSE Linux Enterprise"
 msgstr "SUSE Linux Enterprise"
 
 #: ../app/views/search/find.html.erb:1
+#: ../app/views/search/_find_form.html.erb:8
 msgid "Search"
 msgstr "Søg"
 
-#: ../app/views/download/package.erb:61
+#: ../app/views/search/_find_form.html.erb:5
+msgid "Search packages..."
+msgstr ""
+
+#: ../app/views/search/_find_form.html.erb:21
+msgid "Search settings"
+msgstr ""
+
+#: ../app/views/download/package.erb:10
 msgid "Select Your Operating System"
 msgstr "Vælg dit operativsystem"
 
-#: ../app/views/download/appliance.erb:39
+#: ../app/views/download/appliance.erb:9
 msgid "Select the image type"
 msgstr "Vælg aftrykstypen"
 
-#: ../app/views/layouts/_footer.html.erb:22
+#: ../app/views/search/_find_form.html.erb:13
+#, fuzzy
+#| msgid "Getting Help"
+msgid "Settings"
+msgstr "Få hjælp"
+
+#: ../app/views/layouts/_footer.html.erb:21
 msgid "Shop"
 msgstr "Butik"
 
@@ -748,7 +857,7 @@ msgstr "Vis"
 msgid "Show community packages"
 msgstr "Vis fællesskabspakker"
 
-#: ../app/views/search/_find_form.html.erb:43
+#: ../app/views/search/_find_form.html.erb:41
 msgid "Show development, language and debug packages"
 msgstr "Vis pakker til udvikling, sprog og fejlsøgning"
 
@@ -760,23 +869,28 @@ msgstr "Vis eksperimentelle pakker"
 msgid "Size"
 msgstr "Størrelse"
 
-#: ../app/views/layouts/_footer.html.erb:37
+#: ../app/views/layouts/_footer.html.erb:36
 msgid "Social Media"
 msgstr "Sociale medier"
 
-#: ../app/views/layouts/_navbar.html.erb:17
+#: ../app/views/layouts/_navbar.html.erb:35
 msgid "Software"
 msgstr "Software"
 
 #: ../app/helpers/package_helper.rb:13 ../app/helpers/package_helper.rb:15
 #: ../app/views/package/_download_rows.html.erb:42
 #: ../app/views/package/_download_rows.html.erb:45
+#: ../app/views/images/images.xml.erb:29
 msgid "Source"
 msgstr "Kilde"
 
-#: ../app/views/search/_find_results.html.erb:82
+#: ../app/views/search/_find_results.html.erb:76
 msgid "Sub-Packages"
 msgstr "Underpakker"
+
+#: ../app/controllers/package_controller.rb:132
+msgid "System & Utility"
+msgstr ""
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
 msgid ""
@@ -800,6 +914,10 @@ msgstr ""
 "til installation, hvilket sandsynligvis vil være betydeligt mindre end 4,7 "
 "GB."
 
+#: ../app/controllers/application_controller.rb:42
+msgid "The authentication to the OBS API has not been configured correctly."
+msgstr ""
+
 #: ../app/views/package/show.html.erb:103
 msgid ""
 "The following distributions are not officially supported. Use these packages "
@@ -808,12 +926,12 @@ msgstr ""
 "Der ydes ikke support til følgende distributioner. Brug pakkerne på egen "
 "risiko."
 
-#: ../app/views/download/package.erb:95
+#: ../app/views/download/package.erb:48
 msgid "Then run the following as <strong>root</strong>"
 msgstr "Kør så følgende som <strong>root</strong>"
 
-#: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/tumbleweed.html.erb:124
+#: ../app/views/distributions/leap-42.3.html.erb:69
 msgid ""
 "These ports are not officially supported, and they are not as stable as "
 "official distributions."
@@ -821,11 +939,11 @@ msgstr ""
 "Der ydes ikke officiel support til disse ports, og de er ikke så stabile som "
 "officielle distributioner."
 
-#: ../app/views/distributions/tumbleweed.html.erb:199
+#: ../app/views/distributions/tumbleweed.html.erb:200
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr "De er ikke gennemtestet så godt som %{tumbleweed_media}."
 
-#: ../app/views/distributions/tumbleweed.html.erb:196
+#: ../app/views/distributions/tumbleweed.html.erb:197
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
@@ -833,9 +951,14 @@ msgstr ""
 "De kan ikke bruges til at installere eller opgradere Tumbleweed. Brug "
 "venligst %{tumbleweed_media} i stedet."
 
-#: ../app/views/distributions/tumbleweed.html.erb:198
+#: ../app/views/distributions/tumbleweed.html.erb:199
+#, fuzzy
+#| msgid ""
+#| "They have a limited package/driver selection, so cannot be considered an "
+#| "accurate reflection as to whether Tumbleweed will work on your hardware "
+#| "or not."
 msgid ""
-"They have a limited package/driver selection, so cannot be considered an "
+"They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not."
 msgstr ""
@@ -847,6 +970,53 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr "Navigation til/fra"
 
+#: ../app/views/images/images.xml.erb:33
+msgid "Tumbleweed %s DVD (i586)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:36
+msgid "Tumbleweed %s DVD (x86_64)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:57
+msgid "Tumbleweed %s GNOME Live (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:60
+msgid "Tumbleweed %s GNOME Live (x86_64)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:67
+msgid "Tumbleweed %s KDE Live (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:70
+msgid "Tumbleweed %s KDE Live (x86_64)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:43
+msgid "Tumbleweed %s Network Installation (i586)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:46
+msgid "Tumbleweed %s Network Installation (x86_64)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:77
+msgid "Tumbleweed %s Rescue CD (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:80
+msgid "Tumbleweed %s Rescue CD (x86_64)"
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:198
+#: ../app/views/distributions/tumbleweed.html.erb:201
+#, fuzzy
+#| msgid "Not Tested|Tumbleweed installation media"
+msgid "Tumbleweed installation media"
+msgstr "Utestet Tumbleweed-installationsmedie"
+
 #: ../app/views/distributions/index.html.erb:61
 msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
@@ -855,8 +1025,8 @@ msgstr ""
 "Tumbleweed anbefales til <strong>Udviklere</strong>, <strong>openSUSE-"
 "bidragsydere</strong> og <strong>Linux/FOSS-entusiaster</strong>."
 
-#: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/tumbleweed.html.erb:26
+#: ../app/views/distributions/leap-42.3.html.erb:24
 msgid "Unofficial"
 msgstr "Uofficiel"
 
@@ -876,11 +1046,11 @@ msgstr "Verificér din download inden brug"
 msgid "Version"
 msgstr "Version"
 
-#: ../app/views/layouts/_navbar.html.erb:23
+#: ../app/views/layouts/_navbar.html.erb:44
 msgid "Wiki"
 msgstr "Wiki"
 
-#: ../app/views/download/package.erb:141
+#: ../app/views/download/package.erb:93
 msgid ""
 "You can add the repository key to apt. Keep in mind that the owner of the "
 "key may distribute updates, packages and repositories that your system will "
@@ -891,7 +1061,7 @@ msgstr ""
 "system vil have tillid til (<a href=\"%s\">mere information</a>). For at "
 "tilføje nøglen, kør:"
 
-#: ../app/views/search/_find_results.html.erb:26
+#: ../app/views/search/_find_results.html.erb:21
 msgid ""
 "You could try to extend your search to development packages or search for "
 "another base distribution (currently #{@baseproject})."
@@ -949,6 +1119,12 @@ msgstr "https://en.opensuse.org/openSUSE:Roadmap"
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
+#: ../app/views/images/images.xml.erb:32 ../app/views/images/images.xml.erb:42
+#: ../app/views/images/images.xml.erb:56 ../app/views/images/images.xml.erb:66
+#: ../app/views/images/images.xml.erb:76
+msgid "i586"
+msgstr ""
+
 #: ../app/views/distributions/index.html.erb:69
 msgid "lifetime"
 msgstr "livstid"
@@ -961,17 +1137,61 @@ msgstr "openSUSE Leap"
 msgid "openSUSE Software"
 msgstr "openSUSE-software"
 
+#: ../app/views/distributions/_documentation.html.erb:6
+#, fuzzy
+#| msgid "openSUSE Software"
+msgid "openSUSE Startup Guide"
+msgstr "openSUSE-software"
+
 #: ../app/views/distributions/index.html.erb:58
+#: ../app/views/images/images.xml.erb:26
 msgid "openSUSE Tumbleweed"
 msgstr "openSUSE Tumbleweed"
 
-#: ../app/views/layouts/_footer.html.erb:50
+#: ../app/views/layouts/_footer.html.erb:49
 msgid "openSUSE contributors"
 msgstr "openSUSE-bidragsydere"
 
 #: ../app/views/distributions/index.html.erb:6
 msgid "openSUSE is completely free to download, use and share."
 msgstr "openSUSE er helt gratis at downloade, bruge og dele."
+
+#: ../app/views/images/images.xml.erb:35 ../app/views/images/images.xml.erb:45
+#: ../app/views/images/images.xml.erb:59 ../app/views/images/images.xml.erb:69
+#: ../app/views/images/images.xml.erb:79
+msgid "x86_64"
+msgstr ""
+
+#~ msgid "(hide)"
+#~ msgstr "(skjul)"
+
+#~ msgid "(show)"
+#~ msgstr "(vis)"
+
+#~ msgid "Available Images"
+#~ msgstr "Tilgængelige aftryk"
+
+#~ msgid ""
+#~ "Help test the next version of openSUSE Leap, the regular-release "
+#~ "distribution for desktop PCs, laptops, and servers."
+#~ msgstr ""
+#~ "Hjælp med at teste den næste version af openSUSE Leap, regelmæssige-"
+#~ "udgivelse-distributionen til stationære pc'er, bærbare, og servere."
+
+#~ msgid "Install using One Click Install"
+#~ msgstr "Installér med 1-klik-installation"
+
+#~ msgid "Kubic DVD/USB Stick"
+#~ msgstr "Kubic DVD/USB-pen"
+
+#~ msgid "Please Note: These LiveUSBs are not supported"
+#~ msgstr "Bemærk venligst: Der ydes ikke support til disse LiveUSB'er"
+
+#~ msgid "Please Use|Tumbleweed installation media"
+#~ msgstr "Brug venligst|Tumbleweed-installationsmedie"
+
+#~ msgid "Related categories:"
+#~ msgstr "Relaterede kategorier:"
 
 #~ msgid " and "
 #~ msgstr " og "
@@ -984,9 +1204,6 @@ msgstr "openSUSE er helt gratis at downloade, bruge og dele."
 
 #~ msgid "Derivatives"
 #~ msgstr "Specialversioner"
-
-#~ msgid "Development-"
-#~ msgstr "Udvikling-"
 
 #~ msgid "Don't show this warning the next time"
 #~ msgstr "Vis ikke denne advarsel næste gang"
@@ -1046,9 +1263,6 @@ msgstr "openSUSE er helt gratis at downloade, bruge og dele."
 
 #~ msgid "Header Logo"
 #~ msgstr "Logo i sidehoved"
-
-#~ msgid "Installation Media"
-#~ msgstr "Installationsmedie"
 
 #~ msgid "LiveUSB Media"
 #~ msgstr "LiveUSB-medie"
@@ -1127,9 +1341,6 @@ msgstr "openSUSE er helt gratis at downloade, bruge og dele."
 
 #~ msgid "Please review %{openqa}"
 #~ msgstr "Gennemgå venligst %{openqa}"
-
-#~ msgid "Media"
-#~ msgstr "Medie"
 
 #~ msgid "instead."
 #~ msgstr "i stedet."
@@ -1325,9 +1536,6 @@ msgstr "openSUSE er helt gratis at downloade, bruge og dele."
 #~ msgid "Get one of the specialized distributions built on openSUSE."
 #~ msgstr "Hent en af de specialiserede distributioner baseret på openSUSE."
 
-#~ msgid "Getting Help"
-#~ msgstr "Få hjælp"
-
 #~ msgid "Gold Sponsor"
 #~ msgstr "Guldsponsor"
 
@@ -1348,9 +1556,6 @@ msgstr "openSUSE er helt gratis at downloade, bruge og dele."
 #~ "Hvis du vil bruge et direkte link, men lever et sted i verden hvor vores "
 #~ "download-omdirigering ikke har nok information til at omdirigere til det "
 #~ "hurtigste mirror, kan du vælge et mirror selv."
-
-#~ msgid "Installation Guides"
-#~ msgstr "Installationsguides"
 
 #~ msgid "Installation Medium"
 #~ msgstr "Installationsmedie"
@@ -1400,9 +1605,6 @@ msgstr "openSUSE er helt gratis at downloade, bruge og dele."
 
 #~ msgid "Live GNOME"
 #~ msgstr "Live GNOME"
-
-#~ msgid "Live KDE"
-#~ msgstr "Live KDE"
 
 #~ msgid ""
 #~ "Many applications can verify the checksum of a download. To verify your "
@@ -1501,9 +1703,6 @@ msgstr "openSUSE er helt gratis at downloade, bruge og dele."
 
 #~ msgid "Reporting Bugs"
 #~ msgstr "Rapportering af programfejl"
-
-#~ msgid "Rescue"
-#~ msgstr "Redningssystem"
 
 #~ msgid ""
 #~ "Rescue system that you can run from CD or from USB stick.<br/>Can not be "

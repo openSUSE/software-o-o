@@ -10,17 +10,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: software-opensuse-org.uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-17 14:54+0100\n"
+"POT-Creation-Date: 2018-05-24 09:32+0200\n"
 "PO-Revision-Date: 2018-01-19 11:16+0000\n"
 "Last-Translator: Andriy Bandura <andriykopanytsia@gmail.com>\n"
-"Language-Team: Ukrainian "
-"<https://l10n.opensuse.org/projects/software-o-o/master/uk/>\n"
+"Language-Team: Ukrainian <https://l10n.opensuse.org/projects/software-o-o/"
+"master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.18\n"
 
 #: ../app/views/distributions/index.html.erb:66
@@ -45,14 +45,6 @@ msgstr ""
 "будуть відбуватися постійно, бо безперервно виходять нові версії вільного ПЗ "
 "з відкритим вихідним кодом."
 
-#: ../app/views/download/appliance.erb:6 ../app/views/download/package.erb:6
-msgid "(hide)"
-msgstr "(приховати)"
-
-#: ../app/views/download/appliance.erb:7 ../app/views/download/package.erb:7
-msgid "(show)"
-msgstr "(показати)"
-
 #: ../app/views/package/_download_rows.html.erb:49
 msgid "1 Click Install"
 msgstr "Встановити через 1 натиск"
@@ -65,6 +57,14 @@ msgstr "2 ГБ системної пам'яті"
 msgid "2 Ghz dual core processor or better"
 msgstr "двоядерний процесор на 2 ГГц або кращий"
 
+#: ../app/views/download/package.erb:9
+msgid "<b>%s</b> from <b>%s</b> project"
+msgstr ""
+
+#: ../app/views/download/appliance.erb:8
+msgid "<b>%s</b> project"
+msgstr ""
+
 #: ../app/views/package/_download_rows.html.erb:3
 msgid "<b>official release</b>"
 msgstr "<b>офіційний випуск</b>"
@@ -73,13 +73,15 @@ msgstr "<b>офіційний випуск</b>"
 msgid "<b>official update</b>"
 msgstr "<b>офіційне оновлення</b>"
 
-#: ../app/views/download/package.erb:84
+#: ../app/views/download/package.erb:37
 msgid "Add repository and install manually"
 msgstr "Додати сховище і встановити вручну"
 
-#: ../app/views/download/appliance.erb:52
-msgid "Available Images"
-msgstr "Доступні штампи"
+#: ../app/views/images/images.xml.erb:31 ../app/views/images/images.xml.erb:41
+#: ../app/views/images/images.xml.erb:55 ../app/views/images/images.xml.erb:65
+#: ../app/views/images/images.xml.erb:75
+msgid "Architecture"
+msgstr ""
 
 #: ../app/views/package/show.html.erb:5
 msgid "Back to home page"
@@ -115,12 +117,6 @@ msgstr "Категорії"
 msgid "Category"
 msgstr "Категорія"
 
-#: ../app/views/distributions/leap.html.erb:48
-#: ../app/views/distributions/leap.html.erb:62
-#: ../app/views/distributions/leap.html.erb:87
-#: ../app/views/distributions/leap.html.erb:101
-#: ../app/views/distributions/leap.html.erb:119
-#: ../app/views/distributions/leap.html.erb:133
 #: ../app/views/distributions/tumbleweed.html.erb:55
 #: ../app/views/distributions/tumbleweed.html.erb:69
 #: ../app/views/distributions/tumbleweed.html.erb:83
@@ -130,14 +126,22 @@ msgstr "Категорія"
 #: ../app/views/distributions/tumbleweed.html.erb:154
 #: ../app/views/distributions/tumbleweed.html.erb:172
 #: ../app/views/distributions/tumbleweed.html.erb:186
-#: ../app/views/distributions/tumbleweed.html.erb:215
-#: ../app/views/distributions/tumbleweed.html.erb:227
-#: ../app/views/distributions/tumbleweed.html.erb:239
-#: ../app/views/distributions/tumbleweed.html.erb:255
-#: ../app/views/distributions/tumbleweed.html.erb:267
-#: ../app/views/distributions/tumbleweed.html.erb:279
-#: ../app/views/distributions/testing.html.erb:34
-#: ../app/views/distributions/testing.html.erb:48
+#: ../app/views/distributions/tumbleweed.html.erb:217
+#: ../app/views/distributions/tumbleweed.html.erb:229
+#: ../app/views/distributions/tumbleweed.html.erb:241
+#: ../app/views/distributions/tumbleweed.html.erb:257
+#: ../app/views/distributions/tumbleweed.html.erb:269
+#: ../app/views/distributions/tumbleweed.html.erb:281
+#: ../app/views/distributions/leap-42.3.html.erb:46
+#: ../app/views/distributions/leap-42.3.html.erb:60
+#: ../app/views/distributions/leap-42.3.html.erb:85
+#: ../app/views/distributions/leap-42.3.html.erb:99
+#: ../app/views/distributions/leap-42.3.html.erb:117
+#: ../app/views/distributions/leap-42.3.html.erb:131
+#: ../app/views/distributions/leap-15.0.html.erb:46
+#: ../app/views/distributions/leap-15.0.html.erb:60
+#: ../app/views/distributions/leap-15.0.html.erb:80
+#: ../app/views/distributions/leap-15.0.html.erb:93
 msgid "Checksum"
 msgstr "Контрольна сума"
 
@@ -153,19 +157,24 @@ msgstr "Вибір носія для завантаження"
 msgid "Choosing which Distribution to Download"
 msgstr "Вибір дистрибутиву для завантаження"
 
-#: ../app/views/layouts/_footer.html.erb:26
+#: ../app/views/layouts/_footer.html.erb:25
 #: ../app/views/package/_download_rows.html.erb:28
 msgid "Community"
 msgstr "Спільнота"
 
-#: ../app/views/distributions/leap.html.erb:44
-#: ../app/views/distributions/leap.html.erb:83
-#: ../app/views/distributions/leap.html.erb:115
+#: ../app/views/distributions/tumbleweed.html.erb:79
+msgid ""
+"Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
+msgstr ""
+
 #: ../app/views/distributions/tumbleweed.html.erb:51
 #: ../app/views/distributions/tumbleweed.html.erb:97
 #: ../app/views/distributions/tumbleweed.html.erb:136
 #: ../app/views/distributions/tumbleweed.html.erb:168
-#: ../app/views/distributions/testing.html.erb:30
+#: ../app/views/distributions/leap-42.3.html.erb:42
+#: ../app/views/distributions/leap-42.3.html.erb:81
+#: ../app/views/distributions/leap-42.3.html.erb:113
+#: ../app/views/distributions/leap-15.0.html.erb:42
 msgid ""
 "Contains a large collection of software for desktop or server use. Suitable "
 "for installation or upgrade."
@@ -173,22 +182,37 @@ msgstr ""
 "Містить велику збірку програмного забезпечення для використання на сервері "
 "або на стільничній системі. Підходить для встановлення або оновлення системи."
 
-#: ../app/views/distributions/leap.html.erb:41
-#: ../app/views/distributions/leap.html.erb:80
-#: ../app/views/distributions/leap.html.erb:112
+#: ../app/views/images/images.xml.erb:17 ../app/views/images/images.xml.erb:30
+#: ../app/views/images/images.xml.erb:91
+msgid "DVD"
+msgstr ""
+
 #: ../app/views/distributions/tumbleweed.html.erb:48
 #: ../app/views/distributions/tumbleweed.html.erb:94
 #: ../app/views/distributions/tumbleweed.html.erb:133
 #: ../app/views/distributions/tumbleweed.html.erb:165
-#: ../app/views/distributions/testing.html.erb:27
+#: ../app/views/distributions/leap-42.3.html.erb:39
+#: ../app/views/distributions/leap-42.3.html.erb:78
+#: ../app/views/distributions/leap-42.3.html.erb:110
+#: ../app/views/distributions/leap-15.0.html.erb:39
 msgid "DVD Image"
 msgstr "Штамп DVD"
+
+#: ../app/views/images/images.xml.erb:53
+msgid "Desktop"
+msgstr ""
 
 #: ../app/views/layouts/_footer.html.erb:5
 msgid "Developers"
 msgstr "Розробники"
 
-#: ../app/views/search/_find_results.html.erb:88
+#: ../app/controllers/package_controller.rb:126
+#, fuzzy
+#| msgid "Development-"
+msgid "Development"
+msgstr "Розробка-"
+
+#: ../app/views/search/_find_results.html.erb:82
 msgid "Development packages"
 msgstr "Пакунки для розробки"
 
@@ -196,12 +220,6 @@ msgstr "Пакунки для розробки"
 msgid "Direct Install"
 msgstr "Пряме встановлення"
 
-#: ../app/views/distributions/leap.html.erb:45
-#: ../app/views/distributions/leap.html.erb:59
-#: ../app/views/distributions/leap.html.erb:84
-#: ../app/views/distributions/leap.html.erb:98
-#: ../app/views/distributions/leap.html.erb:116
-#: ../app/views/distributions/leap.html.erb:130
 #: ../app/views/distributions/tumbleweed.html.erb:52
 #: ../app/views/distributions/tumbleweed.html.erb:66
 #: ../app/views/distributions/tumbleweed.html.erb:80
@@ -211,18 +229,32 @@ msgstr "Пряме встановлення"
 #: ../app/views/distributions/tumbleweed.html.erb:151
 #: ../app/views/distributions/tumbleweed.html.erb:169
 #: ../app/views/distributions/tumbleweed.html.erb:183
-#: ../app/views/distributions/tumbleweed.html.erb:213
-#: ../app/views/distributions/tumbleweed.html.erb:225
-#: ../app/views/distributions/tumbleweed.html.erb:237
-#: ../app/views/distributions/tumbleweed.html.erb:253
-#: ../app/views/distributions/tumbleweed.html.erb:265
-#: ../app/views/distributions/tumbleweed.html.erb:277
-#: ../app/views/distributions/testing.html.erb:31
-#: ../app/views/distributions/testing.html.erb:45
+#: ../app/views/distributions/tumbleweed.html.erb:215
+#: ../app/views/distributions/tumbleweed.html.erb:227
+#: ../app/views/distributions/tumbleweed.html.erb:239
+#: ../app/views/distributions/tumbleweed.html.erb:255
+#: ../app/views/distributions/tumbleweed.html.erb:267
+#: ../app/views/distributions/tumbleweed.html.erb:279
+#: ../app/views/distributions/leap-42.3.html.erb:43
+#: ../app/views/distributions/leap-42.3.html.erb:57
+#: ../app/views/distributions/leap-42.3.html.erb:82
+#: ../app/views/distributions/leap-42.3.html.erb:96
+#: ../app/views/distributions/leap-42.3.html.erb:114
+#: ../app/views/distributions/leap-42.3.html.erb:128
+#: ../app/views/distributions/leap-15.0.html.erb:43
+#: ../app/views/distributions/leap-15.0.html.erb:57
+#: ../app/views/distributions/leap-15.0.html.erb:77
+#: ../app/views/distributions/leap-15.0.html.erb:90
 msgid "Direct Link"
 msgstr "Пряме посилання"
 
-#: ../app/views/search/_find_form.html.erb:33
+#: ../app/views/images/images.xml.erb:13
+#, fuzzy
+#| msgid "Distribution:"
+msgid "Distribution"
+msgstr "Дистрибутив:"
+
+#: ../app/views/search/_find_form.html.erb:31
 msgid "Distribution:"
 msgstr "Дистрибутив:"
 
@@ -230,20 +262,21 @@ msgstr "Дистрибутив:"
 msgid "Distributions"
 msgstr "Дистрибутиви"
 
+#: ../app/views/layouts/_navbar.html.erb:41
 #: ../app/views/layouts/_footer.html.erb:7
-#: ../app/views/layouts/_navbar.html.erb:20
 #: ../app/views/distributions/_documentation.html.erb:2
 msgid "Documentation"
 msgstr "Документація"
 
-#: ../app/views/layouts/_navbar.html.erb:14
+#: ../app/views/layouts/_navbar.html.erb:38
+#: ../app/views/package/_download_rows.html.erb:54
 #: ../app/views/distributions/index.html.erb:21
 #: ../app/views/distributions/index.html.erb:31
 #: ../app/views/distributions/index.html.erb:42
 msgid "Download"
 msgstr "Звантажити"
 
-#: ../app/controllers/download_controller.rb:36
+#: ../app/controllers/download_controller.rb:43
 msgid "Download appliance from %s"
 msgstr "Завантажити із %s"
 
@@ -263,15 +296,14 @@ msgstr ""
 "Завантажте ковзний випуск openSUSE і отримуйте найсвіжіші пакунки від "
 "проекту openSUSE."
 
-#: ../app/views/distributions/leap.html.erb:58
-#: ../app/views/distributions/leap.html.erb:97
-#: ../app/views/distributions/leap.html.erb:129
 #: ../app/views/distributions/tumbleweed.html.erb:65
-#: ../app/views/distributions/tumbleweed.html.erb:79
 #: ../app/views/distributions/tumbleweed.html.erb:111
 #: ../app/views/distributions/tumbleweed.html.erb:150
 #: ../app/views/distributions/tumbleweed.html.erb:182
-#: ../app/views/distributions/testing.html.erb:44
+#: ../app/views/distributions/leap-42.3.html.erb:56
+#: ../app/views/distributions/leap-42.3.html.erb:95
+#: ../app/views/distributions/leap-42.3.html.erb:127
+#: ../app/views/distributions/leap-15.0.html.erb:56
 msgid ""
 "Downloads the installation system and all packages from online repositories. "
 "Suitable for installation or upgrade."
@@ -287,11 +319,15 @@ msgstr "Як перейти на openSUSE Leap"
 msgid "Easy Ways to Switch to openSUSE Tumbleweed"
 msgstr "Як перейти на openSUSE Tumbleweed"
 
+#: ../app/controllers/package_controller.rb:127
+msgid "Education & Science"
+msgstr ""
+
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
 msgstr "DVD-привід або USB-порт для інсталяційного носія"
 
-#: ../app/views/layouts/_footer.html.erb:20
+#: ../app/views/layouts/_footer.html.erb:19
 msgid "Events"
 msgstr "Події"
 
@@ -299,19 +335,19 @@ msgstr "Події"
 msgid "Experimental"
 msgstr "Експериментально"
 
-#: ../app/views/layouts/_footer.html.erb:30
+#: ../app/views/layouts/_footer.html.erb:29
 msgid "Facebook group"
 msgstr "Група у Facebook"
 
-#: ../app/views/download/package.erb:106
+#: ../app/views/download/package.erb:59
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
 msgstr "Для <strong>%s</strong> запустіть від імені <strong>root</strong>:"
 
-#: ../app/views/download/package.erb:99
+#: ../app/views/download/package.erb:52
 msgid "For <strong>%s</strong> run the following:"
 msgstr "Для <strong>%s</strong> запустіть:"
 
-#: ../app/views/download/package.erb:90
+#: ../app/views/download/package.erb:43
 msgid ""
 "For <strong>Arch Linux</strong>, edit /etc/pacman.conf and add the following "
 "(note that the order of repositories in pacman.conf is important, since "
@@ -321,32 +357,34 @@ msgstr ""
 "наступне (зверніть увагу, що в pacman.conf важливий порядок сховищ, оскільки "
 "pacman завжди завантажує перший знайдений пакет):"
 
-#: ../app/views/distributions/leap.html.erb:57
-#: ../app/views/distributions/leap.html.erb:96
-#: ../app/views/distributions/leap.html.erb:128
 #: ../app/views/distributions/tumbleweed.html.erb:64
-#: ../app/views/distributions/tumbleweed.html.erb:78
 #: ../app/views/distributions/tumbleweed.html.erb:110
 #: ../app/views/distributions/tumbleweed.html.erb:149
 #: ../app/views/distributions/tumbleweed.html.erb:181
-#: ../app/views/distributions/tumbleweed.html.erb:236
-#: ../app/views/distributions/tumbleweed.html.erb:276
-#: ../app/views/distributions/testing.html.erb:43
+#: ../app/views/distributions/tumbleweed.html.erb:238
+#: ../app/views/distributions/tumbleweed.html.erb:278
+#: ../app/views/distributions/leap-42.3.html.erb:55
+#: ../app/views/distributions/leap-42.3.html.erb:94
+#: ../app/views/distributions/leap-42.3.html.erb:126
+#: ../app/views/distributions/leap-15.0.html.erb:55
 msgid "For CD and USB stick"
 msgstr "Для КД та USB-носія"
 
-#: ../app/views/distributions/leap.html.erb:43
-#: ../app/views/distributions/leap.html.erb:82
-#: ../app/views/distributions/leap.html.erb:114
 #: ../app/views/distributions/tumbleweed.html.erb:50
+#: ../app/views/distributions/tumbleweed.html.erb:78
 #: ../app/views/distributions/tumbleweed.html.erb:96
 #: ../app/views/distributions/tumbleweed.html.erb:135
 #: ../app/views/distributions/tumbleweed.html.erb:167
-#: ../app/views/distributions/tumbleweed.html.erb:212
-#: ../app/views/distributions/tumbleweed.html.erb:224
-#: ../app/views/distributions/tumbleweed.html.erb:252
-#: ../app/views/distributions/tumbleweed.html.erb:264
-#: ../app/views/distributions/testing.html.erb:29
+#: ../app/views/distributions/tumbleweed.html.erb:214
+#: ../app/views/distributions/tumbleweed.html.erb:226
+#: ../app/views/distributions/tumbleweed.html.erb:254
+#: ../app/views/distributions/tumbleweed.html.erb:266
+#: ../app/views/distributions/leap-42.3.html.erb:41
+#: ../app/views/distributions/leap-42.3.html.erb:80
+#: ../app/views/distributions/leap-42.3.html.erb:112
+#: ../app/views/distributions/leap-15.0.html.erb:41
+#: ../app/views/distributions/leap-15.0.html.erb:76
+#: ../app/views/distributions/leap-15.0.html.erb:89
 msgid "For DVD and USB stick"
 msgstr "Для DVD та USB-носія"
 
@@ -370,8 +408,8 @@ msgstr ""
 "Більше інформації про перевірку завантаженого матеріалу в розділі "
 "%{checksums_help}"
 
-#: ../app/views/layouts/_footer.html.erb:28
-#: ../app/views/layouts/_navbar.html.erb:26
+#: ../app/views/layouts/_navbar.html.erb:47
+#: ../app/views/layouts/_footer.html.erb:27
 msgid "Forums"
 msgstr "Форуми"
 
@@ -387,15 +425,15 @@ msgstr "Із Windows"
 msgid "From an older version or other Linux distro"
 msgstr "Із старішої версії або іншого дистрибутиву Linux"
 
-#: ../app/views/distributions/_documentation.html.erb:23
+#: ../app/views/distributions/_documentation.html.erb:21
 msgid "Full Documentation"
 msgstr "Повна документація"
 
-#: ../app/views/package/categories.html.erb:17
+#: ../app/controllers/package_controller.rb:125
 msgid "Games"
 msgstr "Ігри"
 
-#: ../app/views/search/_find_results.html.erb:69
+#: ../app/views/search/_find_results.html.erb:63
 msgid "Get"
 msgstr "Отримати"
 
@@ -406,13 +444,17 @@ msgstr "Отримати"
 msgid "Get openSUSE"
 msgstr "Звантажити openSUSE"
 
-#: ../app/views/layouts/_footer.html.erb:31
+#: ../app/views/layouts/_footer.html.erb:30
 msgid "Google+ group"
 msgstr "Група у Google+"
 
-#: ../app/views/download/package.erb:153
+#: ../app/views/download/package.erb:105
 msgid "Grab binary packages directly"
 msgstr "Отримати безпосередньо двійкові пакунки"
+
+#: ../app/controllers/package_controller.rb:129
+msgid "Graphics"
+msgstr ""
 
 #: ../app/views/distributions/index.html.erb:39
 msgid ""
@@ -422,13 +464,9 @@ msgstr ""
 "Допоможіть протестувати наступну версію openSUSE Leap, завантаживши останню "
 "збірку для розробників."
 
-#: ../app/views/distributions/testing.html.erb:18
-msgid ""
-"Help test the next version of openSUSE Leap, the regular-release "
-"distribution for desktop PCs, laptops, and servers."
+#: ../app/controllers/distributions_controller.rb:34
+msgid "Help test the next version of openSUSE Leap!"
 msgstr ""
-"Допоможіть протестувати наступну версію openSUSE Leap, регулярний випуск "
-"дистрибутиву для ПК, ноутбуків і серверів."
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
@@ -454,7 +492,7 @@ msgstr "Як створити завантажувальний USB-носій в
 msgid "How to create a bootable USB stick on OS X."
 msgstr "Як створити завантажувальний USB-носій в OS X."
 
-#: ../app/views/layouts/_footer.html.erb:33
+#: ../app/views/layouts/_footer.html.erb:32
 msgid "IRC channels"
 msgstr "Канали IRC"
 
@@ -472,25 +510,34 @@ msgstr ""
 "Якщо у вас вже є openSUSE, то можете оновитися, завантажившись з DVD/USB та "
 "вибравши Оновити, або оновитися через мережу за декілька команд."
 
-#: ../app/views/download/appliance.erb:57
+#: ../app/views/download/appliance.erb:34
 msgid "Image:"
 msgstr "Штамп:"
 
-#: ../app/views/layouts/_footer.html.erb:16
+#: ../app/views/layouts/_footer.html.erb:15
 msgid "Information"
 msgstr "Інформація"
 
-#: ../app/controllers/download_controller.rb:78
+#: ../app/controllers/download_controller.rb:85
 msgid "Install package %s / %s"
 msgstr "Встановити пакунок %s / %s"
 
-#: ../app/controllers/download_controller.rb:121
+#: ../app/controllers/download_controller.rb:127
 msgid "Install pattern %s / %s"
 msgstr "Встановити шаблон %s / %s"
 
-#: ../app/views/download/package.erb:74
-msgid "Install using One Click Install"
-msgstr "Встановити за  1 клацання"
+#: ../app/views/distributions/leap-15.0.html.erb:18
+#: ../app/views/images/images.xml.erb:28
+#, fuzzy
+#| msgid "Installation Media"
+msgid "Installation"
+msgstr "Носій встановлення"
+
+#: ../app/views/images/images.xml.erb:16 ../app/views/images/images.xml.erb:90
+#, fuzzy
+#| msgid "Installation Guides"
+msgid "Installation Source"
+msgstr "Інструкції із встановлення"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
@@ -515,8 +562,32 @@ msgid "It should be %{fingerprint}"
 msgstr "Повинно бути %{fingerprint}"
 
 #: ../app/views/distributions/tumbleweed.html.erb:76
-msgid "Kubic DVD/USB Stick"
-msgstr "Kubic DVD/USB-носій"
+#, fuzzy
+#| msgid "DVD Image"
+msgid "Kubic Image"
+msgstr "Штамп DVD"
+
+#: ../app/views/images/images.xml.erb:18
+msgid "Leap %s DVD"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:93
+msgid "Leap %s DVD (Build %s)"
+msgstr ""
+
+# dialog title for nfs installation
+#: ../app/views/images/images.xml.erb:21
+#, fuzzy
+#| msgid "Network Installation"
+msgid "Leap %s Network Installation"
+msgstr "Мережне встановлення"
+
+# dialog title for nfs installation
+#: ../app/views/images/images.xml.erb:97
+#, fuzzy
+#| msgid "Network Installation"
+msgid "Leap %s Network Installation (Build %s)"
+msgstr "Мережне встановлення"
 
 #: ../app/views/distributions/index.html.erb:77
 msgid ""
@@ -536,11 +607,18 @@ msgstr ""
 "архітектурних змін не очікується протягом кількох років у відповідності до "
 "кожної нової версії (тобто 12, 13 і т. д.) SUSE Linux Enterprise."
 
-#: ../app/views/distributions/_documentation.html.erb:18
+#: ../app/views/distributions/_documentation.html.erb:16
 msgid "License"
 msgstr "Ліцензія"
 
-#: ../app/views/layouts/_footer.html.erb:32
+#: ../app/views/distributions/leap-15.0.html.erb:24
+#: ../app/views/images/images.xml.erb:52
+#, fuzzy
+#| msgid "Live KDE"
+msgid "Live"
+msgstr "„Живий“ KDE"
+
+#: ../app/views/layouts/_footer.html.erb:31
 msgid "Mail lists"
 msgstr "Списки розсилки"
 
@@ -560,12 +638,12 @@ msgstr ""
 "автоматично, якщо ви виберете Metalink у полі вище і використовуєте "
 "розширення DownThemAll! у Firefox."
 
-#: ../app/views/distributions/leap.html.erb:46
-#: ../app/views/distributions/leap.html.erb:60
-#: ../app/views/distributions/leap.html.erb:85
-#: ../app/views/distributions/leap.html.erb:99
-#: ../app/views/distributions/leap.html.erb:117
-#: ../app/views/distributions/leap.html.erb:131
+#: ../app/views/images/images.xml.erb:27
+#, fuzzy
+#| msgid "Media"
+msgid "Medium"
+msgstr "Носій"
+
 #: ../app/views/distributions/tumbleweed.html.erb:53
 #: ../app/views/distributions/tumbleweed.html.erb:67
 #: ../app/views/distributions/tumbleweed.html.erb:81
@@ -575,45 +653,61 @@ msgstr ""
 #: ../app/views/distributions/tumbleweed.html.erb:152
 #: ../app/views/distributions/tumbleweed.html.erb:170
 #: ../app/views/distributions/tumbleweed.html.erb:184
-#: ../app/views/distributions/tumbleweed.html.erb:214
-#: ../app/views/distributions/tumbleweed.html.erb:226
-#: ../app/views/distributions/tumbleweed.html.erb:238
-#: ../app/views/distributions/tumbleweed.html.erb:254
-#: ../app/views/distributions/tumbleweed.html.erb:266
-#: ../app/views/distributions/tumbleweed.html.erb:278
-#: ../app/views/distributions/testing.html.erb:32
-#: ../app/views/distributions/testing.html.erb:46
+#: ../app/views/distributions/tumbleweed.html.erb:216
+#: ../app/views/distributions/tumbleweed.html.erb:228
+#: ../app/views/distributions/tumbleweed.html.erb:240
+#: ../app/views/distributions/tumbleweed.html.erb:256
+#: ../app/views/distributions/tumbleweed.html.erb:268
+#: ../app/views/distributions/tumbleweed.html.erb:280
+#: ../app/views/distributions/leap-42.3.html.erb:44
+#: ../app/views/distributions/leap-42.3.html.erb:58
+#: ../app/views/distributions/leap-42.3.html.erb:83
+#: ../app/views/distributions/leap-42.3.html.erb:97
+#: ../app/views/distributions/leap-42.3.html.erb:115
+#: ../app/views/distributions/leap-42.3.html.erb:129
+#: ../app/views/distributions/leap-15.0.html.erb:44
+#: ../app/views/distributions/leap-15.0.html.erb:58
+#: ../app/views/distributions/leap-15.0.html.erb:78
+#: ../app/views/distributions/leap-15.0.html.erb:91
 msgid "Metalink"
 msgstr "Meta-посилання"
 
-#: ../app/views/package/categories.html.erb:42
+#: ../app/controllers/package_controller.rb:128
 msgid "Multimedia"
 msgstr "Мультимедія"
 
-#: ../app/views/distributions/leap.html.erb:55
-#: ../app/views/distributions/leap.html.erb:94
-#: ../app/views/distributions/leap.html.erb:126
+#: ../app/controllers/package_controller.rb:131
+#: ../app/views/images/images.xml.erb:20 ../app/views/images/images.xml.erb:40
+#: ../app/views/images/images.xml.erb:95
+#, fuzzy
+#| msgid "Network Image"
+msgid "Network"
+msgstr "Мережний образ"
+
 #: ../app/views/distributions/tumbleweed.html.erb:62
 #: ../app/views/distributions/tumbleweed.html.erb:108
 #: ../app/views/distributions/tumbleweed.html.erb:147
 #: ../app/views/distributions/tumbleweed.html.erb:179
-#: ../app/views/distributions/testing.html.erb:41
+#: ../app/views/distributions/leap-42.3.html.erb:53
+#: ../app/views/distributions/leap-42.3.html.erb:92
+#: ../app/views/distributions/leap-42.3.html.erb:124
+#: ../app/views/distributions/leap-15.0.html.erb:53
 msgid "Network Image"
 msgstr "Мережний образ"
 
-#: ../app/views/layouts/_footer.html.erb:18
+#: ../app/views/layouts/_footer.html.erb:17
 msgid "News"
 msgstr "Новини"
 
-#: ../app/views/download/appliance.erb:2
+#: ../app/views/download/appliance.erb:5
 msgid "No appliance data for %{project}"
 msgstr "Немає даних для %{project}"
 
-#: ../app/views/download/appliance.erb:47
+#: ../app/views/download/appliance.erb:20
 msgid "No appliances found in project %s"
 msgstr "У проекті %s образи не знайдені"
 
-#: ../app/views/download/package.erb:2
+#: ../app/views/download/package.erb:6
 msgid "No data for %s / %s"
 msgstr "Немає даних %s / %s"
 
@@ -621,29 +715,33 @@ msgstr "Немає даних %s / %s"
 msgid "No description."
 msgstr "Без опису."
 
-#: ../app/views/download/package.erb:69
+#: ../app/views/download/package.erb:131
 msgid "No downloads found for %s in project %s"
 msgstr "Завантаження для %s у проекті %s не знайдено"
 
-#: ../app/views/search/_find_results.html.erb:23
+#: ../app/views/search/_find_results.html.erb:18
 msgid "No packages found matching your search. "
 msgstr "За вашим запитом пакетів не знайдено. "
 
-#: ../app/views/distributions/testing.html.erb:89
+#: ../app/controllers/distributions_controller.rb:13
+msgid "No stable release available"
+msgstr ""
+
+#: ../app/controllers/distributions_controller.rb:30
 msgid "No testing distribution available."
 msgstr "Жодний тестовий дистрибутив не доступний."
 
-#: ../app/views/distributions/tumbleweed.html.erb:200
-msgid "Not Tested|Tumbleweed installation media"
-msgstr "Не тестовано|Носій встановлення Tumbleweed"
-
-#: ../app/controllers/application_controller.rb:54
+#: ../app/controllers/application_controller.rb:69
 msgid "OBS Backend not available"
 msgstr "Сервер OBS недоступний"
 
+#: ../app/controllers/package_controller.rb:130
+msgid "Office & Productivity"
+msgstr ""
+
 #: ../app/views/package/_download_rows.html.erb:22
-#: ../app/views/distributions/leap.html.erb:20
 #: ../app/views/distributions/tumbleweed.html.erb:19
+#: ../app/views/distributions/leap-42.3.html.erb:18
 msgid "Official"
 msgstr "Офіційне"
 
@@ -663,16 +761,10 @@ msgstr "Пакунок %s не знайдено…"
 msgid "Package Search"
 msgstr "Пошук пакунків"
 
-#: ../app/views/download/package.erb:158
+#: ../app/views/download/package.erb:111
 msgid "Packages for %s:"
 msgstr "Пакунки для %s:"
 
-#: ../app/views/distributions/leap.html.erb:47
-#: ../app/views/distributions/leap.html.erb:61
-#: ../app/views/distributions/leap.html.erb:86
-#: ../app/views/distributions/leap.html.erb:100
-#: ../app/views/distributions/leap.html.erb:118
-#: ../app/views/distributions/leap.html.erb:132
 #: ../app/views/distributions/tumbleweed.html.erb:54
 #: ../app/views/distributions/tumbleweed.html.erb:68
 #: ../app/views/distributions/tumbleweed.html.erb:82
@@ -682,27 +774,35 @@ msgstr "Пакунки для %s:"
 #: ../app/views/distributions/tumbleweed.html.erb:153
 #: ../app/views/distributions/tumbleweed.html.erb:171
 #: ../app/views/distributions/tumbleweed.html.erb:185
-#: ../app/views/distributions/testing.html.erb:33
-#: ../app/views/distributions/testing.html.erb:47
+#: ../app/views/distributions/leap-42.3.html.erb:45
+#: ../app/views/distributions/leap-42.3.html.erb:59
+#: ../app/views/distributions/leap-42.3.html.erb:84
+#: ../app/views/distributions/leap-42.3.html.erb:98
+#: ../app/views/distributions/leap-42.3.html.erb:116
+#: ../app/views/distributions/leap-42.3.html.erb:130
+#: ../app/views/distributions/leap-15.0.html.erb:45
+#: ../app/views/distributions/leap-15.0.html.erb:59
+#: ../app/views/distributions/leap-15.0.html.erb:79
+#: ../app/views/distributions/leap-15.0.html.erb:92
 msgid "Pick Mirror"
 msgstr "Виберіть дзеркало"
 
-#: ../app/views/layouts/_footer.html.erb:21
+#: ../app/views/layouts/_footer.html.erb:20
 msgid "Planet"
 msgstr "Планета"
 
 #: ../app/views/distributions/tumbleweed.html.erb:195
-msgid "Please Note: These LiveUSBs are not supported"
-msgstr "Зверніть увагу: ці LiveUSB не підтримуються"
+msgid "Please be aware of the following limitations of the live images:"
+msgstr ""
 
-#: ../app/views/distributions/tumbleweed.html.erb:197
-msgid "Please Use|Tumbleweed installation media"
-msgstr "Використовуйте|Носій встановлення Tumbleweed"
-
-#: ../app/views/distributions/tumbleweed.html.erb:201
+#: ../app/views/distributions/tumbleweed.html.erb:202
+#, fuzzy
+#| msgid ""
+#| "Please review %{openqa}'s test results if you want an indication whether "
+#| "these LiveUSBs are working as expected."
 msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
-"these LiveUSBs are working as expected."
+"these live medias are working as expected."
 msgstr ""
 "Будь ласка, перевірте результати тесту %{openqa}, якщо ви хочете дізнатися, "
 "чи працюють ці LiveUSB належним чином."
@@ -711,35 +811,52 @@ msgstr ""
 msgid "Recommended System Requirements"
 msgstr "Рекомендовані системні вимоги"
 
-#: ../app/views/search/_category_header.html.erb:9
-msgid "Related categories:"
-msgstr "Пов'язані категорії:"
-
-#: ../app/views/distributions/_documentation.html.erb:13
+#: ../app/views/distributions/_documentation.html.erb:11
 msgid "Release Notes"
 msgstr "Примітки до випуску"
 
-#: ../app/views/layouts/_footer.html.erb:19
+#: ../app/views/layouts/_footer.html.erb:18
 msgid "Release notes"
 msgstr "Примітки до випуску"
+
+#: ../app/views/images/images.xml.erb:74
+msgid "Rescue"
+msgstr "Відновлення"
 
 #: ../app/views/distributions/index.html.erb:73
 msgid "SUSE Linux Enterprise"
 msgstr "SUSE Linux Enterprise"
 
 #: ../app/views/search/find.html.erb:1
+#: ../app/views/search/_find_form.html.erb:8
 msgid "Search"
 msgstr "Пошук"
 
-#: ../app/views/download/package.erb:61
+#: ../app/views/search/_find_form.html.erb:5
+msgid "Search packages..."
+msgstr ""
+
+#: ../app/views/search/_find_form.html.erb:21
+#, fuzzy
+#| msgid "vnc options"
+msgid "Search settings"
+msgstr "параметри vnc"
+
+#: ../app/views/download/package.erb:10
 msgid "Select Your Operating System"
 msgstr "Виберіть вашу операційну систему"
 
-#: ../app/views/download/appliance.erb:39
+#: ../app/views/download/appliance.erb:9
 msgid "Select the image type"
 msgstr "Виберіть тип штампа"
 
-#: ../app/views/layouts/_footer.html.erb:22
+#: ../app/views/search/_find_form.html.erb:13
+#, fuzzy
+#| msgid "Getting Help"
+msgid "Settings"
+msgstr "Отримання допомоги"
+
+#: ../app/views/layouts/_footer.html.erb:21
 msgid "Shop"
 msgstr "Магазин"
 
@@ -751,7 +868,7 @@ msgstr "Показати"
 msgid "Show community packages"
 msgstr "Показати пакунки спільноти"
 
-#: ../app/views/search/_find_form.html.erb:43
+#: ../app/views/search/_find_form.html.erb:41
 msgid "Show development, language and debug packages"
 msgstr "Показувати пакунки для розробників, налагоджувальні і мовні пакунки"
 
@@ -763,23 +880,28 @@ msgstr "Показати експериментальні пакунки"
 msgid "Size"
 msgstr "Розмір"
 
-#: ../app/views/layouts/_footer.html.erb:37
+#: ../app/views/layouts/_footer.html.erb:36
 msgid "Social Media"
 msgstr "Соціальні мережі"
 
-#: ../app/views/layouts/_navbar.html.erb:17
+#: ../app/views/layouts/_navbar.html.erb:35
 msgid "Software"
 msgstr "Програми"
 
 #: ../app/helpers/package_helper.rb:13 ../app/helpers/package_helper.rb:15
 #: ../app/views/package/_download_rows.html.erb:42
 #: ../app/views/package/_download_rows.html.erb:45
+#: ../app/views/images/images.xml.erb:29
 msgid "Source"
 msgstr "Джерело"
 
-#: ../app/views/search/_find_results.html.erb:82
+#: ../app/views/search/_find_results.html.erb:76
 msgid "Sub-Packages"
 msgstr "Підпакунки(ів)"
+
+#: ../app/controllers/package_controller.rb:132
+msgid "System & Utility"
+msgstr ""
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
 msgid ""
@@ -802,6 +924,10 @@ msgstr ""
 "доступом в інтернет, бо будуть завантажені тільки вибрані для установки\n"
 " пакети, що, напевно, буде менше, ніж 4,7 ГБ."
 
+#: ../app/controllers/application_controller.rb:42
+msgid "The authentication to the OBS API has not been configured correctly."
+msgstr ""
+
 #: ../app/views/package/show.html.erb:103
 msgid ""
 "The following distributions are not officially supported. Use these packages "
@@ -810,12 +936,12 @@ msgstr ""
 "Наступні дистрибутиви офіційно не підтримуються. Використовуйте ці пакунки "
 "на власний ризик."
 
-#: ../app/views/download/package.erb:95
+#: ../app/views/download/package.erb:48
 msgid "Then run the following as <strong>root</strong>"
 msgstr "Потім запустіть від імені <strong>root</strong>"
 
-#: ../app/views/distributions/leap.html.erb:71
 #: ../app/views/distributions/tumbleweed.html.erb:124
+#: ../app/views/distributions/leap-42.3.html.erb:69
 msgid ""
 "These ports are not officially supported, and they are not as stable as "
 "official distributions."
@@ -823,11 +949,11 @@ msgstr ""
 "Ці порти офіційно не підтримуються. Вони не настільки стабільні, як офіційні "
 "дистрибутиви."
 
-#: ../app/views/distributions/tumbleweed.html.erb:199
+#: ../app/views/distributions/tumbleweed.html.erb:200
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr "Вони не так добре протестовані як %{tumbleweed_media}."
 
-#: ../app/views/distributions/tumbleweed.html.erb:196
+#: ../app/views/distributions/tumbleweed.html.erb:197
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
@@ -835,9 +961,14 @@ msgstr ""
 "Їх не можна використовувати для установки або оновлення Tumbleweed. "
 "Використовуйте натомість %{tumbleweed_media}."
 
-#: ../app/views/distributions/tumbleweed.html.erb:198
+#: ../app/views/distributions/tumbleweed.html.erb:199
+#, fuzzy
+#| msgid ""
+#| "They have a limited package/driver selection, so cannot be considered an "
+#| "accurate reflection as to whether Tumbleweed will work on your hardware "
+#| "or not."
 msgid ""
-"They have a limited package/driver selection, so cannot be considered an "
+"They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not."
 msgstr ""
@@ -848,6 +979,59 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr "Навігація"
 
+#: ../app/views/images/images.xml.erb:33
+msgid "Tumbleweed %s DVD (i586)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:36
+msgid "Tumbleweed %s DVD (x86_64)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:57
+msgid "Tumbleweed %s GNOME Live (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:60
+msgid "Tumbleweed %s GNOME Live (x86_64)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:67
+msgid "Tumbleweed %s KDE Live (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:70
+msgid "Tumbleweed %s KDE Live (x86_64)"
+msgstr ""
+
+# dialog title for nfs installation
+#: ../app/views/images/images.xml.erb:43
+#, fuzzy
+#| msgid "Network Installation"
+msgid "Tumbleweed %s Network Installation (i586)"
+msgstr "Мережне встановлення"
+
+# dialog title for nfs installation
+#: ../app/views/images/images.xml.erb:46
+#, fuzzy
+#| msgid "Network Installation"
+msgid "Tumbleweed %s Network Installation (x86_64)"
+msgstr "Мережне встановлення"
+
+#: ../app/views/images/images.xml.erb:77
+msgid "Tumbleweed %s Rescue CD (i686)"
+msgstr ""
+
+#: ../app/views/images/images.xml.erb:80
+msgid "Tumbleweed %s Rescue CD (x86_64)"
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:198
+#: ../app/views/distributions/tumbleweed.html.erb:201
+#, fuzzy
+#| msgid "Not Tested|Tumbleweed installation media"
+msgid "Tumbleweed installation media"
+msgstr "Не тестовано|Носій встановлення Tumbleweed"
+
 #: ../app/views/distributions/index.html.erb:61
 msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
@@ -856,8 +1040,8 @@ msgstr ""
 "Tumbleweed рекомендується <strong>розробникам</strong>, <strong>учасникам "
 "openSUSE</strong> і <strong>ентузіастам Linux/FOSS</strong>."
 
-#: ../app/views/distributions/leap.html.erb:26
 #: ../app/views/distributions/tumbleweed.html.erb:26
+#: ../app/views/distributions/leap-42.3.html.erb:24
 msgid "Unofficial"
 msgstr "Неофіційне"
 
@@ -877,11 +1061,11 @@ msgstr "Перевірка вашого звантаження перед вик
 msgid "Version"
 msgstr "Версія"
 
-#: ../app/views/layouts/_navbar.html.erb:23
+#: ../app/views/layouts/_navbar.html.erb:44
 msgid "Wiki"
 msgstr "Вікі"
 
-#: ../app/views/download/package.erb:141
+#: ../app/views/download/package.erb:93
 msgid ""
 "You can add the repository key to apt. Keep in mind that the owner of the "
 "key may distribute updates, packages and repositories that your system will "
@@ -891,7 +1075,7 @@ msgstr ""
 "поширювати оновлення, пакунки і сховища, яким ваша система буде довіряти (<a "
 "href=\"%s\">подробиці</a>). Для додавання ключа запустіть:"
 
-#: ../app/views/search/_find_results.html.erb:26
+#: ../app/views/search/_find_results.html.erb:21
 msgid ""
 "You could try to extend your search to development packages or search for "
 "another base distribution (currently #{@baseproject})."
@@ -949,6 +1133,12 @@ msgstr "https://en.opensuse.org/openSUSE:Roadmap"
 msgid "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
+#: ../app/views/images/images.xml.erb:32 ../app/views/images/images.xml.erb:42
+#: ../app/views/images/images.xml.erb:56 ../app/views/images/images.xml.erb:66
+#: ../app/views/images/images.xml.erb:76
+msgid "i586"
+msgstr ""
+
 #: ../app/views/distributions/index.html.erb:69
 msgid "lifetime"
 msgstr "термін підтримки кожного випуску"
@@ -961,11 +1151,18 @@ msgstr "openSUSE Leap"
 msgid "openSUSE Software"
 msgstr "Програми в openSUSE"
 
+#: ../app/views/distributions/_documentation.html.erb:6
+#, fuzzy
+#| msgid "openSUSE Software"
+msgid "openSUSE Startup Guide"
+msgstr "Програми в openSUSE"
+
 #: ../app/views/distributions/index.html.erb:58
+#: ../app/views/images/images.xml.erb:26
 msgid "openSUSE Tumbleweed"
 msgstr "openSUSE Tumbleweed"
 
-#: ../app/views/layouts/_footer.html.erb:50
+#: ../app/views/layouts/_footer.html.erb:49
 msgid "openSUSE contributors"
 msgstr "Учасники openSUSE"
 
@@ -973,6 +1170,43 @@ msgstr "Учасники openSUSE"
 msgid "openSUSE is completely free to download, use and share."
 msgstr ""
 "openSUSE можна повністю вільно завантажувати, використовувати і поширювати."
+
+#: ../app/views/images/images.xml.erb:35 ../app/views/images/images.xml.erb:45
+#: ../app/views/images/images.xml.erb:59 ../app/views/images/images.xml.erb:69
+#: ../app/views/images/images.xml.erb:79
+msgid "x86_64"
+msgstr ""
+
+#~ msgid "(hide)"
+#~ msgstr "(приховати)"
+
+#~ msgid "(show)"
+#~ msgstr "(показати)"
+
+#~ msgid "Available Images"
+#~ msgstr "Доступні штампи"
+
+#~ msgid ""
+#~ "Help test the next version of openSUSE Leap, the regular-release "
+#~ "distribution for desktop PCs, laptops, and servers."
+#~ msgstr ""
+#~ "Допоможіть протестувати наступну версію openSUSE Leap, регулярний випуск "
+#~ "дистрибутиву для ПК, ноутбуків і серверів."
+
+#~ msgid "Install using One Click Install"
+#~ msgstr "Встановити за  1 клацання"
+
+#~ msgid "Kubic DVD/USB Stick"
+#~ msgstr "Kubic DVD/USB-носій"
+
+#~ msgid "Please Note: These LiveUSBs are not supported"
+#~ msgstr "Зверніть увагу: ці LiveUSB не підтримуються"
+
+#~ msgid "Please Use|Tumbleweed installation media"
+#~ msgstr "Використовуйте|Носій встановлення Tumbleweed"
+
+#~ msgid "Related categories:"
+#~ msgstr "Пов'язані категорії:"
 
 #~ msgid " and "
 #~ msgstr " і "
@@ -985,9 +1219,6 @@ msgstr ""
 
 #~ msgid "Derivatives"
 #~ msgstr "Похідні"
-
-#~ msgid "Development-"
-#~ msgstr "Розробка-"
 
 #~ msgid "Don't show this warning the next time"
 #~ msgstr "Більше не показувати це попередження"
@@ -1043,9 +1274,6 @@ msgstr ""
 
 #~ msgid "Header Logo"
 #~ msgstr "Логотип"
-
-#~ msgid "Installation Media"
-#~ msgstr "Носій встановлення"
 
 #~ msgid "LiveUSB Media"
 #~ msgstr "Носій LiveUSB"
@@ -1126,9 +1354,6 @@ msgstr ""
 #~| msgid "Please review"
 #~ msgid "Please review %{openqa}"
 #~ msgstr "Вивчіть результати тестування"
-
-#~ msgid "Media"
-#~ msgstr "Носій"
 
 #~ msgid "instead."
 #~ msgstr "замість них."
@@ -1337,9 +1562,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Завантажте один із спеціалізованих дистрибутивів на основі openSUSE."
 
-#~ msgid "Getting Help"
-#~ msgstr "Отримання допомоги"
-
 #~ msgid "Gold Sponsor"
 #~ msgstr "Золотий спонсор"
 
@@ -1361,9 +1583,6 @@ msgstr ""
 #~ "частині світу, де система перенаправлення звантаження не має достатньо "
 #~ "інформації для перенаправлення до найшвидшого дзеркала, то можете вибрати "
 #~ "дзеркало самі."
-
-#~ msgid "Installation Guides"
-#~ msgstr "Інструкції із встановлення"
 
 #~ msgid "Installation Medium"
 #~ msgstr "Носій встановлення"
@@ -1410,9 +1629,6 @@ msgstr ""
 
 #~ msgid "Live GNOME"
 #~ msgstr "„Живий“ GNOME"
-
-#~ msgid "Live KDE"
-#~ msgstr "„Живий“ KDE"
 
 #~ msgid ""
 #~ "Many applications can verify the checksum of a download. To verify your "
@@ -1511,9 +1727,6 @@ msgstr ""
 
 #~ msgid "Reporting Bugs"
 #~ msgstr "Повідомлення про хиби"
-
-#~ msgid "Rescue"
-#~ msgstr "Відновлення"
 
 #~ msgid ""
 #~ "Rescue system that you can run from CD or from USB stick.<br/>Can not be "
@@ -1892,11 +2105,6 @@ msgstr ""
 #~ "Пакунків openSUSE."
 
 #, fuzzy
-#~| msgid "vnc options"
-#~ msgid "Search options"
-#~ msgstr "параметри vnc"
-
-#, fuzzy
 #~| msgid "Downloaded packages"
 #~ msgid "Exclude debug packages"
 #~ msgstr "Завантажені пакунки"
@@ -1936,10 +2144,6 @@ msgstr ""
 
 #~ msgid "Step-by-step installation guide"
 #~ msgstr "Покроковий посібник встановлення"
-
-# dialog title for nfs installation
-#~ msgid "Network Installation"
-#~ msgstr "Мережне встановлення"
 
 #, fuzzy
 #~| msgid "http://en.opensuse.org/INSTALL_Internet"
