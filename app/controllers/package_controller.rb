@@ -3,7 +3,7 @@ class PackageController < ApplicationController
   before_action :set_search_options, :only => %i[show categories]
   before_action :prepare_appdata, :set_categories, :only => %i[show explore category thumbnail screenshot]
 
-  skip_before_action :set_language, :set_distributions, :only => %i[thumbnail screenshot]
+  skip_before_action :set_language, :set_distributions, :set_baseproject, :only => %i[thumbnail screenshot]
 
   def show
     required_parameters :package
