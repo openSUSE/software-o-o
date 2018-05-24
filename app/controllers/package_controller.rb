@@ -1,7 +1,7 @@
 class PackageController < ApplicationController
   #before_action :set_beta_warning, :only => [:category, :categories]
   before_action :set_search_options, :only => %i[show categories]
-  before_action :prepare_appdata, :set_categories, :only => %i[show explore category]
+  before_action :prepare_appdata, :set_categories, :only => %i[show explore category thumbnail screenshot]
 
   skip_before_action :set_language, :set_distributions, :only => %i[thumbnail screenshot]
 
@@ -16,7 +16,7 @@ class PackageController < ApplicationController
     @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
     # only show rpms
     @packages = @packages.select{|p| p.first.type != 'ymp' && p.quality != "Private"}
-    @default_project = @baseproject || view_context.default_baseproject
+    @default_project = @baseproject
     @default_project_name = @distributions.select{|d| d[:project] == @default_project}.first[:name]
     @default_repo = @distributions.select{|d| d[:project] == @default_project}.first[:repository]
     @default_package = if (!@packages.select{|s| s.project == "#{@default_project}:Update"}.empty?)
@@ -30,11 +30,10 @@ class PackageController < ApplicationController
       @name = pkg_appdata.first[:name]
       @appcategories = pkg_appdata.first[:categories]
       @homepage = pkg_appdata.first[:homepage]
-      @appscreenshot = pkg_appdata.first[:screenshots].first
     end
 
-    @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, :appscreen => @appscreenshot, protocol: request.protocol
-    @thumbnail = url_for :controller => :package, :action => :thumbnail, :package => @pkgname, :appscreen => @appscreenshot, protocol: request.protocol
+    @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, protocol: request.protocol
+    @thumbnail = url_for :controller => :package, :action => :thumbnail, :package => @pkgname, protocol: request.protocol
 
     filter_packages
 
@@ -53,6 +52,11 @@ class PackageController < ApplicationController
   end
 
   def explore
+    # Workaround to know in advance non-cached screenshots
+    # Ideally the apps structure should include Screenshot objects from the beginning
+    @apps = @appdata[:apps].reject do |a|
+      a[:screenshots].blank? || !Screenshot.new(a[:pkgname], a[:screenshots][0]).thumbnail_generated?
+    end
   end
 
   def category
@@ -76,22 +80,42 @@ class PackageController < ApplicationController
 
   def screenshot
     required_parameters :package
-    image params[:package], "screenshot", params[:appscreen]
+    image params[:package], :screenshot
   end
 
   def thumbnail
     required_parameters :package
-    image params[:package], "thumbnail", params[:appscreen]
+    image params[:package], :thumbnail
   end
 
   private
 
-  def image pkgname, type, image_url
-    response.headers['Cache-Control'] = "public, max-age=#{2.months.to_i}"
-    response.headers['Content-Disposition'] = 'inline'
-    screenshot = Screenshot.new(pkgname, image_url)
-    content = screenshot.blob(type.to_sym)
-    render :body => content, :content_type => 'image/png'
+  def image(pkgname, type)
+    @appdata[:apps].each do |app|
+      next unless app[:pkgname] == pkgname
+      next if app[:screenshots].blank?
+
+      app[:screenshots].each do |image_url|
+        return redirect_to image_url if type == :screenshot && image_url
+        next if image_url.blank?
+
+        path = begin
+                 screenshot = Screenshot.new(pkgname, image_url)
+                 screenshot.thumbnail_path(fetch: true)
+               rescue => e
+                 Rails.logger.error "Error retrieving #{image_url}: #{e}"
+                 next
+               end
+        return redirect_to '/' + path
+      end
+    end
+
+    head 404, "content_type" => 'text/plain' if type == :screenshot
+    # a screenshot object with nil url returns default thumbnails
+    screenshot = Screenshot.new(pkgname, nil)
+    path = screenshot.thumbnail_path(fetch: true)
+    url = ActionController::Base.helpers.asset_url(path)
+    redirect_to url
   end
 
   # See https://specifications.freedesktop.org/menu-spec/1.0/apa.html

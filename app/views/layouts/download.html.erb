@@ -77,6 +77,10 @@
       <%= render(:partial => "layouts/flash", :object => flash) %>
     <% end %>
 
+    <% unless @hide_search_box %>
+        <%= render :partial => 'search/find_form', :locals => { :baseproject => @baseproject } %>
+    <% end %>
+
     <%= yield %>
 
     <%= render :partial => "layouts/footer" %>

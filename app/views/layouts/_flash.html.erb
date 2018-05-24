@@ -1,29 +1,15 @@
 <% unless flash.blank? %>
 
-  <div id="flash-messages" class="container_16" >
-    <div class="grid_16 alpha omega">
-
-      <% %w(success error warn note notice info).each do |flash_type|
+  <div id="flash-messages" class="" >
+    <% %w(success error warn note notice info).each do |flash_type|
         if (flash[flash_type] && !flash[flash_type].empty?)
-          case flash_type
-          when 'error'
-            flash_icon = "ui-icon-alert"
-            flash_header = 'ui-state-error'
-          when 'warn'
-            flash_icon = "ui-icon-alert"
-            flash_header = 'ui-state-error'
-          when 'success'
-            flash_icon = "ui-icon-info"
-            flash_header = 'ui-state-highlight'
-          when 'note'
-            flash_icon = "ui-icon-info"
-            flash_header = 'ui-state-highlight'
-          when 'info'
-            flash_icon = "ui-icon-info"
-            flash_header = 'ui-state-highlight'
-          when 'notice'
-            flash_icon = "ui-icon-info"
-            flash_header = 'ui-state-highlight'
+          flash_header = case flash_type.to_sym
+            when :error then 'alert alert-danger'
+            when :warn then 'alert alert-warning'
+            when :success then 'alert alert-success'
+            when :note then 'alert alert-light'
+            when :info then 'alert alert-info'
+            when :notice then 'alert alert-primary'
           end %>
 
           <%
@@ -31,9 +17,8 @@
           body = sanitize body, :tags => %w(a b p ul li br u), :attributes => %w(href title)
           %>
 
-          <div class="<%= flash_header %> ui-corner-all" style="margin-bottom: 5px;">
+          <div class="<%= flash_header %>">
             <p>
-              <span class="ui-icon <%= flash_icon %>"/>
               <%= body %>
             </p>
           </div>

@@ -3,11 +3,8 @@
 
     <% if DEFAULT_SEARCHES[@search_term] %>
       <div id="search-result-error" >
-        <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">
-          <p id="msg">
-            <span class="ui-icon ui-icon-info"/>
-            <%=DEFAULT_SEARCHES[@search_term].html_safe %>
-          </p>
+        <div id="msg" class="alert alert-info"/>
+          <%=DEFAULT_SEARCHES[@search_term].html_safe %>
         </div>
       </div>
     <% end %>
@@ -17,15 +14,12 @@
     <% if @packagenames.blank? %>
 
       <div id="search-result-error" >
-        <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">
-          <p id="msg">
-            <span class="ui-icon ui-icon-info"/>
+        <div id="msg" class="alert alert-warning"/>
             <%= _("No packages found matching your search. ") %>
             <% unless @search_devel %>
               <br/>
               <%= _("You could try to extend your search to development packages or search for another base distribution (currently #{@baseproject}).") %>
             <% end %>
-          </p>
         </div>
       </div>
 
@@ -40,7 +34,7 @@
           package_name = appdata_pkg.first[:name] unless ( appdata_pkg.blank? || appdata_pkg.first[:name].blank? )
           package_img = nil
           package_img = appdata_pkg.first[:screenshots].first unless ( appdata_pkg.blank? || appdata_pkg.first[:screenshots].blank? )
-          thumb_url = screenshot_thumb_url(package, package_img)
+          thumb_url = screenshot_thumb_url(package)
         %>
 
           <div class="col-sm-6 col-md-4">
