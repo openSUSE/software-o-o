@@ -4,8 +4,8 @@ require 'digest'
 require 'fileutils'
 
 class PackageControllerTest < ActionDispatch::IntegrationTest
-  FIREFOX_THUMBNAIL = File.join(Rails.root, 'public', 'images', 'thumbnails', 'MozillaFirefox.png')
-  PKG_4PANE_THUMBNAIL = File.join(Rails.root, 'public', 'images', 'thumbnails', '4pane.png')
+  FIREFOX_THUMBNAIL = Rails.root.join('public', 'images', 'thumbnails', 'MozillaFirefox.png')
+  PKG_4PANE_THUMBNAIL = Rails.root.join('public', 'images', 'thumbnails', '4pane.png')
   PKG_4PANE_THUMBNAIL_RESIZED = Rails.root.join('test', 'support', '4Pane-600.png')
 
   def test_thumbnail_unknown_package_returns_default_asset
