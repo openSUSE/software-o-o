@@ -6,40 +6,46 @@ require 'fileutils'
 class PackageControllerTest < ActionDispatch::IntegrationTest
   FIREFOX_THUMBNAIL = File.join(Rails.root, 'public', 'images', 'thumbnails', 'MozillaFirefox.png')
   PKG_4PANE_THUMBNAIL = File.join(Rails.root, 'public', 'images', 'thumbnails', '4pane.png')
+  PKG_4PANE_THUMBNAIL_RESIZED = Rails.root.join('test', 'support', '4Pane-600.png')
 
   def test_thumbnail_unknown_package_returns_default_asset
     stub = proc { |arg| arg == FIREFOX_THUMBNAIL ? false : File.exist?(arg) }
 
     File.stub(:exists?, stub) do
       get '/package/thumbnail/MozillaFirefox.png'
-      assert_redirected_to '/assets/default-screenshots/package.png'
+      assert_response :redirect
+      assert_match %r{/assets/default-screenshots/package(.*).png}, @response.redirect_url
     end
   end
 
   def test_thumbnail_downloaded_uses_it
-    stub = proc { |arg| arg == PKG_4PANE_THUMBNAIL ? true : File.exist?(arg) }
-    File.stub(:exists?, stub) do
-      get '/package/thumbnail/4pane.png'
-      assert_redirected_to '/images/thumbnails/4pane.png'
-    end
+    FileUtils.rm_f PKG_4PANE_THUMBNAIL
+    FileUtils.cp PKG_4PANE_THUMBNAIL_RESIZED, PKG_4PANE_THUMBNAIL
+
+    get '/package/thumbnail/4pane.png'
+    assert_redirected_to '/images/thumbnails/4pane.png'
+  ensure
+    FileUtils.rm_f PKG_4PANE_THUMBNAIL
   end
 
   def test_thumbnail_not_downloaded_downloads_it
     stub_remote_file('http://www.4Pane.co.uk/4Pane624x351.png', '4Pane624x351.png')
-    # Stub exists? would not work here, as it downloads and checks again for existence
     FileUtils.rm_f PKG_4PANE_THUMBNAIL
+
     get '/package/thumbnail/4pane.png'
     assert_redirected_to '/images/thumbnails/4pane.png'
     assert File.exist?(PKG_4PANE_THUMBNAIL)
+  ensure
+    FileUtils.rm_f PKG_4PANE_THUMBNAIL
   end
 
   def test_thumbnail_failed_download_uses_default_image
     stub_request(:any, 'http://www.4Pane.co.uk/4Pane624x351.png')
       .to_return(body: '', status: 404)
-    # Stub exists? would not work here
     FileUtils.rm_f PKG_4PANE_THUMBNAIL
     get '/package/thumbnail/4pane.png'
-    assert_redirected_to '/assets/default-screenshots/package.png'
+    assert_response :redirect
+    assert_match %r{/assets/default-screenshots/package(.*).png}, @response.redirect_url
     assert !File.exist?(PKG_4PANE_THUMBNAIL)
   end
 
