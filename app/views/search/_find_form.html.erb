@@ -1,17 +1,24 @@
 <div class="search-box py-5">
   <div class="container">
     <%= form_tag( {:controller => 'search', :action => :index}, :method => :get ) do %>
-      <div class="d-flex justify-content-center">
-        <%= text_field_tag 'q', @search_term, :size => 30, :id => "search-form", :class => 'form-control mr-2', :placeholder => _('Search packages...'), :autocomplete => "off", :autofocus => true %>
-        <button type="submit" class="btn btn-primary mr-2 hidden-sm-down">
-          <span class="typcn typcn-lg typcn-zoom-outline"></span>
-          <span class="hidden-xs-down"><%= _("Search") %></span>
-        </button>
-
-        <button id="settings" type="button" class="btn btn-link" data-toggle="modal" data-target="#search-config-modal">
-            <span class="typcn typcn-lg typcn-spanner-outline"></span>
-            <span class="hidden-xs-down"><%= _("Settings") %></span>
-        </button>
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-8">
+          <div class="form-group">
+            <%= text_field_tag 'q', @search_term, :id => "search-form", :class => 'form-control', :placeholder => _('Search packages...'), :autocomplete => "off", :autofocus => true %>
+          </div>
+        </div>
+        <div class="col-6 col-sm-3 col-lg-2">
+          <button type="submit" class="btn btn-primary btn-block">
+            <span class="typcn typcn-lg typcn-zoom-outline"></span>
+            <%= _("Search") %>
+          </button>
+        </div>
+        <div class="col-6 col-sm-3 col-lg-2">
+          <button id="settings" type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#search-config-modal">
+              <span class="typcn typcn-lg typcn-spanner-outline"></span>
+              <%= _("Settings") %>
+          </button>
+        </div>
       </div>
 
       <div class="modal fade" id="search-config-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
