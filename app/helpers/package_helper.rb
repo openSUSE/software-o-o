@@ -34,15 +34,8 @@ module PackageHelper
     txt
   end
 
-  def screenshot_thumb_url(pkg_name, source_url)
-    screenshot = Screenshot.new(pkg_name, source_url)
-    # Don't wait for every thumbnail to be generated before loading the page.
-    path = screenshot.thumbnail_path(fetch: false)
-    if path
-      image_url path
-    else
-      # If a thumbnail is not already generated, do it in separate request.
-      url_for :controller => :package, :action => :thumbnail, :package => pkg_name, :appscreen => source_url, protocol: 'https'
-    end
+  # Returns the screenshot thumbnail url for a given package object/hash
+  def screenshot_thumb_url(package)
+    url_for :controller => :package, :action => :thumbnail, :package => package, protocol: 'https'
   end
 end

@@ -152,3 +152,34 @@ Windows.
 If you exit the shell inside the vagrant box your development environment
 is stopped. Want to continue? Run `vagrant up` and `docker attach software_web`
 again. Happy hacking!
+
+## Configuring openSUSE releases
+
+The file `config/releases.yml` is used by the `/distributions` end-point to render the right template (`leap-$version`).
+
+The variables `@testing_version`, `@stable_version` and `@legacy_version` will be set accordingly.
+`@version` will be set to the right version of the page you are displaying.
+
+```yaml
+---
+- from: '2018-05-25 10:00:00'
+  stable_version: '15'
+  legacy_version: '42.3'
+- from: '2018-01-31 00:00:00'
+  stable_version: '42.3'
+  testing_version: '15'
+  testing_state: 'Beta'
+  legacy_version: '42.2'
+- from: '2017-07-26 00:00:00'
+  stable_version: '42.3'
+  legacy_version: '42.2'
+- from: '2017-07-08 00:00:00'
+  stable_version: '42.2'
+  testing_version: '42.3'
+  testing_state: 'RC'
+  legacy_version: '42.1'
+- from: '2016-11-16 00:00:00'
+  stable_version: '42.2'
+  legacy_version: '42.1'
+```
+
