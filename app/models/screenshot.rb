@@ -35,7 +35,7 @@ class Screenshot
     # And also there is a chance of exception generating the thumbnail
     rescue Exception => e
       raise unless Rails.env.production?
-      Rails.logger.debug("No screenshot fetched for: " + pkg_name)
+      Rails.logger.error("No screenshot fetched for: " + pkg_name)
     end
 
     if cached?

@@ -36,13 +36,13 @@ class Appdata
   def self.get_distribution(dist = 'factory', flavour = 'oss')
     appdata_url = case dist
                   when "factory"
-                    index_url = "http://download.opensuse.org/tumbleweed/repo/#{flavour}/repodata/repomd.xml"
+                    index_url = "https://download.opensuse.org/tumbleweed/repo/#{flavour}/repodata/repomd.xml"
                     repomd = Nokogiri::XML(open(index_url))
                     repomd.remove_namespaces!
                     href = repomd.xpath('/repomd/data[@type="appdata"]/location').attr('href').text
-                    "http://download.opensuse.org/tumbleweed/repo/#{flavour}/#{href}"
+                    "https://download.opensuse.org/tumbleweed/repo/#{flavour}/#{href}"
                   else
-                    "http://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
+                    "https://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
                   end
     begin
       Nokogiri::XML(Zlib::GzipReader.new(open(appdata_url)))
