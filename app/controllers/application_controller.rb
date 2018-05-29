@@ -7,6 +7,7 @@ require 'net/https'
 class ApplicationController < ActionController::Base
   before_action :validate_configuration
   before_action :set_language
+  before_action :set_external_urls
   before_action :set_distributions
   before_action :set_releases_parameters
   # depends on releases
@@ -116,8 +117,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_baseproject
-    unless (@distributions.blank? || @distributions.select {|d| d[:project] == cookies[:search_baseproject]}.blank?)
-      @baseproject = cookies[:search_baseproject]
+    unless (@distributions.blank? || @distributions.select { |d| d[:project] == cookies[:baseproject] }.blank?)
+      @baseproject = cookies[:baseproject]
     end
     @baseproject = "openSUSE:Leap:#{@stable_version}" if @baseproject.blank?
   end
@@ -183,21 +184,46 @@ class ApplicationController < ActionController::Base
 
   def set_search_options
     @search_term = params[:q] || ""
-    @baseproject = params[:baseproject] unless @distributions.select {|d| d[:project] == params[:baseproject]}.blank?
-    @search_devel = cookies[:search_devel] unless cookies[:search_devel].blank?
-    @search_devel = params[:search_devel] unless params[:search_devel].blank?
-    @search_unsupported = cookies[:search_unsupported] unless cookies[:search_unsupported].blank?
-    @search_unsupported = params[:search_unsupported] unless params[:search_unsupported].blank?
-    # FIXME: remove @search_unsupported when redesigning search options
-    @search_unsupported = "true"
-    @search_devel = (@search_devel == "true" ? true : false)
-    @search_project = params[:search_project]
-    @search_unsupported = (@search_unsupported == "true" ? true : false)
-    @exclude_debug = @search_devel ? false : true
-    @exclude_filter = @search_unsupported ? nil : 'home:'
-    cookies[:search_devel] = { :value => @search_devel, :expires => 1.year.from_now }
-    cookies[:search_unsupported] = { :value => @search_unsupported, :expires => 1.year.from_now }
-    cookies[:search_baseproject] = { :value => @baseproject, :expires => 1.year.from_now }
+    @baseproject =  if !cookies[:baseproject].nil? && @distributions.select { |d| d[:project] == cookies[:baseproject] }
+                      cookies[:baseproject]
+                    else
+                      "openSUSE:Factory"
+                    end
+    @search_devel = (cookies[:search_devel] == "true" ? true : false)
+    @search_lang = (cookies[:search_lang] == "true" ? true : false)
+    @search_debug = (cookies[:search_debug] == "true" ? true : false)
+  end
+
+  def filter_packages
+    # remove maintenance projects, they are not meant for end users
+    @packages.reject! { |p| p.project.match(/openSUSE\:Maintenance\:/) }
+    @packages.reject! { |p| p.project == "openSUSE:Factory:Rebuild" }
+    @packages.reject! { |p| p.project.start_with?("openSUSE:Factory:Staging") }
+
+    # only show packages
+    @packages = @packages.reject { |p| p.first.type == 'ymp' }
+
+    @packages.reject! { |p| p.name.end_with?("-devel") } unless @search_devel
+
+    unless @search_lang
+      @packages.reject! { |p| p.name.end_with?("-lang") || p.name.include?("-translations-") || p.name.include?("-l10n-") }
+    end
+
+    unless @search_debug
+      @packages.reject! { |p| p.name.end_with?("-buildsymbols", "-debuginfo", "-debugsource") }
+    end
+
+    # filter out ports for different arch
+    if @baseproject.end_with?("ARM")
+      @packages.filter! { |p| p.project.include?("ARM") || p.repository.include?("ARM") }
+    elsif @baseproject.end_with?("PowerPC")
+      @packages.filter! { |p| p.project.include?("PowerPC") || p.repository.include?("PowerPC") }
+    else # x86
+      @packages.reject! do |p|
+        p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") ||
+          p.project.include?("ARM") || p.project.include?("PowerPC") || p.project.include?("zSystems")
+      end
+    end
   end
 
   # TODO: atm obs only offers appdata for Factory
@@ -212,5 +238,26 @@ class ApplicationController < ActionController::Base
   def set_beta_warning
     flash.now[:info] = "This is a beta version of the new app browser, part of " +
                        "the <a href='https://trello.com/board/appstream/4f156e1c9ce0824a2e1b8831'>current boosters sprint</a>!"
+  end
+
+  # set wiki and forum urls, which are different for each language
+  def set_external_urls
+    @wiki_url = case @lang
+                when 'zh_CN'
+                  'https://zh.opensuse.org/'
+                when 'zh_TW'
+                  'https://zh-tw.opensuse.org/'
+                when 'pt_BR'
+                  'https://pt.opensuse.org/'
+                else
+                  "https://#{@lang}.opensuse.org/"
+                end
+
+    @forum_url =  case @lang
+                  when 'zh_CN'
+                    'https://forum.suse.org.cn/'
+                  else
+                    'https://forums.opensuse.org/'
+                  end
   end
 end

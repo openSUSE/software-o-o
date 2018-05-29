@@ -35,8 +35,7 @@ class PackageController < ApplicationController
     @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, protocol: request.protocol
     @thumbnail = url_for :controller => :package, :action => :thumbnail, :package => @pkgname, protocol: request.protocol
 
-    # remove maintenance projects
-    @packages.reject! {|p| p.project.match(/openSUSE\:Maintenance\:/) }
+    filter_packages
 
     @packages.each do |package|
       # Backports chains up to the toolchain module for newer GCC.

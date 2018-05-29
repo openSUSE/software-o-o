@@ -23,15 +23,13 @@ class SearchController < ApplicationController
       raise e if @packages.nil?
     end
 
-    # filter out devel projects on user setting
-    unless (@search_unsupported || @search_project)
-      @packages = @packages.select do |p|
-        @distributions.flat_map { |d| [d[:project], "#{d[:project]}:Update", "#{d[:project]}:NonFree"] }.include? p.project
-      end
-    end
+    filter_packages
 
-    # only show packages
-    @packages = @packages.reject { |p| p.first.type == 'ymp' }
+    # sort by package name length
+    @packages.sort! { |a, b| a.name.length <=> b.name.length }
+    # show official package first
+    @packages.sort! { |a, b| trust_level(b, base) - trust_level(a, base) }
+
     @packagenames = @packages.map { |p| p.name }
 
     # mix in searchresults from appdata, as the api can't search in summary and description atm
@@ -42,7 +40,7 @@ class SearchController < ApplicationController
       end
       @packagenames += appdata_hits.map { |a| a[:pkgname] }
     end
-    @packagenames = @packagenames.uniq.sort_by { |x| x.length }
+    @packagenames = @packagenames.uniq
 
     if @packagenames.size == 1
       redirect_to(:controller => :package, :action => :show, :package => @packagenames.first, :search_term => @search_term) and return
@@ -54,4 +52,20 @@ class SearchController < ApplicationController
   end
 
   def find; end
+
+  def trust_level(package, project)
+    # 3: official package
+    # 2: official package in Factory
+    # 1: experimental package
+    # 0: community package
+    if package.project == project || package.project == "#{project}:Update" || package.project == "#{project}:NonFree"
+      3
+    elsif package.project == "openSUSE:Factory"
+      2
+    elsif (package.project.start_with?('home'))
+      0
+    else
+      1
+    end
+  end
 end

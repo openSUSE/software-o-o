@@ -1,22 +1,3 @@
-<%
-puts case @lang
-when 'zh_CN'
-  wiki_url = 'https://zh.opensuse.org/'
-when 'zh_TW'
-  wiki_url = 'https://zh-tw.opensuse.org/'
-when 'pt_BR'
-  wiki_url = 'https://pt.opensuse.org/'
-else
-  wiki_url = "https://#{@lang}.opensuse.org/"
-end
-
-puts case @lang
-when 'zh_CN'
-  forum_url = 'https://forum.suse.org.cn/'
-else
-  forum_url = 'https://forums.opensuse.org/'
-end
-%>
 <nav id="global-navbar" class="navbar navbar-expand-md navbar-toggleable navbar-dark bg-dark">
 
   <a class="navbar-brand" href="https://www.opensuse.org/">
@@ -27,25 +8,23 @@ end
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
-
-    <div class="collapse navbar-collapse" id="global-navbar-content">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item <%= 'active' unless defined?(activenav) && (activenav == 'download') %>">
-                <a class="nav-link" href="/explore"><%= _("Software") %></a>
-            </li>
-            <li class="nav-item <%= 'active' if defined?(activenav) && (activenav == 'download') %>">
-                <a class="nav-link" href="/distributions"><%= _("Download") %></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://doc.opensuse.org/"><%= _("Documentation") %></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<%= wiki_url %>"><%= _("Wiki") %></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<%= forum_url %>"><%= _("Forums") %></a>
-            </li>
-        </ul>
-    </div>
+  <div class="collapse navbar-collapse" id="global-navbar-content">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item <%= 'active' unless defined?(activenav) && (activenav == 'download') %>">
+        <a class="nav-link" href="/explore"><%= _("Software") %></a>
+      </li>
+      <li class="nav-item <%= 'active' if defined?(activenav) && (activenav == 'download') %>">
+        <a class="nav-link" href="/distributions"><%= _("Download") %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://doc.opensuse.org/"><%= _("Documentation") %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= @wiki_url %>"><%= _("Wiki") %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= @forum_url %>"><%= _("Forums") %></a>
+      </li>
+    </ul>
+  </div>
 </nav>
