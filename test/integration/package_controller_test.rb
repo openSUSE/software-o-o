@@ -9,13 +9,10 @@ class PackageControllerTest < ActionDispatch::IntegrationTest
   PKG_4PANE_THUMBNAIL_RESIZED = Rails.root.join('test', 'support', '4Pane-600.png')
 
   def test_thumbnail_unknown_package_returns_default_asset
-    stub = proc { |arg| arg == FIREFOX_THUMBNAIL ? false : File.exist?(arg) }
-
-    File.stub(:exists?, stub) do
-      get '/package/thumbnail/MozillaFirefox.png'
-      assert_response :redirect
-      assert_match %r{/assets/default-screenshots/package(.*).png}, @response.redirect_url
-    end
+    FileUtils.rm_f FIREFOX_THUMBNAIL
+    get '/package/thumbnail/MozillaFirefox.png'
+    assert_response :redirect
+    assert_match %r{/assets/default-screenshots/package(.*).png}, @response.redirect_url
   end
 
   def test_thumbnail_downloaded_uses_it
