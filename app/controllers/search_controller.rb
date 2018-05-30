@@ -28,7 +28,7 @@ class SearchController < ApplicationController
     # sort by package name length
     @packages.sort! { |a, b| a.name.length <=> b.name.length }
     # show official package first
-    @packages.sort! { |a, b| trust_level(b, base) - trust_level(a, base) }
+    @packages.sort! { |a, b| helpers.trust_level(b, base) - helpers.trust_level(a, base) }
 
     @packagenames = @packages.map { |p| p.name }
 
@@ -52,20 +52,4 @@ class SearchController < ApplicationController
   end
 
   def find; end
-
-  def trust_level(package, project)
-    # 3: official package
-    # 2: official package in Factory
-    # 1: experimental package
-    # 0: community package
-    if package.project == project || package.project == "#{project}:Update" || package.project == "#{project}:NonFree"
-      3
-    elsif package.project == "openSUSE:Factory"
-      2
-    elsif (package.project.start_with?('home'))
-      0
-    else
-      1
-    end
-  end
 end
