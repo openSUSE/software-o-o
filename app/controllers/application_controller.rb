@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
   before_action :validate_configuration
   before_action :set_language
   before_action :set_external_urls
-  before_action :set_distributions
   before_action :set_releases_parameters
   # depends on releases
   before_action :set_baseproject
@@ -56,18 +55,6 @@ class ApplicationController < ActionController::Base
       set_gettext_locale
     end
     @lang = FastGettext.locale
-  end
-
-  def set_distributions
-    begin
-      @distributions = Rails.cache.fetch('distributions',
-                                         :expires_in => 120.minutes) do
-        load_distributions
-      end
-    rescue
-      @distributions = nil
-    end
-    raise ApiConnect::Error.new(_("OBS Backend not available")) if @distributions.nil?
   end
 
   RELEASES_FILE = Rails.root.join('config', 'releases.yml').freeze
@@ -123,28 +110,6 @@ class ApplicationController < ActionController::Base
     @baseproject = "openSUSE:Leap:#{@stable_version}" if @baseproject.blank?
   end
 
-  # load available distributions
-  def load_distributions
-    logger.debug "Loading distributions"
-    distributions = Array.new
-    begin
-      response = ApiConnect::get("public/distributions")
-      doc = REXML::Document.new response.body
-      doc.elements.each("distributions/distribution") { |element|
-        dist = Hash[:name => element.elements['name'].text, :project => element.elements['project'].text,
-                    :reponame => element.elements['reponame'].text, :repository => element.elements['repository'].text,
-                    :dist_id => element.attributes['id'].sub(".", "")]
-        distributions << dist
-        logger.debug "Added Distribution: #{dist[:name]}"
-      }
-      distributions.unshift(Hash[:name => "ALL Distributions", :project => 'ALL'])
-    rescue Exception => e
-      logger.error "Error while loading distributions: " + e.to_s
-      raise
-    end
-    return distributions
-  end
-
   # special version of render json with JSONP capabilities (only needed for rails < 3.0)
   def render_json(json, options = {})
     callback, variable = params[:callback], params[:variable]
@@ -180,50 +145,6 @@ class ApplicationController < ActionController::Base
 
   def valid_project_name? name
     name =~ /^[[:alnum:]][-+\w.:]+$/
-  end
-
-  def set_search_options
-    @search_term = params[:q] || ""
-    @baseproject =  if !cookies[:baseproject].nil? && @distributions.select { |d| d[:project] == cookies[:baseproject] }
-                      cookies[:baseproject]
-                    else
-                      "openSUSE:Factory"
-                    end
-    @search_devel = (cookies[:search_devel] == "true" ? true : false)
-    @search_lang = (cookies[:search_lang] == "true" ? true : false)
-    @search_debug = (cookies[:search_debug] == "true" ? true : false)
-  end
-
-  def filter_packages
-    # remove maintenance projects, they are not meant for end users
-    @packages.reject! { |p| p.project.match(/openSUSE\:Maintenance\:/) }
-    @packages.reject! { |p| p.project == "openSUSE:Factory:Rebuild" }
-    @packages.reject! { |p| p.project.start_with?("openSUSE:Factory:Staging") }
-
-    # only show packages
-    @packages = @packages.reject { |p| p.first.type == 'ymp' }
-
-    @packages.reject! { |p| p.name.end_with?("-devel") } unless @search_devel
-
-    unless @search_lang
-      @packages.reject! { |p| p.name.end_with?("-lang") || p.name.include?("-translations-") || p.name.include?("-l10n-") }
-    end
-
-    unless @search_debug
-      @packages.reject! { |p| p.name.end_with?("-buildsymbols", "-debuginfo", "-debugsource") }
-    end
-
-    # filter out ports for different arch
-    if @baseproject.end_with?("ARM")
-      @packages.filter! { |p| p.project.include?("ARM") || p.repository.include?("ARM") }
-    elsif @baseproject.end_with?("PowerPC")
-      @packages.filter! { |p| p.project.include?("PowerPC") || p.repository.include?("PowerPC") }
-    else # x86
-      @packages.reject! do |p|
-        p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") ||
-          p.project.include?("ARM") || p.project.include?("PowerPC") || p.project.include?("zSystems")
-      end
-    end
   end
 
   # TODO: atm obs only offers appdata for Factory

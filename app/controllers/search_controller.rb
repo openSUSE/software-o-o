@@ -1,4 +1,4 @@
-class SearchController < ApplicationController
+class SearchController < OBSController
   before_action :set_search_options
   before_action :prepare_appdata
 
