@@ -1,4 +1,4 @@
-class SearchController < ApplicationController
+class SearchController < OBSController
   before_action :set_search_options
   before_action :prepare_appdata
 
@@ -8,7 +8,7 @@ class SearchController < ApplicationController
     base = (@baseproject == "ALL") ? "" : @baseproject
 
     # if we have a baseproject, and don't show unsupported packages, shortcut: '
-    if !@baseproject.blank? && @baseproject != "ALL" && !@search_unsupported && !@search_project
+    if @baseproject.present? && @baseproject != "ALL" && !@search_unsupported && !@search_project
       @search_project = @baseproject
     end
 
