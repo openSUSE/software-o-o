@@ -100,7 +100,7 @@ class ApplicationController < ActionController::Base
     @stable_version = current['stable_version']
     @testing_version = current['testing_version']
     @testing_state = current['testing_state']
-    @legacy_release = current['legacy_release']
+    @legacy_release = current['legacy_version']
   end
 
   def set_baseproject

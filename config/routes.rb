@@ -10,6 +10,7 @@ SoftwareOO::Application.routes.draw do
       get 'leap'
       get 'leap/ports', to: 'distributions#leap_ports'
       get 'testing'
+      get 'legacy'
     end
   end
 

@@ -108,10 +108,15 @@
           </div><!-- /.card -->
         </div><!-- /.card-deck -->
       </div><!-- /.tab-pane -->
-
     </div><!-- /.tab-content -->
-
+    <div class="mt-3">
+      <% if @legacy_release %>
+        <%= link_to _('Download previous openSUSE Leap release'),
+          legacy_distributions_path %>
+      <% end %>
+    </div>
   </div><!-- /.container -->
+
 
 </section>
 
