@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-24 09:32+0200\n"
-"PO-Revision-Date: 2018-05-28 23:01+0000\n"
+"PO-Revision-Date: 2018-06-07 12:01+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish "
 "<https://l10n.opensuse.org/projects/software-o-o/master/da/>\n"
@@ -161,6 +161,8 @@ msgstr "Fællesskab"
 msgid ""
 "Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
 msgstr ""
+"Indeholder en Service Platform baseret på Kubernetes oven på openSUSE "
+"MicroOS."
 
 #: ../app/views/distributions/tumbleweed.html.erb:51
 #: ../app/views/distributions/tumbleweed.html.erb:97
@@ -195,17 +197,15 @@ msgstr "DVD-aftryk"
 
 #: ../app/views/images/images.xml.erb:53
 msgid "Desktop"
-msgstr ""
+msgstr "Skrivebord"
 
 #: ../app/views/layouts/_footer.html.erb:5
 msgid "Developers"
 msgstr "Udviklere"
 
 #: ../app/controllers/package_controller.rb:126
-#, fuzzy
-#| msgid "Development-"
 msgid "Development"
-msgstr "Udvikling-"
+msgstr "Udvikling"
 
 #: ../app/views/search/_find_results.html.erb:82
 msgid "Development packages"
@@ -314,7 +314,7 @@ msgstr "Lette måder at skifte til openSUSE Tumbleweed"
 
 #: ../app/controllers/package_controller.rb:127
 msgid "Education & Science"
-msgstr ""
+msgstr "Læring og videnskab"
 
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
@@ -561,15 +561,15 @@ msgstr "Leap %s DVD"
 
 #: ../app/views/images/images.xml.erb:93
 msgid "Leap %s DVD (Build %s)"
-msgstr ""
+msgstr "Leap %s DVD (byg %s)"
 
 #: ../app/views/images/images.xml.erb:21
 msgid "Leap %s Network Installation"
-msgstr ""
+msgstr "Leap %s netværksinstallation"
 
 #: ../app/views/images/images.xml.erb:97
 msgid "Leap %s Network Installation (Build %s)"
-msgstr ""
+msgstr "Leap %s netværksinstallation (byg %s)"
 
 #: ../app/views/distributions/index.html.erb:77
 msgid ""
@@ -620,8 +620,6 @@ msgstr ""
 "Firefox."
 
 #: ../app/views/images/images.xml.erb:27
-#, fuzzy
-#| msgid "Media"
 msgid "Medium"
 msgstr "Medie"
 
@@ -704,7 +702,7 @@ msgstr "Der blev ikke fundet nogen pakker som matcher din søgning. "
 
 #: ../app/controllers/distributions_controller.rb:13
 msgid "No stable release available"
-msgstr ""
+msgstr "Ingen stabil udgivelse tilgængelig"
 
 #: ../app/controllers/distributions_controller.rb:30
 msgid "No testing distribution available."
@@ -716,7 +714,7 @@ msgstr "OBS-backenden er ikke tilgængelig"
 
 #: ../app/controllers/package_controller.rb:130
 msgid "Office & Productivity"
-msgstr ""
+msgstr "Kontor og produktivitet"
 
 #: ../app/views/package/_download_rows.html.erb:22
 #: ../app/views/distributions/tumbleweed.html.erb:19
@@ -773,18 +771,16 @@ msgstr "Planet"
 #: ../app/views/distributions/tumbleweed.html.erb:195
 msgid "Please be aware of the following limitations of the live images:"
 msgstr ""
+"Vær venligst opmærk på følgende begrænsninger i forbindelse med live-"
+"aftrykkene:"
 
 #: ../app/views/distributions/tumbleweed.html.erb:202
-#, fuzzy
-#| msgid ""
-#| "Please review %{openqa}'s test results if you want an indication whether "
-#| "these LiveUSBs are working as expected."
 msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
 "these live medias are working as expected."
 msgstr ""
 "Gennemgå venligst %{openqa}'s testresultater hvis du vil have en indikation "
-"om hvorvidt disse LiveUSB'er virker som ventet."
+"om hvorvidt disse live-medier virker som ventet."
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -876,7 +872,7 @@ msgstr "Underpakker"
 
 #: ../app/controllers/package_controller.rb:132
 msgid "System & Utility"
-msgstr ""
+msgstr "System og redskaber"
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
 msgid ""
@@ -902,7 +898,7 @@ msgstr ""
 
 #: ../app/controllers/application_controller.rb:42
 msgid "The authentication to the OBS API has not been configured correctly."
-msgstr ""
+msgstr "Autentifikationen af OBS-API'et er ikke konfigureret korrekt."
 
 #: ../app/views/package/show.html.erb:103
 msgid ""
@@ -938,17 +934,12 @@ msgstr ""
 "venligst %{tumbleweed_media} i stedet."
 
 #: ../app/views/distributions/tumbleweed.html.erb:199
-#, fuzzy
-#| msgid ""
-#| "They have a limited package/driver selection, so cannot be considered an "
-#| "accurate reflection as to whether Tumbleweed will work on your hardware "
-#| "or not."
 msgid ""
 "They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not."
 msgstr ""
-"De har et begrænset udvalg af pakker/drivere, så kan ikke betrages som en "
+"De har et begrænset udvalg af pakker og drivere, så kan ikke betrages som en "
 "nøjagtig reflektion af hvorvidt Tumbleweed vil virke på dit hardware eller "
 "ej."
 
@@ -982,26 +973,24 @@ msgstr "Tumbleweed %s KDE Live (x86_64)"
 
 #: ../app/views/images/images.xml.erb:43
 msgid "Tumbleweed %s Network Installation (i586)"
-msgstr ""
+msgstr "Tumbleweed %s netværksinstallation (i586)"
 
 #: ../app/views/images/images.xml.erb:46
 msgid "Tumbleweed %s Network Installation (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s netværksinstallation (x86_64)"
 
 #: ../app/views/images/images.xml.erb:77
 msgid "Tumbleweed %s Rescue CD (i686)"
-msgstr ""
+msgstr "Tumbleweed %s rednings-CD (i686)"
 
 #: ../app/views/images/images.xml.erb:80
 msgid "Tumbleweed %s Rescue CD (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s rednings-CD (x86_64)"
 
 #: ../app/views/distributions/tumbleweed.html.erb:198
 #: ../app/views/distributions/tumbleweed.html.erb:201
-#, fuzzy
-#| msgid "Not Tested|Tumbleweed installation media"
 msgid "Tumbleweed installation media"
-msgstr "Utestet Tumbleweed-installationsmedie"
+msgstr "Tumbleweed-installationsmedie"
 
 #: ../app/views/distributions/index.html.erb:61
 msgid ""
@@ -1124,10 +1113,8 @@ msgid "openSUSE Software"
 msgstr "openSUSE-software"
 
 #: ../app/views/distributions/_documentation.html.erb:6
-#, fuzzy
-#| msgid "openSUSE Software"
 msgid "openSUSE Startup Guide"
-msgstr "openSUSE-software"
+msgstr "openSUSE-opstartsguide"
 
 #: ../app/views/distributions/index.html.erb:58
 #: ../app/views/images/images.xml.erb:26
