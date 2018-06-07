@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-24 09:32+0200\n"
-"PO-Revision-Date: 2018-05-26 23:01+0000\n"
-"Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
+"PO-Revision-Date: 2018-06-07 16:52+0000\n"
+"Last-Translator: Peter Pan <pan93412@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<https://l10n.opensuse.org/projects/software-o-o/master/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -59,11 +59,11 @@ msgstr "2 Ghz 雙核或更好的處理器"
 
 #: ../app/views/download/package.erb:9
 msgid "<b>%s</b> from <b>%s</b> project"
-msgstr ""
+msgstr "<b>%s</b> 來自 <b>%s</b> 專案"
 
 #: ../app/views/download/appliance.erb:8
 msgid "<b>%s</b> project"
-msgstr ""
+msgstr "<b>%s</b> 專案"
 
 #: ../app/views/package/_download_rows.html.erb:3
 msgid "<b>official release</b>"
@@ -81,7 +81,7 @@ msgstr "加套件庫並手動安裝"
 #: ../app/views/images/images.xml.erb:55 ../app/views/images/images.xml.erb:65
 #: ../app/views/images/images.xml.erb:75
 msgid "Architecture"
-msgstr ""
+msgstr "系統架構"
 
 #: ../app/views/package/show.html.erb:5
 msgid "Back to home page"
@@ -163,7 +163,7 @@ msgstr "連絡"
 #: ../app/views/distributions/tumbleweed.html.erb:79
 msgid ""
 "Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
-msgstr ""
+msgstr "容器即服務 (CaaS) 平台基於 OpenSUSE MicroOS 上的 Kubernetes。"
 
 #: ../app/views/distributions/tumbleweed.html.erb:51
 #: ../app/views/distributions/tumbleweed.html.erb:97
@@ -181,7 +181,7 @@ msgstr "包含了大批的軟體供桌面或伺服器使用。適用於安裝或
 #: ../app/views/images/images.xml.erb:17 ../app/views/images/images.xml.erb:30
 #: ../app/views/images/images.xml.erb:91
 msgid "DVD"
-msgstr ""
+msgstr "DVD"
 
 #: ../app/views/distributions/tumbleweed.html.erb:48
 #: ../app/views/distributions/tumbleweed.html.erb:94
@@ -196,17 +196,15 @@ msgstr "DVD 映像檔"
 
 #: ../app/views/images/images.xml.erb:53
 msgid "Desktop"
-msgstr ""
+msgstr "桌面"
 
 #: ../app/views/layouts/_footer.html.erb:5
 msgid "Developers"
 msgstr "開發者"
 
 #: ../app/controllers/package_controller.rb:126
-#, fuzzy
-#| msgid "Development-"
 msgid "Development"
-msgstr "開發-"
+msgstr "開發"
 
 #: ../app/views/search/_find_results.html.erb:82
 msgid "Development packages"
@@ -245,10 +243,8 @@ msgid "Direct Link"
 msgstr "直接連結"
 
 #: ../app/views/images/images.xml.erb:13
-#, fuzzy
-#| msgid "Distribution:"
 msgid "Distribution"
-msgstr "發行版："
+msgstr "發行版"
 
 #: ../app/views/search/_find_form.html.erb:31
 msgid "Distribution:"
@@ -313,7 +309,7 @@ msgstr "切換到 openSUSE Tumbleweed 的簡易方法"
 
 #: ../app/controllers/package_controller.rb:127
 msgid "Education & Science"
-msgstr ""
+msgstr "教育與科學"
 
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
@@ -440,7 +436,7 @@ msgstr "直接抓取二進位套件"
 
 #: ../app/controllers/package_controller.rb:129
 msgid "Graphics"
-msgstr ""
+msgstr "圖形"
 
 #: ../app/views/distributions/index.html.erb:39
 msgid ""
@@ -450,7 +446,7 @@ msgstr "幫忙下載最新的開發里程碑來測試 openSUSE 下個版本的 L
 
 #: ../app/controllers/distributions_controller.rb:34
 msgid "Help test the next version of openSUSE Leap!"
-msgstr ""
+msgstr "幫忙測試 openSUSE Leap 的下個版本！"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
@@ -512,16 +508,12 @@ msgstr "安裝樣式 %s / %s"
 
 #: ../app/views/distributions/leap-15.0.html.erb:18
 #: ../app/views/images/images.xml.erb:28
-#, fuzzy
-#| msgid "Installation Media"
 msgid "Installation"
-msgstr "安裝媒體"
+msgstr "安裝"
 
 #: ../app/views/images/images.xml.erb:16 ../app/views/images/images.xml.erb:90
-#, fuzzy
-#| msgid "Installation Guides"
 msgid "Installation Source"
-msgstr "安裝指引"
+msgstr "安裝來源"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
@@ -546,32 +538,26 @@ msgid "It should be %{fingerprint}"
 msgstr "它應該是%{fingerprint}"
 
 #: ../app/views/distributions/tumbleweed.html.erb:76
-#, fuzzy
-#| msgid "DVD Image"
 msgid "Kubic Image"
-msgstr "DVD 映像檔"
+msgstr "Kubic 映像檔"
 
 #: ../app/views/images/images.xml.erb:18
 msgid "Leap %s DVD"
-msgstr ""
+msgstr "Leap %s DVD"
 
 #: ../app/views/images/images.xml.erb:93
 msgid "Leap %s DVD (Build %s)"
-msgstr ""
+msgstr "Leap %s DVD"
 
 # dialog title for nfs installation
 #: ../app/views/images/images.xml.erb:21
-#, fuzzy
-#| msgid "Network Installation"
 msgid "Leap %s Network Installation"
-msgstr "網路安裝"
+msgstr "Leap %s 網路安裝"
 
 # dialog title for nfs installation
 #: ../app/views/images/images.xml.erb:97
-#, fuzzy
-#| msgid "Network Installation"
 msgid "Leap %s Network Installation (Build %s)"
-msgstr "網路安裝"
+msgstr "Leap %s 網路安裝（內部版本 %s）"
 
 #: ../app/views/distributions/index.html.erb:77
 msgid ""
@@ -596,10 +582,8 @@ msgstr "授權條款"
 
 #: ../app/views/distributions/leap-15.0.html.erb:24
 #: ../app/views/images/images.xml.erb:52
-#, fuzzy
-#| msgid "Live KDE"
 msgid "Live"
-msgstr "Live KDE"
+msgstr "體驗"
 
 #: ../app/views/layouts/_footer.html.erb:31
 msgid "Mail lists"
@@ -620,8 +604,6 @@ msgstr ""
 "(SHA256) 進行驗證。"
 
 #: ../app/views/images/images.xml.erb:27
-#, fuzzy
-#| msgid "Media"
 msgid "Medium"
 msgstr "媒體"
 
@@ -660,10 +642,8 @@ msgstr "多媒體"
 #: ../app/controllers/package_controller.rb:131
 #: ../app/views/images/images.xml.erb:20 ../app/views/images/images.xml.erb:40
 #: ../app/views/images/images.xml.erb:95
-#, fuzzy
-#| msgid "Network Image"
 msgid "Network"
-msgstr "網路映像檔"
+msgstr "網路"
 
 #: ../app/views/distributions/tumbleweed.html.erb:62
 #: ../app/views/distributions/tumbleweed.html.erb:108
@@ -706,7 +686,7 @@ msgstr "沒有發現符合搜尋條件的套件。 "
 
 #: ../app/controllers/distributions_controller.rb:13
 msgid "No stable release available"
-msgstr ""
+msgstr "沒有可供使用的穩定發行版本"
 
 #: ../app/controllers/distributions_controller.rb:30
 msgid "No testing distribution available."
@@ -718,7 +698,7 @@ msgstr "OBS 後端無法使用"
 
 #: ../app/controllers/package_controller.rb:130
 msgid "Office & Productivity"
-msgstr ""
+msgstr "辦公與生產"
 
 #: ../app/views/package/_download_rows.html.erb:22
 #: ../app/views/distributions/tumbleweed.html.erb:19
@@ -774,17 +754,13 @@ msgstr "星球"
 
 #: ../app/views/distributions/tumbleweed.html.erb:195
 msgid "Please be aware of the following limitations of the live images:"
-msgstr ""
+msgstr "請注意"
 
 #: ../app/views/distributions/tumbleweed.html.erb:202
-#, fuzzy
-#| msgid ""
-#| "Please review %{openqa}'s test results if you want an indication whether "
-#| "these LiveUSBs are working as expected."
 msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
 "these live medias are working as expected."
-msgstr "得知 LiveUSB 媒體是否如預期的順利運作煩請檢閱 %{openqa} 的測試結果。"
+msgstr "如果想知道 Live 媒體是否如預期的順利運作，煩請檢閱 %{openqa} 的測試結果。"
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -813,13 +789,11 @@ msgstr "搜尋"
 
 #: ../app/views/search/_find_form.html.erb:5
 msgid "Search packages..."
-msgstr ""
+msgstr "搜尋軟體包"
 
 #: ../app/views/search/_find_form.html.erb:21
-#, fuzzy
-#| msgid "Search options"
 msgid "Search settings"
-msgstr "搜尋選項"
+msgstr "搜尋設定"
 
 #: ../app/views/download/package.erb:10
 msgid "Select Your Operating System"
@@ -830,10 +804,8 @@ msgid "Select the image type"
 msgstr "選擇影像類型"
 
 #: ../app/views/search/_find_form.html.erb:13
-#, fuzzy
-#| msgid "Getting Help"
 msgid "Settings"
-msgstr "取得幫助"
+msgstr "設定"
 
 #: ../app/views/layouts/_footer.html.erb:21
 msgid "Shop"
@@ -880,7 +852,7 @@ msgstr "子套件"
 
 #: ../app/controllers/package_controller.rb:132
 msgid "System & Utility"
-msgstr ""
+msgstr "系統與工具"
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
 msgid ""
@@ -903,7 +875,7 @@ msgstr ""
 
 #: ../app/controllers/application_controller.rb:42
 msgid "The authentication to the OBS API has not been configured correctly."
-msgstr ""
+msgstr "OBS API 的認證尚未完全設定完成。"
 
 #: ../app/views/package/show.html.erb:103
 msgid ""
@@ -933,18 +905,11 @@ msgid ""
 msgstr "它們不能用於安裝或升級 Tumbleweed。 請使用 %{tumbleweed_media}。"
 
 #: ../app/views/distributions/tumbleweed.html.erb:199
-#, fuzzy
-#| msgid ""
-#| "They have a limited package/driver selection, so cannot be considered an "
-#| "accurate reflection as to whether Tumbleweed will work on your hardware "
-#| "or not."
 msgid ""
 "They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not."
-msgstr ""
-"它們只具備有限的套件/驅動程式選擇，故不能夠當作 Tumbleweed 能否在您的硬體運作"
-"的精確指標。"
+msgstr "它們只具備有限的套件與驅動程式選擇，故不能夠當作 Tumbleweed 能否在您的硬體運作的精確指標。"
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
@@ -952,47 +917,43 @@ msgstr "切換導覽"
 
 #: ../app/views/images/images.xml.erb:33
 msgid "Tumbleweed %s DVD (i586)"
-msgstr ""
+msgstr "Tumbleweed %s DVD (i586)"
 
 #: ../app/views/images/images.xml.erb:36
 msgid "Tumbleweed %s DVD (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s DVD (x86_64)"
 
 #: ../app/views/images/images.xml.erb:57
 msgid "Tumbleweed %s GNOME Live (i686)"
-msgstr ""
+msgstr "Tumbleweed %s GNOME Live (i686)"
 
 #: ../app/views/images/images.xml.erb:60
 msgid "Tumbleweed %s GNOME Live (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s GNOME Live (x86_64)"
 
 #: ../app/views/images/images.xml.erb:67
 msgid "Tumbleweed %s KDE Live (i686)"
-msgstr ""
+msgstr "Tumbleweed %s KDE Live (i686)"
 
 #: ../app/views/images/images.xml.erb:70
 msgid "Tumbleweed %s KDE Live (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s KDE Live (x86_64)"
 
 #: ../app/views/images/images.xml.erb:43
-#, fuzzy
-#| msgid "Tumbleweed installation media"
 msgid "Tumbleweed %s Network Installation (i586)"
-msgstr "Tumbleweed 安裝媒體"
+msgstr "Tumbleweed %s 網路安裝 (i586)"
 
 #: ../app/views/images/images.xml.erb:46
-#, fuzzy
-#| msgid "Tumbleweed installation media"
 msgid "Tumbleweed %s Network Installation (x86_64)"
-msgstr "Tumbleweed 安裝媒體"
+msgstr "Tumbleweed %s 網路安裝 (x86_64)"
 
 #: ../app/views/images/images.xml.erb:77
 msgid "Tumbleweed %s Rescue CD (i686)"
-msgstr ""
+msgstr "Tumbleweed %s 救援 CD (i686)"
 
 #: ../app/views/images/images.xml.erb:80
 msgid "Tumbleweed %s Rescue CD (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s 救援 CD (x86_64)"
 
 #: ../app/views/distributions/tumbleweed.html.erb:198
 #: ../app/views/distributions/tumbleweed.html.erb:201
@@ -1103,7 +1064,7 @@ msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 #: ../app/views/images/images.xml.erb:56 ../app/views/images/images.xml.erb:66
 #: ../app/views/images/images.xml.erb:76
 msgid "i586"
-msgstr ""
+msgstr "i586"
 
 #: ../app/views/distributions/index.html.erb:69
 msgid "lifetime"
@@ -1118,10 +1079,8 @@ msgid "openSUSE Software"
 msgstr "openSUSE 軟體"
 
 #: ../app/views/distributions/_documentation.html.erb:6
-#, fuzzy
-#| msgid "openSUSE Software"
 msgid "openSUSE Startup Guide"
-msgstr "openSUSE 軟體"
+msgstr "openSUSE 啟動指南"
 
 #: ../app/views/distributions/index.html.erb:58
 #: ../app/views/images/images.xml.erb:26
@@ -1140,7 +1099,7 @@ msgstr "openSUSE 完全免費下載，使用和分享。"
 #: ../app/views/images/images.xml.erb:59 ../app/views/images/images.xml.erb:69
 #: ../app/views/images/images.xml.erb:79
 msgid "x86_64"
-msgstr ""
+msgstr "x86_64"
 
 #~ msgid "(hide)"
 #~ msgstr "(隱藏)"
