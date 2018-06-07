@@ -50,7 +50,7 @@ class OBSController < ApplicationController
 
   def set_search_options
     @search_term = params[:q] || ""
-    @baseproject =  if !cookies[:baseproject].nil? && @distributions.select { |d| d[:project] == cookies[:baseproject] }
+    @baseproject =  if cookies[:baseproject] && @distributions.select { |d| d[:project] == cookies[:baseproject] }
                       cookies[:baseproject]
                     else
                       "openSUSE:Factory"
