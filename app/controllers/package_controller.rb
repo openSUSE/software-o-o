@@ -1,5 +1,4 @@
-class PackageController < ApplicationController
-  # before_action :set_beta_warning, :only => [:category, :categories]
+class PackageController < OBSController
   before_action :set_search_options, :only => %i[show categories]
   before_action :prepare_appdata, :set_categories, :only => %i[show explore category thumbnail screenshot]
 
@@ -9,47 +8,52 @@ class PackageController < ApplicationController
     required_parameters :package
     @pkgname = params[:package]
     raise MissingParameterError, "Invalid parameter package" unless valid_package_name? @pkgname
+    begin
+      raise OBSError if @distributions.nil?
 
-    @search_term = params[:search_term]
-    @base_appdata_project = "openSUSE:Factory"
+      @search_term = params[:search_term]
+      @base_appdata_project = "openSUSE:Factory"
 
-    @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
-    # only show rpms
-    @packages = @packages.select {|p| p.first.type != 'ymp' && p.quality != "Private"}
-    @default_project = @baseproject
-    @default_project_name = @distributions.select {|d| d[:project] == @default_project}.first[:name]
-    @default_repo = @distributions.select {|d| d[:project] == @default_project}.first[:repository]
-    @default_package = if (!@packages.select {|s| s.project == "#{@default_project}:Update"}.empty?)
-                         @packages.select {|s| s.project == "#{@default_project}:Update"}.first
-                       else
-                         @packages.select {|s| [@default_project, "#{@default_project}:NonFree"].include? s.project}.first
-                       end
+      @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
+      # only show rpms
+      @packages = @packages.select {|p| p.first.type != 'ymp' && p.quality != "Private"}
+      @default_project = @baseproject
+      @default_project_name = @distributions.select {|d| d[:project] == @default_project}.first[:name]
+      @default_repo = @distributions.select {|d| d[:project] == @default_project}.first[:repository]
+      @default_package = if (!@packages.select {|s| s.project == "#{@default_project}:Update"}.empty?)
+                           @packages.select {|s| s.project == "#{@default_project}:Update"}.first
+                         else
+                           @packages.select {|s| [@default_project, "#{@default_project}:NonFree"].include? s.project}.first
+                         end
 
-    pkg_appdata = @appdata[:apps].select {|app| app[:pkgname].downcase == @pkgname.downcase}
-    if (!pkg_appdata.first.blank?)
-      @name = pkg_appdata.first[:name]
-      @appcategories = pkg_appdata.first[:categories]
-      @homepage = pkg_appdata.first[:homepage]
-    end
-
-    @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, protocol: request.protocol
-    @thumbnail = url_for :controller => :package, :action => :thumbnail, :package => @pkgname, protocol: request.protocol
-
-    # remove maintenance projects
-    @packages.reject! {|p| p.project.match(/openSUSE\:Maintenance\:/) }
-
-    @packages.each do |package|
-      # Backports chains up to the toolchain module for newer GCC.
-      # So break the link immediately.
-      if (package.project.match(/^openSUSE:Backports:SLE-12/))
-        package.baseproject = package.project
+      pkg_appdata = @appdata[:apps].select {|app| app[:pkgname].downcase == @pkgname.downcase}
+      if (!pkg_appdata.first.blank?)
+        @name = pkg_appdata.first[:name]
+        @appcategories = pkg_appdata.first[:categories]
+        @homepage = pkg_appdata.first[:homepage]
       end
-    end
 
-    @official_projects = @distributions.map {|d| d[:project]}
-    # get extra distributions that are not in the default distribution list
-    @extra_packages = @packages.reject {|p| @distributions.map {|d| d[:project]}.include? p.baseproject }
-    @extra_dists = @extra_packages.map {|p| p.baseproject}.reject {|d| d.nil?}.uniq.map {|d| { :project => d }}
+      @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, protocol: request.protocol
+      @thumbnail = url_for :controller => :package, :action => :thumbnail, :package => @pkgname, protocol: request.protocol
+
+      filter_packages
+
+      @packages.each do |package|
+        # Backports chains up to the toolchain module for newer GCC.
+        # So break the link immediately.
+        if (package.project.match(/^openSUSE:Backports:SLE-12/))
+          package.baseproject = package.project
+        end
+      end
+
+      @official_projects = @distributions.map {|d| d[:project]}
+      # get extra distributions that are not in the default distribution list
+      @extra_packages = @packages.reject {|p| @distributions.map {|d| d[:project]}.include? p.baseproject }
+      @extra_dists = @extra_packages.map {|p| p.baseproject}.reject {|d| d.nil?}.uniq.map {|d| { :project => d }}
+    rescue OBSError
+      @hide_search_box = true
+      flash.now[:error] = _("Connection to OBS is unavailable. Functionality of this site is limited.")
+    end
   end
 
   def explore

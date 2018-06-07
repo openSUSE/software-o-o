@@ -8,61 +8,20 @@
           </div>
         </div>
         <div class="col-6 col-sm-3 col-lg-2">
-          <button type="submit" class="btn btn-primary btn-block">
+          <button id="search-button" type="submit" class="btn btn-primary btn-block">
             <span class="typcn typcn-lg typcn-zoom-outline"></span>
             <%= _("Search") %>
           </button>
         </div>
         <div class="col-6 col-sm-3 col-lg-2">
-          <button id="settings" type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#search-config-modal">
-              <span class="typcn typcn-lg typcn-spanner-outline"></span>
-              <%= _("Settings") %>
+          <button id="settings-button" type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#search-config-modal">
+            <span class="typcn typcn-lg typcn-spanner-outline"></span>
+            <%= _("Settings") %>
           </button>
-        </div>
-      </div>
-
-      <div class="modal fade" id="search-config-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"><%= _("Search settings") %></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body form">
-              <%= hidden_field_tag("search_devel", "false") %>
-              <%= hidden_field_tag("search_unsupported", "false") %>
-
-              <div class="form-group row">
-                <label for="recipient-name" class="form-control-label col-sm-3 col-form-label"><%= _("Distribution:") %></label>
-                <% @distributions ||= Array.new %>
-                <div class="col-sm-9">
-                  <%= select_tag 'baseproject', options_for_select((@distributions.map{|d| [d[:name], d[:project]]} || ["ALL"]), baseproject), :class => 'form-control'%>
-                </div>
-              </div>
-
-              <div class="form-check">
-                <label class="form-check-label">
-                  <%= check_box_tag("search_devel", "true", @search_devel, {:id => "search_devel_checkbox" })  %>
-                  <%= _("Show development, language and debug packages") %>
-                </label>
-              </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
-            </div>
-          </div>
         </div>
       </div>
     <% end -%>
   </div>
 </div>
 
-<div class="hidden" id="search-messages" >
-  <div class="ui-state-highlight ui-corner-all" style="margin-bottom: 5px;">
-    <p id="msg">
-      <span class="ui-icon ui-icon-info"></span>
-    </p>
-  </div>
-</div>
+<%= render :partial => 'search/settings' %>

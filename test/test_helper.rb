@@ -17,14 +17,13 @@ class ActiveSupport::TestCase
   # test/support
   def stub_content(url, what = {})
     what = { body: what } if what.is_a?(String)
-    %w[http https].each do |protocol|
-      stub = stub_request(:any, "#{protocol}://#{url}").to_return(what)
-      stub.with(basic_auth: ['test', 'test']) if url =~ /^api/
-    end
+    stub = stub_request(:get, url).to_return(what)
+    stub.with(basic_auth: ['test', 'test']) if url =~ /^api/
+    yield stub if block_given?
   end
 
-  def stub_remote_file(url, filename)
-    stub_content(url, body: File.read(Rails.root.join('test', 'support', filename)))
+  def stub_remote_file(url, filename, &block)
+    stub_content(url, body: File.read(Rails.root.join('test', 'support', filename)), &block)
   end
 
   # Stubs a search for a term and a project with random data
@@ -71,18 +70,15 @@ class ActiveSupport::TestCase
               info_xml.mtime Time.now.to_i
             end
           end
-          stub_content("api.opensuse.org/published/#{project}/#{repo}/#{arch}/#{file}?view=fileinfo", builder_fileinfo.to_xml)
+          stub_content("https://api.opensuse.org/published/#{project}/#{repo}/#{arch}/#{file}?view=fileinfo", builder_fileinfo.to_xml)
         end
       end
     end
     # rubocop:enable Metrics/BlockLength
 
-    xpath = %{
-    contains-ic(@name, '#{term}') and path/project='#{baseproject}' and
-      not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) and
-      not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))
-    }.squish
+    xpath = "@project = '#{baseproject}'  and contains-ic(@name, '#{term}') and path/project='#{baseproject}'"
     stub_content("api.opensuse.org/search/published/binary/id?match=#{URI.escape(xpath)}", builder.to_xml)
+    stub_content("https://api.opensuse.org/search/published/binary/id?match=#{URI.escape(xpath)}", builder.to_xml)
   end
 
   APPDATA_CHECKSUM = "a63a63d45b002d5ff8f37c09315cda2c4a9d89ae698f56e95b92f1274332c157".freeze
@@ -90,15 +86,15 @@ class ActiveSupport::TestCase
 
   setup do
     # stub OBS using WebMock
-    stub_remote_file("api.opensuse.org/public/distributions?", "distributions.xml")
-    stub_remote_file("download.opensuse.org/tumbleweed/repo/oss/repodata/repomd.xml", "repomd.xml")
-    stub_remote_file("download.opensuse.org/tumbleweed/repo/non-oss/repodata/repomd.xml", "repomd-non-oss.xml")
+    stub_remote_file("https://api.opensuse.org/public/distributions?", "distributions.xml")
+    stub_remote_file("https://download.opensuse.org/tumbleweed/repo/oss/repodata/repomd.xml", "repomd.xml")
+    stub_remote_file("https://download.opensuse.org/tumbleweed/repo/non-oss/repodata/repomd.xml", "repomd-non-oss.xml")
 
-    stub_remote_file("download.opensuse.org/tumbleweed/repo/oss/repodata/#{APPDATA_CHECKSUM}-appdata.xml.gz", "appdata.xml.gz")
-    stub_remote_file("download.opensuse.org/tumbleweed/repo/non-oss/repodata/#{APPDATA_NON_OSS_CHECKSUM}-appdata.xml.gz", "appdata-non-oss.xml.gz")
-    stub_remote_file("api.opensuse.org/search/published/binary/id?match=@name%20=%20'pidgin'%20", "pidgin.xml")
-    stub_remote_file("api.opensuse.org/published/openSUSE:13.1/standard/i586/pidgin-2.10.7-4.1.3.i586.rpm?view=fileinfo", "pidgin-fileinfo.xml")
-    stub_content("api.opensuse.org/source/openSUSE:13.1/_attribute/OBS:QualityCategory", "<attributes/>")
+    stub_remote_file("https://download.opensuse.org/tumbleweed/repo/oss/repodata/#{APPDATA_CHECKSUM}-appdata.xml.gz", "appdata.xml.gz")
+    stub_remote_file("https://download.opensuse.org/tumbleweed/repo/non-oss/repodata/#{APPDATA_NON_OSS_CHECKSUM}-appdata.xml.gz", "appdata-non-oss.xml.gz")
+    stub_remote_file("https://api.opensuse.org/search/published/binary/id?match=@name%20=%20'pidgin'%20", "pidgin.xml")
+    stub_remote_file("https://api.opensuse.org/published/openSUSE:13.1/standard/i586/pidgin-2.10.7-4.1.3.i586.rpm?view=fileinfo", "pidgin-fileinfo.xml")
+    stub_content("https://api.opensuse.org/source/openSUSE:13.1/_attribute/OBS:QualityCategory", "<attributes/>")
   end
 
   teardown do
