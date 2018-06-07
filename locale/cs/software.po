@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-24 09:32+0200\n"
-"PO-Revision-Date: 2018-01-29 22:35+0000\n"
+"PO-Revision-Date: 2018-05-24 16:32+0000\n"
 "Last-Translator: Aleš Kastner <alkas@volny.cz>\n"
-"Language-Team: Czech <https://l10n.opensuse.org/projects/software-o-o/master/"
-"cs/>\n"
+"Language-Team: Czech "
+"<https://l10n.opensuse.org/projects/software-o-o/master/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,11 +54,11 @@ msgstr "Dvoujádrový procesor 2 GHz, nebo lepší"
 
 #: ../app/views/download/package.erb:9
 msgid "<b>%s</b> from <b>%s</b> project"
-msgstr ""
+msgstr "<b>%s</b> z projektu <b>%s</b>"
 
 #: ../app/views/download/appliance.erb:8
 msgid "<b>%s</b> project"
-msgstr ""
+msgstr "projekt <b>%s</b>"
 
 #: ../app/views/package/_download_rows.html.erb:3
 msgid "<b>official release</b>"
@@ -76,7 +76,7 @@ msgstr "Přidat repozitář a instalovat ručně"
 #: ../app/views/images/images.xml.erb:55 ../app/views/images/images.xml.erb:65
 #: ../app/views/images/images.xml.erb:75
 msgid "Architecture"
-msgstr ""
+msgstr "Architektura"
 
 #: ../app/views/package/show.html.erb:5
 msgid "Back to home page"
@@ -161,6 +161,7 @@ msgstr "Komunita"
 msgid ""
 "Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
 msgstr ""
+"Kontejner jako platforma služeb na základě Kubernetes atop openSUSE MicroOS."
 
 #: ../app/views/distributions/tumbleweed.html.erb:51
 #: ../app/views/distributions/tumbleweed.html.erb:97
@@ -180,7 +181,7 @@ msgstr ""
 #: ../app/views/images/images.xml.erb:17 ../app/views/images/images.xml.erb:30
 #: ../app/views/images/images.xml.erb:91
 msgid "DVD"
-msgstr ""
+msgstr "DVD"
 
 #: ../app/views/distributions/tumbleweed.html.erb:48
 #: ../app/views/distributions/tumbleweed.html.erb:94
@@ -195,17 +196,15 @@ msgstr "Obraz DVD"
 
 #: ../app/views/images/images.xml.erb:53
 msgid "Desktop"
-msgstr ""
+msgstr "Plocha"
 
 #: ../app/views/layouts/_footer.html.erb:5
 msgid "Developers"
 msgstr "Vývojáři"
 
 #: ../app/controllers/package_controller.rb:126
-#, fuzzy
-#| msgid "Development-"
 msgid "Development"
-msgstr "Vývoj-"
+msgstr "Vývoj"
 
 #: ../app/views/search/_find_results.html.erb:82
 msgid "Development packages"
@@ -244,10 +243,8 @@ msgid "Direct Link"
 msgstr "Přímý odkaz"
 
 #: ../app/views/images/images.xml.erb:13
-#, fuzzy
-#| msgid "Distribution:"
 msgid "Distribution"
-msgstr "Distribuce:"
+msgstr "Distribuce"
 
 #: ../app/views/search/_find_form.html.erb:31
 msgid "Distribution:"
@@ -316,7 +313,7 @@ msgstr "Snadné způsoby, jak přejít na openSUSE Tumbleweed"
 
 #: ../app/controllers/package_controller.rb:127
 msgid "Education & Science"
-msgstr ""
+msgstr "Vzdělání a věda"
 
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
@@ -450,7 +447,7 @@ msgstr "Získat binární balíčky přímo"
 
 #: ../app/controllers/package_controller.rb:129
 msgid "Graphics"
-msgstr ""
+msgstr "Grafika"
 
 #: ../app/views/distributions/index.html.erb:39
 msgid ""
@@ -462,7 +459,7 @@ msgstr ""
 
 #: ../app/controllers/distributions_controller.rb:34
 msgid "Help test the next version of openSUSE Leap!"
-msgstr ""
+msgstr "Pomozte otestovat další verzi openSUSE Leap!"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
@@ -525,16 +522,12 @@ msgstr "Nainstalovat šablonu %s / %s"
 
 #: ../app/views/distributions/leap-15.0.html.erb:18
 #: ../app/views/images/images.xml.erb:28
-#, fuzzy
-#| msgid "Installation Media"
 msgid "Installation"
-msgstr "Instalační média"
+msgstr "Instalace"
 
 #: ../app/views/images/images.xml.erb:16 ../app/views/images/images.xml.erb:90
-#, fuzzy
-#| msgid "Installation Guides"
 msgid "Installation Source"
-msgstr "Instalační příručky"
+msgstr "Zdroje instalace"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
@@ -559,32 +552,26 @@ msgid "It should be %{fingerprint}"
 msgstr "Mělo by být %{fingerprint}"
 
 #: ../app/views/distributions/tumbleweed.html.erb:76
-#, fuzzy
-#| msgid "DVD Image"
 msgid "Kubic Image"
-msgstr "Obraz DVD"
+msgstr "Obraz Kubic"
 
 #: ../app/views/images/images.xml.erb:18
 msgid "Leap %s DVD"
-msgstr ""
+msgstr "Leap %s DVD"
 
 #: ../app/views/images/images.xml.erb:93
 msgid "Leap %s DVD (Build %s)"
-msgstr ""
+msgstr "Leap %s DVD (verze %s)"
 
 # dialog title for nfs installation
 #: ../app/views/images/images.xml.erb:21
-#, fuzzy
-#| msgid "Network Installation"
 msgid "Leap %s Network Installation"
-msgstr "Síťová instalace"
+msgstr "Síťová instalace Leap %s"
 
 # dialog title for nfs installation
 #: ../app/views/images/images.xml.erb:97
-#, fuzzy
-#| msgid "Network Installation"
 msgid "Leap %s Network Installation (Build %s)"
-msgstr "Síťová instalace"
+msgstr "Síťová instalace Leap %s (verze %s)"
 
 #: ../app/views/distributions/index.html.erb:77
 msgid ""
@@ -610,10 +597,8 @@ msgstr "Licence"
 
 #: ../app/views/distributions/leap-15.0.html.erb:24
 #: ../app/views/images/images.xml.erb:52
-#, fuzzy
-#| msgid "Live KDE"
 msgid "Live"
-msgstr "Živé KDE"
+msgstr "Živě"
 
 #: ../app/views/layouts/_footer.html.erb:31
 msgid "Mail lists"
@@ -636,10 +621,8 @@ msgstr ""
 "Metalink a použijete ve Firefoxu doplněk DownThemAll."
 
 #: ../app/views/images/images.xml.erb:27
-#, fuzzy
-#| msgid "Multimedia"
 msgid "Medium"
-msgstr "Multimédia"
+msgstr "Médium"
 
 #: ../app/views/distributions/tumbleweed.html.erb:53
 #: ../app/views/distributions/tumbleweed.html.erb:67
@@ -676,10 +659,8 @@ msgstr "Multimédia"
 #: ../app/controllers/package_controller.rb:131
 #: ../app/views/images/images.xml.erb:20 ../app/views/images/images.xml.erb:40
 #: ../app/views/images/images.xml.erb:95
-#, fuzzy
-#| msgid "Network Image"
 msgid "Network"
-msgstr "Obraz sítě"
+msgstr "Síť"
 
 #: ../app/views/distributions/tumbleweed.html.erb:62
 #: ../app/views/distributions/tumbleweed.html.erb:108
@@ -722,7 +703,7 @@ msgstr "Nebyly nalezeny žádné balíčky vyhovující vašemu hledání. "
 
 #: ../app/controllers/distributions_controller.rb:13
 msgid "No stable release available"
-msgstr ""
+msgstr "K dispozici není žádná stabilní verze"
 
 #: ../app/controllers/distributions_controller.rb:30
 msgid "No testing distribution available."
@@ -734,7 +715,7 @@ msgstr "Výkonná část OBS není dostupná"
 
 #: ../app/controllers/package_controller.rb:130
 msgid "Office & Productivity"
-msgstr ""
+msgstr "Kancelář a produktivita"
 
 #: ../app/views/package/_download_rows.html.erb:22
 #: ../app/views/distributions/tumbleweed.html.erb:19
@@ -790,19 +771,15 @@ msgstr "Planeta"
 
 #: ../app/views/distributions/tumbleweed.html.erb:195
 msgid "Please be aware of the following limitations of the live images:"
-msgstr ""
+msgstr "Pozor, živé obrazy mají tato omezení:"
 
 #: ../app/views/distributions/tumbleweed.html.erb:202
-#, fuzzy
-#| msgid ""
-#| "Please review %{openqa}'s test results if you want an indication whether "
-#| "these LiveUSBs are working as expected."
 msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
 "these live medias are working as expected."
 msgstr ""
-"Prohlédněte prosím výsledky testu %{openqa}, chcete-li zjistit, zda tyto "
-"LiveUSB pracují podle předpokladu."
+"Prohlédněte si výsledky testu %{openqa}, chcete-li zjistit, zda tato živá "
+"média pracují podle předpokladu."
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -831,13 +808,11 @@ msgstr "Najít"
 
 #: ../app/views/search/_find_form.html.erb:5
 msgid "Search packages..."
-msgstr ""
+msgstr "Prohledání balíčků..."
 
 #: ../app/views/search/_find_form.html.erb:21
-#, fuzzy
-#| msgid "Search options"
 msgid "Search settings"
-msgstr "Volby vyhledávání"
+msgstr "Možnosti vyhledání"
 
 #: ../app/views/download/package.erb:10
 msgid "Select Your Operating System"
@@ -848,10 +823,8 @@ msgid "Select the image type"
 msgstr "Zvolte typ obrazu"
 
 #: ../app/views/search/_find_form.html.erb:13
-#, fuzzy
-#| msgid "Getting Help"
 msgid "Settings"
-msgstr "Získání nápovědy"
+msgstr "Nastavení"
 
 #: ../app/views/layouts/_footer.html.erb:21
 msgid "Shop"
@@ -898,7 +871,7 @@ msgstr "Podbalíčky"
 
 #: ../app/controllers/package_controller.rb:132
 msgid "System & Utility"
-msgstr ""
+msgstr "Systém a utility"
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
 msgid ""
@@ -924,7 +897,7 @@ msgstr ""
 
 #: ../app/controllers/application_controller.rb:42
 msgid "The authentication to the OBS API has not been configured correctly."
-msgstr ""
+msgstr "Přihlašování k OBS API není správně konfigurováno."
 
 #: ../app/views/package/show.html.erb:103
 msgid ""
@@ -960,18 +933,13 @@ msgstr ""
 "místo toho %{tumbleweed_media}."
 
 #: ../app/views/distributions/tumbleweed.html.erb:199
-#, fuzzy
-#| msgid ""
-#| "They have a limited package/driver selection, so cannot be considered an "
-#| "accurate reflection as to whether Tumbleweed will work on your hardware "
-#| "or not."
 msgid ""
 "They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not."
 msgstr ""
-"Mají omezený výběr balíčků/ovladačů, takže nelze přesně říci, zda Tumbleweed "
-"bude fungovat na vašem hardwaru."
+"Mají omezený výběr balíčků ovladačů, takže nelze předem s jistotou říci, zda "
+"Tumbleweed bude fungovat na vašem hardwaru."
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
@@ -979,56 +947,50 @@ msgstr "Přepnout navigaci"
 
 #: ../app/views/images/images.xml.erb:33
 msgid "Tumbleweed %s DVD (i586)"
-msgstr ""
+msgstr "Tumbleweed %s DVD (i586)"
 
 #: ../app/views/images/images.xml.erb:36
 msgid "Tumbleweed %s DVD (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s DVD (x86_64)"
 
 #: ../app/views/images/images.xml.erb:57
 msgid "Tumbleweed %s GNOME Live (i686)"
-msgstr ""
+msgstr "Tumbleweed %s GNOME Live (i686)"
 
 #: ../app/views/images/images.xml.erb:60
 msgid "Tumbleweed %s GNOME Live (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s GNOME Live (x86_64)"
 
 #: ../app/views/images/images.xml.erb:67
 msgid "Tumbleweed %s KDE Live (i686)"
-msgstr ""
+msgstr "Tumbleweed %s KDE Live (i686)"
 
 #: ../app/views/images/images.xml.erb:70
 msgid "Tumbleweed %s KDE Live (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s KDE Live (x86_64)"
 
 # dialog title for nfs installation
 #: ../app/views/images/images.xml.erb:43
-#, fuzzy
-#| msgid "Network Installation"
 msgid "Tumbleweed %s Network Installation (i586)"
-msgstr "Síťová instalace"
+msgstr "Síťová instalace Tumbleweed %s (i586)"
 
 # dialog title for nfs installation
 #: ../app/views/images/images.xml.erb:46
-#, fuzzy
-#| msgid "Network Installation"
 msgid "Tumbleweed %s Network Installation (x86_64)"
-msgstr "Síťová instalace"
+msgstr "Síťová instalace Tumbleweed %s (x86_64)"
 
 #: ../app/views/images/images.xml.erb:77
 msgid "Tumbleweed %s Rescue CD (i686)"
-msgstr ""
+msgstr "Záchranný CD pro Tumbleweed %s (i686)"
 
 #: ../app/views/images/images.xml.erb:80
 msgid "Tumbleweed %s Rescue CD (x86_64)"
-msgstr ""
+msgstr "Záchranný CD pro Tumbleweed %s (x86_64)"
 
 #: ../app/views/distributions/tumbleweed.html.erb:198
 #: ../app/views/distributions/tumbleweed.html.erb:201
-#, fuzzy
-#| msgid "Not Tested|Tumbleweed installation media"
 msgid "Tumbleweed installation media"
-msgstr "Netestování|Instalační médium Tumbleweedu"
+msgstr "Instalační médium Tumbleweed"
 
 #: ../app/views/distributions/index.html.erb:61
 msgid ""
@@ -1136,7 +1098,7 @@ msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 #: ../app/views/images/images.xml.erb:56 ../app/views/images/images.xml.erb:66
 #: ../app/views/images/images.xml.erb:76
 msgid "i586"
-msgstr ""
+msgstr "i586"
 
 #: ../app/views/distributions/index.html.erb:69
 msgid "lifetime"
@@ -1151,10 +1113,8 @@ msgid "openSUSE Software"
 msgstr "openSUSE software"
 
 #: ../app/views/distributions/_documentation.html.erb:6
-#, fuzzy
-#| msgid "openSUSE Software"
 msgid "openSUSE Startup Guide"
-msgstr "openSUSE software"
+msgstr "Průvodce základy openSUSE"
 
 #: ../app/views/distributions/index.html.erb:58
 #: ../app/views/images/images.xml.erb:26
@@ -1173,7 +1133,7 @@ msgstr "openSUSE je zcela bezplatně nabízen ke stažení, používání a sdí
 #: ../app/views/images/images.xml.erb:59 ../app/views/images/images.xml.erb:69
 #: ../app/views/images/images.xml.erb:79
 msgid "x86_64"
-msgstr ""
+msgstr "x86_64"
 
 #~ msgid "(hide)"
 #~ msgstr "(skrýt)"
