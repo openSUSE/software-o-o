@@ -81,8 +81,10 @@
             s.project.match( /#{distro[:project]}\:NonFree/ ) || s.project.match( /openSUSE\:Maintenance\:/ ) } %>
 
         <p>
-          <button class="btn btn-sm btn-warning" type="button" data-toggle="collapse" data-target="#<%= slug %>-experimental-packages"><%= _("Show experimental packages") %></button>
-          <button class="btn btn-sm btn-danger" type="button" data-toggle="collapse" data-target="#<%= slug %>-community-packages"><%= _("Show community packages") %></button>
+        <% devel_disabled = 'disabled' if devel.empty? %>
+        <button class="btn btn-sm btn-warning" <%= devel_disabled %> type="button" data-toggle="collapse" data-target="#<%= slug %>-experimental-packages"><%= _("Show experimental packages") %></button>
+        <% home_disabled = 'disabled' if home.empty? %>
+        <button class="btn btn-sm btn-danger" <%= home_disabled %> type="button" data-toggle="collapse" data-target="#<%= slug %>-community-packages"><%= _("Show community packages") %></button>
         </p>
         <!-- experimental packages -->
         <div id="<%= slug %>-experimental-packages" class="collapse">
