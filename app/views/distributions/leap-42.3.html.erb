@@ -134,6 +134,12 @@
         </div><!-- /.card-deck -->
       </div><!-- /#unofficial-ports.tab-pane -->
     </div><!-- /.tab-content -->
+    <div class="mt-3">
+      <% if @stable_version %>
+        <%= link_to _('Download latest openSUSE Leap release'),
+          leap_distributions_path %>
+      <% end %>
+    </div>
   </div><!-- /.container -->
 </section>
 

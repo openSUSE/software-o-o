@@ -1,5 +1,5 @@
 class DistributionsController < OBSController
-  before_action :set_releases_parameters, only: %i[index testing leap]
+  before_action :set_releases_parameters, only: %i[index testing leap legacy]
 
   # GET /distributions
   def index
@@ -33,5 +33,17 @@ class DistributionsController < OBSController
     @version = @testing_version
     flash[:notice] = _('Help test the next version of openSUSE Leap!')
     render action: "leap-#{@testing_version}", layout: 'download'
+  end
+
+  # GET /distributions/legacy
+  def legacy
+    @hide_search_box = true
+    unless @legacy_release
+      redirect_to '/', flash: { error: _("No legacy distribution available") }
+      return
+    end
+    @version = @legacy_release
+    flash.now[:notice] = _("There is a new version of openSUSE Leap <a href='/distributions/leap'>available</a>!")
+    render action: "leap-#{@legacy_release}", layout: 'download'
   end
 end
