@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'open_uri_redirections'
 require 'zlib'
 
 class Appdata
@@ -45,7 +46,7 @@ class Appdata
                     "https://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
                   end
     begin
-      Nokogiri::XML(Zlib::GzipReader.new(open(appdata_url)))
+      Nokogiri::XML(Zlib::GzipReader.new(open(appdata_url, allow_redirections: :all)))
     rescue StandardError => e
       Rails.logger.error e
       Rails.logger.error "Can't retrieve appdata from: '#{appdata_url}'"
