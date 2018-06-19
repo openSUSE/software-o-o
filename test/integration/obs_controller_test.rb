@@ -1,4 +1,5 @@
 require File.expand_path('../../test_helper', __FILE__)
+require 'api_connect'
 
 class OBSControllerTest < ActionDispatch::IntegrationTest
   def test_backend_connection
