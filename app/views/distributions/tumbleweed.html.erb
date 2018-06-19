@@ -24,6 +24,7 @@
       <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#unofficial-ports" role="tab">
           <%= _("Unofficial") %>
+          <span class="badge badge-warning">aarch64</span>
           <span class="badge badge-warning">ppc64le</span>
           <span class="badge badge-warning">ppc64</span>
         </a>
@@ -123,6 +124,38 @@
         <div class="alert alert-warning my-3">
           <%= _('These ports are not officially supported, and they are not as stable as official distributions.') %>
         </div>
+
+        <h3 class="my-3">aarch64</h3>
+        <div class="card-deck">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">
+                <span class="typcn typcn-download-outline"></span>
+                <%= _("DVD Image") %> (4.7GB)
+              </h4>
+              <h6 class="card-subtitle mb-2 text-muted"><%= _("For DVD and USB stick") %></h6>
+              <p class="card-text text-muted"><%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %></p>
+              <a href="https://download.opensuse.org/ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-DVD-aarch64-Current.iso" class="card-link"><%= _('Direct Link') %></a>
+              <a href="https://download.opensuse.org/ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-DVD-aarch64-Current.iso.meta4" class="card-link"><%= _('Metalink') %></a>
+              <a href="https://download.opensuse.org/ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-DVD-aarch64-Current.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
+<!-- Currently sha256 file is missing <a href="https://download.opensuse.org/ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-DVD-aarch64-Current.iso.sha256" class="card-link"><%= _('Checksum') %></a> -->
+            </div>
+          </div><!-- /.card -->
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">
+                <span class="typcn typcn-download-outline"></span>
+                <%= _("Network Image") %> (340MB)
+              </h4>
+              <h6 class="card-subtitle mb-2 text-muted"><%= _("For CD and USB stick") %></h6>
+              <p class="card-text text-muted"><%= _("Downloads the installation system and all packages from online repositories. Suitable for installation or upgrade.") %></p>
+              <a href="https://download.opensuse.org/ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current.iso" class="card-link"><%= _('Direct Link') %></a>
+              <a href="https://download.opensuse.org/ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current.iso.meta4" class="card-link"><%= _('Metalink') %></a>
+              <a href="https://download.opensuse.org/ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
+<!-- Currently sha256 file is missing <a href="https://download.opensuse.org/ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256" class="card-link"><%= _('Checksum') %></a> -->
+            </div>
+          </div><!-- /.card -->
+        </div><!-- /.card-deck -->
 
         <h3 class="my-3">ppc64le</h3>
         <div class="card-deck">
