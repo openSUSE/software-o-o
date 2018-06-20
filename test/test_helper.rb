@@ -100,7 +100,7 @@ class ActiveSupport::TestCase
 
     stub_remote_file("https://download.opensuse.org/tumbleweed/repo/oss/repodata/#{APPDATA_CHECKSUM}-appdata.xml.gz", "appdata.xml.gz")
     stub_remote_file("https://download.opensuse.org/tumbleweed/repo/non-oss/repodata/#{APPDATA_NON_OSS_CHECKSUM}-appdata.xml.gz", "appdata-non-oss.xml.gz")
-    stub_remote_file("https://api.opensuse.org/search/published/binary/id?match=@name%20=%20'pidgin'%20", "pidgin.xml")
+    stub_remote_file("https://api.opensuse.org/search/published/binary/id?match=@name%20=%20'pidgin'", "pidgin.xml")
     stub_remote_file("https://api.opensuse.org/published/openSUSE:13.1/standard/i586/pidgin-2.10.7-4.1.3.i586.rpm?view=fileinfo", "pidgin-fileinfo.xml")
     stub_content("https://api.opensuse.org/source/openSUSE:13.1/_attribute/OBS:QualityCategory", "<attributes/>")
   end
