@@ -1,3 +1,5 @@
+<%= render :partial => 'search/default_searches'  if @search_term %>
+
 <% if @packages.blank? %>
   <div class="py-5">
     <div class="container">

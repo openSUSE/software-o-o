@@ -1,13 +1,7 @@
 <div id="search-result" class="py-3">
   <div class="container">
 
-    <% if DEFAULT_SEARCHES[@search_term] %>
-      <div id="search-result-error" >
-        <div id="msg" class="alert alert-info"/>
-          <%=DEFAULT_SEARCHES[@search_term].html_safe %>
-        </div>
-      </div>
-    <% end %>
+    <%= render :partial => 'search/default_searches'  if @search_term %>
 
     <%= render :partial => 'search/category_header'  if @category %>
 

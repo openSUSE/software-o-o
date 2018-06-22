@@ -45,19 +45,27 @@ class ActiveSupport::TestCase
           repo = baseproject.tr(':', '_')
           project = "home:#{user}"
           filepath = "#{project.gsub(':', ':/')}/#{repo}/#{arch}/#{file}"
-          xml.binary do
-            xml.name bin
-            xml.project project
-            xml.package pkg
-            xml.repository repo
-            xml.version ver
-            xml.release rel
-            xml.arch arch
-            xml.filename file
-            xml.filepath filepath
-            xml.baseproject project
-            xml.type 'rpm'
+          exact_match_builder = Nokogiri::XML::Builder.new do |exact_xml|
+            exact_xml.collection(matches: 1) do
+              [xml, exact_xml].each do |x|
+                x.binary do
+                  x.name bin
+                  x.project project
+                  x.package pkg
+                  x.repository repo
+                  x.version ver
+                  x.release rel
+                  x.arch arch
+                  x.filename file
+                  x.filepath filepath
+                  x.baseproject project
+                  x.type 'rpm'
+                end
+              end
+            end
           end
+          xpath = "@name = '#{bin}'"
+          stub_content("https://api.opensuse.org/search/published/binary/id?match=#{URI.escape(xpath)}", exact_match_builder.to_xml)
           builder_fileinfo = Nokogiri::XML::Builder.new do |info_xml|
             info_xml.fileinfo(filename: file) do
               info_xml.name bin
@@ -71,13 +79,13 @@ class ActiveSupport::TestCase
             end
           end
           stub_content("https://api.opensuse.org/published/#{project}/#{repo}/#{arch}/#{file}?view=fileinfo", builder_fileinfo.to_xml)
+          stub_content("https://api.opensuse.org/source/#{project}/_attribute/OBS:QualityCategory", "<attributes/>")
         end
       end
     end
     # rubocop:enable Metrics/BlockLength
 
     xpath = "@project = '#{baseproject}'  and contains-ic(@name, '#{term}') and path/project='#{baseproject}'"
-    stub_content("api.opensuse.org/search/published/binary/id?match=#{URI.escape(xpath)}", builder.to_xml)
     stub_content("https://api.opensuse.org/search/published/binary/id?match=#{URI.escape(xpath)}", builder.to_xml)
   end
 
@@ -92,7 +100,7 @@ class ActiveSupport::TestCase
 
     stub_remote_file("https://download.opensuse.org/tumbleweed/repo/oss/repodata/#{APPDATA_CHECKSUM}-appdata.xml.gz", "appdata.xml.gz")
     stub_remote_file("https://download.opensuse.org/tumbleweed/repo/non-oss/repodata/#{APPDATA_NON_OSS_CHECKSUM}-appdata.xml.gz", "appdata-non-oss.xml.gz")
-    stub_remote_file("https://api.opensuse.org/search/published/binary/id?match=@name%20=%20'pidgin'%20", "pidgin.xml")
+    stub_remote_file("https://api.opensuse.org/search/published/binary/id?match=@name%20=%20'pidgin'", "pidgin.xml")
     stub_remote_file("https://api.opensuse.org/published/openSUSE:13.1/standard/i586/pidgin-2.10.7-4.1.3.i586.rpm?view=fileinfo", "pidgin-fileinfo.xml")
     stub_content("https://api.opensuse.org/source/openSUSE:13.1/_attribute/OBS:QualityCategory", "<attributes/>")
   end
