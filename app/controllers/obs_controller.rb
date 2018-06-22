@@ -86,7 +86,7 @@ class OBSController < ApplicationController
       @packages.filter! { |p| p.project.include?("PowerPC") || p.repository.include?("PowerPC") }
     else # x86
       @packages.reject! do |p|
-        p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") ||
+        p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") || p.repository == 'ports' ||
           p.project.include?("ARM") || p.project.include?("PowerPC") || p.project.include?("zSystems")
       end
     end
