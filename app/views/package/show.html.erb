@@ -53,6 +53,11 @@
               <span class="typcn typcn-flash-outline"></span>
               <%= _("Direct Install") %>
             </a>
+            <% if @appid %>
+            <div>
+              <a id="appstream-button" class="btn" href="appstream://<%= @appid %>"><img class="typcn" src="<%= image_path('appstream-button1.svg') %>" width="177" height="51" alt="AppStream" /></a>
+            </div>
+            <% end %>
           <% end -%>
         </div><!-- /#package-description -->
       </div><!-- /.row -->

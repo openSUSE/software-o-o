@@ -31,6 +31,7 @@ class PackageController < OBSController
         @name = pkg_appdata.first[:name]
         @appcategories = pkg_appdata.first[:categories]
         @homepage = pkg_appdata.first[:homepage]
+        @appid = pkg_appdata.first[:id]
       end
 
       @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, protocol: request.protocol
