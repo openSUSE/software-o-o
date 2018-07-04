@@ -8,9 +8,7 @@ class OBSController < ApplicationController
   before_action :set_releases_parameters
 
   def set_distributions
-    @distributions = Rails.cache.fetch('distributions',
-                                       expires_in: 120.minutes,
-                                       force: true) do
+    @distributions = Rails.cache.fetch('distributions', expires_in: 120.minutes) do
       load_distributions
     end
   rescue OBSError
