@@ -16,6 +16,8 @@ class OBSControllerTest < ActionDispatch::IntegrationTest
     end
 
     ApiConnect.stub :get, mock do
+      # Otherwise the controller would get the distributions from cache
+      Rails.cache.clear
       get '/explore'
       assert_includes body, 'Connection to OBS is unavailable.'
       assert_equal 200, status
