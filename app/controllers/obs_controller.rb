@@ -2,10 +2,19 @@ require 'api_connect'
 
 class OBSError < StandardError; end
 
+HTTP_ERRORS = [
+  EOFError,
+  Errno::ECONNRESET,
+  Errno::EINVAL,
+  Net::HTTPBadResponse,
+  Net::HTTPHeaderSyntaxError,
+  Net::ProtocolError,
+  Timeout::Error
+].freeze
+
 # Handle connection to OBS
 class OBSController < ApplicationController
-  before_action :set_distributions
-  before_action :set_releases_parameters
+  before_action :set_baseproject
 
   def set_distributions
     @distributions = Rails.cache.fetch('distributions',
@@ -29,7 +38,7 @@ class OBSController < ApplicationController
         loaded_distros << parse_distribution(element)
       end
       loaded_distros.unshift(Hash[name: "ALL Distributions", project: 'ALL'])
-    rescue Exception => e
+    rescue *HTTP_ERRORS => e
       logger.error "Error while loading distributions: " + e.to_s
       raise OBSError.new, _("OBS Backend not available")
     end
@@ -48,13 +57,20 @@ class OBSController < ApplicationController
     dist
   end
 
+  def set_baseproject
+    set_releases_parameters
+    set_distributions
+    @baseproject = if (@distributions.blank? || @distributions.select { |d| d[:project] == cookies[:baseproject] }.blank?)
+                     "openSUSE:Leap:#{@stable_version}"
+                   else
+                     cookies[:baseproject]
+                   end
+    @baseproject_name = @distributions.detect { |d| d[:project] == @baseproject }[:name]
+    logger.debug "Base Project: #{@baseproject}"
+  end
+
   def set_search_options
     @search_term = params[:q] || ""
-    @baseproject =  if cookies[:baseproject] && @distributions.any? { |d| d[:project] == cookies[:baseproject] }
-                      cookies[:baseproject]
-                    else
-                      "openSUSE:Factory"
-                    end
     @search_devel = (cookies[:search_devel] == "true" ? true : false)
     @search_lang = (cookies[:search_lang] == "true" ? true : false)
     @search_debug = (cookies[:search_debug] == "true" ? true : false)
