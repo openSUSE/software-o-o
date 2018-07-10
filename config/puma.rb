@@ -18,11 +18,10 @@ on_worker_boot do
   end
 end
 
-if Rails.env.production?
+# Instrumentation only when explicitly enabled or when in production
+if ENV['INSTRUMENTATION'] == 'true' || ENV['RACK_ENV'] == 'production'
   after_worker_fork do
-    require 'prometheus_exporter'
-    require 'prometheus_exporter/instrumentation' # todo needed?
+    require 'prometheus_exporter/instrumentation'
     PrometheusExporter::Instrumentation::Process.start(type:"web")
   end
 end
-
