@@ -75,6 +75,8 @@ When doing this, you need to start the prometheus_exporter process separately (o
 bundle exec prometheus_exporter
 ```
 
+After this the prometheus metrics will be exported under `http://localhost:9394/metrics`.
+
 ## Running the application in production
 
 The application will take the following environment variables:
