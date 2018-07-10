@@ -18,10 +18,11 @@ on_worker_boot do
   end
 end
 
-after_worker_fork do
-  require 'prometheus_exporter'  
-  require 'prometheus_exporter/instrumentation' # todo needed?
-#  client = PrometheusExporter::Client.new(host: '172.17.0.3')
-  PrometheusExporter::Instrumentation::Process.start(type:"web")
+if Rails.env.production?
+  after_worker_fork do
+    require 'prometheus_exporter'
+    require 'prometheus_exporter/instrumentation' # todo needed?
+    PrometheusExporter::Instrumentation::Process.start(type:"web")
+  end
 end
 
