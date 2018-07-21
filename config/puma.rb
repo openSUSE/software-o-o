@@ -17,3 +17,11 @@ on_worker_boot do
     ObjectSpace.trace_object_allocations_start
   end
 end
+
+# Instrumentation only when explicitly enabled or when in production
+if ENV['INSTRUMENTATION'] == 'true' || ENV['RACK_ENV'] == 'production'
+  after_worker_fork do
+    require 'prometheus_exporter/instrumentation'
+    PrometheusExporter::Instrumentation::Process.start(type:"web")
+  end
+end

@@ -62,6 +62,21 @@ bundle exec rails test:system
 
 See more [here.](https://developer.mozilla.org/en-US/Firefox/Headless_mode)
 
+### Instrumentation on development
+By default in non-production environments, the prometheus instrumentation is disabled. You can enable it by passing `INSTRUMENTATION=true` environment variable when starting the application:
+
+```
+INSTRUMENTATION=true bundle exec rails s
+```
+
+When doing this, you need to start the prometheus_exporter process separately (otherwise you will observe a lot of warnings in the log as the instrumentation code will try to connect to the collector process). You can do so with this command:
+
+```
+bundle exec prometheus_exporter
+```
+
+After this the prometheus metrics will be exported under `http://localhost:9394/metrics`.
+
 ## Running the application in production
 
 The application will take the following environment variables:
@@ -78,6 +93,8 @@ Puma will honor other variables too:
 * `PORT`
 * `RACK_ENV`
 * `SOFTWARE_O_O_RBTRACE`
+
+In production, prometheus instrumentation is enabled and `prometheus_exporter` process must be started.
 
 ### Debugging
 
