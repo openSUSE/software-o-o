@@ -37,7 +37,9 @@
             <p class="text-muted"><%= _("No description.") %></p>
           <% end -%>
 
-          <% unless @default_package.blank? %>
+          <% if @default_package.blank? %>
+            <%= _("There is no official package available for %s") % @default_project_name %>
+          <% else %>
             <%
               url = url_for :controller => 'download', :action => 'ymp_without_arch_and_version', :query => @pkgname,
               :project => @default_package.project, :repository => @default_package.repository, :package => @pkgname, :base => @default_package.baseproject, :protocol => 'https'
@@ -57,8 +59,12 @@
     </div><!-- /.container -->
   </header>
 
-
-  <div class="container">
+  <% unless @default_package.blank? %>
+    <div class="container">
+    <button class="btn" type="button" data-toggle="collapse" data-target="#other-distributions-listing"><%= _("Show %s for other distributions") % @pkgname %></button>
+    </div>
+  <% end %>
+  <div class="container <% unless @default_package.blank? %>collapse<% end %>" id="other-distributions-listing">
     <h3 class="mt-5 mb-4"><%= _("Distributions") %></h3>
 
     <% @distributions.each do |distro| -%>
