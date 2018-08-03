@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: software-opensuse-org.fi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-24 09:32+0200\n"
+"POT-Creation-Date: 2018-08-03 14:42+0200\n"
 "PO-Revision-Date: 2018-02-18 15:37+0000\n"
 "Last-Translator: Tommi Nieminen <software@legisign.org>\n"
 "Language-Team: Finnish <https://l10n.opensuse.org/projects/software-o-o/"
@@ -83,7 +83,7 @@ msgstr "Lisää asennuslähde ja asenna itse"
 msgid "Architecture"
 msgstr ""
 
-#: ../app/views/package/show.html.erb:5
+#: ../app/views/package/show.html.erb:7
 msgid "Back to home page"
 msgstr "Palaa kotisivulle"
 
@@ -109,39 +109,46 @@ msgstr ""
 msgid "Build service"
 msgstr "Koostamispalvelu"
 
-#: ../app/views/package/show.html.erb:25
+#: ../app/views/search/_settings.html.erb:44
+msgid "Cancel"
+msgstr ""
+
+#: ../app/views/package/show.html.erb:27
 msgid "Categories"
 msgstr "Luokat"
 
-#: ../app/views/package/show.html.erb:25
+#: ../app/views/package/show.html.erb:27
 msgid "Category"
 msgstr "Luokka"
 
-#: ../app/views/distributions/tumbleweed.html.erb:55
-#: ../app/views/distributions/tumbleweed.html.erb:69
-#: ../app/views/distributions/tumbleweed.html.erb:83
-#: ../app/views/distributions/tumbleweed.html.erb:101
-#: ../app/views/distributions/tumbleweed.html.erb:115
-#: ../app/views/distributions/tumbleweed.html.erb:140
-#: ../app/views/distributions/tumbleweed.html.erb:154
-#: ../app/views/distributions/tumbleweed.html.erb:172
-#: ../app/views/distributions/tumbleweed.html.erb:186
-#: ../app/views/distributions/tumbleweed.html.erb:217
-#: ../app/views/distributions/tumbleweed.html.erb:229
-#: ../app/views/distributions/tumbleweed.html.erb:241
-#: ../app/views/distributions/tumbleweed.html.erb:257
-#: ../app/views/distributions/tumbleweed.html.erb:269
-#: ../app/views/distributions/tumbleweed.html.erb:281
+#: ../app/views/distributions/leap-15.0.html.erb:46
+#: ../app/views/distributions/leap-15.0.html.erb:60
+#: ../app/views/distributions/leap-15.0.html.erb:80
+#: ../app/views/distributions/leap-15.0.html.erb:93
+#: ../app/views/distributions/leap-15.0.html.erb:106
 #: ../app/views/distributions/leap-42.3.html.erb:46
 #: ../app/views/distributions/leap-42.3.html.erb:60
 #: ../app/views/distributions/leap-42.3.html.erb:85
 #: ../app/views/distributions/leap-42.3.html.erb:99
 #: ../app/views/distributions/leap-42.3.html.erb:117
 #: ../app/views/distributions/leap-42.3.html.erb:131
-#: ../app/views/distributions/leap-15.0.html.erb:46
-#: ../app/views/distributions/leap-15.0.html.erb:60
-#: ../app/views/distributions/leap-15.0.html.erb:80
-#: ../app/views/distributions/leap-15.0.html.erb:93
+#: ../app/views/distributions/tumbleweed.html.erb:56
+#: ../app/views/distributions/tumbleweed.html.erb:70
+#: ../app/views/distributions/tumbleweed.html.erb:84
+#: ../app/views/distributions/tumbleweed.html.erb:102
+#: ../app/views/distributions/tumbleweed.html.erb:116
+#: ../app/views/distributions/tumbleweed.html.erb:141
+#: ../app/views/distributions/tumbleweed.html.erb:155
+#: ../app/views/distributions/tumbleweed.html.erb:173
+#: ../app/views/distributions/tumbleweed.html.erb:187
+#: ../app/views/distributions/tumbleweed.html.erb:205
+#: ../app/views/distributions/tumbleweed.html.erb:219
+#: ../app/views/distributions/tumbleweed.html.erb:250
+#: ../app/views/distributions/tumbleweed.html.erb:262
+#: ../app/views/distributions/tumbleweed.html.erb:274
+#: ../app/views/distributions/tumbleweed.html.erb:290
+#: ../app/views/distributions/tumbleweed.html.erb:302
+#: ../app/views/distributions/tumbleweed.html.erb:314
 msgid "Checksum"
 msgstr "Tarkistussumma"
 
@@ -162,19 +169,25 @@ msgstr "Miten valita ladattava jakelu"
 msgid "Community"
 msgstr "Yhteisö"
 
-#: ../app/views/distributions/tumbleweed.html.erb:79
+#: ../app/controllers/package_controller.rb:55
+msgid ""
+"Connection to OBS is unavailable. Functionality of this site is limited."
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:80
 msgid ""
 "Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
 msgstr ""
 
-#: ../app/views/distributions/tumbleweed.html.erb:51
-#: ../app/views/distributions/tumbleweed.html.erb:97
-#: ../app/views/distributions/tumbleweed.html.erb:136
-#: ../app/views/distributions/tumbleweed.html.erb:168
+#: ../app/views/distributions/leap-15.0.html.erb:42
 #: ../app/views/distributions/leap-42.3.html.erb:42
 #: ../app/views/distributions/leap-42.3.html.erb:81
 #: ../app/views/distributions/leap-42.3.html.erb:113
-#: ../app/views/distributions/leap-15.0.html.erb:42
+#: ../app/views/distributions/tumbleweed.html.erb:52
+#: ../app/views/distributions/tumbleweed.html.erb:98
+#: ../app/views/distributions/tumbleweed.html.erb:137
+#: ../app/views/distributions/tumbleweed.html.erb:169
+#: ../app/views/distributions/tumbleweed.html.erb:201
 msgid ""
 "Contains a large collection of software for desktop or server use. Suitable "
 "for installation or upgrade."
@@ -187,14 +200,15 @@ msgstr ""
 msgid "DVD"
 msgstr ""
 
-#: ../app/views/distributions/tumbleweed.html.erb:48
-#: ../app/views/distributions/tumbleweed.html.erb:94
-#: ../app/views/distributions/tumbleweed.html.erb:133
-#: ../app/views/distributions/tumbleweed.html.erb:165
+#: ../app/views/distributions/leap-15.0.html.erb:39
 #: ../app/views/distributions/leap-42.3.html.erb:39
 #: ../app/views/distributions/leap-42.3.html.erb:78
 #: ../app/views/distributions/leap-42.3.html.erb:110
-#: ../app/views/distributions/leap-15.0.html.erb:39
+#: ../app/views/distributions/tumbleweed.html.erb:49
+#: ../app/views/distributions/tumbleweed.html.erb:95
+#: ../app/views/distributions/tumbleweed.html.erb:134
+#: ../app/views/distributions/tumbleweed.html.erb:166
+#: ../app/views/distributions/tumbleweed.html.erb:198
 msgid "DVD Image"
 msgstr "DVD-levykuva"
 
@@ -206,45 +220,48 @@ msgstr ""
 msgid "Developers"
 msgstr "Kehittäjät"
 
-#: ../app/controllers/package_controller.rb:126
+#: ../app/controllers/package_controller.rb:130
 #, fuzzy
 #| msgid "Development-"
 msgid "Development"
 msgstr "Kehitys-"
 
-#: ../app/views/search/_find_results.html.erb:82
+#: ../app/views/search/_find_results.html.erb:76
 msgid "Development packages"
 msgstr "Kehityspaketit"
 
-#: ../app/views/package/show.html.erb:50
+#: ../app/views/package/show.html.erb:54
 msgid "Direct Install"
 msgstr "Suora asennus"
 
-#: ../app/views/distributions/tumbleweed.html.erb:52
-#: ../app/views/distributions/tumbleweed.html.erb:66
-#: ../app/views/distributions/tumbleweed.html.erb:80
-#: ../app/views/distributions/tumbleweed.html.erb:98
-#: ../app/views/distributions/tumbleweed.html.erb:112
-#: ../app/views/distributions/tumbleweed.html.erb:137
-#: ../app/views/distributions/tumbleweed.html.erb:151
-#: ../app/views/distributions/tumbleweed.html.erb:169
-#: ../app/views/distributions/tumbleweed.html.erb:183
-#: ../app/views/distributions/tumbleweed.html.erb:215
-#: ../app/views/distributions/tumbleweed.html.erb:227
-#: ../app/views/distributions/tumbleweed.html.erb:239
-#: ../app/views/distributions/tumbleweed.html.erb:255
-#: ../app/views/distributions/tumbleweed.html.erb:267
-#: ../app/views/distributions/tumbleweed.html.erb:279
+#: ../app/views/distributions/leap-15.0.html.erb:43
+#: ../app/views/distributions/leap-15.0.html.erb:57
+#: ../app/views/distributions/leap-15.0.html.erb:77
+#: ../app/views/distributions/leap-15.0.html.erb:90
+#: ../app/views/distributions/leap-15.0.html.erb:103
 #: ../app/views/distributions/leap-42.3.html.erb:43
 #: ../app/views/distributions/leap-42.3.html.erb:57
 #: ../app/views/distributions/leap-42.3.html.erb:82
 #: ../app/views/distributions/leap-42.3.html.erb:96
 #: ../app/views/distributions/leap-42.3.html.erb:114
 #: ../app/views/distributions/leap-42.3.html.erb:128
-#: ../app/views/distributions/leap-15.0.html.erb:43
-#: ../app/views/distributions/leap-15.0.html.erb:57
-#: ../app/views/distributions/leap-15.0.html.erb:77
-#: ../app/views/distributions/leap-15.0.html.erb:90
+#: ../app/views/distributions/tumbleweed.html.erb:53
+#: ../app/views/distributions/tumbleweed.html.erb:67
+#: ../app/views/distributions/tumbleweed.html.erb:81
+#: ../app/views/distributions/tumbleweed.html.erb:99
+#: ../app/views/distributions/tumbleweed.html.erb:113
+#: ../app/views/distributions/tumbleweed.html.erb:138
+#: ../app/views/distributions/tumbleweed.html.erb:152
+#: ../app/views/distributions/tumbleweed.html.erb:170
+#: ../app/views/distributions/tumbleweed.html.erb:184
+#: ../app/views/distributions/tumbleweed.html.erb:202
+#: ../app/views/distributions/tumbleweed.html.erb:216
+#: ../app/views/distributions/tumbleweed.html.erb:248
+#: ../app/views/distributions/tumbleweed.html.erb:260
+#: ../app/views/distributions/tumbleweed.html.erb:272
+#: ../app/views/distributions/tumbleweed.html.erb:288
+#: ../app/views/distributions/tumbleweed.html.erb:300
+#: ../app/views/distributions/tumbleweed.html.erb:312
 msgid "Direct Link"
 msgstr "Suora linkki"
 
@@ -254,21 +271,21 @@ msgstr "Suora linkki"
 msgid "Distribution"
 msgstr "Jakelu:"
 
-#: ../app/views/search/_find_form.html.erb:31
+#: ../app/views/search/_settings.html.erb:15
 msgid "Distribution:"
 msgstr "Jakelu:"
 
-#: ../app/views/package/show.html.erb:60
+#: ../app/views/package/show.html.erb:68
 msgid "Distributions"
 msgstr "Jakelut"
 
-#: ../app/views/layouts/_navbar.html.erb:41
 #: ../app/views/layouts/_footer.html.erb:7
+#: ../app/views/layouts/_navbar.html.erb:20
 #: ../app/views/distributions/_documentation.html.erb:2
 msgid "Documentation"
 msgstr "Dokumentaatio"
 
-#: ../app/views/layouts/_navbar.html.erb:38
+#: ../app/views/layouts/_navbar.html.erb:17
 #: ../app/views/package/_download_rows.html.erb:54
 #: ../app/views/distributions/index.html.erb:21
 #: ../app/views/distributions/index.html.erb:31
@@ -279,6 +296,10 @@ msgstr "Lataa"
 #: ../app/controllers/download_controller.rb:43
 msgid "Download appliance from %s"
 msgstr "Lataa ohjelmakokonaisuus %s"
+
+#: ../app/views/distributions/leap-42.3.html.erb:139
+msgid "Download latest openSUSE Leap release"
+msgstr ""
 
 #: ../app/views/distributions/index.html.erb:28
 msgid ""
@@ -296,14 +317,19 @@ msgstr ""
 "Lataa openSUSEn jatkuva jakelu ja käytä aina viimeisimpiä openSUSE-projektin "
 "tarjoamia paketteja."
 
-#: ../app/views/distributions/tumbleweed.html.erb:65
-#: ../app/views/distributions/tumbleweed.html.erb:111
-#: ../app/views/distributions/tumbleweed.html.erb:150
-#: ../app/views/distributions/tumbleweed.html.erb:182
+#: ../app/views/distributions/leap-15.0.html.erb:114
+msgid "Download previous openSUSE Leap release"
+msgstr ""
+
+#: ../app/views/distributions/leap-15.0.html.erb:56
 #: ../app/views/distributions/leap-42.3.html.erb:56
 #: ../app/views/distributions/leap-42.3.html.erb:95
 #: ../app/views/distributions/leap-42.3.html.erb:127
-#: ../app/views/distributions/leap-15.0.html.erb:56
+#: ../app/views/distributions/tumbleweed.html.erb:66
+#: ../app/views/distributions/tumbleweed.html.erb:112
+#: ../app/views/distributions/tumbleweed.html.erb:151
+#: ../app/views/distributions/tumbleweed.html.erb:183
+#: ../app/views/distributions/tumbleweed.html.erb:215
 msgid ""
 "Downloads the installation system and all packages from online repositories. "
 "Suitable for installation or upgrade."
@@ -319,7 +345,7 @@ msgstr "Helppoja tapoja vaihtaa openSUSE Leapiin"
 msgid "Easy Ways to Switch to openSUSE Tumbleweed"
 msgstr "Helppoja tapoja vaihtaa openSUSE Tumbleweediin"
 
-#: ../app/controllers/package_controller.rb:127
+#: ../app/controllers/package_controller.rb:131
 msgid "Education & Science"
 msgstr ""
 
@@ -357,34 +383,37 @@ msgstr ""
 "seuraava (huomaa että pakettivarastojen järjestys pacman.conf-tiedostossa on "
 "tärkeää, koska pacman lataa aina ensimmäisen löytämänsä paketin):"
 
-#: ../app/views/distributions/tumbleweed.html.erb:64
-#: ../app/views/distributions/tumbleweed.html.erb:110
-#: ../app/views/distributions/tumbleweed.html.erb:149
-#: ../app/views/distributions/tumbleweed.html.erb:181
-#: ../app/views/distributions/tumbleweed.html.erb:238
-#: ../app/views/distributions/tumbleweed.html.erb:278
+#: ../app/views/distributions/leap-15.0.html.erb:55
+#: ../app/views/distributions/leap-15.0.html.erb:102
 #: ../app/views/distributions/leap-42.3.html.erb:55
 #: ../app/views/distributions/leap-42.3.html.erb:94
 #: ../app/views/distributions/leap-42.3.html.erb:126
-#: ../app/views/distributions/leap-15.0.html.erb:55
+#: ../app/views/distributions/tumbleweed.html.erb:65
+#: ../app/views/distributions/tumbleweed.html.erb:111
+#: ../app/views/distributions/tumbleweed.html.erb:150
+#: ../app/views/distributions/tumbleweed.html.erb:182
+#: ../app/views/distributions/tumbleweed.html.erb:214
+#: ../app/views/distributions/tumbleweed.html.erb:271
+#: ../app/views/distributions/tumbleweed.html.erb:311
 msgid "For CD and USB stick"
 msgstr "CD:lle tai USB-tikulle"
 
-#: ../app/views/distributions/tumbleweed.html.erb:50
-#: ../app/views/distributions/tumbleweed.html.erb:78
-#: ../app/views/distributions/tumbleweed.html.erb:96
-#: ../app/views/distributions/tumbleweed.html.erb:135
-#: ../app/views/distributions/tumbleweed.html.erb:167
-#: ../app/views/distributions/tumbleweed.html.erb:214
-#: ../app/views/distributions/tumbleweed.html.erb:226
-#: ../app/views/distributions/tumbleweed.html.erb:254
-#: ../app/views/distributions/tumbleweed.html.erb:266
-#: ../app/views/distributions/leap-42.3.html.erb:41
-#: ../app/views/distributions/leap-42.3.html.erb:80
-#: ../app/views/distributions/leap-42.3.html.erb:112
 #: ../app/views/distributions/leap-15.0.html.erb:41
 #: ../app/views/distributions/leap-15.0.html.erb:76
 #: ../app/views/distributions/leap-15.0.html.erb:89
+#: ../app/views/distributions/leap-42.3.html.erb:41
+#: ../app/views/distributions/leap-42.3.html.erb:80
+#: ../app/views/distributions/leap-42.3.html.erb:112
+#: ../app/views/distributions/tumbleweed.html.erb:51
+#: ../app/views/distributions/tumbleweed.html.erb:79
+#: ../app/views/distributions/tumbleweed.html.erb:97
+#: ../app/views/distributions/tumbleweed.html.erb:136
+#: ../app/views/distributions/tumbleweed.html.erb:168
+#: ../app/views/distributions/tumbleweed.html.erb:200
+#: ../app/views/distributions/tumbleweed.html.erb:247
+#: ../app/views/distributions/tumbleweed.html.erb:259
+#: ../app/views/distributions/tumbleweed.html.erb:287
+#: ../app/views/distributions/tumbleweed.html.erb:299
 msgid "For DVD and USB stick"
 msgstr "DVD:lle tai USB-tikulle"
 
@@ -406,8 +435,8 @@ msgid "For more help verifying your download please read %{checksums_help}"
 msgstr ""
 "Lue %{checksums_help}, jos tarvitset lisätietoa lataustesi todentamisesta."
 
-#: ../app/views/layouts/_navbar.html.erb:47
 #: ../app/views/layouts/_footer.html.erb:27
+#: ../app/views/layouts/_navbar.html.erb:26
 msgid "Forums"
 msgstr "Foorumit"
 
@@ -427,11 +456,11 @@ msgstr "Aiemmasta versiosta tai toisesta Linux-jakelusta"
 msgid "Full Documentation"
 msgstr "Kaikki ohjeet"
 
-#: ../app/controllers/package_controller.rb:125
+#: ../app/controllers/package_controller.rb:129
 msgid "Games"
 msgstr "Pelit"
 
-#: ../app/views/search/_find_results.html.erb:63
+#: ../app/views/search/_find_results.html.erb:57
 msgid "Get"
 msgstr "Nouda"
 
@@ -450,7 +479,7 @@ msgstr "Google+-ryhmä"
 msgid "Grab binary packages directly"
 msgstr "Lataa binääripaketti suoraan asennuslähteestä"
 
-#: ../app/controllers/package_controller.rb:129
+#: ../app/controllers/package_controller.rb:133
 msgid "Graphics"
 msgstr ""
 
@@ -561,7 +590,7 @@ msgstr ""
 msgid "It should be %{fingerprint}"
 msgstr "Sen tulisi olla %{fingerprint}"
 
-#: ../app/views/distributions/tumbleweed.html.erb:76
+#: ../app/views/distributions/tumbleweed.html.erb:77
 #, fuzzy
 #| msgid "DVD Image"
 msgid "Kubic Image"
@@ -645,39 +674,42 @@ msgstr ""
 msgid "Medium"
 msgstr "Multimedia"
 
-#: ../app/views/distributions/tumbleweed.html.erb:53
-#: ../app/views/distributions/tumbleweed.html.erb:67
-#: ../app/views/distributions/tumbleweed.html.erb:81
-#: ../app/views/distributions/tumbleweed.html.erb:99
-#: ../app/views/distributions/tumbleweed.html.erb:113
-#: ../app/views/distributions/tumbleweed.html.erb:138
-#: ../app/views/distributions/tumbleweed.html.erb:152
-#: ../app/views/distributions/tumbleweed.html.erb:170
-#: ../app/views/distributions/tumbleweed.html.erb:184
-#: ../app/views/distributions/tumbleweed.html.erb:216
-#: ../app/views/distributions/tumbleweed.html.erb:228
-#: ../app/views/distributions/tumbleweed.html.erb:240
-#: ../app/views/distributions/tumbleweed.html.erb:256
-#: ../app/views/distributions/tumbleweed.html.erb:268
-#: ../app/views/distributions/tumbleweed.html.erb:280
+#: ../app/views/distributions/leap-15.0.html.erb:44
+#: ../app/views/distributions/leap-15.0.html.erb:58
+#: ../app/views/distributions/leap-15.0.html.erb:78
+#: ../app/views/distributions/leap-15.0.html.erb:91
+#: ../app/views/distributions/leap-15.0.html.erb:104
 #: ../app/views/distributions/leap-42.3.html.erb:44
 #: ../app/views/distributions/leap-42.3.html.erb:58
 #: ../app/views/distributions/leap-42.3.html.erb:83
 #: ../app/views/distributions/leap-42.3.html.erb:97
 #: ../app/views/distributions/leap-42.3.html.erb:115
 #: ../app/views/distributions/leap-42.3.html.erb:129
-#: ../app/views/distributions/leap-15.0.html.erb:44
-#: ../app/views/distributions/leap-15.0.html.erb:58
-#: ../app/views/distributions/leap-15.0.html.erb:78
-#: ../app/views/distributions/leap-15.0.html.erb:91
+#: ../app/views/distributions/tumbleweed.html.erb:54
+#: ../app/views/distributions/tumbleweed.html.erb:68
+#: ../app/views/distributions/tumbleweed.html.erb:82
+#: ../app/views/distributions/tumbleweed.html.erb:100
+#: ../app/views/distributions/tumbleweed.html.erb:114
+#: ../app/views/distributions/tumbleweed.html.erb:139
+#: ../app/views/distributions/tumbleweed.html.erb:153
+#: ../app/views/distributions/tumbleweed.html.erb:171
+#: ../app/views/distributions/tumbleweed.html.erb:185
+#: ../app/views/distributions/tumbleweed.html.erb:203
+#: ../app/views/distributions/tumbleweed.html.erb:217
+#: ../app/views/distributions/tumbleweed.html.erb:249
+#: ../app/views/distributions/tumbleweed.html.erb:261
+#: ../app/views/distributions/tumbleweed.html.erb:273
+#: ../app/views/distributions/tumbleweed.html.erb:289
+#: ../app/views/distributions/tumbleweed.html.erb:301
+#: ../app/views/distributions/tumbleweed.html.erb:313
 msgid "Metalink"
 msgstr "Metalinkki"
 
-#: ../app/controllers/package_controller.rb:128
+#: ../app/controllers/package_controller.rb:132
 msgid "Multimedia"
 msgstr "Multimedia"
 
-#: ../app/controllers/package_controller.rb:131
+#: ../app/controllers/package_controller.rb:135
 #: ../app/views/images/images.xml.erb:20 ../app/views/images/images.xml.erb:40
 #: ../app/views/images/images.xml.erb:95
 #, fuzzy
@@ -685,14 +717,15 @@ msgstr "Multimedia"
 msgid "Network"
 msgstr "Verkkolevykuva"
 
-#: ../app/views/distributions/tumbleweed.html.erb:62
-#: ../app/views/distributions/tumbleweed.html.erb:108
-#: ../app/views/distributions/tumbleweed.html.erb:147
-#: ../app/views/distributions/tumbleweed.html.erb:179
+#: ../app/views/distributions/leap-15.0.html.erb:53
 #: ../app/views/distributions/leap-42.3.html.erb:53
 #: ../app/views/distributions/leap-42.3.html.erb:92
 #: ../app/views/distributions/leap-42.3.html.erb:124
-#: ../app/views/distributions/leap-15.0.html.erb:53
+#: ../app/views/distributions/tumbleweed.html.erb:63
+#: ../app/views/distributions/tumbleweed.html.erb:109
+#: ../app/views/distributions/tumbleweed.html.erb:148
+#: ../app/views/distributions/tumbleweed.html.erb:180
+#: ../app/views/distributions/tumbleweed.html.erb:212
 msgid "Network Image"
 msgstr "Verkkolevykuva"
 
@@ -712,7 +745,7 @@ msgstr "Ohjelmakokonaisuuksia ei löytynyt projektista %s"
 msgid "No data for %s / %s"
 msgstr "Ei dataa %s / %s"
 
-#: ../app/views/package/show.html.erb:35
+#: ../app/views/package/show.html.erb:37
 msgid "No description."
 msgstr "Ei kuvausta."
 
@@ -720,7 +753,13 @@ msgstr "Ei kuvausta."
 msgid "No downloads found for %s in project %s"
 msgstr "Ei latauksia %s projektissa %s"
 
-#: ../app/views/search/_find_results.html.erb:18
+#: ../app/controllers/distributions_controller.rb:42
+#, fuzzy
+#| msgid "No testing distribution available."
+msgid "No legacy distribution available"
+msgstr "Testausjakelua ei ole saatavilla."
+
+#: ../app/views/search/_find_results.html.erb:12
 msgid "No packages found matching your search. "
 msgstr "Mikään paketti ei vastaa hakuasi. "
 
@@ -732,17 +771,21 @@ msgstr ""
 msgid "No testing distribution available."
 msgstr "Testausjakelua ei ole saatavilla."
 
-#: ../app/controllers/application_controller.rb:69
+#: ../app/controllers/obs_controller.rb:32
 msgid "OBS Backend not available"
 msgstr "OBS-taustaosa ei ole saatavilla"
 
-#: ../app/controllers/package_controller.rb:130
+#: ../app/views/search/_settings.html.erb:43
+msgid "OK"
+msgstr ""
+
+#: ../app/controllers/package_controller.rb:134
 msgid "Office & Productivity"
 msgstr ""
 
 #: ../app/views/package/_download_rows.html.erb:22
-#: ../app/views/distributions/tumbleweed.html.erb:19
 #: ../app/views/distributions/leap-42.3.html.erb:18
+#: ../app/views/distributions/tumbleweed.html.erb:19
 msgid "Official"
 msgstr "Viralliset"
 
@@ -754,7 +797,7 @@ msgstr "Päivitysohjeet verkossa"
 msgid "Over 40GB of free hard drive space"
 msgstr "Yli 40 Gt vapaata kiintolevytilaa"
 
-#: ../app/views/package/show.html.erb:4
+#: ../app/views/package/show.html.erb:6
 msgid "Package %s not found..."
 msgstr "Pakettia %s ei löytynyt..."
 
@@ -766,25 +809,28 @@ msgstr "Pakettihaku"
 msgid "Packages for %s:"
 msgstr "Paketit %s:"
 
-#: ../app/views/distributions/tumbleweed.html.erb:54
-#: ../app/views/distributions/tumbleweed.html.erb:68
-#: ../app/views/distributions/tumbleweed.html.erb:82
-#: ../app/views/distributions/tumbleweed.html.erb:100
-#: ../app/views/distributions/tumbleweed.html.erb:114
-#: ../app/views/distributions/tumbleweed.html.erb:139
-#: ../app/views/distributions/tumbleweed.html.erb:153
-#: ../app/views/distributions/tumbleweed.html.erb:171
-#: ../app/views/distributions/tumbleweed.html.erb:185
+#: ../app/views/distributions/leap-15.0.html.erb:45
+#: ../app/views/distributions/leap-15.0.html.erb:59
+#: ../app/views/distributions/leap-15.0.html.erb:79
+#: ../app/views/distributions/leap-15.0.html.erb:92
+#: ../app/views/distributions/leap-15.0.html.erb:105
 #: ../app/views/distributions/leap-42.3.html.erb:45
 #: ../app/views/distributions/leap-42.3.html.erb:59
 #: ../app/views/distributions/leap-42.3.html.erb:84
 #: ../app/views/distributions/leap-42.3.html.erb:98
 #: ../app/views/distributions/leap-42.3.html.erb:116
 #: ../app/views/distributions/leap-42.3.html.erb:130
-#: ../app/views/distributions/leap-15.0.html.erb:45
-#: ../app/views/distributions/leap-15.0.html.erb:59
-#: ../app/views/distributions/leap-15.0.html.erb:79
-#: ../app/views/distributions/leap-15.0.html.erb:92
+#: ../app/views/distributions/tumbleweed.html.erb:55
+#: ../app/views/distributions/tumbleweed.html.erb:69
+#: ../app/views/distributions/tumbleweed.html.erb:83
+#: ../app/views/distributions/tumbleweed.html.erb:101
+#: ../app/views/distributions/tumbleweed.html.erb:115
+#: ../app/views/distributions/tumbleweed.html.erb:140
+#: ../app/views/distributions/tumbleweed.html.erb:154
+#: ../app/views/distributions/tumbleweed.html.erb:172
+#: ../app/views/distributions/tumbleweed.html.erb:186
+#: ../app/views/distributions/tumbleweed.html.erb:204
+#: ../app/views/distributions/tumbleweed.html.erb:218
 msgid "Pick Mirror"
 msgstr "Valitse peilipalvelin"
 
@@ -792,11 +838,11 @@ msgstr "Valitse peilipalvelin"
 msgid "Planet"
 msgstr "Planet"
 
-#: ../app/views/distributions/tumbleweed.html.erb:195
+#: ../app/views/distributions/tumbleweed.html.erb:228
 msgid "Please be aware of the following limitations of the live images:"
 msgstr ""
 
-#: ../app/views/distributions/tumbleweed.html.erb:202
+#: ../app/views/distributions/tumbleweed.html.erb:235
 #, fuzzy
 #| msgid ""
 #| "Please review %{openqa}'s test results if you want an indication whether "
@@ -829,15 +875,15 @@ msgid "SUSE Linux Enterprise"
 msgstr "SUSE Linux Enterprise"
 
 #: ../app/views/search/find.html.erb:1
-#: ../app/views/search/_find_form.html.erb:8
+#: ../app/views/search/_find_form.html.erb:13
 msgid "Search"
 msgstr "Etsi"
 
-#: ../app/views/search/_find_form.html.erb:5
+#: ../app/views/search/_find_form.html.erb:7
 msgid "Search packages..."
 msgstr ""
 
-#: ../app/views/search/_find_form.html.erb:21
+#: ../app/views/search/_settings.html.erb:6
 #, fuzzy
 #| msgid "Search options"
 msgid "Search settings"
@@ -851,7 +897,7 @@ msgstr "Valitse käyttöjärjestelmäsi"
 msgid "Select the image type"
 msgstr "Valitse levykuvan tyyppi"
 
-#: ../app/views/search/_find_form.html.erb:13
+#: ../app/views/search/_find_form.html.erb:19
 #, fuzzy
 #| msgid "Getting Help"
 msgid "Settings"
@@ -861,23 +907,43 @@ msgstr "Ohjeiden hakeminen"
 msgid "Shop"
 msgstr "Kauppa"
 
-#: ../app/views/package/show.html.erb:104
+#: ../app/views/package/show.html.erb:114
 msgid "Show"
 msgstr "Näytä"
 
-#: ../app/views/package/show.html.erb:85
+#: ../app/views/package/show.html.erb:64
+#, fuzzy
+#| msgid "Show more packages for unsupported distributions"
+msgid "Show %s for other distributions"
+msgstr "Näytä enemmän paketteja tuettomille jakeluille"
+
+#: ../app/views/package/show.html.erb:95
 msgid "Show community packages"
 msgstr "Näytä yhteisöpaketit"
 
-#: ../app/views/search/_find_form.html.erb:41
-msgid "Show development, language and debug packages"
-msgstr "Näytä kehitys, kieli- ja virheenetsintäpaketit"
+#: ../app/views/search/_settings.html.erb:37
+#, fuzzy
+#| msgid "Exclude debug packages"
+msgid "Show debug packages"
+msgstr "Poista vianjäljityspaketit etsinnästä"
 
-#: ../app/views/package/show.html.erb:84
+#: ../app/views/search/_settings.html.erb:23
+#, fuzzy
+#| msgid "Development packages"
+msgid "Show development packages"
+msgstr "Kehityspaketit"
+
+#: ../app/views/package/show.html.erb:93
 msgid "Show experimental packages"
 msgstr "Näytä kokeelliset paketit"
 
-#: ../app/views/package/show.html.erb:45
+#: ../app/views/search/_settings.html.erb:30
+#, fuzzy
+#| msgid "Show unsupported packages"
+msgid "Show language packages"
+msgstr "Näytä tuettomat paketit"
+
+#: ../app/views/package/show.html.erb:49
 msgid "Size"
 msgstr "Koko"
 
@@ -885,7 +951,7 @@ msgstr "Koko"
 msgid "Social Media"
 msgstr "Sosiaalinen media"
 
-#: ../app/views/layouts/_navbar.html.erb:35
+#: ../app/views/layouts/_navbar.html.erb:14
 msgid "Software"
 msgstr "Ohjelmat"
 
@@ -896,11 +962,11 @@ msgstr "Ohjelmat"
 msgid "Source"
 msgstr "Lähde"
 
-#: ../app/views/search/_find_results.html.erb:76
+#: ../app/views/search/_find_results.html.erb:70
 msgid "Sub-Packages"
 msgstr "Alipaketit"
 
-#: ../app/controllers/package_controller.rb:132
+#: ../app/controllers/package_controller.rb:136
 msgid "System & Utility"
 msgstr ""
 
@@ -928,7 +994,7 @@ msgstr ""
 msgid "The authentication to the OBS API has not been configured correctly."
 msgstr ""
 
-#: ../app/views/package/show.html.erb:103
+#: ../app/views/package/show.html.erb:113
 msgid ""
 "The following distributions are not officially supported. Use these packages "
 "at your own risk."
@@ -940,8 +1006,18 @@ msgstr ""
 msgid "Then run the following as <strong>root</strong>"
 msgstr "Suorita seuraava <strong>root</strong>-käyttäjänä"
 
-#: ../app/views/distributions/tumbleweed.html.erb:124
+#: ../app/controllers/distributions_controller.rb:46
+msgid ""
+"There is a new version of openSUSE Leap <a href='/distributions/"
+"leap'>available</a>!"
+msgstr ""
+
+#: ../app/views/package/show.html.erb:41
+msgid "There is no official package available for %s"
+msgstr ""
+
 #: ../app/views/distributions/leap-42.3.html.erb:69
+#: ../app/views/distributions/tumbleweed.html.erb:125
 msgid ""
 "These ports are not officially supported, and they are not as stable as "
 "official distributions."
@@ -949,11 +1025,11 @@ msgstr ""
 "Näitä siirroksia ei virallisesti tueta, eivätkä ne ole yhtä vakaita kuin "
 "viralliset jakelut."
 
-#: ../app/views/distributions/tumbleweed.html.erb:200
+#: ../app/views/distributions/tumbleweed.html.erb:233
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr "Niitä ei ole testattu yhtä huolellisesti kuin %{tumbleweed_media} on."
 
-#: ../app/views/distributions/tumbleweed.html.erb:197
+#: ../app/views/distributions/tumbleweed.html.erb:230
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
@@ -961,7 +1037,7 @@ msgstr ""
 "Niitä ei voi käyttää Tumbleweedin asennukseen tai päivitykseen. Näihin "
 "tarvitaan %{tumbleweed_media}."
 
-#: ../app/views/distributions/tumbleweed.html.erb:199
+#: ../app/views/distributions/tumbleweed.html.erb:232
 #, fuzzy
 #| msgid ""
 #| "They have a limited package/driver selection, so cannot be considered an "
@@ -1025,8 +1101,8 @@ msgstr ""
 msgid "Tumbleweed %s Rescue CD (x86_64)"
 msgstr ""
 
-#: ../app/views/distributions/tumbleweed.html.erb:198
-#: ../app/views/distributions/tumbleweed.html.erb:201
+#: ../app/views/distributions/tumbleweed.html.erb:231
+#: ../app/views/distributions/tumbleweed.html.erb:234
 #, fuzzy
 #| msgid "Not Tested|Tumbleweed installation media"
 msgid "Tumbleweed installation media"
@@ -1040,12 +1116,12 @@ msgstr ""
 "Tumbleweediä suositellaan <strong>kehittäjille</strong>, <strong>openSUSEn "
 "avustajille</strong> ja <strong>LINUX- tai FOSS-intoilijoille</strong>."
 
-#: ../app/views/distributions/tumbleweed.html.erb:26
 #: ../app/views/distributions/leap-42.3.html.erb:24
+#: ../app/views/distributions/tumbleweed.html.erb:26
 msgid "Unofficial"
 msgstr "Epäviralliset"
 
-#: ../app/views/package/show.html.erb:100
+#: ../app/views/package/show.html.erb:110
 msgid "Unsupported distributions"
 msgstr "Ei-tuetut jakelut"
 
@@ -1057,11 +1133,11 @@ msgstr "Päivitysohjeet"
 msgid "Verify Your Download Before Use"
 msgstr "Tarkista latauksesi ennen käyttöä"
 
-#: ../app/views/package/show.html.erb:44
+#: ../app/views/package/show.html.erb:48
 msgid "Version"
 msgstr "Versio"
 
-#: ../app/views/layouts/_navbar.html.erb:44
+#: ../app/views/layouts/_navbar.html.erb:23
 msgid "Wiki"
 msgstr "Wiki"
 
@@ -1076,7 +1152,7 @@ msgstr ""
 "järjestelmäsi luottaa (<a href=\"%s\">lisää tietoa</a>). Avaimen "
 "lisäämiseksi, suorita:"
 
-#: ../app/views/search/_find_results.html.erb:21
+#: ../app/views/search/_find_results.html.erb:15
 msgid ""
 "You could try to extend your search to development packages or search for "
 "another base distribution (currently #{@baseproject})."
@@ -1177,6 +1253,9 @@ msgstr "openSUSE on täysin ilmainen ladata, käyttää ja jakaa."
 msgid "x86_64"
 msgstr ""
 
+#~ msgid "Show development, language and debug packages"
+#~ msgstr "Näytä kehitys, kieli- ja virheenetsintäpaketit"
+
 #~ msgid "(hide)"
 #~ msgstr "(piilota)"
 
@@ -1250,17 +1329,11 @@ msgstr ""
 #~ "    Tämä tarkoittaa sitä, ettei openSUSE ole tarkistanut niitä, ja ne "
 #~ "saattavat sisältää epävakaita ja kokeellisia ohjelmistoja."
 
-#~ msgid "Show more packages for unsupported distributions"
-#~ msgstr "Näytä enemmän paketteja tuettomille jakeluille"
-
 #~ msgid "Show more..."
 #~ msgstr "Näytä lisää..."
 
 #~ msgid "Show other versions"
 #~ msgstr "Näytä muut versiot"
-
-#~ msgid "Show unsupported packages"
-#~ msgstr "Näytä tuettomat paketit"
 
 #~ msgid "Support"
 #~ msgstr "Tuki"
@@ -2027,9 +2100,6 @@ msgstr ""
 
 #~ msgid "Include users' home projects"
 #~ msgstr "Sisällytä käyttäjien kotiprojektit etsintään"
-
-#~ msgid "Exclude debug packages"
-#~ msgstr "Poista vianjäljityspaketit etsinnästä"
 
 #~ msgid "Additional Information"
 #~ msgstr "Lisätietoa"

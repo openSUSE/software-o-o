@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-24 09:32+0200\n"
+"POT-Creation-Date: 2018-08-03 14:42+0200\n"
 "PO-Revision-Date: 2018-05-25 05:51+0000\n"
 "Last-Translator: Ferdinand Galko <galko.ferdinand@gmail.com>\n"
-"Language-Team: Slovak "
-"<https://l10n.opensuse.org/projects/software-o-o/master/sk/>\n"
+"Language-Team: Slovak <https://l10n.opensuse.org/projects/software-o-o/"
+"master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,7 +80,7 @@ msgstr "Pridať repozitár a inštalovať ručne"
 msgid "Architecture"
 msgstr "Architektúra"
 
-#: ../app/views/package/show.html.erb:5
+#: ../app/views/package/show.html.erb:7
 msgid "Back to home page"
 msgstr "Späť na domovskú stránku"
 
@@ -106,39 +106,46 @@ msgstr ""
 msgid "Build service"
 msgstr "Build Service"
 
-#: ../app/views/package/show.html.erb:25
+#: ../app/views/search/_settings.html.erb:44
+msgid "Cancel"
+msgstr ""
+
+#: ../app/views/package/show.html.erb:27
 msgid "Categories"
 msgstr "Kategórie"
 
-#: ../app/views/package/show.html.erb:25
+#: ../app/views/package/show.html.erb:27
 msgid "Category"
 msgstr "Kategória"
 
-#: ../app/views/distributions/tumbleweed.html.erb:55
-#: ../app/views/distributions/tumbleweed.html.erb:69
-#: ../app/views/distributions/tumbleweed.html.erb:83
-#: ../app/views/distributions/tumbleweed.html.erb:101
-#: ../app/views/distributions/tumbleweed.html.erb:115
-#: ../app/views/distributions/tumbleweed.html.erb:140
-#: ../app/views/distributions/tumbleweed.html.erb:154
-#: ../app/views/distributions/tumbleweed.html.erb:172
-#: ../app/views/distributions/tumbleweed.html.erb:186
-#: ../app/views/distributions/tumbleweed.html.erb:217
-#: ../app/views/distributions/tumbleweed.html.erb:229
-#: ../app/views/distributions/tumbleweed.html.erb:241
-#: ../app/views/distributions/tumbleweed.html.erb:257
-#: ../app/views/distributions/tumbleweed.html.erb:269
-#: ../app/views/distributions/tumbleweed.html.erb:281
+#: ../app/views/distributions/leap-15.0.html.erb:46
+#: ../app/views/distributions/leap-15.0.html.erb:60
+#: ../app/views/distributions/leap-15.0.html.erb:80
+#: ../app/views/distributions/leap-15.0.html.erb:93
+#: ../app/views/distributions/leap-15.0.html.erb:106
 #: ../app/views/distributions/leap-42.3.html.erb:46
 #: ../app/views/distributions/leap-42.3.html.erb:60
 #: ../app/views/distributions/leap-42.3.html.erb:85
 #: ../app/views/distributions/leap-42.3.html.erb:99
 #: ../app/views/distributions/leap-42.3.html.erb:117
 #: ../app/views/distributions/leap-42.3.html.erb:131
-#: ../app/views/distributions/leap-15.0.html.erb:46
-#: ../app/views/distributions/leap-15.0.html.erb:60
-#: ../app/views/distributions/leap-15.0.html.erb:80
-#: ../app/views/distributions/leap-15.0.html.erb:93
+#: ../app/views/distributions/tumbleweed.html.erb:56
+#: ../app/views/distributions/tumbleweed.html.erb:70
+#: ../app/views/distributions/tumbleweed.html.erb:84
+#: ../app/views/distributions/tumbleweed.html.erb:102
+#: ../app/views/distributions/tumbleweed.html.erb:116
+#: ../app/views/distributions/tumbleweed.html.erb:141
+#: ../app/views/distributions/tumbleweed.html.erb:155
+#: ../app/views/distributions/tumbleweed.html.erb:173
+#: ../app/views/distributions/tumbleweed.html.erb:187
+#: ../app/views/distributions/tumbleweed.html.erb:205
+#: ../app/views/distributions/tumbleweed.html.erb:219
+#: ../app/views/distributions/tumbleweed.html.erb:250
+#: ../app/views/distributions/tumbleweed.html.erb:262
+#: ../app/views/distributions/tumbleweed.html.erb:274
+#: ../app/views/distributions/tumbleweed.html.erb:290
+#: ../app/views/distributions/tumbleweed.html.erb:302
+#: ../app/views/distributions/tumbleweed.html.erb:314
 msgid "Checksum"
 msgstr "Kontrolný súčet"
 
@@ -159,20 +166,26 @@ msgstr "Výber distribúcie na stiahnutie"
 msgid "Community"
 msgstr "Komunita"
 
-#: ../app/views/distributions/tumbleweed.html.erb:79
+#: ../app/controllers/package_controller.rb:55
+msgid ""
+"Connection to OBS is unavailable. Functionality of this site is limited."
+msgstr ""
+
+#: ../app/views/distributions/tumbleweed.html.erb:80
 msgid ""
 "Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
 msgstr ""
 "Kontajner ako platforma služieb založená na Kubernetes nad openSUSE MicroOS."
 
-#: ../app/views/distributions/tumbleweed.html.erb:51
-#: ../app/views/distributions/tumbleweed.html.erb:97
-#: ../app/views/distributions/tumbleweed.html.erb:136
-#: ../app/views/distributions/tumbleweed.html.erb:168
+#: ../app/views/distributions/leap-15.0.html.erb:42
 #: ../app/views/distributions/leap-42.3.html.erb:42
 #: ../app/views/distributions/leap-42.3.html.erb:81
 #: ../app/views/distributions/leap-42.3.html.erb:113
-#: ../app/views/distributions/leap-15.0.html.erb:42
+#: ../app/views/distributions/tumbleweed.html.erb:52
+#: ../app/views/distributions/tumbleweed.html.erb:98
+#: ../app/views/distributions/tumbleweed.html.erb:137
+#: ../app/views/distributions/tumbleweed.html.erb:169
+#: ../app/views/distributions/tumbleweed.html.erb:201
 msgid ""
 "Contains a large collection of software for desktop or server use. Suitable "
 "for installation or upgrade."
@@ -185,14 +198,15 @@ msgstr ""
 msgid "DVD"
 msgstr "DVD"
 
-#: ../app/views/distributions/tumbleweed.html.erb:48
-#: ../app/views/distributions/tumbleweed.html.erb:94
-#: ../app/views/distributions/tumbleweed.html.erb:133
-#: ../app/views/distributions/tumbleweed.html.erb:165
+#: ../app/views/distributions/leap-15.0.html.erb:39
 #: ../app/views/distributions/leap-42.3.html.erb:39
 #: ../app/views/distributions/leap-42.3.html.erb:78
 #: ../app/views/distributions/leap-42.3.html.erb:110
-#: ../app/views/distributions/leap-15.0.html.erb:39
+#: ../app/views/distributions/tumbleweed.html.erb:49
+#: ../app/views/distributions/tumbleweed.html.erb:95
+#: ../app/views/distributions/tumbleweed.html.erb:134
+#: ../app/views/distributions/tumbleweed.html.erb:166
+#: ../app/views/distributions/tumbleweed.html.erb:198
 msgid "DVD Image"
 msgstr "DVD obraz"
 
@@ -204,43 +218,46 @@ msgstr "Desktop"
 msgid "Developers"
 msgstr "Vývojári"
 
-#: ../app/controllers/package_controller.rb:126
+#: ../app/controllers/package_controller.rb:130
 msgid "Development"
 msgstr "Vývoj"
 
-#: ../app/views/search/_find_results.html.erb:82
+#: ../app/views/search/_find_results.html.erb:76
 msgid "Development packages"
 msgstr "Vývojárske balíky"
 
-#: ../app/views/package/show.html.erb:50
+#: ../app/views/package/show.html.erb:54
 msgid "Direct Install"
 msgstr "Priama inštalácia"
 
-#: ../app/views/distributions/tumbleweed.html.erb:52
-#: ../app/views/distributions/tumbleweed.html.erb:66
-#: ../app/views/distributions/tumbleweed.html.erb:80
-#: ../app/views/distributions/tumbleweed.html.erb:98
-#: ../app/views/distributions/tumbleweed.html.erb:112
-#: ../app/views/distributions/tumbleweed.html.erb:137
-#: ../app/views/distributions/tumbleweed.html.erb:151
-#: ../app/views/distributions/tumbleweed.html.erb:169
-#: ../app/views/distributions/tumbleweed.html.erb:183
-#: ../app/views/distributions/tumbleweed.html.erb:215
-#: ../app/views/distributions/tumbleweed.html.erb:227
-#: ../app/views/distributions/tumbleweed.html.erb:239
-#: ../app/views/distributions/tumbleweed.html.erb:255
-#: ../app/views/distributions/tumbleweed.html.erb:267
-#: ../app/views/distributions/tumbleweed.html.erb:279
+#: ../app/views/distributions/leap-15.0.html.erb:43
+#: ../app/views/distributions/leap-15.0.html.erb:57
+#: ../app/views/distributions/leap-15.0.html.erb:77
+#: ../app/views/distributions/leap-15.0.html.erb:90
+#: ../app/views/distributions/leap-15.0.html.erb:103
 #: ../app/views/distributions/leap-42.3.html.erb:43
 #: ../app/views/distributions/leap-42.3.html.erb:57
 #: ../app/views/distributions/leap-42.3.html.erb:82
 #: ../app/views/distributions/leap-42.3.html.erb:96
 #: ../app/views/distributions/leap-42.3.html.erb:114
 #: ../app/views/distributions/leap-42.3.html.erb:128
-#: ../app/views/distributions/leap-15.0.html.erb:43
-#: ../app/views/distributions/leap-15.0.html.erb:57
-#: ../app/views/distributions/leap-15.0.html.erb:77
-#: ../app/views/distributions/leap-15.0.html.erb:90
+#: ../app/views/distributions/tumbleweed.html.erb:53
+#: ../app/views/distributions/tumbleweed.html.erb:67
+#: ../app/views/distributions/tumbleweed.html.erb:81
+#: ../app/views/distributions/tumbleweed.html.erb:99
+#: ../app/views/distributions/tumbleweed.html.erb:113
+#: ../app/views/distributions/tumbleweed.html.erb:138
+#: ../app/views/distributions/tumbleweed.html.erb:152
+#: ../app/views/distributions/tumbleweed.html.erb:170
+#: ../app/views/distributions/tumbleweed.html.erb:184
+#: ../app/views/distributions/tumbleweed.html.erb:202
+#: ../app/views/distributions/tumbleweed.html.erb:216
+#: ../app/views/distributions/tumbleweed.html.erb:248
+#: ../app/views/distributions/tumbleweed.html.erb:260
+#: ../app/views/distributions/tumbleweed.html.erb:272
+#: ../app/views/distributions/tumbleweed.html.erb:288
+#: ../app/views/distributions/tumbleweed.html.erb:300
+#: ../app/views/distributions/tumbleweed.html.erb:312
 msgid "Direct Link"
 msgstr "Priamy odkaz"
 
@@ -248,21 +265,21 @@ msgstr "Priamy odkaz"
 msgid "Distribution"
 msgstr "Distribúcia"
 
-#: ../app/views/search/_find_form.html.erb:31
+#: ../app/views/search/_settings.html.erb:15
 msgid "Distribution:"
 msgstr "Distribúcia:"
 
-#: ../app/views/package/show.html.erb:60
+#: ../app/views/package/show.html.erb:68
 msgid "Distributions"
 msgstr "Distribúcie"
 
-#: ../app/views/layouts/_navbar.html.erb:41
 #: ../app/views/layouts/_footer.html.erb:7
+#: ../app/views/layouts/_navbar.html.erb:20
 #: ../app/views/distributions/_documentation.html.erb:2
 msgid "Documentation"
 msgstr "Dokumentácia"
 
-#: ../app/views/layouts/_navbar.html.erb:38
+#: ../app/views/layouts/_navbar.html.erb:17
 #: ../app/views/package/_download_rows.html.erb:54
 #: ../app/views/distributions/index.html.erb:21
 #: ../app/views/distributions/index.html.erb:31
@@ -273,6 +290,10 @@ msgstr "Stiahnuť"
 #: ../app/controllers/download_controller.rb:43
 msgid "Download appliance from %s"
 msgstr "Stiahnuť predpripravené systémy z %s"
+
+#: ../app/views/distributions/leap-42.3.html.erb:139
+msgid "Download latest openSUSE Leap release"
+msgstr ""
 
 #: ../app/views/distributions/index.html.erb:28
 msgid ""
@@ -290,14 +311,19 @@ msgstr ""
 "Stiahnuť si rolujúce vydanie openSUSE a vždy spustiť najnovšie balíky "
 "poskytované projektom openSUSE."
 
-#: ../app/views/distributions/tumbleweed.html.erb:65
-#: ../app/views/distributions/tumbleweed.html.erb:111
-#: ../app/views/distributions/tumbleweed.html.erb:150
-#: ../app/views/distributions/tumbleweed.html.erb:182
+#: ../app/views/distributions/leap-15.0.html.erb:114
+msgid "Download previous openSUSE Leap release"
+msgstr ""
+
+#: ../app/views/distributions/leap-15.0.html.erb:56
 #: ../app/views/distributions/leap-42.3.html.erb:56
 #: ../app/views/distributions/leap-42.3.html.erb:95
 #: ../app/views/distributions/leap-42.3.html.erb:127
-#: ../app/views/distributions/leap-15.0.html.erb:56
+#: ../app/views/distributions/tumbleweed.html.erb:66
+#: ../app/views/distributions/tumbleweed.html.erb:112
+#: ../app/views/distributions/tumbleweed.html.erb:151
+#: ../app/views/distributions/tumbleweed.html.erb:183
+#: ../app/views/distributions/tumbleweed.html.erb:215
 msgid ""
 "Downloads the installation system and all packages from online repositories. "
 "Suitable for installation or upgrade."
@@ -313,7 +339,7 @@ msgstr "Jednoduché spôsoby, ako prejsť na openSUSE Leap"
 msgid "Easy Ways to Switch to openSUSE Tumbleweed"
 msgstr "Jednoduché spôsoby, ako prejsť na openSUSE Tumbleweed"
 
-#: ../app/controllers/package_controller.rb:127
+#: ../app/controllers/package_controller.rb:131
 msgid "Education & Science"
 msgstr "Vzdelanie a veda"
 
@@ -352,34 +378,37 @@ msgstr ""
 "nasledujúce (Treba upozorniť, že poradie repozitárov v pacman.conf je "
 "dôležité, pretože pacman vždy stiahne prvý nájdený balík):"
 
-#: ../app/views/distributions/tumbleweed.html.erb:64
-#: ../app/views/distributions/tumbleweed.html.erb:110
-#: ../app/views/distributions/tumbleweed.html.erb:149
-#: ../app/views/distributions/tumbleweed.html.erb:181
-#: ../app/views/distributions/tumbleweed.html.erb:238
-#: ../app/views/distributions/tumbleweed.html.erb:278
+#: ../app/views/distributions/leap-15.0.html.erb:55
+#: ../app/views/distributions/leap-15.0.html.erb:102
 #: ../app/views/distributions/leap-42.3.html.erb:55
 #: ../app/views/distributions/leap-42.3.html.erb:94
 #: ../app/views/distributions/leap-42.3.html.erb:126
-#: ../app/views/distributions/leap-15.0.html.erb:55
+#: ../app/views/distributions/tumbleweed.html.erb:65
+#: ../app/views/distributions/tumbleweed.html.erb:111
+#: ../app/views/distributions/tumbleweed.html.erb:150
+#: ../app/views/distributions/tumbleweed.html.erb:182
+#: ../app/views/distributions/tumbleweed.html.erb:214
+#: ../app/views/distributions/tumbleweed.html.erb:271
+#: ../app/views/distributions/tumbleweed.html.erb:311
 msgid "For CD and USB stick"
 msgstr "Pre CD a USB kľúče"
 
-#: ../app/views/distributions/tumbleweed.html.erb:50
-#: ../app/views/distributions/tumbleweed.html.erb:78
-#: ../app/views/distributions/tumbleweed.html.erb:96
-#: ../app/views/distributions/tumbleweed.html.erb:135
-#: ../app/views/distributions/tumbleweed.html.erb:167
-#: ../app/views/distributions/tumbleweed.html.erb:214
-#: ../app/views/distributions/tumbleweed.html.erb:226
-#: ../app/views/distributions/tumbleweed.html.erb:254
-#: ../app/views/distributions/tumbleweed.html.erb:266
-#: ../app/views/distributions/leap-42.3.html.erb:41
-#: ../app/views/distributions/leap-42.3.html.erb:80
-#: ../app/views/distributions/leap-42.3.html.erb:112
 #: ../app/views/distributions/leap-15.0.html.erb:41
 #: ../app/views/distributions/leap-15.0.html.erb:76
 #: ../app/views/distributions/leap-15.0.html.erb:89
+#: ../app/views/distributions/leap-42.3.html.erb:41
+#: ../app/views/distributions/leap-42.3.html.erb:80
+#: ../app/views/distributions/leap-42.3.html.erb:112
+#: ../app/views/distributions/tumbleweed.html.erb:51
+#: ../app/views/distributions/tumbleweed.html.erb:79
+#: ../app/views/distributions/tumbleweed.html.erb:97
+#: ../app/views/distributions/tumbleweed.html.erb:136
+#: ../app/views/distributions/tumbleweed.html.erb:168
+#: ../app/views/distributions/tumbleweed.html.erb:200
+#: ../app/views/distributions/tumbleweed.html.erb:247
+#: ../app/views/distributions/tumbleweed.html.erb:259
+#: ../app/views/distributions/tumbleweed.html.erb:287
+#: ../app/views/distributions/tumbleweed.html.erb:299
 msgid "For DVD and USB stick"
 msgstr "Pre DVD a USB kľúče"
 
@@ -403,8 +432,8 @@ msgstr ""
 "Ak potrebujete ďalšiu pomoc pri overovaní vášho stiahnutia, prečítajte si, "
 "prosím, %{checksums_help}"
 
-#: ../app/views/layouts/_navbar.html.erb:47
 #: ../app/views/layouts/_footer.html.erb:27
+#: ../app/views/layouts/_navbar.html.erb:26
 msgid "Forums"
 msgstr "Fórum"
 
@@ -424,11 +453,11 @@ msgstr "Zo staršej verzie alebo inej linuxovej distribúcie"
 msgid "Full Documentation"
 msgstr "Úplná dokumentácia"
 
-#: ../app/controllers/package_controller.rb:125
+#: ../app/controllers/package_controller.rb:129
 msgid "Games"
 msgstr "Hry"
 
-#: ../app/views/search/_find_results.html.erb:63
+#: ../app/views/search/_find_results.html.erb:57
 msgid "Get"
 msgstr "Získať"
 
@@ -447,7 +476,7 @@ msgstr "Skupina Google+"
 msgid "Grab binary packages directly"
 msgstr "Získať binárne balíky priamo"
 
-#: ../app/controllers/package_controller.rb:129
+#: ../app/controllers/package_controller.rb:133
 msgid "Graphics"
 msgstr "Grafika"
 
@@ -555,7 +584,7 @@ msgstr ""
 msgid "It should be %{fingerprint}"
 msgstr "By malo byť %{fingerprint}"
 
-#: ../app/views/distributions/tumbleweed.html.erb:76
+#: ../app/views/distributions/tumbleweed.html.erb:77
 msgid "Kubic Image"
 msgstr "Obraz Kubic"
 
@@ -628,52 +657,56 @@ msgstr ""
 msgid "Medium"
 msgstr "Médium"
 
-#: ../app/views/distributions/tumbleweed.html.erb:53
-#: ../app/views/distributions/tumbleweed.html.erb:67
-#: ../app/views/distributions/tumbleweed.html.erb:81
-#: ../app/views/distributions/tumbleweed.html.erb:99
-#: ../app/views/distributions/tumbleweed.html.erb:113
-#: ../app/views/distributions/tumbleweed.html.erb:138
-#: ../app/views/distributions/tumbleweed.html.erb:152
-#: ../app/views/distributions/tumbleweed.html.erb:170
-#: ../app/views/distributions/tumbleweed.html.erb:184
-#: ../app/views/distributions/tumbleweed.html.erb:216
-#: ../app/views/distributions/tumbleweed.html.erb:228
-#: ../app/views/distributions/tumbleweed.html.erb:240
-#: ../app/views/distributions/tumbleweed.html.erb:256
-#: ../app/views/distributions/tumbleweed.html.erb:268
-#: ../app/views/distributions/tumbleweed.html.erb:280
+#: ../app/views/distributions/leap-15.0.html.erb:44
+#: ../app/views/distributions/leap-15.0.html.erb:58
+#: ../app/views/distributions/leap-15.0.html.erb:78
+#: ../app/views/distributions/leap-15.0.html.erb:91
+#: ../app/views/distributions/leap-15.0.html.erb:104
 #: ../app/views/distributions/leap-42.3.html.erb:44
 #: ../app/views/distributions/leap-42.3.html.erb:58
 #: ../app/views/distributions/leap-42.3.html.erb:83
 #: ../app/views/distributions/leap-42.3.html.erb:97
 #: ../app/views/distributions/leap-42.3.html.erb:115
 #: ../app/views/distributions/leap-42.3.html.erb:129
-#: ../app/views/distributions/leap-15.0.html.erb:44
-#: ../app/views/distributions/leap-15.0.html.erb:58
-#: ../app/views/distributions/leap-15.0.html.erb:78
-#: ../app/views/distributions/leap-15.0.html.erb:91
+#: ../app/views/distributions/tumbleweed.html.erb:54
+#: ../app/views/distributions/tumbleweed.html.erb:68
+#: ../app/views/distributions/tumbleweed.html.erb:82
+#: ../app/views/distributions/tumbleweed.html.erb:100
+#: ../app/views/distributions/tumbleweed.html.erb:114
+#: ../app/views/distributions/tumbleweed.html.erb:139
+#: ../app/views/distributions/tumbleweed.html.erb:153
+#: ../app/views/distributions/tumbleweed.html.erb:171
+#: ../app/views/distributions/tumbleweed.html.erb:185
+#: ../app/views/distributions/tumbleweed.html.erb:203
+#: ../app/views/distributions/tumbleweed.html.erb:217
+#: ../app/views/distributions/tumbleweed.html.erb:249
+#: ../app/views/distributions/tumbleweed.html.erb:261
+#: ../app/views/distributions/tumbleweed.html.erb:273
+#: ../app/views/distributions/tumbleweed.html.erb:289
+#: ../app/views/distributions/tumbleweed.html.erb:301
+#: ../app/views/distributions/tumbleweed.html.erb:313
 msgid "Metalink"
 msgstr "Metalink"
 
-#: ../app/controllers/package_controller.rb:128
+#: ../app/controllers/package_controller.rb:132
 msgid "Multimedia"
 msgstr "Multimédiá"
 
-#: ../app/controllers/package_controller.rb:131
+#: ../app/controllers/package_controller.rb:135
 #: ../app/views/images/images.xml.erb:20 ../app/views/images/images.xml.erb:40
 #: ../app/views/images/images.xml.erb:95
 msgid "Network"
 msgstr "Sieť"
 
-#: ../app/views/distributions/tumbleweed.html.erb:62
-#: ../app/views/distributions/tumbleweed.html.erb:108
-#: ../app/views/distributions/tumbleweed.html.erb:147
-#: ../app/views/distributions/tumbleweed.html.erb:179
+#: ../app/views/distributions/leap-15.0.html.erb:53
 #: ../app/views/distributions/leap-42.3.html.erb:53
 #: ../app/views/distributions/leap-42.3.html.erb:92
 #: ../app/views/distributions/leap-42.3.html.erb:124
-#: ../app/views/distributions/leap-15.0.html.erb:53
+#: ../app/views/distributions/tumbleweed.html.erb:63
+#: ../app/views/distributions/tumbleweed.html.erb:109
+#: ../app/views/distributions/tumbleweed.html.erb:148
+#: ../app/views/distributions/tumbleweed.html.erb:180
+#: ../app/views/distributions/tumbleweed.html.erb:212
 msgid "Network Image"
 msgstr "Sieťový obraz"
 
@@ -693,7 +726,7 @@ msgstr "V projekte %s neboli nájdené žiadne predpripravené systémy"
 msgid "No data for %s / %s"
 msgstr "Žiadne dáta pre %s %s"
 
-#: ../app/views/package/show.html.erb:35
+#: ../app/views/package/show.html.erb:37
 msgid "No description."
 msgstr "Žiadny popis."
 
@@ -701,7 +734,13 @@ msgstr "Žiadny popis."
 msgid "No downloads found for %s in project %s"
 msgstr "Nebolo nájdené nič k stiahnutiu pre %s v projekte %s"
 
-#: ../app/views/search/_find_results.html.erb:18
+#: ../app/controllers/distributions_controller.rb:42
+#, fuzzy
+#| msgid "No testing distribution available."
+msgid "No legacy distribution available"
+msgstr "Žiadna testovaná distribúcia nie je k dispozícii."
+
+#: ../app/views/search/_find_results.html.erb:12
 msgid "No packages found matching your search. "
 msgstr "Neboli nájdené žiadne balíky vyhovujúce vášmu hľadaniu. "
 
@@ -713,17 +752,21 @@ msgstr "Nie je k dispozícii žiadne stabilné vydanie"
 msgid "No testing distribution available."
 msgstr "Žiadna testovaná distribúcia nie je k dispozícii."
 
-#: ../app/controllers/application_controller.rb:69
+#: ../app/controllers/obs_controller.rb:32
 msgid "OBS Backend not available"
 msgstr "OBS Backend nie je dostupný"
 
-#: ../app/controllers/package_controller.rb:130
+#: ../app/views/search/_settings.html.erb:43
+msgid "OK"
+msgstr ""
+
+#: ../app/controllers/package_controller.rb:134
 msgid "Office & Productivity"
 msgstr "Kancelária a produktivita"
 
 #: ../app/views/package/_download_rows.html.erb:22
-#: ../app/views/distributions/tumbleweed.html.erb:19
 #: ../app/views/distributions/leap-42.3.html.erb:18
+#: ../app/views/distributions/tumbleweed.html.erb:19
 msgid "Official"
 msgstr "Oficiálne"
 
@@ -735,7 +778,7 @@ msgstr "Pokyny pre zvýšenie verzie online"
 msgid "Over 40GB of free hard drive space"
 msgstr "Viac ako 40 GB voľného miesta na pevnom disku"
 
-#: ../app/views/package/show.html.erb:4
+#: ../app/views/package/show.html.erb:6
 msgid "Package %s not found..."
 msgstr "Balík %s nebol nájdený..."
 
@@ -747,25 +790,28 @@ msgstr "Hľadať balíky"
 msgid "Packages for %s:"
 msgstr "Balíky pre %s:"
 
-#: ../app/views/distributions/tumbleweed.html.erb:54
-#: ../app/views/distributions/tumbleweed.html.erb:68
-#: ../app/views/distributions/tumbleweed.html.erb:82
-#: ../app/views/distributions/tumbleweed.html.erb:100
-#: ../app/views/distributions/tumbleweed.html.erb:114
-#: ../app/views/distributions/tumbleweed.html.erb:139
-#: ../app/views/distributions/tumbleweed.html.erb:153
-#: ../app/views/distributions/tumbleweed.html.erb:171
-#: ../app/views/distributions/tumbleweed.html.erb:185
+#: ../app/views/distributions/leap-15.0.html.erb:45
+#: ../app/views/distributions/leap-15.0.html.erb:59
+#: ../app/views/distributions/leap-15.0.html.erb:79
+#: ../app/views/distributions/leap-15.0.html.erb:92
+#: ../app/views/distributions/leap-15.0.html.erb:105
 #: ../app/views/distributions/leap-42.3.html.erb:45
 #: ../app/views/distributions/leap-42.3.html.erb:59
 #: ../app/views/distributions/leap-42.3.html.erb:84
 #: ../app/views/distributions/leap-42.3.html.erb:98
 #: ../app/views/distributions/leap-42.3.html.erb:116
 #: ../app/views/distributions/leap-42.3.html.erb:130
-#: ../app/views/distributions/leap-15.0.html.erb:45
-#: ../app/views/distributions/leap-15.0.html.erb:59
-#: ../app/views/distributions/leap-15.0.html.erb:79
-#: ../app/views/distributions/leap-15.0.html.erb:92
+#: ../app/views/distributions/tumbleweed.html.erb:55
+#: ../app/views/distributions/tumbleweed.html.erb:69
+#: ../app/views/distributions/tumbleweed.html.erb:83
+#: ../app/views/distributions/tumbleweed.html.erb:101
+#: ../app/views/distributions/tumbleweed.html.erb:115
+#: ../app/views/distributions/tumbleweed.html.erb:140
+#: ../app/views/distributions/tumbleweed.html.erb:154
+#: ../app/views/distributions/tumbleweed.html.erb:172
+#: ../app/views/distributions/tumbleweed.html.erb:186
+#: ../app/views/distributions/tumbleweed.html.erb:204
+#: ../app/views/distributions/tumbleweed.html.erb:218
 msgid "Pick Mirror"
 msgstr "Vybrať zrkadlo"
 
@@ -773,11 +819,11 @@ msgstr "Vybrať zrkadlo"
 msgid "Planet"
 msgstr "Planéta"
 
-#: ../app/views/distributions/tumbleweed.html.erb:195
+#: ../app/views/distributions/tumbleweed.html.erb:228
 msgid "Please be aware of the following limitations of the live images:"
 msgstr "Prosím, dbajte na nasledujúce obmedzenia live obrazov:"
 
-#: ../app/views/distributions/tumbleweed.html.erb:202
+#: ../app/views/distributions/tumbleweed.html.erb:235
 msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
 "these live medias are working as expected."
@@ -806,15 +852,15 @@ msgid "SUSE Linux Enterprise"
 msgstr "SUSE Linux Enterprise"
 
 #: ../app/views/search/find.html.erb:1
-#: ../app/views/search/_find_form.html.erb:8
+#: ../app/views/search/_find_form.html.erb:13
 msgid "Search"
 msgstr "Hľadať"
 
-#: ../app/views/search/_find_form.html.erb:5
+#: ../app/views/search/_find_form.html.erb:7
 msgid "Search packages..."
 msgstr "Hľadanie balíkov..."
 
-#: ../app/views/search/_find_form.html.erb:21
+#: ../app/views/search/_settings.html.erb:6
 msgid "Search settings"
 msgstr "Nastavenia hľadania"
 
@@ -826,7 +872,7 @@ msgstr "Vyberte váš operačný systém"
 msgid "Select the image type"
 msgstr "Vyberte typ obrazu"
 
-#: ../app/views/search/_find_form.html.erb:13
+#: ../app/views/search/_find_form.html.erb:19
 msgid "Settings"
 msgstr "Nastavenia"
 
@@ -834,23 +880,43 @@ msgstr "Nastavenia"
 msgid "Shop"
 msgstr "Obchod"
 
-#: ../app/views/package/show.html.erb:104
+#: ../app/views/package/show.html.erb:114
 msgid "Show"
 msgstr "Ukázať"
 
-#: ../app/views/package/show.html.erb:85
+#: ../app/views/package/show.html.erb:64
+#, fuzzy
+#| msgid "Show more packages for unsupported distributions"
+msgid "Show %s for other distributions"
+msgstr "Ukázať ďalšie balíky pre nepodporované distribúcie"
+
+#: ../app/views/package/show.html.erb:95
 msgid "Show community packages"
 msgstr "Ukázať komunitné balíky"
 
-#: ../app/views/search/_find_form.html.erb:41
-msgid "Show development, language and debug packages"
-msgstr "Zobraziť vývojové, jazykové a ladiace balíky"
+#: ../app/views/search/_settings.html.erb:37
+#, fuzzy
+#| msgid "Exclude debug packages"
+msgid "Show debug packages"
+msgstr "Vylúčiť balíky ladenia (debug)"
 
-#: ../app/views/package/show.html.erb:84
+#: ../app/views/search/_settings.html.erb:23
+#, fuzzy
+#| msgid "Development packages"
+msgid "Show development packages"
+msgstr "Vývojárske balíky"
+
+#: ../app/views/package/show.html.erb:93
 msgid "Show experimental packages"
 msgstr "Ukázať experimentálne balíky"
 
-#: ../app/views/package/show.html.erb:45
+#: ../app/views/search/_settings.html.erb:30
+#, fuzzy
+#| msgid "Show unsupported packages"
+msgid "Show language packages"
+msgstr "Ukázať nepodporované balíky"
+
+#: ../app/views/package/show.html.erb:49
 msgid "Size"
 msgstr "Veľkosť"
 
@@ -858,7 +924,7 @@ msgstr "Veľkosť"
 msgid "Social Media"
 msgstr "Sociálne médiá"
 
-#: ../app/views/layouts/_navbar.html.erb:35
+#: ../app/views/layouts/_navbar.html.erb:14
 msgid "Software"
 msgstr "Softvér"
 
@@ -869,11 +935,11 @@ msgstr "Softvér"
 msgid "Source"
 msgstr "Zdroj"
 
-#: ../app/views/search/_find_results.html.erb:76
+#: ../app/views/search/_find_results.html.erb:70
 msgid "Sub-Packages"
 msgstr "Podbalíky"
 
-#: ../app/controllers/package_controller.rb:132
+#: ../app/controllers/package_controller.rb:136
 msgid "System & Utility"
 msgstr "Systém a nástroje"
 
@@ -904,7 +970,7 @@ msgstr ""
 msgid "The authentication to the OBS API has not been configured correctly."
 msgstr "Overenie na OBS API nebolo správne nakonfigurované."
 
-#: ../app/views/package/show.html.erb:103
+#: ../app/views/package/show.html.erb:113
 msgid ""
 "The following distributions are not officially supported. Use these packages "
 "at your own risk."
@@ -916,8 +982,18 @@ msgstr ""
 msgid "Then run the following as <strong>root</strong>"
 msgstr "Potom spustite ako <strong>root</strong> nasledujúce"
 
-#: ../app/views/distributions/tumbleweed.html.erb:124
+#: ../app/controllers/distributions_controller.rb:46
+msgid ""
+"There is a new version of openSUSE Leap <a href='/distributions/"
+"leap'>available</a>!"
+msgstr ""
+
+#: ../app/views/package/show.html.erb:41
+msgid "There is no official package available for %s"
+msgstr ""
+
 #: ../app/views/distributions/leap-42.3.html.erb:69
+#: ../app/views/distributions/tumbleweed.html.erb:125
 msgid ""
 "These ports are not officially supported, and they are not as stable as "
 "official distributions."
@@ -925,11 +1001,11 @@ msgstr ""
 "Tieto porty nie sú oficiálne podporované a nie sú také stabilné ako "
 "oficiálne distribúcie."
 
-#: ../app/views/distributions/tumbleweed.html.erb:200
+#: ../app/views/distributions/tumbleweed.html.erb:233
 msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgstr "Nie sú testované tak dôkladne ako %{tumbleweed_media}."
 
-#: ../app/views/distributions/tumbleweed.html.erb:197
+#: ../app/views/distributions/tumbleweed.html.erb:230
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "%{tumbleweed_media} instead."
@@ -937,7 +1013,7 @@ msgstr ""
 "Nemôžu byť použité na inštaláciu alebo zvýšenie verzie Tumbleweed. Použite, "
 "prosím, namiesto toho %{tumbleweed_media}."
 
-#: ../app/views/distributions/tumbleweed.html.erb:199
+#: ../app/views/distributions/tumbleweed.html.erb:232
 msgid ""
 "They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
@@ -990,8 +1066,8 @@ msgstr "Záchranné CD Tumbleweed %s (i686)"
 msgid "Tumbleweed %s Rescue CD (x86_64)"
 msgstr "Záchranné CD Tumbleweed %s (x86_64)"
 
-#: ../app/views/distributions/tumbleweed.html.erb:198
-#: ../app/views/distributions/tumbleweed.html.erb:201
+#: ../app/views/distributions/tumbleweed.html.erb:231
+#: ../app/views/distributions/tumbleweed.html.erb:234
 msgid "Tumbleweed installation media"
 msgstr "Inštalačné médiá Tumbleweed"
 
@@ -1004,12 +1080,12 @@ msgstr ""
 "<strong>prispievateľov openSUSE</strong> a <strong>Linux/FOSS nadšenecov</"
 "strong>."
 
-#: ../app/views/distributions/tumbleweed.html.erb:26
 #: ../app/views/distributions/leap-42.3.html.erb:24
+#: ../app/views/distributions/tumbleweed.html.erb:26
 msgid "Unofficial"
 msgstr "Neoficiálne"
 
-#: ../app/views/package/show.html.erb:100
+#: ../app/views/package/show.html.erb:110
 msgid "Unsupported distributions"
 msgstr "Nepodporované distribúcie"
 
@@ -1021,11 +1097,11 @@ msgstr "Pokyny pre zvýšenie verzie"
 msgid "Verify Your Download Before Use"
 msgstr "Pred použitím si skontrolujte, čo ste stiahli"
 
-#: ../app/views/package/show.html.erb:44
+#: ../app/views/package/show.html.erb:48
 msgid "Version"
 msgstr "Verzia"
 
-#: ../app/views/layouts/_navbar.html.erb:44
+#: ../app/views/layouts/_navbar.html.erb:23
 msgid "Wiki"
 msgstr "Wiki"
 
@@ -1040,7 +1116,7 @@ msgstr ""
 "dôverovať  (<a href=\"%s\">viac informácií</a>). Ak chcete pridať kľúč, "
 "spustite:"
 
-#: ../app/views/search/_find_results.html.erb:21
+#: ../app/views/search/_find_results.html.erb:15
 msgid ""
 "You could try to extend your search to development packages or search for "
 "another base distribution (currently #{@baseproject})."
@@ -1138,6 +1214,9 @@ msgstr "openSUSE je úplne zadarmo na stiahnutie, používanie a zdieľanie."
 #: ../app/views/images/images.xml.erb:79
 msgid "x86_64"
 msgstr "x86_64"
+
+#~ msgid "Show development, language and debug packages"
+#~ msgstr "Zobraziť vývojové, jazykové a ladiace balíky"
 
 #~ msgid "(hide)"
 #~ msgstr "(skryť)"
@@ -1264,17 +1343,11 @@ msgstr "x86_64"
 #~ "Nahláste, prosím, všetky problémy, ktoré nájdete v našom nástroji "
 #~ "Bugtracker."
 
-#~ msgid "Show more packages for unsupported distributions"
-#~ msgstr "Ukázať ďalšie balíky pre nepodporované distribúcie"
-
 #~ msgid "Show more..."
 #~ msgstr "Ukázať viac..."
 
 #~ msgid "Show other versions"
 #~ msgstr "Ukázať ďalšie verzie"
-
-#~ msgid "Show unsupported packages"
-#~ msgstr "Ukázať nepodporované balíky"
 
 #~ msgid "Support"
 #~ msgstr "Podpora"
@@ -2075,9 +2148,6 @@ msgstr "x86_64"
 #~| msgid "Exclude user's home projects"
 #~ msgid "Include users' home projects"
 #~ msgstr "Vylúčiť používateľské domovské projekty"
-
-#~ msgid "Exclude debug packages"
-#~ msgstr "Vylúčiť balíky ladenia (debug)"
 
 #~ msgid "Additional Information"
 #~ msgstr "Ďalšie informácie"
