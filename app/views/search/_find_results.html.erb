@@ -39,7 +39,7 @@
               <div class="card-body">
                 <h4 class="card-title"><%= link_to highlight(package_name, @search_term), :controller => :package, :action => :show, :package => package  %></h4>
                 <p class="card-text">
-                  <% 
+                  <%
                   if( appdata_pkg.blank? || appdata_pkg.first[:summary].blank? )
                     desc_package = search_for_description( package, @packages )
                     unless  desc_package.blank?
@@ -48,7 +48,7 @@
                   else
                     summary = appdata_pkg.first[:summary]
                   end
-                  
+
                   unless  summary.blank? %>
                     <%= highlight( summary, @search_term) %>
                   <% end -%>
@@ -56,12 +56,12 @@
 
                 <a href="<%= url_for :controller => :package, :action => :show, :package => package %>" class="btn btn-primary"><%= _("View") %></a>
 
-                
+
                 <%
                 devel_pack_match = [package + "-devel", package + "-lang", package + "-debuginfo", package + "-debugsource", package + "-debuginfo-32bit",
                   package + "-debuginfo-x86", ]
                 devel_packages = @packagenames.select{|r| devel_pack_match.include? r }
-                sub_packages = @packagenames.sort.select{|name| ( !(devel_pack_match.include? name) && 
+                sub_packages = @packagenames.sort.select{|name| ( !(devel_pack_match.include? name) &&
                         name.start_with?("#{package}-") && @appdata[:apps].select{|a| a[:pkgname] == name}.blank? ) } -%>
 
                 <% unless devel_packages.blank? && sub_packages.blank? %>
