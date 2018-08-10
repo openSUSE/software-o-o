@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :validate_configuration
   before_action :set_language
   before_action :set_external_urls
+  before_action :set_internal_urls
   before_action :set_releases_parameters
   # depends on releases
   before_action :set_baseproject
@@ -180,5 +181,28 @@ class ApplicationController < ActionController::Base
                   else
                     'https://forums.opensuse.org/'
                   end
+  end
+
+  # set download urls
+  def set_internal_urls
+    # For Leap
+    @url_dist_leap = 'https://download.opensuse.org/distribution/leap/'
+    @path_iso_leap = '/iso/openSUSE-Leap-'
+    @path_live_leap150_gnome = '15.0/live/openSUSE-Leap-15.0-GNOME-Live-x86_64-Current'
+    @path_live_leap150_kde = '15.0/live/openSUSE-Leap-15.0-KDE-Live-x86_64-Current'
+    @path_live_leap150_rescue = '15.0/live/openSUSE-Leap-15.0-Rescue-CD-x86_64-Current'
+
+    @url_dist_ppc_leap = 'https://download.opensuse.org/ports/ppc/distribution/leap/'
+    @url_dist_aarch64_leap = 'https://download.opensuse.org/ports/aarch64/distribution/leap/'
+
+    # For Tumbleweed
+    @url_dist_tumbleweed_iso = 'https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-'
+
+    @url_dist_aarch64_tumbleweed_dvd = 'https://download.opensuse.org/ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-DVD-aarch64-Current'
+    @url_dist_aarch64_tumbleweed_net = 'https://download.opensuse.org/ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current'
+    @url_dist_ppc64le_tumbleweed_dvd = 'https://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-DVD-ppc64le-Current'
+    @url_dist_ppc64le_tumbleweed_net = 'https://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-NET-ppc64le-Current'
+    @url_dist_ppc64_tumbleweed_dvd = 'https://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-DVD-ppc64-Current'
+    @url_dist_ppc64_tumbleweed_net = 'https://download.opensuse.org/ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-NET-ppc64-Current'
   end
 end
