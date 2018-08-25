@@ -52,7 +52,7 @@ class Screenshot
     cached?
   end
 
-protected
+  protected
 
   def cached?
     File.exist?(File.join(Rails.root, "public", generated_thumbnail_path))
