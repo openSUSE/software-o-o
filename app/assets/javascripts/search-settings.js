@@ -4,8 +4,8 @@
 $(function() {
   var $form = $("#search-form");
 
-  $form.find('[name="baseproject"]').change(function() {
-    Cookies.set("baseproject", $(this).val(), { expires: 365 });
+  $form.find("#baseproject-dropdown .dropdown-item").click(function() {
+    Cookies.set("baseproject", $(this).data("project"), { expires: 365 });
     location.reload();
   });
 

@@ -3,28 +3,41 @@
     <%= form_tag( {:controller => 'search', :action => :index}, :method => :get, :id => "search-form" ) do %>
       <div class="input-group mb-3">
         <%= text_field_tag 'q', @search_term, :class => 'form-control', :placeholder => _('Search packages...'), :autocomplete => "off", :autofocus => true %>
-        <%= select_tag 'baseproject', options_for_select((@distributions.map{|d| [d[:name], d[:project]]} || ["ALL"]), @baseproject), :class => 'custom-select' %>
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button"><%= _('Search') %></button>
+        </div>
       </div>
-
       <div class="row">
-        <div class="col-sm-4 col-lg-3">
+        <div class="col-sm-6 col-lg-3">
+          <div id="baseproject-dropdown" class="dropdown">
+            <a class="dropdown-toggle" style="color: inherit;" href="#" role="button" id="baseproject-dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= @baseproject_name %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="baseproject-dropdown-button">
+              <% @distributions.each do | d | %>
+                <a class="dropdown-item <%= d[:project] == @baseproject ? 'active' : '' %>" href="#" data-project="<%= d[:project] %>"><%= d[:name] %></a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
           <div class="custom-control custom-checkbox">
             <%= check_box_tag("search_devel", "true", cookies['search_devel'] == "true", :class =>  "custom-control-input", :id => "search-devel-checkbox")  %>
             <label class="custom-control-label" for="search-devel-checkbox"><%= _("Development packages") %></label>
           </div>
         </div>
-        <div class="col-sm-4 col-lg-3">
+        <div class="col-sm-6 col-lg-3">
           <div class="custom-control custom-checkbox">
             <%= check_box_tag("search_lang", "true", cookies['search_lang'] == "true", :class =>  "custom-control-input", :id => "search-lang-checkbox")  %>
             <label class="custom-control-label" for="search-lang-checkbox"><%= _("Language packages") %></label>
           </div>
         </div>
-        <div class="col-sm-4 col-lg-3">
+        <div class="col-sm-6 col-lg-3">
           <div class="custom-control custom-checkbox">
             <%= check_box_tag("search_debug", "true", cookies['search_debug'] == "true", :class =>  "custom-control-input", :id => "search-debug-checkbox")  %>
             <label class="custom-control-label" for="search-debug-checkbox"><%= _("Debug packages") %></label>
           </div>
-        </div><!-- /.col-sm-4 -->
+        </div><!-- /.col-sm-6 -->
       </div><!-- /.row -->
     <% end -%>
   </div>
