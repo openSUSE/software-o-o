@@ -134,37 +134,37 @@ Windows.
 
 1.  Install [Vagrant](https://www.vagrantup.com/downloads.html) and [docker](https://docs.docker.com/engine/getstarted/step_one/). Both tools support Linux, MacOS and Windows.
 
-2.  Clone this code repository:
+1.  Clone this code repository:
 
     ```
     git clone --recurse-submodules git@github.com:openSUSE/software-o-o.git
     ```
 
-3.  Build your Vagrant box:
+1.  Build your Vagrant box:
 
     ```
     vagrant up
     ```
 
-4.  Attach to your new development box
+1.  Attach to your new development box:
 
     ```
     docker attach software_web
     ```
 
-5.  Setup the database
+1. Install gems:
 
     ```
-    rake db:setup db:seed
+    bundle install
     ```
 
-6.  Start the app
+1.  Start the app:
 
     ```
     rails server
     ```
 
-7.  Enjoy your software.opensuse.org clone at http://127.0.0.1:3000/
+1.  Enjoy your software.opensuse.org clone at http://127.0.0.1:3000/
 
 If you exit the shell inside the vagrant box your development environment
 is stopped. Want to continue? Run `vagrant up` and `docker attach software_web`
