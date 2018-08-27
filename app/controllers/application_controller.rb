@@ -24,12 +24,12 @@ class ApplicationController < ActionController::Base
     @message = exception.message
     layout = request.xhr? ? false : "application"
     case exception
-      when Seeker::InvalidSearchTerm
-      when ApiConnect::Error
-      when ApplicationController::MissingParameterError
-      when Timeout::Error
-      else
-        logger.error exception.backtrace.join("\n")
+    when Seeker::InvalidSearchTerm
+    when ApiConnect::Error
+    when ApplicationController::MissingParameterError
+    when Timeout::Error
+    else
+      logger.error exception.backtrace.join("\n")
       end
     render :template => 'error', :formats => [:html], :layout => layout, :status => 400
   end
