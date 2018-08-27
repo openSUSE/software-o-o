@@ -76,48 +76,48 @@ class Screenshot
   # This is served from the asset pipeline.
   def default_thumbnail_path
     file = case pkg_name
-    when /-devel$/
-      "devel-package.png"
-    when /-devel-/
-      "devel-package.png"
-    when /-debug$/
-      "devel-package.png"
-    when /-lang$/
-      "lang-package.png"
-    when /-l10n-/
-      "lang-package.png"
-    when /-i18n-/
-      "lang-package.png"
-    when /-translations/
-      "lang-package.png"
-    when /-doc$/
-      "doc-package.png"
-    when /-help-/
-      "doc-package.png"
-    when /-javadoc$/
-      "doc-package.png"
-    when /-debuginfo/
-      "devel-package.png"
-    when /-debugsource/
-      "devel-package.png"
-    when /-kmp-/
-      "devel-package.png"
-    when /^rubygem-/
-      "ruby-package.png"
-    when /^perl-/
-      "perl-package.png"
-    when /^python-/
-      "python-package.png"
-    when /^python2-/
-      "python-package.png"
-    when /^python3-/
-      "python-package.png"
-    when /^kernel-/
-      "kernel-package.png"
-    when /^openstack-/i
-      "openstack-package.png"
-    else
-      "package.png"
+           when /-devel$/
+             "devel-package.png"
+           when /-devel-/
+             "devel-package.png"
+           when /-debug$/
+             "devel-package.png"
+           when /-lang$/
+             "lang-package.png"
+           when /-l10n-/
+             "lang-package.png"
+           when /-i18n-/
+             "lang-package.png"
+           when /-translations/
+             "lang-package.png"
+           when /-doc$/
+             "doc-package.png"
+           when /-help-/
+             "doc-package.png"
+           when /-javadoc$/
+             "doc-package.png"
+           when /-debuginfo/
+             "devel-package.png"
+           when /-debugsource/
+             "devel-package.png"
+           when /-kmp-/
+             "devel-package.png"
+           when /^rubygem-/
+             "ruby-package.png"
+           when /^perl-/
+             "perl-package.png"
+           when /^python-/
+             "python-package.png"
+           when /^python2-/
+             "python-package.png"
+           when /^python3-/
+             "python-package.png"
+           when /^kernel-/
+             "kernel-package.png"
+           when /^openstack-/i
+             "openstack-package.png"
+           else
+             "package.png"
     end
     "default-screenshots/#{file}"
   end
