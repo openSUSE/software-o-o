@@ -17,7 +17,7 @@
             <div class="carousel-caption">
               <h1><%= package[:name] %></h1>
               <p><%= package[:summary] %></p>
-              <p><a class="btn btn-primary" href="<%= url_for :controller => :package, :action => :show, :package => package[:pkgname] %>" role="button">Learn more</a></p>
+              <p><a class="btn btn-primary" href="<%= url_for :controller => :package, :action => :show, :package => package[:pkgname] %>" role="button"><%= _("Learn more") %></a></p>
             </div>
           </div><!-- /.carousel-item -->
           <% active = false %>
