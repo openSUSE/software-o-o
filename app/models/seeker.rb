@@ -17,23 +17,23 @@ class Seeker < ActiveXML::Node
 
   class SearchResult < Array
     def self.search(query, baseproject, project = nil, exclude_filter = nil, exclude_debug = false)
-      words = query.split(" ").reject {|part| part.match(/^[0-9_\.-]+$/) }
-      versrel = query.split(" ").select {|part| part.match(/^[0-9_\.-]+$/) }
+      words = query.split(" ").reject { |part| part.match(/^[0-9_\.-]+$/) }
+      versrel = query.split(" ").select { |part| part.match(/^[0-9_\.-]+$/) }
       logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
       raise InvalidSearchTerm.new "Please provide a valid search term" if words.blank? && project.blank?
 
       xpath_items = Array.new
       xpath_items << "@project = '#{project}' " unless project.blank?
-      substring_words = words.reject {|word| word.match(/^".+"$/) }.map {|word| "'#{word.gsub(/['"()]/, "")}'"}.join(", ")
+      substring_words = words.reject { |word| word.match(/^".+"$/) }.map { |word| "'#{word.gsub(/['"()]/, "")}'" }.join(", ")
       unless (substring_words.blank?)
         xpath_items << "contains-ic(@name, " + substring_words + ")"
       end
-      words.select {|word| word.match(/^".+"$/) }.map {|word| word.gsub("\"", "") }.each do |word|
+      words.select { |word| word.match(/^".+"$/) }.map { |word| word.gsub("\"", "") }.each do |word|
         xpath_items << "@name = '#{word.gsub(/['"()]/, "")}'"
       end
       xpath_items << "path/project='#{baseproject}'" unless baseproject.blank?
       xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" if (!exclude_filter.blank? && project.blank?)
-      xpath_items << versrel.map {|part| "starts-with(@versrel,'#{part}')"}.join(" and ") unless versrel.blank?
+      xpath_items << versrel.map { |part| "starts-with(@versrel,'#{part}')" }.join(" and ") unless versrel.blank?
       xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " +
                      "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))" if exclude_debug
       xpath = xpath_items.join(' and ')
@@ -45,8 +45,8 @@ class Seeker < ActiveXML::Node
       result.add_binlist(bin)
 
       # remove this hack when the backend can filter for project names
-      result.reject! {|res| /#{exclude_filter}/.match(res.project) } if (!exclude_filter.blank? && project.blank?)
-      result.sort! {|x, y| y.relevance <=> x.relevance}
+      result.reject! { |res| /#{exclude_filter}/.match(res.project) } if (!exclude_filter.blank? && project.blank?)
+      result.sort! { |x, y| y.relevance <=> x.relevance }
       logger.info "Seeker found #{result.size} results"
       return result
     end
@@ -261,8 +261,8 @@ class Seeker < ActiveXML::Node
             @summary = info.summary.to_s if info.has_element? :summary
             @size = info.size.to_s if info.has_element? :size
             @mtime = info.mtime.to_s if info.has_element? :mtime
-            @requires = info.each_requires.map {|r| r.text} if info.has_element? :requires
-            @provides = info.each_provides.map {|r| r.text} if info.has_element? :provides
+            @requires = info.each_requires.map { |r| r.text } if info.has_element? :requires
+            @provides = info.each_provides.map { |r| r.text } if info.has_element? :provides
           end
         end
       end
@@ -357,7 +357,7 @@ class Seeker < ActiveXML::Node
       end
 
       def __key
-        @__key ||= @fragment_type.to_s + "|" + %w[project repository name].map {|x| self[x]}.join('|')
+        @__key ||= @fragment_type.to_s + "|" + %w[project repository name].map { |x| self[x] }.join('|')
       end
 
       def dump
