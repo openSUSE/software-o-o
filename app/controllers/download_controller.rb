@@ -201,7 +201,7 @@ class DownloadController < ApplicationController
       head :forbidden
     else
       # collect distro types from @data
-      @flavors = @data.values.collect { |i| i[:flavor] }.uniq.sort {|x, y| x.downcase <=> y.downcase }
+      @flavors = @data.values.collect { |i| i[:flavor] }.uniq.sort { |x, y| x.downcase <=> y.downcase }
     end
   end
 

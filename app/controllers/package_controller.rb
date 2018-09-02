@@ -16,17 +16,17 @@ class PackageController < OBSController
 
       @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
       # only show rpms
-      @packages = @packages.select {|p| p.first.type != 'ymp' && p.quality != "Private"}
+      @packages = @packages.select { |p| p.first.type != 'ymp' && p.quality != "Private" }
       @default_project = @baseproject
-      @default_project_name = @distributions.select {|d| d[:project] == @default_project}.first[:name]
-      @default_repo = @distributions.select {|d| d[:project] == @default_project}.first[:repository]
-      @default_package = if (!@packages.select {|s| s.project == "#{@default_project}:Update"}.empty?)
-                           @packages.select {|s| s.project == "#{@default_project}:Update"}.first
+      @default_project_name = @distributions.select { |d| d[:project] == @default_project }.first[:name]
+      @default_repo = @distributions.select { |d| d[:project] == @default_project }.first[:repository]
+      @default_package = if (!@packages.select { |s| s.project == "#{@default_project}:Update" }.empty?)
+                           @packages.select { |s| s.project == "#{@default_project}:Update" }.first
                          else
-                           @packages.select {|s| [@default_project, "#{@default_project}:NonFree"].include? s.project}.first
+                           @packages.select { |s| [@default_project, "#{@default_project}:NonFree"].include? s.project }.first
                          end
 
-      pkg_appdata = @appdata[:apps].select {|app| app[:pkgname].downcase == @pkgname.downcase}
+      pkg_appdata = @appdata[:apps].select { |app| app[:pkgname].downcase == @pkgname.downcase }
       if (!pkg_appdata.first.blank?)
         @name = pkg_appdata.first[:name]
         @appcategories = pkg_appdata.first[:categories]
@@ -46,10 +46,10 @@ class PackageController < OBSController
         end
       end
 
-      @official_projects = @distributions.map {|d| d[:project]}
+      @official_projects = @distributions.map { |d| d[:project] }
       # get extra distributions that are not in the default distribution list
-      @extra_packages = @packages.reject {|p| @distributions.map {|d| d[:project]}.include? p.baseproject }
-      @extra_dists = @extra_packages.map {|p| p.baseproject}.reject {|d| d.nil?}.uniq.map {|d| { :project => d }}
+      @extra_packages = @packages.reject { |p| @distributions.map { |d| d[:project] }.include? p.baseproject }
+      @extra_dists = @extra_packages.map { |p| p.baseproject }.reject { |d| d.nil? }.uniq.map { |d| { :project => d } }
     rescue OBSError
       @hide_search_box = true
       flash.now[:error] = _("Connection to OBS is unavailable. Functionality of this site is limited.")
@@ -69,16 +69,16 @@ class PackageController < OBSController
     @category = params[:category]
     raise MissingParameterError, "Invalid parameter category" unless valid_package_name? @category
 
-    mapping = @main_sections.select {|s| s[:id].downcase == @category.downcase }
+    mapping = @main_sections.select { |s| s[:id].downcase == @category.downcase }
     categories = (mapping.blank? ? [@category] : mapping.first[:categories])
 
-    app_pkgs = @appdata[:apps].reject {|app| (app[:categories].map {|c| c.downcase} & categories.map {|c| c.downcase}).blank? }
-    @packagenames = app_pkgs.map {|p| p[:pkgname]}.uniq.sort_by {|x| @appdata[:apps].select {|a| a[:pkgname] == x}.first[:name] }
+    app_pkgs = @appdata[:apps].reject { |app| (app[:categories].map { |c| c.downcase } & categories.map { |c| c.downcase }).blank? }
+    @packagenames = app_pkgs.map { |p| p[:pkgname] }.uniq.sort_by { |x| @appdata[:apps].select { |a| a[:pkgname] == x }.first[:name] }
 
-    app_categories = app_pkgs.map {|p| p[:categories]}.flatten
-    @related_categories = app_categories.uniq.map {|c| { :name => c, :weight => app_categories.select {|v| v == c }.size } }
-    @related_categories = @related_categories.sort_by { |c| c[:weight] }.reverse.reject {|c| categories.include? c[:name] }
-    @related_categories = @related_categories.reject {|c| ["GNOME", "KDE", "Qt", "GTK"].include? c[:name] }
+    app_categories = app_pkgs.map { |p| p[:categories] }.flatten
+    @related_categories = app_categories.uniq.map { |c| { :name => c, :weight => app_categories.select { |v| v == c }.size } }
+    @related_categories = @related_categories.sort_by { |c| c[:weight] }.reverse.reject { |c| categories.include? c[:name] }
+    @related_categories = @related_categories.reject { |c| ["GNOME", "KDE", "Qt", "GTK"].include? c[:name] }
 
     render 'search/find'
   end

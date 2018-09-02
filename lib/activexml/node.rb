@@ -157,7 +157,7 @@ module ActiveXML
           @@object_cache[cache_key] = obj
           return obj
         rescue ActiveXML::Transport::NotFoundError
-          Rails.logger.debug "#{self.name}.find( #{args.map {|a| a.inspect}.join(', ')} ) did not find anything, return nil"
+          Rails.logger.debug "#{self.name}.find( #{args.map { |a| a.inspect }.join(', ')} ) did not find anything, return nil"
           return nil
         end
       end
