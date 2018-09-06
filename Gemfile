@@ -31,6 +31,7 @@ gem 'minitest'
 gem 'xmlhash', '>= 1.2.2'
 
 gem 'prometheus_exporter'
+gem 'puma_worker_killer'
 
 # needed to collect translatable strings
 # not needed at production
