@@ -8,6 +8,26 @@ rackup      DefaultRackup
 port        ENV['PORT']     || 3000
 environment ENV['RACK_ENV'] || 'development'
 
+ram_total = File.foreach('/proc/meminfo')
+              .map {|line| line.match(/MemTotal:\s+(\d+)/)&.captures&.first }
+              .compact.first&.to_i
+
+before_fork do
+  require 'puma_worker_killer'
+  PumaWorkerKiller.config do |config|
+    if ram_total
+      config.ram = ram_total / 1024 # mb
+      config.frequency = 5 # seconds
+      config.percent_usage = 0.90
+    end
+    config.rolling_restart_frequency = 12 * 3600 # 12 hours
+    # setting this to false will not log lines like:
+    # PumaWorkerKiller: Consuming 54.34765625 mb with master and 2 workers.
+    config.reaper_status_logs = true
+  end
+  PumaWorkerKiller.start
+end
+
 on_worker_boot do
   if ENV['SOFTWARE_O_O_RBTRACE']
     # Trace objects to generate heap dump in production
