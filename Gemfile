@@ -55,4 +55,5 @@ group :test do
 end
 
 # Debugging gems
-gem 'rbtrace', require: false
+# rbtrace does not install successfully in Docker and needs to be manually enabled
+# gem 'rbtrace', require: false
