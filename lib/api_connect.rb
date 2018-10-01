@@ -17,7 +17,7 @@ class ApiConnect
       request['x-username'] = config.api_username
       # if you know the cookie, you can bypass login - useful in production ;)
       request['X-opensuse_data'] = config.opensuse_cookie if config.opensuse_cookie
-      request.basic_auth  config.api_username, config.api_password unless (config.api_username.blank? || config.api_password.blank?)
+      request.basic_auth  config.api_username, config.api_password unless config.api_username.blank? || config.api_password.blank?
       http.read_timeout = 15
       response = http.request(request)
       case response

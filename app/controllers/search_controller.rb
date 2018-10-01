@@ -33,7 +33,7 @@ class SearchController < OBSController
     @packagenames = @packages.map { |p| p.name }
 
     # mix in searchresults from appdata, as the api can't search in summary and description atm
-    if (!@search_project)
+    if !@search_project
       appdata_hits = @appdata[:apps].select do |a|
         (a[:summary].match(/#{Regexp.quote(@search_term)}/i) ||
           a[:name].match(/#{Regexp.quote(@search_term)}/i))
