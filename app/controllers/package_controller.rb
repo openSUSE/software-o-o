@@ -133,7 +133,7 @@ class PackageController < OBSController
       { :name => _("Graphics"), :id => "Graphics", :icon => "brush", :categories => ["Graphics"] },
       { :name => _("Office & Productivity"), :id => "Office", :icon => "document", :categories => ["Office"] },
       { :name => _("Network"), :id => "Network", :icon => "world-outline", :categories => ["Network"] },
-      { :name => _("System & Utility"), :id => "Tools", :icon => "spanner-outline", :categories => ["Settings", "System", "Utility"] },
+      { :name => _("System & Utility"), :id => "Tools", :icon => "spanner-outline", :categories => ["Settings", "System", "Utility"] }
     ]
   end
 end
