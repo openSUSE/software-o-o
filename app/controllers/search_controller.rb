@@ -5,7 +5,7 @@ class SearchController < OBSController
   def index
     render 'find' and return if @search_term.blank?
 
-    base = (@baseproject == "ALL") ? "" : @baseproject
+    base = @baseproject == "ALL" ? "" : @baseproject
 
     # if we have a baseproject, and don't show unsupported packages, shortcut: '
     if @baseproject.present? && @baseproject != "ALL" && !@search_unsupported && !@search_project
