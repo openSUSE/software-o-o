@@ -104,7 +104,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_baseproject
-    unless (@distributions.blank? || @distributions.select { |d| d[:project] == cookies[:baseproject] }.blank?)
+    unless @distributions.blank? || @distributions.select { |d| d[:project] == cookies[:baseproject] }.blank?
       @baseproject = cookies[:baseproject]
     end
     @baseproject = "openSUSE:Leap:#{@stable_version}" if @baseproject.blank?

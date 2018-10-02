@@ -5,7 +5,7 @@ class SearchController < OBSController
   def index
     render 'find' and return if @search_term.blank?
 
-    base = (@baseproject == "ALL") ? "" : @baseproject
+    base = @baseproject == "ALL" ? "" : @baseproject
 
     # if we have a baseproject, and don't show unsupported packages, shortcut: '
     if @baseproject.present? && @baseproject != "ALL" && !@search_unsupported && !@search_project
@@ -33,7 +33,7 @@ class SearchController < OBSController
     @packagenames = @packages.map { |p| p.name }
 
     # mix in searchresults from appdata, as the api can't search in summary and description atm
-    if (!@search_project)
+    if !@search_project
       appdata_hits = @appdata[:apps].select do |a|
         (a[:summary].match(/#{Regexp.quote(@search_term)}/i) ||
           a[:name].match(/#{Regexp.quote(@search_term)}/i))

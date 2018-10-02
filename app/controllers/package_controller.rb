@@ -20,14 +20,14 @@ class PackageController < OBSController
       @default_project = @baseproject
       @default_project_name = @distributions.select { |d| d[:project] == @default_project }.first[:name]
       @default_repo = @distributions.select { |d| d[:project] == @default_project }.first[:repository]
-      @default_package = if (!@packages.select { |s| s.project == "#{@default_project}:Update" }.empty?)
+      @default_package = if !@packages.select { |s| s.project == "#{@default_project}:Update" }.empty?
                            @packages.select { |s| s.project == "#{@default_project}:Update" }.first
                          else
                            @packages.select { |s| [@default_project, "#{@default_project}:NonFree"].include? s.project }.first
                          end
 
       pkg_appdata = @appdata[:apps].select { |app| app[:pkgname].downcase == @pkgname.downcase }
-      if (!pkg_appdata.first.blank?)
+      if !pkg_appdata.first.blank?
         @name = pkg_appdata.first[:name]
         @appcategories = pkg_appdata.first[:categories]
         @homepage = pkg_appdata.first[:homepage]
@@ -41,7 +41,7 @@ class PackageController < OBSController
       @packages.each do |package|
         # Backports chains up to the toolchain module for newer GCC.
         # So break the link immediately.
-        if (package.project.match(/^openSUSE:Backports:SLE-12/))
+        if package.project =~ /^openSUSE:Backports:SLE-12/
           package.baseproject = package.project
         end
       end
@@ -133,7 +133,7 @@ class PackageController < OBSController
       { :name => _("Graphics"), :id => "Graphics", :icon => "brush", :categories => ["Graphics"] },
       { :name => _("Office & Productivity"), :id => "Office", :icon => "document", :categories => ["Office"] },
       { :name => _("Network"), :id => "Network", :icon => "world-outline", :categories => ["Network"] },
-      { :name => _("System & Utility"), :id => "Tools", :icon => "spanner-outline", :categories => ["Settings", "System", "Utility"] },
+      { :name => _("System & Utility"), :id => "Tools", :icon => "spanner-outline", :categories => ["Settings", "System", "Utility"] }
     ]
   end
 end

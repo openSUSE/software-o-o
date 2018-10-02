@@ -414,18 +414,6 @@ Style/ParallelAssignment:
     - 'app/controllers/application_controller.rb'
     - 'lib/activexml/transport.rb'
 
-# Offense count: 12
-# Cop supports --auto-correct.
-# Configuration parameters: AllowSafeAssignment.
-Style/ParenthesesAroundCondition:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/download_controller.rb'
-    - 'app/controllers/package_controller.rb'
-    - 'app/controllers/search_controller.rb'
-    - 'app/models/seeker.rb'
-    - 'lib/api_connect.rb'
-
 # Offense count: 10
 # Cop supports --auto-correct.
 Style/PerlBackrefs:
@@ -548,22 +536,6 @@ Style/SymbolProc:
     - 'app/models/seeker.rb'
     - 'lib/activexml/node.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, AllowSafeAssignment.
-# SupportedStyles: require_parentheses, require_no_parentheses, require_parentheses_when_complex
-Style/TernaryParentheses:
-  Exclude:
-    - 'app/controllers/search_controller.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForMultiline, SupportedStylesForMultiline.
-# SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInLiteral:
-  Exclude:
-    - 'app/controllers/package_controller.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: ExactNameMatch, AllowPredicates, AllowDSLWriters, IgnoreClassMethods, Whitelist.
@@ -571,12 +543,6 @@ Style/TrailingCommaInLiteral:
 Style/TrivialAccessors:
   Exclude:
     - 'lib/activexml/node.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/UnlessElse:
-  Exclude:
-    - 'lib/activexml/matcher.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.

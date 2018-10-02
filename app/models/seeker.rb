@@ -25,27 +25,27 @@ class Seeker < ActiveXML::Node
       xpath_items = Array.new
       xpath_items << "@project = '#{project}' " unless project.blank?
       substring_words = words.reject { |word| word.match(/^".+"$/) }.map { |word| "'#{word.gsub(/['"()]/, "")}'" }.join(", ")
-      unless (substring_words.blank?)
+      unless substring_words.blank?
         xpath_items << "contains-ic(@name, " + substring_words + ")"
       end
       words.select { |word| word.match(/^".+"$/) }.map { |word| word.gsub("\"", "") }.each do |word|
         xpath_items << "@name = '#{word.gsub(/['"()]/, "")}'"
       end
       xpath_items << "path/project='#{baseproject}'" unless baseproject.blank?
-      xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" if (!exclude_filter.blank? && project.blank?)
+      xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" if !exclude_filter.blank? && project.blank?
       xpath_items << versrel.map { |part| "starts-with(@versrel,'#{part}')" }.join(" and ") unless versrel.blank?
       xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " +
                      "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))" if exclude_debug
       xpath = xpath_items.join(' and ')
 
       bin = Seeker.find :binary, :match => xpath
-      raise "Backend not responding" if (bin.nil?)
+      raise "Backend not responding" if bin.nil?
 
       result = new(query)
       result.add_binlist(bin)
 
       # remove this hack when the backend can filter for project names
-      result.reject! { |res| /#{exclude_filter}/.match(res.project) } if (!exclude_filter.blank? && project.blank?)
+      result.reject! { |res| /#{exclude_filter}/.match(res.project) } if !exclude_filter.blank? && project.blank?
       result.sort! { |x, y| y.relevance <=> x.relevance }
       logger.info "Seeker found #{result.size} results"
       return result
