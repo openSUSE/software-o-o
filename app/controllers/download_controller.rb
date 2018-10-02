@@ -2,8 +2,7 @@ class DownloadController < ApplicationController
   before_action :set_colors
 
   # display documentation
-  def doc
-  end
+  def doc; end
 
   def appliance
     required_parameters :project
