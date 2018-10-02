@@ -131,7 +131,7 @@ module ActiveXML
           if obj
             logger.debug "returning #{args.inspect} from object_cache"
             return obj
-    end
+          end
         end
 
         objhash = nil

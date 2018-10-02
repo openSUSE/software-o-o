@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     when Timeout::Error
     else
       logger.error exception.backtrace.join("\n")
-      end
+    end
     render :template => 'error', :formats => [:html], :layout => layout, :status => 400
   end
 

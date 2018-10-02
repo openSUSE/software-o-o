@@ -118,7 +118,7 @@ class Screenshot
              "openstack-package.png"
            else
              "package.png"
-    end
+           end
     "default-screenshots/#{file}"
   end
 end
