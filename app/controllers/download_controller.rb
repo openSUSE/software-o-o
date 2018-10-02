@@ -39,7 +39,7 @@ class DownloadController < ApplicationController
       end
     end
     set_flavours
-    @page_title = _("Download appliance from %s") % [@project]
+    @page_title = format(_("Download appliance from %s"), @project)
     render_page :appliance
   end
 
@@ -81,7 +81,7 @@ class DownloadController < ApplicationController
       end
     end
     set_flavours
-    @page_title = _("Install package %s / %s") % [@project, @package]
+    @page_title = format(_("Install package %s / %s"), @project, @package)
     render_page :package
   end
 
@@ -123,7 +123,7 @@ class DownloadController < ApplicationController
       end
     end
     set_flavours
-    @page_title = _("Install pattern %s / %s") % [@project, @pattern]
+    @page_title = format(_("Install pattern %s / %s"), @project, @pattern)
     render_page :package
   end
 
