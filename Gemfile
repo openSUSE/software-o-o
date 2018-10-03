@@ -49,7 +49,7 @@ group :test do
   gem 'capybara'
   gem 'faker'
   gem 'geckodriver-helper'
-  gem 'rubocop', "~> 0.49.0"
+  gem 'rubocop'
   gem 'selenium-webdriver'
   gem 'webmock'
 end
