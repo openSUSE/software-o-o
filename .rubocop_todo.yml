@@ -23,16 +23,6 @@ Lint/EmptyWhen:
     - 'app/controllers/application_controller.rb'
     - 'lib/activexml/matcher.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleAlignWith, SupportedStylesAlignWith, AutoCorrect.
-# SupportedStylesAlignWith: keyword, variable, start_of_line
-Lint/EndAlignment:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/models/screenshot.rb'
-    - 'lib/activexml/node.rb'
-
 # Offense count: 1
 Lint/HandleExceptions:
   Exclude:
@@ -271,23 +261,6 @@ Style/EmptyLiteral:
     - 'app/models/seeker.rb'
     - 'lib/activexml/matcher.rb'
     - 'lib/activexml/node.rb'
-    - 'lib/activexml/transport.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: compact, expanded
-Style/EmptyMethod:
-  Exclude:
-    - 'app/controllers/download_controller.rb'
-
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: format, sprintf, percent
-Style/FormatString:
-  Exclude:
-    - 'app/controllers/download_controller.rb'
     - 'lib/activexml/transport.rb'
 
 # Offense count: 8
