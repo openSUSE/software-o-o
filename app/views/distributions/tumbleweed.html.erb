@@ -16,24 +16,24 @@
     <ul class="nav nav-tabs nav-justified" role="tablist">
       <li class="nav-item">
         <a class="nav-link active" data-toggle="tab" href="#official-ports" role="tab">
-          <%= _("Official") %>
+          <%= _("Installation") %>
           <span class="badge badge-success">x86_64</span>
           <span class="badge badge-success">i586</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#unofficial-ports" role="tab">
-          <%= _("Unofficial") %>
-          <span class="badge badge-warning">aarch64</span>
-          <span class="badge badge-warning">ppc64le</span>
-          <span class="badge badge-warning">ppc64</span>
+        <a class="nav-link" data-toggle="tab" href="#livecd-ports" role="tab">
+          <%= _("Live") %>
+          <span class="badge badge-warning">x86_64</span>
+          <span class="badge badge-warning">i586</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#livecd-ports" role="tab">
-          LiveCD
-          <span class="badge badge-warning">x86_64</span>
-          <span class="badge badge-warning">i586</span>
+        <a class="nav-link" data-toggle="tab" href="#unofficial-ports" role="tab">
+          <%= _("Ports") %>
+          <span class="badge badge-warning">aarch64</span>
+          <span class="badge badge-warning">ppc64le</span>
+          <span class="badge badge-warning">ppc64</span>
         </a>
       </li>
     </ul>
@@ -135,7 +135,10 @@
       <div class="tab-pane" id="unofficial-ports" role="tabpanel">
 
         <div class="alert alert-warning my-3">
-          <%= _('These ports are not officially supported, and they are not as stable as official distributions.') %>
+          <%= _('Ports of openSUSE Tumbleweed to architectures other than the
+                PC are maintained by separate community teams. Scope and pace
+                of the rolling release might be different due to
+                limited resources for those architectures.') %>
         </div>
 
         <h3 class="my-3">aarch64</h3>
