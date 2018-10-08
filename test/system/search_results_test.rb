@@ -1,7 +1,6 @@
 require File.expand_path('../../test_helper', __FILE__)
 
 class SearchResultsTest < ActionDispatch::SystemTestCase
-
   def setup
     Capybara.reset_session!
   end
