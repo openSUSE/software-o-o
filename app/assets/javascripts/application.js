@@ -3,3 +3,4 @@
 
 //= require js-cookie
 //= require search-settings
+//= require common_functionality
