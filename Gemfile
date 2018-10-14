@@ -13,8 +13,6 @@ gem 'compass-rails'
 gem 'uglifier'
 # Use CoffeeScript for .js.coffee assets and views
 # gem 'coffee-rails', '~> 4.0.0'
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 gem 'fast_gettext', '>= 0.7.0'
