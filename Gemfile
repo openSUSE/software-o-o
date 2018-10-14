@@ -7,18 +7,13 @@ gem 'rails', '~> 5.2'
 gem 'open_uri_redirections'
 # Use SCSS for stylesheets
 gem 'sass-rails'
-# With compass
-gem 'compass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
-# Use CoffeeScript for .js.coffee assets and views
-# gem 'coffee-rails', '~> 4.0.0'
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
 
 gem 'fast_gettext', '>= 0.7.0'
 gem 'gettext_i18n_rails', '>= 0.4.3'
+
+gem 'opensuse_theme_chameleon-rails', git: 'https://github.com/openSUSE/opensuse_theme_chameleon-rails', submodules: true, branch: 'master'
 
 # rails-i18n provides translations for ActiveRecord
 # validation error messages
