@@ -37,4 +37,36 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
 
     page.assert_text 'No packages found matching your search.'
   end
+
+  def test_only_version_query
+    visit '/'
+    # There is no need to click on settings. If cookies are fresh, they will auto popup
+    # if this ever changes, uncomment the next line
+    # page.click_on 'Settings'
+    within '#search-settings' do
+      find('option[value="openSUSE:Leap:42.3"]').click
+      page.click_on 'OK'
+    end
+
+    page.fill_in 'q', with: '1'
+    page.find(:css, 'button#search-button').click
+
+    page.assert_text 'The package name is required when searching for a version'
+  end
+
+  def test_empty_query
+    visit '/'
+    # There is no need to click on settings. If cookies are fresh, they will auto popup
+    # if this ever changes, uncomment the next line
+    # page.click_on 'Settings'
+    within '#search-settings' do
+      find('option[value="openSUSE:Leap:42.3"]').click
+      page.click_on 'OK'
+    end
+
+    page.fill_in 'q', with: ''
+    page.find(:css, 'button#search-button').click
+
+    page.assert_text 'Please provide a valid search term'
+  end
 end

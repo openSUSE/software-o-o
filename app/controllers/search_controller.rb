@@ -3,8 +3,6 @@ class SearchController < OBSController
   before_action :prepare_appdata
 
   def index
-    render 'find' and return if @search_term.blank?
-
     base = @baseproject == "ALL" ? "" : @baseproject
 
     # if we have a baseproject, and don't show unsupported packages, shortcut: '
@@ -21,6 +19,9 @@ class SearchController < OBSController
         @packages = Seeker.prepare_result("#{@search_term}", base, @search_project, @exclude_filter, @exclude_debug)
       end
       raise e if @packages.nil?
+    rescue Seeker::InvalidSearchTerm => e
+      flash[:error] = e.message
+      render 'find' and return
     end
 
     filter_packages
