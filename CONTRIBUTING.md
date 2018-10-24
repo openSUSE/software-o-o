@@ -28,11 +28,13 @@ Other changes that are cosmetic in nature and do not add anything substantial to
 
 #### **Do you intend to add a new feature or change an existing one?**
 
-* Make sure you discussed this with the relevant people and got some feedback, before you start writing code.
-
+* Please open an [issue](https://github.com/openSUSE/software-o-o/issues/new) to discuss your change before writing any code.
 * If the changes are visual, consider attaching screenshots showing the before/after change in the Github pull request description.
 
-* Do not open an issue on GitHub until you have collected positive feedback about the change. GitHub issues are primarily intended for bug reports and fixes.
+#### **Do you want to talk to us?**
+
+* We hang out in our [gitter chatroom](https://gitter.im/openSUSE/software-o-o). This is an **informal** chat, please
+  keep discussions about bugs and features on GitHub.
 
 Thanks! :green_heart: :green_heart: :green_heart:
 
