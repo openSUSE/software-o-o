@@ -22,14 +22,14 @@ With the rubocop version we are pinned to, there should be no warnings, and the 
 
 If you are not going to fix all issues of a certain type on all files, but just on a subset, you can as well disable the ignore in '.rubocop_todo.yml' locally, fix the issues in a few files, and commit those, without committing '.rubocop_todo.yml', so that it keeps ignoring the files that still have the issue.
 
-If you fixes rubocop issues like the ones above, you can submit it with a Github pull request.
+If you fix rubocop issues like the ones above, you can submit it with a GitHub pull request.
 
 Other changes that are cosmetic in nature and do not add anything substantial to the stability, functionality, or testability of this application will generally not be accepted (we share the same [rationales as the Rails project](https://github.com/rails/rails/pull/13771#issuecomment-32746700)).
 
 #### **Do you intend to add a new feature or change an existing one?**
 
 * Please open an [issue](https://github.com/openSUSE/software-o-o/issues/new) to discuss your change before writing any code.
-* If the changes are visual, consider attaching screenshots showing the before/after change in the Github pull request description.
+* If the changes are visual, consider attaching screenshots showing the before/after change in the GitHub pull request description.
 
 #### **Do you want to talk to us?**
 
