@@ -6,7 +6,7 @@ class PackageInformationTest < ActionDispatch::SystemTestCase
       # Check that package information is displayed
       visit '/package/pidgin'
       page.assert_text 'Multiprotocol Instant Messaging Client'
-      page.assert_text 'Pidgin is a chat program'
+      page.assert_text 'Pidgin is a messaging application which lets you log in to accounts'
     end
   end
 end
