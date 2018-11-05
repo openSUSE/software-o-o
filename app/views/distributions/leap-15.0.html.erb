@@ -31,6 +31,12 @@
           <span class="badge badge-success">x86_64</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#unofficial-ports" role="tab">
+          <%= _("Ports") %>
+          <span class="badge badge-warning">aarch64</span>
+        </a>
+      </li>
     </ul>
 
     <div class="tab-content">
@@ -215,6 +221,48 @@
           </div><!-- /.card -->
         </div><!-- /.card-deck -->
       </div><!-- /.tab-pane -->
+
+
+      <div class="tab-pane" id="unofficial-ports" role="tabpanel">
+
+      <div class="alert alert-warning my-3">
+          <%= _('Ports of openSUSE Leap to architectures other than the
+                PC are maintained by separate community teams, with
+                limited resources.') %>
+        </div>
+
+        <h3 class="my-3">AArch64</h3>
+        <div class="card-deck">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">
+                <span class="typcn typcn-download-outline"></span>
+                <%= _("DVD Image") %> (3.4GB)
+              </h4>
+              <h6 class="card-subtitle mb-2 text-muted"><%= _("For DVD and USB stick") %></h6>
+              <p class="card-text text-muted"><%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %></p>
+              <a href="https://download.opensuse.org/ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-DVD-aarch64-Build124.1-Media.iso" class="card-link"><%= _('Direct Link') %></a>
+              <a href="https://download.opensuse.org/ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-DVD-aarch64-Build124.1-Media.iso.meta4" class="card-link"><%= _('Metalink') %></a>
+              <a href="https://download.opensuse.org/ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-DVD-aarch64-Build124.1-Media.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
+              <a href="https://download.opensuse.org/ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-DVD-aarch64-Build124.1-Media.iso.sha256" class="card-link"><%= _('Checksum') %></a>
+            </div>
+          </div><!-- /.card -->
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">
+                <span class="typcn typcn-download-outline"></span>
+                <%= _("Network Image") %> (110MB)
+              </h4>
+              <h6 class="card-subtitle mb-2 text-muted"><%= _("For CD and USB stick") %></h6>
+              <p class="card-text text-muted"><%= _("Downloads the installation system and all packages from online repositories. Suitable for installation or upgrade.") %></p>
+              <a href="https://download.opensuse.org/ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-aarch64-Build124.1-Media.iso" class="card-link"><%= _('Direct Link') %></a>
+              <a href="https://download.opensuse.org/ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-aarch64-Build124.1-Media.iso.meta4" class="card-link"><%= _('Metalink') %></a>
+              <a href="https://download.opensuse.org/ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-aarch64-Build124.1-Media.iso?mirrorlist" class="card-link"><%= _('Pick Mirror') %></a>
+              <a href="https://download.opensuse.org/ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-aarch64-Build124.1-Media.iso.sha256" class="card-link"><%= _('Checksum') %></a>
+            </div>
+          </div><!-- /.card -->
+        </div><!-- /.card-deck -->
+      </div><!-- /#unofficial-ports.tab-pane -->
     </div><!-- /.tab-content -->
     <div class="mt-3">
       <% if @legacy_release %>
