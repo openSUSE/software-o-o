@@ -19,6 +19,7 @@
           <%= _("Installation") %>
           <span class="badge badge-success">x86_64</span>
           <span class="badge badge-success">i586</span>
+          <span class="badge badge-success">aarch64</span>
         </a>
       </li>
       <li class="nav-item">
@@ -31,7 +32,6 @@
       <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#unofficial-ports" role="tab">
           <%= _("Ports") %>
-          <span class="badge badge-warning">aarch64</span>
           <span class="badge badge-warning">ppc64le</span>
           <span class="badge badge-warning">ppc64</span>
         </a>
@@ -118,29 +118,6 @@
           </div><!-- /.card -->
         </div><!-- /.card-deck -->
 
-        <section class="my-5">
-          <div class="container" role="main">
-            <%= render "choosing_media" %>
-          </div>
-        </section>
-
-        <section class="my-5">
-          <div class="container" role="main">
-            <%= render "tumbleweed_switch" %>
-          </div>
-        </section>
-
-      </div><!-- /#official-ports.tab-pane -->
-
-      <div class="tab-pane" id="unofficial-ports" role="tabpanel">
-
-        <div class="alert alert-warning my-3">
-          <%= _('Ports of openSUSE Tumbleweed to architectures other than the
-                PC are maintained by separate community teams. Scope and pace
-                of the rolling release might be different due to
-                limited resources for those architectures.') %>
-        </div>
-
         <h3 class="my-3">aarch64</h3>
         <div class="card-deck">
           <div class="card">
@@ -172,6 +149,29 @@
             </div>
           </div><!-- /.card -->
         </div><!-- /.card-deck -->
+
+        <section class="my-5">
+          <div class="container" role="main">
+            <%= render "choosing_media" %>
+          </div>
+        </section>
+
+        <section class="my-5">
+          <div class="container" role="main">
+            <%= render "tumbleweed_switch" %>
+          </div>
+        </section>
+
+      </div><!-- /#official-ports.tab-pane -->
+
+      <div class="tab-pane" id="unofficial-ports" role="tabpanel">
+
+        <div class="alert alert-warning my-3">
+          <%= _('Ports of openSUSE Tumbleweed to architectures other than the
+                PC are maintained by separate community teams. Scope and pace
+                of the rolling release might be different due to
+                limited resources for those architectures.') %>
+        </div>
 
         <h3 class="my-3">ppc64le</h3>
         <div class="card-deck">
