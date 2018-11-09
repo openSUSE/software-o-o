@@ -36,8 +36,6 @@ keys for `secrets.yml`).
 ```bash
 git clone https://github.com/openSUSE/software-o-o.git
 cd software-o-o
-git submodule init
-git submodule update
 
 bundle package
 bundle exec rails s
@@ -76,6 +74,16 @@ bundle exec prometheus_exporter
 ```
 
 After this the prometheus metrics will be exported under `http://localhost:9394/metrics`.
+
+### Updaing opensuse-theme-chameleon assets 
+
+```bash
+git submodule init
+git submodule update
+make
+```
+
+After running the above commands, run `RAILS_ENV=production rails assets:precompile` and you should see the new assets.
 
 ## Running the application in production
 
