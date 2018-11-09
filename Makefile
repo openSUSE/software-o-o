@@ -15,4 +15,4 @@ update-chameleon:
 	cp -r opensuse-theme-chameleon/dist/images/* app/assets/images/chameleon/
 
     # Fix font paths to be picked up by Rails
-	sed -i 's,url("../fonts/,font_url("chameleon/,g' app/assets/stylesheets/chameleon/chameleon.css
+	sed -i 's,url("../fonts/,font_url(",g' app/assets/stylesheets/chameleon/chameleon.css
