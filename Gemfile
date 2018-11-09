@@ -44,6 +44,7 @@ group :test do
   gem 'geckodriver-helper'
   gem 'rubocop'
   gem 'selenium-webdriver'
+  gem 'vcr'
   gem 'webmock'
 end
 

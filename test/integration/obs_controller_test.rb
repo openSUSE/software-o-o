@@ -3,10 +3,12 @@ require 'api_connect'
 
 class OBSControllerTest < ActionDispatch::IntegrationTest
   def test_backend_connection
-    get '/explore'
+    VCR.use_cassette('default') do
+      get '/explore'
 
-    assert_includes body, 'Search packages...'
-    assert_equal 200, status
+      assert_includes body, 'Search packages...'
+      assert_equal 200, status
+    end
   end
 
   def test_backend_error_handling
@@ -18,9 +20,11 @@ class OBSControllerTest < ActionDispatch::IntegrationTest
     ApiConnect.stub :get, mock do
       # Otherwise the controller would get the distributions from cache
       Rails.cache.clear
-      get '/explore'
-      assert_includes body, 'Connection to OBS is unavailable.'
-      assert_equal 200, status
+      VCR.use_cassette('default') do
+        get '/explore'
+        assert_includes body, 'Connection to OBS is unavailable.'
+        assert_equal 200, status
+      end
     end
   end
 end
