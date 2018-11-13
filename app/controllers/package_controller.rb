@@ -13,9 +13,9 @@ class PackageController < OBSController
 
       @search_term = params[:search_term]
 
-      @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
+      @packages = OBS.search_published_binary("\"#{@pkgname}\"")
       # only show rpms
-      @packages = @packages.select { |p| p.first.type != 'ymp' && p.quality != "Private" }
+      @packages.select! { |p| p.type != 'ymp' && p.quality != "Private" }
       @default_project_name = @distributions.select { |d| d[:project] == @baseproject }.first[:name]
       @default_package = @packages.select { |s| s.project == "#{@baseproject}:Update" }.first ||
                          @packages.select { |s| [@baseproject, "#{@baseproject}:NonFree"].include? s.project }.first
