@@ -18,6 +18,10 @@ module OBS
   # Binary.repository => [String]
   # Binary.type => [String]
   # Binary.version => [String]
+  # The following properities may not be available
+  # Binary.description => [String]
+  # Binary.summary => [String]
+  # Binary.size => [Integer]
   # Binary.quality => [String]
   class Binary < Hashie::Mash
     include Hashie::Extensions::Mash::SymbolizeKeys
@@ -143,7 +147,8 @@ module OBS
     result = OBS.client.get('/search/published/binary/id', match: xpath_for(query, opts)).body.collection
     return [] unless result.binaries
 
-    result.binaries.map { |bin| OBS.add_project_quality(bin) }
+    result.binaries.map! { |bin| OBS.add_project_quality(bin) }
+    result.binaries.map { |bin| OBS.add_fileinfo_to_binary(bin) }
   end
 
   # Add project quality attribute for filtering
@@ -161,6 +166,35 @@ module OBS
       binary.quality = ''
     end
     binary
+  end
+
+  # Add description, summary and size to binary
+  # @param [Binary] to add fileinfo to
+  #
+  # @return [Binary]
+  def self.add_fileinfo_to_binary(binary)
+    begin
+      fileinfo = OBS.search_published_binary_fileinfo(binary)
+    rescue Faraday::ClientError => e
+      raise unless e.response[:status] == 404 # not every binary has published fileinfo
+    else
+      binary.description = fileinfo.description if fileinfo.description.present?
+      binary.summary = fileinfo.summary if fileinfo.summary.present?
+      # size is a built-in method and has to be accessed via #[]
+      binary[:size] = fileinfo[:size] if fileinfo[:size].present?
+    end
+    binary
+  end
+
+  # Searches for published fileinfo of a binary
+  # @param [Binary] binary to search fileinfo for
+  #
+  # @return [Fileinfo]
+  def self.search_published_binary_fileinfo(binary)
+    cache_key = ActiveSupport::Cache.expand_cache_key(binary, "fileinfo")
+    Rails.cache.fetch(cache_key, expires_in: 2.hours) do
+      OBS.client.get("/published/#{binary.project}/#{binary.repository}/#{binary.arch}/#{binary.filename}?view=fileinfo").body.fileinfo
+    end
   end
 
   # Searches for the OBS:QualityCategory attribute of a given project

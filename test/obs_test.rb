@@ -17,4 +17,18 @@ class OBSTest < ActiveSupport::TestCase
       assert_equal "", project_quality
     end
   end
+
+  test 'search fileinfo for one Binary' do
+    VCR.use_cassette('default') do
+      binary = OBS::Binary.new(
+        'project' => 'home:dmacvicar',
+        'repository' => 'openSUSE_Tumbleweed',
+        'arch' => 'x86_64',
+        'filename' => 'vcpkg-0.0+git.1524688133.90be0d9b-9.6.x86_64.rpm'
+      )
+      fileinfo = OBS.search_published_binary_fileinfo(binary)
+
+      assert_equal "C++ library manager for Linux, macOS and Windows", fileinfo.summary
+    end
+  end
 end
