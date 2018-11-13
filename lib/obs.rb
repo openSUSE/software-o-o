@@ -18,6 +18,7 @@ module OBS
   # Binary.repository => [String]
   # Binary.type => [String]
   # Binary.version => [String]
+  # Binary.relevance => [Integer]
   # The following properities may not be available
   # Binary.description => [String]
   # Binary.summary => [String]
@@ -148,7 +149,33 @@ module OBS
     return [] unless result.binaries
 
     result.binaries.map! { |bin| OBS.add_project_quality(bin) }
-    result.binaries.map { |bin| OBS.add_fileinfo_to_binary(bin) }
+    result.binaries.map! { |bin| OBS.add_fileinfo_to_binary(bin) }
+    result.binaries.map! { |bin| OBS.add_binary_relevance(bin, query) }
+
+    result.binaries.sort { |a,b| b.relevance <=> a.relevance }
+  end
+
+  # Add relevance for sorting of binaries
+  # @param [Binary] binary to add relevance to
+  # @param [String] search query for comparison of match
+  #
+  # @return [Binary]
+  def self.add_binary_relevance(binary, query)
+    quoted_query = Regexp.quote(query)
+    binary.relevance = 0
+    binary.relevance += 15 if binary.name =~ /^#{quoted_query}$/i
+    binary.relevance += 5 if binary.name =~ /^#{quoted_query}/i
+    binary.relevance += 15 if binary.project =~ /^openSUSE:/i
+    binary.relevance += 5 if binary.project =~ /^#{quoted_query}$/i
+    binary.relevance += 2 if binary.project =~ /^#{quoted_query}/i
+    binary.relevance -= 5 if binary.project =~ /unstable/i
+    binary.relevance -= 10 if binary.project =~ /^home:/
+    binary.relevance -= 20 if binary.project =~ /^openSUSE:Maintenance/i
+    binary.relevance -= 10 if binary.name =~ /-debugsource$/
+    binary.relevance -= 10 if binary.name =~ /-debuginfo$/
+    binary.relevance -= 3 if binary.name =~ /-devel$/
+    binary.relevance -= 3 if binary.name =~ /-doc$/
+    binary
   end
 
   # Add project quality attribute for filtering
