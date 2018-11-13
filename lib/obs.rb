@@ -18,6 +18,7 @@ module OBS
   # Binary.repository => [String]
   # Binary.type => [String]
   # Binary.version => [String]
+  # Binary.quality => [String]
   class Binary < Hashie::Mash
     include Hashie::Extensions::Mash::SymbolizeKeys
     def self.coerce(binary)
@@ -140,6 +141,42 @@ module OBS
   #
   def self.search_published_binary(query, opts = {})
     result = OBS.client.get('/search/published/binary/id', match: xpath_for(query, opts)).body.collection
-    result.binaries.present? result.binaries : []
+    return [] unless result.binaries
+
+    result.binaries.map { |bin| OBS.add_project_quality(bin) }
+  end
+
+  # Add project quality attribute for filtering
+  # @param [Binary] to add its project's quality attribute to
+  #
+  # @return [Binary]
+  def self.add_project_quality(binary)
+    begin
+      binary.quality = OBS.search_project_quality(binary.project)
+    rescue Faraday::ClientError => e
+      # Attribute search might fail, not all projects have accessible info
+      raise unless e.response[:status] == 404
+
+      # Assume the project is NOT private if search fails
+      binary.quality = ''
+    end
+    binary
+  end
+
+  # Searches for the OBS:QualityCategory attribute of a given project
+  # @param [String] project OBS specific project to search attribute for
+  #
+  # @return [String]
+  def self.search_project_quality(project)
+    cache_key = ActiveSupport::Cache.expand_cache_key(project, "attribute")
+    Rails.cache.fetch(cache_key, expires_in: 2.hours) do
+      xml_quality = OBS.client.get("/source/#{project}/_attribute/OBS:QualityCategory")
+
+      if xml_quality && xml_quality[:attribute]
+        xml_quality[:attribute][:text].strip
+      else
+        ''
+      end
+    end
   end
 end
