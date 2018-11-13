@@ -70,6 +70,10 @@ GEM
     execjs (2.7.0)
     faker (1.9.1)
       i18n (>= 0.7)
+    faraday (0.15.4)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.12.2)
+      faraday (>= 0.7.4, < 1.0)
     fast_gettext (2.0.0)
     ffi (1.9.25)
     geckodriver-helper (0.21.0)
@@ -102,6 +106,8 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
+    multi_xml (0.6.0)
+    multipart-post (2.0.0)
     nio4r (2.3.1)
     nokogiri (1.9.1)
       mini_portile2 (~> 2.4.0)
@@ -220,6 +226,8 @@ DEPENDENCIES
   capybara
   dalli
   faker
+  faraday
+  faraday_middleware
   fast_gettext (>= 0.7.0)
   geckodriver-helper
   gettext (>= 1.9.3)
@@ -227,6 +235,7 @@ DEPENDENCIES
   hashie
   mini_magick
   minitest
+  multi_xml
   nokogiri
   open_uri_redirections
   prometheus_exporter

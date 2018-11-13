@@ -26,6 +26,11 @@ gem 'xmlhash', '>= 1.2.2'
 gem 'prometheus_exporter'
 gem 'puma_worker_killer'
 
+# HTTP client library for OBS Client
+gem 'faraday'
+gem 'faraday_middleware'
+gem 'multi_xml'
+
 # needed to collect translatable strings
 # not needed at production
 group :development do
