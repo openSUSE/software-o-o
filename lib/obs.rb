@@ -150,11 +150,13 @@ module OBS
       result = OBS.client.get('/search/published/binary/id', match: xpath_for(query, opts)).body.collection
       return [] unless result.binaries
 
-      result.binaries.map! { |bin| OBS.add_project_quality(bin) }
-      result.binaries.map! { |bin| OBS.add_fileinfo_to_binary(bin) }
-      result.binaries.map! { |bin| OBS.add_binary_relevance(bin, query) }
+      result.binaries.each do |bin|
+        bin_with_quality = OBS.add_project_quality(bin)
+        bin_with_quality_fileinfo = OBS.add_fileinfo_to_binary(bin_with_quality)
+        OBS.add_binary_relevance(bin_with_quality_fileinfo, query)
+      end
 
-      result.binaries.sort { |a,b| b.relevance <=> a.relevance }
+      result.binaries.sort_by { |bin| - bin.relevance }
     end
   end
 
