@@ -12,25 +12,19 @@ class PackageController < OBSController
       raise OBSError if @distributions.nil?
 
       @search_term = params[:search_term]
-      @base_appdata_project = "openSUSE:Factory"
 
       @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
       # only show rpms
       @packages = @packages.select { |p| p.first.type != 'ymp' && p.quality != "Private" }
-      @default_project = @baseproject
-      @default_project_name = @distributions.select { |d| d[:project] == @default_project }.first[:name]
-      @default_repo = @distributions.select { |d| d[:project] == @default_project }.first[:repository]
-      @default_package = if !@packages.select { |s| s.project == "#{@default_project}:Update" }.empty?
-                           @packages.select { |s| s.project == "#{@default_project}:Update" }.first
-                         else
-                           @packages.select { |s| [@default_project, "#{@default_project}:NonFree"].include? s.project }.first
-                         end
+      @default_project_name = @distributions.select { |d| d[:project] == @baseproject }.first[:name]
+      @default_package = @packages.select { |s| s.project == "#{@baseproject}:Update" }.first ||
+                         @packages.select { |s| [@baseproject, "#{@baseproject}:NonFree"].include? s.project }.first
 
-      pkg_appdata = @appdata[:apps].select { |app| app[:pkgname].downcase == @pkgname.downcase }
-      if !pkg_appdata.first.blank?
-        @name = pkg_appdata.first[:name]
-        @appcategories = pkg_appdata.first[:categories]
-        @homepage = pkg_appdata.first[:homepage]
+      pkg_appdata = @appdata[:apps].select { |app| app[:pkgname].downcase == @pkgname.downcase }.first
+      if pkg_appdata
+        @name = pkg_appdata[:name]
+        @appcategories = pkg_appdata[:categories]
+        @homepage = pkg_appdata[:homepage]
       end
 
       @screenshot = url_for :controller => :package, :action => :screenshot, :package => @pkgname, protocol: request.protocol
