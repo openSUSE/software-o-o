@@ -12,18 +12,15 @@ class PackageController < OBSController
       raise OBSError if @distributions.nil?
 
       @search_term = params[:search_term]
-      @base_appdata_project = "openSUSE:Factory"
 
       @packages = Seeker.prepare_result("\"#{@pkgname}\"", nil, nil, nil, nil)
       # only show rpms
       @packages = @packages.select { |p| p.first.type != 'ymp' && p.quality != "Private" }
-      @default_project = @baseproject
-      @default_project_name = @distributions.select { |d| d[:project] == @default_project }.first[:name]
-      @default_repo = @distributions.select { |d| d[:project] == @default_project }.first[:repository]
-      @default_package = if !@packages.select { |s| s.project == "#{@default_project}:Update" }.empty?
-                           @packages.select { |s| s.project == "#{@default_project}:Update" }.first
+      @default_project_name = @distributions.select { |d| d[:project] == @baseproject }.first[:name]
+      @default_package = if !@packages.select { |s| s.project == "#{@baseproject}:Update" }.empty?
+                           @packages.select { |s| s.project == "#{@baseproject}:Update" }.first
                          else
-                           @packages.select { |s| [@default_project, "#{@default_project}:NonFree"].include? s.project }.first
+                           @packages.select { |s| [@baseproject, "#{@baseproject}:NonFree"].include? s.project }.first
                          end
 
       pkg_appdata = @appdata[:apps].select { |app| app[:pkgname].downcase == @pkgname.downcase }
