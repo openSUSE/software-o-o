@@ -145,10 +145,6 @@ class DownloadController < ApplicationController
 
   private
 
-  def set_parameters
-    @hide_search_box = true
-  end
-
   def render_page page_template
     @box_title = @page_title
     respond_to do |format|
