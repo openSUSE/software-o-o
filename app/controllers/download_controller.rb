@@ -38,7 +38,7 @@ class DownloadController < ApplicationController
         nil
       end
     end
-    set_flavours
+    set_flavors
     @page_title = format(_("Download appliance from %s"), @project)
     render_page :appliance
   end
@@ -80,7 +80,7 @@ class DownloadController < ApplicationController
         nil
       end
     end
-    set_flavours
+    set_flavors
     @page_title = format(_("Install package %s / %s"), @project, @package)
     render_page :package
   end
@@ -122,7 +122,7 @@ class DownloadController < ApplicationController
         nil
       end
     end
-    set_flavours
+    set_flavors
     @page_title = format(_("Install pattern %s / %s"), @project, @pattern)
     render_page :package
   end
@@ -144,10 +144,6 @@ class DownloadController < ApplicationController
   end
 
   private
-
-  def set_parameters
-    @hide_search_box = true
-  end
 
   def render_page page_template
     @box_title = @page_title
@@ -195,13 +191,9 @@ class DownloadController < ApplicationController
     end
   end
 
-  def set_flavours
-    if @data.nil?
-      head :forbidden
-    else
-      # collect distro types from @data
-      @flavors = @data.values.collect { |i| i[:flavor] }.uniq.sort { |x, y| x.downcase <=> y.downcase }
-    end
+  def set_flavors
+    return head :forbidden unless @data
+    @flavors = @data.values.collect { |i| i[:flavor] }.uniq.sort_by(&:downcase)
   end
 
   def get_image_type filename
