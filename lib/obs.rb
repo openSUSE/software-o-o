@@ -208,11 +208,12 @@ module OBS
     begin
       fileinfo = OBS.search_published_binary_fileinfo(binary)
     rescue Faraday::ClientError => e
-      raise unless e.response[:status] == 404 # not every binary has published fileinfo
+      # Not every binary has published fileinfo. Skip if that is the case
+      raise unless e.response[:status] == 404
     else
       binary.description = fileinfo.description if fileinfo.description.present?
       binary.summary = fileinfo.summary if fileinfo.summary.present?
-      # size is a built-in method and has to be accessed via #[]
+      # .size is a built-in method and has to be accessed via #[]
       binary[:size] = fileinfo[:size] if fileinfo[:size].present?
     end
     binary
