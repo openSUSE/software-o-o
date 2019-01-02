@@ -152,8 +152,7 @@ module OBS
 
       result.binaries.each do |bin|
         bin_with_quality = OBS.add_project_quality(bin)
-        bin_with_quality_fileinfo = OBS.add_fileinfo_to_binary(bin_with_quality)
-        OBS.add_binary_relevance(bin_with_quality_fileinfo, query)
+        OBS.add_binary_relevance(bin_with_quality, query)
       end
 
       result.binaries.sort_by { |bin| - bin.relevance }

@@ -40,15 +40,14 @@ module ApplicationHelper
   # so we search one from the other projects...
   def search_for_description(pkgname, packages = [])
     cache_key = "description_package_#{pkgname.downcase}"
-    description_package = Rails.cache.fetch(cache_key, :expires_in => 12.hours) do
+    description_package = Rails.cache.fetch(cache_key, expires_in: 12.hours) do
       if packages.blank?
         packages = OBS.search_published_binary("\"#{pkgname}\"")
         packages.reject! { |p| p.type == 'ymp' }
       end
       packages.select { |p| p.name == pkgname }.each do |package|
-        description_package = nil
-        unless package.description.blank?
-          description_package = package
+        description_package = OBS.add_fileinfo_to_binary(package)
+        if package.description.present?
           logger.info "Found package info for #{pkgname} in: #{package.project}"
           break
         end
