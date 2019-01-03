@@ -1,0 +1,135 @@
+<header class="download-home-header jumbotron jumbotron-fluid bg-<%= @colour %> text-center pb-0">
+  <div class="container">
+    <div class="page-heading pb-5">
+      <% if @distro_type == "leap" %>
+        <%= leap_image_tag alt: "Leap Logo", class: "animated jackInTheBox distro-logo" %>
+      <% elsif @distro_type == "kubic" %>
+        <%= image_tag 'distributions/kubic-white.svg', alt: "Kubic Logo", class: "animated tada distro-logo" %>
+      <% else %>
+        <%= image_tag 'distributions/tumbleweed-white.svg', alt: "Tumbleweed Logo", class: "animated zoomInDown distro-logo" %>
+      <% end %>
+      <h1 class="display-3 text-white">
+        <% if @distro_type == "leap" %>
+          openSUSE Leap <%= @version %>
+        <% elsif @distro_type == "kubic" %>
+          openSUSE Kubic
+        <% else %>
+          openSUSE Tumbleweed
+        <% end %>
+      </h1>
+    </div>
+  </div>
+  <div class="border-bottom" role="tablist">
+    <ul class="container nav nav-tabs nav-justified border-0">
+      <% @yaml_data.try(:each) do |tab| %>
+      
+      <li class="nav-item">
+        <a class="nav-link h-100<% if @yaml_data[0]["name"] == tab["name"] %> active<% end %>" data-toggle="tab" href="#<%= tab["name"] %>-ports" role="tab">
+          <%= _(tab["name"]) %>
+          <% tab["arches"].try(:each) do |arch| %>
+            <span class="badge badge-<%= arch["color"] %>"><%= arch["name"] %></span>
+          <% end %>
+        </a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</header>
+
+<section class="mb-5">
+  <div class="container">
+    <div class="tab-content">
+      <% @yaml_data.try(:each) do |tab| %>
+      <div class="tab-pane <% if @yaml_data[0]["name"] == tab["name"] %>active<% end %>" id="<%= tab["name"] %>-ports" role="tabpanel">
+        <% if tab["info"] %>
+          <div class="alert alert-<%= tab["info-colour"] %>">
+            <%= markdownify( _(tab["info"]) ) %>
+          </div>
+        <% end %>
+        <% tab["arches"].try(:each) do |arch| %>
+        <h3 class="my-3 text-center"><%= arch["name"] %></h3>
+        <div class="row">
+          <% arch["types"].try(:each) do |type| %>
+          <div class="col text-center">
+            <a href="<%= "https://download.opensuse.org#{type["primary_link"]}" %>" class="btn btn-lg btn-block btn-<%= @colour %>">
+            <span class="typcn typcn-download-outline"></span>
+            <%= type["name"] %>
+            </a>
+            <div class="p-2">
+              <h5 class="mb-2 text-muted"><%= type["image_size"] %></h5>
+              <h6 class="mb-2 text-muted"><%= _(type["short"]) %></h6>
+              <p class="text-muted"><%= _(type["desc"]) %></p>
+
+              <% type["links"].try(:each) do |link| %>
+              <a href="<%= "https://download.opensuse.org#{link["url"]}" %>" class="btn btn-link"><%= _(link["name"]) %></a>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+
+        <% if tab["choosing-media"] %>
+        <section class="my-3">
+          <div class="container" role="main">
+            <%= render "choosing_media" %>
+          </div>
+        </section>
+        <% end %>
+        <% if tab["leap-switch"] %>
+        <section class="my-3">
+          <div class="container" role="main">
+            <%= render "leap_switch" %>
+          </div>
+        </section>
+        <% end %>
+        <% if tab["tumbleweed-switch"] %>
+        <section class="my-3">
+          <div class="container" role="main">
+            <%= render "tumbleweed_switch" %>
+          </div>
+        </section>
+        <% end %>
+
+      </div><!-- /.tab-pane -->
+      <% end %>
+    </div><!-- /.tab-content -->
+    <% if @distro_type == "leap" %>
+      <% if @legacy_release && current_page?(controller: 'distributions', action: 'leap') %>
+        <div class="mt-3">
+          <%= link_to _('Download previous openSUSE Leap release'),
+            legacy_distributions_path %>
+        </div>
+      <% else %>
+        <div class="mt-3">
+          <%= link_to _('Download latest openSUSE Leap release'),
+            leap_distributions_path %>
+        </div>
+      <% end %>
+    <% end %>
+  </div><!-- /.container -->
+
+
+</section>
+
+<section class="my-3">
+  <div class="container" role="main">
+  <% if @distro_type == "leap" %>
+    <%= render partial: 'documentation', locals: { distro: "Leap" } %>
+  <% else %>
+    <%= render partial: 'documentation', locals: { distro: "Tumbleweed" } %>
+  <% end %>
+  </div>
+</section>
+
+<section class="my-3">
+  <div class="container" role="main">
+    <%= render "verify_download" %>
+  </div>
+</section>
+
+<section class="my-3">
+  <div class="container" role="main">
+    <%= render "requirements" %>
+  </div>
+</section>

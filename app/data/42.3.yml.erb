@@ -1,0 +1,93 @@
+- name: <%= _("Official") %>
+  choosing-media: true
+  leap-switch: true
+  arches:
+  - name: x86_64
+    color: success
+    types:
+    - name: <%= _("DVD Image") %>
+      short: <%= _("For DVD and USB stick") %>
+      desc: <%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %>
+      image_size: 4.7GB
+      primary_link: /distribution/leap/42.3/iso/openSUSE-Leap-42.3-DVD-x86_64.iso
+      links:
+      - name: <%= _("Metalink") %>
+        url: /distribution/leap/42.3/iso/openSUSE-Leap-42.3-DVD-x86_64.iso.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /distribution/leap/42.3/iso/openSUSE-Leap-42.3-DVD-x86_64.iso?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /distribution/leap/42.3/iso/openSUSE-Leap-42.3-DVD-x86_64.iso.sha256
+      - name: <%= _("Torrent File") %>
+        url: /distribution/leap/42.3/iso/openSUSE-Leap-42.3-DVD-x86_64.iso.torrent
+    - name: <%= _("Network Image") %>
+      short: <%= _("For CD and USB stick") %>
+      desc: <%= _("Downloads the installation system and all packages from online repositories. Suitable for installation or upgrade.") %>
+      image_size: 108MB
+      primary_link: /distribution/leap/42.3/iso/openSUSE-Leap-42.3-NET-x86_64.iso
+      links:
+      - name: <%= _("Metalink") %>
+        url: /distribution/leap/42.3/iso/openSUSE-Leap-42.3-NET-x86_64.iso.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /distribution/leap/42.3/iso/openSUSE-Leap-42.3-NET-x86_64.iso?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /distribution/leap/42.3/iso/openSUSE-Leap-42.3-NET-x86_64.iso.sha256
+- name: <%= _("Unofficial") %>
+  choosing-media: true
+  leap-switch: true
+  info: <%= _("These ports are not officially supported, and they are not as stable as official distributions.") %>
+  info-colour: warning
+  arches:
+  - name: ppc64le
+    color: warning
+    types:
+    - name: <%= _("DVD Image") %>
+      short: <%= _("For DVD and USB stick") %>
+      desc: <%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %>
+      image_size: 4.2GB
+      primary_link: /ports/ppc/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-DVD-ppc64le-Build0130-Media.iso
+      links:
+      - name: <%= _("Metalink") %>
+        url: /ports/ppc/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-DVD-ppc64le-Build0130-Media.iso.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /ports/ppc/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-DVD-ppc64le-Build0130-Media.iso?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /ports/ppc/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-DVD-ppc64le-Build0130-Media.iso.sha256
+    - name: <%= _("Network Image") %>
+      short: <%= _("For CD and USB stick") %>
+      desc: <%= _("Downloads the installation system and all packages from online repositories. Suitable for installation or upgrade.") %>
+      image_size: 71MB
+      primary_link: /ports/ppc/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-ppc64le-Build0130-Media.iso
+      links:
+      - name: <%= _("Metalink") %>
+        url: /ports/ppc/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-ppc64le-Build0130-Media.iso.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /ports/ppc/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-ppc64le-Build0130-Media.iso?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /ports/ppc/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-ppc64le-Build0130-Media.iso.sha256
+  - name: aarch64
+    color: warning
+    types:
+    - name: <%= _("DVD Image") %>
+      short: <%= _("For DVD and USB stick") %>
+      desc: <%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %>
+      image_size: 3.8GB
+      primary_link: /ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-DVD-aarch64-Build0200-Media.iso
+      links:
+      - name: <%= _("Metalink") %>
+        url: /ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-DVD-aarch64-Build0200-Media.iso.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-DVD-aarch64-Build0200-Media.iso?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-DVD-aarch64-Build0200-Media.iso.sha256
+    - name: <%= _("Network Image") %>
+      short: <%= _("For DVD and USB stick") %>
+      desc: <%= _("Downloads the installation system and all packages from online repositories. Suitable for installation or upgrade.") %>
+      image_size: 91MB
+      primary_link: /ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-aarch64-Build0200-Media.iso
+      links:
+      - name: <%= _("Metalink") %>
+        url: /ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-aarch64-Build0200-Media.iso.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-aarch64-Build0200-Media.iso?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /ports/aarch64/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-aarch64-Build0200-Media.iso.sha256

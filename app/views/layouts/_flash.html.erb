@@ -1,5 +1,9 @@
 <% unless flash.blank? %>
 
+  <% if @colour %>
+  <div class="<%= "bg-#{@colour}" %>">
+  <div class="container">
+  <% end %>
   <div id="flash-messages" class="" >
     <% %w(success error warn note notice info).each do |flash_type|
         if (flash[flash_type] && !flash[flash_type].empty?)
@@ -28,4 +32,8 @@
 
     </div>
   </div>
+  <% if @colour %>
+  </div>
+  </div>
+  <% end %>
 <% end %>
