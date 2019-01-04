@@ -41,8 +41,8 @@
                 <p class="card-text">
                   <%
                   if( appdata_pkg.blank? || appdata_pkg.first[:summary].blank? )
-                    desc_package = search_for_description( package, @packages )
-                    unless  desc_package.blank?
+                    desc_package = search_for_description(package, @packages)
+                    unless desc_package.blank?
                       summary = desc_package.summary
                     end
                   else

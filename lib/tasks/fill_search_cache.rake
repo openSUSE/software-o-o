@@ -6,8 +6,8 @@ task(fill_search_cache: :environment) do
   pkg_list = appdata[:apps].map { |p| p[:pkgname] }.uniq
   puts "Caching data for #{pkg_list.size} apps"
   pkg_list.each_with_index do |pkg, number|
-    Seeker.prepare_result("\"#{pkg}\"", nil, nil, nil, nil)
-    Seeker.prepare_result(pkg.to_s, nil, nil, nil, nil)
+    OBS.search_published_binary("\"#{pkg}\"")
+    OBS.search_published_binary(pkg.to_s)
     puts "Cached data for #{pkg} (#{number}/#{pkg_list.size})"
   end
 end

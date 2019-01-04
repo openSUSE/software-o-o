@@ -11,15 +11,18 @@ class SearchController < OBSController
     end
 
     begin
-      @packages = Seeker.prepare_result("#{@search_term}", base, @search_project, @exclude_filter, @exclude_debug)
-    rescue ActiveXML::Transport::Error => e
-      if e.code.to_s == "413"
-        logger.debug("Too many hits, trying exact match for: #{@search_term}")
-        @search_term = @search_term.split(" ").map { |x| "\"#{CGI.escape(x)}\"" }.join(" ")
-        @packages = Seeker.prepare_result("#{@search_term}", base, @search_project, @exclude_filter, @exclude_debug)
-      end
-      raise e if @packages.nil?
-    rescue Seeker::InvalidSearchTerm => e
+      query_opts = { baseproject: base,
+                     project: @search_project,
+                     exclude_filter: @exclude_filter,
+                     exclude_debug: @exclude_debug }
+      @packages = OBS.search_published_binary(@search_term, query_opts)
+    rescue Faraday::ClientError => e
+      raise unless e.response[:status] == 413 # Payload Too Large
+
+      logger.debug("Too many hits, trying exact match for: #{@search_term}")
+      @search_term = @search_term.split(" ").map { |x| "\"#{CGI.escape(x)}\"" }.join(" ")
+      @packages = OBS.search_published_binary(@search_term, query_opts)
+    rescue OBS::InvalidSearchTerm => e
       flash[:error] = e.message
       render 'find' and return
     end

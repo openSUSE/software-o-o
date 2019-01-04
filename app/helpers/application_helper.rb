@@ -1,5 +1,3 @@
-require 'seeker'
-
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   @@theme_prefix = nil
@@ -40,17 +38,16 @@ module ApplicationHelper
 
   # TODO: released projects don't give info over the api... (bnc#749828)
   # so we search one from the other projects...
-  def search_for_description pkgname, packages = []
+  def search_for_description(pkgname, packages = [])
     cache_key = "description_package_#{pkgname.downcase}"
-    description_package = Rails.cache.fetch(cache_key, :expires_in => 12.hours) do
+    description_package = Rails.cache.fetch(cache_key, expires_in: 12.hours) do
       if packages.blank?
-        packages = Seeker.prepare_result("\"#{pkgname}\"", nil, nil, nil, nil)
-        packages = packages.reject { |p| p.first.type == 'ymp' }
+        packages = OBS.search_published_binary("\"#{pkgname}\"")
+        packages.reject! { |p| p.type == 'ymp' }
       end
       packages.select { |p| p.name == pkgname }.each do |package|
-        description_package = nil
-        unless package.description.blank?
-          description_package = package
+        description_package = OBS.add_fileinfo_to_binary(package)
+        if package.description.present?
           logger.info "Found package info for #{pkgname} in: #{package.project}"
           break
         end

@@ -46,7 +46,7 @@
             %>
             <ul class="list-inline">
               <li class="list-inline-item"><%= _("Version") %> <%= shorten @default_package.version, 13 %></li>
-              <li class="list-inline-item"><%= _("Size") %> <%= number_to_human_size desc_package.size if desc_package %></li>
+              <li class="list-inline-item"><%= _("Size") %> <%= number_to_human_size desc_package[:size] if desc_package %></li>
               <li class="list-inline-item"><%= @default_project_name %></li>
             </ul>
             <a id="one-click-button" class="btn btn-lg btn-primary" href="<%= url %>">

@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     @message = exception.message
     layout = request.xhr? ? false : "application"
     case exception
-    when Seeker::InvalidSearchTerm
+    when OBS::InvalidSearchTerm
     when ApiConnect::Error
     when ApplicationController::MissingParameterError
     when Timeout::Error

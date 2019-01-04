@@ -65,7 +65,7 @@ class OBSController < ApplicationController
     @packages.reject! { |p| p.project.start_with?("openSUSE:Factory:Staging") }
 
     # only show packages
-    @packages = @packages.reject { |p| p.first.type == 'ymp' }
+    @packages.reject! { |p| p.type == 'ymp' }
 
     @packages.reject! { |p| p.name.end_with?("-devel") } unless @search_devel
 
