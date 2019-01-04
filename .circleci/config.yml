@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.4.5-browsers
+        environment:
+          RAILS_ENV: test
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: openSUSE/software-o-o-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+
+      - save_cache:
+          key: openSUSE/software-o-o-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop -D
+      - run:
+          name: Rails test
+          command: bundle exec rails test
+      - run:
+          name: Rails system test
+          command: bundle exec rails test:system
