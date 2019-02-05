@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org.fi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-08-03 14:42+0200\n"
-"PO-Revision-Date: 2018-02-18 15:37+0000\n"
+"PO-Revision-Date: 2019-02-11 16:03+0000\n"
 "Last-Translator: Tommi Nieminen <software@legisign.org>\n"
 "Language-Team: Finnish <https://l10n.opensuse.org/projects/software-o-o/"
 "master/fi/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.3\n"
 
 #: ../app/views/distributions/index.html.erb:66
 msgid ""
@@ -30,8 +30,8 @@ msgid ""
 "each release %{lifetime}."
 msgstr ""
 "%{leap} on <strong>kausijulkaisu</strong>. Tämä tarkoittaa, että se "
-"julkaisee %{annually} etusijanaan kunkin julkaisun %{lifetime} turvallisuus- "
-"ja vakauspäivitykset."
+"julkaistaan %{annually} ja etusijalla on kunkin julkaisun %{lifetime} "
+"turvallisuus- ja vakauspäivitykset."
 
 #: ../app/views/distributions/index.html.erb:58
 msgid ""
@@ -59,11 +59,11 @@ msgstr "2 GHz kaksiytiminen suoritin tai parempi"
 
 #: ../app/views/download/package.erb:9
 msgid "<b>%s</b> from <b>%s</b> project"
-msgstr ""
+msgstr "<b>%s</b> projektista <b>%s</b>"
 
 #: ../app/views/download/appliance.erb:8
 msgid "<b>%s</b> project"
-msgstr ""
+msgstr "projekti <b>%s</b>"
 
 #: ../app/views/package/_download_rows.html.erb:3
 msgid "<b>official release</b>"
@@ -81,7 +81,7 @@ msgstr "Lisää asennuslähde ja asenna itse"
 #: ../app/views/images/images.xml.erb:55 ../app/views/images/images.xml.erb:65
 #: ../app/views/images/images.xml.erb:75
 msgid "Architecture"
-msgstr ""
+msgstr "Arkkitehtuuri"
 
 #: ../app/views/package/show.html.erb:7
 msgid "Back to home page"
@@ -111,7 +111,7 @@ msgstr "Koostamispalvelu"
 
 #: ../app/views/search/_settings.html.erb:44
 msgid "Cancel"
-msgstr ""
+msgstr "Peru"
 
 #: ../app/views/package/show.html.erb:27
 msgid "Categories"
@@ -173,11 +173,13 @@ msgstr "Yhteisö"
 msgid ""
 "Connection to OBS is unavailable. Functionality of this site is limited."
 msgstr ""
+"OBS-yhteys ei ole käytettävissä. Sivuston toiminnallisuus on rajallinen."
 
 #: ../app/views/distributions/tumbleweed.html.erb:80
 msgid ""
 "Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
 msgstr ""
+"Container on Kubernetesiin perustuva palvelualusta openSUSE MicroOSin yllä."
 
 #: ../app/views/distributions/leap-15.0.html.erb:42
 #: ../app/views/distributions/leap-42.3.html.erb:42
@@ -198,7 +200,7 @@ msgstr ""
 #: ../app/views/images/images.xml.erb:17 ../app/views/images/images.xml.erb:30
 #: ../app/views/images/images.xml.erb:91
 msgid "DVD"
-msgstr ""
+msgstr "DVD"
 
 #: ../app/views/distributions/leap-15.0.html.erb:39
 #: ../app/views/distributions/leap-42.3.html.erb:39
@@ -214,17 +216,15 @@ msgstr "DVD-levykuva"
 
 #: ../app/views/images/images.xml.erb:53
 msgid "Desktop"
-msgstr ""
+msgstr "Työpöytä"
 
 #: ../app/views/layouts/_footer.html.erb:5
 msgid "Developers"
 msgstr "Kehittäjät"
 
 #: ../app/controllers/package_controller.rb:130
-#, fuzzy
-#| msgid "Development-"
 msgid "Development"
-msgstr "Kehitys-"
+msgstr "Kehitys"
 
 #: ../app/views/search/_find_results.html.erb:76
 msgid "Development packages"
@@ -266,10 +266,8 @@ msgid "Direct Link"
 msgstr "Suora linkki"
 
 #: ../app/views/images/images.xml.erb:13
-#, fuzzy
-#| msgid "Distribution:"
 msgid "Distribution"
-msgstr "Jakelu:"
+msgstr "Jakelu"
 
 #: ../app/views/search/_settings.html.erb:15
 msgid "Distribution:"
@@ -299,7 +297,7 @@ msgstr "Lataa ohjelmakokonaisuus %s"
 
 #: ../app/views/distributions/leap-42.3.html.erb:139
 msgid "Download latest openSUSE Leap release"
-msgstr ""
+msgstr "Lataa viimeisin openSUSE Leap -julkaisu"
 
 #: ../app/views/distributions/index.html.erb:28
 msgid ""
@@ -319,7 +317,7 @@ msgstr ""
 
 #: ../app/views/distributions/leap-15.0.html.erb:114
 msgid "Download previous openSUSE Leap release"
-msgstr ""
+msgstr "Lataa edellinen openSUSE Leap -julkaisu"
 
 #: ../app/views/distributions/leap-15.0.html.erb:56
 #: ../app/views/distributions/leap-42.3.html.erb:56
@@ -347,7 +345,7 @@ msgstr "Helppoja tapoja vaihtaa openSUSE Tumbleweediin"
 
 #: ../app/controllers/package_controller.rb:131
 msgid "Education & Science"
-msgstr ""
+msgstr "Koulutus ja tiede"
 
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
@@ -481,7 +479,7 @@ msgstr "Lataa binääripaketti suoraan asennuslähteestä"
 
 #: ../app/controllers/package_controller.rb:133
 msgid "Graphics"
-msgstr ""
+msgstr "Grafiikka"
 
 #: ../app/views/distributions/index.html.erb:39
 msgid ""
@@ -493,7 +491,7 @@ msgstr ""
 
 #: ../app/controllers/distributions_controller.rb:34
 msgid "Help test the next version of openSUSE Leap!"
-msgstr ""
+msgstr "Auta testaamaan openSUSE Leapin seuraavaa versiota!"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
@@ -556,16 +554,12 @@ msgstr "Asenna ohjelmistokokoelma %s / %s"
 
 #: ../app/views/distributions/leap-15.0.html.erb:18
 #: ../app/views/images/images.xml.erb:28
-#, fuzzy
-#| msgid "Installation Medium"
 msgid "Installation"
-msgstr "Asennusmedia"
+msgstr "Asennus"
 
 #: ../app/views/images/images.xml.erb:16 ../app/views/images/images.xml.erb:90
-#, fuzzy
-#| msgid "Installation Guides"
 msgid "Installation Source"
-msgstr "Asennusoppaat"
+msgstr "Asennuslähde"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
@@ -591,32 +585,26 @@ msgid "It should be %{fingerprint}"
 msgstr "Sen tulisi olla %{fingerprint}"
 
 #: ../app/views/distributions/tumbleweed.html.erb:77
-#, fuzzy
-#| msgid "DVD Image"
 msgid "Kubic Image"
-msgstr "DVD-levykuva"
+msgstr "Kubic-kuva"
 
 #: ../app/views/images/images.xml.erb:18
 msgid "Leap %s DVD"
-msgstr ""
+msgstr "Leap %s -DVD"
 
 #: ../app/views/images/images.xml.erb:93
 msgid "Leap %s DVD (Build %s)"
-msgstr ""
+msgstr "Leap %s -DVD (kooste %s)"
 
 # dialog title for nfs installation
 #: ../app/views/images/images.xml.erb:21
-#, fuzzy
-#| msgid "Network Installation"
 msgid "Leap %s Network Installation"
-msgstr "Verkkoasennus"
+msgstr "Leap %s -verkkoasennus"
 
 # dialog title for nfs installation
 #: ../app/views/images/images.xml.erb:97
-#, fuzzy
-#| msgid "Network Installation"
 msgid "Leap %s Network Installation (Build %s)"
-msgstr "Verkkoasennus"
+msgstr "Leap %s -verkkoasennus (kooste %s)"
 
 #: ../app/views/distributions/index.html.erb:77
 msgid ""
@@ -643,10 +631,8 @@ msgstr "Lisenssi"
 
 #: ../app/views/distributions/leap-15.0.html.erb:24
 #: ../app/views/images/images.xml.erb:52
-#, fuzzy
-#| msgid "Live KDE"
 msgid "Live"
-msgstr "Live KDE"
+msgstr "Live"
 
 #: ../app/views/layouts/_footer.html.erb:31
 msgid "Mail lists"
@@ -669,10 +655,8 @@ msgstr ""
 "Firefoxin DownThemAll!-lisäosaa."
 
 #: ../app/views/images/images.xml.erb:27
-#, fuzzy
-#| msgid "Multimedia"
 msgid "Medium"
-msgstr "Multimedia"
+msgstr "Tietoväline"
 
 #: ../app/views/distributions/leap-15.0.html.erb:44
 #: ../app/views/distributions/leap-15.0.html.erb:58
@@ -712,10 +696,8 @@ msgstr "Multimedia"
 #: ../app/controllers/package_controller.rb:135
 #: ../app/views/images/images.xml.erb:20 ../app/views/images/images.xml.erb:40
 #: ../app/views/images/images.xml.erb:95
-#, fuzzy
-#| msgid "Network Image"
 msgid "Network"
-msgstr "Verkkolevykuva"
+msgstr "Verkko"
 
 #: ../app/views/distributions/leap-15.0.html.erb:53
 #: ../app/views/distributions/leap-42.3.html.erb:53
@@ -754,10 +736,8 @@ msgid "No downloads found for %s in project %s"
 msgstr "Ei latauksia %s projektissa %s"
 
 #: ../app/controllers/distributions_controller.rb:42
-#, fuzzy
-#| msgid "No testing distribution available."
 msgid "No legacy distribution available"
-msgstr "Testausjakelua ei ole saatavilla."
+msgstr "Aiempia jakeluja ei ole saatavilla"
 
 #: ../app/views/search/_find_results.html.erb:12
 msgid "No packages found matching your search. "
@@ -765,7 +745,7 @@ msgstr "Mikään paketti ei vastaa hakuasi. "
 
 #: ../app/controllers/distributions_controller.rb:13
 msgid "No stable release available"
-msgstr ""
+msgstr "Vakaata julkaisua ei ole saatavilla"
 
 #: ../app/controllers/distributions_controller.rb:30
 msgid "No testing distribution available."
@@ -777,11 +757,11 @@ msgstr "OBS-taustaosa ei ole saatavilla"
 
 #: ../app/views/search/_settings.html.erb:43
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../app/controllers/package_controller.rb:134
 msgid "Office & Productivity"
-msgstr ""
+msgstr "Toimisto ja tuottavuus"
 
 #: ../app/views/package/_download_rows.html.erb:22
 #: ../app/views/distributions/leap-42.3.html.erb:18
@@ -840,19 +820,15 @@ msgstr "Planet"
 
 #: ../app/views/distributions/tumbleweed.html.erb:228
 msgid "Please be aware of the following limitations of the live images:"
-msgstr ""
+msgstr "Huomaa, että live-kuvia koskevat seuraavat rajoitukset:"
 
 #: ../app/views/distributions/tumbleweed.html.erb:235
-#, fuzzy
-#| msgid ""
-#| "Please review %{openqa}'s test results if you want an indication whether "
-#| "these LiveUSBs are working as expected."
 msgid ""
 "Please review %{openqa}'s test results if you want an indication whether "
 "these live medias are working as expected."
 msgstr ""
-"Etsi %{openqa}:n testituloksista lisätietoa siitä, toimivatko nämä LiveUSB:t "
-"odotetusti."
+"Etsi %{openqa}:n testituloksista viitteitä siitä, toimivatko nämä Live-"
+"tietovälineet odotetusti."
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -881,11 +857,9 @@ msgstr "Etsi"
 
 #: ../app/views/search/_find_form.html.erb:7
 msgid "Search packages..."
-msgstr ""
+msgstr "Etsi paketteja…"
 
 #: ../app/views/search/_settings.html.erb:6
-#, fuzzy
-#| msgid "Search options"
 msgid "Search settings"
 msgstr "Hakuvalinnat"
 
@@ -898,10 +872,8 @@ msgid "Select the image type"
 msgstr "Valitse levykuvan tyyppi"
 
 #: ../app/views/search/_find_form.html.erb:19
-#, fuzzy
-#| msgid "Getting Help"
 msgid "Settings"
-msgstr "Ohjeiden hakeminen"
+msgstr "Asetukset"
 
 #: ../app/views/layouts/_footer.html.erb:21
 msgid "Shop"
@@ -912,36 +884,28 @@ msgid "Show"
 msgstr "Näytä"
 
 #: ../app/views/package/show.html.erb:64
-#, fuzzy
-#| msgid "Show more packages for unsupported distributions"
 msgid "Show %s for other distributions"
-msgstr "Näytä enemmän paketteja tuettomille jakeluille"
+msgstr "Näytä %s muille jakeluille"
 
 #: ../app/views/package/show.html.erb:95
 msgid "Show community packages"
 msgstr "Näytä yhteisöpaketit"
 
 #: ../app/views/search/_settings.html.erb:37
-#, fuzzy
-#| msgid "Exclude debug packages"
 msgid "Show debug packages"
-msgstr "Poista vianjäljityspaketit etsinnästä"
+msgstr "Näytä vianjäljityspaketit"
 
 #: ../app/views/search/_settings.html.erb:23
-#, fuzzy
-#| msgid "Development packages"
 msgid "Show development packages"
-msgstr "Kehityspaketit"
+msgstr "Näytä kehityspaketit"
 
 #: ../app/views/package/show.html.erb:93
 msgid "Show experimental packages"
 msgstr "Näytä kokeelliset paketit"
 
 #: ../app/views/search/_settings.html.erb:30
-#, fuzzy
-#| msgid "Show unsupported packages"
 msgid "Show language packages"
-msgstr "Näytä tuettomat paketit"
+msgstr "Näytä kielipaketit"
 
 #: ../app/views/package/show.html.erb:49
 msgid "Size"
@@ -968,7 +932,7 @@ msgstr "Alipaketit"
 
 #: ../app/controllers/package_controller.rb:136
 msgid "System & Utility"
-msgstr ""
+msgstr "Järjestelmä ja työkalut"
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
 msgid ""
@@ -992,7 +956,7 @@ msgstr ""
 
 #: ../app/controllers/application_controller.rb:42
 msgid "The authentication to the OBS API has not been configured correctly."
-msgstr ""
+msgstr "OBS-API-varmennusta ei ole määritetty oikein."
 
 #: ../app/views/package/show.html.erb:113
 msgid ""
@@ -1011,10 +975,12 @@ msgid ""
 "There is a new version of openSUSE Leap <a href='/distributions/"
 "leap'>available</a>!"
 msgstr ""
+"openSUSE Leapistä on saatavilla <a ahref='/distributions/leap'>uusi "
+"versio</a>!"
 
 #: ../app/views/package/show.html.erb:41
 msgid "There is no official package available for %s"
-msgstr ""
+msgstr "Ei virallista pakettia saatavilla: %s"
 
 #: ../app/views/distributions/leap-42.3.html.erb:69
 #: ../app/views/distributions/tumbleweed.html.erb:125
@@ -1038,18 +1004,13 @@ msgstr ""
 "tarvitaan %{tumbleweed_media}."
 
 #: ../app/views/distributions/tumbleweed.html.erb:232
-#, fuzzy
-#| msgid ""
-#| "They have a limited package/driver selection, so cannot be considered an "
-#| "accurate reflection as to whether Tumbleweed will work on your hardware "
-#| "or not."
 msgid ""
 "They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not."
 msgstr ""
-"Niiden pakettien ja ajurien valikoima on rajallinen, joten ne eivät "
-"tarkalleen vastaa sitä, miten Tumbleweed toimii laitteistossasi."
+"Niiden paketti- ja ajurivalikoima on rajallinen, joten ne eivät anna tarkkaa "
+"kuvaa siitä, toimiiko Tumbleweed laitteistossasi vai ei."
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
@@ -1057,56 +1018,50 @@ msgstr "Näytä tai piilota navigointi"
 
 #: ../app/views/images/images.xml.erb:33
 msgid "Tumbleweed %s DVD (i586)"
-msgstr ""
+msgstr "Tumbleweed %s -DVD (i586)"
 
 #: ../app/views/images/images.xml.erb:36
 msgid "Tumbleweed %s DVD (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s -DVD (x86_64)"
 
 #: ../app/views/images/images.xml.erb:57
 msgid "Tumbleweed %s GNOME Live (i686)"
-msgstr ""
+msgstr "Tumbleweed %s GNOME Live (i686)"
 
 #: ../app/views/images/images.xml.erb:60
 msgid "Tumbleweed %s GNOME Live (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s GNOME Live (x86_64)"
 
 #: ../app/views/images/images.xml.erb:67
 msgid "Tumbleweed %s KDE Live (i686)"
-msgstr ""
+msgstr "Tumbleweed %s KDE Live (i686)"
 
 #: ../app/views/images/images.xml.erb:70
 msgid "Tumbleweed %s KDE Live (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s KDE Live (x86_64)"
 
 # dialog title for nfs installation
 #: ../app/views/images/images.xml.erb:43
-#, fuzzy
-#| msgid "Network Installation"
 msgid "Tumbleweed %s Network Installation (i586)"
-msgstr "Verkkoasennus"
+msgstr "Tumbleweed %s -verkkoasennus (i586)"
 
 # dialog title for nfs installation
 #: ../app/views/images/images.xml.erb:46
-#, fuzzy
-#| msgid "Network Installation"
 msgid "Tumbleweed %s Network Installation (x86_64)"
-msgstr "Verkkoasennus"
+msgstr "Tumbleweed %s -verkkoasennus (x86_64)"
 
 #: ../app/views/images/images.xml.erb:77
 msgid "Tumbleweed %s Rescue CD (i686)"
-msgstr ""
+msgstr "Tumbleweed %s -pelastus-CD (i686)"
 
 #: ../app/views/images/images.xml.erb:80
 msgid "Tumbleweed %s Rescue CD (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s -pelastus-CD (x86_64)"
 
 #: ../app/views/distributions/tumbleweed.html.erb:231
 #: ../app/views/distributions/tumbleweed.html.erb:234
-#, fuzzy
-#| msgid "Not Tested|Tumbleweed installation media"
 msgid "Tumbleweed installation media"
-msgstr "Testaamaton|Tumbleweed-asennustietoväline"
+msgstr "Tumbleweed-asennustietoväline"
 
 #: ../app/views/distributions/index.html.erb:61
 msgid ""
@@ -1214,7 +1169,7 @@ msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 #: ../app/views/images/images.xml.erb:56 ../app/views/images/images.xml.erb:66
 #: ../app/views/images/images.xml.erb:76
 msgid "i586"
-msgstr ""
+msgstr "i586"
 
 #: ../app/views/distributions/index.html.erb:69
 msgid "lifetime"
@@ -1229,10 +1184,8 @@ msgid "openSUSE Software"
 msgstr "openSUSEn ohjelmat"
 
 #: ../app/views/distributions/_documentation.html.erb:6
-#, fuzzy
-#| msgid "openSUSE Software"
 msgid "openSUSE Startup Guide"
-msgstr "openSUSEn ohjelmat"
+msgstr "openSUSE-aloitusopas"
 
 #: ../app/views/distributions/index.html.erb:58
 #: ../app/views/images/images.xml.erb:26
@@ -1251,7 +1204,7 @@ msgstr "openSUSE on täysin ilmainen ladata, käyttää ja jakaa."
 #: ../app/views/images/images.xml.erb:59 ../app/views/images/images.xml.erb:69
 #: ../app/views/images/images.xml.erb:79
 msgid "x86_64"
-msgstr ""
+msgstr "x86_64"
 
 #~ msgid "Show development, language and debug packages"
 #~ msgstr "Näytä kehitys, kieli- ja virheenetsintäpaketit"
