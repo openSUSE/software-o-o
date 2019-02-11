@@ -1,49 +1,43 @@
-<header class="download-home-header jumbotron jumbotron-fluid">
-  <div class="container">
-    <div class="page-heading">
-      <h1 class="display-1"><%= _('Get openSUSE') %></h1>
-      <p class="lead">
-        <%= _('openSUSE is completely free to download, use and share.') %>
-      </p>
+<div class="container-fluid mb-5">
+  <div class="row">
+    <div class="col-md-6 bg-primary text-white py-2 px-5 py-md-5">
+      <div class="row h-100">
+        <div class="col-md-12 col-6">
+          <%= image_tag 'distributions/tumbleweed-white.svg', alt: "Tumbleweed Logo", class: "card-img-top animated bounceIn", width: "256", height: "256" %>
+        </div>
+        <div class="col-md-12 col-6 d-flex flex-column my-auto my-md-0">
+          <div class="mb-md-auto text-center">
+            <h2>Tumbleweed</h2>
+            <h6><%= _('For Developers, openSUSE Contributors, and Linux/FOSS Enthusiasts.') %></h6>
+            <p><%= _('Download openSUSE’s rolling release and always run the latest packages provided by the openSUSE Project.') %></p>
+          </div>
+          <div class="mx-auto">
+            <%= link_to _('View Tumbleweed'), tumbleweed_distributions_path, class: 'btn btn-light m-2' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 bg-success text-white py-2 px-5 py-md-5">
+      <div class="row h-100">
+        <div class="col-md-12 col-6">
+          <%= image_tag 'distributions/leap-white.svg', alt: "Leap Logo", class: "card-img-top animated bounceIn", width: "256", height: "256" %>
+        </div>
+        <div class="col-md-12 col-6 d-flex flex-column my-auto my-md-0">
+          <div class="mb-md-auto text-center">
+            <h2>Leap</h2>
+            <h6><%= _('For Sysadmins, Enterprise Developers, and ‘Regular’ Desktop Users.') %></h6>
+            <p><%= _('Download openSUSE’s regular release and enjoy the benefits of both enterprise-grade engineering and community-developed innovation.') %></p>
+          </div>
+          <div class="mx-auto text-center">
+            <%= link_to _('View Leap'), leap_distributions_path, class: 'btn btn-light m-2' %>
+            <% if @testing_version.present? %>
+              <%= link_to _('View Testing'), testing_distributions_path, class: 'btn btn-light m-2' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</header>
-
-<div class="container mb-5">
-  <div class="card-deck">
-    <div class="card">
-      <%= image_tag 'distributions/tumbleweed.svg', alt: "Tumbleweed Logo", class: "card-img-top animated bounceIn", width: "256", height: "256" %>
-      <div class="card-body">
-        <h4 class="card-title">openSUSE Tumbleweed</h4>
-        <p class="card-text"><%= _('Download openSUSE’s rolling release and always run the latest packages provided by the openSUSE Project.') %></p>
-      </div>
-      <div class="card-footer">
-        <%= link_to _('Download'), tumbleweed_distributions_path, class: 'btn btn-primary' %>
-      </div>
-    </div>
-    <div class="card">
-      <%= image_tag 'distributions/leap.svg', alt: "Leap Logo", class: "card-img-top animated bounceIn", width: "256", height: "256" %>
-      <div class="card-body">
-        <h4 class="card-title">openSUSE Leap</h4>
-        <p class="card-text"><%= _('Download openSUSE’s regular release and enjoy the benefits of both enterprise-grade engineering and community-developed innovation.') %></p>
-      </div>
-      <div class="card-footer">
-        <%= link_to _('Download'), leap_distributions_path, class: 'btn btn-success' %>
-      </div>
-    </div>
-<% if @testing_version.present? %>
-    <div class="card">
-      <%= image_tag 'distributions/testing.svg', alt: "Testing Logo", class: "card-img-top animated bounceIn", width: "256", height: "256" %>
-      <div class="card-body">
-        <h4 class="card-title">openSUSE Testing</h4>
-        <p class="card-text"><%= _('Help test openSUSE’s next version of Leap by downloading the latest development milestone.') %></p>
-      </div>
-      <div class="card-footer">
-        <%= link_to _('Download'), testing_distributions_path, class: 'btn btn-dark' %>
-      </div>
-    </div>
-<% end %>
-  </div><!-- /.card-deck -->
 </div><!-- /.container -->
 
 <section class="mb-4">
@@ -54,6 +48,7 @@
 
     <div class="row mb-3">
       <div class="col-md-6">
+        <h3>Tumbleweed</h3>
         <p>
           <%= _('%{tumbleweed} is a <strong>rolling-release</strong>. This means the software is always the latest stable versions available from the openSUSE Project. Things will change regularly as Free and Open Source projects continually release new versions of their software.') % { tumbleweed: link_to(_('openSUSE Tumbleweed'), tumbleweed_distributions_path) } %>
         </p>
@@ -62,6 +57,7 @@
         </p>
       </div><!-- /.col- -->
       <div class="col-md-6">
+        <h3>Leap</h3>
         <p>
           <%= _('%{leap} is a <strong>regular-release</strong>. This means it releases %{annually}, with security and stability updates being the priority during each release %{lifetime}.') %
               { leap: link_to(_('openSUSE Leap'), leap_distributions_path),

@@ -9,28 +9,37 @@ class DistributionsController < OBSController
   # GET /distributions/leap
   def leap
     @hide_search_box = true
+    @colour = "success"
     unless @stable_version
       redirect_to '/', flash: { error: _("No stable release available") }
       return
     end
     @version = @stable_version
+    @distro_type = "leap"
+    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/#{@version}.yml.erb")).result)
     render action: "leap-#{@stable_version}", layout: 'download'
   end
 
   # GET /distributions/tumbleweed
   def tumbleweed
     @hide_search_box = true
+    @colour = "primary"
+    @distro_type = "tumbleweed"
+    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/tumbleweed.yml.erb")).result)
     render layout: 'download'
   end
 
   # GET /distributions/testing
   def testing
     @hide_search_box = true
+    @colour = "dark"
     unless @testing_version
       redirect_to '/distributions/leap', flash: { error: _("No testing distribution available.") }
       return
     end
     @version = @testing_version
+    @distro_type = "leap"
+    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/#{@version}.yml.erb")).result)
     flash[:notice] = _('Help test the next version of openSUSE Leap!')
     render action: "leap-#{@testing_version}", layout: 'download'
   end
@@ -38,11 +47,14 @@ class DistributionsController < OBSController
   # GET /distributions/legacy
   def legacy
     @hide_search_box = true
+    @colour = "success"
     unless @legacy_release
       redirect_to '/', flash: { error: _("No legacy distribution available") }
       return
     end
     @version = @legacy_release
+    @distro_type = "leap"
+    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/#{@version}.yml.erb")).result)
     flash.now[:notice] = _("There is a new version of openSUSE Leap <a href='/distributions/leap'>available</a>!")
     render action: "leap-#{@legacy_release}", layout: 'download'
   end

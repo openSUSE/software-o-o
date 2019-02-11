@@ -17,6 +17,9 @@ gem 'gettext_i18n_rails', '>= 0.4.3'
 # validation error messages
 gem 'rails-i18n'
 
+# Generate html based on markdown in views
+gem 'redcarpet', '~> 3.4.0'
+
 gem 'dalli'
 gem 'hashie'
 gem 'mini_magick'
