@@ -2,11 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Chinese (China) (software-o-o)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-03 14:42+0200\n"
+"POT-Creation-Date: 2019-02-12 16:59+0100\n"
 "PO-Revision-Date: 2018-10-20 05:01+0000\n"
 "Last-Translator: Marguerite Su <i@marguerite.su>\n"
-"Language-Team: Chinese (China) "
-"<https://l10n.opensuse.org/projects/software-o-o/master/zh_CN/>\n"
+"Language-Team: Chinese (China) <https://l10n.opensuse.org/projects/software-"
+"o-o/master/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: ../app/views/distributions/index.html.erb:66
+#: ../app/views/distributions/index.html.erb:62
 msgid ""
 "%{leap} is a <strong>regular-release</strong>. This means it releases "
 "%{annually}, with security and stability updates being the priority during "
@@ -23,7 +23,7 @@ msgstr ""
 "%{leap} 是一个<strong>常规发行版</strong>。这意味着它将会 %{annually} 发布，"
 "安全和稳定性更新在每个 %{lifetime} 中是优先事项。"
 
-#: ../app/views/distributions/index.html.erb:58
+#: ../app/views/distributions/index.html.erb:53
 msgid ""
 "%{tumbleweed} is a <strong>rolling-release</strong>. This means the software "
 "is always the latest stable versions available from the openSUSE Project. "
@@ -76,13 +76,13 @@ msgstr "架构"
 msgid "Back to home page"
 msgstr "返回首页"
 
-#: ../app/views/distributions/index.html.erb:86
+#: ../app/views/distributions/index.html.erb:82
 msgid ""
 "Both distributions are fully capable of being used on a Desktop PC, laptop, "
 "server, or in the cloud."
 msgstr "两种发行版本都能用于台式计算机、笔记本电脑、服务器或云端上。"
 
-#: ../app/views/distributions/index.html.erb:83
+#: ../app/views/distributions/index.html.erb:79
 msgid ""
 "Both distributions are well tested by <a href=\"https://openqa.opensuse.org"
 "\">openQA</a> as well as by human openSUSE contributors so both can be "
@@ -95,7 +95,7 @@ msgstr ""
 msgid "Build service"
 msgstr "编译服务"
 
-#: ../app/views/search/_settings.html.erb:44
+#: ../app/views/search/_settings.html.erb:38
 msgid "Cancel"
 msgstr "取消"
 
@@ -107,34 +107,30 @@ msgstr "分类"
 msgid "Category"
 msgstr "分类"
 
-#: ../app/views/distributions/leap-15.0.html.erb:46
-#: ../app/views/distributions/leap-15.0.html.erb:60
-#: ../app/views/distributions/leap-15.0.html.erb:80
-#: ../app/views/distributions/leap-15.0.html.erb:93
-#: ../app/views/distributions/leap-15.0.html.erb:106
-#: ../app/views/distributions/leap-42.3.html.erb:46
-#: ../app/views/distributions/leap-42.3.html.erb:60
-#: ../app/views/distributions/leap-42.3.html.erb:85
-#: ../app/views/distributions/leap-42.3.html.erb:99
-#: ../app/views/distributions/leap-42.3.html.erb:117
-#: ../app/views/distributions/leap-42.3.html.erb:131
-#: ../app/views/distributions/tumbleweed.html.erb:56
-#: ../app/views/distributions/tumbleweed.html.erb:70
-#: ../app/views/distributions/tumbleweed.html.erb:84
-#: ../app/views/distributions/tumbleweed.html.erb:102
-#: ../app/views/distributions/tumbleweed.html.erb:116
-#: ../app/views/distributions/tumbleweed.html.erb:141
-#: ../app/views/distributions/tumbleweed.html.erb:155
-#: ../app/views/distributions/tumbleweed.html.erb:173
-#: ../app/views/distributions/tumbleweed.html.erb:187
-#: ../app/views/distributions/tumbleweed.html.erb:205
-#: ../app/views/distributions/tumbleweed.html.erb:219
-#: ../app/views/distributions/tumbleweed.html.erb:250
-#: ../app/views/distributions/tumbleweed.html.erb:262
-#: ../app/views/distributions/tumbleweed.html.erb:274
-#: ../app/views/distributions/tumbleweed.html.erb:290
-#: ../app/views/distributions/tumbleweed.html.erb:302
-#: ../app/views/distributions/tumbleweed.html.erb:314
+#: ../app/data/42.3.yml.erb:18 ../app/data/42.3.yml.erb:32
+#: ../app/data/42.3.yml.erb:53 ../app/data/42.3.yml.erb:65
+#: ../app/data/42.3.yml.erb:80 ../app/data/42.3.yml.erb:92
+#: ../app/data/15.0.yml.erb:18 ../app/data/15.0.yml.erb:32
+#: ../app/data/15.0.yml.erb:50 ../app/data/15.0.yml.erb:61
+#: ../app/data/15.0.yml.erb:72 ../app/data/15.0.yml.erb:83
+#: ../app/data/15.0.yml.erb:94 ../app/data/15.0.yml.erb:110
+#: ../app/data/15.0.yml.erb:121 ../app/data/15.0.yml.erb:132
+#: ../app/data/15.0.yml.erb:151 ../app/data/15.0.yml.erb:163
+#: ../app/data/15.1.yml.erb:18 ../app/data/15.1.yml.erb:32
+#: ../app/data/15.1.yml.erb:50 ../app/data/15.1.yml.erb:61
+#: ../app/data/15.1.yml.erb:72 ../app/data/15.1.yml.erb:83
+#: ../app/data/15.1.yml.erb:94 ../app/data/15.1.yml.erb:110
+#: ../app/data/15.1.yml.erb:121 ../app/data/15.1.yml.erb:132
+#: ../app/data/15.1.yml.erb:151 ../app/data/15.1.yml.erb:163
+#: ../app/data/tumbleweed.yml.erb:17 ../app/data/tumbleweed.yml.erb:29
+#: ../app/data/tumbleweed.yml.erb:44 ../app/data/tumbleweed.yml.erb:56
+#: ../app/data/tumbleweed.yml.erb:71 ../app/data/tumbleweed.yml.erb:83
+#: ../app/data/tumbleweed.yml.erb:100 ../app/data/tumbleweed.yml.erb:123
+#: ../app/data/tumbleweed.yml.erb:132 ../app/data/tumbleweed.yml.erb:141
+#: ../app/data/tumbleweed.yml.erb:153 ../app/data/tumbleweed.yml.erb:162
+#: ../app/data/tumbleweed.yml.erb:171 ../app/data/tumbleweed.yml.erb:192
+#: ../app/data/tumbleweed.yml.erb:204 ../app/data/tumbleweed.yml.erb:219
+#: ../app/data/tumbleweed.yml.erb:231
 msgid "Checksum"
 msgstr "校验码"
 
@@ -146,7 +142,7 @@ msgstr "校验码帮助"
 msgid "Choosing Which Media to Download"
 msgstr "选择要下载的媒体"
 
-#: ../app/views/distributions/index.html.erb:52
+#: ../app/views/distributions/index.html.erb:46
 msgid "Choosing which Distribution to Download"
 msgstr "选择要下载的发行版"
 
@@ -155,26 +151,24 @@ msgstr "选择要下载的发行版"
 msgid "Community"
 msgstr "社区"
 
-#: ../app/controllers/package_controller.rb:55
+#: ../app/controllers/package_controller.rb:49
 msgid ""
 "Connection to OBS is unavailable. Functionality of this site is limited."
 msgstr "无法连接到 OBS。请求该网站的功能受限。"
 
-#: ../app/views/distributions/tumbleweed.html.erb:80
+#: ../app/data/tumbleweed.yml.erb:92
 msgid ""
 "Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
 msgstr ""
 "容器既服务（CaaS）平台基于 openSUSE 微系统（MicroOS）之上的 Kubernetes。"
 
-#: ../app/views/distributions/leap-15.0.html.erb:42
-#: ../app/views/distributions/leap-42.3.html.erb:42
-#: ../app/views/distributions/leap-42.3.html.erb:81
-#: ../app/views/distributions/leap-42.3.html.erb:113
-#: ../app/views/distributions/tumbleweed.html.erb:52
-#: ../app/views/distributions/tumbleweed.html.erb:98
-#: ../app/views/distributions/tumbleweed.html.erb:137
-#: ../app/views/distributions/tumbleweed.html.erb:169
-#: ../app/views/distributions/tumbleweed.html.erb:201
+#: ../app/data/42.3.yml.erb:10 ../app/data/42.3.yml.erb:45
+#: ../app/data/42.3.yml.erb:72 ../app/data/15.0.yml.erb:10
+#: ../app/data/15.0.yml.erb:143 ../app/data/15.0.yml.erb:155
+#: ../app/data/15.1.yml.erb:10 ../app/data/15.1.yml.erb:143
+#: ../app/data/15.1.yml.erb:155 ../app/data/tumbleweed.yml.erb:9
+#: ../app/data/tumbleweed.yml.erb:36 ../app/data/tumbleweed.yml.erb:63
+#: ../app/data/tumbleweed.yml.erb:184 ../app/data/tumbleweed.yml.erb:211
 msgid ""
 "Contains a large collection of software for desktop or server use. Suitable "
 "for installation or upgrade."
@@ -185,15 +179,13 @@ msgstr "包含桌面或服务器使用的大量软件。适用于安装或升级
 msgid "DVD"
 msgstr "DVD"
 
-#: ../app/views/distributions/leap-15.0.html.erb:39
-#: ../app/views/distributions/leap-42.3.html.erb:39
-#: ../app/views/distributions/leap-42.3.html.erb:78
-#: ../app/views/distributions/leap-42.3.html.erb:110
-#: ../app/views/distributions/tumbleweed.html.erb:49
-#: ../app/views/distributions/tumbleweed.html.erb:95
-#: ../app/views/distributions/tumbleweed.html.erb:134
-#: ../app/views/distributions/tumbleweed.html.erb:166
-#: ../app/views/distributions/tumbleweed.html.erb:198
+#: ../app/data/42.3.yml.erb:8 ../app/data/42.3.yml.erb:43
+#: ../app/data/42.3.yml.erb:70 ../app/data/15.0.yml.erb:8
+#: ../app/data/15.0.yml.erb:141 ../app/data/15.1.yml.erb:8
+#: ../app/data/15.1.yml.erb:141 ../app/data/tumbleweed.yml.erb:7
+#: ../app/data/tumbleweed.yml.erb:34 ../app/data/tumbleweed.yml.erb:61
+#: ../app/data/tumbleweed.yml.erb:90 ../app/data/tumbleweed.yml.erb:182
+#: ../app/data/tumbleweed.yml.erb:209
 msgid "DVD Image"
 msgstr "DVD 映像"
 
@@ -205,7 +197,7 @@ msgstr "桌面"
 msgid "Developers"
 msgstr "开发者"
 
-#: ../app/controllers/package_controller.rb:130
+#: ../app/controllers/package_controller.rb:124
 msgid "Development"
 msgstr "开发"
 
@@ -217,44 +209,9 @@ msgstr "开发包"
 msgid "Direct Install"
 msgstr "直接安装"
 
-#: ../app/views/distributions/leap-15.0.html.erb:43
-#: ../app/views/distributions/leap-15.0.html.erb:57
-#: ../app/views/distributions/leap-15.0.html.erb:77
-#: ../app/views/distributions/leap-15.0.html.erb:90
-#: ../app/views/distributions/leap-15.0.html.erb:103
-#: ../app/views/distributions/leap-42.3.html.erb:43
-#: ../app/views/distributions/leap-42.3.html.erb:57
-#: ../app/views/distributions/leap-42.3.html.erb:82
-#: ../app/views/distributions/leap-42.3.html.erb:96
-#: ../app/views/distributions/leap-42.3.html.erb:114
-#: ../app/views/distributions/leap-42.3.html.erb:128
-#: ../app/views/distributions/tumbleweed.html.erb:53
-#: ../app/views/distributions/tumbleweed.html.erb:67
-#: ../app/views/distributions/tumbleweed.html.erb:81
-#: ../app/views/distributions/tumbleweed.html.erb:99
-#: ../app/views/distributions/tumbleweed.html.erb:113
-#: ../app/views/distributions/tumbleweed.html.erb:138
-#: ../app/views/distributions/tumbleweed.html.erb:152
-#: ../app/views/distributions/tumbleweed.html.erb:170
-#: ../app/views/distributions/tumbleweed.html.erb:184
-#: ../app/views/distributions/tumbleweed.html.erb:202
-#: ../app/views/distributions/tumbleweed.html.erb:216
-#: ../app/views/distributions/tumbleweed.html.erb:248
-#: ../app/views/distributions/tumbleweed.html.erb:260
-#: ../app/views/distributions/tumbleweed.html.erb:272
-#: ../app/views/distributions/tumbleweed.html.erb:288
-#: ../app/views/distributions/tumbleweed.html.erb:300
-#: ../app/views/distributions/tumbleweed.html.erb:312
-msgid "Direct Link"
-msgstr "直接链接"
-
 #: ../app/views/images/images.xml.erb:13
 msgid "Distribution"
 msgstr "发行版"
-
-#: ../app/views/search/_settings.html.erb:15
-msgid "Distribution:"
-msgstr "发行版："
 
 #: ../app/views/package/show.html.erb:68
 msgid "Distributions"
@@ -266,47 +223,40 @@ msgstr "发行版"
 msgid "Documentation"
 msgstr "文档"
 
-#: ../app/views/layouts/_navbar.html.erb:17
+#: ../app/views/layouts/_navbar.html.erb:14
 #: ../app/views/package/_download_rows.html.erb:54
-#: ../app/views/distributions/index.html.erb:21
-#: ../app/views/distributions/index.html.erb:31
-#: ../app/views/distributions/index.html.erb:42
 msgid "Download"
 msgstr "下载"
 
-#: ../app/controllers/download_controller.rb:43
+#: ../app/controllers/download_controller.rb:42
 msgid "Download appliance from %s"
 msgstr "从 %s 下载应用"
 
-#: ../app/views/distributions/leap-42.3.html.erb:139
+#: ../app/views/distributions/_distribution.html.erb:105
 msgid "Download latest openSUSE Leap release"
 msgstr "下载最新的 openSUSE Leap 版本"
 
-#: ../app/views/distributions/index.html.erb:28
+#: ../app/views/distributions/index.html.erb:29
 msgid ""
 "Download openSUSE’s regular release and enjoy the benefits of both "
 "enterprise-grade engineering and community-developed innovation."
 msgstr "下载 openSUSE 的常规发行版，享受企业级工程和社区开发创新的福利。"
 
-#: ../app/views/distributions/index.html.erb:18
+#: ../app/views/distributions/index.html.erb:12
 msgid ""
 "Download openSUSE’s rolling release and always run the latest packages "
 "provided by the openSUSE Project."
 msgstr "下载 openSUSE 的滚动发行版，总是运行 openSUSE 项目提供的最新软件包。"
 
-#: ../app/views/distributions/leap-15.0.html.erb:114
+#: ../app/views/distributions/_distribution.html.erb:100
 msgid "Download previous openSUSE Leap release"
 msgstr "下载上一个 openSUSE Leap 版本"
 
-#: ../app/views/distributions/leap-15.0.html.erb:56
-#: ../app/views/distributions/leap-42.3.html.erb:56
-#: ../app/views/distributions/leap-42.3.html.erb:95
-#: ../app/views/distributions/leap-42.3.html.erb:127
-#: ../app/views/distributions/tumbleweed.html.erb:66
-#: ../app/views/distributions/tumbleweed.html.erb:112
-#: ../app/views/distributions/tumbleweed.html.erb:151
-#: ../app/views/distributions/tumbleweed.html.erb:183
-#: ../app/views/distributions/tumbleweed.html.erb:215
+#: ../app/data/42.3.yml.erb:24 ../app/data/42.3.yml.erb:57
+#: ../app/data/42.3.yml.erb:84 ../app/data/15.0.yml.erb:24
+#: ../app/data/15.1.yml.erb:24 ../app/data/tumbleweed.yml.erb:21
+#: ../app/data/tumbleweed.yml.erb:48 ../app/data/tumbleweed.yml.erb:75
+#: ../app/data/tumbleweed.yml.erb:196 ../app/data/tumbleweed.yml.erb:223
 msgid ""
 "Downloads the installation system and all packages from online repositories. "
 "Suitable for installation or upgrade."
@@ -320,7 +270,7 @@ msgstr "切换至 openSUSE Leap 的简单方法"
 msgid "Easy Ways to Switch to openSUSE Tumbleweed"
 msgstr "切换至 openSUSE Tumbleweed 的简单方法"
 
-#: ../app/controllers/package_controller.rb:131
+#: ../app/controllers/package_controller.rb:125
 msgid "Education & Science"
 msgstr "教育与科学"
 
@@ -359,39 +309,51 @@ msgstr ""
 "意 pacman.conf 中的软件源顺序是很重要的，因为 pacman 总是会下载第一个找到的软"
 "件包）："
 
-#: ../app/views/distributions/leap-15.0.html.erb:55
-#: ../app/views/distributions/leap-15.0.html.erb:102
-#: ../app/views/distributions/leap-42.3.html.erb:55
-#: ../app/views/distributions/leap-42.3.html.erb:94
-#: ../app/views/distributions/leap-42.3.html.erb:126
-#: ../app/views/distributions/tumbleweed.html.erb:65
-#: ../app/views/distributions/tumbleweed.html.erb:111
-#: ../app/views/distributions/tumbleweed.html.erb:150
-#: ../app/views/distributions/tumbleweed.html.erb:182
-#: ../app/views/distributions/tumbleweed.html.erb:214
-#: ../app/views/distributions/tumbleweed.html.erb:271
-#: ../app/views/distributions/tumbleweed.html.erb:311
+#: ../app/data/42.3.yml.erb:23 ../app/data/42.3.yml.erb:56
+#: ../app/data/15.0.yml.erb:23 ../app/data/15.0.yml.erb:124
+#: ../app/data/15.1.yml.erb:23 ../app/data/15.1.yml.erb:124
+#: ../app/data/tumbleweed.yml.erb:20 ../app/data/tumbleweed.yml.erb:47
+#: ../app/data/tumbleweed.yml.erb:135 ../app/data/tumbleweed.yml.erb:165
+#: ../app/data/tumbleweed.yml.erb:195 ../app/data/tumbleweed.yml.erb:222
 msgid "For CD and USB stick"
 msgstr "用于 CD 和 U 盘"
 
-#: ../app/views/distributions/leap-15.0.html.erb:41
-#: ../app/views/distributions/leap-15.0.html.erb:76
-#: ../app/views/distributions/leap-15.0.html.erb:89
-#: ../app/views/distributions/leap-42.3.html.erb:41
-#: ../app/views/distributions/leap-42.3.html.erb:80
-#: ../app/views/distributions/leap-42.3.html.erb:112
-#: ../app/views/distributions/tumbleweed.html.erb:51
-#: ../app/views/distributions/tumbleweed.html.erb:79
-#: ../app/views/distributions/tumbleweed.html.erb:97
-#: ../app/views/distributions/tumbleweed.html.erb:136
-#: ../app/views/distributions/tumbleweed.html.erb:168
-#: ../app/views/distributions/tumbleweed.html.erb:200
-#: ../app/views/distributions/tumbleweed.html.erb:247
-#: ../app/views/distributions/tumbleweed.html.erb:259
-#: ../app/views/distributions/tumbleweed.html.erb:287
-#: ../app/views/distributions/tumbleweed.html.erb:299
+#: ../app/data/42.3.yml.erb:9 ../app/data/42.3.yml.erb:44
+#: ../app/data/42.3.yml.erb:71 ../app/data/42.3.yml.erb:83
+#: ../app/data/15.0.yml.erb:9 ../app/data/15.0.yml.erb:102
+#: ../app/data/15.0.yml.erb:113 ../app/data/15.0.yml.erb:142
+#: ../app/data/15.0.yml.erb:154 ../app/data/15.1.yml.erb:9
+#: ../app/data/15.1.yml.erb:102 ../app/data/15.1.yml.erb:113
+#: ../app/data/15.1.yml.erb:142 ../app/data/15.1.yml.erb:154
+#: ../app/data/tumbleweed.yml.erb:8 ../app/data/tumbleweed.yml.erb:35
+#: ../app/data/tumbleweed.yml.erb:62 ../app/data/tumbleweed.yml.erb:74
+#: ../app/data/tumbleweed.yml.erb:91 ../app/data/tumbleweed.yml.erb:117
+#: ../app/data/tumbleweed.yml.erb:126 ../app/data/tumbleweed.yml.erb:147
+#: ../app/data/tumbleweed.yml.erb:156 ../app/data/tumbleweed.yml.erb:183
+#: ../app/data/tumbleweed.yml.erb:210
 msgid "For DVD and USB stick"
 msgstr "用于 DVD 和 U 盘"
+
+#: ../app/views/distributions/index.html.erb:11
+#, fuzzy
+#| msgid ""
+#| "Tumbleweed is recommended for <strong>Developers</strong>, "
+#| "<strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS "
+#| "Enthusiasts</strong>."
+msgid "For Developers, openSUSE Contributors, and Linux/FOSS Enthusiasts."
+msgstr ""
+"Tumbleweed 推荐给<strong>开发者</strong>、<strong>openSUSE 贡献者</strong>和 "
+"<strong>Linux/FOSS 爱好者</strong>使用。"
+
+#: ../app/views/distributions/index.html.erb:28
+#, fuzzy
+#| msgid ""
+#| "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
+#| "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
+msgid "For Sysadmins, Enterprise Developers, and ‘Regular’ Desktop Users."
+msgstr ""
+"Leap 推荐给<strong>系统管理员</strong>、<strong>企业开发者</strong>和"
+"<strong>“常规”桌面用户</strong>使用。"
 
 #: ../app/views/distributions/_verify_download.html.erb:13
 msgid ""
@@ -406,6 +368,23 @@ msgstr "出于额外的安全考虑，您可以使用 GPG 验证谁签发了这�
 #: ../app/views/distributions/_verify_download.html.erb:22
 msgid "For more help verifying your download please read %{checksums_help}"
 msgstr "更多验证您的下载的帮助请参阅 %{checksums_help}"
+
+#: ../app/data/15.0.yml.erb:75 ../app/data/15.0.yml.erb:86
+#: ../app/data/15.1.yml.erb:75 ../app/data/15.1.yml.erb:86
+msgid "For running virtual machines in VMware"
+msgstr ""
+
+#: ../app/data/15.0.yml.erb:64 ../app/data/15.1.yml.erb:64
+msgid "For running virtual machines on MS HyperV"
+msgstr ""
+
+#: ../app/data/15.0.yml.erb:42 ../app/data/15.1.yml.erb:42
+msgid "For use in KVM or XEN HVM hypervisors"
+msgstr ""
+
+#: ../app/data/15.0.yml.erb:53 ../app/data/15.1.yml.erb:53
+msgid "For use in XEN PV hypervisors"
+msgstr ""
 
 #: ../app/views/layouts/_footer.html.erb:27
 #: ../app/views/layouts/_navbar.html.erb:26
@@ -428,18 +407,17 @@ msgstr "从更旧的版本或其他 Linux 发行版"
 msgid "Full Documentation"
 msgstr "完整文档"
 
-#: ../app/controllers/package_controller.rb:129
+#: ../app/data/tumbleweed.yml.erb:116 ../app/data/tumbleweed.yml.erb:146
+msgid "GNOME LiveCD"
+msgstr ""
+
+#: ../app/controllers/package_controller.rb:123
 msgid "Games"
 msgstr "游戏"
-
-#: ../app/views/search/_find_results.html.erb:57
-msgid "Get"
-msgstr "获取"
 
 #: ../app/views/layouts/jekyll.html.erb:8
 #: ../app/views/layouts/jekyll.html.erb:34
 #: ../app/views/layouts/download.html.erb:7
-#: ../app/views/distributions/index.html.erb:4
 msgid "Get openSUSE"
 msgstr "获取 openSUSE"
 
@@ -451,17 +429,11 @@ msgstr "Google+ 群组"
 msgid "Grab binary packages directly"
 msgstr "直接抓取二进制软件包"
 
-#: ../app/controllers/package_controller.rb:133
+#: ../app/controllers/package_controller.rb:127
 msgid "Graphics"
 msgstr "图形"
 
-#: ../app/views/distributions/index.html.erb:39
-msgid ""
-"Help test openSUSE’s next version of Leap by downloading the latest "
-"development milestone."
-msgstr "下载最新的开发里程碑版来帮助测试 openSUSE 的下个 Leap 版本。"
-
-#: ../app/controllers/distributions_controller.rb:34
+#: ../app/controllers/distributions_controller.rb:43
 msgid "Help test the next version of openSUSE Leap!"
 msgstr "帮忙测试下个版本的 Leap！"
 
@@ -493,7 +465,7 @@ msgstr "如何在 OS X 上创建可启动的 U 盘。"
 msgid "IRC channels"
 msgstr "IRC 频道"
 
-#: ../app/views/distributions/index.html.erb:91
+#: ../app/views/distributions/index.html.erb:87
 msgid "If you are still not sure, download %{leap}"
 msgstr "如果您还不确定，请下载 %{leap}"
 
@@ -515,16 +487,16 @@ msgstr "映像："
 msgid "Information"
 msgstr "信息"
 
-#: ../app/controllers/download_controller.rb:85
+#: ../app/controllers/download_controller.rb:84
 msgid "Install package %s / %s"
 msgstr "安装软件包 %s / %s"
 
-#: ../app/controllers/download_controller.rb:127
+#: ../app/controllers/download_controller.rb:126
 msgid "Install pattern %s / %s"
 msgstr "安装软件集 %s / %s"
 
-#: ../app/views/distributions/leap-15.0.html.erb:18
-#: ../app/views/images/images.xml.erb:28
+#: ../app/views/images/images.xml.erb:28 ../app/data/15.0.yml.erb:1
+#: ../app/data/15.1.yml.erb:1 ../app/data/tumbleweed.yml.erb:1
 msgid "Installation"
 msgstr "安装"
 
@@ -536,7 +508,7 @@ msgstr "安装来源"
 msgid "Internet access is helpful, and required for the Network Installer"
 msgstr "互联网接入有所帮助，同时对于“网络安装”是必需的"
 
-#: ../app/views/distributions/index.html.erb:95
+#: ../app/views/distributions/index.html.erb:91
 msgid ""
 "It is easy to <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 "\">switch to openSUSE Tumbleweed</a> if you change your mind later."
@@ -544,7 +516,7 @@ msgstr ""
 "如果你改变了主意，您可以很容易的<a href=\"https://zh.opensuse.org/openSUSE:升"
 "级_Tumbleweed\">切换到 openSUSE Tumbleweed</a>。"
 
-#: ../app/views/distributions/index.html.erb:71
+#: ../app/views/distributions/index.html.erb:67
 msgid ""
 "It is not expected to change in any significant way until its next annual "
 "release."
@@ -554,9 +526,13 @@ msgstr "在下一年度版本发行之前，预计不会有任何重大的变化
 msgid "It should be %{fingerprint}"
 msgstr "它应为 %{fingerprint}"
 
-#: ../app/views/distributions/tumbleweed.html.erb:77
-msgid "Kubic Image"
-msgstr "Kubic 映像"
+#: ../app/data/15.0.yml.erb:36 ../app/data/15.1.yml.erb:36
+msgid "JeOS"
+msgstr ""
+
+#: ../app/data/tumbleweed.yml.erb:125 ../app/data/tumbleweed.yml.erb:155
+msgid "KDE LiveCD"
+msgstr ""
 
 #: ../app/views/images/images.xml.erb:18
 msgid "Leap %s DVD"
@@ -574,7 +550,7 @@ msgstr "Leap %s 网络安装"
 msgid "Leap %s Network Installation (Build %s)"
 msgstr "Leap %s 网络安装（内部版本 %s）"
 
-#: ../app/views/distributions/index.html.erb:77
+#: ../app/views/distributions/index.html.erb:73
 msgid ""
 "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
 "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
@@ -582,7 +558,7 @@ msgstr ""
 "Leap 推荐给<strong>系统管理员</strong>、<strong>企业开发者</strong>和"
 "<strong>“常规”桌面用户</strong>使用。"
 
-#: ../app/views/distributions/index.html.erb:72
+#: ../app/views/distributions/index.html.erb:68
 msgid ""
 "Leap shares a Common Base System with %{sles}, so major architectural "
 "changes are not expected for several years, aligned with each new Major "
@@ -591,12 +567,16 @@ msgstr ""
 "Leap 与 %{sles} 共享了同一个基础系统，因此几年内不会有重大的架构变化，与每个"
 "新的 SUSE Linux Enterprise 主要版本（如：12、13、等等）相一致。"
 
+#: ../app/views/package/explore.html.erb:20
+msgid "Learn more"
+msgstr ""
+
 #: ../app/views/distributions/_documentation.html.erb:16
 msgid "License"
 msgstr "许可证"
 
-#: ../app/views/distributions/leap-15.0.html.erb:24
-#: ../app/views/images/images.xml.erb:52
+#: ../app/views/images/images.xml.erb:52 ../app/data/15.0.yml.erb:96
+#: ../app/data/15.1.yml.erb:96 ../app/data/tumbleweed.yml.erb:102
 msgid "Live"
 msgstr "体验"
 
@@ -623,56 +603,49 @@ msgstr ""
 msgid "Medium"
 msgstr "介质"
 
-#: ../app/views/distributions/leap-15.0.html.erb:44
-#: ../app/views/distributions/leap-15.0.html.erb:58
-#: ../app/views/distributions/leap-15.0.html.erb:78
-#: ../app/views/distributions/leap-15.0.html.erb:91
-#: ../app/views/distributions/leap-15.0.html.erb:104
-#: ../app/views/distributions/leap-42.3.html.erb:44
-#: ../app/views/distributions/leap-42.3.html.erb:58
-#: ../app/views/distributions/leap-42.3.html.erb:83
-#: ../app/views/distributions/leap-42.3.html.erb:97
-#: ../app/views/distributions/leap-42.3.html.erb:115
-#: ../app/views/distributions/leap-42.3.html.erb:129
-#: ../app/views/distributions/tumbleweed.html.erb:54
-#: ../app/views/distributions/tumbleweed.html.erb:68
-#: ../app/views/distributions/tumbleweed.html.erb:82
-#: ../app/views/distributions/tumbleweed.html.erb:100
-#: ../app/views/distributions/tumbleweed.html.erb:114
-#: ../app/views/distributions/tumbleweed.html.erb:139
-#: ../app/views/distributions/tumbleweed.html.erb:153
-#: ../app/views/distributions/tumbleweed.html.erb:171
-#: ../app/views/distributions/tumbleweed.html.erb:185
-#: ../app/views/distributions/tumbleweed.html.erb:203
-#: ../app/views/distributions/tumbleweed.html.erb:217
-#: ../app/views/distributions/tumbleweed.html.erb:249
-#: ../app/views/distributions/tumbleweed.html.erb:261
-#: ../app/views/distributions/tumbleweed.html.erb:273
-#: ../app/views/distributions/tumbleweed.html.erb:289
-#: ../app/views/distributions/tumbleweed.html.erb:301
-#: ../app/views/distributions/tumbleweed.html.erb:313
+#: ../app/data/42.3.yml.erb:14 ../app/data/42.3.yml.erb:28
+#: ../app/data/42.3.yml.erb:49 ../app/data/42.3.yml.erb:61
+#: ../app/data/42.3.yml.erb:76 ../app/data/42.3.yml.erb:88
+#: ../app/data/15.0.yml.erb:14 ../app/data/15.0.yml.erb:28
+#: ../app/data/15.0.yml.erb:46 ../app/data/15.0.yml.erb:57
+#: ../app/data/15.0.yml.erb:68 ../app/data/15.0.yml.erb:79
+#: ../app/data/15.0.yml.erb:90 ../app/data/15.0.yml.erb:106
+#: ../app/data/15.0.yml.erb:117 ../app/data/15.0.yml.erb:128
+#: ../app/data/15.0.yml.erb:147 ../app/data/15.0.yml.erb:159
+#: ../app/data/15.1.yml.erb:14 ../app/data/15.1.yml.erb:28
+#: ../app/data/15.1.yml.erb:46 ../app/data/15.1.yml.erb:57
+#: ../app/data/15.1.yml.erb:68 ../app/data/15.1.yml.erb:79
+#: ../app/data/15.1.yml.erb:90 ../app/data/15.1.yml.erb:106
+#: ../app/data/15.1.yml.erb:117 ../app/data/15.1.yml.erb:128
+#: ../app/data/15.1.yml.erb:147 ../app/data/15.1.yml.erb:159
+#: ../app/data/tumbleweed.yml.erb:13 ../app/data/tumbleweed.yml.erb:25
+#: ../app/data/tumbleweed.yml.erb:40 ../app/data/tumbleweed.yml.erb:52
+#: ../app/data/tumbleweed.yml.erb:67 ../app/data/tumbleweed.yml.erb:79
+#: ../app/data/tumbleweed.yml.erb:96 ../app/data/tumbleweed.yml.erb:121
+#: ../app/data/tumbleweed.yml.erb:130 ../app/data/tumbleweed.yml.erb:139
+#: ../app/data/tumbleweed.yml.erb:151 ../app/data/tumbleweed.yml.erb:160
+#: ../app/data/tumbleweed.yml.erb:169 ../app/data/tumbleweed.yml.erb:188
+#: ../app/data/tumbleweed.yml.erb:200 ../app/data/tumbleweed.yml.erb:215
+#: ../app/data/tumbleweed.yml.erb:227
 msgid "Metalink"
 msgstr "Metalink"
 
-#: ../app/controllers/package_controller.rb:132
+#: ../app/controllers/package_controller.rb:126
 msgid "Multimedia"
 msgstr "多媒体"
 
-#: ../app/controllers/package_controller.rb:135
+#: ../app/controllers/package_controller.rb:129
 #: ../app/views/images/images.xml.erb:20 ../app/views/images/images.xml.erb:40
 #: ../app/views/images/images.xml.erb:95
 msgid "Network"
 msgstr "网络"
 
-#: ../app/views/distributions/leap-15.0.html.erb:53
-#: ../app/views/distributions/leap-42.3.html.erb:53
-#: ../app/views/distributions/leap-42.3.html.erb:92
-#: ../app/views/distributions/leap-42.3.html.erb:124
-#: ../app/views/distributions/tumbleweed.html.erb:63
-#: ../app/views/distributions/tumbleweed.html.erb:109
-#: ../app/views/distributions/tumbleweed.html.erb:148
-#: ../app/views/distributions/tumbleweed.html.erb:180
-#: ../app/views/distributions/tumbleweed.html.erb:212
+#: ../app/data/42.3.yml.erb:22 ../app/data/42.3.yml.erb:55
+#: ../app/data/42.3.yml.erb:82 ../app/data/15.0.yml.erb:22
+#: ../app/data/15.0.yml.erb:153 ../app/data/15.1.yml.erb:22
+#: ../app/data/15.1.yml.erb:153 ../app/data/tumbleweed.yml.erb:19
+#: ../app/data/tumbleweed.yml.erb:46 ../app/data/tumbleweed.yml.erb:73
+#: ../app/data/tumbleweed.yml.erb:194 ../app/data/tumbleweed.yml.erb:221
 msgid "Network Image"
 msgstr "网络映像"
 
@@ -700,7 +673,7 @@ msgstr "没有描述。"
 msgid "No downloads found for %s in project %s"
 msgstr "在 %2$s 项目中未找到 %1$s 的下载"
 
-#: ../app/controllers/distributions_controller.rb:42
+#: ../app/controllers/distributions_controller.rb:52
 msgid "No legacy distribution available"
 msgstr "没有可用的旧版本"
 
@@ -708,11 +681,11 @@ msgstr "没有可用的旧版本"
 msgid "No packages found matching your search. "
 msgstr "未找到匹配您搜索条件的软件包。 "
 
-#: ../app/controllers/distributions_controller.rb:13
+#: ../app/controllers/distributions_controller.rb:14
 msgid "No stable release available"
 msgstr "无可用的稳定发行版"
 
-#: ../app/controllers/distributions_controller.rb:30
+#: ../app/controllers/distributions_controller.rb:37
 msgid "No testing distribution available."
 msgstr "无可用的测试发行版。"
 
@@ -720,17 +693,15 @@ msgstr "无可用的测试发行版。"
 msgid "OBS Backend not available"
 msgstr "OBS 后端暂不可用"
 
-#: ../app/views/search/_settings.html.erb:43
+#: ../app/views/search/_settings.html.erb:37
 msgid "OK"
 msgstr "确认"
 
-#: ../app/controllers/package_controller.rb:134
+#: ../app/controllers/package_controller.rb:128
 msgid "Office & Productivity"
 msgstr "办公与生产"
 
-#: ../app/views/package/_download_rows.html.erb:22
-#: ../app/views/distributions/leap-42.3.html.erb:18
-#: ../app/views/distributions/tumbleweed.html.erb:19
+#: ../app/views/package/_download_rows.html.erb:22 ../app/data/42.3.yml.erb:1
 msgid "Official"
 msgstr "官方"
 
@@ -754,28 +725,27 @@ msgstr "软件包搜索"
 msgid "Packages for %s:"
 msgstr "用于 %s 的软件包："
 
-#: ../app/views/distributions/leap-15.0.html.erb:45
-#: ../app/views/distributions/leap-15.0.html.erb:59
-#: ../app/views/distributions/leap-15.0.html.erb:79
-#: ../app/views/distributions/leap-15.0.html.erb:92
-#: ../app/views/distributions/leap-15.0.html.erb:105
-#: ../app/views/distributions/leap-42.3.html.erb:45
-#: ../app/views/distributions/leap-42.3.html.erb:59
-#: ../app/views/distributions/leap-42.3.html.erb:84
-#: ../app/views/distributions/leap-42.3.html.erb:98
-#: ../app/views/distributions/leap-42.3.html.erb:116
-#: ../app/views/distributions/leap-42.3.html.erb:130
-#: ../app/views/distributions/tumbleweed.html.erb:55
-#: ../app/views/distributions/tumbleweed.html.erb:69
-#: ../app/views/distributions/tumbleweed.html.erb:83
-#: ../app/views/distributions/tumbleweed.html.erb:101
-#: ../app/views/distributions/tumbleweed.html.erb:115
-#: ../app/views/distributions/tumbleweed.html.erb:140
-#: ../app/views/distributions/tumbleweed.html.erb:154
-#: ../app/views/distributions/tumbleweed.html.erb:172
-#: ../app/views/distributions/tumbleweed.html.erb:186
-#: ../app/views/distributions/tumbleweed.html.erb:204
-#: ../app/views/distributions/tumbleweed.html.erb:218
+#: ../app/data/42.3.yml.erb:16 ../app/data/42.3.yml.erb:30
+#: ../app/data/42.3.yml.erb:51 ../app/data/42.3.yml.erb:63
+#: ../app/data/42.3.yml.erb:78 ../app/data/42.3.yml.erb:90
+#: ../app/data/15.0.yml.erb:16 ../app/data/15.0.yml.erb:30
+#: ../app/data/15.0.yml.erb:48 ../app/data/15.0.yml.erb:59
+#: ../app/data/15.0.yml.erb:70 ../app/data/15.0.yml.erb:81
+#: ../app/data/15.0.yml.erb:92 ../app/data/15.0.yml.erb:108
+#: ../app/data/15.0.yml.erb:119 ../app/data/15.0.yml.erb:130
+#: ../app/data/15.0.yml.erb:149 ../app/data/15.0.yml.erb:161
+#: ../app/data/15.1.yml.erb:16 ../app/data/15.1.yml.erb:30
+#: ../app/data/15.1.yml.erb:48 ../app/data/15.1.yml.erb:59
+#: ../app/data/15.1.yml.erb:70 ../app/data/15.1.yml.erb:81
+#: ../app/data/15.1.yml.erb:92 ../app/data/15.1.yml.erb:108
+#: ../app/data/15.1.yml.erb:119 ../app/data/15.1.yml.erb:130
+#: ../app/data/15.1.yml.erb:149 ../app/data/15.1.yml.erb:161
+#: ../app/data/tumbleweed.yml.erb:15 ../app/data/tumbleweed.yml.erb:27
+#: ../app/data/tumbleweed.yml.erb:42 ../app/data/tumbleweed.yml.erb:54
+#: ../app/data/tumbleweed.yml.erb:69 ../app/data/tumbleweed.yml.erb:81
+#: ../app/data/tumbleweed.yml.erb:98 ../app/data/tumbleweed.yml.erb:190
+#: ../app/data/tumbleweed.yml.erb:202 ../app/data/tumbleweed.yml.erb:217
+#: ../app/data/tumbleweed.yml.erb:229
 msgid "Pick Mirror"
 msgstr "选择镜像站点"
 
@@ -783,15 +753,37 @@ msgstr "选择镜像站点"
 msgid "Planet"
 msgstr "星球"
 
-#: ../app/views/distributions/tumbleweed.html.erb:228
+#: ../app/data/tumbleweed.yml.erb:105
 msgid "Please be aware of the following limitations of the live images:"
 msgstr "请注意体验映像的下列限制："
 
-#: ../app/views/distributions/tumbleweed.html.erb:235
+#: ../app/data/tumbleweed.yml.erb:110
+#, fuzzy
+#| msgid ""
+#| "Please review %{openqa}'s test results if you want an indication whether "
+#| "these live medias are working as expected."
 msgid ""
-"Please review %{openqa}'s test results if you want an indication whether "
-"these live medias are working as expected."
+"Please review [openQA](%{openqa})'s test results if you want an indication "
+"whether these live medias are working as expected"
 msgstr "如果你想知道这些体验媒体是否正常工作，请查看 %{openqa} 的测试结果。"
+
+#: ../app/data/15.0.yml.erb:134 ../app/data/15.1.yml.erb:134
+#: ../app/data/tumbleweed.yml.erb:173
+msgid "Ports"
+msgstr ""
+
+#: ../app/data/15.0.yml.erb:135 ../app/data/15.1.yml.erb:135
+msgid ""
+"Ports of openSUSE Leap to architectures other than the PC are maintained by "
+"separate community teams, with limited resources."
+msgstr ""
+
+#: ../app/data/tumbleweed.yml.erb:176
+msgid ""
+"Ports of openSUSE Tumbleweed to architectures other than the PC are "
+"maintained by separate community teams. Scope and pace of the rolling "
+"release might be different due to limited resources for those architectures."
+msgstr ""
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -809,16 +801,22 @@ msgstr "发行说明"
 msgid "Rescue"
 msgstr "救援系统"
 
-#: ../app/views/distributions/index.html.erb:73
+#: ../app/data/tumbleweed.yml.erb:134 ../app/data/tumbleweed.yml.erb:164
+#, fuzzy
+#| msgid "Rescue"
+msgid "Rescue LiveCD"
+msgstr "救援系统"
+
+#: ../app/views/distributions/index.html.erb:69
 msgid "SUSE Linux Enterprise"
 msgstr "SUSE Linux Enterprise"
 
 #: ../app/views/search/find.html.erb:1
-#: ../app/views/search/_find_form.html.erb:13
+#: ../app/views/search/_find_form.html.erb:19
 msgid "Search"
 msgstr "搜索"
 
-#: ../app/views/search/_find_form.html.erb:7
+#: ../app/views/search/_find_form.html.erb:12
 msgid "Search packages..."
 msgstr "搜索软件包..."
 
@@ -833,10 +831,6 @@ msgstr "选择您的操作系统"
 #: ../app/views/download/appliance.erb:9
 msgid "Select the image type"
 msgstr "选择映像类型"
-
-#: ../app/views/search/_find_form.html.erb:19
-msgid "Settings"
-msgstr "设置"
 
 #: ../app/views/layouts/_footer.html.erb:21
 msgid "Shop"
@@ -854,11 +848,11 @@ msgstr "显示适用于其它发行版的 %s"
 msgid "Show community packages"
 msgstr "显示社区软件包"
 
-#: ../app/views/search/_settings.html.erb:37
+#: ../app/views/search/_settings.html.erb:31
 msgid "Show debug packages"
 msgstr "显示侦错(debug)用软件包"
 
-#: ../app/views/search/_settings.html.erb:23
+#: ../app/views/search/_settings.html.erb:17
 msgid "Show development packages"
 msgstr "显示开发用软件包"
 
@@ -866,7 +860,7 @@ msgstr "显示开发用软件包"
 msgid "Show experimental packages"
 msgstr "显示实验性软件包"
 
-#: ../app/views/search/_settings.html.erb:30
+#: ../app/views/search/_settings.html.erb:24
 msgid "Show language packages"
 msgstr "显示语系类软件包"
 
@@ -878,7 +872,7 @@ msgstr "大小"
 msgid "Social Media"
 msgstr "社交媒体"
 
-#: ../app/views/layouts/_navbar.html.erb:14
+#: ../app/views/layouts/_navbar.html.erb:17
 msgid "Software"
 msgstr "软件"
 
@@ -893,7 +887,7 @@ msgstr "源代码"
 msgid "Sub-Packages"
 msgstr "子软件包"
 
-#: ../app/controllers/package_controller.rb:136
+#: ../app/controllers/package_controller.rb:130
 msgid "System & Utility"
 msgstr "系统与工具"
 
@@ -930,7 +924,7 @@ msgstr "下列发行版未被官方支持。使用这些软件包需要您自担
 msgid "Then run the following as <strong>root</strong>"
 msgstr "然后以 <strong>root</strong> 身份运行以下命令"
 
-#: ../app/controllers/distributions_controller.rb:46
+#: ../app/controllers/distributions_controller.rb:58
 msgid ""
 "There is a new version of openSUSE Leap <a href='/distributions/"
 "leap'>available</a>!"
@@ -940,28 +934,38 @@ msgstr "新的 openSUSE Leap 版本<a href='/distributions/leap'>发布了</a>�
 msgid "There is no official package available for %s"
 msgstr "%s 没有可用的官方软件包"
 
-#: ../app/views/distributions/leap-42.3.html.erb:69
-#: ../app/views/distributions/tumbleweed.html.erb:125
+#: ../app/data/42.3.yml.erb:37
 msgid ""
 "These ports are not officially supported, and they are not as stable as "
 "official distributions."
 msgstr "这些移植未被官方支持，他们不像官方发行版那样稳定。"
 
-#: ../app/views/distributions/tumbleweed.html.erb:233
-msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
+#: ../app/data/tumbleweed.yml.erb:109
+#, fuzzy
+#| msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
+msgid "They are not tested as thoroughly as the [Tumbleweed media](%{tw})"
 msgstr "它们没有像 %{tumbleweed_media} 一样被彻底的测试。"
 
-#: ../app/views/distributions/tumbleweed.html.erb:230
+#: ../app/data/tumbleweed.yml.erb:107
+#, fuzzy
+#| msgid ""
+#| "They cannot be used to install or upgrade Tumbleweed. Please use the "
+#| "%{tumbleweed_media} instead."
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
-"%{tumbleweed_media} instead."
+"[Tumbleweed media](%{tw}) instead"
 msgstr "它们无法用于安装和升级 Tumbleweed。请使用 %{tumbleweed_media} 替代。"
 
-#: ../app/views/distributions/tumbleweed.html.erb:232
+#: ../app/data/tumbleweed.yml.erb:108
+#, fuzzy
+#| msgid ""
+#| "They have a limited package and driver selection, so cannot be considered "
+#| "an accurate reflection as to whether Tumbleweed will work on your "
+#| "hardware or not."
 msgid ""
 "They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
-"not."
+"not"
 msgstr ""
 "它们只包含有限的软件包和驱动选择，所以无法精确反映 Tumbleweed 是否能在您的硬"
 "件上工作。"
@@ -969,6 +973,14 @@ msgstr ""
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
 msgstr "切换导航"
+
+#: ../app/data/42.3.yml.erb:20 ../app/data/15.0.yml.erb:20
+#: ../app/data/15.0.yml.erb:34 ../app/data/15.1.yml.erb:20
+#: ../app/data/15.1.yml.erb:34
+#, fuzzy
+#| msgid "BitTorrent"
+msgid "Torrent File"
+msgstr "BitTorrent"
 
 #: ../app/views/images/images.xml.erb:33
 msgid "Tumbleweed %s DVD (i586)"
@@ -1010,12 +1022,7 @@ msgstr "Tumbleweed %s 救援 CD (i686)"
 msgid "Tumbleweed %s Rescue CD (x86_64)"
 msgstr "Tumbleweed %s 救援 CD (x86_64)"
 
-#: ../app/views/distributions/tumbleweed.html.erb:231
-#: ../app/views/distributions/tumbleweed.html.erb:234
-msgid "Tumbleweed installation media"
-msgstr "Tumbleweed 安装媒体"
-
-#: ../app/views/distributions/index.html.erb:61
+#: ../app/views/distributions/index.html.erb:56
 msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
 "Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
@@ -1023,8 +1030,7 @@ msgstr ""
 "Tumbleweed 推荐给<strong>开发者</strong>、<strong>openSUSE 贡献者</strong>和 "
 "<strong>Linux/FOSS 爱好者</strong>使用。"
 
-#: ../app/views/distributions/leap-42.3.html.erb:24
-#: ../app/views/distributions/tumbleweed.html.erb:26
+#: ../app/data/42.3.yml.erb:34
 msgid "Unofficial"
 msgstr "非官方"
 
@@ -1043,6 +1049,24 @@ msgstr "请在使用前验证您下载的文件"
 #: ../app/views/package/show.html.erb:48
 msgid "Version"
 msgstr "版本"
+
+#: ../app/views/search/_find_results.html.erb:57
+msgid "View"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:32
+msgid "View Leap"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:34
+msgid "View Testing"
+msgstr ""
+
+#: ../app/views/distributions/index.html.erb:15
+#, fuzzy
+#| msgid "openSUSE Tumbleweed"
+msgid "View Tumbleweed"
+msgstr "openSUSE Tumbleweed"
 
 #: ../app/views/layouts/_navbar.html.erb:23
 msgid "Wiki"
@@ -1065,11 +1089,11 @@ msgstr ""
 "您可尝试将搜索条件扩展到开发软件包或搜索另一个基础发行版中的软件包（目前为 "
 "#{@baseproject}）。"
 
-#: ../app/views/distributions/index.html.erb:68
+#: ../app/views/distributions/index.html.erb:64
 msgid "annually"
 msgstr "每年一次"
 
-#: ../app/views/distributions/index.html.erb:69
+#: ../app/views/distributions/index.html.erb:65
 msgid "https://en.opensuse.org/Lifetime"
 msgstr "https://zh.opensuse.org/使用期限"
 
@@ -1108,7 +1132,7 @@ msgstr "https://zh.opensuse.org/SDB:Live_USB_U盘安装"
 msgid "https://en.opensuse.org/SDB:System_upgrade"
 msgstr "https://zh.opensuse.org/SDB:系统升级"
 
-#: ../app/views/distributions/index.html.erb:68
+#: ../app/views/distributions/index.html.erb:64
 msgid "https://en.opensuse.org/openSUSE:Roadmap"
 msgstr "https://zh.opensuse.org/openSUSE:发行计划"
 
@@ -1122,11 +1146,11 @@ msgstr "https://zh.opensuse.org/openSUSE:升级_Tumbleweed"
 msgid "i586"
 msgstr "i586"
 
-#: ../app/views/distributions/index.html.erb:69
+#: ../app/views/distributions/index.html.erb:65
 msgid "lifetime"
 msgstr "生命周期"
 
-#: ../app/views/distributions/index.html.erb:67
+#: ../app/views/distributions/index.html.erb:63
 msgid "openSUSE Leap"
 msgstr "openSUSE Leap"
 
@@ -1138,24 +1162,46 @@ msgstr "openSUSE 软件"
 msgid "openSUSE Startup Guide"
 msgstr "openSUSE 入门指南"
 
-#: ../app/views/distributions/index.html.erb:58
+#: ../app/views/distributions/index.html.erb:53
 #: ../app/views/images/images.xml.erb:26
 msgid "openSUSE Tumbleweed"
 msgstr "openSUSE Tumbleweed"
 
-#: ../app/views/layouts/_footer.html.erb:49
+#: ../app/views/layouts/_footer.html.erb:48
 msgid "openSUSE contributors"
 msgstr "openSUSE 贡献者"
-
-#: ../app/views/distributions/index.html.erb:6
-msgid "openSUSE is completely free to download, use and share."
-msgstr "openSUSE 下载、使用和分享完全自由。"
 
 #: ../app/views/images/images.xml.erb:35 ../app/views/images/images.xml.erb:45
 #: ../app/views/images/images.xml.erb:59 ../app/views/images/images.xml.erb:69
 #: ../app/views/images/images.xml.erb:79
 msgid "x86_64"
 msgstr "x86_64"
+
+#~ msgid "Direct Link"
+#~ msgstr "直接链接"
+
+#~ msgid "Distribution:"
+#~ msgstr "发行版："
+
+#~ msgid "Get"
+#~ msgstr "获取"
+
+#~ msgid ""
+#~ "Help test openSUSE’s next version of Leap by downloading the latest "
+#~ "development milestone."
+#~ msgstr "下载最新的开发里程碑版来帮助测试 openSUSE 的下个 Leap 版本。"
+
+#~ msgid "Kubic Image"
+#~ msgstr "Kubic 映像"
+
+#~ msgid "Settings"
+#~ msgstr "设置"
+
+#~ msgid "Tumbleweed installation media"
+#~ msgstr "Tumbleweed 安装媒体"
+
+#~ msgid "openSUSE is completely free to download, use and share."
+#~ msgstr "openSUSE 下载、使用和分享完全自由。"
 
 #~ msgid "Show development, language and debug packages"
 #~ msgstr "显示开发包、语言包和调试包"
@@ -1419,9 +1465,6 @@ msgstr "x86_64"
 #~ "关于禁运和禁运国家名单的更多信息可参考维基百科 <a href='http://en."
 #~ "wikipedia.org/wiki/United_States_embargoes'>http://en.wikipedia.org/wiki/"
 #~ "United_States_embargoes</a> 词条。"
-
-#~ msgid "BitTorrent"
-#~ msgstr "BitTorrent"
 
 #~ msgid ""
 #~ "Boot from the DVD, CD or USB stick. In case your computer does not "
