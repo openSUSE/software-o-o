@@ -33,6 +33,104 @@
         url: /distribution/leap/15.1/iso/openSUSE-Leap-15.1-NET-x86_64.iso.sha256
       - name: <%= _("Torrent File") %>
         url: /distribution/leap/15.1/iso/openSUSE-Leap-15.1-NET-x86_64.iso.torrent
+- name: <%= _("JeOS") %>
+  arches:
+  - name: x86_64
+    color: success
+    types:
+    - name: KVM and XEN
+      short: <%= _("For use in KVM or XEN HVM hypervisors") %>
+      image_size: 250MB
+      primary_link: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-kvm-and-xen-Current.qcow2
+      links:
+      - name: <%= _("Metalink") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-kvm-and-xen-Current.qcow2.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-kvm-and-xen-Current.qcow2?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-kvm-and-xen-Current.qcow2.sha256
+    - name: XEN
+      short: <%= _("For use in XEN PV hypervisors") %>
+      image_size: 250MB
+      primary_link: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-XEN-Current.qcow2
+      links:
+      - name: <%= _("Metalink") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-XEN-Current.qcow2.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-XEN-Current.qcow2?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-XEN-Current.qcow2.sha256
+    - name: MS HyperV
+      short: <%= _("For running virtual machines on MS HyperV") %>
+      image_size: 900MB
+      primary_link: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-MS-HyperV-Current.vhdx
+      links:
+      - name: <%= _("Metalink") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-MS-HyperV-Current.vhdx.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-MS-HyperV-Current.vhdx?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-MS-HyperV-Current.vhdx.sha256
+    - name: VMware
+      short: <%= _("For running virtual machines in VMware") %>
+      image_size: 800MB
+      primary_link: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-VMware-Current.vmdk
+      links:
+      - name: <%= _("Metalink") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-VMware-Current.vmdk.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-VMware-Current.vmdk?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-VMware-Current.vmdk.sha256
+    - name: OpenStack-Cloud
+      short: <%= _("For running virtual machines in VMware") %>
+      image_size: 250MB
+      primary_link: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-OpenStack-Cloud-Current.qcow2
+      links:
+      - name: <%= _("Metalink") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-OpenStack-Cloud-Current.qcow2.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-OpenStack-Cloud-Current.qcow2?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /distribution/leap/15.1/jeos/openSUSE-Leap-15.1-JeOS.x86_64-15.1.1-OpenStack-Cloud-Current.qcow2.sha256
+- name: <%= _("Live") %>
+  arches:
+  - name: x86_64
+    color: success
+    types:
+    - name: Gnome
+      short: <%= _("For DVD and USB stick") %>
+      image_size: 950MB
+      primary_link: /distribution/leap/15.1/live/openSUSE-Leap-15.1-GNOME-Live-x86_64-Current.iso
+      links:
+      - name: <%= _("Metalink") %>
+        url: /distribution/leap/15.1/live/openSUSE-Leap-15.1-GNOME-Live-x86_64-Current.iso.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /distribution/leap/15.1/iso/openSUSE-Leap-15.1-DVD-x86_64.iso?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /distribution/leap/15.1/live/openSUSE-Leap-15.1-GNOME-Live-x86_64-Current.iso.sha256
+    - name: KDE
+      short: <%= _("For DVD and USB stick") %>
+      image_size: 950MB
+      primary_link: /distribution/leap/15.1/live/openSUSE-Leap-15.1-KDE-Live-x86_64-Current.iso
+      links:
+      - name: <%= _("Metalink") %>
+        url: /distribution/leap/15.1/live/openSUSE-Leap-15.1-KDE-Live-x86_64-Current.iso.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /distribution/leap/15.1/live/openSUSE-Leap-15.1-KDE-Live-x86_64-Current.iso?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /distribution/leap/15.1/live/openSUSE-Leap-15.1-KDE-Live-x86_64-Current.iso.sha256
+    - name: Rescue LiveCD
+      short: <%= _("For CD and USB stick") %>
+      image_size: 650MB
+      primary_link: /distribution/leap/15.1/live/openSUSE-Leap-15.1-Rescue-CD-x86_64-Current.iso
+      links:
+      - name: <%= _("Metalink") %>
+        url: /distribution/leap/15.1/live/openSUSE-Leap-15.1-Rescue-CD-x86_64-Current.iso.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /distribution/leap/15.1/live/openSUSE-Leap-15.1-Rescue-CD-x86_64-Current.iso?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /distribution/leap/15.1/live/openSUSE-Leap-15.1-Rescue-CD-x86_64-Current.iso.sha256
 - name: <%= _("Ports") %>
   info: <%= _("Ports of openSUSE Leap to architectures other than the PC are maintained by separate community teams, with limited resources.") %>
   info-colour: warning
