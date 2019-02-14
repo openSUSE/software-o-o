@@ -2,7 +2,6 @@
   choosing-media: true
   arches:
   - name: x86_64
-    color: success
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>
@@ -29,7 +28,6 @@
       - name: <%= _("Checksum") %>
         url: /tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256
   - name: i586
-    color: success
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>
@@ -58,7 +56,6 @@
 - name: Kubic
   arches:
   - name: x86_64
-    color: success
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>
@@ -79,10 +76,8 @@
 
       * <%= _("They cannot be used to install or upgrade Tumbleweed. Please use the [Tumbleweed media](%{tw}) instead") % { tw: '/distributions/tumbleweed'} %>
       * <%= _("They have a limited package and driver selection, so cannot be considered an accurate reflection as to whether Tumbleweed will work on your hardware or not") %>
-  info-colour: success
   arches:
   - name: x86_64
-    color: success
     types:
     - name: <%= _("GNOME LiveCD") %>
       short: <%= _("For DVD and USB stick") %>
@@ -112,7 +107,6 @@
       - name: <%= _("Checksum") %>
         url: /tumbleweed/iso/openSUSE-Tumbleweed-Rescue-CD-x86_64-Current.iso.sha256
   - name: i586
-    color: success
     types:
     - name: <%= _("GNOME LiveCD") %>
       short: <%= _("For DVD and USB stick") %>
@@ -145,10 +139,8 @@
   choosing-media: true
   leap-switch: true
   info: <%= _("Ports of openSUSE Tumbleweed to architectures other than the PC are maintained by separate community teams. Scope and pace of the rolling release might be different due to limited resources for those architectures.") %>
-  info-colour: success
   arches:
   - name: aarch64
-    color: success
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>
@@ -176,7 +168,6 @@
         url: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256
 
   - name: ppc64le
-    color: success
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>
@@ -203,7 +194,6 @@
       - name: <%= _("Checksum") %>
         url: /ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-NET-ppc64le-Current.iso.sha256
   - name: ppc64
-    color: success
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>

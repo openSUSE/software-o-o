@@ -22,12 +22,12 @@
   <div class="border-bottom" role="tablist">
     <ul class="container nav nav-tabs nav-justified border-0">
       <% @yaml_data.try(:each) do |tab| %>
-      
+
       <li class="nav-item">
         <a class="nav-link h-100<% if @yaml_data[0]["name"] == tab["name"] %> active<% end %>" data-toggle="tab" href="#<%= tab["name"] %>-ports" role="tab">
           <%= _(tab["name"]) %>
           <% tab["arches"].try(:each) do |arch| %>
-            <span class="badge badge-<%= arch["color"] %>"><%= arch["name"] %></span>
+            <span class="badge badge-<%= arch["color"] || @colour %>"><%= arch["name"] %></span>
           <% end %>
         </a>
       </li>
@@ -42,7 +42,7 @@
       <% @yaml_data.try(:each) do |tab| %>
       <div class="tab-pane <% if @yaml_data[0]["name"] == tab["name"] %>active<% end %>" id="<%= tab["name"] %>-ports" role="tabpanel">
         <% if tab["info"] %>
-          <div class="alert alert-<%= tab["info-colour"] %>">
+          <div class="alert alert-<%= tab["info-colour"] || @colour %>">
             <%= markdownify( _(tab["info"]) ) %>
           </div>
         <% end %>

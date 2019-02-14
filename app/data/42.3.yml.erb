@@ -3,7 +3,6 @@
   leap-switch: true
   arches:
   - name: x86_64
-    color: success
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>
@@ -35,10 +34,8 @@
   choosing-media: true
   leap-switch: true
   info: <%= _("These ports are not officially supported, and they are not as stable as official distributions.") %>
-  info-colour: warning
   arches:
   - name: ppc64le
-    color: warning
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>
@@ -65,7 +62,6 @@
       - name: <%= _("Checksum") %>
         url: /ports/ppc/distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-ppc64le-Build0130-Media.iso.sha256
   - name: aarch64
-    color: warning
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>
