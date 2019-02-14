@@ -1,6 +1,20 @@
 require 'test_helper'
 
 class OBSTest < ActiveSupport::TestCase
+  test 'use authentication cookie' do
+    # /foo is not a real request, real requests to OBS API should not
+    # be mocked - VCR should be used instead
+    WebMock.stub_request(:any, 'https://api.opensuse.org/foo')
+           .to_return(body: "False")
+
+    WebMock.stub_request(:any, 'https://api.opensuse.org/foo')
+           .with(headers: { 'X-opensuse_data' => 'TEST' })
+           .to_return(body: "True")
+
+    response = OBS.client.get('/foo')
+    assert_equal 'True', response.body
+  end
+
   test 'search binaries data structure' do
     VCR.use_cassette('default') do
       binaries = OBS.search_published_binary('vcpkg', baseproject: 'openSUSE:Factory')

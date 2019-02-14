@@ -118,6 +118,10 @@ module OBS
       conn.response :raise_error
       conn.use FaradayMiddleware::ParseXml, content_type: /\bxml$/
       conn.adapter @configuration.adapter
+
+      conn.headers['User-Agent'] = 'software.o.o'
+      conn.headers['X-Username'] = @configuration.api_username
+      conn.headers['X-opensuse_data'] = @configuration.opensuse_cookie if @configuration.opensuse_cookie
     end
   end
 
@@ -127,7 +131,7 @@ module OBS
 
   # HTTP client configuration wrapper
   class Configuration
-    attr_accessor :api_host, :api_username, :api_password, :adapter
+    attr_accessor :api_host, :api_username, :api_password, :opensuse_cookie, :adapter
 
     def initialize
       @adapter = Faraday.default_adapter
