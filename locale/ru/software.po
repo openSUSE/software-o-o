@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-12 16:59+0100\n"
-"PO-Revision-Date: 2018-10-02 11:11+0000\n"
+"PO-Revision-Date: 2019-02-14 10:05+0000\n"
 "Last-Translator: Alex Minton <alex239@gmail.com>\n"
 "Language-Team: Russian <https://l10n.opensuse.org/projects/software-o-o/"
 "master/ru/>\n"
@@ -14,9 +14,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.18\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.3\n"
 
 #: ../app/views/distributions/index.html.erb:62
 msgid ""
@@ -354,26 +354,14 @@ msgid "For DVD and USB stick"
 msgstr "Для DVD и USB-накопителей"
 
 #: ../app/views/distributions/index.html.erb:11
-#, fuzzy
-#| msgid ""
-#| "Tumbleweed is recommended for <strong>Developers</strong>, "
-#| "<strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS "
-#| "Enthusiasts</strong>."
 msgid "For Developers, openSUSE Contributors, and Linux/FOSS Enthusiasts."
-msgstr ""
-"Tumbleweed рекомендуется <strong>разработчикам</strong>, <strong>участникам "
-"openSUSE</strong> и <strong>энтузиастам Linux/FOSS</strong>."
+msgstr "Для разработчиков, участников openSUSE и энтузиастов Linux/FOSS."
 
 #: ../app/views/distributions/index.html.erb:28
-#, fuzzy
-#| msgid ""
-#| "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
-#| "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgid "For Sysadmins, Enterprise Developers, and ‘Regular’ Desktop Users."
 msgstr ""
-"Leap рекомендуется <strong>системным администраторам</strong>, "
-"<strong>корпоративным разработчикам</strong> и <strong>«обычным» "
-"пользователям</strong>."
+"Для системных администраторов, корпоративных разработчиков и «обычных» "
+"пользователей."
 
 #: ../app/views/distributions/_verify_download.html.erb:13
 msgid ""
@@ -398,19 +386,19 @@ msgstr ""
 #: ../app/data/15.0.yml.erb:75 ../app/data/15.0.yml.erb:86
 #: ../app/data/15.1.yml.erb:75 ../app/data/15.1.yml.erb:86
 msgid "For running virtual machines in VMware"
-msgstr ""
+msgstr "Для запуска виртуальных машин в VMware"
 
 #: ../app/data/15.0.yml.erb:64 ../app/data/15.1.yml.erb:64
 msgid "For running virtual machines on MS HyperV"
-msgstr ""
+msgstr "Для запуска виртуальных машин в MS HyperV"
 
 #: ../app/data/15.0.yml.erb:42 ../app/data/15.1.yml.erb:42
 msgid "For use in KVM or XEN HVM hypervisors"
-msgstr ""
+msgstr "Для использования в гипервизорах KVM или XEN HVM"
 
 #: ../app/data/15.0.yml.erb:53 ../app/data/15.1.yml.erb:53
 msgid "For use in XEN PV hypervisors"
-msgstr ""
+msgstr "Для использования в гипервизорах XEN PV"
 
 #: ../app/views/layouts/_footer.html.erb:27
 #: ../app/views/layouts/_navbar.html.erb:26
@@ -435,7 +423,7 @@ msgstr "Полная документация"
 
 #: ../app/data/tumbleweed.yml.erb:116 ../app/data/tumbleweed.yml.erb:146
 msgid "GNOME LiveCD"
-msgstr ""
+msgstr "LiveCD GNOME"
 
 #: ../app/controllers/package_controller.rb:123
 msgid "Games"
@@ -558,11 +546,11 @@ msgstr "Должно быть %{fingerprint}"
 
 #: ../app/data/15.0.yml.erb:36 ../app/data/15.1.yml.erb:36
 msgid "JeOS"
-msgstr ""
+msgstr "JeOS"
 
 #: ../app/data/tumbleweed.yml.erb:125 ../app/data/tumbleweed.yml.erb:155
 msgid "KDE LiveCD"
-msgstr ""
+msgstr "LiveCD KDE"
 
 #: ../app/views/images/images.xml.erb:18
 msgid "Leap %s DVD"
@@ -603,7 +591,7 @@ msgstr ""
 
 #: ../app/views/package/explore.html.erb:20
 msgid "Learn more"
-msgstr ""
+msgstr "Узнайте больше"
 
 #: ../app/views/distributions/_documentation.html.erb:16
 msgid "License"
@@ -794,27 +782,25 @@ msgid "Please be aware of the following limitations of the live images:"
 msgstr "Обратите внимание на следующие ограничения live-образов:"
 
 #: ../app/data/tumbleweed.yml.erb:110
-#, fuzzy
-#| msgid ""
-#| "Please review %{openqa}'s test results if you want an indication whether "
-#| "these live medias are working as expected."
 msgid ""
 "Please review [openQA](%{openqa})'s test results if you want an indication "
 "whether these live medias are working as expected"
 msgstr ""
-"Проверьте результаты тестов %{openqa}, если вы хотите узнать, работают ли "
-"эти Live-носители как положено."
+"Проверьте результаты тестов [openQA](%{openqa}), если вы хотите узнать, "
+"работают ли эти Live-носители как положено"
 
 #: ../app/data/15.0.yml.erb:134 ../app/data/15.1.yml.erb:134
 #: ../app/data/tumbleweed.yml.erb:173
 msgid "Ports"
-msgstr ""
+msgstr "Порты"
 
 #: ../app/data/15.0.yml.erb:135 ../app/data/15.1.yml.erb:135
 msgid ""
 "Ports of openSUSE Leap to architectures other than the PC are maintained by "
 "separate community teams, with limited resources."
 msgstr ""
+"Портирование openSUSE Leap на отличные от ПК архитектуры осуществляется "
+"отдельными командами сообщества с ограниченными ресурсами."
 
 #: ../app/data/tumbleweed.yml.erb:176
 msgid ""
@@ -822,6 +808,9 @@ msgid ""
 "maintained by separate community teams. Scope and pace of the rolling "
 "release might be different due to limited resources for those architectures."
 msgstr ""
+"Портирование openSUSE Tumbleweed на отличные от ПК архитектуры "
+"осуществляется отдельными командами сообщества. Объём и скорость выпуска "
+"могут отличаться в связи с ограниченностью ресурсов для этих архитектур."
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -840,10 +829,8 @@ msgid "Rescue"
 msgstr "Диск восстановления"
 
 #: ../app/data/tumbleweed.yml.erb:134 ../app/data/tumbleweed.yml.erb:164
-#, fuzzy
-#| msgid "Rescue"
 msgid "Rescue LiveCD"
-msgstr "Диск восстановления"
+msgstr "LiveCD восстановления"
 
 #: ../app/views/distributions/index.html.erb:69
 msgid "SUSE Linux Enterprise"
@@ -989,36 +976,25 @@ msgstr ""
 "дистрибутивы."
 
 #: ../app/data/tumbleweed.yml.erb:109
-#, fuzzy
-#| msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgid "They are not tested as thoroughly as the [Tumbleweed media](%{tw})"
-msgstr "Они не так хорошо протестированы, как %{tumbleweed_media}."
+msgstr "Они не так хорошо протестированы, как [носитель Tumbleweed](%{tw})"
 
 #: ../app/data/tumbleweed.yml.erb:107
-#, fuzzy
-#| msgid ""
-#| "They cannot be used to install or upgrade Tumbleweed. Please use the "
-#| "%{tumbleweed_media} instead."
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "[Tumbleweed media](%{tw}) instead"
 msgstr ""
 "Их нельзя использовать для установки или обновления Tumbleweed. Используйте "
-"вместо них %{tumbleweed_media}."
+"вместо них [носитель Tumbleweed](%{tw})"
 
 #: ../app/data/tumbleweed.yml.erb:108
-#, fuzzy
-#| msgid ""
-#| "They have a limited package and driver selection, so cannot be considered "
-#| "an accurate reflection as to whether Tumbleweed will work on your "
-#| "hardware or not."
 msgid ""
 "They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not"
 msgstr ""
 "Их набор пакетов и драйверов ограничен, поэтому по ним нельзя однозначно "
-"судить, будет ли Tumbleweed работать на вашем оборудовании."
+"судить, будет ли Tumbleweed работать на вашем оборудовании или нет"
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
@@ -1027,10 +1003,8 @@ msgstr "Навигация"
 #: ../app/data/42.3.yml.erb:20 ../app/data/15.0.yml.erb:20
 #: ../app/data/15.0.yml.erb:34 ../app/data/15.1.yml.erb:20
 #: ../app/data/15.1.yml.erb:34
-#, fuzzy
-#| msgid "BitTorrent"
 msgid "Torrent File"
-msgstr "BitTorrent"
+msgstr "Torrent-файл"
 
 #: ../app/views/images/images.xml.erb:33
 msgid "Tumbleweed %s DVD (i586)"
@@ -1104,21 +1078,19 @@ msgstr "Версия"
 
 #: ../app/views/search/_find_results.html.erb:57
 msgid "View"
-msgstr ""
+msgstr "Обзор"
 
 #: ../app/views/distributions/index.html.erb:32
 msgid "View Leap"
-msgstr ""
+msgstr "Обзор Leap"
 
 #: ../app/views/distributions/index.html.erb:34
 msgid "View Testing"
-msgstr ""
+msgstr "Обзор Testing"
 
 #: ../app/views/distributions/index.html.erb:15
-#, fuzzy
-#| msgid "openSUSE Tumbleweed"
 msgid "View Tumbleweed"
-msgstr "openSUSE Tumbleweed"
+msgstr "Обзор Tumbleweed"
 
 #: ../app/views/layouts/_navbar.html.erb:23
 msgid "Wiki"
