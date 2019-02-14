@@ -1,16 +1,12 @@
 defaults: &defaults
   api_host: https://api.opensuse.org
-  api_username: test
-  api_password: test
+  api_username: wiki_hermes
+  api_password: w_h_p1
   relative_url_root:
 development:
   <<: *defaults
-  api_username: wiki_hermes
-  api_password: w_h_p1
 test:
   <<: *defaults
-  api_username: wiki_hermes
-  api_password: w_h_p1
 production:
   <<: *defaults
   relative_url_root:
