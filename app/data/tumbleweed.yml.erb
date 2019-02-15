@@ -2,7 +2,6 @@
   choosing-media: true
   arches:
   - name: x86_64
-    color: success
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>
@@ -29,7 +28,6 @@
       - name: <%= _("Checksum") %>
         url: /tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso.sha256
   - name: i586
-    color: success
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>
@@ -55,37 +53,9 @@
         url: /tumbleweed/iso/openSUSE-Tumbleweed-NET-i586-Current.iso?mirrorlist
       - name: <%= _("Checksum") %>
         url: /tumbleweed/iso/openSUSE-Tumbleweed-NET-i586-Current.iso.sha256
-  - name: aarch64
-    color: success
-    types:
-    - name: <%= _("DVD Image") %>
-      short: <%= _("For DVD and USB stick") %>
-      desc: <%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %>
-      image_size: 4.7GB
-      primary_link: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-DVD-aarch64-Current.iso
-      links:
-      - name: <%= _("Metalink") %>
-        url: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-DVD-aarch64-Current.iso.meta4
-      - name: <%= _("Pick Mirror") %>
-        url: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-DVD-aarch64-Current.iso?mirrorlist
-      - name: <%= _("Checksum") %>
-        url: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-DVD-aarch64-Current.iso.sha256
-    - name: <%= _("Network Image") %>
-      short: <%= _("For DVD and USB stick") %>
-      desc: <%= _("Downloads the installation system and all packages from online repositories. Suitable for installation or upgrade.") %>
-      image_size: 340MB
-      primary_link: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current.iso
-      links:
-      - name: <%= _("Metalink") %>
-        url: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current.iso.meta4
-      - name: <%= _("Pick Mirror") %>
-        url: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current.iso?mirrorlist
-      - name: <%= _("Checksum") %>
-        url: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256
 - name: Kubic
   arches:
   - name: x86_64
-    color: success
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>
@@ -103,15 +73,11 @@
   choosing-media: true
   info: >-
     <%= _("Please be aware of the following limitations of the live images:") %>
-    
+
       * <%= _("They cannot be used to install or upgrade Tumbleweed. Please use the [Tumbleweed media](%{tw}) instead") % { tw: '/distributions/tumbleweed'} %>
       * <%= _("They have a limited package and driver selection, so cannot be considered an accurate reflection as to whether Tumbleweed will work on your hardware or not") %>
-      * <%= _("They are not tested as thoroughly as the [Tumbleweed media](%{tw})") % { tw: '/distributions/tumbleweed'} %>
-      * <%= _("Please review [openQA](%{openqa})'s test results if you want an indication whether these live medias are working as expected") % { openqa: 'https://openqa.opensuse.org/'} %>
-  info-colour: warning
   arches:
   - name: x86_64
-    color: warning
     types:
     - name: <%= _("GNOME LiveCD") %>
       short: <%= _("For DVD and USB stick") %>
@@ -141,7 +107,6 @@
       - name: <%= _("Checksum") %>
         url: /tumbleweed/iso/openSUSE-Tumbleweed-Rescue-CD-x86_64-Current.iso.sha256
   - name: i586
-    color: warning
     types:
     - name: <%= _("GNOME LiveCD") %>
       short: <%= _("For DVD and USB stick") %>
@@ -174,10 +139,35 @@
   choosing-media: true
   leap-switch: true
   info: <%= _("Ports of openSUSE Tumbleweed to architectures other than the PC are maintained by separate community teams. Scope and pace of the rolling release might be different due to limited resources for those architectures.") %>
-  info-colour: warning
   arches:
+  - name: aarch64
+    types:
+    - name: <%= _("DVD Image") %>
+      short: <%= _("For DVD and USB stick") %>
+      desc: <%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %>
+      image_size: 4.7GB
+      primary_link: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-DVD-aarch64-Current.iso
+      links:
+      - name: <%= _("Metalink") %>
+        url: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-DVD-aarch64-Current.iso.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-DVD-aarch64-Current.iso?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-DVD-aarch64-Current.iso.sha256
+    - name: <%= _("Network Image") %>
+      short: <%= _("For DVD and USB stick") %>
+      desc: <%= _("Downloads the installation system and all packages from online repositories. Suitable for installation or upgrade.") %>
+      image_size: 340MB
+      primary_link: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current.iso
+      links:
+      - name: <%= _("Metalink") %>
+        url: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current.iso.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current.iso?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /ports/aarch64/tumbleweed/iso/openSUSE-Tumbleweed-NET-aarch64-Current.iso.sha256
+
   - name: ppc64le
-    color: warning
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>
@@ -204,7 +194,6 @@
       - name: <%= _("Checksum") %>
         url: /ports/ppc/tumbleweed/iso/openSUSE-Tumbleweed-NET-ppc64le-Current.iso.sha256
   - name: ppc64
-    color: warning
     types:
     - name: <%= _("DVD Image") %>
       short: <%= _("For DVD and USB stick") %>

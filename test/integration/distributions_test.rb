@@ -12,7 +12,6 @@ class DistributionsTest < ActionDispatch::IntegrationTest
 
         get '/distributions/testing'
         assert_includes body, 'openSUSE Leap 15.0'
-        assert_includes body, 'Help test the next version of openSUSE Leap!'
         assert_match %r{assets\/distributions\/testing(.*)\.svg}, body
 
         assert_equal 200, status

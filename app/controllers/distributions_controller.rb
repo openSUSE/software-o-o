@@ -39,8 +39,8 @@ class DistributionsController < OBSController
     end
     @version = @testing_version
     @distro_type = "leap"
+    @testing = true
     @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/#{@version}.yml.erb")).result)
-    flash[:notice] = _('Help test the next version of openSUSE Leap!')
     render action: "leap-#{@testing_version}", layout: 'download'
   end
 
