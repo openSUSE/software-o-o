@@ -1,7 +1,7 @@
 <%
-leap_versions = ['42.3', '42.2']
-leap_current = '42.3'
-leap_snapshot = '15.0'
+leap_versions = ['15.0', '42.3']
+leap_current = '15.0'
+leap_snapshot = '15.1'
 
 if leap_snapshot != '' then
   leap_snapshot_build = get_version("/distribution/leap/#{leap_snapshot}/iso/openSUSE-Leap-#{leap_snapshot}-DVD-x86_64-Current.iso", /Build([0-9.]+)-/)
