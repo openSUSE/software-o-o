@@ -156,11 +156,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_beta_warning
-    flash.now[:info] = "This is a beta version of the new app browser, part of " +
-                       "the <a href='https://trello.com/board/appstream/4f156e1c9ce0824a2e1b8831'>current boosters sprint</a>!"
-  end
-
   # set wiki and forum urls, which are different for each language
   def set_external_urls
     @wiki_url = case @lang
