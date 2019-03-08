@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: @PACKAGE@\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-12 16:59+0100\n"
-"PO-Revision-Date: 2018-09-04 13:03+0000\n"
-"Last-Translator: Christian Boltz <suse-beta@cboltz.de>\n"
+"PO-Revision-Date: 2019-03-08 13:33+0000\n"
+"Last-Translator: Ludwig Nussel <lnussel@suse.com>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/software-o-o/"
 "master/de/>\n"
 "Language: de\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.3\n"
 
 #: ../app/views/distributions/index.html.erb:62
 msgid ""
@@ -38,9 +38,9 @@ msgid ""
 "release new versions of their software."
 msgstr ""
 "%{tumbleweed} ist ein <strong>Rolling Release</strong>. Das bedeutet, dass "
-"Software immer in der aktuellsten stabilen Version vom openSUSE-Projekt "
-"verfügbar ist. Sachen werden regelmäßig geändert, so wie Freie und Open "
-"Source Projekte kontinuierlich neue Versionen ihrer Software veröffentlichen."
+"Software immer in der aktuellsten stabilen Version über das openSUSE-Projekt "
+"verfügbar ist. Die Dinge ändern sich regelmäßig da Freie und Open Source "
+"Projekte kontinuierlich neue Versionen ihrer Software veröffentlichen."
 
 #: ../app/views/package/_download_rows.html.erb:49
 msgid "1 Click Install"
@@ -361,26 +361,14 @@ msgid "For DVD and USB stick"
 msgstr "Für DVD und USB Stick"
 
 #: ../app/views/distributions/index.html.erb:11
-#, fuzzy
-#| msgid ""
-#| "Tumbleweed is recommended for <strong>Developers</strong>, "
-#| "<strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS "
-#| "Enthusiasts</strong>."
 msgid "For Developers, openSUSE Contributors, and Linux/FOSS Enthusiasts."
-msgstr ""
-"Tumbleweed wird für <strong>Entwickler</strong>, <strong>openSUSE-"
-"Beitragende</strong> und <strong>Linux/FOSS-Enthusiasten</strong> empfohlen."
+msgstr "Für Entwickler, Mitwirkende an openSUSE und Linux/FOSS-Enthusiasten."
 
 #: ../app/views/distributions/index.html.erb:28
-#, fuzzy
-#| msgid ""
-#| "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
-#| "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgid "For Sysadmins, Enterprise Developers, and ‘Regular’ Desktop Users."
 msgstr ""
-"Leap wird für <strong>Systemadministratoren</strong>, <strong>Enterprise "
-"Entwickler</strong> und <strong>'normale' Desktop-Benutzer</strong> "
-"empfohlen."
+"Für Systemadministratoren, Enterprise Entwickler und 'normale' Desktop-"
+"Benutzer."
 
 #: ../app/views/distributions/_verify_download.html.erb:13
 msgid ""
@@ -405,19 +393,19 @@ msgstr ""
 #: ../app/data/15.0.yml.erb:75 ../app/data/15.0.yml.erb:86
 #: ../app/data/15.1.yml.erb:75 ../app/data/15.1.yml.erb:86
 msgid "For running virtual machines in VMware"
-msgstr ""
+msgstr "Um virtuelle Maschinen in VMware laufen  zu lassen"
 
 #: ../app/data/15.0.yml.erb:64 ../app/data/15.1.yml.erb:64
 msgid "For running virtual machines on MS HyperV"
-msgstr ""
+msgstr "Um virtuelle Maschinen in MS HyperV laufen zu lassen"
 
 #: ../app/data/15.0.yml.erb:42 ../app/data/15.1.yml.erb:42
 msgid "For use in KVM or XEN HVM hypervisors"
-msgstr ""
+msgstr "Zur Verwendung in KVM oder XEN HVM Hypervisors"
 
 #: ../app/data/15.0.yml.erb:53 ../app/data/15.1.yml.erb:53
 msgid "For use in XEN PV hypervisors"
-msgstr ""
+msgstr "Zur Verwendung in XEN PV Hypervisors"
 
 #: ../app/views/layouts/_footer.html.erb:27
 #: ../app/views/layouts/_navbar.html.erb:26
@@ -442,7 +430,7 @@ msgstr "Komplette Dokumentation"
 
 #: ../app/data/tumbleweed.yml.erb:116 ../app/data/tumbleweed.yml.erb:146
 msgid "GNOME LiveCD"
-msgstr ""
+msgstr "GNOME LiveCD"
 
 #: ../app/controllers/package_controller.rb:123
 msgid "Games"
@@ -566,11 +554,11 @@ msgstr "Es sollte %{fingerprint} sein"
 
 #: ../app/data/15.0.yml.erb:36 ../app/data/15.1.yml.erb:36
 msgid "JeOS"
-msgstr ""
+msgstr "JeOS"
 
 #: ../app/data/tumbleweed.yml.erb:125 ../app/data/tumbleweed.yml.erb:155
 msgid "KDE LiveCD"
-msgstr ""
+msgstr "KDE LiveCD"
 
 #: ../app/views/images/images.xml.erb:18
 msgid "Leap %s DVD"
@@ -612,7 +600,7 @@ msgstr ""
 
 #: ../app/views/package/explore.html.erb:20
 msgid "Learn more"
-msgstr ""
+msgstr "Mehr erfahren"
 
 #: ../app/views/distributions/_documentation.html.erb:16
 msgid "License"
@@ -802,27 +790,25 @@ msgid "Please be aware of the following limitations of the live images:"
 msgstr "Bitte beachten Sie die folgenden Einschränkungen der Live-Images:"
 
 #: ../app/data/tumbleweed.yml.erb:110
-#, fuzzy
-#| msgid ""
-#| "Please review %{openqa}'s test results if you want an indication whether "
-#| "these live medias are working as expected."
 msgid ""
 "Please review [openQA](%{openqa})'s test results if you want an indication "
 "whether these live medias are working as expected"
 msgstr ""
-"Beachten Sie die Resultate von %{openqa}, wenn Sie wissen wollen, ob die "
-"Live-Medien wie erwartet funktionieren."
+"Bitte überprüfen Sie die Resultate von [openQA](%{openqa})', wenn Sie wissen "
+"wollen, ob die Live-Medien wie erwartet funktionieren"
 
 #: ../app/data/15.0.yml.erb:134 ../app/data/15.1.yml.erb:134
 #: ../app/data/tumbleweed.yml.erb:173
 msgid "Ports"
-msgstr ""
+msgstr "Portierungen"
 
 #: ../app/data/15.0.yml.erb:135 ../app/data/15.1.yml.erb:135
 msgid ""
 "Ports of openSUSE Leap to architectures other than the PC are maintained by "
 "separate community teams, with limited resources."
 msgstr ""
+"Portierungen von openSUSE Leap auf andere Architekturen als den PC werden "
+"von separaten Community Teams mit begrenzten Ressourcen gepflegt."
 
 #: ../app/data/tumbleweed.yml.erb:176
 msgid ""
@@ -830,6 +816,10 @@ msgid ""
 "maintained by separate community teams. Scope and pace of the rolling "
 "release might be different due to limited resources for those architectures."
 msgstr ""
+"Portierungen von openSUSE Tumbleweed auf andere Architekturen als den PC "
+"werden von separaten Community Teams gepflegt. Umfang und Tempo des Rolling "
+"Release kann aufgrund begrenzter Ressourcen dieser Architekturen "
+"unterschiedlich sein."
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -848,10 +838,8 @@ msgid "Rescue"
 msgstr "Rettung"
 
 #: ../app/data/tumbleweed.yml.erb:134 ../app/data/tumbleweed.yml.erb:164
-#, fuzzy
-#| msgid "Rescue"
 msgid "Rescue LiveCD"
-msgstr "Rettung"
+msgstr "Rettungs-LiveCD"
 
 #: ../app/views/distributions/index.html.erb:69
 msgid "SUSE Linux Enterprise"
@@ -997,38 +985,27 @@ msgstr ""
 "stabil wie offizielle Distributionen."
 
 #: ../app/data/tumbleweed.yml.erb:109
-#, fuzzy
-#| msgid "They are not tested as thoroughly as the %{tumbleweed_media}."
 msgid "They are not tested as thoroughly as the [Tumbleweed media](%{tw})"
-msgstr "Sie werden nicht so gründlich getestet wie die %{tumbleweed_media}."
+msgstr ""
+"Sie werden nicht so gründlich getestet wie die [Tumbleweed Medien](%{tw})"
 
 #: ../app/data/tumbleweed.yml.erb:107
-#, fuzzy
-#| msgid ""
-#| "They cannot be used to install or upgrade Tumbleweed. Please use the "
-#| "%{tumbleweed_media} instead."
 msgid ""
 "They cannot be used to install or upgrade Tumbleweed. Please use the "
 "[Tumbleweed media](%{tw}) instead"
 msgstr ""
 "Sie können nicht zum Installieren und Upgraden von Tumbleweed verwendet "
-"werden. Bitte verwenden Sie stattdessen %{tumbleweed_media}."
+"werden. Bitte verwenden Sie stattdessen [Tumbleweed Medien](%{tw})"
 
 #: ../app/data/tumbleweed.yml.erb:108
-#, fuzzy
-#| msgid ""
-#| "They have a limited package and driver selection, so cannot be considered "
-#| "an accurate reflection as to whether Tumbleweed will work on your "
-#| "hardware or not."
 msgid ""
 "They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not"
 msgstr ""
-"Sie haben eine limitierte Paket- und Treiber-Auswahl, weshalb eine "
-"fehlerfreie\n"
-"Reflektion bezüglich, ob Tumbleweed auf Ihrer Hardware laufen wird \n"
-"oder nicht, nicht betrachtet werden kann."
+"Sie haben eine begrenzte Paket- und Treiber-Auswahl, weshalb keine genaue "
+"Aussage getroffen werden kann, ob Tumbleweed auf Ihrer Hardware laufen wird "
+"oder nicht"
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
@@ -1037,10 +1014,8 @@ msgstr "Umschalten der Navigation"
 #: ../app/data/42.3.yml.erb:20 ../app/data/15.0.yml.erb:20
 #: ../app/data/15.0.yml.erb:34 ../app/data/15.1.yml.erb:20
 #: ../app/data/15.1.yml.erb:34
-#, fuzzy
-#| msgid "BitTorrent"
 msgid "Torrent File"
-msgstr "BitTorrent"
+msgstr "Torrent Datei"
 
 #: ../app/views/images/images.xml.erb:33
 msgid "Tumbleweed %s DVD (i586)"
@@ -1112,21 +1087,19 @@ msgstr "Version"
 
 #: ../app/views/search/_find_results.html.erb:57
 msgid "View"
-msgstr ""
+msgstr "Ansehen"
 
 #: ../app/views/distributions/index.html.erb:32
 msgid "View Leap"
-msgstr ""
+msgstr "Leap Ansehen"
 
 #: ../app/views/distributions/index.html.erb:34
 msgid "View Testing"
-msgstr ""
+msgstr "Testversion Ansehen"
 
 #: ../app/views/distributions/index.html.erb:15
-#, fuzzy
-#| msgid "openSUSE Tumbleweed"
 msgid "View Tumbleweed"
-msgstr "openSUSE Tumbleweed"
+msgstr "Tumbleweed Ansehen"
 
 #: ../app/views/layouts/_navbar.html.erb:23
 msgid "Wiki"
