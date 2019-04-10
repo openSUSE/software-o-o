@@ -53,7 +53,7 @@ tw_snapshot = get_version('/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Curren
                  <decision name="<%= _("Desktop") %>">
                      <option name="GNOME">
                          <decision name="<%= _("Architecture") %>">
-                             <option name="<%= _("i586") %>">
+                             <option name="<%= _("i686") %>">
                                  <%= image_element("/tumbleweed/iso/openSUSE-Tumbleweed-GNOME-Live-i686-Snapshot#{tw_snapshot}-Media.iso", _("Tumbleweed %s GNOME Live (i686)") % tw_snapshot) %>
                              </option>
                              <option name="<%= _("x86_64") %>" preselected="true">
@@ -63,7 +63,7 @@ tw_snapshot = get_version('/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Curren
                      </option>
                      <option name="KDE" preselected="true">
                          <decision name="<%= _("Architecture") %>">
-                             <option name="<%= _("i586") %>">
+                             <option name="<%= _("i686") %>">
                                  <%= image_element("/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-i686-Snapshot#{tw_snapshot}-Media.iso", _("Tumbleweed %s KDE Live (i686)") % tw_snapshot) %>
                              </option>
                              <option name="<%= _("x86_64") %>" preselected="true">
@@ -73,7 +73,7 @@ tw_snapshot = get_version('/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Curren
                      </option>
                      <option name="<%= _("Rescue") %>">
                          <decision name="<%= _("Architecture") %>">
-                             <option name="<%= _("i586") %>">
+                             <option name="<%= _("i686") %>">
                                  <%= image_element("/tumbleweed/iso/openSUSE-Tumbleweed-Rescue-CD-i686-Snapshot#{tw_snapshot}-Media.iso", _("Tumbleweed %s Rescue CD (i686)") % tw_snapshot) %>
                              </option>
                              <option name="<%= _("x86_64") %>" preselected="true">
