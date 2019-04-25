@@ -52,7 +52,8 @@ group :test do
   gem 'capybara'
   gem 'faker'
   gem 'geckodriver-helper'
-  gem 'rubocop'
+  # TODO: move back to rubygems on next rubocop release (> 0.67.2)
+  gem 'rubocop', git: 'https://github.com/alexandergraul/rubocop', branch: 'fix-for-old-bundler-version'
   gem 'selenium-webdriver'
   gem 'vcr'
   gem 'webmock'

@@ -1,3 +1,17 @@
+GIT
+  remote: https://github.com/alexandergraul/rubocop
+  revision: 09e0a9033c7b23397e60eeff8cb97e8549ce18ec 
+  branch: fix-for-old-bundler-version
+  specs:
+    rubocop (0.66.0)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.5, != 2.5.1.1)
+      psych (>= 3.1.0)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 1.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -160,14 +174,6 @@ GEM
       ffi (>= 0.5.0, < 2)
     redcarpet (3.4.0)
     regexp_parser (1.4.0)
-    rubocop (0.67.2)
-      jaro_winkler (~> 1.5.1)
-      parallel (~> 1.10)
-      parser (>= 2.5, != 2.5.1.1)
-      psych (>= 3.1.0)
-      rainbow (>= 2.2.2, < 4.0)
-      ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 1.6)
     ruby-progressbar (1.10.0)
     rubyzip (1.2.2)
     safe_yaml (1.0.4)
@@ -245,7 +251,7 @@ DEPENDENCIES
   rails (~> 5.2)
   rails-i18n
   redcarpet (~> 3.4.0)
-  rubocop
+  rubocop!
   sass-rails
   selenium-webdriver
   uglifier
@@ -255,4 +261,4 @@ DEPENDENCIES
   xmlhash (>= 1.2.2)
 
 BUNDLED WITH
-   1.17.1
+   1.17.2
