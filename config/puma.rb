@@ -4,9 +4,11 @@ threads threads_count, threads_count
 
 preload_app!
 
+rack_env = ENV['RACK_ENV'] || 'development'
+
 rackup      DefaultRackup
 port        ENV['PORT']     || 3000
-environment ENV['RACK_ENV'] || 'development'
+environment rack_env
 
 ram_total = File.foreach('/proc/meminfo')
               .map {|line| line.match(/MemTotal:\s+(\d+)/)&.captures&.first }
@@ -21,9 +23,9 @@ before_fork do
       config.percent_usage = 0.90
     end
     config.rolling_restart_frequency = 12 * 3600 # 12 hours
-    # setting this to false will not log lines like:
+    # setting this to true will log lines like:
     # PumaWorkerKiller: Consuming 54.34765625 mb with master and 2 workers.
-    config.reaper_status_logs = true
+    config.reaper_status_logs = rack_env == 'production' ? true : false
   end
   PumaWorkerKiller.start
 end
