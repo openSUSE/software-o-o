@@ -15,7 +15,7 @@ If you are an openSUSE Tumbleweed user, it comes with the latest Ruby releases a
 
 ```console
 zypper ref
-zypper in ruby ruby-devel ruby2.5-rubygem-bundler nodejs gcc make libxml2-devel libxslt-devel
+zypper in ruby ruby-devel 'rubygem(bundler)' nodejs gcc make libxml2-devel libxslt-devel
 ```
 
 On openSUSE Leap 42.3 you will need to install the Ruby 2.4 environment doing:
