@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-12 16:59+0100\n"
-"PO-Revision-Date: 2019-04-02 17:09+0000\n"
-"Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
+"PO-Revision-Date: 2019-04-29 14:54+0000\n"
+"Last-Translator: Ramax Lo <ramaxlo@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/"
 "software-o-o/master/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -75,7 +75,7 @@ msgstr "<b>官方更新</b>"
 
 #: ../app/views/download/package.erb:37
 msgid "Add repository and install manually"
-msgstr "加軟體庫並手動安裝"
+msgstr "加套件庫並手動安裝"
 
 #: ../app/views/images/images.xml.erb:31 ../app/views/images/images.xml.erb:41
 #: ../app/views/images/images.xml.erb:55 ../app/views/images/images.xml.erb:65
@@ -214,7 +214,7 @@ msgstr "開發"
 
 #: ../app/views/search/_find_results.html.erb:76
 msgid "Development packages"
-msgstr "開發軟體包"
+msgstr "開發套件"
 
 #: ../app/views/package/show.html.erb:54
 msgid "Direct Install"
@@ -257,9 +257,7 @@ msgstr "下載 openSUSE 的定期發行版，享受企業級工程設計和社�
 msgid ""
 "Download openSUSE’s rolling release and always run the latest packages "
 "provided by the openSUSE Project."
-msgstr ""
-"下載 openSUSE 的滾動式發行版，使用 openSUSE 專案所提供的最新軟體軟體包並且不"
-"斷地更新至最後釋出的版本。"
+msgstr "下載 openSUSE 的滾動式發行版，使用 openSUSE 專案所提供的最新軟體套件並且不斷地更新至最後釋出的版本。"
 
 #: ../app/views/distributions/_distribution.html.erb:100
 msgid "Download previous openSUSE Leap release"
@@ -273,7 +271,7 @@ msgstr "下載上一個 openSUSE Leap 版本"
 msgid ""
 "Downloads the installation system and all packages from online repositories. "
 "Suitable for installation or upgrade."
-msgstr "從線上軟體庫下載安裝系統與所有軟體包。適用於安裝或升級。"
+msgstr "從線上套件庫下載安裝系統與所有套件。適用於安裝或升級。"
 
 #: ../app/views/distributions/_leap_switch.html.erb:2
 msgid "Easy Ways to Switch to openSUSE Leap"
@@ -317,9 +315,8 @@ msgid ""
 "(note that the order of repositories in pacman.conf is important, since "
 "pacman always downloads the first found package):"
 msgstr ""
-"對於 <strong>Arch Linux</strong>，編輯 /etc/pacman.conf 並加入以下設定 (注意"
-"在 pacman.conf 中軟體庫的順序是很重要的，因為 pacman 會下載第一個找到的軟體"
-"包)："
+"對於 <strong>Arch Linux</strong>，編輯 /etc/pacman.conf 並加入以下設定 (注意在 pacman.conf "
+"中套件庫的順序是很重要的，因為 pacman 會下載第一個找到的軟體包)："
 
 #: ../app/data/42.3.yml.erb:23 ../app/data/42.3.yml.erb:56
 #: ../app/data/15.0.yml.erb:23 ../app/data/15.0.yml.erb:124
@@ -426,7 +423,7 @@ msgstr "Google+ 群組"
 
 #: ../app/views/download/package.erb:105
 msgid "Grab binary packages directly"
-msgstr "直接抓取二進位軟體包"
+msgstr "直接抓取二進位套件"
 
 #: ../app/controllers/package_controller.rb:127
 msgid "Graphics"
@@ -488,7 +485,7 @@ msgstr "資訊"
 
 #: ../app/controllers/download_controller.rb:84
 msgid "Install package %s / %s"
-msgstr "安裝軟體包 %s / %s"
+msgstr "安裝套件 %s / %s"
 
 #: ../app/controllers/download_controller.rb:126
 msgid "Install pattern %s / %s"
@@ -594,10 +591,9 @@ msgid ""
 "(SHA256) will be used automatically if you choose Metalink in the\n"
 "field above and use the add-on DownThemAll! in Firefox."
 msgstr ""
-"很多應用程式可以驗證下載的正確性。驗證您的下載可以確保您得到所需的 ISO 檔案而"
-"非損壞的版本。您在下載過程中即可驗證檔案正確性。例如若您在以上欄位選擇  "
-"Metalink，並且在 Firefox 中使用 DownThemAll! 延伸軟體包，就會自動使用校驗碼 "
-"(SHA256) 進行驗證。"
+"很多應用程式可以驗證下載的正確性。驗證您的下載可以確保您得到所需的 ISO 檔案而非損壞的版本。您在下載過程中即可驗證檔案正確性。"
+"例如若您在以上欄位選擇  Metalink，並且在 Firefox 中使用 DownThemAll! 延伸套件，就會自動使用校驗碼 (SHA256) "
+"進行驗證。"
 
 #: ../app/views/images/images.xml.erb:27
 msgid "Medium"
@@ -679,7 +675,7 @@ msgstr "無舊的發行版本可用"
 
 #: ../app/views/search/_find_results.html.erb:12
 msgid "No packages found matching your search. "
-msgstr "沒有發現符合搜尋條件的軟體包。 "
+msgstr "沒有發現符合搜尋條件的套件。 "
 
 #: ../app/controllers/distributions_controller.rb:14
 msgid "No stable release available"
@@ -715,15 +711,15 @@ msgstr "超過 40GB 的可用硬碟空間"
 
 #: ../app/views/package/show.html.erb:6
 msgid "Package %s not found..."
-msgstr "找不到軟體包 %s ..."
+msgstr "找不到套件 %s ..."
 
 #: ../app/views/layouts/jekyll.html.erb:45
 msgid "Package Search"
-msgstr "軟體包搜尋"
+msgstr "套件搜尋"
 
 #: ../app/views/download/package.erb:111
 msgid "Packages for %s:"
-msgstr "%s 的軟體包："
+msgstr "%s 的套件："
 
 #: ../app/data/42.3.yml.erb:16 ../app/data/42.3.yml.erb:30
 #: ../app/data/42.3.yml.erb:51 ../app/data/42.3.yml.erb:63
@@ -814,7 +810,7 @@ msgstr "搜尋"
 
 #: ../app/views/search/_find_form.html.erb:12
 msgid "Search packages..."
-msgstr "搜尋軟體包…"
+msgstr "搜尋套件…"
 
 #: ../app/views/search/_settings.html.erb:6
 msgid "Search settings"
@@ -842,23 +838,23 @@ msgstr "顯示適用於其他發行版的 %s"
 
 #: ../app/views/package/show.html.erb:95
 msgid "Show community packages"
-msgstr "顯示社群維護軟體包"
+msgstr "顯示社群維護套件"
 
 #: ../app/views/search/_settings.html.erb:31
 msgid "Show debug packages"
-msgstr "顯示偵錯用 (debug) 軟體包"
+msgstr "顯示偵錯用 (debug) 套件"
 
 #: ../app/views/search/_settings.html.erb:17
 msgid "Show development packages"
-msgstr "顯示開發軟體包"
+msgstr "顯示開發套件"
 
 #: ../app/views/package/show.html.erb:93
 msgid "Show experimental packages"
-msgstr "顯示實驗性軟體包"
+msgstr "顯示實驗性套件"
 
 #: ../app/views/search/_settings.html.erb:24
 msgid "Show language packages"
-msgstr "顯示語系軟體包"
+msgstr "顯示語系套件"
 
 #: ../app/views/package/show.html.erb:49
 msgid "Size"
@@ -881,7 +877,7 @@ msgstr "程式碼"
 
 #: ../app/views/search/_find_results.html.erb:70
 msgid "Sub-Packages"
-msgstr "子軟體包"
+msgstr "子套件"
 
 #: ../app/controllers/package_controller.rb:130
 msgid "System & Utility"
@@ -892,9 +888,7 @@ msgid ""
 "The DVD/USB Stick is typically recommended as it contains most of the\n"
 "packages available in the distribution and does not require a network\n"
 "connection during the installation."
-msgstr ""
-"DVD/USB 隨身碟是建議使用的安裝媒體，因為它們包含大部分發行版本的軟體包，且不"
-"需要網路即可安裝。"
+msgstr "DVD/USB 隨身碟是建議使用的安裝媒體，因為它們包含大部分發行版本的套件，且不需要網路即可安裝。"
 
 #: ../app/views/distributions/_choosing_media.html.erb:10
 msgid ""
@@ -902,9 +896,7 @@ msgid ""
 "bandwidth on their internet connections, as it will only download the\n"
 "packages they choose to install, which is likely to be significantly\n"
 "less than 4.7GB."
-msgstr ""
-"網路 CD/USB 隨身碟建議給網路頻寬有限的使用者使用，因為它們只會下載使用者選擇"
-"要安裝的軟體包，是故可能會比 4.7GB 要小得多。"
+msgstr "網路 CD/USB 隨身碟建議給網路頻寬有限的使用者使用，因為它們只會下載使用者選擇要安裝的套件，是故可能會比 4.7GB 要小得多。"
 
 #: ../app/controllers/application_controller.rb:42
 msgid "The authentication to the OBS API has not been configured correctly."
@@ -914,7 +906,7 @@ msgstr "OBS API 的認證尚未完全設定完成。"
 msgid ""
 "The following distributions are not officially supported. Use these packages "
 "at your own risk."
-msgstr "下列發行版本並未被官方支援。使用這些軟體包需要自行承擔風險。"
+msgstr "下列發行版本並未被官方支援。使用這些套件需要自行承擔風險。"
 
 #: ../app/views/download/package.erb:48
 msgid "Then run the following as <strong>root</strong>"
@@ -928,7 +920,7 @@ msgstr "新的 openSUSE Leap 版本<a href='/distributions/leap'>發布了</a>�
 
 #: ../app/views/package/show.html.erb:41
 msgid "There is no official package available for %s"
-msgstr "沒有可用的 %s 官方軟體包"
+msgstr "沒有可用的 %s 官方套件"
 
 #: ../app/data/42.3.yml.erb:37
 msgid ""
@@ -951,7 +943,7 @@ msgid ""
 "They have a limited package and driver selection, so cannot be considered an "
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not"
-msgstr "它們只具備有限的軟體包與驅動程式選擇，故不能夠當作 Tumbleweed 能否在您的硬體運作的精確指標"
+msgstr "它們只具備有限的套件與驅動程式選擇，故不能夠當作 Tumbleweed 能否在您的硬體運作的精確指標"
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
@@ -1057,16 +1049,14 @@ msgid ""
 "key may distribute updates, packages and repositories that your system will "
 "trust (<a href=\"%s\">more information</a>). To add the key, run:"
 msgstr ""
-"您可以加入軟體庫金鑰至 apt。請記住金鑰所有人也會分發您的系統將會信任的更新、"
-"軟體包和軟體庫 (詳見<a href=\"%s\">更多資訊</a>)。要加入金鑰，請執行："
+"您可以加入套件庫金鑰至 apt。請記住金鑰所有人也會分發您的系統將會信任的更新、套件和套件庫 (詳見<a href=\"%s\""
+">更多資訊</a>)。要加入金鑰，請執行："
 
 #: ../app/views/search/_find_results.html.erb:15
 msgid ""
 "You could try to extend your search to development packages or search for "
 "another base distribution (currently #{@baseproject})."
-msgstr ""
-"您可以試著擴充您的搜尋到開發軟體包，或搜尋其他的基礎發行版本 (目前為 "
-"#{@baseproject})。"
+msgstr "您可以試著擴充您的搜尋到開發套件，或搜尋其他的基礎發行版本 (目前為 #{@baseproject})。"
 
 #: ../app/views/distributions/index.html.erb:64
 msgid "annually"
