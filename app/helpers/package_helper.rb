@@ -23,6 +23,8 @@ module PackageHelper
   end
 
   def prepare_desc txt
+    return if txt.blank?
+
     txt = txt.gsub(/[\n][\n]+/, "\n\n")
     txt = create_links txt
     txt = txt.sub(/Authors[:]?[\w\W]+/, "")
