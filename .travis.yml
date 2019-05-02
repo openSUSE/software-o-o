@@ -9,6 +9,6 @@ rvm:
   - 2.5.3
   - 2.6.0
 script:
-  - 'bundle exec rubocop -D'
+  - 'bundle exec rake rubocop'
   - 'bundle exec rails test'
   - 'bundle exec rails test:system'
