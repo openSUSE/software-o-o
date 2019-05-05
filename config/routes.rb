@@ -7,10 +7,10 @@ SoftwareOO::Application.routes.draw do
       get 'tumbleweed'
       get 'tumbleweed/ports', to: 'distributions#tumbleweed_ports'
       get 'tumbleweed/unsupported', to: 'distributions#tumbleweed_unsupported'
-      get 'leap'
+      get 'leap(/:version)', to: 'distributions#leap', as: 'leap'
       get 'leap/ports', to: 'distributions#leap_ports'
-      get 'testing'
-      get 'legacy'
+      get 'testing', to: 'distributions#leap', version: 'testing'
+      get 'legacy', to: 'distributions#leap', version: 'legacy'
     end
   end
 

@@ -6,18 +6,25 @@ class DistributionsController < OBSController
     render layout: 'download'
   end
 
-  # GET /distributions/leap
+  # A single action for all supported Leap releases.
+  # GET /distributions/leap/(:version)
   def leap
-    @hide_search_box = true
-    @colour = "success"
-    unless @stable_version
-      redirect_to '/', flash: { error: _("No stable release available") }
+    unless params[:version] || @stable_version
+      redirect_to root_url error: _("No stable release available")
       return
     end
-    @version = @stable_version
+
+    per_leap_version_settings
+    return if performed?
+
+    @hide_search_box = true
     @distro_type = "leap"
-    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/#{@version}.yml.erb")).result)
-    render action: "leap-#{@stable_version}", layout: 'download'
+    begin
+      @yaml_data = load_yaml(@version)
+      render action: "leap-#{@version}", layout: 'download'
+    rescue Errno::ENOENT
+      redirect_to leap_distributions_url, error: _("openSUSE Leap Version \"#{@version}\" is currently not availble.")
+    end
   end
 
   # GET /distributions/tumbleweed
@@ -29,33 +36,50 @@ class DistributionsController < OBSController
     render layout: 'download'
   end
 
-  # GET /distributions/testing
-  def testing
-    @hide_search_box = true
-    @colour = "dark"
-    unless @testing_version
-      redirect_to '/distributions/leap', flash: { error: _("No testing distribution available.") }
-      return
-    end
-    @version = @testing_version
-    @distro_type = "leap"
-    @testing = true
-    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/#{@version}.yml.erb")).result)
-    render action: "leap-#{@testing_version}", layout: 'download'
+  private
+
+  def load_yaml(version)
+    YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/#{version}.yml.erb")).result)
   end
 
-  # GET /distributions/legacy
-  def legacy
-    @hide_search_box = true
-    @colour = "success"
-    unless @legacy_release
-      redirect_to '/', flash: { error: _("No legacy distribution available") }
-      return
+  def per_leap_version_settings
+    case parsed_version
+    when nil, @stable_version
+      stable_settings
+    when @testing_version, "testing"
+      unless @testing_version
+        redirect_to leap_distributions_url, flash: { error: _("No testing distribution available.") }
+        return
+      end
+      testing_settings
+    when @legacy_release, "legacy"
+      unless @legacy_release
+        redirect_to leap_distributions_url, flash: { error: _("No legacy distribution available.") }
+        return
+      end
+      legacy_settings
+    else
+      redirect_to leap_distributions_url, flash: { error: _("openSUSE Leap Version #{parsed_version} not found.") }
     end
+  end
+
+  def parsed_version
+    params[:version].try(:tr, '_', '.')
+  end
+
+  def legacy_settings
+    @colour = "success"
     @version = @legacy_release
-    @distro_type = "leap"
-    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/#{@version}.yml.erb")).result)
-    flash.now[:notice] = _("There is a new version of openSUSE Leap <a href='/distributions/leap'>available</a>!")
-    render action: "leap-#{@legacy_release}", layout: 'download'
+    flash.now[:notice] = _("There is a new version of openSUSE Leap <a href='#{leap_distributions_url}'>available</a>!")
+  end
+
+  def stable_settings
+    @colour = "success"
+    @version = @stable_version
+  end
+
+  def testing_settings
+    @colour = "dark"
+    @version = @testing_version
   end
 end
