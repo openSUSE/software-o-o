@@ -53,6 +53,7 @@ group :test do
   gem 'faker'
   gem 'geckodriver-helper'
   gem 'rubocop'
+  gem 'rubocop-performance'
   gem 'selenium-webdriver'
   gem 'vcr'
   gem 'webmock'
