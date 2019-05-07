@@ -10,7 +10,7 @@
       <% end %>
       <h1 class="display-3 text-white">
         <% if @distro_type == "leap" %>
-          openSUSE Leap <%= @version %><% if @testing.present? %> <sup><%= @testing_state %></sup><% end %>
+          openSUSE Leap <%= @version %><sup><%= @testing_state if @version == @testing_version %></sup>
         <% elsif @distro_type == "kubic" %>
           openSUSE Kubic
         <% else %>
