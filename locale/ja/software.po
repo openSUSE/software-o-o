@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 11:33+0200\n"
-"PO-Revision-Date: 2019-02-13 11:23+0000\n"
+"PO-Revision-Date: 2019-05-22 12:23+0000\n"
 "Last-Translator: Yasuhiko Kamata <belphegor@belbel.or.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/software-o-o/"
 "master/ja/>\n"
@@ -384,9 +384,8 @@ msgstr ""
 "みください"
 
 #: ../app/data/15.0.yml.erb:84 ../app/data/15.1.yml.erb:84
-#, fuzzy
 msgid "For running virtual machines in OpenStack"
-msgstr "VMware 内で動作する仮想マシン向け"
+msgstr "OpenStack 内で動作する仮想マシン向け"
 
 #: ../app/data/15.0.yml.erb:73 ../app/data/15.1.yml.erb:73
 msgid "For running virtual machines in VMware"
@@ -693,9 +692,8 @@ msgid "No downloads found for %s in project %s"
 msgstr "プロジェクト %2$s 内には %1$s 向けのダウンロードは見つかりませんでした"
 
 #: ../app/controllers/distributions_controller.rb:57
-#, fuzzy
 msgid "No legacy distribution available."
-msgstr "古いディストリビューションは公開されていません"
+msgstr "古いディストリビューションは公開されていません。"
 
 #: ../app/views/search/_find_results.html.erb:12
 msgid "No packages found matching your search. "
@@ -930,13 +928,11 @@ msgid "Then run the following as <strong>root</strong>"
 msgstr "その後、 <strong>root</strong> で下記のコマンドを実行してください:"
 
 #: ../app/controllers/distributions_controller.rb:73
-#, fuzzy
 msgid ""
 "There is a new version of openSUSE Leap <a "
 "href='#{leap_distributions_url}'>available</a>!"
 msgstr ""
-"新しいバージョンの openSUSE Leap が <a href='/distributions/leap'>利用できま"
-"す</a>！"
+"新しいバージョンの openSUSE Leap が <a href='#{leap_distributions_url}'>利用できます</a>！"
 
 #: ../app/views/package/show.html.erb:41
 msgid "There is no official package available for %s"
@@ -961,13 +957,12 @@ msgstr ""
 "うかも不明であることにご注意ください"
 
 #: ../app/data/tumbleweed.yml.erb:144
-#, fuzzy
 msgid ""
 "They should not be used to install or upgrade Tumbleweed. Please use the "
 "[Tumbleweed media](%{tw}) instead"
 msgstr ""
-"これらは Tumbleweed のインストールやアップグレードにはお使いいただけません。"
-"代わりに [Tumbleweed のメディア](%{tw})  をお使いください"
+"これらは Tumbleweed のインストールやアップグレードにはお使いいただけません。代わりに [Tumbleweed のメディア](%{tw})  "
+"をお使いください"
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
@@ -1068,9 +1063,8 @@ msgid "Wiki"
 msgstr "Wiki"
 
 #: ../app/data/tumbleweed.yml.erb:167 ../app/data/tumbleweed.yml.erb:205
-#, fuzzy
 msgid "XFCE LiveCD"
-msgstr "KDE ライブ CD"
+msgstr "XFCE ライブ CD"
 
 #: ../app/views/download/package.erb:93
 msgid ""
@@ -1173,9 +1167,8 @@ msgstr "i586"
 
 #: ../app/views/images/images.xml.erb:56 ../app/views/images/images.xml.erb:66
 #: ../app/views/images/images.xml.erb:76
-#, fuzzy
 msgid "i686"
-msgstr "i586"
+msgstr "i686"
 
 #: ../app/views/distributions/index.html.erb:65
 msgid "lifetime"
@@ -1186,14 +1179,12 @@ msgid "openSUSE Leap"
 msgstr "openSUSE Leap"
 
 #: ../app/controllers/distributions_controller.rb:26
-#, fuzzy
 msgid "openSUSE Leap Version \"#{@version}\" is currently not availble."
-msgstr "openSUSE Leap"
+msgstr "openSUSE Leap バージョン \"#{@version}\" は現在公開されておりません。"
 
 #: ../app/controllers/distributions_controller.rb:62
-#, fuzzy
 msgid "openSUSE Leap Version #{parsed_version} not found."
-msgstr "openSUSE Leap"
+msgstr "openSUSE Leap バージョン #{parsed_version} が見つかりません。"
 
 #: ../app/views/layouts/application.html.erb:7
 msgid "openSUSE Software"
