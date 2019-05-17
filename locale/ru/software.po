@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 11:33+0200\n"
-"PO-Revision-Date: 2019-02-14 10:05+0000\n"
+"PO-Revision-Date: 2019-05-22 13:07+0000\n"
 "Last-Translator: Alex Minton <alex239@gmail.com>\n"
 "Language-Team: Russian <https://l10n.opensuse.org/projects/software-o-o/"
 "master/ru/>\n"
@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.3\n"
 
 #: ../app/views/distributions/index.html.erb:62
@@ -388,9 +388,8 @@ msgstr ""
 "%{checksums_help}"
 
 #: ../app/data/15.0.yml.erb:84 ../app/data/15.1.yml.erb:84
-#, fuzzy
 msgid "For running virtual machines in OpenStack"
-msgstr "Для запуска виртуальных машин в VMware"
+msgstr "Для запуска виртуальных машин в OpenStack"
 
 #: ../app/data/15.0.yml.erb:73 ../app/data/15.1.yml.erb:73
 msgid "For running virtual machines in VMware"
@@ -699,9 +698,8 @@ msgid "No downloads found for %s in project %s"
 msgstr "Загрузки для %s в проекте %s не найдены"
 
 #: ../app/controllers/distributions_controller.rb:57
-#, fuzzy
 msgid "No legacy distribution available."
-msgstr "Нет предыдущего дистрибутива"
+msgstr "Нет предыдущего дистрибутива."
 
 #: ../app/views/search/_find_results.html.erb:12
 msgid "No packages found matching your search. "
@@ -941,11 +939,11 @@ msgid "Then run the following as <strong>root</strong>"
 msgstr "Затем запустите от имени <strong>root</strong>"
 
 #: ../app/controllers/distributions_controller.rb:73
-#, fuzzy
 msgid ""
 "There is a new version of openSUSE Leap <a "
 "href='#{leap_distributions_url}'>available</a>!"
-msgstr "Доступна новая версия <a href='/distributions/leap'>openSUSE Leap</a>!"
+msgstr ""
+"Доступна новая версия <a href='#{leap_distributions_url}'>openSUSE Leap</a>!"
 
 #: ../app/views/package/show.html.erb:41
 msgid "There is no official package available for %s"
@@ -969,7 +967,6 @@ msgstr ""
 "судить, будет ли Tumbleweed работать на вашем оборудовании или нет"
 
 #: ../app/data/tumbleweed.yml.erb:144
-#, fuzzy
 msgid ""
 "They should not be used to install or upgrade Tumbleweed. Please use the "
 "[Tumbleweed media](%{tw}) instead"
@@ -1078,9 +1075,8 @@ msgid "Wiki"
 msgstr "Вики"
 
 #: ../app/data/tumbleweed.yml.erb:167 ../app/data/tumbleweed.yml.erb:205
-#, fuzzy
 msgid "XFCE LiveCD"
-msgstr "LiveCD KDE"
+msgstr "LiveCD XFCE"
 
 #: ../app/views/download/package.erb:93
 msgid ""
@@ -1172,9 +1168,8 @@ msgstr "i586"
 
 #: ../app/views/images/images.xml.erb:56 ../app/views/images/images.xml.erb:66
 #: ../app/views/images/images.xml.erb:76
-#, fuzzy
 msgid "i686"
-msgstr "i586"
+msgstr "i686"
 
 #: ../app/views/distributions/index.html.erb:65
 msgid "lifetime"
@@ -1185,14 +1180,12 @@ msgid "openSUSE Leap"
 msgstr "openSUSE Leap"
 
 #: ../app/controllers/distributions_controller.rb:26
-#, fuzzy
 msgid "openSUSE Leap Version \"#{@version}\" is currently not availble."
-msgstr "openSUSE Leap"
+msgstr "openSUSE Leap версии \"#{@version}\" сейчас недоступен."
 
 #: ../app/controllers/distributions_controller.rb:62
-#, fuzzy
 msgid "openSUSE Leap Version #{parsed_version} not found."
-msgstr "openSUSE Leap"
+msgstr "openSUSE Leap версии #{parsed_version} не найден."
 
 #: ../app/views/layouts/application.html.erb:7
 msgid "openSUSE Software"
