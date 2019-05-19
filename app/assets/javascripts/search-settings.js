@@ -35,7 +35,7 @@ $(function() {
     location.reload();
   });
   $cancel.click(function() {
-    $form[0].reset();
+    $modal.find('form')[0].reset();
     $modal.modal("hide");
   });
 });
