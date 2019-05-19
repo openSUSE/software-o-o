@@ -22,7 +22,7 @@ $(function() {
   });
 
   function save_checkbox_cookie(name) {
-    var value = $form.find('[name="' + name + '"]').prop("checked");
+    var value = $modal.find('[name="' + name + '"]').prop("checked");
     console.log(name + ": " + value);
     Cookies.set(name, value, { expires: 365 });
   }
