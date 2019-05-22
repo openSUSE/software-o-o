@@ -14,10 +14,10 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 11:33+0200\n"
-"PO-Revision-Date: 2019-04-29 14:54+0000\n"
+"PO-Revision-Date: 2019-05-22 13:07+0000\n"
 "Last-Translator: Ramax Lo <ramaxlo@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/software-"
-"o-o/master/zh_TW/>\n"
+"Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/"
+"software-o-o/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -373,9 +373,8 @@ msgid "For more help verifying your download please read %{checksums_help}"
 msgstr "需要有關驗證您的下載檔案的說明，請閱讀%{checksums_help}"
 
 #: ../app/data/15.0.yml.erb:84 ../app/data/15.1.yml.erb:84
-#, fuzzy
 msgid "For running virtual machines in OpenStack"
-msgstr "適合在 VMWare 的虛擬機器運作"
+msgstr "適合在 OpenStack 的虛擬機器運作"
 
 #: ../app/data/15.0.yml.erb:73 ../app/data/15.1.yml.erb:73
 msgid "For running virtual machines in VMware"
@@ -675,9 +674,8 @@ msgid "No downloads found for %s in project %s"
 msgstr "沒有發現 %s 的下載(在 %s 專案)"
 
 #: ../app/controllers/distributions_controller.rb:57
-#, fuzzy
 msgid "No legacy distribution available."
-msgstr "無舊的發行版本可用"
+msgstr "沒有可用的舊發行版本。"
 
 #: ../app/views/search/_find_results.html.erb:12
 msgid "No packages found matching your search. "
@@ -908,11 +906,10 @@ msgid "Then run the following as <strong>root</strong>"
 msgstr "然後使用 <strong>root</strong> 身份執行以下指令"
 
 #: ../app/controllers/distributions_controller.rb:73
-#, fuzzy
 msgid ""
 "There is a new version of openSUSE Leap <a "
 "href='#{leap_distributions_url}'>available</a>!"
-msgstr "新的 openSUSE Leap 版本<a href='/distributions/leap'>發布了</a>！"
+msgstr "新的 openSUSE Leap 版本<a href='#{leap_distributions_url}'>發布了</a>！"
 
 #: ../app/views/package/show.html.erb:41
 msgid "There is no official package available for %s"
@@ -934,12 +931,10 @@ msgstr ""
 "作的精確指標"
 
 #: ../app/data/tumbleweed.yml.erb:144
-#, fuzzy
 msgid ""
 "They should not be used to install or upgrade Tumbleweed. Please use the "
 "[Tumbleweed media](%{tw}) instead"
-msgstr ""
-"它們不能用於安裝或升級 Tumbleweed。請改使用 [Tumbleweed 安裝媒體](%{tw})"
+msgstr "它們不能用於安裝或升級 Tumbleweed。請改使用 [Tumbleweed 安裝媒體](%{tw})"
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
@@ -1040,9 +1035,8 @@ msgid "Wiki"
 msgstr "Wiki"
 
 #: ../app/data/tumbleweed.yml.erb:167 ../app/data/tumbleweed.yml.erb:205
-#, fuzzy
 msgid "XFCE LiveCD"
-msgstr "KDE LiveCD"
+msgstr "XFCE LiveCD"
 
 #: ../app/views/download/package.erb:93
 msgid ""
@@ -1117,9 +1111,8 @@ msgstr "i586"
 
 #: ../app/views/images/images.xml.erb:56 ../app/views/images/images.xml.erb:66
 #: ../app/views/images/images.xml.erb:76
-#, fuzzy
 msgid "i686"
-msgstr "i586"
+msgstr "i686"
 
 #: ../app/views/distributions/index.html.erb:65
 msgid "lifetime"
@@ -1130,14 +1123,12 @@ msgid "openSUSE Leap"
 msgstr "openSUSE Leap"
 
 #: ../app/controllers/distributions_controller.rb:26
-#, fuzzy
 msgid "openSUSE Leap Version \"#{@version}\" is currently not availble."
-msgstr "openSUSE Leap"
+msgstr "openSUSE Leap \"#{@version}\" 版目前尚未發布。"
 
 #: ../app/controllers/distributions_controller.rb:62
-#, fuzzy
 msgid "openSUSE Leap Version #{parsed_version} not found."
-msgstr "openSUSE Leap"
+msgstr "openSUSE Leap #{parsed_version} 版不存在。"
 
 #: ../app/views/layouts/application.html.erb:7
 msgid "openSUSE Software"
