@@ -115,7 +115,7 @@
 <section class="my-3">
   <div class="container" role="main">
   <% if @distro_type == "leap" %>
-    <%= render partial: 'documentation', locals: { distro: "Leap" } %>
+    <%= render partial: 'documentation', locals: { distro: "Leap", version: @version } %>
   <% else %>
     <%= render partial: 'documentation', locals: { distro: "Tumbleweed" } %>
   <% end %>
