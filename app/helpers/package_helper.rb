@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PackageHelper
   def human_arch arch
     case arch

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module SearchHelper
   def prepare_desc(desc)

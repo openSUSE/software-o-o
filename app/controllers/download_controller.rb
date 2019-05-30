@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DownloadController < ApplicationController
   before_action :set_colors
 
