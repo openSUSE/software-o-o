@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Helper for distribution controller
 module DistributionHelper
   def leap_image_tag(opts = {})

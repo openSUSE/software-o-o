@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 #
 # Added for Ruby-GetText-Package
 #
 
-POT_FILE = "locale/software.pot".freeze
+POT_FILE = "locale/software.pot"
 
 def each_po_file
   @po_files ||= Dir.glob("locale/*/software.po")

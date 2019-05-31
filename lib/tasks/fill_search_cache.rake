@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 desc "Fill cache with app data from Factory"
 task(fill_search_cache: :environment) do
