@@ -26,7 +26,7 @@
       <li class="nav-item">
         <a class="nav-link h-100<% if @yaml_data[0]["name"] == tab["name"] %> active<% end %>" data-toggle="tab" href="#<%= tab["name"] %>-ports" role="tab">
           <%= _(tab["name"]) %>
-          <div class="badges">
+          <div class="text-nowrap">
             <% tab["arches"].try(:each) do |arch| %>
               <span class="badge badge-<%= arch["color"] || @colour %>"><%= arch["name"] %></span>
             <% end %>
