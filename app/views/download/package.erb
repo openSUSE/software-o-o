@@ -38,6 +38,7 @@
                   </a>
                   <div class="collapse" id="manual<%= flavor %>" aria-labelledby="manual<%= flavor %>">
                   <% @data.select {|k,v| v.has_key?(:repo) && !k.nil? && v[:flavor] == flavor}.sort.reverse.each do |k,v| %>
+                  <% secure_apt_url = v[:flavor] == "Debian" ? "https://wiki.debian.org/SecureApt" : "https://help.ubuntu.com/community/SecureApt" %>
                   <% if v[:flavor] == "Arch" %>
                   <% repo_name = @project.gsub(":", "_") + "_" + k %>
                   <h5><%= _("For <strong>Arch Linux</strong>, edit /etc/pacman.conf and add the following (note that the order of repositories in pacman.conf is important, since pacman always downloads the first found package):") %></h5>
@@ -50,13 +51,17 @@ Server = <%= v[:repo].gsub(/(\w):(\w)/, '\1:/\2') %>$arch
 pacman -S <%= repo_name %>/<%= @package %></pre>
                   <% elsif v[:flavor] == "Ubuntu" %>
                   <h5><%= (_("For <strong>%s</strong> run the following:") % k.gsub('_', '&nbsp;').html_safe).html_safe %></h5>
+                  <h6><%= (_("Keep in mind that the owner of the key may distribute updates, packages and repositories that your system will trust (<a href=\"%s\">more information</a>).") % secure_apt_url).html_safe %></h6>
                   <pre><%=
                      # don't use apt-add-repository wrapper for Ubuntu for now, because it adds source repo which we don't provide
                      #        "apt-add-repository deb #{v[:repo]} /\napt-get update\napt-get install #{@package}"
-                     "sudo sh -c \"echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@project}.list\"\nsudo apt-get update\nsudo apt-get install #{@package}"
+                     "sudo sh -c \"echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@project}.list\"\nwget -nv #{v[:repo]}Release.key -O Release.key\nsudo apt-key add - < Release.key\nsudo apt-get update\nsudo apt-get install #{@package}"
                      %></pre>
                   <% else %>
                   <h5><%= (_("For <strong>%s</strong> run the following as <strong>root</strong>:") % k.gsub('_', '&nbsp;').html_safe).html_safe %></h5>
+                  <% if v[:flavor] == "Debian" %>
+                  <h6><%= (_("Keep in mind that the owner of the key may distribute updates, packages and repositories that your system will trust (<a href=\"%s\">more information</a>).") % secure_apt_url).html_safe %></h6>
+                  <% end %>
                   <pre><%=
                      case v[:flavor]
                      when 'openSUSE', 'SLE'
@@ -75,7 +80,7 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
                      when 'CentOS', 'RHEL', 'SL'
                        "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
                      when 'Debian', 'Univention'
-                       "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@project}.list\napt-get update\napt-get install #{@package}"
+                       "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@project}.list\nwget -nv #{v[:repo]} Release.key -O Release.key\napt-key add - < Release.key\napt-get update\napt-get install #{@package}"
                      when 'Mageia', 'Mandriva'
                        version = k.split("_").last
                        if version == "Cauldron" or Integer(version) >= 6
@@ -88,15 +93,6 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
                      end
                      %></pre>
                   <% end %>
-                  <% if ['Debian', 'Ubuntu', 'Univention'].include? v[:flavor] %>
-                  <% info_url = v[:flavor] == "Debian" ? "https://wiki.debian.org/SecureApt" : "https://help.ubuntu.com/community/SecureApt" %>
-                  <h5><%= (_("You can add the repository key to apt. Keep in mind that the owner of the key may distribute updates, packages and repositories that your system will trust (<a href=\"%s\">more information</a>). To add the key, run:") % info_url).html_safe %></h5>
-                  <pre>wget -nv <%= v[:repo] %>Release.key -O Release.key
-<%= "sudo " if v[:flavor] == "Ubuntu" %>apt-key add - < Release.key
-<%= "sudo " if v[:flavor] == "Ubuntu" %>apt-get update</pre>
-                  
-                  <% end -%>
-                  
                   <% end %>
                   </div>
                </div>
