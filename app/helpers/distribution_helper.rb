@@ -27,4 +27,17 @@ module DistributionHelper
     # Turn into integer just in case we have dead links (they will report 0B)
     conn.head.headers['content-length'].to_i
   end
+
+  def short_description(short_desc, image_size)
+    return short_desc if short_desc.present?
+
+    case image_size
+    when 0..700_000_000
+      _("For CD and USB stick")
+    when 700_000_001..5_000_000_000
+      _("For DVD and USB stick")
+    else
+      _("For USB stick")
+    end
+  end
 end
