@@ -34,14 +34,14 @@ class DistributionsController < OBSController
     @hide_search_box = true
     @colour = "primary"
     @distro_type = "tumbleweed"
-    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/tumbleweed.yml.erb")).result)
+    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/tumbleweed.yml.erb")).result(binding))
     render layout: 'download'
   end
 
   private
 
   def load_yaml(version)
-    YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/#{version}.yml.erb")).result)
+    YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/#{version}.yml.erb")).result(binding))
   end
 
   def per_leap_version_settings
