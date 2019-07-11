@@ -31,6 +31,13 @@ module DistributionHelper
     0
   end
 
+  def cached_image_size(name, url)
+    cache_key = ActiveSupport::Cache.expand_cache_key('image_size', name)
+    Rails.cache.fetch(cache_key, expires_in: 12.hours) do
+      retrieve_image_size(url)
+    end
+  end
+
   def short_description(short_desc, image_size)
     return short_desc if short_desc.present?
 
