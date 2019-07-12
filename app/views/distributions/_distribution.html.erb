@@ -58,9 +58,8 @@
             <%= type["name"] %>
             </a>
             <div class="p-2">
-              <% image_size = retrieve_image_size( "https://download.opensuse.org#{type["primary_link"]}" ) %>
-              <h5 class="mb-2 text-muted"><%= number_to_human_size(image_size) %></h5>
-              <h6 class="mb-2 text-muted"><%= short_description(type["short"], image_size) %></h6>
+              <h5 class="mb-2 text-muted"><%= number_to_human_size(image_size(type)) %></h5>
+              <h6 class="mb-2 text-muted"><%= short_description(type) %></h6>
               <p class="text-muted"><%= _(type["desc"]) %></p>
 
               <% type["links"].try(:each) do |link| %>
