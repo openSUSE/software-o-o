@@ -24,7 +24,7 @@ class ApiConnect
       response = http.request(request)
       case response
       when Net::HTTPSuccess then response;
-      when Net::HTTPRedirection then
+      when Net::HTTPRedirection
         if limit
           get(response['location'], limit - 1)
         else
