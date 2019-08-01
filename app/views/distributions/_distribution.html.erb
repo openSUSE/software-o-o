@@ -58,7 +58,8 @@
             <%= type["name"] %>
             </a>
             <div class="p-2">
-              <h5 class="mb-2 text-muted"><%= number_to_human_size(image_size(type)) %></h5>
+              <% human_size = number_to_human_size(image_size(type)) %>
+              <h5 class="mb-2 text-muted"><%= human_size unless human_size.starts_with? "0" %></h5>
               <h6 class="mb-2 text-muted"><%= short_description(type) %></h6>
               <p class="text-muted"><%= _(type["desc"]) %></p>
 
