@@ -3,17 +3,17 @@
 module PackageHelper
   def human_arch arch
     case arch
-    when ("i586") then
+    when ("i586")
       "32 Bit"
-    when ("i386") then
+    when ("i386")
       "32 Bit"
-    when ("x86_64") then
+    when ("x86_64")
       "64 Bit"
-    when ("amd64") then
+    when ("amd64")
       "64 Bit"
-    when ("src") then
+    when ("src")
       _("Source")
-    when ("nosrc") then
+    when ("nosrc")
       _("Source")
     else
       arch
