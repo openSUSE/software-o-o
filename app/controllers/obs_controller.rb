@@ -8,6 +8,9 @@ class OBSError < StandardError; end
 class OBSController < ApplicationController
   before_action :set_distributions
   before_action :set_releases_parameters
+  before_action :set_baseproject
+
+  private
 
   def set_distributions
     @distributions = Rails.cache.fetch('distributions', expires_in: 120.minutes) do
@@ -50,11 +53,6 @@ class OBSController < ApplicationController
 
   def set_search_options
     @search_term = params[:q] || ""
-    @baseproject =  if cookies[:baseproject] && @distributions.any? { |d| d[:project] == cookies[:baseproject] }
-                      cookies[:baseproject]
-                    else
-                      "openSUSE:Factory"
-                    end
     @search_devel = (cookies[:search_devel] == "true" ? true : false)
     @search_lang = (cookies[:search_lang] == "true" ? true : false)
     @search_debug = (cookies[:search_debug] == "true" ? true : false)
@@ -90,5 +88,26 @@ class OBSController < ApplicationController
           p.project.include?("ARM") || p.project.include?("PowerPC") || p.project.include?("zSystems")
       end
     end
+  end
+
+  def set_baseproject
+    default_baseproject = "openSUSE:Leap:#{@stable_version}"
+
+    if params[:baseproject].present? && valid_baseproject?(params[:baseproject])
+      @baseproject = params[:baseproject]
+      update_baseproject_cookie(params[:baseproject])
+    elsif cookies[:baseproject].present? && valid_baseproject?(cookies[:baseproject])
+      @baseproject = cookies[:baseproject]
+    end
+    @baseproject = default_baseproject unless @baseproject.present?
+  end
+
+  def valid_baseproject?(project)
+    @distributions.present? && @distributions.select { |d| d[:project] == project }.present?
+  end
+
+  def update_baseproject_cookie(project)
+    cookies.delete :baseproject
+    cookies.permanent[:baseproject] = project
   end
 end
