@@ -81,9 +81,9 @@ class OBSController < ApplicationController
 
     # filter out ports for different arch
     if @baseproject.end_with?("ARM")
-      @packages.filter! { |p| p.project.include?("ARM") || p.repository.include?("ARM") }
+      @packages.select! { |p| p.project.include?("ARM") || p.repository.include?("ARM") }
     elsif @baseproject.end_with?("PowerPC")
-      @packages.filter! { |p| p.project.include?("PowerPC") || p.repository.include?("PowerPC") }
+      @packages.select! { |p| p.project.include?("PowerPC") || p.repository.include?("PowerPC") }
     else # x86
       @packages.reject! do |p|
         p.repository.end_with?("_ARM", "_PowerPC", "_zSystems") || p.repository == 'ports' ||
