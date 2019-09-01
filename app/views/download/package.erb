@@ -80,7 +80,7 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
                      when 'CentOS', 'RHEL', 'SL'
                        "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
                      when 'Debian', 'Univention'
-                       "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@project}.list\nwget -nv #{v[:repo]} Release.key -O Release.key\napt-key add - < Release.key\napt-get update\napt-get install #{@package}"
+                       "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@project}.list\nwget -nv #{v[:repo]}Release.key -O Release.key\napt-key add - < Release.key\napt-get update\napt-get install #{@package}"
                      when 'Mageia', 'Mandriva'
                        version = k.split("_").last
                        if version == "Cauldron" or Integer(version) >= 6
