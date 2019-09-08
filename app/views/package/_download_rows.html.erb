@@ -49,18 +49,10 @@
           <a class="btn btn-sm btn-primary" href="<%= url %>"><span class="typcn typcn-flash-outline"></span> <%= _("1 Click Install") %></a>
         <% end %>
 
-        <div class="btn-group">
-          <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="typcn typcn-download-outline"></span> <%= _("Download") %>
-          </button>
-          <div class="dropdown-menu dropdown-menu-right">
-              <% archs.each do |arch| %>
-                <% items.select{|item| human_arch( item.arch ) == arch}.each do |bin| %>
-                  <%= link_to _(human_arch( bin.arch )), "http://download.opensuse.org/repositories/" + bin.filepath, :class => 'dropdown-item'  %>
-                <% end -%>
-              <% end -%>
-          </div>
-        </div>
+        <%= link_to download_package_path(project: result.first, package: @pkgname), class: 'btn btn-sm btn-secondary' do %>
+          <span class="typcn typcn-download-outline"></span>
+          <%= _('Expert Download') %>
+        <% end %>
 
       </div><!-- /.col- -->
     </div><!-- /.card-body -->
