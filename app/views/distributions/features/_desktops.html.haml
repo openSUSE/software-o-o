@@ -1,0 +1,28 @@
+%section.py-5
+  .container
+    .row
+      .col-12.col-md-5.my-auto
+        #desktopCarousel.carousel.slide{ 'data-ride': 'carousel' }
+          %ol.carousel-indicators
+            %li.active{ 'data': { 'target': '#desktopCarousel', 'slide-to': '0' } }
+            %li{ 'data': { 'target': '#desktopCarousel', 'slide-to': '1' } }
+            %li{ 'data': { 'target': '#desktopCarousel', 'slide-to': '2' } }
+          .carousel-inner
+            .carousel-item.active
+              = image_tag 'features/desktops/plasma.png', alt: "KDE Plasma 5", class: "d-block w-100"
+              .carousel-caption.d-none.d-md-block
+                %h5 KDE Plasma 5
+                = link_to 'Learn More', 'https://kde.org/plasma-desktop', class: 'btn btn-sm btn-light'
+            .carousel-item
+              = image_tag 'features/desktops/gnome.png', alt: "GNOME 3", class: "d-block w-100"
+              .carousel-caption.d-none.d-md-block
+                %h5 GNOME 3
+                = link_to 'Learn More', 'https://www.gnome.org/gnome-3/', class: 'btn btn-sm btn-light'
+            .carousel-item
+              = image_tag 'features/desktops/xfce.png', alt: "Xfce Desktop 4", class: "d-block w-100"
+              .carousel-caption.d-none.d-md-block
+                %h5 Xfce Desktop 4
+                = link_to 'Learn More', 'https://xfce.org', class: 'btn btn-sm btn-light'
+      .col-12.col-md-7.my-auto
+        %h2= _('Many desktops, three by default')
+        %p= _("openSUSE contribution process empowers desktop development for everybody, just so you have the choice to pick your favourite one in the installer. We actively feature three desktop environments, and offer even more in the expanded software view in the installer.")

@@ -1,0 +1,10 @@
+%section.py-5
+  .container
+    .row
+      .col-md-5.col-12.my-auto
+        = image_tag 'features/snapper/screenshot.svg', alt: "YaST Snapper Module screenshot", class: "d-block w-100"
+      .col-md-7.col-12.my-auto
+        %h2.text-center= _("System got corrupt? It's not a problem anymore")
+        %p= _("Filesystem snapshots feature keeps your filesystem in check by having continious backups performed automatically when installing software and updates. Just boot form an earlier snapshot and bring your system to the working state in the matter of minutes.")
+        .d-flex
+          = link_to "Learn More", "http://snapper.io", class: 'btn btn-primary mx-auto'

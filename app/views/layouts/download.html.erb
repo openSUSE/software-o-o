@@ -52,20 +52,6 @@
         body {direction:rtl}
       </style>
     <% end %>
-    <style>
-      html, body {
-        min-height:100vh;
-      }
-      body {
-        display: flex;
-        flex-flow: column;
-      }
-      #content {
-        margin-top: auto !important;
-        margin-bottom: auto !important;
-      }
-    </style>
-
   </head>
   <body>
 
@@ -79,7 +65,9 @@
         <%= render :partial => 'search/find_form', :locals => { :baseproject => @baseproject } %>
     <% end %>
 
-    <%= yield %>
+    <div id="content">
+      <%= yield %>
+    </div>
 
     <%= render :partial => "layouts/footer" %>
 

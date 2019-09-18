@@ -5,6 +5,19 @@ class DistributionsController < OBSController
 
   # GET /distributions
   def index
+    @hide_search_box = true
+    render layout: 'download'
+  end
+
+  # GET /distributions/server
+  def server
+    @hide_search_box = true
+    render layout: 'download'
+  end
+
+  # GET /distributions/desktop
+  def desktop
+    @hide_search_box = true
     render layout: 'download'
   end
 
@@ -32,9 +45,30 @@ class DistributionsController < OBSController
   # GET /distributions/tumbleweed
   def tumbleweed
     @hide_search_box = true
-    @colour = 'primary'
-    @distro_type = 'tumbleweed'
+    @colour = "primary"
+    @text = "black"
+    @distro_type = "tumbleweed"
     @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/tumbleweed.yml.erb")).result(binding))
+    render layout: 'download'
+  end
+
+  # GET /distributions/kubic
+  def kubic
+    @hide_search_box = true
+    @colour = "info"
+    @text = "black"
+    @distro_type = "kubic"
+    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/kubic.yml.erb")).result(binding))
+    render layout: 'download'
+  end
+
+  # GET /distributions/microos
+  def microos
+    @hide_search_box = true
+    @colour = "microos"
+    @text = "white"
+    @distro_type = "microos"
+    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/microos.yml.erb")).result(binding))
     render layout: 'download'
   end
 
@@ -70,18 +104,21 @@ class DistributionsController < OBSController
   end
 
   def legacy_settings
-    @colour = 'success'
+    @colour = "warning"
+    @text = "black"
     @version = @legacy_release
     flash.now[:notice] = _("There is a new version of openSUSE Leap <a href='#{leap_distributions_url}'>available</a>!")
   end
 
   def stable_settings
-    @colour = 'success'
+    @colour = "warning"
+    @text = "black"
     @version = @stable_version
   end
 
   def testing_settings
-    @colour = 'dark'
+    @colour = "dark"
+    @text = "white"
     @version = @testing_version
   end
 end

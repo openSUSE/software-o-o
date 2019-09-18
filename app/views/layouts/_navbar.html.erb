@@ -1,4 +1,4 @@
-<nav id="global-navbar" class="navbar navbar-expand-md navbar-toggleable navbar-dark <%= @colour ? "bg-#{@colour}" : "bg-dark" %>">
+<nav id="global-navbar" class="navbar navbar-expand-md navbar-toggleable <%= @text ? @text == "black" ? "navbar-light" : "navbar-dark" : "navbar-dark" %> <%= @colour ? "bg-#{@colour}" : "bg-dark" %>">
 
   <a class="navbar-brand" href="https://www.opensuse.org/">
     <%= image_tag "chameleon/logo/logo-white.svg", width: 48, height: 30, class: "d-inline-block align-top", alt: "openSUSE Logo" %>

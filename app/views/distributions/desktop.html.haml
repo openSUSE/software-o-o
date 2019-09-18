@@ -1,0 +1,33 @@
+.container.text-center.py-5
+  %h1.display-3= _("openSUSE Desktop Distributions")
+  %p= _("The two distributions to rule them all (now come in green!)")
+.container-fluid.bg-wallpaper.text-white
+  .container
+    .row
+      .col-lg-6.p-5.bg-tumbleweed-tint
+        .row.h-100
+          .col-auto
+            = image_tag 'distributions/tumbleweed-white.svg', alt: "Tumbleweed Logo", class: "animated bounceIn", width: "128", height: "128"
+          .col.d-flex.flex-column
+            .mb-auto
+              %h2 Tumbleweed
+              %h6= _('For Developers, openSUSE Contributors, and Linux/FOSS Enthusiasts')
+              %p= _('Rolling release with the latest packages provided by the openSUSE Project.')
+            = link_to _('View Tumbleweed'), tumbleweed_distributions_path, class: 'btn btn-light'
+      .col-lg-6.p-5.bg-leap-tint
+        .row.h-100
+          .col-auto
+            = image_tag 'distributions/leap-white.svg', alt: "Leap Logo", class: "animated bounceIn", width: "128", height: "128"
+          .col.d-flex.flex-column
+            .mb-auto
+              %h2 Leap
+              %h6= _('For Sysadmins, Enterprise Developers, and ‘Regular’ Desktop Users')
+              %p= _('Regular release with the benefits of both enterprise-grade engineering and community-developed innovation.')
+            = link_to _('View Leap'), leap_distributions_path, class: 'btn btn-light'
+            - if @testing_version.present?
+              = link_to _('View Testing'), testing_distributions_path, class: 'btn btn-light'
+= render partial: 'distributions/features/desktops'
+= render partial: 'distributions/features/software'
+= render partial: 'distributions/features/points'
+= render partial: 'distributions/features/yast'
+= render partial: 'distributions/features/snapper'

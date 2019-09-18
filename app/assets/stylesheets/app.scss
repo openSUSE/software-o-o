@@ -25,17 +25,89 @@
     }
 }
 
-.bg-success .nav-tabs .nav-link:not(.active), .bg-primary .nav-tabs .nav-link:not(.active), .bg-dark .nav-tabs .nav-link:not(.active) {
+.bg-warning .nav-tabs .nav-link:not(.active), .bg-primary .nav-tabs .nav-link:not(.active), .bg-dark .nav-tabs .nav-link:not(.active), .bg-microos .nav-tabs .nav-link:not(.active) {
     background: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    color: rgba(0, 0, 0, 0.8);
+    transition: 0.3s;
 }
 
-.bg-success .nav-tabs .nav-link:not(.active):hover, .bg-primary .nav-tabs .nav-link:not(.active):hover, .bg-dark .nav-tabs .nav-link:not(.active):hover  {
-    color: rgba(255, 255, 255, 0.5);
+.bg-warning .nav-tabs .nav-link:not(.active):hover, .bg-primary .nav-tabs .nav-link:not(.active):hover, .bg-dark .nav-tabs .nav-link:not(.active):hover, .bg-microos .nav-tabs .nav-link:not(.active):hover  {
+    background: rgba(255, 255, 255, 0.4);
     border-color: transparent transparent white transparent;
 }
 
 .distro-logo {
     width: 256px;
     height: 256px;
+}
+
+.bg-wallpaper {
+  background: image-url('distributions/wallpaper.jpg') bottom right no-repeat;
+  background-size: cover;
+  background-color: #0b212e;
+}
+
+.bg-server {
+  background-color: black;
+}
+
+.bg-tumbleweed-tint {
+  background: rgba(53, 185, 171, 0.3)
+}
+
+.bg-leap-tint {
+  background: rgba(206, 187, 41, 0.3)
+}
+
+.bg-kubic-tint {
+  background: rgba(33, 164, 223, 0.3)
+}
+
+.bg-microos-tint {
+  background: rgba(122, 29, 135, 0.3)
+}
+
+.bg-tumbleweed {
+  background: rgb(53, 185, 171)
+}
+
+.bg-leap {
+  background: rgb(206, 187, 41)
+}
+
+.bg-kubic {
+  background: rgb(33, 164, 223)
+}
+
+.bg-microos {
+  background: rgb(122, 29, 135)
+}
+
+.badge-microos {
+  background: rgb(122, 29, 135);
+  color: white;
+}
+
+.btn-microos {
+  color: white;
+  background-color: rgb(122, 29, 135);
+  border-color: rgb(122, 29, 135);
+}
+
+.btn-microos:hover {
+  color: #fff;
+  background-color: darken(rgb(122, 29, 135), 5);
+  border-color: darken(rgb(122, 29, 135), 7);
+}
+
+html, body {
+  min-height:100vh;
+}
+body {
+  display: flex;
+  flex-flow: column;
+}
+#content {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
 }

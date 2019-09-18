@@ -4,6 +4,8 @@ SoftwareOO::Application.routes.draw do
 
   resources :distributions, only: [:index] do
     collection do
+      get 'desktop'
+      get 'server'
       get 'tumbleweed'
       get 'tumbleweed/ports', to: 'distributions#tumbleweed_ports'
       get 'tumbleweed/unsupported', to: 'distributions#tumbleweed_unsupported'
@@ -11,6 +13,8 @@ SoftwareOO::Application.routes.draw do
       get 'leap/ports', to: 'distributions#leap_ports'
       get 'testing', to: 'distributions#leap', version: 'testing'
       get 'legacy', to: 'distributions#leap', version: 'legacy'
+      get 'kubic'
+      get 'microos'
     end
   end
 

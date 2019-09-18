@@ -1,0 +1,54 @@
+.container.text-center.py-5
+  %h1.display-3= _("openSUSE Server Distributions")
+  %p= _("The four comfortably boring distributions, how it always should be")
+.container-fluid.bg-wallpaper.text-white
+  .container
+    .row
+      .col-md-6.py-2.px-5.py-md-5.bg-tumbleweed-tint
+        .row.h-100
+          .col-auto
+            = image_tag 'distributions/tumbleweed-white.svg', alt: "Tumbleweed Logo", class: "card-img-top animated bounceIn", width: "128", height: "128"
+          .col.d-flex.flex-column
+            .mb-md-auto
+              %h2 Tumbleweed
+              %h6= _('For Developers, openSUSE Contributors, and Linux/FOSS Enthusiasts')
+              %p= _('Rolling release with the latest packages provided by the openSUSE Project.')
+            = link_to _('View Tumbleweed'), tumbleweed_distributions_path, class: 'btn btn-light'
+      .col-md-6.py-2.px-5.py-md-5.bg-leap-tint
+        .row.h-100
+          .col-auto
+            = image_tag 'distributions/leap-white.svg', alt: "Leap Logo", class: "card-img-top animated bounceIn", width: "128", height: "128"
+          .col.d-flex.flex-column
+            .mb-md-auto
+              %h2 Leap
+              %h6= _('For Sysadmins, Enterprise Developers, and ‘Regular’ Desktop Users')
+              %p= _('Regular release with the benefits of both enterprise-grade engineering and community-developed innovation.')
+            = link_to _('View Leap'), leap_distributions_path, class: 'btn btn-light'
+            - if @testing_version.present?
+              = link_to _('View Testing'), testing_distributions_path, class: 'btn btn-light'
+      .col-md-6.py-2.px-5.py-md-5.bg-kubic-tint
+        .row.h-100
+          .col-auto
+            = image_tag 'distributions/kubic-white.svg', alt: "Kubic Logo", class: "card-img-top animated bounceIn", width: "128", height: "128"
+          .col.d-flex.flex-column
+            .mb-md-auto
+              %h2 Kubic
+              %h6= _('For containerized server workflows')
+              %p= _('Multi-purpose Standalone & Kubernetes Container Operating System based on openSUSE MicroOS.')
+            = link_to _('View Kubic'), kubic_distributions_path, class: 'btn btn-light'
+      .col-md-6.py-2.px-5.py-md-5.bg-microos-tint
+        .row.h-100
+          .col-auto
+            = image_tag 'distributions/microos-white.svg', alt: "MicroOS Logo", class: "card-img-top animated bounceIn", width: "128", height: "128"
+          .col.d-flex.flex-column
+            .mb-md-auto
+              %h2 MicroOS
+              %h6= _('For single purpose server applications')
+              %p= _('Designed to host container workloads with automated administration & patching.')
+            = link_to _('View MicroOS'), microos_distributions_path, class: 'btn btn-light'
+= render partial: 'distributions/features/snapper'
+= render partial: 'distributions/features/transactional'
+= render partial: 'distributions/features/installation'
+= render partial: 'distributions/features/zypper'
+= render partial: 'distributions/features/points'
+= render partial: 'distributions/features/yast'

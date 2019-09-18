@@ -78,6 +78,10 @@ module SoftwareOO
 
     config.exceptions_app = self.routes
 
+    config.generators do |g|
+      g.template_engine :haml
+    end
+
     # See Rails::Configuration for more options
     config.after_initialize do
      # ExceptionNotifier.exception_recipients = CONFIG["exception_recipients"]

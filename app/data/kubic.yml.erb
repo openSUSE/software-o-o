@@ -1,0 +1,26 @@
+- name: Installation
+  arches:
+  - name: x86_64
+    types:
+    - name: <%= _("DVD Image") %>
+      desc: <%= _("Container as a Service Platform based on Kubernetes atop openSUSE MicroOS.") %>
+      primary_link: /tumbleweed/iso/openSUSE-Kubic-DVD-x86_64-Current.iso
+      links:
+      - name: <%= _("Metalink") %>
+        url: /tumbleweed/iso/openSUSE-Kubic-DVD-x86_64-Current.iso.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /tumbleweed/iso/openSUSE-Kubic-DVD-x86_64-Current.iso?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /tumbleweed/iso/openSUSE-Kubic-DVD-x86_64-Current.iso.sha256
+  - name: aarch64
+    types:
+    - name: <%= _("DVD Image") %>
+      desc: <%= _("Container as a Service Platform based on Kubernetes atop openSUSE MicroOS.") %>
+      primary_link: /ports/aarch64/tumbleweed/iso/openSUSE-Kubic-DVD-aarch64-Current.iso
+      links:
+      - name: <%= _("Metalink") %>
+        url: /ports/aarch64/tumbleweed/iso/openSUSE-Kubic-DVD-aarch64-Current.iso.meta4
+      - name: <%= _("Pick Mirror") %>
+        url: /ports/aarch64/tumbleweed/iso/openSUSE-Kubic-DVD-aarch64-Current.iso?mirrorlist
+      - name: <%= _("Checksum") %>
+        url: /ports/aarch64/tumbleweed/iso/openSUSE-Kubic-DVD-aarch64-Current.iso.sha256

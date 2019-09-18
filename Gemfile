@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'nokogiri'
 gem 'rails', '~> 5.2'
 
+gem "haml"
+
 # For appdata redirections (https -> http)
 gem 'open_uri_redirections'
 # Use SCSS for stylesheets

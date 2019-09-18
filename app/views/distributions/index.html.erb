@@ -1,94 +1,51 @@
-<div class="container-fluid mb-5">
-  <div class="row">
-    <div class="col-md-6 bg-primary text-white py-2 px-5 py-md-5">
-      <div class="row h-100">
-        <div class="col-md-12 col-6">
-          <%= image_tag 'distributions/tumbleweed-white.svg', alt: "Tumbleweed Logo", class: "card-img-top animated bounceIn", width: "256", height: "256" %>
-        </div>
-        <div class="col-md-12 col-6 d-flex flex-column my-auto my-md-0">
-          <div class="mb-md-auto text-center">
-            <h2>Tumbleweed</h2>
-            <h6><%= _('For Developers, openSUSE Contributors, and Linux/FOSS Enthusiasts.') %></h6>
-            <p><%= _('Download openSUSE’s rolling release and always run the latest packages provided by the openSUSE Project.') %></p>
-          </div>
-          <div class="mx-auto">
-            <%= link_to _('View Tumbleweed'), tumbleweed_distributions_path, class: 'btn btn-light m-2' %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 bg-success text-white py-2 px-5 py-md-5">
-      <div class="row h-100">
-        <div class="col-md-12 col-6">
-          <%= image_tag 'distributions/leap-white.svg', alt: "Leap Logo", class: "card-img-top animated bounceIn", width: "256", height: "256" %>
-        </div>
-        <div class="col-md-12 col-6 d-flex flex-column my-auto my-md-0">
-          <div class="mb-md-auto text-center">
-            <h2>Leap</h2>
-            <h6><%= _('For Sysadmins, Enterprise Developers, and ‘Regular’ Desktop Users.') %></h6>
-            <p><%= _('Download openSUSE’s regular release and enjoy the benefits of both enterprise-grade engineering and community-developed innovation.') %></p>
-          </div>
-          <div class="mx-auto text-center">
-            <%= link_to _('View Leap'), leap_distributions_path, class: 'btn btn-light m-2' %>
-            <% if @testing_version.present? %>
-              <%= link_to _('View Testing'), testing_distributions_path, class: 'btn btn-light m-2' %>
-            <% end %>
-          </div>
-        </div>
-      </div>
+<div class="container text-center py-5">
+  <h1 class="display-3"><%= _("openSUSE Distributions") %></h1>
+  <p><%= _("For desktop, server and everything in between") %></p>
+</div>
+<div class="bg-light">
+  <div class="container">
+    <div class="row">
+      <%= link_to desktop_distributions_path, class: 'col bg-wallpaper text-white text-center p-5' do %>
+        <%= image_tag 'distributions/desktop.svg', alt: "Desktop Icon", class: "card-img-top animated bounceIn p-3", width: "128", height: "128" %>
+        <h2>Desktop</h2>
+        <h6>Selection of distributions for desktop use</h6>
+      <% end %>
+      <%= link_to server_distributions_path, class: 'col bg-server text-white text-center p-5' do %>
+        <%= image_tag 'distributions/server.svg', alt: "Server Icon", class: "card-img-top animated bounceIn p-3", width: "128", height: "128" %>
+        <h2>Server</h2>
+        <h6>Selection of distributions for server use</h6>
+      <% end %>
     </div>
   </div>
-</div><!-- /.container -->
-
-<section class="mb-4">
+</div>
+<div class="container text-center py-4">
+  <h2><%= _("Or go straight to download pages for the distributions") %></h2>
+</div>
+<div class="bg-wallpaper">
   <div class="container">
-    <h2 class="display-4 text-center mb-5">
-      <%= _('Choosing which Distribution to Download') %>
-    </h2>
-
-    <div class="row mb-3">
-      <div class="col-md-6">
-        <h3>Tumbleweed</h3>
-        <p>
-          <%= _('%{tumbleweed} is a <strong>rolling-release</strong>. This means the software is always the latest stable versions available from the openSUSE Project. Things will change regularly as Free and Open Source projects continually release new versions of their software.') % { tumbleweed: link_to(_('openSUSE Tumbleweed'), tumbleweed_distributions_path) } %>
-        </p>
-        <p>
-          <%= _('Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>.') %>
-        </p>
-      </div><!-- /.col- -->
-      <div class="col-md-6">
-        <h3>Leap</h3>
-        <p>
-          <%= _('%{leap} is a <strong>regular-release</strong>. This means it releases %{annually}, with security and stability updates being the priority during each release %{lifetime}.') %
-              { leap: link_to(_('openSUSE Leap'), leap_distributions_path),
-                annually: link_to(_('annually'), _('https://en.opensuse.org/openSUSE:Roadmap')),
-                lifetime: link_to(_('lifetime'), _("https://en.opensuse.org/Lifetime"))
-              } %>
-          <%= _('It is not expected to change in any significant way until its next annual release.') %>
-          <%= _('Leap shares a Common Base System with %{sles}, so major architectural changes are not expected for several years, aligned with each new Major Release (eg 12, 13, etc) of SUSE Linux Enterprise.') % {
-                  sles: link_to(_('SUSE Linux Enterprise'), "https://www.suse.com/products/server/")
-                  } %>
-        </p>
-        <p>
-          <%= _('Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>.') %>
-        </p>
-      </div><!-- /.col- -->
-    </div><!-- /.row -->
-
-    <p>
-      <%= _('Both distributions are well tested by <a href="https://openqa.opensuse.org">openQA</a> as well as by human openSUSE contributors so both can be relied upon to work.') %>
-    </p>
-    <p>
-      <%= _('Both distributions are fully capable of being used on a Desktop PC, laptop, server, or in the cloud.') %>
-    </p>
-
-    <p>
-      <strong>
-        <%= _('If you are still not sure, download %{leap}') % { leap: link_to('openSUSE Leap', leap_distributions_path) } %>
-      </strong>
-    </p>
-    <p>
-      <%= _('It is easy to <a href="https://en.opensuse.org/openSUSE:Tumbleweed_upgrade">switch to openSUSE Tumbleweed</a> if you change your mind later.') %>
-    </p>
-  </div><!-- /.container -->
-</section>
+    <div class="row">
+      <%= link_to tumbleweed_distributions_path, class: 'col bg-tumbleweed-tint text-white text-center' do %>
+        <%= image_tag 'distributions/tumbleweed-white.svg', alt: "Tumbleweed Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
+        <h4>Tumbleweed</h4>
+      <% end %>
+      <%= link_to leap_distributions_path, class: 'col bg-leap-tint text-white text-center' do %>
+        <%= image_tag 'distributions/leap-white.svg', alt: "Leap Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
+        <h4>Leap <%= @stable_version %></h4>
+      <% end %>
+      <% if @testing_version.present? %>
+        <%= link_to testing_distributions_path, class: 'col bg-testing-tint text-white text-center' do %>
+          <%= image_tag 'distributions/testing-white.svg', alt: "MicroOS Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
+          <h4>Leap <%= @testing_version %> (Testing)</h4>
+        <% end %>
+      <% end %>
+      <%= link_to kubic_distributions_path, class: 'col bg-kubic-tint text-white text-center' do %>
+        <%= image_tag 'distributions/kubic-white.svg', alt: "Kubic Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
+        <h4>Kubic</h4>
+      <% end %>
+      <%= link_to microos_distributions_path, class: 'col bg-microos-tint text-white text-center' do %>
+        <%= image_tag 'distributions/microos-white.svg', alt: "MicroOS Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
+        <h4>MicroOS</h4>
+      <% end %>
+    </div>
+  </div>
+</div>

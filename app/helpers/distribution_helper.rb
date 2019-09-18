@@ -3,8 +3,8 @@
 # Helper for distribution controller
 module DistributionHelper
   def leap_image_tag(opts = {})
-    image_name = @version == @testing_version ? 'testing' : 'leap'
-    image_tag("distributions/#{image_name}-white.svg", opts)
+    image_name = @version == @testing_version ? 'testing-white' : 'leap-black'
+    image_tag("distributions/#{image_name}.svg", opts)
   end
 
   def markdownify(text)

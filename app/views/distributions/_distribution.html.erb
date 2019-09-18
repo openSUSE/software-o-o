@@ -4,15 +4,19 @@
       <% if @distro_type == "leap" %>
         <%= leap_image_tag alt: "Leap Logo", class: "animated jackInTheBox distro-logo" %>
       <% elsif @distro_type == "kubic" %>
-        <%= image_tag 'distributions/kubic-white.svg', alt: "Kubic Logo", class: "animated tada distro-logo" %>
+        <%= image_tag 'distributions/kubic-black.svg', alt: "Kubic Logo", class: "animated tada distro-logo" %>
+      <% elsif @distro_type == "microos" %>
+        <%= image_tag 'distributions/microos-white.svg', alt: "MicroOS Logo", class: "animated tada distro-logo" %>
       <% else %>
-        <%= image_tag 'distributions/tumbleweed-white.svg', alt: "Tumbleweed Logo", class: "animated zoomInDown distro-logo" %>
+        <%= image_tag 'distributions/tumbleweed-black.svg', alt: "Tumbleweed Logo", class: "animated zoomInDown distro-logo" %>
       <% end %>
-      <h1 class="display-3 text-white">
+      <h1 class="display-3 text-<%= @text %>">
         <% if @distro_type == "leap" %>
           openSUSE Leap <%= @version %><sup><%= @testing_state if @version == @testing_version %></sup>
         <% elsif @distro_type == "kubic" %>
           openSUSE Kubic
+        <% elsif @distro_type == "microos" %>
+          openSUSE MicroOS
         <% else %>
           openSUSE Tumbleweed
         <% end %>

@@ -1,0 +1,39 @@
+%section.py-5.bg-dark.text-white
+  .container
+    .row
+      .col-12.col-md-5.my-auto
+        = image_tag 'features/yast/yast-aardvark.svg', alt: 'YaST Logo', class: 'd-block mx-auto p-4', width: '112', height: '112'
+        %h2.text-center
+          = _('YaST, the best choice for the ')
+          %strike= _('power')
+          = _(' user')
+        %p= _("One of the greatest system configuration tools, helps you, the user to setup every single aspect of your system. You no longer need to go through plethora of configuration scripts or enter dubious commands to get the system setup how you need it.")
+      .col-12.col-md-7.my-auto
+        .row
+          = link_to '/package/yast2-apparmor', class: 'col-4 text-white py-3' do
+            = image_tag 'features/yast/yast-apparmor.svg', alt: 'AppArmor Icon', class: 'w-50 d-block mx-auto'
+            %h6.text-center= _('AppArmor')
+          = link_to '/package/yast2-firewall', class: 'col-4 text-white py-3' do
+            = image_tag 'features/yast/yast-firewall.svg', alt: 'Firewall Icon', class: 'w-50 d-block mx-auto'
+            %h6.text-center= _('Firewall')
+          = link_to '/package/yast2-fonts', class: 'col-4 text-white py-3' do
+            = image_tag 'features/yast/yast-fonts.svg', alt: 'Fonts Icon', class: 'w-50 d-block mx-auto'
+            %h6.text-center= _('Fonts')
+          = link_to '/package/yast2-tune', class: 'col-4 text-white py-3' do
+            = image_tag 'features/yast/yast-hwinfo.svg', alt: 'Hardware Icon', class: 'w-50 d-block mx-auto'
+            %h6.text-center= _('Hardware')
+          = link_to '/package/yast2-storage-ng', class: 'col-4 text-white py-3' do
+            = image_tag 'features/yast/yast-disk.svg', alt: 'Disk Icon', class: 'w-50 d-block mx-auto'
+            %h6.text-center= _('Partitioner')
+          = link_to '/package/yast2-printer', class: 'col-4 text-white py-3' do
+            = image_tag 'features/yast/yast-printer.svg', alt: 'Printer Icon', class: 'w-50 d-block mx-auto'
+            %h6.text-center= _('Printer')
+          = link_to '/package/yast2-scanner', class: 'col-4 text-white py-3' do
+            = image_tag 'features/yast/yast-scanner.svg', alt: 'Scanner Icon', class: 'w-50 d-block mx-auto'
+            %h6.text-center= _('Scanner')
+          = link_to '/package/yast2-sound', class: 'col-4 text-white py-3' do
+            = image_tag 'features/yast/yast-sound.svg', alt: 'Sound Icon', class: 'w-50 d-block mx-auto'
+            %h6.text-center= _('Sound')
+          = link_to '/package/yast2-packager', class: 'col-4 text-white py-3' do
+            = image_tag 'features/yast/yast-sw_single.svg', alt: 'Software Icon', class: 'w-50 d-block mx-auto'
+            %h6.text-center= _('Software')
