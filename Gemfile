@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'nokogiri'
 gem 'rails', '~> 5.2'
 
-gem "haml"
+gem "haml-rails"
 
 # For appdata redirections (https -> http)
 gem 'open_uri_redirections'
