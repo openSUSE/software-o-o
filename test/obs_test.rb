@@ -40,7 +40,7 @@ class OBSTest < ActiveSupport::TestCase
         'project' => 'home:dmacvicar',
         'repository' => 'openSUSE_Tumbleweed',
         'arch' => 'x86_64',
-        'filename' => 'vcpkg-0.0+git.1524688133.90be0d9b-9.6.x86_64.rpm'
+        'filename' => 'vcpkg-0.0+git.1524688133.90be0d9b-9.22.x86_64.rpm'
       )
       fileinfo = OBS.search_published_binary_fileinfo(binary)
 

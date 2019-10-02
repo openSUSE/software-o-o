@@ -14,7 +14,7 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
       # if this ever changes, uncomment the next line
       # page.click_on 'Settings'
       within '#baseproject' do
-        find('option[value="openSUSE:Leap:42.3"]').click
+        find('option[value="openSUSE:Leap:15.1"]').click
       end
       page.fill_in 'q', with: 'nvidia'
       page.find(:css, 'button#search-button').click
@@ -23,14 +23,14 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
   end
 
   def test_non_existing_packages
-    #    VCR.use_cassette('search_paralapapiricoipi_openSUSE_Leap_42.3') do
+    #    VCR.use_cassette('search_paralapapiricoipi_openSUSE_Leap_15.1') do
     VCR.use_cassette('default') do
       visit '/explore'
       # There is no need to click on settings. If cookies are fresh, they will auto popup
       # if this ever changes, uncomment the next line
       # page.click_on 'Settings'
       within '#baseproject' do
-        find('option[value="openSUSE:Leap:42.3"]').click
+        find('option[value="openSUSE:Leap:15.1"]').click
       end
 
       page.fill_in 'q', with: 'paralapapiricoipi'
@@ -47,7 +47,7 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
       # if this ever changes, uncomment the next line
       # page.click_on 'Settings'
       within '#baseproject' do
-        find('option[value="openSUSE:Leap:42.3"]').click
+        find('option[value="openSUSE:Leap:15.1"]').click
       end
 
       page.fill_in 'q', with: '1'
@@ -64,7 +64,7 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
       # if this ever changes, uncomment the next line
       # page.click_on 'Settings'
       within '#baseproject' do
-        find('option[value="openSUSE:Leap:42.3"]').click
+        find('option[value="openSUSE:Leap:15.1"]').click
       end
 
       page.fill_in 'q', with: ''

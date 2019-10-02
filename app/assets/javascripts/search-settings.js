@@ -5,37 +5,40 @@
  * - Clicking Cancel or x button do nothing.
  */
 $(function() {
-  var $modal = $("#search-settings");
-  var $form = $("#baseproject");
-  var $ok = $modal.find(".ok-button");
-  var $cancel = $modal.find(".cancel-button");
+  let $settings_modal = $("#search-settings");
+  let $project_dropdown = $("#baseproject");
+  let $ok = $settings_modal.find(".ok-button");
+  let $cancel = $settings_modal.find(".cancel-button");
 
-  function save_input_cookie(name) {
-    var value = $form.val();
-    console.log(name + ": " + value);
+  function set_cookie(name, value) {
+    console.log("Setting cookie: " + name + " = " + value);
     Cookies.set(name, value, { expires: 365 });
   }
-  
-  $form.on('change', function() {
-    save_input_cookie("baseproject");
-    location.reload();
+
+  $project_dropdown.on('change', function() {
+    /*
+     * See https://stackoverflow.com/a/41542008 for editing query string
+     */
+    let value = $project_dropdown.val();
+    let query_params = new URLSearchParams(window.location.search);
+
+    set_cookie("baseproject", value);
+    if (query_params.has("baseproject")) query_params.set("baseproject", value);
+
+    // causes site reload
+    window.location.search = query_params.toString();
   });
-
-  function save_checkbox_cookie(name) {
-    var value = $modal.find('[name="' + name + '"]').prop("checked");
-    console.log(name + ": " + value);
-    Cookies.set(name, value, { expires: 365 });
-  }
 
   $ok.click(function() {
-    save_checkbox_cookie("search_devel");
-    save_checkbox_cookie("search_lang");
-    save_checkbox_cookie("search_debug");
-    $modal.modal("hide");
+    for (setting of ["search_devel", "search_lang", "search_debug"]) {
+      let value = $settings_modal.find('[name="'+ setting +'"]').prop("checked");
+      set_cookie(setting, value);
+    }
     location.reload();
   });
+
   $cancel.click(function() {
-    $modal.find('form')[0].reset();
-    $modal.modal("hide");
+    $settings_modal.find('form')[0].reset();
+    $settings_modal.modal("hide");
   });
 });

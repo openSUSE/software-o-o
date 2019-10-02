@@ -10,9 +10,6 @@ class ApplicationController < ActionController::Base
   before_action :validate_configuration
   before_action :set_language
   before_action :set_external_urls
-  before_action :set_releases_parameters
-  # depends on releases
-  before_action :set_baseproject
 
   helper :all # include all helpers, all the time
   require "rexml/document"
@@ -103,13 +100,6 @@ class ApplicationController < ActionController::Base
     @testing_version = current['testing_version']
     @testing_state = current['testing_state']
     @legacy_release = current['legacy_version']
-  end
-
-  def set_baseproject
-    unless @distributions.blank? || @distributions.select { |d| d[:project] == cookies[:baseproject] }.blank?
-      @baseproject = cookies[:baseproject]
-    end
-    @baseproject = "openSUSE:Leap:#{@stable_version}" if @baseproject.blank?
   end
 
   # special version of render json with JSONP capabilities (only needed for rails < 3.0)
