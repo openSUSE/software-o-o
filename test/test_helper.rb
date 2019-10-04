@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 require 'rails/test_help'
 require 'faker'
 require 'vcr'
@@ -12,7 +12,7 @@ end
 
 VCR.configure do |c|
   c.cassette_library_dir = Rails.root.join('test', 'support', 'vcr')
-  c.default_cassette_options = { :record => :new_episodes }
+  c.default_cassette_options = { record: :new_episodes }
   c.ignore_localhost = true
   c.filter_sensitive_data('<API USERNAME>') { Rails.configuration.x.api_username }
   c.filter_sensitive_data('<API HTTP AUTH>') { Base64.encode64("#{Rails.configuration.x.api_username}:#{Rails.configuration.x.api_password}").strip }

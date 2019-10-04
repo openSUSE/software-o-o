@@ -7,11 +7,11 @@ class OBSTest < ActiveSupport::TestCase
     # /foo is not a real request, real requests to OBS API should not
     # be mocked - VCR should be used instead
     WebMock.stub_request(:any, 'https://api.opensuse.org/foo')
-           .to_return(body: "False")
+           .to_return(body: 'False')
 
     WebMock.stub_request(:any, 'https://api.opensuse.org/foo')
            .with(headers: { 'X-opensuse_data' => 'TEST' })
-           .to_return(body: "True")
+           .to_return(body: 'True')
 
     response = OBS.client.get('/foo')
     assert_equal 'True', response.body
@@ -30,7 +30,7 @@ class OBSTest < ActiveSupport::TestCase
       project = 'home:dmacvicar'
       project_quality = OBS.search_project_quality(project)
 
-      assert_equal "", project_quality
+      assert_equal '', project_quality
     end
   end
 
@@ -44,7 +44,7 @@ class OBSTest < ActiveSupport::TestCase
       )
       fileinfo = OBS.search_published_binary_fileinfo(binary)
 
-      assert_equal "C++ library manager for Linux, macOS and Windows", fileinfo.summary
+      assert_equal 'C++ library manager for Linux, macOS and Windows', fileinfo.summary
     end
   end
 end

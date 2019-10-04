@@ -8,9 +8,9 @@ VAGRANTFILE_API_VERSION = '2'
 IMAGE_USERID = `id -u`.freeze
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.define "default" do |web|
+  config.vm.define 'default' do |web|
     web.vm.provider 'docker' do |d|
-      d.build_dir       = "."
+      d.build_dir       = '.'
       d.name            = 'software_web'
       d.create_args     = ['-i', '-t']
       d.build_args      = ['--build-arg', "IMAGE_USERID=#{IMAGE_USERID}"]

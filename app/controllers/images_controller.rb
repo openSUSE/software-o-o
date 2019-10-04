@@ -8,7 +8,7 @@ class ImagesController < ApplicationController
   attr_accessor :base_url
 
   def initialize
-    @base_url = "http://download.opensuse.org"
+    @base_url = 'http://download.opensuse.org'
   end
 
   class MetadataError < RuntimeError; end
@@ -22,7 +22,7 @@ class ImagesController < ApplicationController
     Rails.cache.fetch("/build_number/#{abs_url}", expires_in: 10.minutes) do
       begin
         meta = meta_file(abs_url)
-        name_elem = meta.xpath("//m:metalink//m:file//@name", 'm' => 'urn:ietf:params:xml:ns:metalink').to_s
+        name_elem = meta.xpath('//m:metalink//m:file//@name', 'm' => 'urn:ietf:params:xml:ns:metalink').to_s
         matches = regex.match(name_elem.to_s)
         matches[1]
       rescue OpenURI::HTTPError, RuntimeError => e
@@ -39,7 +39,7 @@ class ImagesController < ApplicationController
 
     ret  = "<image url=#{abs_url.encode(xml: :attr)} name=#{name.encode(xml: :attr)} size=\"#{size}\">\n"
     ret += "<checksum type=\"sha256\" disposition=#{(abs_url + '.sha256').encode(xml: :attr)}/>\n"
-    ret += "</image>"
+    ret += '</image>'
     ret.html_safe
   end
 
@@ -53,7 +53,7 @@ class ImagesController < ApplicationController
     Rails.cache.fetch("/content_size/#{url}", expires_in: 10.minutes) do
       begin
         meta = meta_file(url)
-        size_text = meta.xpath("//m:metalink//m:file//m:size[1]//text()", 'm' => 'urn:ietf:params:xml:ns:metalink')
+        size_text = meta.xpath('//m:metalink//m:file//m:size[1]//text()', 'm' => 'urn:ietf:params:xml:ns:metalink')
         size = Integer(size_text.to_s)
         size
       rescue OpenURI::HTTPError, RuntimeError

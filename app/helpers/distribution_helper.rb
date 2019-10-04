@@ -43,13 +43,13 @@ module DistributionHelper
     return medium['short'] if medium['short'].present?
 
     case image_size(medium)
-    when 0 then ""
+    when 0 then ''
     when 1..700_000_000
-      _("For CD and USB stick")
+      _('For CD and USB stick')
     when 700_000_001..5_000_000_000
-      _("For DVD and USB stick")
+      _('For DVD and USB stick')
     else
-      _("For USB stick")
+      _('For USB stick')
     end
   end
 end

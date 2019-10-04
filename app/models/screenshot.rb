@@ -5,7 +5,7 @@ require 'mini_magick'
 
 # Class to cache and resize the screenshot of a given package
 class Screenshot
-  THUMBNAIL_WIDTH = "600"
+  THUMBNAIL_WIDTH = '600'
 
   # @return [String] name of the package
   attr_reader :pkg_name
@@ -37,7 +37,8 @@ class Screenshot
     # And also there is a chance of exception generating the thumbnail
     rescue Exception => e
       raise unless Rails.env.production?
-      Rails.logger.error("No screenshot fetched for: " + pkg_name)
+
+      Rails.logger.error('No screenshot fetched for: ' + pkg_name)
     end
 
     if cached?
@@ -57,14 +58,14 @@ class Screenshot
   protected
 
   def cached?
-    File.exist?(File.join(Rails.root, "public", generated_thumbnail_path))
+    File.exist?(File.join(Rails.root, 'public', generated_thumbnail_path))
   end
 
   def generate_thumbnail
     Rails.logger.debug("Fetching screenshot from #{source_url}")
     img = MiniMagick::Image.open(source_url)
     img.resize THUMBNAIL_WIDTH
-    file_path = File.join(Rails.root, "public", generated_thumbnail_path)
+    file_path = File.join(Rails.root, 'public', generated_thumbnail_path)
     img.write file_path
   end
 
@@ -79,47 +80,47 @@ class Screenshot
   def default_thumbnail_path
     file = case pkg_name
            when /-devel$/
-             "devel-package.png"
+             'devel-package.png'
            when /-devel-/
-             "devel-package.png"
+             'devel-package.png'
            when /-debug$/
-             "devel-package.png"
+             'devel-package.png'
            when /-lang$/
-             "lang-package.png"
+             'lang-package.png'
            when /-l10n-/
-             "lang-package.png"
+             'lang-package.png'
            when /-i18n-/
-             "lang-package.png"
+             'lang-package.png'
            when /-translations/
-             "lang-package.png"
+             'lang-package.png'
            when /-doc$/
-             "doc-package.png"
+             'doc-package.png'
            when /-help-/
-             "doc-package.png"
+             'doc-package.png'
            when /-javadoc$/
-             "doc-package.png"
+             'doc-package.png'
            when /-debuginfo/
-             "devel-package.png"
+             'devel-package.png'
            when /-debugsource/
-             "devel-package.png"
+             'devel-package.png'
            when /-kmp-/
-             "devel-package.png"
+             'devel-package.png'
            when /^rubygem-/
-             "ruby-package.png"
+             'ruby-package.png'
            when /^perl-/
-             "perl-package.png"
+             'perl-package.png'
            when /^python-/
-             "python-package.png"
+             'python-package.png'
            when /^python2-/
-             "python-package.png"
+             'python-package.png'
            when /^python3-/
-             "python-package.png"
+             'python-package.png'
            when /^kernel-/
-             "kernel-package.png"
+             'kernel-package.png'
            when /^openstack-/i
-             "openstack-package.png"
+             'openstack-package.png'
            else
-             "package.png"
+             'package.png'
            end
     "default-screenshots/#{file}"
   end
