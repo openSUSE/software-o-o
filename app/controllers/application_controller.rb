@@ -18,16 +18,16 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  EXCEPTIONS_TO_IGNORE = [OBS::InvalidSearchTerm,
+                          ApiConnect::Error,
+                          ApplicationController::MissingParameterError,
+                          Timeout::Error].freeze
+
   rescue_from Exception do |exception|
     logger.error "Exception: #{exception.class}: #{exception.message}"
     @message = exception.message
     layout = request.xhr? ? false : 'application'
-    case exception
-    when OBS::InvalidSearchTerm
-    when ApiConnect::Error
-    when ApplicationController::MissingParameterError
-    when Timeout::Error
-    else
+    unless EXCEPTIONS_TO_IGNORE.include? exception
       logger.error exception.backtrace.join("\n")
     end
     render template: 'error', formats: [:html], layout: layout, status: 400
