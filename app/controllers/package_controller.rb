@@ -70,7 +70,8 @@ class PackageController < OBSController
     categories = (mapping.blank? ? [@category] : mapping.first[:categories])
 
     app_pkgs = @appdata[:apps].reject { |app| (app[:categories].map(&:downcase) & categories.map(&:downcase)).blank? }
-    @packagenames = app_pkgs.map { |p| p[:pkgname] }.uniq.sort_by { |x| @appdata[:apps].select { |a| a[:pkgname] == x }.first[:name] }
+    package_names_unsorted = app_pkgs.map { |p| p[:pkgname] }.uniq
+    @packagenames = package_names_unsorted.sort_by { |x| @appdata[:apps].select { |a| a[:pkgname] == x }.first[:name] }
 
     app_categories = app_pkgs.map { |p| p[:categories] }.flatten
     @related_categories = app_categories.uniq.map { |c| { name: c, weight: app_categories.select { |v| v == c }.size } }

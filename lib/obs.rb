@@ -231,7 +231,8 @@ module OBS
   def self.search_published_binary_fileinfo(binary)
     cache_key = ActiveSupport::Cache.expand_cache_key(binary, 'fileinfo')
     Rails.cache.fetch(cache_key, expires_in: 2.hours) do
-      OBS.client.get("/published/#{binary.project}/#{binary.repository}/#{binary.arch}/#{binary.filename}?view=fileinfo").body.fileinfo
+      url = "/published/#{binary.project}/#{binary.repository}/#{binary.arch}/#{binary.filename}?view=fileinfo"
+      OBS.client.get(url).body.fileinfo
     end
   end
 
@@ -244,11 +245,7 @@ module OBS
     Rails.cache.fetch(cache_key, expires_in: 2.hours) do
       xml_quality = OBS.client.get("/source/#{project}/_attribute/OBS:QualityCategory")
 
-      if xml_quality && xml_quality[:attribute]
-        xml_quality[:attribute][:text].strip
-      else
-        ''
-      end
+      xml_quality && xml_quality[:attribute] ? xml_quality[:attribute][:text].strip : ''
     end
   end
 end
