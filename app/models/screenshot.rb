@@ -35,7 +35,7 @@ class Screenshot
     # justify an agressive rescue. #open can produce the following
     # rescue Errno::ETIMEDOUT, Net::ReadTimeout, OpenURI::HTTPError => e
     # And also there is a chance of exception generating the thumbnail
-    rescue Exception => e
+    rescue Exception
       raise unless Rails.env.production?
 
       Rails.logger.error('No screenshot fetched for: ' + pkg_name)
