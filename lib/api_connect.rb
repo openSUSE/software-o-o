@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class ApiConnect
-  class Error < Exception; end
+  class Error < RuntimeError; end
 
   def self.get(path, limit = 10)
     config = Rails.configuration.x
     uri_str = "#{config.api_host}/#{path}".gsub(' ', '%20')
-    uri_str = path if path.match(/^http/)
+    uri_str = path if path =~ /^http/
     uri = URI.parse(uri_str)
     logger.debug "Loading from api: #{uri_str}"
     begin
@@ -23,18 +23,18 @@ class ApiConnect
       http.read_timeout = 15
       response = http.request(request)
       case response
-      when Net::HTTPSuccess then response;
+      when Net::HTTPSuccess then response
       when Net::HTTPRedirection
         if limit
           get(response['location'], limit - 1)
         else
-          raise Error.new "Recursive redirect"
+          raise Error, 'Recursive redirect'
         end
       else
-        raise Error.new "Response was: #{response} #{response.body}"
+        raise Error, "Response was: #{response} #{response.body}"
       end
     rescue Exception => e
-      raise Error.new "Error connecting to #{uri_str}: #{e}"
+      raise Error, "Error connecting to #{uri_str}: #{e}"
     end
   end
 

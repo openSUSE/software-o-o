@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require File.expand_path('../../test_helper', __FILE__)
+require File.expand_path('../test_helper', __dir__)
 
 class AppdataTest < ActiveSupport::TestCase
   test 'Factory Appdata can be parsed' do
@@ -9,7 +9,7 @@ class AppdataTest < ActiveSupport::TestCase
       pkg_list = appdata[:apps].map { |p| p[:pkgname] }.uniq
 
       assert_equal 689, pkg_list.size
-      ['0ad', '4pane', 'opera', 'steam'].each do |pkg|
+      %w[0ad 4pane opera steam].each do |pkg|
         assert_includes pkg_list, pkg
       end
     end

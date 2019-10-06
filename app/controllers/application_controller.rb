@@ -12,34 +12,34 @@ class ApplicationController < ActionController::Base
   before_action :set_external_urls
 
   helper :all # include all helpers, all the time
-  require "rexml/document"
+  require 'rexml/document'
 
-  class MissingParameterError < Exception; end
+  class MissingParameterError < RuntimeError; end
 
   protected
+
+  EXCEPTIONS_TO_IGNORE = [OBS::InvalidSearchTerm,
+                          ApiConnect::Error,
+                          ApplicationController::MissingParameterError,
+                          Timeout::Error].freeze
 
   rescue_from Exception do |exception|
     logger.error "Exception: #{exception.class}: #{exception.message}"
     @message = exception.message
-    layout = request.xhr? ? false : "application"
-    case exception
-    when OBS::InvalidSearchTerm
-    when ApiConnect::Error
-    when ApplicationController::MissingParameterError
-    when Timeout::Error
-    else
+    layout = request.xhr? ? false : 'application'
+    unless EXCEPTIONS_TO_IGNORE.include? exception
       logger.error exception.backtrace.join("\n")
     end
-    render :template => 'error', :formats => [:html], :layout => layout, :status => 400
+    render template: 'error', formats: [:html], layout: layout, status: 400
   end
 
   def validate_configuration
     config = Rails.configuration.x
-    layout = request.xhr? ? false : "application"
+    layout = request.xhr? ? false : 'application'
 
     if config.api_username.blank? && config.opensuse_cookie.blank?
-      @message = _("The authentication to the OBS API has not been configured correctly.")
-      render :template => 'error', :formats => [:html], :layout => layout, :status => 503
+      @message = _('The authentication to the OBS API has not been configured correctly.')
+      render template: 'error', formats: [:html], layout: layout, status: 503
     end
   end
 
@@ -65,14 +65,14 @@ class ApplicationController < ActionController::Base
           release['from'] = Time.parse(release['from'])
           release
         end
-      rescue => e
+      rescue StandardError => e
         Rails.logger.error "Error while parsing releases entry in #{RELEASES_FILE}: #{e}"
         next
       end.compact.sort_by do |release|
         -release['from'].to_i
       end
     end
-  rescue => e
+  rescue StandardError => e
     Rails.logger.error "Error while parsing releases file #{RELEASES_FILE}: #{e}"
     raise e
   end
@@ -96,6 +96,7 @@ class ApplicationController < ActionController::Base
               end
 
     return unless current
+
     @stable_version = current['stable_version']
     @testing_version = current['testing_version']
     @testing_state = current['testing_state']
@@ -104,7 +105,8 @@ class ApplicationController < ActionController::Base
 
   # special version of render json with JSONP capabilities (only needed for rails < 3.0)
   def render_json(json, options = {})
-    callback, variable = params[:callback], params[:variable]
+    callback = params[:callback]
+    variable = params[:variable]
     response = begin
       if callback && variable
         "var #{variable} = #{json};\n#{callback}(#{variable});"
@@ -116,7 +118,7 @@ class ApplicationController < ActionController::Base
         json
       end
     end
-    render({ :content_type => "application/javascript", :body => response }.merge(options))
+    render({ content_type: 'application/javascript', body: response }.merge(options))
   end
 
   def required_parameters(*parameters)
@@ -127,22 +129,22 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def valid_package_name? name
+  def valid_package_name?(name)
     name =~ /^[[:alnum:]][-+\w\.:\@]*$/
   end
 
-  def valid_pattern_name? name
+  def valid_pattern_name?(name)
     name =~ /^[[:alnum:]][-_+\w\.:]*$/
   end
 
-  def valid_project_name? name
+  def valid_project_name?(name)
     name =~ /^[[:alnum:]][-+\w.:]+$/
   end
 
   # TODO: atm obs only offers appdata for Factory
   def prepare_appdata
-    @appdata = Rails.cache.fetch("appdata", :expires_in => 12.hours) do
-      Appdata.get "factory"
+    @appdata = Rails.cache.fetch('appdata', expires_in: 12.hours) do
+      Appdata.get 'factory'
     end
   end
 

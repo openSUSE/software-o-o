@@ -71,22 +71,22 @@ module OBS
     exclude_debug = opts[:exclude_debug]
     exclude_filter = opts[:exclude_filter]
 
-    words = query.split(" ").reject { |part| part.match(/^[0-9_\.-]+$/) }
-    versrel = query.split(" ").select { |part| part.match(/^[0-9_\.-]+$/) }
+    words = query.split(' ').reject { |part| part.match(/^[0-9_\.-]+$/) }
+    versrel = query.split(' ').select { |part| part.match(/^[0-9_\.-]+$/) }
     Rails.logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
-    raise InvalidSearchTerm, "Please provide a valid search term" if words.blank? && versrel.blank?
-    raise InvalidSearchTerm, "The package name is required when searching for a version" if words.blank? && versrel.present?
+    raise InvalidSearchTerm, 'Please provide a valid search term' if words.blank? && versrel.blank?
+    raise InvalidSearchTerm, 'The package name is required when searching for a version' if words.blank? && versrel.present?
 
     xpath_items = []
     xpath_items << "@project = '#{project}' " unless project.blank?
-    substring_words = words.reject { |word| word.match(/^".+"$/) }.map { |word| "'#{word.gsub(/['"()]/, '')}'" }.join(", ")
-    xpath_items << "contains-ic(@name, " + substring_words + ")" unless substring_words.blank?
-    words.select { |word| word.match(/^".+"$/) }.map { |word| word.delete("\"") }.each do |word|
+    substring_words = words.reject { |word| word.match(/^".+"$/) }.map { |word| "'#{word.gsub(/['"()]/, '')}'" }.join(', ')
+    xpath_items << 'contains-ic(@name, ' + substring_words + ')' unless substring_words.blank?
+    words.select { |word| word.match(/^".+"$/) }.map { |word| word.delete('"') }.each do |word|
       xpath_items << "@name = '#{word.gsub(/['"()]/, '')}' "
     end
     xpath_items << "path/project='#{baseproject}'" unless baseproject.blank?
     xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" if !exclude_filter.blank? && project.blank?
-    xpath_items << versrel.map { |part| "starts-with(@versrel,'#{part}')" }.join(" and ") unless versrel.blank?
+    xpath_items << versrel.map { |part| "starts-with(@versrel,'#{part}')" }.join(' and ') unless versrel.blank?
     if exclude_debug
       xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " \
                      "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))"
@@ -229,9 +229,10 @@ module OBS
   #
   # @return [Fileinfo]
   def self.search_published_binary_fileinfo(binary)
-    cache_key = ActiveSupport::Cache.expand_cache_key(binary, "fileinfo")
+    cache_key = ActiveSupport::Cache.expand_cache_key(binary, 'fileinfo')
     Rails.cache.fetch(cache_key, expires_in: 2.hours) do
-      OBS.client.get("/published/#{binary.project}/#{binary.repository}/#{binary.arch}/#{binary.filename}?view=fileinfo").body.fileinfo
+      url = "/published/#{binary.project}/#{binary.repository}/#{binary.arch}/#{binary.filename}?view=fileinfo"
+      OBS.client.get(url).body.fileinfo
     end
   end
 
@@ -240,15 +241,11 @@ module OBS
   #
   # @return [String]
   def self.search_project_quality(project)
-    cache_key = ActiveSupport::Cache.expand_cache_key(project, "attribute")
+    cache_key = ActiveSupport::Cache.expand_cache_key(project, 'attribute')
     Rails.cache.fetch(cache_key, expires_in: 2.hours) do
       xml_quality = OBS.client.get("/source/#{project}/_attribute/OBS:QualityCategory")
 
-      if xml_quality && xml_quality[:attribute]
-        xml_quality[:attribute][:text].strip
-      else
-        ''
-      end
+      xml_quality && xml_quality[:attribute] ? xml_quality[:attribute][:text].strip : ''
     end
   end
 end

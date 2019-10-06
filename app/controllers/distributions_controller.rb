@@ -12,7 +12,7 @@ class DistributionsController < OBSController
   # GET /distributions/leap/(:version)
   def leap
     unless params[:version] || @stable_version
-      redirect_to root_url error: _("No stable release available")
+      redirect_to root_url error: _('No stable release available')
       return
     end
 
@@ -20,7 +20,7 @@ class DistributionsController < OBSController
     return if performed?
 
     @hide_search_box = true
-    @distro_type = "leap"
+    @distro_type = 'leap'
     begin
       @yaml_data = load_yaml(@version)
       render action: "leap-#{@version}", layout: 'download'
@@ -32,8 +32,8 @@ class DistributionsController < OBSController
   # GET /distributions/tumbleweed
   def tumbleweed
     @hide_search_box = true
-    @colour = "primary"
-    @distro_type = "tumbleweed"
+    @colour = 'primary'
+    @distro_type = 'tumbleweed'
     @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/tumbleweed.yml.erb")).result(binding))
     render layout: 'download'
   end
@@ -48,15 +48,15 @@ class DistributionsController < OBSController
     case parsed_version
     when nil, @stable_version
       stable_settings
-    when @testing_version, "testing"
+    when @testing_version, 'testing'
       unless @testing_version
-        redirect_to leap_distributions_url, flash: { error: _("No testing distribution available.") }
+        redirect_to leap_distributions_url, flash: { error: _('No testing distribution available.') }
         return
       end
       testing_settings
-    when @legacy_release, "legacy"
+    when @legacy_release, 'legacy'
       unless @legacy_release
-        redirect_to leap_distributions_url, flash: { error: _("No legacy distribution available.") }
+        redirect_to leap_distributions_url, flash: { error: _('No legacy distribution available.') }
         return
       end
       legacy_settings
@@ -70,18 +70,18 @@ class DistributionsController < OBSController
   end
 
   def legacy_settings
-    @colour = "success"
+    @colour = 'success'
     @version = @legacy_release
     flash.now[:notice] = _("There is a new version of openSUSE Leap <a href='#{leap_distributions_url}'>available</a>!")
   end
 
   def stable_settings
-    @colour = "success"
+    @colour = 'success'
     @version = @stable_version
   end
 
   def testing_settings
-    @colour = "dark"
+    @colour = 'dark'
     @version = @testing_version
   end
 end
