@@ -30,7 +30,9 @@ $(function() {
   });
 
   $ok.click(function() {
-    for (setting of ["search_devel", "search_lang", "search_debug"]) {
+    var settings = [ "search_devel", "search_lang", "search_debug" ];
+    for (var i = 0; i < Object.keys(settings).length; i++) {
+      setting = settings[i];
       var value = $settings_modal.find('[name="'+ setting +'"]').prop("checked");
       set_cookie(setting, value);
     }
