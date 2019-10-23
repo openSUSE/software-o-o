@@ -7,7 +7,7 @@ Ruby on Rails application powering
 
 We hope you'll get involved! Read our [Contributors' Guide](https://github.com/openSUSE/software-o-o/blob/master/CONTRIBUTING.md) for details.
 
-Please note that deployments are currently not fully automated. So please not that commits and accepted pull-requests might not be visible on the production website software.opensuse.org for weeks or in exceptional cases for months until the deployment was triggered manually.
+Please note that deployments are currently *not fully automated*. So please note that commits and accepted pull-requests might not be visible on the production website software.opensuse.org for weeks or in exceptional cases for months until the deployment was triggered manually.
 
 ## Installing dependencies in a (open)SUSE system
 
