@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DownloadController < ApplicationController
-  before_action :set_colors
+  before_action :set_colors, :hide_search_box
 
   # display documentation
   def doc; end
@@ -244,5 +244,9 @@ class DownloadController < ApplicationController
 
   def valid_color?(color)
     color =~ /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
+  end
+
+  def hide_search_box
+    @hide_search_box = true
   end
 end
