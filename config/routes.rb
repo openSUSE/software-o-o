@@ -21,15 +21,15 @@ SoftwareOO::Application.routes.draw do
   get 'images.xml', to: 'images#images'
 
   controller :package do
-    get 'package/:package' => :show, :constraints => { :package => /[-+\w\.:\@]+/ }
-    get 'package/thumbnail/:package.png' => :thumbnail, :constraints => { :package => /[-+\w\.:\@]+/ }
-    get 'package/screenshot/:package.png' => :screenshot, :constraints => { :package => /[-+\w\.:\@]+/ }
+    get 'package/:package', action: :show, constraints: { package: /[-+\w\.:\@]+/ }
+    get 'package/thumbnail/:package.png', action: :thumbnail, constraints: { package: /[-+\w\.:\@]+/ }
+    get 'package/screenshot/:package.png', action: :screenshot, constraints: { package: /[-+\w\.:\@]+/ }
 
-    get 'explore' => :explore
-    get 'packages' => :explore
-    get 'appstore' => :explore
-    get 'packages/:category' => :category, :constraints => { :category => /[\w\-\.: ]+/ }
-    get 'appstore/:category' => :category, :constraints => { :category => /[\w\-\.: ]+/ }
+    get 'explore', action: :explore
+    get 'packages', action: :explore
+    get 'appstore', action: :explore
+    get 'packages/:category', action: :category, constraints: { category: /[\w\-\.: ]+/ }
+    get 'appstore/:category', action: :category, constraints: { category: /[\w\-\.: ]+/ }
   end
 
   namespace 'download' do
