@@ -21,9 +21,9 @@ SoftwareOO::Application.routes.draw do
   get 'images.xml', to: 'images#images'
 
   controller :package do
-    get 'package/:package', action: :show, constraints: { package: /[-+\w\.:\@]+/ }
-    get 'package/thumbnail/:package.png', action: :thumbnail, constraints: { package: /[-+\w\.:\@]+/ }
-    get 'package/screenshot/:package.png', action: :screenshot, constraints: { package: /[-+\w\.:\@]+/ }
+    get 'package/:package', action: :show, constraints: { package: /[-+~\w\.:\@]+/ }
+    get 'package/thumbnail/:package.png', action: :thumbnail, constraints: { package: /[-+~\w\.:\@]+/ }
+    get 'package/screenshot/:package.png', action: :screenshot, constraints: { package: /[-+~\w\.:\@]+/ }
 
     get 'explore', action: :explore
     get 'packages', action: :explore
