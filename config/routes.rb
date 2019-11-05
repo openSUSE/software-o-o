@@ -33,8 +33,13 @@ SoftwareOO::Application.routes.draw do
   end
 
   namespace 'download' do
-    %w(doc appliance package pattern).each do |action|
-      get action
+    get 'appliance', constraints: ->(request) { request.params[:project].present? }
+    get 'package', constraints: ->(request) { request.params[:project].present? && request.params[:package].present? }
+    get 'pattern', constraints: ->(request) { request.params[:project].present? && request.params[:pattern].present? }
+
+    # Show documentation if contraints are not met
+    %w(doc appliance package pattern).each do |path|
+      get path, action: :doc
     end
   end
   get 'ymp/:project/:repository/:package.ymp', to: 'download#ymp_without_arch_and_version',

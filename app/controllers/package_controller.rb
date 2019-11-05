@@ -7,7 +7,6 @@ class PackageController < OBSController
   skip_before_action :set_language, :set_distributions, :set_baseproject, only: %i[thumbnail screenshot]
 
   def show
-    required_parameters :package
     @pkgname = params[:package]
     raise MissingParameterError, 'Invalid parameter package' unless valid_package_name? @pkgname
 
@@ -62,7 +61,6 @@ class PackageController < OBSController
   end
 
   def category
-    required_parameters :category
     @category = params[:category]
     raise MissingParameterError, 'Invalid parameter category' unless valid_package_name? @category
 
@@ -82,12 +80,10 @@ class PackageController < OBSController
   end
 
   def screenshot
-    required_parameters :package
     image params[:package], :screenshot
   end
 
   def thumbnail
-    required_parameters :package
     image params[:package], :thumbnail
   end
 

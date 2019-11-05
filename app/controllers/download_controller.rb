@@ -7,7 +7,6 @@ class DownloadController < ApplicationController
   def doc; end
 
   def appliance
-    required_parameters :project
     @project = params[:project]
     # TODO: no clear way to fetch appliances. we need a /search/published/appliance
 
@@ -44,8 +43,6 @@ class DownloadController < ApplicationController
   end
 
   def package
-    redirect_to(action: :doc) && return if !params[:project] && !params[:package]
-    required_parameters :project, :package
     @project = params[:project]
     @package = params[:package]
     escaped_prj = CGI.escape(@project)
@@ -84,7 +81,6 @@ class DownloadController < ApplicationController
   end
 
   def pattern
-    required_parameters :project, :pattern
     @project = params[:project]
     @pattern = params[:pattern]
 

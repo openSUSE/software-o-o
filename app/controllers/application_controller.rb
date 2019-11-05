@@ -121,14 +121,6 @@ class ApplicationController < ActionController::Base
     render({ content_type: 'application/javascript', body: response }.merge(options))
   end
 
-  def required_parameters(*parameters)
-    parameters.each do |parameter|
-      unless params.include? parameter.to_s
-        raise MissingParameterError, "Required Parameter #{parameter} missing"
-      end
-    end
-  end
-
   def valid_package_name?(name)
     name =~ /^[[:alnum:]][-+\w\.:\@]*$/
   end
