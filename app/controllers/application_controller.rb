@@ -122,7 +122,7 @@ class ApplicationController < ActionController::Base
   end
 
   def valid_package_name?(name)
-    name =~ /^[[:alnum:]][-+\w\.:\@]*$/
+    name =~ /^[[:alnum:]][-+~\w\.:\@]*$/
   end
 
   def valid_pattern_name?(name)
