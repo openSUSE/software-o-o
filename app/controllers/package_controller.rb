@@ -18,11 +18,11 @@ class PackageController < OBSController
       @packages = OBS.search_published_binary("\"#{@pkgname}\"")
       # only show rpms
       @packages.select! { |p| p.type != 'ymp' && p.quality != 'Private' }
-      @default_project_name = @distributions.select { |d| d[:project] == @baseproject }.first[:name]
-      @default_package = @packages.select { |s| s.project == "#{@baseproject}:Update" }.first ||
-                         @packages.select { |s| [@baseproject, "#{@baseproject}:NonFree"].include? s.project }.first
+      @default_project_name = @distributions.find { |d| d[:project] == @baseproject }[:name]
+      @default_package = @packages.find { |s| s.project == "#{@baseproject}:Update" } ||
+                         @packages.find { |s| [@baseproject, "#{@baseproject}:NonFree"].include? s.project }
 
-      pkg_appdata = @appdata[:apps].select { |app| app[:pkgname].casecmp(@pkgname).zero? }.first
+      pkg_appdata = @appdata[:apps].find { |app| app[:pkgname].casecmp(@pkgname).zero? }
       if pkg_appdata
         @name = pkg_appdata[:name]
         @appcategories = pkg_appdata[:categories]
@@ -69,10 +69,10 @@ class PackageController < OBSController
 
     app_pkgs = @appdata[:apps].reject { |app| (app[:categories].map(&:downcase) & categories.map(&:downcase)).blank? }
     package_names_unsorted = app_pkgs.map { |p| p[:pkgname] }.uniq
-    @packagenames = package_names_unsorted.sort_by { |x| @appdata[:apps].select { |a| a[:pkgname] == x }.first[:name] }
+    @packagenames = package_names_unsorted.sort_by { |x| @appdata[:apps].find { |a| a[:pkgname] == x }[:name] }
 
     app_categories = app_pkgs.map { |p| p[:categories] }.flatten
-    @related_categories = app_categories.uniq.map { |c| { name: c, weight: app_categories.select { |v| v == c }.size } }
+    @related_categories = app_categories.uniq.map { |c| { name: c, weight: app_categories.count { |v| v == c } } }
     @related_categories = @related_categories.sort_by { |c| c[:weight] }.reverse.reject { |c| categories.include? c[:name] }
     @related_categories = @related_categories.reject { |c| %w[GNOME KDE Qt GTK].include? c[:name] }
 
