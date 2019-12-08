@@ -1,7 +1,7 @@
 <% packages.flatten.sort_by(&:project).group_by(&:project).each do |result| %>
   <% if  result.first == distro[:project] || result.first == "#{distro[:project]}:NonFree"
     name = _("<b>official release</b>")
-  elsif result.first == "#{distro[:project]}:Update"
+  elsif result.first == "#{distro[:project]}:Update" || result.first == "#{distro[:project]}:NonFree:Update"
     name = _("<b>official update</b>")
   else
     name = shorten result.first, 40
