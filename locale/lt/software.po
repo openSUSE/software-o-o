@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: software-opensuse-org\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 11:33+0200\n"
-"PO-Revision-Date: 2019-03-04 13:03+0000\n"
+"PO-Revision-Date: 2019-12-30 22:55+0000\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.opensuse.org/projects/software-o-o/"
 "master/lt/>\n"
@@ -18,9 +18,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || n"
-"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
-"X-Generator: Weblate 3.3\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
+"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ../app/views/distributions/index.html.erb:62
 msgid ""
@@ -171,6 +171,7 @@ msgstr "Nepavyko prisijungti prie OBS. Šios svetainės galimybės ribotos."
 msgid ""
 "Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
 msgstr ""
+"Konteineris kaip paslaugos platforma, paremta Kubernetes ir openSUSE MicroOS."
 
 #: ../app/data/42.3.yml.erb:9 ../app/data/42.3.yml.erb:42
 #: ../app/data/42.3.yml.erb:68 ../app/data/15.0.yml.erb:9
@@ -385,9 +386,8 @@ msgstr ""
 "skaitykite %{checksums_help}"
 
 #: ../app/data/15.0.yml.erb:84 ../app/data/15.1.yml.erb:84
-#, fuzzy
 msgid "For running virtual machines in OpenStack"
-msgstr "Naudoti VMware virtualioje mašinoje"
+msgstr "OpenStack virtualioms mašinoms"
 
 #: ../app/data/15.0.yml.erb:73 ../app/data/15.1.yml.erb:73
 msgid "For running virtual machines in VMware"
@@ -428,7 +428,7 @@ msgstr "Visa dokumentacija"
 
 #: ../app/data/tumbleweed.yml.erb:149 ../app/data/tumbleweed.yml.erb:187
 msgid "GNOME LiveCD"
-msgstr "GNOME demonstracinis atvaizdis"
+msgstr "GNOME LiveCD"
 
 #: ../app/controllers/package_controller.rb:123
 msgid "Games"
@@ -545,7 +545,7 @@ msgstr "JeOS"
 
 #: ../app/data/tumbleweed.yml.erb:158 ../app/data/tumbleweed.yml.erb:196
 msgid "KDE LiveCD"
-msgstr "KDE demonstracinis atvaizdis"
+msgstr "KDE LiveCD"
 
 #: ../app/views/images/images.xml.erb:18
 msgid "Leap %s DVD"
@@ -658,9 +658,8 @@ msgstr "Įvairialypė terpė"
 #: ../app/controllers/package_controller.rb:129
 #: ../app/views/images/images.xml.erb:20 ../app/views/images/images.xml.erb:40
 #: ../app/views/images/images.xml.erb:95
-#, fuzzy
 msgid "Network"
-msgstr "Diegimui per tinklą"
+msgstr "Tinklas"
 
 #: ../app/data/42.3.yml.erb:21 ../app/data/42.3.yml.erb:52
 #: ../app/data/42.3.yml.erb:78 ../app/data/15.0.yml.erb:21
@@ -696,9 +695,8 @@ msgid "No downloads found for %s in project %s"
 msgstr "Nieko nerasta %s parsisiuntimui iš %s projekto"
 
 #: ../app/controllers/distributions_controller.rb:57
-#, fuzzy
 msgid "No legacy distribution available."
-msgstr "Senų platinamųjų paketų nėra"
+msgstr "Senų platinamųjų paketų nėra."
 
 #: ../app/views/search/_find_results.html.erb:12
 msgid "No packages found matching your search. "
@@ -919,7 +917,7 @@ msgstr ""
 
 #: ../app/controllers/application_controller.rb:42
 msgid "The authentication to the OBS API has not been configured correctly."
-msgstr ""
+msgstr "Prisijungimo prie OBS API konfigūracija netinkama."
 
 #: ../app/views/package/show.html.erb:113
 msgid ""
@@ -934,12 +932,11 @@ msgid "Then run the following as <strong>root</strong>"
 msgstr "Įvykdykite <strong>root</strong> teisėmis"
 
 #: ../app/controllers/distributions_controller.rb:73
-#, fuzzy
 msgid ""
 "There is a new version of openSUSE Leap <a "
 "href='#{leap_distributions_url}'>available</a>!"
 msgstr ""
-"Išleista <a href='/distributions/leap'>nauja</a> openSUSE Leap versija!"
+"Išleista <a href='#{leap_distributions_url}'>nauja</a> openSUSE Leap versija!"
 
 #: ../app/views/package/show.html.erb:41
 msgid "There is no official package available for %s"
@@ -963,13 +960,12 @@ msgstr ""
 "aparatine įranga, nors galėtų veikti „Tumbleweed“ diegiant įprastu būdu"
 
 #: ../app/data/tumbleweed.yml.erb:144
-#, fuzzy
 msgid ""
 "They should not be used to install or upgrade Tumbleweed. Please use the "
 "[Tumbleweed media](%{tw}) instead"
 msgstr ""
-"Jų negalite naudoti „Tumbleweed“ naujovinimui, kartais gali netikti netgi "
-"diegimui. Tam rinkitės [Tumbleweed media](%{tw})"
+"Jų negalite naudoti „Tumbleweed“ diegimui ir naujovinimui. Tam rinkitės ["
+"Tumbleweed media](%{tw})"
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
@@ -1017,11 +1013,11 @@ msgstr "Tumbleweed %s diegimas per tinklą (x86_64)"
 
 #: ../app/views/images/images.xml.erb:77
 msgid "Tumbleweed %s Rescue CD (i686)"
-msgstr ""
+msgstr "Tumbleweed %s avarinis CD (i686)"
 
 #: ../app/views/images/images.xml.erb:80
 msgid "Tumbleweed %s Rescue CD (x86_64)"
-msgstr ""
+msgstr "Tumbleweed %s avarinis CD (x86_64)"
 
 #: ../app/views/distributions/index.html.erb:56
 msgid ""
@@ -1074,9 +1070,8 @@ msgid "Wiki"
 msgstr "Vikis"
 
 #: ../app/data/tumbleweed.yml.erb:167 ../app/data/tumbleweed.yml.erb:205
-#, fuzzy
 msgid "XFCE LiveCD"
-msgstr "KDE demonstracinis atvaizdis"
+msgstr "XFCE LiveCD"
 
 #: ../app/views/download/package.erb:93
 msgid ""
@@ -1152,9 +1147,8 @@ msgstr "i586"
 
 #: ../app/views/images/images.xml.erb:56 ../app/views/images/images.xml.erb:66
 #: ../app/views/images/images.xml.erb:76
-#, fuzzy
 msgid "i686"
-msgstr "i586"
+msgstr "i686"
 
 #: ../app/views/distributions/index.html.erb:65
 msgid "lifetime"
@@ -1165,14 +1159,12 @@ msgid "openSUSE Leap"
 msgstr "„openSUSE Leap“"
 
 #: ../app/controllers/distributions_controller.rb:26
-#, fuzzy
 msgid "openSUSE Leap Version \"#{@version}\" is currently not availble."
-msgstr "„openSUSE Leap“"
+msgstr "openSUSE Leap \"#{@version}\" versija šiuo metu neprieinama."
 
 #: ../app/controllers/distributions_controller.rb:62
-#, fuzzy
 msgid "openSUSE Leap Version #{parsed_version} not found."
-msgstr "„openSUSE Leap“"
+msgstr "openSUSE Leap #{parsed_version} versija nerasta."
 
 #: ../app/views/layouts/application.html.erb:7
 msgid "openSUSE Software"
