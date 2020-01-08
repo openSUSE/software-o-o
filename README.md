@@ -75,7 +75,7 @@ bundle exec prometheus_exporter
 
 After this the prometheus metrics will be exported under `http://localhost:9394/metrics`.
 
-### Updaing opensuse-theme-chameleon assets 
+### Updating opensuse-theme-chameleon assets
 
 ```bash
 git submodule init

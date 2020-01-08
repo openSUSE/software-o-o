@@ -1,24 +1,24 @@
-FROM opensuse/leap:15.0
+FROM opensuse/leap:15.1
 ARG IMAGE_USERID
 
 # Update distro
-RUN zypper -q --non-interactive update 
+RUN zypper --quiet --non-interactive update
 
 # Install some system requirements
-RUN zypper -q --non-interactive install timezone vim aaa_base glibc-locale sudo nodejs
+RUN zypper --quiet --non-interactive install timezone vim aaa_base glibc-locale sudo nodejs
 
 # Install ruby
-RUN zypper -q --non-interactive install ruby2.5 ruby2.5-devel
+RUN zypper --quiet --non-interactive install ruby2.5 ruby2.5-devel
 
 # Setup gem & sudo
 RUN echo 'install: --no-format-executable' >> /etc/gemrc; \
 echo 'vagrant ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 # Install bundler
-RUN gem install bundler
+RUN gem install bundler:1.17.2
 
-# Install requirements for our rubygems 
-RUN zypper -q --non-interactive install sqlite3-devel gcc make libxml2-devel libxslt-devel
+# Install requirements for our rubygems
+RUN zypper --quiet --non-interactive install gcc make libxml2-devel libxslt-devel
 
 # Add our user
 RUN useradd -m vagrant  -u $IMAGE_USERID -p vagrant
