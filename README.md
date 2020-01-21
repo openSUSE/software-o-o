@@ -75,7 +75,7 @@ bundle exec prometheus_exporter
 
 After this the prometheus metrics will be exported under `http://localhost:9394/metrics`.
 
-### Updaing opensuse-theme-chameleon assets 
+### Updaing opensuse-theme-chameleon assets
 
 ```bash
 git submodule init
@@ -181,6 +181,8 @@ again. Happy hacking!
 ## Configuring openSUSE releases
 
 The file `config/releases.yml` is used by the `/distributions` end-point to render the right template (`leap-$version`).
+Please make sure that (`leap-$version`) has a corresponding template in both app/data/ and app/views/distribution/.
+These need to be created while specifying a new (`testing_version`).
 
 The variables `@testing_version`, `@stable_version` and `@legacy_version` will be set accordingly.
 `@version` will be set to the right version of the page you are displaying.
@@ -207,4 +209,3 @@ The variables `@testing_version`, `@stable_version` and `@legacy_version` will b
   stable_version: '42.2'
   legacy_version: '42.1'
 ```
-
