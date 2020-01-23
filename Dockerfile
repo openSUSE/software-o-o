@@ -18,7 +18,7 @@ echo 'vagrant ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 RUN gem install bundler
 
 # Install requirements for our rubygems 
-RUN zypper -q --non-interactive install sqlite3-devel gcc make libxml2-devel libxslt-devel
+RUN zypper -q --non-interactive install sqlite3-devel gcc gcc-c++ make libxml2-devel libxslt-devel
 
 # Add our user
 RUN useradd -m vagrant  -u $IMAGE_USERID -p vagrant
