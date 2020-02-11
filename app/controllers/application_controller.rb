@@ -61,10 +61,7 @@ class ApplicationController < ActionController::Base
   def load_releases
     Rails.cache.fetch('software-o-o/releases', expires_in: 10.minutes) do
       begin
-        YAML.load_file(RELEASES_FILE).map do |release|
-          release['from'] = Time.parse(release['from'])
-          release
-        end
+        YAML.load_file(RELEASES_FILE).sort_by { |r| -r['order'] }
       rescue StandardError => e
         Rails.logger.error "Error while parsing releases entry in #{RELEASES_FILE}: #{e}"
         next
@@ -84,23 +81,31 @@ class ApplicationController < ActionController::Base
     @legacy_release = nil
 
     # look for most current release
-    releases = load_releases
-    current = unless releases.empty?
-                now = Time.now
-                # drop all upcoming releases
-                upcoming = releases.reject do |release|
-                  release['from'] > now
-                end
-
-                upcoming.empty? ? releases.last : upcoming.first
-              end
-
-    return unless current
-
-    @stable_version = current['stable_version']
-    @testing_version = current['testing_version']
-    @testing_state = current['testing_state']
-    @legacy_release = current['legacy_version']
+    versions = load_releases
+    unless versions.empty?
+      now = Time.now
+      versions.each do |version|
+        version['releases'].reject! do |release|
+          release['date'] = Time.parse(release['date'])
+          release['date'] > now
+        end
+        # Get the latest release
+        latest = version['releases'].max_by { |k| k['date'] }
+        version['state'] = latest['state'] if latest
+      end
+      versions.reject! do |version|
+        version['releases'].empty?
+      end
+      if versions[0]['state'] == 'Stable'
+        @stable_version = versions[0]['version'].to_s
+        @legacy_release = versions[1]['version'].to_s
+      else
+        @testing_version = versions[0]['version'].to_s
+        @testing_state = versions[0]['state'].to_s
+        @stable_version = versions[1]['version'].to_s
+        @legacy_release = versions[2]['version'].to_s
+      end
+    end
   end
 
   # special version of render json with JSONP capabilities (only needed for rails < 3.0)

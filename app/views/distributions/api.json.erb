@@ -1,0 +1,11 @@
+{
+  "Leap": [
+    <% @leap_versions.try(:each) do |version| %>
+    {
+      "name": "openSUSE Leap",
+      "version": "<%= version['version'] %>",
+      "upgrade-weight": "<%= version['order'] %>"
+    }<%= ',' unless version == @leap_versions.last %>
+    <% end %>
+  ]
+}
