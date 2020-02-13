@@ -8,10 +8,6 @@ class DistributionsController < OBSController
     render layout: 'download'
   end
 
-  def api
-    @leap_versions = load_releases
-  end
-
   # A single action for all supported Leap releases.
   # GET /distributions/leap/(:version)
   def leap

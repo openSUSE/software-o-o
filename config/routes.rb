@@ -11,9 +11,10 @@ SoftwareOO::Application.routes.draw do
       get 'leap/ports', to: 'distributions#leap_ports'
       get 'testing', to: 'distributions#leap', version: 'testing'
       get 'legacy', to: 'distributions#leap', version: 'legacy'
-      get 'api', to: 'distributions#api', :defaults => { :format => 'json' }
     end
   end
+
+  get 'api/v0/distributions', to: 'api#distributions', :defaults => { :format => 'json' }
 
   resources :search, only: [:index] do
   end
