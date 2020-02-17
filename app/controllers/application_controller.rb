@@ -65,8 +65,6 @@ class ApplicationController < ActionController::Base
       rescue StandardError => e
         Rails.logger.error "Error while parsing releases entry in #{RELEASES_FILE}: #{e}"
         next
-      end.compact.sort_by do |release|
-        -release['from'].to_i
       end
     end
   rescue StandardError => e
@@ -106,6 +104,20 @@ class ApplicationController < ActionController::Base
         @legacy_release = versions[2]['version'].to_s
       end
     end
+  end
+
+  def load_snapshots
+    Rails.cache.fetch('software-o-o/snapshots', expires_in: 30.minutes) do
+      begin
+        Faraday.get('http://download.opensuse.org/history/list').body.split
+      rescue Faraday::Error::ClientError => e
+        Rails.logger.error "Error while parsing snapshots: #{e}"
+        next
+      end
+    end
+  rescue StandardError => e
+    Rails.logger.error "Error while parsing snapshots file #{RELEASES_FILE}: #{e}"
+    raise e
   end
 
   # special version of render json with JSONP capabilities (only needed for rails < 3.0)

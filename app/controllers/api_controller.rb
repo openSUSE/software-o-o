@@ -6,5 +6,6 @@ class ApiController < OBSController
   # GET /api/v0/distributions
   def distributions
     @leap_versions = load_releases
+    @tumbleweed_versions = load_snapshots
   end
 end

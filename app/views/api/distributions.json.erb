@@ -7,5 +7,14 @@
       "upgrade-weight": <%= version['order'] %>
     }<%= ',' unless version == @leap_versions.last %>
     <% end %>
+  ],
+  "Tumbleweed": [
+    <% @tumbleweed_versions.try(:each) do |version| %>
+    {
+      "name": "openSUSE Tumbleweed",
+      "version": "<%= version %>",
+      "upgrade-weight": <%= version %>
+    }<%= ',' unless version == @tumbleweed_versions.last %>
+    <% end %>
   ]
 }
