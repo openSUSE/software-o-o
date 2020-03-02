@@ -9,12 +9,12 @@ class DistributionsTest < ActionDispatch::IntegrationTest
         get '/distributions/leap'
         assert_includes body, 'openSUSE Leap 42.3'
         assert_includes body, 'Choosing Which Media to Download'
-        assert_match %r{assets\/distributions\/leap(.*)\.svg}, body
+        assert_match %r{assets\/distributions\/Leap(.*)\.svg}, body
         assert_equal 200, status
 
         get '/distributions/testing'
         assert_includes body, 'openSUSE Leap 15.0'
-        assert_match %r{assets\/distributions\/testing(.*)\.svg}, body
+        assert_match %r{assets\/distributions\/Testing(.*)\.svg}, body
 
         assert_equal 200, status
       end
@@ -28,7 +28,7 @@ class DistributionsTest < ActionDispatch::IntegrationTest
           get '/distributions/leap'
           assert_includes body, 'openSUSE Leap 15.0'
           assert_includes body, 'Choosing Which Media to Download'
-          assert_match %r{assets\/distributions\/leap(.*)\.svg}, body
+          assert_match %r{assets\/distributions\/Leap(.*)\.svg}, body
           assert_equal 200, status
 
           get '/distributions/testing'
@@ -44,7 +44,7 @@ class DistributionsTest < ActionDispatch::IntegrationTest
     VCR.use_cassette('default') do
       travel_to Time.parse('2018-05-25 11:00:00 UTC') do
         get '/distributions/leap/15_0'
-        assert_match %r{assets\/distributions\/testing(.*)\.svg}, body
+        assert_match %r{assets\/distributions\/Testing(.*)\.svg}, body
       end
     end
   end
@@ -54,7 +54,7 @@ class DistributionsTest < ActionDispatch::IntegrationTest
       travel_to Time.parse('2018-05-25 13:00:00 UTC') do
         Rails.cache.delete('software-o-o/releases')
         get '/distributions/leap/15_0'
-        assert_match %r{assets\/distributions\/leap(.*)\.svg}, body
+        assert_match %r{assets\/distributions\/Leap(.*)\.svg}, body
       end
     end
   end
@@ -64,7 +64,7 @@ class DistributionsTest < ActionDispatch::IntegrationTest
       travel_to Time.parse('2018-05-25 13:00:00 UTC') do
         Rails.cache.delete('software-o-o/releases')
         get '/distributions/leap/42_3'
-        assert_match %r{assets\/distributions\/leap(.*)\.svg}, body
+        assert_match %r{assets\/distributions\/Leap(.*)\.svg}, body
       end
     end
   end
@@ -74,7 +74,7 @@ class DistributionsTest < ActionDispatch::IntegrationTest
       travel_to Time.parse('2018-05-25 13:00:00 UTC') do
         Rails.cache.delete('software-o-o/releases')
         get '/distributions/leap/legacy'
-        assert_match %r{assets\/distributions\/leap(.*)\.svg}, body
+        assert_match %r{assets\/distributions\/Leap(.*)\.svg}, body
         assert_includes body, 'openSUSE Leap 42.3'
       end
     end
@@ -85,7 +85,7 @@ class DistributionsTest < ActionDispatch::IntegrationTest
       travel_to Time.parse('2019-05-01 13:00:00 UTC') do
         Rails.cache.delete('software-o-o/releases')
         get '/distributions/testing'
-        assert_match %r{assets\/distributions\/testing(.*)\.svg}, body
+        assert_match %r{assets\/distributions\/Testing(.*)\.svg}, body
         assert_includes body, 'openSUSE Leap 15.1'
       end
     end
