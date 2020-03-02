@@ -80,7 +80,7 @@ class DistributionsController < OBSController
 
   def per_leap_version_settings
     case parsed_version
-    when nil, @stable_versionswwe
+    when nil, @stable_version
       stable_settings
     when @testing_version, 'testing'
       unless @testing_version
