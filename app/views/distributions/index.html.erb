@@ -25,25 +25,25 @@
   <div class="container">
     <div class="row">
       <%= link_to tumbleweed_distributions_path, class: 'col bg-tumbleweed-tint text-white text-center' do %>
-        <%= image_tag 'distributions/tumbleweed-white.svg', alt: "Tumbleweed Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
+        <%= image_tag 'distributions/Tumbleweed-white.svg', alt: "Tumbleweed Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
         <h4>Tumbleweed</h4>
       <% end %>
       <%= link_to leap_distributions_path, class: 'col bg-leap-tint text-white text-center' do %>
-        <%= image_tag 'distributions/leap-white.svg', alt: "Leap Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
+        <%= image_tag 'distributions/Leap-white.svg', alt: "Leap Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
         <h4>Leap <%= @stable_version %></h4>
       <% end %>
       <% if @testing_version.present? %>
         <%= link_to testing_distributions_path, class: 'col bg-testing-tint text-white text-center' do %>
-          <%= image_tag 'distributions/testing-white.svg', alt: "MicroOS Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
+          <%= image_tag 'distributions/Testing-white.svg', alt: "MicroOS Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
           <h4>Leap <%= @testing_version %> (Testing)</h4>
         <% end %>
       <% end %>
       <%= link_to kubic_distributions_path, class: 'col bg-kubic-tint text-white text-center' do %>
-        <%= image_tag 'distributions/kubic-white.svg', alt: "Kubic Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
+        <%= image_tag 'distributions/Kubic-white.svg', alt: "Kubic Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
         <h4>Kubic</h4>
       <% end %>
       <%= link_to microos_distributions_path, class: 'col bg-microos-tint text-white text-center' do %>
-        <%= image_tag 'distributions/microos-white.svg', alt: "MicroOS Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
+        <%= image_tag 'distributions/MicroOS-white.svg', alt: "MicroOS Logo", class: "card-img-top animated bounceIn", width: "72", height: "72" %>
         <h4>MicroOS</h4>
       <% end %>
     </div>

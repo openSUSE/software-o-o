@@ -33,10 +33,10 @@ class DistributionsController < OBSController
     return if performed?
 
     @hide_search_box = true
-    @distro_type = 'leap'
+    @distro_type = 'Leap'
     begin
-      @yaml_data = load_yaml(@version)
-      render action: "leap-#{@version}", layout: 'download'
+      @yaml_data = load_yaml(@distro_type, @version)
+      render action: "distribution", layout: 'download'
     rescue Errno::ENOENT
       redirect_to leap_distributions_url, error: _("openSUSE Leap Version \"#{@version}\" is currently not availble.")
     end
@@ -45,42 +45,42 @@ class DistributionsController < OBSController
   # GET /distributions/tumbleweed
   def tumbleweed
     @hide_search_box = true
-    @colour = "primary"
-    @text = "black"
-    @distro_type = "tumbleweed"
-    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/tumbleweed.yml.erb")).result(binding))
-    render layout: 'download'
+    @bg_colour = 'primary'
+    @fg_colour = 'black'
+    @distro_type = 'Tumbleweed'
+    @yaml_data = load_yaml(@distro_type)
+    render action: "distribution", layout: 'download'
   end
 
   # GET /distributions/kubic
   def kubic
     @hide_search_box = true
-    @colour = "info"
-    @text = "black"
-    @distro_type = "kubic"
-    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/kubic.yml.erb")).result(binding))
-    render layout: 'download'
+    @bg_colour = 'info'
+    @fg_colour = 'black'
+    @distro_type = 'Kubic'
+    @yaml_data = load_yaml(@distro_type)
+    render action: "distribution", layout: 'download'
   end
 
   # GET /distributions/microos
   def microos
     @hide_search_box = true
-    @colour = "microos"
-    @text = "white"
-    @distro_type = "microos"
-    @yaml_data = YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/microos.yml.erb")).result(binding))
-    render layout: 'download'
+    @bg_colour = 'microos'
+    @fg_colour = 'white'
+    @distro_type = 'MicroOS'
+    @yaml_data = load_yaml(@distro_type)
+    render action: "distribution", layout: 'download'
   end
 
   private
 
-  def load_yaml(version)
-    YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/#{version}.yml.erb")).result(binding))
+  def load_yaml(type, version=nil)
+    YAML.safe_load(ERB.new(File.read("#{Rails.root}/app/data/#{version ? version : type}.yml.erb")).result(binding))
   end
 
   def per_leap_version_settings
     case parsed_version
-    when nil, @stable_version
+    when nil, @stable_versionswwe
       stable_settings
     when @testing_version, 'testing'
       unless @testing_version
@@ -104,21 +104,21 @@ class DistributionsController < OBSController
   end
 
   def legacy_settings
-    @colour = "warning"
-    @text = "black"
+    @bg_colour = 'warning'
+    @fg_colour = 'black'
     @version = @legacy_release
     flash.now[:notice] = _("There is a new version of openSUSE Leap <a href='#{leap_distributions_url}'>available</a>!")
   end
 
   def stable_settings
-    @colour = "warning"
-    @text = "black"
+    @bg_colour = 'warning'
+    @fg_colour = 'black'
     @version = @stable_version
   end
 
   def testing_settings
-    @colour = "dark"
-    @text = "white"
+    @bg_colour = 'dark'
+    @fg_colour = 'white'
     @version = @testing_version
   end
 end
