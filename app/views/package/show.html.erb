@@ -49,6 +49,13 @@
               <li class="list-inline-item"><%= _("Size") %> <%= number_to_human_size desc_package[:size] if desc_package %></li>
               <li class="list-inline-item"><%= @default_project_name %></li>
             </ul>
+            <% if @appid && @baseproject != "ALL" %>
+            <div>
+                <a id="appstream-button" class="btn" href="appstream://<%= @appid %>">
+                    <img class="typcn" src="<%= image_path('appstream-button1.svg') %>" width="177" height="51" alt="AppStream" />
+                </a>
+            </div>
+            <% end %>
             <a id="one-click-button" class="btn btn-lg btn-primary" href="<%= url %>">
               <span class="typcn typcn-flash-outline"></span>
               <%= _("Direct Install") %>

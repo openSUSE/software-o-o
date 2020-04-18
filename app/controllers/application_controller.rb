@@ -150,14 +150,40 @@ class ApplicationController < ActionController::Base
     name =~ /^[[:alnum:]][-+\w.:]+$/
   end
 
-  # TODO: atm obs only offers appdata for Factory
   def prepare_appdata
-    @appdata = Rails.cache.fetch('appdata', expires_in: 12.hours) do
-      Appdata.get 'factory'
-    end
+    @appdata = case @baseproject
+               when 'ALL'
+                 tw = tumbleweed_appdata
+                 stable = leap_appdata(@stable_version)
+                 testing = leap_appdata(@testing_version) if @testing_version
+                 legacy = leap_appdata(@legacy_release) if @legacy_release
+                 # Overwriting entries is okay, appdata is not used for
+                 # installation when @baseproject == 'ALL'
+                 tw.merge(stable, testing, legacy)
+               when 'openSUSE:Factory'
+                 tumbleweed_appdata
+               when "openSUSE:Leap:#{@stable_version}"
+                 leap_appdata(@stable_version)
+               when "openSUSE:Leap:#{@testing_version}"
+                 leap_appdata(@testing_version)
+               when "openSUSE:Leap:#{@legacy_release}"
+                 leap_appdata(@legacy_release)
+               end
   end
 
   private
+
+  def tumbleweed_appdata
+    Rails.cache.fetch('appdata/tumbleweed', expires_in: 12.hours) do
+      Appdata.get('factory')
+    end
+  end
+
+  def leap_appdata(version)
+    Rails.cache.fetch("appdata/leap#{version}", expires_in: 12.hours) do
+      Appdata.get("leap/#{version}")
+    end
+  end
 
   # set wiki and forum urls, which are different for each language
   def set_external_urls
