@@ -29,7 +29,7 @@
   - name: x86_64
     types:
     - name: KVM and XEN
-      short: <%= _("For use in KVM or XEN HVM hypervisors") %>
+      short: <%= _("For use in KVM or XEN hypervisors") %>
       primary_link: /distribution/leap/<%= @version %>/appliances/openSUSE-Leap-<%= @version %>-JeOS.x86_64-kvm-and-xen.qcow2
       links:
       - name: <%= _("Metalink") %>
@@ -38,16 +38,6 @@
         url: /distribution/leap/<%= @version %>/appliances/openSUSE-Leap-<%= @version %>-JeOS.x86_64-kvm-and-xen.qcow2?mirrorlist
       - name: <%= _("Checksum") %>
         url: /distribution/leap/<%= @version %>/appliances/openSUSE-Leap-<%= @version %>-JeOS.x86_64-kvm-and-xen.qcow2.sha256
-    - name: XEN
-      short: <%= _("For use in XEN PV hypervisors") %>
-      primary_link: /distribution/leap/<%= @version %>/appliances/openSUSE-Leap-<%= @version %>-JeOS.x86_64-XEN.qcow2
-      links:
-      - name: <%= _("Metalink") %>
-        url: /distribution/leap/<%= @version %>/appliances/openSUSE-Leap-<%= @version %>-JeOS.x86_64-XEN.qcow2.meta4
-      - name: <%= _("Pick Mirror") %>
-        url: /distribution/leap/<%= @version %>/appliances/openSUSE-Leap-<%= @version %>-JeOS.x86_64-XEN.qcow2?mirrorlist
-      - name: <%= _("Checksum") %>
-        url: /distribution/leap/<%= @version %>/appliances/openSUSE-Leap-<%= @version %>-JeOS.x86_64-XEN.qcow2.sha256
     - name: MS HyperV
       short: <%= _("For running virtual machines on MS HyperV") %>
       primary_link: /distribution/leap/<%= @version %>/appliances/openSUSE-Leap-<%= @version %>-JeOS.x86_64-MS-HyperV.vhdx.xz
