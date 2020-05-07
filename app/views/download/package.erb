@@ -49,19 +49,16 @@ Server = <%= v[:repo].gsub(/(\w):(\w)/, '\1:/\2') %>$arch
                   <h5><%= _("Then run the following as <strong>root</strong>") %></h5>
                   <pre>pacman -Syu
 pacman -S <%= repo_name %>/<%= @package %></pre>
-                  <% elsif v[:flavor] == "Ubuntu" %>
+                  <% elsif v[:flavor] == "Ubuntu" or v[:flavor] == "Debian" %>
                   <h5><%= (_("For <strong>%s</strong> run the following:") % k.gsub('_', '&nbsp;').html_safe).html_safe %></h5>
                   <h6><%= (_("Keep in mind that the owner of the key may distribute updates, packages and repositories that your system will trust (<a href=\"%s\">more information</a>).") % secure_apt_url).html_safe %></h6>
                   <pre><%=
                      # don't use apt-add-repository wrapper for Ubuntu for now, because it adds source repo which we don't provide
                      #        "apt-add-repository deb #{v[:repo]} /\napt-get update\napt-get install #{@package}"
-                     "sudo sh -c \"echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@project}.list\"\nwget -nv #{v[:repo]}Release.key -O Release.key\nsudo apt-key add - < Release.key\nsudo apt-get update\nsudo apt-get install #{@package}"
+                     "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' | sudo tee /etc/apt/sources.list.d/#{@project}.list\nsudo wget -nv #{v[:repo]}Release.key -O \"/etc/apt/trusted.gpg.d/#{@project}.asc\"\nsudo apt update\nsudo apt install #{@package}"
                      %></pre>
                   <% else %>
                   <h5><%= (_("For <strong>%s</strong> run the following as <strong>root</strong>:") % k.gsub('_', '&nbsp;').html_safe).html_safe %></h5>
-                  <% if v[:flavor] == "Debian" %>
-                  <h6><%= (_("Keep in mind that the owner of the key may distribute updates, packages and repositories that your system will trust (<a href=\"%s\">more information</a>).") % secure_apt_url).html_safe %></h6>
-                  <% end %>
                   <pre><%=
                      case v[:flavor]
                      when 'openSUSE', 'SLE'
@@ -79,7 +76,7 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
                        end
                      when 'CentOS', 'RHEL', 'SL'
                        "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
-                     when 'Debian', 'Univention'
+                     when 'Univention'
                        "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@project}.list\nwget -nv #{v[:repo]}Release.key -O Release.key\napt-key add - < Release.key\napt-get update\napt-get install #{@package}"
                      when 'Mageia', 'Mandriva'
                        version = k.split("_").last
@@ -112,7 +109,7 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
                      </button></a>
                      <% end %>
                   </div>
-                  
+
                   <% end %>
                   </div>
                </div>
