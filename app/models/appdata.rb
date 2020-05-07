@@ -42,7 +42,11 @@ class Appdata
                     index_url = "https://download.opensuse.org/tumbleweed/repo/#{flavour}/repodata/repomd.xml"
                     repomd = Nokogiri::XML(open(index_url))
                     repomd.remove_namespaces!
-                    href = repomd.xpath('/repomd/data[@type="appdata"]/location').attr('href').text
+                    href = if repomd.xpath('/repomd/data[@type="appdata"]/location').attr('href')
+                             repomd.xpath('/repomd/data[@type="appdata"]/location').attr('href').text
+                           else
+                             'none'
+                           end
                     "https://download.opensuse.org/tumbleweed/repo/#{flavour}/#{href}"
                   else
                     "https://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/suse/setup/descr/appdata.xml.gz"
