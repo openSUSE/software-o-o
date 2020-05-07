@@ -14,6 +14,8 @@ SoftwareOO::Application.routes.draw do
     end
   end
 
+  get 'api/v0/distributions', to: 'api#distributions', :defaults => { :format => 'json' }
+
   resources :search, only: [:index] do
   end
   get 'find', to: 'search#find', :format => false
