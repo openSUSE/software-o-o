@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2'
 # For appdata redirections (https -> http)
 gem 'open_uri_redirections'
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 
