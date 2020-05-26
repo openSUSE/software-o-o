@@ -48,6 +48,7 @@ class SearchController < OBSController
     end
     @packagenames = @packagenames.uniq
 
+    # rubocop:disable Style/GuardClause
     if @packagenames.size == 1
       redirect_to(controller: :package, action: :show, package: @packagenames.first, search_term: @search_term) && return
     elsif request.xhr?
@@ -56,6 +57,7 @@ class SearchController < OBSController
       render('find') && return
     end
   end
+  # rubocop:enable Style/GuardClause
 
   def find; end
 end
