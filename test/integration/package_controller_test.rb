@@ -13,7 +13,7 @@ class PackageControllerTest < ActionDispatch::IntegrationTest
   def test_thumbnail_unknown_package_returns_default_asset
     FileUtils.rm_f UNKNOWN_PACKAGE_THUMBNAIL
     VCR.use_cassette('default') do
-      get '/package/thumbnail/SupperFancyBrowser.png'
+      get '/package/thumbnail/SuperFancyBrowser.png'
       assert_response :redirect
       assert_match %r{/assets/default-screenshots/package(.*).png}, @response.redirect_url
     end
