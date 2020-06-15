@@ -55,7 +55,7 @@ pacman -S <%= repo_name %>/<%= @package %></pre>
                   <pre><%=
                      # don't use apt-add-repository wrapper for Ubuntu for now, because it adds source repo which we don't provide
                      #        "apt-add-repository deb #{v[:repo]} /\napt-get update\napt-get install #{@package}"
-                     "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' | sudo tee /etc/apt/sources.list.d/#{@project}.list\nsudo wget -nv #{v[:repo]}Release.key -O \"/etc/apt/trusted.gpg.d/#{@project}.asc\"\nsudo apt update\nsudo apt install #{@package}"
+                     "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' | sudo tee /etc/apt/sources.list.d/#{@project}.list\ncurl -fsSL #{v[:repo]}Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/#{@project}.gpg > /dev/null\nsudo apt update\nsudo apt install #{@package}"
                      %></pre>
                   <% else %>
                   <h5><%= (_("For <strong>%s</strong> run the following as <strong>root</strong>:") % k.gsub('_', '&nbsp;').html_safe).html_safe %></h5>
