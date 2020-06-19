@@ -6,7 +6,7 @@ class ApiConnect
   def self.get(path, limit = 10)
     config = Rails.configuration.x
     uri_str = "#{config.api_host}/#{path}".gsub(' ', '%20')
-    uri_str = path if path =~ /^http/
+    uri_str = path if /^http/.match?(path)
     uri = URI.parse(uri_str)
     logger.debug "Loading from api: #{uri_str}"
     begin

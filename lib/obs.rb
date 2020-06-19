@@ -173,18 +173,18 @@ module OBS
   def self.add_binary_relevance(binary, query)
     quoted_query = Regexp.quote(query)
     binary.relevance = 0
-    binary.relevance += 15 if binary.name =~ /^#{quoted_query}$/i
-    binary.relevance += 5 if binary.name =~ /^#{quoted_query}/i
-    binary.relevance += 15 if binary.project =~ /^openSUSE:/i
-    binary.relevance += 5 if binary.project =~ /^#{quoted_query}$/i
-    binary.relevance += 2 if binary.project =~ /^#{quoted_query}/i
-    binary.relevance -= 5 if binary.project =~ /unstable/i
-    binary.relevance -= 10 if binary.project =~ /^home:/
-    binary.relevance -= 20 if binary.project =~ /^openSUSE:Maintenance/i
-    binary.relevance -= 10 if binary.name =~ /-debugsource$/
-    binary.relevance -= 10 if binary.name =~ /-debuginfo$/
-    binary.relevance -= 3 if binary.name =~ /-devel$/
-    binary.relevance -= 3 if binary.name =~ /-doc$/
+    binary.relevance += 15 if /^#{quoted_query}$/i.match?(binary.name)
+    binary.relevance += 5 if /^#{quoted_query}/i.match?(binary.name)
+    binary.relevance += 15 if /^openSUSE:/i.match?(binary.project)
+    binary.relevance += 5 if /^#{quoted_query}$/i.match?(binary.project)
+    binary.relevance += 2 if /^#{quoted_query}/i.match?(binary.project)
+    binary.relevance -= 5 if /unstable/i.match?(binary.project)
+    binary.relevance -= 10 if /^home:/.match?(binary.project)
+    binary.relevance -= 20 if /^openSUSE:Maintenance/i.match?(binary.project)
+    binary.relevance -= 10 if /-debugsource$/.match?(binary.name)
+    binary.relevance -= 10 if /-debuginfo$/.match?(binary.name)
+    binary.relevance -= 3 if /-devel$/.match?(binary.name)
+    binary.relevance -= 3 if /-doc$/.match?(binary.name)
     binary
   end
 
