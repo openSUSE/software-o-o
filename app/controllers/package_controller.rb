@@ -4,7 +4,7 @@ class PackageController < OBSController
   before_action :set_search_options, only: %i[show categories]
   before_action :prepare_appdata, :set_categories, only: %i[show explore category thumbnail screenshot]
 
-  skip_before_action :set_language, :set_distributions, :set_baseproject, only: %i[thumbnail screenshot]
+  skip_before_action :set_language, only: %i[thumbnail screenshot]
 
   def show
     @pkgname = params[:package]
@@ -29,6 +29,7 @@ class PackageController < OBSController
         @name = pkg_appdata[:name]
         @appcategories = pkg_appdata[:categories]
         @homepage = pkg_appdata[:homepage]
+        @appid = pkg_appdata[:id]
       end
 
       @screenshot = url_for controller: :package, action: :screenshot, package: @pkgname, protocol: request.protocol
@@ -120,7 +121,7 @@ class PackageController < OBSController
     redirect_to url
   end
 
-  # See https://specifications.freedesktop.org/menu-spec/1.0/apa.html
+  # See https://specifications.freedesktop.org/menu-spec/menu-spec-latest.html
   def set_categories
     @main_sections = [
       { name: _('Games'), id: 'Games', icon: 'puzzle-outline', categories: ['Game'] },
