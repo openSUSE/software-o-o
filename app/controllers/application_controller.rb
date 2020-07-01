@@ -155,11 +155,11 @@ class ApplicationController < ActionController::Base
                when 'ALL'
                  tw = tumbleweed_appdata
                  stable = leap_appdata(@stable_version)
-                 testing = leap_appdata(@testing_version) if @testing_version
-                 legacy = leap_appdata(@legacy_release) if @legacy_release
+                 testing = @testing_version ? leap_appdata(@testing_version) : {}
+                 legacy = @legacy_release ? leap_appdata(@legacy_release) : {}
                  # Overwriting entries is okay, appdata is not used for
                  # installation when @baseproject == 'ALL'
-                 tw.merge(stable, testing, legacy)
+                 tw.merge(stable).merge(testing).merge(legacy)
                when 'openSUSE:Factory'
                  tumbleweed_appdata
                when "openSUSE:Leap:#{@stable_version}"
