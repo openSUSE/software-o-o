@@ -8,8 +8,8 @@ class AppdataTest < ActiveSupport::TestCase
       appdata = Appdata.get('factory')
       pkg_list = appdata[:apps].map { |p| p[:pkgname] }.uniq
 
-      assert_equal 736, pkg_list.size
-      %w[0ad 4pane opera steam].each do |pkg|
+      assert_equal 739, pkg_list.size
+      %w[4pane opera steam].each do |pkg|
         assert_includes pkg_list, pkg
       end
     end
