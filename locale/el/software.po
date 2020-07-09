@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Greek (software-o-o)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 11:33+0200\n"
-"PO-Revision-Date: 2020-05-26 14:40+0000\n"
+"PO-Revision-Date: 2020-07-14 12:36+0000\n"
 "Last-Translator: Efstathios Iosifidis <eiosifidis@gmail.com>\n"
 "Language-Team: Greek <https://l10n.opensuse.org/projects/software-o-o/master/"
 "el/>\n"
@@ -169,6 +169,7 @@ msgstr ""
 msgid ""
 "Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
 msgstr ""
+"Ο Περιέκτης ως Υπηρεσία βασισμένη σε Kubernetes πάνω σε openSUSE MicroOS."
 
 #: ../app/data/42.3.yml.erb:9 ../app/data/42.3.yml.erb:42
 #: ../app/data/42.3.yml.erb:68 ../app/data/15.0.yml.erb:9
@@ -356,16 +357,13 @@ msgstr "Για DVD και USB"
 #: ../app/views/distributions/index.html.erb:11
 msgid "For Developers, openSUSE Contributors, and Linux/FOSS Enthusiasts."
 msgstr ""
-"Η Tumbleweed συνίσταται για <strong>προγραμματιστές</strong>, <strong>"
-"συνεισφέροντες στο openSUSE</strong>, και <strong>λάτρεις του Linux/"
-"ΕΛΛΑΚ</strong>."
+"Για προγραμματιστές, συνεισφέροντες στο openSUSE και λάτρεις του Linux/ΕΛΛΑΚ."
 
 #: ../app/views/distributions/index.html.erb:28
 msgid "For Sysadmins, Enterprise Developers, and ‘Regular’ Desktop Users."
 msgstr ""
-"Η Leap συνίσταται για τους <strong>διαχειριστές συστήματος</strong>, <strong>"
-"εταιρικούς προγραμματιστές</strong>, και <strong>τελικούς χρήστες "
-"υπολογιστών</strong>."
+"Για διαχειριστές συστήματος, εταιρικούς προγραμματιστές, και τελικούς "
+"χρήστες υπολογιστών."
 
 #: ../app/views/distributions/_verify_download.html.erb:13
 msgid ""
@@ -559,7 +557,7 @@ msgstr "Leap %s DVD"
 
 #: ../app/views/images/images.xml.erb:93
 msgid "Leap %s DVD (Build %s)"
-msgstr ""
+msgstr "Leap %s DVD (Έκδοση %s)"
 
 # dialog title for nfs installation
 #: ../app/views/images/images.xml.erb:21
@@ -569,7 +567,7 @@ msgstr "Εγκατάσταση από το δίκτυο Leap %s"
 # dialog title for nfs installation
 #: ../app/views/images/images.xml.erb:97
 msgid "Leap %s Network Installation (Build %s)"
-msgstr "Εγκατάσταση NFS"
+msgstr "Leap %s Εγκατάσταση από το δίκτυο (Έκδοση %s)"
 
 #: ../app/views/distributions/index.html.erb:73
 msgid ""
@@ -602,7 +600,7 @@ msgstr "Άδεια χρήσης"
 #: ../app/views/images/images.xml.erb:52 ../app/data/15.0.yml.erb:94
 #: ../app/data/15.1.yml.erb:94 ../app/data/tumbleweed.yml.erb:139
 msgid "Live"
-msgstr "Live KDE"
+msgstr "Live"
 
 #: ../app/views/layouts/_footer.html.erb:30
 msgid "Mail lists"
@@ -703,7 +701,7 @@ msgstr "Δεν βρέθηκαν λήψεις για %s στο έργο %s"
 
 #: ../app/controllers/distributions_controller.rb:57
 msgid "No legacy distribution available."
-msgstr "Δεν υπάρχει διαθέσιμη δοκιμαστική διανομή."
+msgstr "Δεν υπάρχει διαθέσιμη διανομή legacy."
 
 #: ../app/views/search/_find_results.html.erb:12
 msgid "No packages found matching your search. "
@@ -783,17 +781,19 @@ msgstr "Πλανήτης"
 
 #: ../app/data/tumbleweed.yml.erb:142
 msgid "Please be aware of the following limitations of the live images:"
-msgstr "Λάβετε υπόψη τους ακόλουθους περιορισμούς των live εικόνων:"
+msgstr "Παρακαλούμε λάβετε υπόψη τους ακόλουθους περιορισμούς των live εικόνων:"
 
 #: ../app/data/15.0.yml.erb:131 ../app/data/15.1.yml.erb:131
 msgid "Ports"
-msgstr "θύρες"
+msgstr "Εκδόσεις"
 
 #: ../app/data/15.0.yml.erb:132 ../app/data/15.1.yml.erb:132
 msgid ""
 "Ports of openSUSE Leap to architectures other than the PC are maintained by "
 "separate community teams, with limited resources."
 msgstr ""
+"Οι εκδόσεις της openSUSE Leap σε αρχιτεκτονικές εκτός PC συντηρούνται από "
+"ξεχωριστές ομάδες κοινότητας, με περιορισμένους πόρους."
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
@@ -813,7 +813,7 @@ msgstr "Σύστημα Διάσωσης"
 
 #: ../app/data/tumbleweed.yml.erb:176 ../app/data/tumbleweed.yml.erb:214
 msgid "Rescue LiveCD"
-msgstr "Σύστημα Διάσωσης"
+msgstr "LiveCD Σύστημα Διάσωσης"
 
 #: ../app/views/distributions/index.html.erb:69
 msgid "SUSE Linux Enterprise"
@@ -850,7 +850,7 @@ msgstr "Προβολή"
 
 #: ../app/views/package/show.html.erb:64
 msgid "Show %s for other distributions"
-msgstr "Εμφάνιση περισσότερων πακέτων για μη υποστηριζόμενες διανομές"
+msgstr "Εμφάνιση %s για άλλες διανομές"
 
 #: ../app/views/package/show.html.erb:95
 msgid "Show community packages"
@@ -941,7 +941,9 @@ msgstr "Μετά εκτελέστε την παρακάτω ως χρήστης 
 msgid ""
 "There is a new version of openSUSE Leap <a "
 "href='#{leap_distributions_url}'>available</a>!"
-msgstr "openSUSE Leap"
+msgstr ""
+"Υπάρχει <a href='#{leap_distributions_url}'>διαθέσιμη</a> μια νέα έκδοση "
+"openSUSE Leap!"
 
 #: ../app/views/package/show.html.erb:41
 msgid "There is no official package available for %s"
@@ -961,9 +963,9 @@ msgid ""
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not"
 msgstr ""
-"Έχουν περιορισμένη επιλογή πακέτου/οδηγού, οπότε δεν μπορεί να θεωρηθεί "
-"ακριβής προβληματισμός σχετικά με το εάν το Tumbleweed θα λειτουργήσει με το "
-"υλικό σας ή όχι."
+"Έχουν περιορισμένη επιλογή πακέτου και οδηγού, οπότε δεν μπορεί να θεωρηθεί "
+"ακριβής είδωλο σχετικά με το εάν το Tumbleweed θα λειτουργήσει με το υλικό "
+"σας ή όχι."
 
 #: ../app/data/tumbleweed.yml.erb:144
 msgid ""
@@ -1015,7 +1017,7 @@ msgstr "Εγκατάσταση Tumbleweed %s (i586) μέσω δικτύου"
 # dialog title for nfs installation
 #: ../app/views/images/images.xml.erb:46
 msgid "Tumbleweed %s Network Installation (x86_64)"
-msgstr "Εγκατάσταση NFS"
+msgstr "Tumbleweed %s Εγκατάσταση μέσω δικτύου (x86_64)"
 
 #: ../app/views/images/images.xml.erb:77
 msgid "Tumbleweed %s Rescue CD (i686)"
@@ -1166,11 +1168,12 @@ msgstr "openSUSE Leap"
 
 #: ../app/controllers/distributions_controller.rb:26
 msgid "openSUSE Leap Version \"#{@version}\" is currently not availble."
-msgstr "openSUSE Leap"
+msgstr ""
+"Η openSUSE Leap έκδοση \"#{@version}\", προς το παρόν δεν είναι διαθέσιμη."
 
 #: ../app/controllers/distributions_controller.rb:62
 msgid "openSUSE Leap Version #{parsed_version} not found."
-msgstr "openSUSE Leap"
+msgstr "Η openSUSE Leap έκδοση #{parsed_version}, δεν βρέθηκε."
 
 #: ../app/views/layouts/application.html.erb:7
 msgid "openSUSE Software"
