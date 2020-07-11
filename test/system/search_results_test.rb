@@ -14,7 +14,7 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
       # if this ever changes, uncomment the next line
       # page.click_on 'Settings'
       within '#baseproject' do
-        find('option[value="openSUSE:Leap:15.1"]').click
+        find('option[value="openSUSE:Leap:15.2"]').click
       end
       page.fill_in 'q', with: 'nvidia'
       page.find(:css, 'button#search-button').click
@@ -30,7 +30,7 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
       # if this ever changes, uncomment the next line
       # page.click_on 'Settings'
       within '#baseproject' do
-        find('option[value="openSUSE:Leap:15.1"]').click
+        find('option[value="openSUSE:Leap:15.2"]').click
       end
 
       page.fill_in 'q', with: 'paralapapiricoipi'
@@ -47,7 +47,7 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
       # if this ever changes, uncomment the next line
       # page.click_on 'Settings'
       within '#baseproject' do
-        find('option[value="openSUSE:Leap:15.1"]').click
+        find('option[value="openSUSE:Leap:15.2"]').click
       end
 
       page.fill_in 'q', with: '1'
@@ -64,7 +64,7 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
       # if this ever changes, uncomment the next line
       # page.click_on 'Settings'
       within '#baseproject' do
-        find('option[value="openSUSE:Leap:15.1"]').click
+        find('option[value="openSUSE:Leap:15.2"]').click
       end
 
       page.fill_in 'q', with: ''
