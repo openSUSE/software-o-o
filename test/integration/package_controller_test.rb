@@ -31,6 +31,17 @@ class PackageControllerTest < ActionDispatch::IntegrationTest
     FileUtils.rm_f PKG_4PANE_THUMBNAIL
   end
 
+  def test_thumbnail_not_downloaded_downloads_it
+    FileUtils.rm_f PKG_4PANE_THUMBNAIL
+    VCR.use_cassette('default') do
+      get '/package/thumbnail/4pane.png'
+      assert_redirected_to '/images/thumbnails/4pane.png'
+      assert File.exist?(PKG_4PANE_THUMBNAIL)
+    end
+  ensure
+    FileUtils.rm_f PKG_4PANE_THUMBNAIL
+  end
+
   def test_thumbnail_failed_download_uses_default_image
     VCR.use_cassette('default') do
       stub_request(:any, 'http://www.4Pane.co.uk/4Pane624x351.png')
