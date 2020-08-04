@@ -1,7 +1,7 @@
 defaults: &defaults
   api_host: https://api.opensuse.org
-  api_username: wiki_hermes
-  api_password: w_h_p1
+  api_username: <%= ENV['API_USERNAME'] %>
+  api_password: <%= ENV['API_PASSWORD'] %>
   relative_url_root:
 development:
   <<: *defaults

@@ -8,19 +8,19 @@ class AppdataTest < ActiveSupport::TestCase
       appdata = Appdata.get('factory')
       pkg_list = appdata[:apps].map { |p| p[:pkgname] }.uniq
 
-      assert_equal 739, pkg_list.size
-      %w[0ad 4pane opera steam].each do |pkg|
+      assert_equal 736, pkg_list.size
+      %w[4pane opera steam].each do |pkg|
         assert_includes pkg_list, pkg
       end
     end
   end
 
-  test 'Leap 15.1 Appdata can be parsed' do
+  test 'Leap 15.2 Appdata can be parsed' do
     VCR.use_cassette('default') do
-      appdata = Appdata.get('leap/15.1')
+      appdata = Appdata.get('leap/15.2')
       pkg_list = appdata[:apps].map { |p| p[:pkgname] }.uniq
 
-      assert_equal 631, pkg_list.size
+      assert_equal 733, pkg_list.size
       %w[0ad 4pane steam].each do |pkg|
         assert_includes pkg_list, pkg
       end
