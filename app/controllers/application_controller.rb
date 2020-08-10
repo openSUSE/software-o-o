@@ -60,12 +60,10 @@ class ApplicationController < ActionController::Base
 
   def load_releases
     Rails.cache.fetch('software-o-o/releases', expires_in: 10.minutes) do
-      begin
-        YAML.load_file(RELEASES_FILE).sort_by { |r| -r['order'] }
-      rescue StandardError => e
-        Rails.logger.error "Error while parsing releases entry in #{RELEASES_FILE}: #{e}"
-        next
-      end
+      YAML.load_file(RELEASES_FILE).sort_by { |r| -r['order'] }
+    rescue StandardError => e
+      Rails.logger.error "Error while parsing releases entry in #{RELEASES_FILE}: #{e}"
+      next
     end
   rescue StandardError => e
     Rails.logger.error "Error while parsing releases file #{RELEASES_FILE}: #{e}"
@@ -108,12 +106,10 @@ class ApplicationController < ActionController::Base
 
   def load_snapshots
     Rails.cache.fetch('software-o-o/snapshots', expires_in: 30.minutes) do
-      begin
-        Faraday.get('http://download.opensuse.org/history/list').body.split
-      rescue Faraday::Error::ClientError => e
-        Rails.logger.error "Error while parsing snapshots: #{e}"
-        next
-      end
+      Faraday.get('http://download.opensuse.org/history/list').body.split
+    rescue Faraday::Error::ClientError => e
+      Rails.logger.error "Error while parsing snapshots: #{e}"
+      next
     end
   rescue StandardError => e
     Rails.logger.error "Error while parsing snapshots file #{RELEASES_FILE}: #{e}"

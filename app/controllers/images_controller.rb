@@ -20,15 +20,13 @@ class ImagesController < ApplicationController
   def get_version(url, regex)
     abs_url = @base_url + url
     Rails.cache.fetch("/build_number/#{abs_url}", expires_in: 10.minutes) do
-      begin
-        meta = meta_file(abs_url)
-        name_elem = meta.xpath('//m:metalink//m:file//@name', 'm' => 'urn:ietf:params:xml:ns:metalink').to_s
-        matches = regex.match(name_elem.to_s)
-        matches[1]
-      rescue OpenURI::HTTPError, RuntimeError => e
-        filename = File.basename(URI.parse(abs_url).path)
-        raise MetadataError, "Could not get version of #{filename}: #{e}"
-      end
+      meta = meta_file(abs_url)
+      name_elem = meta.xpath('//m:metalink//m:file//@name', 'm' => 'urn:ietf:params:xml:ns:metalink').to_s
+      matches = regex.match(name_elem.to_s)
+      matches[1]
+    rescue OpenURI::HTTPError, RuntimeError => e
+      filename = File.basename(URI.parse(abs_url).path)
+      raise MetadataError, "Could not get version of #{filename}: #{e}"
     end
   end
 
@@ -51,15 +49,13 @@ class ImagesController < ApplicationController
   # Returns the content size of url
   def content_size(url)
     Rails.cache.fetch("/content_size/#{url}", expires_in: 10.minutes) do
-      begin
-        meta = meta_file(url)
-        size_text = meta.xpath('//m:metalink//m:file//m:size[1]//text()', 'm' => 'urn:ietf:params:xml:ns:metalink')
-        size = Integer(size_text.to_s)
-        size
-      rescue OpenURI::HTTPError, RuntimeError
-        # This is actualy gibibytes, not gigabytes
-        return 5.gigabytes
-      end
+      meta = meta_file(url)
+      size_text = meta.xpath('//m:metalink//m:file//m:size[1]//text()', 'm' => 'urn:ietf:params:xml:ns:metalink')
+      size = Integer(size_text.to_s)
+      size
+    rescue OpenURI::HTTPError, RuntimeError
+      # This is actualy gibibytes, not gigabytes
+      return 5.gigabytes
     end
   end
 
