@@ -82,7 +82,7 @@ class ApplicationController < ActionController::Base
       now = Time.now
       versions.each do |version|
         version['releases'].reject! do |release|
-          release['date'] = Time.parse(release['date'])
+          release['date'] = Time.parse(release['date']) unless release['date']
           release['date'] > now
         end
         # Get the latest release
