@@ -171,13 +171,13 @@ class ApplicationController < ActionController::Base
 
   def tumbleweed_appdata
     Rails.cache.fetch('appdata/tumbleweed', expires_in: 12.hours) do
-      Appdata.get('factory')
+      Appdata.new('tumbleweed').data
     end
   end
 
   def leap_appdata(version)
     Rails.cache.fetch("appdata/leap#{version}", expires_in: 12.hours) do
-      Appdata.get("leap/#{version}")
+      Appdata.new("leap/#{version}").data
     end
   end
 
