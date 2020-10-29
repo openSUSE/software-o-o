@@ -164,6 +164,8 @@ class ApplicationController < ActionController::Base
                  leap_appdata(@testing_version)
                when "openSUSE:Leap:#{@legacy_release}"
                  leap_appdata(@legacy_release)
+               else
+                 { apps: [], categories: Set.new }
                end
   end
 
