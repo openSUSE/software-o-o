@@ -21,10 +21,10 @@
   </div>
   <div class="border-bottom" role="tablist">
     <ul class="container nav nav-tabs nav-justified border-0">
-      <% @yaml_data.try(:each) do |tab| %>
+      <% @yaml_data.try(:each_with_index) do |tab, index| %>
 
       <li class="nav-item">
-        <a class="nav-link h-100<% if @yaml_data[0]["name"] == tab["name"] %> active<% end %>" data-toggle="tab" href="#<%= tab["name"] %>-ports" role="tab">
+        <a class="nav-link h-100<% if index == 0 %> active<% end %>" data-toggle="tab" href="#tab-<%= index %>" role="tab">
           <%= _(tab["name"]) %>
           <div class="text-nowrap">
             <% tab["arches"].try(:each) do |arch| %>
@@ -41,8 +41,8 @@
 <section class="mb-5">
   <div class="container">
     <div class="tab-content">
-      <% @yaml_data.try(:each) do |tab| %>
-      <div class="tab-pane <% if @yaml_data[0]["name"] == tab["name"] %>active<% end %>" id="<%= tab["name"] %>-ports" role="tabpanel">
+      <% @yaml_data.try(:each_with_index) do |tab, index| %>
+      <div class="tab-pane <% if index == 0 %>active<% end %>" id="tab-<%= index %>" role="tabpanel">
         <% if tab["info"] %>
           <div class="alert alert-<%= tab["info-colour"] || @colour %>">
             <%= markdownify( _(tab["info"]) ) %>
