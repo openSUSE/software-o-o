@@ -67,7 +67,7 @@ class OBSController < ApplicationController
     # only show packages
     @packages.reject! { |p| p.type == 'ymp' }
 
-    @packages.reject! { |p| p.name.end_with?('-devel') } unless @search_devel
+    @packages.reject! { |p| /-devel/i.match?(p.name) } unless @search_devel
 
     unless @search_lang
       @packages.reject! { |p| p.name.end_with?('-lang') || p.name.include?('-translations-') || p.name.include?('-l10n-') }
