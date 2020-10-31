@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module PackageHelper
+  OBS_API = 'https://build.opensuse.org'
+
   def human_arch(arch)
     case arch
     when 'i586'
@@ -41,5 +43,9 @@ module PackageHelper
   # Returns the screenshot thumbnail url for a given package object/hash
   def screenshot_thumb_url(package)
     url_for controller: :package, action: :thumbnail, package: package, protocol: 'https'
+  end
+
+  def project_url(project)
+    "<a href='#{OBS_API}/project/show/#{project}'>#{project}</a>"
   end
 end
