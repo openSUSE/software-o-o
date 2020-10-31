@@ -29,7 +29,7 @@ module OBS
   class Binary < Hashie::Mash
     include Hashie::Extensions::Mash::SymbolizeKeys
     def self.coerce(binary)
-      binary = [binary] unless binary.is_a?(Array)
+      binary = Array(binary)
       binary.map { |bin| Binary.new(bin) }
     end
   end
@@ -71,11 +71,13 @@ module OBS
     exclude_debug = opts[:exclude_debug]
     exclude_filter = opts[:exclude_filter]
 
-    words = query.split(' ').reject { |part| part.match(/^[0-9_\.-]+$/) }
-    versrel = query.split(' ').select { |part| part.match(/^[0-9_\.-]+$/) }
+    words = query.split(' ').reject { |part| part.match(/^[0-9_.-]+$/) }
+    versrel = query.split(' ').select { |part| part.match(/^[0-9_.-]+$/) }
     Rails.logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
     raise InvalidSearchTerm, 'Please provide a valid search term' if words.blank? && versrel.blank?
-    raise InvalidSearchTerm, 'The package name is required when searching for a version' if words.blank? && versrel.present?
+    if words.blank? && versrel.present?
+      raise InvalidSearchTerm, 'The package name is required when searching for a version'
+    end
 
     xpath_items = []
     xpath_items << "@project = '#{project}' " unless project.blank?
@@ -91,8 +93,7 @@ module OBS
       xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " \
                      "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))"
     end
-    xpath = xpath_items.join(' and ')
-    xpath
+    xpath_items.join(' and ')
   end
 
   class << self

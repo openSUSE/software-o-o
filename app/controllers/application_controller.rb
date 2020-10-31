@@ -27,9 +27,7 @@ class ApplicationController < ActionController::Base
     logger.error "Exception: #{exception.class}: #{exception.message}"
     @message = exception.message
     layout = request.xhr? ? false : 'application'
-    unless EXCEPTIONS_TO_IGNORE.include? exception
-      logger.error exception.backtrace.join("\n")
-    end
+    logger.error exception.backtrace.join("\n") unless EXCEPTIONS_TO_IGNORE.include? exception
     render template: 'error', formats: [:html], layout: layout, status: 400
   end
 
@@ -135,11 +133,11 @@ class ApplicationController < ActionController::Base
   end
 
   def valid_package_name?(name)
-    name =~ /^[[:alnum:]][-+~\w\.:\@]*$/
+    name =~ /^[[:alnum:]][-+~\w.:@]*$/
   end
 
   def valid_pattern_name?(name)
-    name =~ /^[[:alnum:]][-_+\w\.:]*$/
+    name =~ /^[[:alnum:]][-_+\w.:]*$/
   end
 
   def valid_project_name?(name)
