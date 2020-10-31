@@ -40,4 +40,8 @@ module PackageHelper
   def screenshot_thumb_url(package)
     url_for controller: :package, action: :thumbnail, package: package, protocol: 'https'
   end
+
+  def project_url(project)
+    "<a href='#{Rails.configuration.x.web_host}/project/show/#{project}'>#{project}</a>"
+  end
 end
