@@ -7,10 +7,11 @@
     name = shorten result.first, 40
   end
 
+  web_host = Rails.configuration.x.web_host
   if result.last.first.package.nil?
-    pkg_link = "https://build.opensuse.org/project/show/#{CGI.escape result.first}"
+    pkg_link = "#{web_host}/project/show/#{CGI.escape result.first}"
   else
-    pkg_link =  "https://build.opensuse.org/package/show/#{CGI.escape result.first}/#{CGI.escape result.last.first.package}"
+    pkg_link = "#{web_host}/package/show/#{CGI.escape result.first}/#{CGI.escape result.last.first.package}"
   end -%>
   
   <div class="card mb-2">

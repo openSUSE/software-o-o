@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 module PackageHelper
-  OBS_API = 'https://build.opensuse.org'
-
   def human_arch(arch)
     case arch
     when 'i586'
@@ -46,6 +44,6 @@ module PackageHelper
   end
 
   def project_url(project)
-    "<a href='#{OBS_API}/project/show/#{project}'>#{project}</a>"
+    "<a href='#{Rails.configuration.x.web_host}/project/show/#{project}'>#{project}</a>"
   end
 end
