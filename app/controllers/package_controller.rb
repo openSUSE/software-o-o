@@ -40,9 +40,7 @@ class PackageController < OBSController
       @packages.each do |package|
         # Backports chains up to the toolchain module for newer GCC.
         # So break the link immediately.
-        if /^openSUSE:Backports:SLE-12/.match?(package.project)
-          package.baseproject = package.project
-        end
+        package.baseproject = package.project if /^openSUSE:Backports:SLE-12/.match?(package.project)
       end
 
       @official_projects = @distributions.map { |d| d[:project] }

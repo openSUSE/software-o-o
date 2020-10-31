@@ -27,15 +27,13 @@ module PackageHelper
   def prepare_desc(txt)
     return if txt.blank?
 
-    txt = txt.gsub(/[\n][\n]+/, "\n\n")
+    txt = txt.gsub(/\n\n+/, "\n\n")
     txt = create_links txt
-    txt = txt.sub(/Authors[:]?[\w\W]+/, '')
-    txt
+    txt.sub(/Authors:?[\w\W]+/, '')
   end
 
   def create_links(txt)
-    txt = txt.gsub(%r{(https?://[-_A-Za-z0-9/\(\)\[\]:,.;?&+@#%=~|]+[^),. <"'\n\r])}m, '<a href="\1">\1</a> ')
-    txt
+    txt.gsub(%r{(https?://[-_A-Za-z0-9/()\[\]:,.;?&+@#%=~|]+[^),. <"'\n\r])}m, '<a href="\1">\1</a> ')
   end
 
   # Returns the screenshot thumbnail url for a given package object/hash

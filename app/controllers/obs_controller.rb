@@ -60,7 +60,7 @@ class OBSController < ApplicationController
 
   def filter_packages
     # remove maintenance projects, they are not meant for end users
-    @packages.reject! { |p| p.project.match(/openSUSE\:Maintenance\:/) }
+    @packages.reject! { |p| p.project.match(/openSUSE:Maintenance:/) }
     @packages.reject! { |p| p.project == 'openSUSE:Factory:Rebuild' }
     @packages.reject! { |p| p.project.start_with?('openSUSE:Factory:Staging') }
 
@@ -73,9 +73,7 @@ class OBSController < ApplicationController
       @packages.reject! { |p| p.name.end_with?('-lang') || p.name.include?('-translations-') || p.name.include?('-l10n-') }
     end
 
-    unless @search_debug
-      @packages.reject! { |p| p.name.end_with?('-buildsymbols', '-debuginfo', '-debugsource') }
-    end
+    @packages.reject! { |p| p.name.end_with?('-buildsymbols', '-debuginfo', '-debugsource') } unless @search_debug
 
     # filter out ports for different arch
     if @baseproject.end_with?('ARM')
