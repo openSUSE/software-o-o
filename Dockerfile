@@ -1,4 +1,4 @@
-FROM opensuse/leap:15.0
+FROM opensuse/leap:15.2
 ARG IMAGE_USERID
 
 # Update distro
@@ -18,7 +18,7 @@ echo 'vagrant ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 RUN gem install bundler
 
 # Install requirements for our rubygems 
-RUN zypper -q --non-interactive install sqlite3-devel gcc gcc-c++ make libxml2-devel libxslt-devel
+RUN zypper -q --non-interactive install --no-recommends sqlite3-devel gcc gcc-c++ make libxml2-devel libxslt-devel git-core
 
 # Add our user
 RUN useradd -m vagrant  -u $IMAGE_USERID -p vagrant
