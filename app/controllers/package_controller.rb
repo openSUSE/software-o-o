@@ -32,8 +32,8 @@ class PackageController < OBSController
         @appid = pkg_appdata[:id]
       end
 
-      @screenshot = url_for controller: :package, action: :screenshot, package: @pkgname, protocol: request.protocol
-      @thumbnail = url_for controller: :package, action: :thumbnail, package: @pkgname, protocol: request.protocol
+      @screenshot = url_for controller: :package, action: :screenshot, package: @pkgname, only_path: true
+      @thumbnail = url_for controller: :package, action: :thumbnail, package: @pkgname, only_path: true
 
       filter_packages
 
