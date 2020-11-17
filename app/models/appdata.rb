@@ -5,17 +5,45 @@ require 'open_uri_redirections'
 require 'zlib'
 
 class Appdata
-  def self.get(dist = 'factory')
-    data = {}
-    xml = Appdata.get_distribution(dist, 'oss')
-    data = add_appdata(data, xml)
-    xml = Appdata.get_distribution(dist, 'non-oss')
-    add_appdata(data, xml)
+  attr_reader :data
+
+  def initialize(distribution)
+    @distribution = distribution
+    @data = load_appdata
   end
 
-  def self.add_appdata(data, xml)
-    data[:apps] ||= []
-    data[:categories] ||= []
+  private
+
+  def load_appdata
+    data = { apps: [], categories: Set.new }
+    %w[oss non-oss].each do |flavour|
+      xml = load_xml(flavour)
+      data[:apps].concat(parse_appdata_apps(xml))
+      data[:categories].merge(parse_appdata_categories(xml))
+    end
+    data
+  end
+
+  def load_xml(flavour)
+    baseurl = if @distribution == 'tumbleweed'
+                "https://download.opensuse.org/tumbleweed/repo/#{flavour}/"
+              else
+                "https://download.opensuse.org/distribution/#{@distribution}/repo/#{flavour}/"
+              end
+
+    index_url = "#{baseurl}/repodata/repomd.xml"
+    repomd = Nokogiri::XML(URI.open(index_url)).remove_namespaces!
+    href = repomd.xpath('/repomd/data[@type="appdata"]/location').attr('href').text
+    appdata_url = baseurl + href
+    Nokogiri::XML(Zlib::GzipReader.new(URI.open(appdata_url, allow_redirections: :all)))
+  # Broad except, could be network connection, missing 'href' attribute
+  rescue StandardError => e
+    Rails.logger.error("Error: #{e} -- appdata_url=#{appdata_url}")
+    Nokogiri::XML('<?xml version="1.0" encoding="UTF-8"?><components origin="appdata" version="0.8"></components>')
+  end
+
+  def parse_appdata_apps(xml)
+    apps = []
     xml.xpath('/components/component').each do |app|
       appdata = {}
       # Filter translated versions of name and summary out
@@ -26,29 +54,13 @@ class Appdata
       appdata[:id] = app.xpath('id').text
       appdata[:homepage] = app.xpath('url').text
       appdata[:screenshots] = app.xpath('screenshots/screenshot/image').map(&:text)
-      data[:apps] << appdata
+      apps << appdata
     end
-    data[:categories] += xml.xpath('/components/component/categories/category')
-                            .map(&:text).reject { |c| c.match(/^X-/) }.uniq
-    data
+    apps
   end
 
-  # Get the appdata xml for a distribution
-  def self.get_distribution(dist = 'factory', flavour = 'oss')
-    baseurl = if dist == 'factory'
-                "https://download.opensuse.org/tumbleweed/repo/#{flavour}/"
-              else
-                "https://download.opensuse.org/distribution/#{dist}/repo/#{flavour}/"
-              end
-
-    index_url = "#{baseurl}/repodata/repomd.xml"
-    repomd = Nokogiri::XML(open(index_url)).remove_namespaces!
-    href = repomd.xpath('/repomd/data[@type="appdata"]/location').attr('href').text
-    appdata_url = baseurl + href
-    Nokogiri::XML(Zlib::GzipReader.new(open(appdata_url, allow_redirections: :all)))
-  # Broad except, could be network connection, missing 'href' attribute
-  rescue StandardError => e
-    Rails.logger.error("Error: #{e} -- appdata_url=#{appdata_url}")
-    Nokogiri::XML('<?xml version="1.0" encoding="UTF-8"?><components origin="appdata" version="0.8"></components>')
+  def parse_appdata_categories(xml)
+    xml.xpath('/components/component/categories/category')
+       .map(&:text).reject { |c| c.match(/^X-/) }.uniq
   end
 end
