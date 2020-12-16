@@ -3,6 +3,7 @@
   leap-switch: true
   arches:
   - name: x86_64
+    desc: Intel or AMD 64-bit servers, desktops, laptops and boards
     types:
     - name: <%= _("DVD Image") %>
       desc: <%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %>
@@ -29,6 +30,7 @@
       - name: <%= _("Torrent File") %>
         url: /distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-x86_64-Current.iso.torrent
   - name: aarch64
+    desc: UEFI Arm 64-bit servers, desktops, laptops and boards
     types:
     - name: <%= _("DVD Image") %>
       desc: <%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %>
@@ -51,6 +53,7 @@
       - name: <%= _("Checksum") %>
         url: /distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-aarch64-Current.iso.sha256
   - name: ppc64le
+    desc: PowerPC servers, not big-endian
     types:
     - name: <%= _("DVD Image") %>
       desc: <%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %>
@@ -72,7 +75,8 @@
         url: /distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-ppc64le-Current.iso?mirrorlist
       - name: <%= _("Checksum") %>
         url: /distribution/leap/<%= @version %>/iso/openSUSE-Leap-<%= @version %>-NET-ppc64le-Current.iso.sha256
-  - name: s390x (IBM Z and LinuxONE)
+  - name: s390x
+    desc: IBM Z and LinuxONE
     types:
     - name: <%= _("DVD Image") %>
       desc: <%= _("Contains a large collection of software for desktop or server use. Suitable for installation or upgrade.") %>
