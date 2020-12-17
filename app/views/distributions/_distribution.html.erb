@@ -49,7 +49,7 @@
           </div>
         <% end %>
         <% tab["arches"].try(:each) do |arch| %>
-        <h3 class="my-3 text-center"><%= arch["name"] %></h3>
+        <h3 class="my-3 text-center"><%= arch["name"] %><% if arch["desc"] %> (<%= arch["desc"] %>)<% end %></h3>
         <div class="row">
           <% arch["types"].try(:each) do |type| %>
           <div class="col text-center">
