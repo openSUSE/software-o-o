@@ -44,12 +44,18 @@
                   <% repo_name = @project.gsub(":", "_") + "_" + k %>
                   <h5><%= _("For <strong>Arch Linux</strong>, edit /etc/pacman.conf and add the following (note that the order of repositories in pacman.conf is important, since pacman always downloads the first found package):") %></h5>
                   <pre><%= "[#{repo_name}]" %>
-SigLevel = Never
 Server = <%= v[:repo].gsub(/(\w):(\w)/, '\1:/\2') %>$arch
 </pre>
                   <h5><%= _("Then run the following as <strong>root</strong>") %></h5>
-                  <pre>pacman -Syu
-pacman -S <%= repo_name %>/<%= @package %></pre>
+                  <pre>
+key=$(curl -fsSL <%= "#{v[:repo]}$(uname -m)/#{repo_name}.key" %>)
+fingerprint=$(gpg --quiet --with-colons --import-options show-only --import --fingerprint &lt;&lt;&lt; "${key}" | awk -F: '$1 == "fpr" { print $10 }')
+
+pacman-key --init
+pacman-key --add - &lt;&lt;&lt; "${key}"
+pacman-key --lsign-key "${fingerprint}"
+
+pacman -Sy <%= repo_name %>/<%= @package %></pre>
                   <% elsif v[:flavor] == "Ubuntu" or v[:flavor] == "Debian" %>
                   <h5><%= (_("For <strong>%s</strong> run the following:") % k.gsub('_', '&nbsp;').html_safe).html_safe %></h5>
                   <h6><%= (_("Keep in mind that the owner of the key may distribute updates, packages and repositories that your system will trust (<a href=\"%s\">more information</a>).") % secure_apt_url).html_safe %></h6>
