@@ -54,66 +54,6 @@ class ApplicationController < ActionController::Base
     @lang = FastGettext.locale
   end
 
-  RELEASES_FILE = Rails.root.join('config', 'releases.yml').freeze
-
-  def load_releases
-    Rails.cache.fetch('software-o-o/releases', expires_in: 10.minutes) do
-      YAML.load_file(RELEASES_FILE).sort_by { |r| -r['order'] }
-    rescue StandardError => e
-      Rails.logger.error "Error while parsing releases entry in #{RELEASES_FILE}: #{e}"
-      next
-    end
-  rescue StandardError => e
-    Rails.logger.error "Error while parsing releases file #{RELEASES_FILE}: #{e}"
-    raise e
-  end
-
-  def set_releases_parameters
-    @stable_version = nil
-    @testing_version = nil
-    @testing_state = nil
-    @legacy_release = nil
-
-    # look for most current release
-    versions = load_releases
-    unless versions.empty?
-      now = Time.now
-      versions.each do |version|
-        version['releases'].reject! do |release|
-          release['date'] = Time.parse(release['date']) unless release['date']
-          release['date'] > now
-        end
-        # Get the latest release
-        latest = version['releases'].max_by { |k| k['date'] }
-        version['state'] = latest['state'] if latest
-      end
-      versions.reject! do |version|
-        version['releases'].empty?
-      end
-      if versions[0]['state'] == 'Stable'
-        @stable_version = versions[0]['version'].to_s
-        @legacy_release = versions[1]['version'].to_s
-      else
-        @testing_version = versions[0]['version'].to_s
-        @testing_state = versions[0]['state'].to_s
-        @stable_version = versions[1]['version'].to_s
-        @legacy_release = versions[2]['version'].to_s
-      end
-    end
-  end
-
-  def load_snapshots
-    Rails.cache.fetch('software-o-o/snapshots', expires_in: 30.minutes) do
-      Faraday.get('http://download.opensuse.org/history/list').body.split
-    rescue Faraday::Error::ClientError => e
-      Rails.logger.error "Error while parsing snapshots: #{e}"
-      next
-    end
-  rescue StandardError => e
-    Rails.logger.error "Error while parsing snapshots file #{RELEASES_FILE}: #{e}"
-    raise e
-  end
-
   # special version of render json with JSONP capabilities (only needed for rails < 3.0)
   def render_json(json, options = {})
     callback = params[:callback]

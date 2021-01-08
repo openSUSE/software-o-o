@@ -7,7 +7,6 @@ class OBSError < StandardError; end
 # Handle connection to OBS
 class OBSController < ApplicationController
   before_action :set_distributions
-  before_action :set_releases_parameters
   before_action :set_baseproject
 
   private
