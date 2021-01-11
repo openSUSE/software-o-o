@@ -20,7 +20,7 @@ gem 'gettext_i18n_rails', '>= 0.4.3'
 gem 'rails-i18n'
 
 # Generate html based on markdown in views
-gem 'redcarpet', '~> 3.4.0'
+gem 'redcarpet', '~> 3.5.1'
 
 gem 'dalli'
 gem 'hashie'
