@@ -5,6 +5,7 @@
 
 require 'api_connect'
 require 'net/https'
+require 'json'
 
 class ApplicationController < ActionController::Base
   before_action :validate_configuration
@@ -52,6 +53,41 @@ class ApplicationController < ActionController::Base
       set_gettext_locale
     end
     @lang = FastGettext.locale
+  end
+
+  RELEASES_FILE = 'https://get.opensuse.org/api/v0/distributions.json'.freeze
+
+  def load_releases
+    Rails.cache.fetch('software-o-o/releases', expires_in: 10.minutes) do
+      JSON.parse(URI.open(RELEASES_FILE).read)['Leap'].sort_by { |r| -r['upgrade-weight'] }
+    rescue StandardError => e
+      Rails.logger.error "Error while parsing releases entry in #{RELEASES_FILE}: #{e}"
+      next
+    end
+  rescue StandardError => e
+    Rails.logger.error "Error while parsing releases file #{RELEASES_FILE}: #{e}"
+    raise e
+  end
+
+  def set_releases_parameters
+    @stable_version = nil
+    @testing_version = nil
+    @testing_state = nil
+    @legacy_release = nil
+
+    # look for most current release
+    versions = load_releases
+    unless versions.empty?
+      if versions[0]['state'] == 'Stable'
+        @stable_version = versions[0]['version'].to_s
+        @legacy_release = versions[1]['version'].to_s
+      else
+        @testing_version = versions[0]['version'].to_s
+        @testing_state = versions[0]['state'].to_s
+        @stable_version = versions[1]['version'].to_s
+        @legacy_release = versions[2]['version'].to_s
+      end
+    end
   end
 
   # special version of render json with JSONP capabilities (only needed for rails < 3.0)
