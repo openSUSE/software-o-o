@@ -55,7 +55,7 @@ class ApplicationController < ActionController::Base
     @lang = FastGettext.locale
   end
 
-  RELEASES_FILE = 'https://get.opensuse.org/api/v0/distributions.json'.freeze
+  RELEASES_FILE = 'https://get.opensuse.org/api/v0/distributions.json'
 
   def load_releases
     Rails.cache.fetch('software-o-o/releases', expires_in: 10.minutes) do
