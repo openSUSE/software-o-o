@@ -10,11 +10,11 @@
 
   <div class="collapse navbar-collapse" id="global-navbar-content">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item <%= 'active' if defined?(activenav) && (activenav == 'download') %>">
-        <a class="nav-link" href="/distributions"><%= _("Download") %></a>
+      <li class="nav-item active">
+        <a class="nav-link" href="/"><%= _("Software") %></a>
       </li>
-      <li class="nav-item <%= 'active' if !defined?(activenav) || (activenav == 'software') %>">
-        <a class="nav-link" href="/explore"><%= _("Software") %></a>
+      <li class="nav-item">
+        <a class="nav-link" href="https://get.opensuse.org"><%= _("Download") %></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="https://doc.opensuse.org/"><%= _("Documentation") %></a>

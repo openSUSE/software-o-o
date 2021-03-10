@@ -1,20 +1,6 @@
 SoftwareOO::Application.routes.draw do
 
-  root to: 'distributions#index'
-
-  resources :distributions, only: [:index] do
-    collection do
-      get 'tumbleweed'
-      get 'tumbleweed/ports', to: 'distributions#tumbleweed_ports'
-      get 'tumbleweed/unsupported', to: 'distributions#tumbleweed_unsupported'
-      get 'leap(/:version)', to: 'distributions#leap', as: 'leap'
-      get 'leap/ports', to: 'distributions#leap_ports'
-      get 'testing', to: 'distributions#leap', version: 'testing'
-      get 'legacy', to: 'distributions#leap', version: 'legacy'
-    end
-  end
-
-  get 'api/v0/distributions', to: 'api#distributions', :defaults => { :format => 'json' }
+  root to: 'package#explore'
 
   resources :search, only: [:index] do
   end
@@ -56,6 +42,17 @@ SoftwareOO::Application.routes.draw do
   get 'download/json' => "download#package", :format => 'json'
 
   # compatibility routes for old site
+  get 'distributions', to: redirect('https://get.opensuse.org/')
+  get 'distributions/tumbleweed', to: redirect('https://get.opensuse.org/tumbleweed')
+  get 'distributions/tumbleweed/ports', to: redirect('https://get.opensuse.org/tumbleweed')
+  get 'distributions/tumbleweed/unsupported', to: redirect('https://get.opensuse.org/tumbleweed')
+  get 'distributions/leap(/:version)', to: redirect('https://get.opensuse.org/leap')
+  get 'distributions/leap/ports', to: redirect('https://get.opensuse.org/leap#ports_images')
+  get 'distributions/testing', to: redirect('https://get.opensuse.org/testing')
+  get 'distributions/legacy', to: redirect('https://get.opensuse.org/legacy')
+
+  get 'api/v0/distributions', to: redirect('https://get.opensuse.org/api/v0/distributions')
+
   get '421', to: redirect('/distributions/leap')
   get '421/:locale', to: redirect('/distributions/leap?locale=%{locale}')
   get '422', to: redirect('/distributions/leap')
@@ -75,8 +72,8 @@ SoftwareOO::Application.routes.draw do
   get '132/:locale', to: redirect('/distributions/leap?locale=%{locale}')
   get 'developer', to: redirect('/distributions/testing')
   get 'developer/:locale', to: redirect('/distributions/testing?locale=%{locale}')
-  get '/promodvd', to: 'distributions#index'
+  get '/promodvd', to: redirect('/distributions')
 
   # catch all other params as locales...
-  get '/:locale', to: 'distributions#index'
+  get '/:locale', to: 'package#explore'
 end
