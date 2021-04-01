@@ -38,7 +38,7 @@ class Screenshot
     rescue Exception
       raise unless Rails.env.production?
 
-      Rails.logger.error('No screenshot fetched for: ' + pkg_name)
+      Rails.logger.error("No screenshot fetched for: #{pkg_name}")
     end
 
     if cached?

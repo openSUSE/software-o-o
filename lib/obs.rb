@@ -71,8 +71,8 @@ module OBS
     exclude_debug = opts[:exclude_debug]
     exclude_filter = opts[:exclude_filter]
 
-    words = query.split(' ').reject { |part| part.match(/^[0-9_.-]+$/) }
-    versrel = query.split(' ').select { |part| part.match(/^[0-9_.-]+$/) }
+    words = query.split.reject { |part| part.match(/^[0-9_.-]+$/) }
+    versrel = query.split.select { |part| part.match(/^[0-9_.-]+$/) }
     Rails.logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
     raise InvalidSearchTerm, 'Please provide a valid search term' if words.blank? && versrel.blank?
     if words.blank? && versrel.present?
@@ -82,7 +82,7 @@ module OBS
     xpath_items = []
     xpath_items << "@project = '#{project}' " unless project.blank?
     substring_words = words.reject { |word| word.match(/^".+"$/) }.map { |word| "'#{word.gsub(/['"()]/, '')}'" }.join(', ')
-    xpath_items << 'contains-ic(@name, ' + substring_words + ')' unless substring_words.blank?
+    xpath_items << "contains-ic(@name, #{substring_words})" unless substring_words.blank?
     words.select { |word| word.match(/^".+"$/) }.map { |word| word.delete('"') }.each do |word|
       xpath_items << "@name = '#{word.gsub(/['"()]/, '')}' "
     end

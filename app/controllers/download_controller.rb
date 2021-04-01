@@ -66,7 +66,7 @@ class DownloadController < ApplicationController
           end
           filename = e.attributes['filename']
           filepath = e.attributes['filepath']
-          data[distro][:package][filename] = 'https://download.opensuse.org/repositories/' + filepath
+          data[distro][:package][filename] = "https://download.opensuse.org/repositories/#{filepath}"
         end
         data
       end
@@ -105,7 +105,7 @@ class DownloadController < ApplicationController
           data[distro][:flavor] = set_distro_flavor e.attributes['baseproject']
           case e.attributes['baseproject']
           when /^(DISCONTINUED:)?openSUSE:/, /^(DISCONTINUED:)?SUSE:SLE-/
-            data[distro][:ymp] = 'https://download.opensuse.org/repositories/' + e.attributes['filepath']
+            data[distro][:ymp] = "https://download.opensuse.org/repositories/#{e.attributes['filepath']}"
           end
         end
         data
@@ -215,22 +215,22 @@ class DownloadController < ApplicationController
     if params[:acolor]
       raise 'Invalid acolor value (has to be 000-fff or 000000-ffffff)' unless valid_color? params[:acolor]
 
-      @acolor = '#' + params[:acolor]
+      @acolor = "##{params[:acolor]}"
     end
     if params[:bcolor]
       raise 'Invalid bcolor value (has to be 000-fff or 000000-ffffff)' unless valid_color? params[:bcolor]
 
-      @bcolor = '#' + params[:bcolor]
+      @bcolor = "##{params[:bcolor]}"
     end
     if params[:fcolor]
       raise 'Invalid fcolor value (has to be 000-fff or 000000-ffffff)' unless valid_color? params[:fcolor]
 
-      @fcolor = '#' + params[:fcolor]
+      @fcolor = "##{params[:fcolor]}"
     end
     if params[:hcolor]
       raise 'Invalid hcolor value (has to be 000-fff or 000000-ffffff)' unless valid_color? params[:hcolor]
 
-      @hcolor = '#' + params[:hcolor]
+      @hcolor = "##{params[:hcolor]}"
     end
   end
 
