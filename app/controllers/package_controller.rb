@@ -100,13 +100,13 @@ class PackageController < OBSController
         next if image_url.blank?
 
         path = begin
-                 screenshot = Screenshot.new(pkgname, image_url)
-                 screenshot.thumbnail_path(fetch: true)
-               rescue StandardError => e
-                 Rails.logger.error "Error retrieving #{image_url}: #{e}"
-                 next
-               end
-        return redirect_to '/' + path
+          screenshot = Screenshot.new(pkgname, image_url)
+          screenshot.thumbnail_path(fetch: true)
+        rescue StandardError => e
+          Rails.logger.error "Error retrieving #{image_url}: #{e}"
+          next
+        end
+        return redirect_to "/#{path}"
       end
     end
 

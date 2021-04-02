@@ -35,10 +35,10 @@ module ApplicationHelper
     return diff.to_s + (diff == 1 ? ' week ago' : ' weeks ago') if diff < 9
 
     diff = Integer(diff / 4.1) # roughly months
-    return diff.to_s + ' months ago' if diff < 24
+    return "#{diff} months ago" if diff < 24
 
     diff = Integer(diff / 12) # years
-    diff.to_s + ' years ago'
+    "#{diff} years ago"
   end
 
   def escape_for_id(string)

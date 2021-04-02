@@ -22,7 +22,7 @@ class SearchController < OBSController
       raise unless e.response[:status] == 413 # Payload Too Large
 
       logger.debug("Too many hits, trying exact match for: #{@search_term}")
-      @search_term = @search_term.split(' ').map { |x| "\"#{CGI.escape(x)}\"" }.join(' ')
+      @search_term = @search_term.split.map { |x| "\"#{CGI.escape(x)}\"" }.join(' ')
       @packages = OBS.search_published_binary(@search_term, query_opts)
     rescue OBS::InvalidSearchTerm => e
       flash[:error] = e.message

@@ -21,7 +21,7 @@ module PackageHelper
   end
 
   def shorten(text, chars)
-    text.length > chars ? text[0, chars - 2] + '...' : text
+    text.length > chars ? "#{text[0, chars - 2]}..." : text
   end
 
   def prepare_desc(txt)
