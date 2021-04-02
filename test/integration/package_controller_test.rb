@@ -61,7 +61,7 @@ class PackageControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  def test_unknown_screenshot_is_404
+  def test_unknown_screenshot_is404
     VCR.use_cassette('default') do
       get '/package/screenshot/paralapapiricoipi.png'
       assert_equal 404, status

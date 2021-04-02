@@ -73,9 +73,10 @@ class PackageController < OBSController
     @packagenames = package_names_unsorted.sort_by { |x| @appdata[:apps].find { |a| a[:pkgname] == x }[:name] }
 
     app_categories = app_pkgs.map { |p| p[:categories] }.flatten
+    reject_categories = %w[GNOME KDE Qt GTK]
     @related_categories = app_categories.uniq.map { |c| { name: c, weight: app_categories.count { |v| v == c } } }
     @related_categories = @related_categories.sort_by { |c| c[:weight] }.reverse.reject { |c| categories.include? c[:name] }
-    @related_categories = @related_categories.reject { |c| %w[GNOME KDE Qt GTK].include? c[:name] }
+    @related_categories = @related_categories.reject { |c| reject_categories.include? c[:name] }
 
     render 'search/find'
   end

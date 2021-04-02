@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
 
   def load_releases
     Rails.cache.fetch('software-o-o/releases', expires_in: 10.minutes) do
-      JSON.parse(URI.open(RELEASES_FILE).read)['Leap'].sort_by { |r| -r['upgrade-weight'] }
+      JSON.parse(URI.parse(RELEASES_FILE).open.read)['Leap'].sort_by { |r| -r['upgrade-weight'] }
     rescue StandardError => e
       Rails.logger.error "Error while parsing releases entry in #{RELEASES_FILE}: #{e}"
       next

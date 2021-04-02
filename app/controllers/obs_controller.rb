@@ -60,7 +60,7 @@ class OBSController < ApplicationController
 
   def filter_packages
     # remove maintenance projects, they are not meant for end users
-    @packages.reject! { |p| p.project.match(/openSUSE:Maintenance:/) }
+    @packages.reject! { |p| p.project.include? 'openSUSE:Maintenance:' }
     @packages.reject! { |p| p.project == 'openSUSE:Factory:Rebuild' }
     @packages.reject! { |p| p.project.start_with?('openSUSE:Factory:Staging') }
 

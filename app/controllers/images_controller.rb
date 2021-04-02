@@ -8,6 +8,7 @@ class ImagesController < ApplicationController
   attr_accessor :base_url
 
   def initialize
+    super
     @base_url = 'http://download.opensuse.org'
   end
 
