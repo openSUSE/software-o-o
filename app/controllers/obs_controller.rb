@@ -31,9 +31,9 @@ class OBSController < ApplicationController
       doc.elements.each('distributions/distribution') do |element|
         loaded_distros << parse_distribution(element)
       end
-      loaded_distros.unshift(Hash[name: 'ALL Distributions', project: 'ALL'])
+      loaded_distros.unshift({ name: 'ALL Distributions', project: 'ALL' })
     rescue Exception => e
-      logger.error 'Error while loading distributions: ' + e.to_s
+      logger.error "Error while loading distributions: #{e}"
       raise OBSError.new, _('OBS Backend not available')
     end
     loaded_distros
@@ -60,7 +60,7 @@ class OBSController < ApplicationController
 
   def filter_packages
     # remove maintenance projects, they are not meant for end users
-    @packages.reject! { |p| p.project.match(/openSUSE:Maintenance:/) }
+    @packages.reject! { |p| p.project.include? 'openSUSE:Maintenance:' }
     @packages.reject! { |p| p.project == 'openSUSE:Factory:Rebuild' }
     @packages.reject! { |p| p.project.start_with?('openSUSE:Factory:Staging') }
 

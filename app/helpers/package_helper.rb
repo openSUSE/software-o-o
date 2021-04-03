@@ -3,17 +3,11 @@
 module PackageHelper
   def human_arch(arch)
     case arch
-    when 'i586'
+    when 'i586', 'i386'
       '32 Bit'
-    when 'i386'
-      '32 Bit'
-    when 'x86_64'
+    when 'x86_64', 'amd64'
       '64 Bit'
-    when 'amd64'
-      '64 Bit'
-    when 'src'
-      _('Source')
-    when 'nosrc'
+    when 'src', 'nosrc'
       _('Source')
     else
       arch
@@ -21,7 +15,7 @@ module PackageHelper
   end
 
   def shorten(text, chars)
-    text.length > chars ? text[0, chars - 2] + '...' : text
+    text.length > chars ? "#{text[0, chars - 2]}..." : text
   end
 
   def prepare_desc(txt)

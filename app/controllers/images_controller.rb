@@ -8,6 +8,7 @@ class ImagesController < ApplicationController
   attr_accessor :base_url
 
   def initialize
+    super
     @base_url = 'http://download.opensuse.org'
   end
 
@@ -36,7 +37,7 @@ class ImagesController < ApplicationController
     size = content_size(abs_url)
 
     ret  = "<image url=#{abs_url.encode(xml: :attr)} name=#{name.encode(xml: :attr)} size=\"#{size}\">\n"
-    ret += "<checksum type=\"sha256\" disposition=#{(abs_url + '.sha256').encode(xml: :attr)}/>\n"
+    ret += "<checksum type=\"sha256\" disposition=#{("#{abs_url}.sha256").encode(xml: :attr)}/>\n"
     ret += '</image>'
     ret.html_safe
   end
@@ -61,6 +62,6 @@ class ImagesController < ApplicationController
 
   # Returns a Nokogiri XML document of the mirrorbrain metadata for url
   def meta_file(url)
-    Nokogiri::XML(open(url + '.meta4'))
+    Nokogiri::XML(open("#{url}.meta4"))
   end
 end
