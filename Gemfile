@@ -54,10 +54,7 @@ end
 group :test do
   gem 'capybara'
   gem 'faker'
-  # bragboy's fork works with Firefox 80
-  # ', git:...' can be removed once https://github.com/DevicoSolutions/geckodriver-helper/pull/17
-  # is merged and a new gem version is released
-  gem 'geckodriver-helper', git: 'https://github.com/bragboy/geckodriver-helper'
+  gem 'geckodriver-bin', '~> 0.28.0'
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'selenium-webdriver'
