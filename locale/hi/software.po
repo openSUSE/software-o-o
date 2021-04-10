@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: software 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 11:33+0200\n"
-"PO-Revision-Date: 2018-04-07 17:02+0000\n"
-"Last-Translator: Anshul Panwar <caspian7pena@gmail.com>\n"
+"PO-Revision-Date: 2021-04-10 20:57+0000\n"
+"Last-Translator: Panwar <caspian7pena@gmail.com>\n"
 "Language-Team: Hindi <https://l10n.opensuse.org/projects/software-o-o/master/"
 "hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ../app/views/distributions/index.html.erb:62
 msgid ""
@@ -25,8 +25,9 @@ msgid ""
 "%{annually}, with security and stability updates being the priority during "
 "each release %{lifetime}."
 msgstr ""
-"%{leap}एक <strong>नियमित रिलीज़</strong> है। यानि कि इसे %{annually} जारी किया "
-"जाता है, प्रत्येक रिलीज़ की प्राथमिकता होती हैं सुरक्षा व स्थिरता संबंधी अपडेट।"
+"%{leap} वितरण का <strong>नियमित संस्करण</strong> है। अतः यह प्रति %{annually}"
+" प्रकाशित होता है व प्रत्येक संस्करण %{lifetime} की प्राथमिकता सुरक्षा व "
+"स्थिरता हेतु अपडेट होती हैं।"
 
 #: ../app/views/distributions/index.html.erb:53
 msgid ""
@@ -35,6 +36,10 @@ msgid ""
 "Things will change regularly as Free and Open Source projects continually "
 "release new versions of their software."
 msgstr ""
+"%{tumbleweed} वितरण का <strong>निरंतर अपडेट</strong> संस्करण है। अतः ओपनSUSE "
+"परियोजना से प्राप्त सॉफ्टवेयर के संस्करण सदैव नवीनतम स्थिर होंगे। निशुल्क व "
+"मुक्त स्रोत परियोजनाएँ निरंतर सॉफ्टवेयर के नवीन संस्करण जारी करती हैं इसलिए "
+"इस संस्करण हेतु परिवर्तन नियमित रूप से होते रहते हैं।"
 
 #: ../app/views/package/_download_rows.html.erb:49
 msgid "1 Click Install"
@@ -42,47 +47,49 @@ msgstr "1 क्लिक इंस्टॉल"
 
 #: ../app/views/distributions/_requirements.html.erb:6
 msgid "2 GB system memory"
-msgstr ""
+msgstr "2 जीबी सिस्टम मेमोरी"
 
 #: ../app/views/distributions/_requirements.html.erb:5
 msgid "2 Ghz dual core processor or better"
-msgstr ""
+msgstr "2 Ghz ड्यूल कोर प्रोसेसर या उच्चतर"
 
 #: ../app/views/download/package.erb:9
 msgid "<b>%s</b> from <b>%s</b> project"
-msgstr ""
+msgstr "<b>%s</b> परियोजना से प्राप्त <b>%s</b>"
 
 #: ../app/views/download/appliance.erb:8
 msgid "<b>%s</b> project"
-msgstr ""
+msgstr "<b>%s</b> परियोजना"
 
 #: ../app/views/package/_download_rows.html.erb:3
 msgid "<b>official release</b>"
-msgstr ""
+msgstr "<b>आधिकारिक संस्करण</b>"
 
 #: ../app/views/package/_download_rows.html.erb:5
 msgid "<b>official update</b>"
-msgstr ""
+msgstr "<b>आधिकारिक अपडेट</b>"
 
 #: ../app/views/download/package.erb:37
 msgid "Add repository and install manually"
-msgstr ""
+msgstr "पैकेज-संग्रह जोड़कर स्वयं इंस्टॉल करें"
 
 #: ../app/views/images/images.xml.erb:31 ../app/views/images/images.xml.erb:41
 #: ../app/views/images/images.xml.erb:55 ../app/views/images/images.xml.erb:65
 #: ../app/views/images/images.xml.erb:75
 msgid "Architecture"
-msgstr ""
+msgstr "संरचना"
 
 #: ../app/views/package/show.html.erb:7
 msgid "Back to home page"
-msgstr ""
+msgstr "होम पृष्ठ पर वापस"
 
 #: ../app/views/distributions/index.html.erb:82
 msgid ""
 "Both distributions are fully capable of being used on a Desktop PC, laptop, "
 "server, or in the cloud."
 msgstr ""
+"दोनों ही वितरण डेस्कटॉप कंप्यूटर, लैपटॉप, सर्वर, या क्लाउड पर उपयोग हेतु "
+"पूर्णतया सक्षम हैं।"
 
 #: ../app/views/distributions/index.html.erb:79
 msgid ""
@@ -90,22 +97,25 @@ msgid ""
 "\">openQA</a> as well as by human openSUSE contributors so both can be "
 "relied upon to work."
 msgstr ""
+"दोनों ही वितरण कार्य आधारित विश्वसनीयता हेतु <a href=\""
+"https://openqa.opensuse.org\">ओपेन-क्यूए</a> के अलावा ओपनSUSE योगदानकर्ताओं "
+"द्वारा भली-भाँति परीक्षित हैं।"
 
 #: ../app/views/layouts/_footer.html.erb:8
 msgid "Build service"
-msgstr ""
+msgstr "बिल्ड सेवा"
 
 #: ../app/views/search/_settings.html.erb:38
 msgid "Cancel"
-msgstr ""
+msgstr "रद्द करें"
 
 #: ../app/views/package/show.html.erb:27
 msgid "Categories"
-msgstr ""
+msgstr "श्रेणियाँ"
 
 #: ../app/views/package/show.html.erb:27
 msgid "Category"
-msgstr ""
+msgstr "श्रेणी"
 
 #: ../app/data/42.3.yml.erb:17 ../app/data/42.3.yml.erb:31
 #: ../app/data/42.3.yml.erb:50 ../app/data/42.3.yml.erb:62
@@ -133,34 +143,34 @@ msgstr ""
 #: ../app/data/tumbleweed.yml.erb:194 ../app/data/tumbleweed.yml.erb:203
 #: ../app/data/tumbleweed.yml.erb:212 ../app/data/tumbleweed.yml.erb:221
 msgid "Checksum"
-msgstr ""
+msgstr "चेकसम"
 
 #: ../app/views/distributions/_verify_download.html.erb:23
 msgid "Checksums Help"
-msgstr ""
+msgstr "चेकसम सहायता"
 
 #: ../app/views/distributions/_choosing_media.html.erb:2
 msgid "Choosing Which Media to Download"
-msgstr ""
+msgstr "डाउनलोड हेतु मीडिया का चयन"
 
 #: ../app/views/distributions/index.html.erb:46
 msgid "Choosing which Distribution to Download"
-msgstr ""
+msgstr "डाउनलोड हेतु वितरण का चयन"
 
 #: ../app/views/layouts/_footer.html.erb:25
 #: ../app/views/package/_download_rows.html.erb:28
 msgid "Community"
-msgstr ""
+msgstr "समुदाय"
 
 #: ../app/controllers/package_controller.rb:49
 msgid ""
 "Connection to OBS is unavailable. Functionality of this site is limited."
-msgstr ""
+msgstr "ओबीएस हेतु कनेक्शन अनुपलब्ध। साइट कार्यक्षमता सीमित है।"
 
 #: ../app/data/tumbleweed.yml.erb:115 ../app/data/tumbleweed.yml.erb:129
 msgid ""
 "Container as a Service Platform based on Kubernetes atop openSUSE MicroOS."
-msgstr ""
+msgstr "कंटेनर - ओपनSUSE माइक्रो-ओएस पर कुबेरनेटेस आधारित एक सेवा मंच है।"
 
 #: ../app/data/42.3.yml.erb:9 ../app/data/42.3.yml.erb:42
 #: ../app/data/42.3.yml.erb:68 ../app/data/15.0.yml.erb:9
@@ -174,11 +184,13 @@ msgid ""
 "Contains a large collection of software for desktop or server use. Suitable "
 "for installation or upgrade."
 msgstr ""
+"इसमें डेस्कटॉप व सर्वर उपयोग हेतु सॉफ्टवेयर का विशाल संग्रह सम्मिलित है। "
+"इंस्टॉल या अपग्रेड हेतु उपयुक्त।"
 
 #: ../app/views/images/images.xml.erb:17 ../app/views/images/images.xml.erb:30
 #: ../app/views/images/images.xml.erb:91
 msgid "DVD"
-msgstr ""
+msgstr "डीवीडी"
 
 #: ../app/data/42.3.yml.erb:7 ../app/data/42.3.yml.erb:40
 #: ../app/data/42.3.yml.erb:66 ../app/data/15.0.yml.erb:7
@@ -188,70 +200,74 @@ msgstr ""
 #: ../app/data/tumbleweed.yml.erb:58 ../app/data/tumbleweed.yml.erb:84
 #: ../app/data/tumbleweed.yml.erb:113 ../app/data/tumbleweed.yml.erb:127
 msgid "DVD Image"
-msgstr ""
+msgstr "डीवीडी फाइल"
 
 #: ../app/views/images/images.xml.erb:53
 msgid "Desktop"
-msgstr ""
+msgstr "डेस्कटॉप"
 
 #: ../app/views/layouts/_footer.html.erb:5
 msgid "Developers"
-msgstr ""
+msgstr "सॉफ्टवेयर विकासकर्ता"
 
 #: ../app/controllers/package_controller.rb:124
 msgid "Development"
-msgstr ""
+msgstr "सॉफ्टवेयर विकास"
 
 #: ../app/views/search/_find_results.html.erb:76
 msgid "Development packages"
-msgstr ""
+msgstr "सॉफ्टवेयर विकास पैकेज"
 
 #: ../app/views/package/show.html.erb:54
 msgid "Direct Install"
-msgstr ""
+msgstr "सीधा इंस्टॉल"
 
 #: ../app/views/images/images.xml.erb:13
 msgid "Distribution"
-msgstr ""
+msgstr "वितरण"
 
 #: ../app/views/package/show.html.erb:68
 msgid "Distributions"
-msgstr ""
+msgstr "वितरण"
 
 #: ../app/views/distributions/_documentation.html.erb:2
 #: ../app/views/layouts/_footer.html.erb:7
 #: ../app/views/layouts/_navbar.html.erb:20
 msgid "Documentation"
-msgstr ""
+msgstr "प्रलेखन"
 
 #: ../app/views/layouts/_navbar.html.erb:14
 #: ../app/views/package/_download_rows.html.erb:54
 msgid "Download"
-msgstr ""
+msgstr "डाउनलोड"
 
 #: ../app/controllers/download_controller.rb:42
 msgid "Download appliance from %s"
-msgstr ""
+msgstr "%s से उपकरण डाउनलोड"
 
 #: ../app/views/distributions/_distribution.html.erb:105
 msgid "Download latest openSUSE Leap release"
-msgstr ""
+msgstr "नवीनतम ओपनSUSE लीप संस्करण डाउनलोड"
 
 #: ../app/views/distributions/index.html.erb:29
 msgid ""
 "Download openSUSE’s regular release and enjoy the benefits of both "
 "enterprise-grade engineering and community-developed innovation."
 msgstr ""
+"ओपनSUSE का नियमित संस्करण डाउनलोड कर उद्यम-स्तरीय अभियांत्रिकी व समुदाय "
+"द्वारा विकसित नवाचारों के लाभ प्राप्त करें।"
 
 #: ../app/views/distributions/index.html.erb:12
 msgid ""
 "Download openSUSE’s rolling release and always run the latest packages "
 "provided by the openSUSE Project."
 msgstr ""
+"ओपनSUSE का निरंतर अपडेट संस्करण डाउनलोड कर सदैव ही ओपनSUSE परियोजना द्वारा "
+"उपलब्ध नवीनतम पैकेज उपयोग करें।"
 
 #: ../app/views/distributions/_distribution.html.erb:100
 msgid "Download previous openSUSE Leap release"
-msgstr ""
+msgstr "ओपनSUSE लीप के पूर्व संस्करणों का डाउनलोड"
 
 #: ../app/data/42.3.yml.erb:23 ../app/data/42.3.yml.erb:54
 #: ../app/data/42.3.yml.erb:80 ../app/data/15.0.yml.erb:23
@@ -262,42 +278,46 @@ msgid ""
 "Downloads the installation system and all packages from online repositories. "
 "Suitable for installation or upgrade."
 msgstr ""
+"ऑनलाइन पैकेज-संग्रह से इंस्टॉल हेतु सिस्टम व सभी पैकेज डाउनलोड करें। इंस्टॉल "
+"या अपग्रेड हेतु उपयुक्त।"
 
 #: ../app/views/distributions/_leap_switch.html.erb:2
 msgid "Easy Ways to Switch to openSUSE Leap"
-msgstr ""
+msgstr "वर्तमान सिस्टम के ओपनSUSE लीप में परिवर्तन के सरल मार्ग"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:2
 msgid "Easy Ways to Switch to openSUSE Tumbleweed"
-msgstr ""
+msgstr "वर्तमान सिस्टम के ओपनSUSE टम्बलवीड में परिवर्तन के सरल मार्ग"
 
 #: ../app/controllers/package_controller.rb:125
 msgid "Education & Science"
-msgstr ""
+msgstr "शिक्षा व विज्ञान"
 
 #: ../app/views/distributions/_requirements.html.erb:8
 msgid "Either a DVD drive or USB port for the installation media"
-msgstr ""
+msgstr "इंस्टॉल मीडिया हेतु डीवीडी ड्राइव या यूएसबी पोर्ट"
 
 #: ../app/views/layouts/_footer.html.erb:19
 msgid "Events"
-msgstr ""
+msgstr "घटनाक्रम"
 
 #: ../app/views/package/_download_rows.html.erb:25
 msgid "Experimental"
-msgstr ""
+msgstr "अल्पविकसित"
 
 #: ../app/views/layouts/_footer.html.erb:29
 msgid "Facebook group"
-msgstr ""
+msgstr "फेसबुक समूह"
 
 #: ../app/views/download/package.erb:59
 msgid "For <strong>%s</strong> run the following as <strong>root</strong>:"
 msgstr ""
+"<strong>%s</strong> हेतु निम्नलिखित को <strong>रुट उपयोक्ता</strong> के रूप "
+"में निष्पादित करें :"
 
 #: ../app/views/download/package.erb:52
 msgid "For <strong>%s</strong> run the following:"
-msgstr ""
+msgstr "<strong>%s</strong> हेतु निम्नलिखित को निष्पादित करें :"
 
 #: ../app/views/download/package.erb:43
 msgid ""
@@ -305,6 +325,9 @@ msgid ""
 "(note that the order of repositories in pacman.conf is important, since "
 "pacman always downloads the first found package):"
 msgstr ""
+"<strong>आर्च लिनक्स</strong> हेतु, /etc/pacman.conf फाइल संपादित कर निम्नलिखि"
+"त (ध्यान दें कि पैकमैन द्वारा सदैव प्रथम प्राप्त पैकेज डाउनलोड होता है अतः "
+"pacman.conf में पैकेज-संग्रह का क्रम अहम है) को जोड़ें :"
 
 #: ../app/data/42.3.yml.erb:22 ../app/data/42.3.yml.erb:53
 #: ../app/data/15.0.yml.erb:22 ../app/data/15.0.yml.erb:121
@@ -313,7 +336,7 @@ msgstr ""
 #: ../app/data/tumbleweed.yml.erb:97 ../app/data/tumbleweed.yml.erb:177
 #: ../app/data/tumbleweed.yml.erb:215
 msgid "For CD and USB stick"
-msgstr ""
+msgstr "सीडी व यूएसबी हेतु"
 
 #: ../app/data/42.3.yml.erb:8 ../app/data/42.3.yml.erb:41
 #: ../app/data/42.3.yml.erb:67 ../app/data/42.3.yml.erb:79
@@ -331,124 +354,131 @@ msgstr ""
 #: ../app/data/tumbleweed.yml.erb:188 ../app/data/tumbleweed.yml.erb:197
 #: ../app/data/tumbleweed.yml.erb:206
 msgid "For DVD and USB stick"
-msgstr ""
+msgstr "डीवीडी व यूएसबी हेतु"
 
 #: ../app/views/distributions/index.html.erb:11
 msgid "For Developers, openSUSE Contributors, and Linux/FOSS Enthusiasts."
 msgstr ""
+"सॉफ्टवेयर विकासकर्ता, ओपनSUSE योगदानकर्ता व लिनक्स/मुक्त स्रोत सॉफ्टवेयर "
+"प्रशंसकों हेतु।"
 
 #: ../app/views/distributions/index.html.erb:28
 msgid "For Sysadmins, Enterprise Developers, and ‘Regular’ Desktop Users."
 msgstr ""
+"सिस्टम प्रशासक, उद्यम में कार्यरत सॉफ्टवेयर विकासकर्ता व 'सामान्य' डेस्कटॉप "
+"उपयोक्ताओं हेतु।"
 
 #: ../app/views/distributions/_verify_download.html.erb:13
 msgid ""
 "For each ISO, we offer a checksum file with the corresponding SHA256 sum."
 msgstr ""
+"प्रत्येक आईएसओ हेतु संबंधित चेकसम फाइल व उसके अनुरूप SHA256 सम उपलब्ध है।"
 
 #: ../app/views/distributions/_verify_download.html.erb:16
 msgid ""
 "For extra security, you can use GPG to verify who signed those .sha256 files."
 msgstr ""
+"अतिरिक्त सुरक्षा हेतु आप इन .sha256 फाइलों के हस्ताक्षर जीपीजी द्वारा प्रमाणि"
+"त कर सकते हैं।"
 
 #: ../app/views/distributions/_verify_download.html.erb:22
 msgid "For more help verifying your download please read %{checksums_help}"
-msgstr ""
+msgstr "डाउनलोड प्रमाणीकरण हेतु अधिक सहायता के लिए यह पढ़ें %{checksums_help}"
 
 #: ../app/data/15.0.yml.erb:84 ../app/data/15.1.yml.erb:84
 msgid "For running virtual machines in OpenStack"
-msgstr ""
+msgstr "ओपनस्टैक में वर्चुअल मशीन के निष्पादन हेतु"
 
 #: ../app/data/15.0.yml.erb:73 ../app/data/15.1.yml.erb:73
 msgid "For running virtual machines in VMware"
-msgstr ""
+msgstr "वीएमवेयर में वर्चुअल मशीन के निष्पादन हेतु"
 
 #: ../app/data/15.0.yml.erb:62 ../app/data/15.1.yml.erb:62
 msgid "For running virtual machines on MS HyperV"
-msgstr ""
+msgstr "एमएस हाइपर-वी में वर्चुअल मशीन के निष्पादन हेतु"
 
 #: ../app/data/15.0.yml.erb:40 ../app/data/15.1.yml.erb:40
 msgid "For use in KVM or XEN HVM hypervisors"
-msgstr ""
+msgstr "केवीएम या XEN एचवीएम हाइपर-वाइज़र में उपयोग हेतु"
 
 #: ../app/data/15.0.yml.erb:51 ../app/data/15.1.yml.erb:51
 msgid "For use in XEN PV hypervisors"
-msgstr ""
+msgstr "XEN पीवी हाइपर-वाइज़र में उपयोग हेतु"
 
 #: ../app/views/layouts/_footer.html.erb:27
 #: ../app/views/layouts/_navbar.html.erb:26
 msgid "Forums"
-msgstr ""
+msgstr "चर्चा मंच"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:6
 msgid "From OS X"
-msgstr ""
+msgstr "ओएस एक्स से"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:5
 msgid "From Windows"
-msgstr ""
+msgstr "विंडोज से"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:4
 msgid "From an older version or other Linux distro"
-msgstr ""
+msgstr "पुराने संस्करण व अन्य लिनक्स वितरण से"
 
 #: ../app/views/distributions/_documentation.html.erb:21
 msgid "Full Documentation"
-msgstr ""
+msgstr "पूर्ण प्रलेखन"
 
 #: ../app/data/tumbleweed.yml.erb:149 ../app/data/tumbleweed.yml.erb:187
 msgid "GNOME LiveCD"
-msgstr ""
+msgstr "गनोम लाइव सीडी"
 
 #: ../app/controllers/package_controller.rb:123
 msgid "Games"
-msgstr ""
+msgstr "खेल"
 
 #: ../app/views/layouts/download.html.erb:7
 #: ../app/views/layouts/jekyll.html.erb:8
 #: ../app/views/layouts/jekyll.html.erb:34
 msgid "Get openSUSE"
-msgstr ""
+msgstr "ओपनSUSE प्राप्त करें"
 
 #: ../app/views/download/package.erb:105
 msgid "Grab binary packages directly"
-msgstr ""
+msgstr "सीधे बाइनरी पैकेज प्राप्त करें"
 
 #: ../app/controllers/package_controller.rb:127
 msgid "Graphics"
-msgstr ""
+msgstr "ग्राफ़िक्स"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:13
 msgid "How to burn a DVD on Linux."
-msgstr ""
+msgstr "लिनक्स पर डीवीडी बर्न करने की विधि।"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:23
 msgid "How to burn a DVD on OS X."
-msgstr ""
+msgstr "ओएस एक्स पर डीवीडी बर्न करने की विधि।"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:18
 msgid "How to burn a DVD on Windows."
-msgstr ""
+msgstr "विंडोज पर डीवीडी बर्न करने की विधि।"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:35
 msgid "How to create a Bootable USB stick on Windows."
-msgstr ""
+msgstr "विंडोज पर बूट योग्य यूएसबी बनाने की विधि।"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:30
 msgid "How to create a bootable USB stick on Linux."
-msgstr ""
+msgstr "लिनक्स पर बूट योग्य यूएसबी बनाने की विधि।"
 
 #: ../app/views/distributions/_upgrade_table.html.erb:40
 msgid "How to create a bootable USB stick on OS X."
-msgstr ""
+msgstr "ओएस एक्स पर बूट योग्य यूएसबी बनाने की विधि।"
 
 #: ../app/views/layouts/_footer.html.erb:31
 msgid "IRC channels"
-msgstr ""
+msgstr "आईआरसी चैट चैनल"
 
 #: ../app/views/distributions/index.html.erb:87
 msgid "If you are still not sure, download %{leap}"
-msgstr ""
+msgstr "अनिश्चित होने की स्थिति में %{leap} डाउनलोड करें"
 
 #: ../app/views/distributions/_leap_switch.html.erb:5
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:5
@@ -457,81 +487,92 @@ msgid ""
 "DVD/USB and choosing upgrade, or carry out an ‘Online Upgrade’ in a few\n"
 "commands."
 msgstr ""
+"यदि आप पहले से ओपनSUSE उपयोग कर रहे हैं तो डीवीडी/यूएसबी से बूट कर अपग्रेड "
+"चुनें\n"
+"या कुछ कमांड द्वारा 'ऑनलाइन अपग्रेड' करें।"
 
 #: ../app/views/download/appliance.erb:34
 msgid "Image:"
-msgstr ""
+msgstr "फाइल :"
 
 #: ../app/views/layouts/_footer.html.erb:15
 msgid "Information"
-msgstr ""
+msgstr "सूचना"
 
 #: ../app/controllers/download_controller.rb:84
 msgid "Install package %s / %s"
-msgstr ""
+msgstr "इंस्टॉल पैकेज %s / %s"
 
 #: ../app/controllers/download_controller.rb:126
 msgid "Install pattern %s / %s"
-msgstr ""
+msgstr "इंस्टॉल प्रतिमान %s / %s"
 
 #: ../app/views/images/images.xml.erb:28 ../app/data/15.0.yml.erb:1
 #: ../app/data/15.1.yml.erb:1 ../app/data/tumbleweed.yml.erb:1
 msgid "Installation"
-msgstr ""
+msgstr "इंस्टॉल प्रक्रिया"
 
 #: ../app/views/images/images.xml.erb:16 ../app/views/images/images.xml.erb:90
 msgid "Installation Source"
-msgstr ""
+msgstr "इंस्टॉल स्रोत"
 
 #: ../app/views/distributions/_requirements.html.erb:9
 msgid "Internet access is helpful, and required for the Network Installer"
-msgstr ""
+msgstr "इंटरनेट अभिगम प्रक्रिया में सहायक व नेटवर्क इंस्टॉल हेतु आवश्यक है"
 
 #: ../app/views/distributions/index.html.erb:91
 msgid ""
 "It is easy to <a href=\"https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 "\">switch to openSUSE Tumbleweed</a> if you change your mind later."
 msgstr ""
+"यदि आप बाद में संस्करण बदलना चाहे तो <a href=\"https://en.opensuse.org/"
+"openSUSE:Tumbleweed_upgrade\">ओपनSUSE टम्बलवीड</a> में परिवर्तन की प्रक्रिया "
+"भी सरल है।"
 
 #: ../app/views/distributions/index.html.erb:67
 msgid ""
 "It is not expected to change in any significant way until its next annual "
 "release."
 msgstr ""
+"अपने अगले वार्षिक संस्करण तक इसमें कोई अहम परिवर्तन होने की संभावना न के बरा"
+"बर है।"
 
 #: ../app/views/distributions/_verify_download.html.erb:18
 msgid "It should be %{fingerprint}"
-msgstr ""
+msgstr "यह होना चाहिए %{fingerprint}"
 
 #: ../app/data/15.0.yml.erb:35 ../app/data/15.1.yml.erb:35
 msgid "JeOS"
-msgstr ""
+msgstr "जीईओएस"
 
 #: ../app/data/tumbleweed.yml.erb:158 ../app/data/tumbleweed.yml.erb:196
 msgid "KDE LiveCD"
-msgstr ""
+msgstr "केडीई लाइव सीडी"
 
 #: ../app/views/images/images.xml.erb:18
 msgid "Leap %s DVD"
-msgstr ""
+msgstr "लीप %s डीवीडी"
 
 #: ../app/views/images/images.xml.erb:93
 msgid "Leap %s DVD (Build %s)"
-msgstr ""
+msgstr "लीप %s डीवीडी (बिल्ड %s)"
 
 #: ../app/views/images/images.xml.erb:21
 msgid "Leap %s Network Installation"
-msgstr ""
+msgstr "लीप %s नेटवर्क इंस्टॉल"
 
 #: ../app/views/images/images.xml.erb:97
 msgid "Leap %s Network Installation (Build %s)"
-msgstr ""
+msgstr "लीप %s नेटवर्क इंस्टॉल (बिल्ड %s)"
 
 #: ../app/views/distributions/index.html.erb:73
 msgid ""
 "Leap is recommended for <strong>Sysadmins</strong>, <strong>Enterprise "
 "Developers</strong>, and <strong>‘Regular’ Desktop Users</strong>."
 msgstr ""
+"लीप <strong>सिस्टम प्रशासक</strong>, <strong>उद्यम हेतु कार्यरत सॉफ्टवेयर "
+"विकासकर्ता</strong> व <strong>'सामान्य' डेस्कटॉप उपयोक्ताओं</strong> हेतु "
+"अनुशंसित है।"
 
 #: ../app/views/distributions/index.html.erb:68
 msgid ""
@@ -539,23 +580,26 @@ msgid ""
 "changes are not expected for several years, aligned with each new Major "
 "Release (eg 12, 13, etc) of SUSE Linux Enterprise."
 msgstr ""
+"लीप का मूल सिस्टम %{sles} के समान होने के कारण यह SUSE लिनक्स उद्यमी संस्करण "
+"के प्रत्येक नवीन मुख्य संस्करण (जैसे 12, 13 इत्यादि) के साथ समन्वित है अतः "
+"कई वर्षों तक संरचना में कोई प्रमुख परिवर्तन होने की संभावना नहीं है।"
 
 #: ../app/views/package/explore.html.erb:20
 msgid "Learn more"
-msgstr ""
+msgstr "और जानें"
 
 #: ../app/views/distributions/_documentation.html.erb:16
 msgid "License"
-msgstr ""
+msgstr "लाइसेंस"
 
 #: ../app/views/images/images.xml.erb:52 ../app/data/15.0.yml.erb:94
 #: ../app/data/15.1.yml.erb:94 ../app/data/tumbleweed.yml.erb:139
 msgid "Live"
-msgstr ""
+msgstr "लाइव"
 
 #: ../app/views/layouts/_footer.html.erb:30
 msgid "Mail lists"
-msgstr ""
+msgstr "ईमेल सूची"
 
 #: ../app/views/distributions/_verify_download.html.erb:5
 msgid ""
@@ -566,10 +610,17 @@ msgid ""
 "(SHA256) will be used automatically if you choose Metalink in the\n"
 "field above and use the add-on DownThemAll! in Firefox."
 msgstr ""
+"डाउनलोड चेकसम प्रमाणित करने हेतु कई अनुप्रयोग उपलब्ध हैं। प्रमाणीकरण\n"
+"से आप इच्छित आईएसओ फाइल डाउनलोड की पुष्टि व साथ ही सुनिश्चित कर\n"
+"सकते हैं कि डाउनलोड की गई फाइल त्रुटियुक्त नहीं है। डाउनलोड प्रक्रिया के दौरा"
+"न\n"
+"भी फाइल प्रमाणीकरण संभव है। उदाहरण के तौर पर यदि आप ऊपर दी गई पंक्ति\n"
+"से मेटालिंक का चयन कर फायरफॉक्स का पूरक साधन DownThemAll!\n"
+"उपयोग करते हैं तो स्वतः ही चेकसम (SHA256) उपयोग होगा।"
 
 #: ../app/views/images/images.xml.erb:27
 msgid "Medium"
-msgstr ""
+msgstr "माध्यम"
 
 #: ../app/data/42.3.yml.erb:13 ../app/data/42.3.yml.erb:27
 #: ../app/data/42.3.yml.erb:46 ../app/data/42.3.yml.erb:58
@@ -597,17 +648,17 @@ msgstr ""
 #: ../app/data/tumbleweed.yml.erb:192 ../app/data/tumbleweed.yml.erb:201
 #: ../app/data/tumbleweed.yml.erb:210 ../app/data/tumbleweed.yml.erb:219
 msgid "Metalink"
-msgstr ""
+msgstr "मेटालिंक"
 
 #: ../app/controllers/package_controller.rb:126
 msgid "Multimedia"
-msgstr ""
+msgstr "मल्टीमीडिया"
 
 #: ../app/controllers/package_controller.rb:129
 #: ../app/views/images/images.xml.erb:20 ../app/views/images/images.xml.erb:40
 #: ../app/views/images/images.xml.erb:95
 msgid "Network"
-msgstr ""
+msgstr "नेटवर्क"
 
 #: ../app/data/42.3.yml.erb:21 ../app/data/42.3.yml.erb:52
 #: ../app/data/42.3.yml.erb:78 ../app/data/15.0.yml.erb:21
@@ -616,83 +667,83 @@ msgstr ""
 #: ../app/data/tumbleweed.yml.erb:18 ../app/data/tumbleweed.yml.erb:44
 #: ../app/data/tumbleweed.yml.erb:70 ../app/data/tumbleweed.yml.erb:96
 msgid "Network Image"
-msgstr ""
+msgstr "नेटवर्क फाइल"
 
 #: ../app/views/layouts/_footer.html.erb:17
 msgid "News"
-msgstr ""
+msgstr "समाचार"
 
 #: ../app/views/download/appliance.erb:5
 msgid "No appliance data for %{project}"
-msgstr ""
+msgstr "%{project} हेतु कोई उपकरण डेटा नहीं है"
 
 #: ../app/views/download/appliance.erb:20
 msgid "No appliances found in project %s"
-msgstr ""
+msgstr "परियोजना %s में कोई उपकरण नहीं है"
 
 #: ../app/views/download/package.erb:6
 msgid "No data for %s / %s"
-msgstr ""
+msgstr "%s / %s हेतु कोई डेटा नहीं"
 
 #: ../app/views/package/show.html.erb:37
 msgid "No description."
-msgstr ""
+msgstr "कोई विवरण नहीं।"
 
 #: ../app/views/download/package.erb:131
 msgid "No downloads found for %s in project %s"
-msgstr ""
+msgstr "%s परियोजना में %s हेतु कोई डाउनलोड नहीं है"
 
 #: ../app/controllers/distributions_controller.rb:57
 msgid "No legacy distribution available."
-msgstr ""
+msgstr "वितरण का कोई पुराना संस्करण अनुपलब्ध।"
 
 #: ../app/views/search/_find_results.html.erb:12
 msgid "No packages found matching your search. "
-msgstr ""
+msgstr "आपकी खोज से मेल खाता कोई पैकेज नहीं मिला। "
 
 #: ../app/controllers/distributions_controller.rb:13
 msgid "No stable release available"
-msgstr ""
+msgstr "स्थिर संस्करण अनुपलब्ध"
 
 #: ../app/controllers/distributions_controller.rb:51
 msgid "No testing distribution available."
-msgstr ""
+msgstr "परीक्षण संस्करण अनुपलब्ध।"
 
 #: ../app/controllers/obs_controller.rb:32
 msgid "OBS Backend not available"
-msgstr ""
+msgstr "ओबीएस बैकएन्ड अनुपलब्ध"
 
 #: ../app/views/search/_settings.html.erb:37
 msgid "OK"
-msgstr ""
+msgstr "ठीक है"
 
 #: ../app/controllers/package_controller.rb:128
 msgid "Office & Productivity"
-msgstr ""
+msgstr "ऑफिस व उत्पादकता"
 
 #: ../app/views/package/_download_rows.html.erb:22 ../app/data/42.3.yml.erb:1
 msgid "Official"
-msgstr ""
+msgstr "आधिकारिक"
 
 #: ../app/views/distributions/_leap_switch.html.erb:9
 msgid "Online Upgrade Instructions"
-msgstr ""
+msgstr "ऑनलाइन अपग्रेड दिशानिर्देश"
 
 #: ../app/views/distributions/_requirements.html.erb:7
 msgid "Over 40GB of free hard drive space"
-msgstr ""
+msgstr "40 जीबी से अधिक अप्रयुक्त ड्राइव स्पेस"
 
 #: ../app/views/package/show.html.erb:6
 msgid "Package %s not found..."
-msgstr ""
+msgstr "पैकेज %s नहीं मिला..."
 
 #: ../app/views/layouts/jekyll.html.erb:45
 msgid "Package Search"
-msgstr ""
+msgstr "पैकेज खोज"
 
 #: ../app/views/download/package.erb:111
 msgid "Packages for %s:"
-msgstr ""
+msgstr "%s हेतु पैकेज :"
 
 #: ../app/data/42.3.yml.erb:15 ../app/data/42.3.yml.erb:29
 #: ../app/data/42.3.yml.erb:48 ../app/data/42.3.yml.erb:60
@@ -716,129 +767,131 @@ msgstr ""
 #: ../app/data/tumbleweed.yml.erb:92 ../app/data/tumbleweed.yml.erb:104
 #: ../app/data/tumbleweed.yml.erb:121 ../app/data/tumbleweed.yml.erb:135
 msgid "Pick Mirror"
-msgstr ""
+msgstr "सर्वर-मिरर चयन"
 
 #: ../app/views/layouts/_footer.html.erb:20
 msgid "Planet"
-msgstr ""
+msgstr "ग्रह"
 
 #: ../app/data/tumbleweed.yml.erb:142
 msgid "Please be aware of the following limitations of the live images:"
-msgstr ""
+msgstr "कृपया लाइव फाइलों की निम्नलिखित सीमाएँ ध्यान रखें :"
 
 #: ../app/data/15.0.yml.erb:131 ../app/data/15.1.yml.erb:131
 msgid "Ports"
-msgstr ""
+msgstr "पोर्ट"
 
 #: ../app/data/15.0.yml.erb:132 ../app/data/15.1.yml.erb:132
 msgid ""
 "Ports of openSUSE Leap to architectures other than the PC are maintained by "
 "separate community teams, with limited resources."
 msgstr ""
+"ओपनSUSE लीप के कंप्यूटर संस्करण के अलावा अन्य संरचनाओं के पोर्ट विभिन्न "
+"सामुदायिक टीम द्वारा अनुरक्षित हैं जिनके पास सीमित संसाधन हैं।"
 
 #: ../app/views/distributions/_requirements.html.erb:2
 msgid "Recommended System Requirements"
-msgstr ""
+msgstr "अनुशंसित सिस्टम आवश्यकताएँ"
 
 #: ../app/views/distributions/_documentation.html.erb:11
 msgid "Release Notes"
-msgstr ""
+msgstr "प्रकाशन नोट्स"
 
 #: ../app/views/layouts/_footer.html.erb:18
 msgid "Release notes"
-msgstr ""
+msgstr "प्रकाशन नोट्स"
 
 #: ../app/views/images/images.xml.erb:74
 msgid "Rescue"
-msgstr ""
+msgstr "निवारण"
 
 #: ../app/data/tumbleweed.yml.erb:176 ../app/data/tumbleweed.yml.erb:214
 msgid "Rescue LiveCD"
-msgstr ""
+msgstr "निवारण लाइव सीडी"
 
 #: ../app/views/distributions/index.html.erb:69
 msgid "SUSE Linux Enterprise"
-msgstr ""
+msgstr "SUSE लिनक्स उद्यमी संस्करण"
 
 #: ../app/views/search/find.html.erb:1
 #: ../app/views/search/_find_form.html.erb:19
 msgid "Search"
-msgstr ""
+msgstr "खोज"
 
 #: ../app/views/search/_find_form.html.erb:12
 msgid "Search packages..."
-msgstr ""
+msgstr "पैकेज खोज..."
 
 #: ../app/views/search/_settings.html.erb:6
 msgid "Search settings"
-msgstr ""
+msgstr "खोज सेटिंग्स"
 
 #: ../app/views/download/package.erb:10
 msgid "Select Your Operating System"
-msgstr ""
+msgstr "अपना ऑपरेटिंग सिस्टम चुनें"
 
 #: ../app/views/download/appliance.erb:9
 msgid "Select the image type"
-msgstr ""
+msgstr "फाइल प्रकार चुनें"
 
 #: ../app/views/layouts/_footer.html.erb:21
 msgid "Shop"
-msgstr ""
+msgstr "दुकान"
 
 #: ../app/views/package/show.html.erb:114
 msgid "Show"
-msgstr ""
+msgstr "प्रदर्शित करें"
 
 #: ../app/views/package/show.html.erb:64
 msgid "Show %s for other distributions"
-msgstr ""
+msgstr "अन्य वितरणों हेतु %s प्रदर्शित करें"
 
 #: ../app/views/package/show.html.erb:95
 msgid "Show community packages"
-msgstr ""
+msgstr "सामुदायिक पैकेज प्रदर्शित करें"
 
 #: ../app/views/search/_settings.html.erb:31
 msgid "Show debug packages"
-msgstr ""
+msgstr "दोषमार्जन पैकेज प्रदर्शित करें"
 
 #: ../app/views/search/_settings.html.erb:17
 msgid "Show development packages"
-msgstr ""
+msgstr "सॉफ्टवेयर विकास पैकेज प्रदर्शित करें"
 
 #: ../app/views/package/show.html.erb:93
 msgid "Show experimental packages"
-msgstr ""
+msgstr "अल्पविकसित पैकेज प्रदर्शित करें"
 
 #: ../app/views/search/_settings.html.erb:24
 msgid "Show language packages"
-msgstr ""
+msgstr "भाषीय पैकेज प्रदर्शित करें"
 
 #: ../app/views/package/show.html.erb:49
 msgid "Size"
-msgstr ""
+msgstr "आकार"
 
 #: ../app/views/layouts/_footer.html.erb:35
 msgid "Social Media"
-msgstr ""
+msgstr "सोशल मीडिया"
 
 #: ../app/views/layouts/_navbar.html.erb:17
 msgid "Software"
-msgstr ""
+msgstr "सॉफ्टवेयर"
 
 #: ../app/helpers/package_helper.rb:13 ../app/helpers/package_helper.rb:15
 #: ../app/views/package/_download_rows.html.erb:42
 #: ../app/views/package/_download_rows.html.erb:45
 #: ../app/views/images/images.xml.erb:29
 msgid "Source"
-msgstr ""
+msgstr "स्रोत"
 
 #: ../app/views/search/_find_results.html.erb:70
 msgid "Sub-Packages"
-msgstr ""
+msgstr "उप-पैकेज"
 
 #: ../app/controllers/package_controller.rb:130
 msgid "System & Utility"
-msgstr ""
+msgstr "सिस्टम व साधन"
 
 #: ../app/views/distributions/_choosing_media.html.erb:5
 msgid ""
@@ -846,6 +899,9 @@ msgid ""
 "packages available in the distribution and does not require a network\n"
 "connection during the installation."
 msgstr ""
+"सामान्यतः डीवीडी/यूएसबी अनुशंसित है क्योंकि इसमें वितरण के अधिकतर पैकेज "
+"सम्मिलित\n"
+"होते हैं व इंस्टॉल प्रक्रिया के समय नेटवर्क कनेक्शन की आवश्यकता नहीं होती है।"
 
 #: ../app/views/distributions/_choosing_media.html.erb:10
 msgid ""
@@ -854,20 +910,28 @@ msgid ""
 "packages they choose to install, which is likely to be significantly\n"
 "less than 4.7GB."
 msgstr ""
+"सीमित डेटा वाले नेटवर्क कनेक्शन के उपयोक्ताओं हेतु नेटवर्क सीडी/यूएसबी "
+"अनुशंसित\n"
+"है क्योंकि इसमें केवल उपयोक्ता द्वारा चयनित पैकेज ही इंस्टॉल होंगे व स्वाभावि"
+"क रूप\n"
+"से उनका आकार 4.7 जीबी से कम ही होगा चाहिए।"
 
 #: ../app/controllers/application_controller.rb:42
 msgid "The authentication to the OBS API has not been configured correctly."
-msgstr ""
+msgstr "ओबीएस एपीआई हेतु पुष्टिकरण उचित रूप से विन्यस्त नहीं है।"
 
 #: ../app/views/package/show.html.erb:113
 msgid ""
 "The following distributions are not officially supported. Use these packages "
 "at your own risk."
 msgstr ""
+"निम्नलिखित वितरण आधिकारिक रूप से समर्थित नहीं हैं। इन पैकेज के उपयोग/प्रभाव "
+"का उत्तरदायित्व आप पर है।"
 
 #: ../app/views/download/package.erb:48
 msgid "Then run the following as <strong>root</strong>"
 msgstr ""
+"फिर निम्नलिखित को <strong>रुट उपयोक्ता</strong> के रूप में निष्पादित करें"
 
 #: ../app/controllers/distributions_controller.rb:73
 msgid ""
@@ -906,47 +970,47 @@ msgstr ""
 #: ../app/data/15.0.yml.erb:33 ../app/data/15.1.yml.erb:19
 #: ../app/data/15.1.yml.erb:33
 msgid "Torrent File"
-msgstr ""
+msgstr "टोरेंट फाइल"
 
 #: ../app/views/images/images.xml.erb:33
 msgid "Tumbleweed %s DVD (i586)"
-msgstr ""
+msgstr "टम्बलवीड %s डीवीडी (i586)"
 
 #: ../app/views/images/images.xml.erb:36
 msgid "Tumbleweed %s DVD (x86_64)"
-msgstr ""
+msgstr "टम्बलवीड %s डीवीडी (x86_64)"
 
 #: ../app/views/images/images.xml.erb:57
 msgid "Tumbleweed %s GNOME Live (i686)"
-msgstr ""
+msgstr "टम्बलवीड %s गनोम लाइव (i686)"
 
 #: ../app/views/images/images.xml.erb:60
 msgid "Tumbleweed %s GNOME Live (x86_64)"
-msgstr ""
+msgstr "टम्बलवीड %s गनोम लाइव (x86_64)"
 
 #: ../app/views/images/images.xml.erb:67
 msgid "Tumbleweed %s KDE Live (i686)"
-msgstr ""
+msgstr "टम्बलवीड %s केडीई लाइव (i686)"
 
 #: ../app/views/images/images.xml.erb:70
 msgid "Tumbleweed %s KDE Live (x86_64)"
-msgstr ""
+msgstr "टम्बलवीड %s केडीई लाइव (x86_64)"
 
 #: ../app/views/images/images.xml.erb:43
 msgid "Tumbleweed %s Network Installation (i586)"
-msgstr ""
+msgstr "टम्बलवीड %s नेटवर्क इंस्टॉल (i586)"
 
 #: ../app/views/images/images.xml.erb:46
 msgid "Tumbleweed %s Network Installation (x86_64)"
-msgstr ""
+msgstr "टम्बलवीड %s नेटवर्क इंस्टॉल (x86_64)"
 
 #: ../app/views/images/images.xml.erb:77
 msgid "Tumbleweed %s Rescue CD (i686)"
-msgstr ""
+msgstr "टम्बलवीड %s निवारण सीडी (i686)"
 
 #: ../app/views/images/images.xml.erb:80
 msgid "Tumbleweed %s Rescue CD (x86_64)"
-msgstr ""
+msgstr "टम्बलवीड %s निवारण सीडी (x86_64)"
 
 #: ../app/views/distributions/index.html.erb:56
 msgid ""
@@ -956,15 +1020,15 @@ msgstr ""
 
 #: ../app/data/42.3.yml.erb:33
 msgid "Unofficial"
-msgstr ""
+msgstr "अनाधिकारिक"
 
 #: ../app/views/package/show.html.erb:110
 msgid "Unsupported distributions"
-msgstr ""
+msgstr "असमर्थित वितरण"
 
 #: ../app/views/distributions/_tumbleweed_switch.html.erb:9
 msgid "Upgrade Instructions"
-msgstr ""
+msgstr "अपग्रेड दिशानिर्देश"
 
 #: ../app/views/distributions/_verify_download.html.erb:2
 msgid "Verify Your Download Before Use"
@@ -972,7 +1036,7 @@ msgstr ""
 
 #: ../app/views/package/show.html.erb:48
 msgid "Version"
-msgstr ""
+msgstr "संस्करण"
 
 #: ../app/views/search/_find_results.html.erb:57
 msgid "View"
@@ -992,11 +1056,11 @@ msgstr ""
 
 #: ../app/views/layouts/_navbar.html.erb:23
 msgid "Wiki"
-msgstr ""
+msgstr "विकी"
 
 #: ../app/data/tumbleweed.yml.erb:167 ../app/data/tumbleweed.yml.erb:205
 msgid "XFCE LiveCD"
-msgstr ""
+msgstr "एक्सएफसीई लाइव सीडी"
 
 #: ../app/views/download/package.erb:93
 msgid ""
@@ -1013,7 +1077,7 @@ msgstr ""
 
 #: ../app/views/distributions/index.html.erb:64
 msgid "annually"
-msgstr ""
+msgstr "वार्षिक"
 
 #: ../app/views/distributions/index.html.erb:65
 msgid "https://en.opensuse.org/Lifetime"
@@ -1063,48 +1127,48 @@ msgstr "https://en.opensuse.org/openSUSE:Tumbleweed_upgrade"
 
 #: ../app/views/images/images.xml.erb:32 ../app/views/images/images.xml.erb:42
 msgid "i586"
-msgstr ""
+msgstr "i586"
 
 #: ../app/views/images/images.xml.erb:56 ../app/views/images/images.xml.erb:66
 #: ../app/views/images/images.xml.erb:76
 msgid "i686"
-msgstr ""
+msgstr "i686"
 
 #: ../app/views/distributions/index.html.erb:65
 msgid "lifetime"
-msgstr ""
+msgstr "जीवनपर्यन्त"
 
 #: ../app/views/distributions/index.html.erb:63
 msgid "openSUSE Leap"
-msgstr ""
+msgstr "ओपनSUSE लीप"
 
 #: ../app/controllers/distributions_controller.rb:26
 msgid "openSUSE Leap Version \"#{@version}\" is currently not availble."
-msgstr ""
+msgstr "ओपनSUSE लीप संस्करण \"#{@version}\" अभी अनुपलब्ध है।"
 
 #: ../app/controllers/distributions_controller.rb:62
 msgid "openSUSE Leap Version #{parsed_version} not found."
-msgstr ""
+msgstr "ओपनSUSE लीप संस्करण #{parsed_version} अभी अनुपलब्ध है।"
 
 #: ../app/views/layouts/application.html.erb:7
 msgid "openSUSE Software"
-msgstr ""
+msgstr "ओपनSUSE सॉफ्टवेयर"
 
 #: ../app/views/distributions/_documentation.html.erb:6
 msgid "openSUSE Startup Guide"
-msgstr ""
+msgstr "ओपनSUSE उपयोग गाइड"
 
 #: ../app/views/distributions/index.html.erb:53
 #: ../app/views/images/images.xml.erb:26
 msgid "openSUSE Tumbleweed"
-msgstr ""
+msgstr "ओपनSUSE टम्बलवीड"
 
 #: ../app/views/layouts/_footer.html.erb:46
 msgid "openSUSE contributors"
-msgstr ""
+msgstr "ओपनSUSE योगदानकर्ता"
 
 #: ../app/views/images/images.xml.erb:35 ../app/views/images/images.xml.erb:45
 #: ../app/views/images/images.xml.erb:59 ../app/views/images/images.xml.erb:69
 #: ../app/views/images/images.xml.erb:79
 msgid "x86_64"
-msgstr ""
+msgstr "x86_64"
