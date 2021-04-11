@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: software 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 11:33+0200\n"
-"PO-Revision-Date: 2021-04-10 20:57+0000\n"
+"PO-Revision-Date: 2021-04-11 16:57+0000\n"
 "Last-Translator: Panwar <caspian7pena@gmail.com>\n"
 "Language-Team: Hindi <https://l10n.opensuse.org/projects/software-o-o/master/"
 "hi/>\n"
@@ -938,16 +938,19 @@ msgid ""
 "There is a new version of openSUSE Leap <a "
 "href='#{leap_distributions_url}'>available</a>!"
 msgstr ""
+"ओपनSUSE लीप का नवीन संस्करण <a href='#{leap_distributions_url}'>उपलब्ध</a> "
+"है!"
 
 #: ../app/views/package/show.html.erb:41
 msgid "There is no official package available for %s"
-msgstr ""
+msgstr "%s हेतु कोई आधिकारिक पैकेज उपलब्ध नहीं है"
 
 #: ../app/data/42.3.yml.erb:36
 msgid ""
 "These ports are not officially supported, and they are not as stable as "
 "official distributions."
 msgstr ""
+"ये पोर्ट आधिकारिक रूप से समर्थित एवं आधिकारिक वितरणों के समान स्थिर नहीं है।"
 
 #: ../app/data/tumbleweed.yml.erb:145
 msgid ""
@@ -955,16 +958,20 @@ msgid ""
 "accurate reflection as to whether Tumbleweed will work on your hardware or "
 "not"
 msgstr ""
+"इनका पैकेज व ड्राइवर चयन सीमित होने के कारण आपके हार्डवेयर हेतु टम्बलवीड "
+"संगतता में संशय की स्थिति होती है"
 
 #: ../app/data/tumbleweed.yml.erb:144
 msgid ""
 "They should not be used to install or upgrade Tumbleweed. Please use the "
 "[Tumbleweed media](%{tw}) instead"
 msgstr ""
+"इनका उपयोग टम्बलवीड इंस्टॉल या अपग्रेड करने हेतु न करें। इनके स्थान पर "
+"[टम्बलवीड मीडिया](%{tw}) उपयोग करें"
 
 #: ../app/views/layouts/jekyll.html.erb:29
 msgid "Toggle navigation"
-msgstr ""
+msgstr "संचालन चालू/बंद"
 
 #: ../app/data/42.3.yml.erb:19 ../app/data/15.0.yml.erb:19
 #: ../app/data/15.0.yml.erb:33 ../app/data/15.1.yml.erb:19
@@ -1017,6 +1024,9 @@ msgid ""
 "Tumbleweed is recommended for <strong>Developers</strong>, <strong>openSUSE "
 "Contributors</strong>, and <strong>Linux/FOSS Enthusiasts</strong>."
 msgstr ""
+"टम्बलवीड <strong>सॉफ्टवेयर विकासकर्ता</strong>, <strong>ओपनSUSE "
+"योगदानकर्ता</strong> व <strong>लिनक्स/मुक्त स्रोत सॉफ्टवेयर "
+"प्रशंसकों</strong> हेतु अनुशंसित है।"
 
 #: ../app/data/42.3.yml.erb:33
 msgid "Unofficial"
@@ -1032,7 +1042,7 @@ msgstr "अपग्रेड दिशानिर्देश"
 
 #: ../app/views/distributions/_verify_download.html.erb:2
 msgid "Verify Your Download Before Use"
-msgstr ""
+msgstr "उपयोग पूर्व डाउनलोड देखें"
 
 #: ../app/views/package/show.html.erb:48
 msgid "Version"
@@ -1040,19 +1050,19 @@ msgstr "संस्करण"
 
 #: ../app/views/search/_find_results.html.erb:57
 msgid "View"
-msgstr ""
+msgstr "देखें"
 
 #: ../app/views/distributions/index.html.erb:32
 msgid "View Leap"
-msgstr ""
+msgstr "लीप देखें"
 
 #: ../app/views/distributions/index.html.erb:34
 msgid "View Testing"
-msgstr ""
+msgstr "लीप देखें"
 
 #: ../app/views/distributions/index.html.erb:15
 msgid "View Tumbleweed"
-msgstr ""
+msgstr "टम्बलवीड देखें"
 
 #: ../app/views/layouts/_navbar.html.erb:23
 msgid "Wiki"
@@ -1068,12 +1078,17 @@ msgid ""
 "key may distribute updates, packages and repositories that your system will "
 "trust (<a href=\"%s\">more information</a>). To add the key, run:"
 msgstr ""
+"Apt में पैकेज-संग्रह कुंजी जोड़ना संभव है। ध्यान रहें कि कुंजी का स्वामी आपके "
+"सिस्टम हेतु अपडेट, पैकेज व पैकेज-संग्रह वितरित कर सकेगा (<a href=\"%s\">अधिक "
+"सूचना</a>)। कुंजी जोड़ने हेतु, इसे निष्पादित करें :"
 
 #: ../app/views/search/_find_results.html.erb:15
 msgid ""
 "You could try to extend your search to development packages or search for "
 "another base distribution (currently #{@baseproject})."
 msgstr ""
+"इच्छित हो तो खोज विस्तारित कर सॉफ्टवेयर विकास पैकेज या अन्य मूल वितरण (वर्तमा"
+"न #{@baseproject})में खोजने का प्रयास करें।"
 
 #: ../app/views/distributions/index.html.erb:64
 msgid "annually"
