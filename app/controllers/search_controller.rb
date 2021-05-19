@@ -12,6 +12,13 @@ class SearchController < OBSController
       @search_project = @baseproject
     end
 
+    if ['SUSE:SLE-15-SP3:GA', 'SUSE:SLE-15-SP2:GA', 'SUSE:SLE-15-SP1:GA', 'openSUSE:Leap:15.3'].include?(@baseproject)
+      # These projects chain up to SUSE-SLE-15:GA. If the baseproject is not
+      # overridden, no package can be found by OBS.
+      base = 'SUSE:SLE-15:GA'
+      @search_project = nil
+    end
+
     begin
       query_opts = { baseproject: base,
                      project: @search_project,
