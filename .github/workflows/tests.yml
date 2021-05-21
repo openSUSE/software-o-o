@@ -17,6 +17,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+          cache-version: 1
+
       - name: Install dependencies
         run: bundle install
       - name: Lint
