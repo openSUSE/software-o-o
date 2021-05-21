@@ -28,9 +28,15 @@ module OBS
   # Binary.quality => [String]
   class Binary < Hashie::Mash
     include Hashie::Extensions::Mash::SymbolizeKeys
+
     def self.coerce(binary)
-      binary = Array(binary)
-      binary.map { |bin| Binary.new(bin) }
+      if binary.instance_of?(Hashie::Array)
+        binary.map do |bin|
+          Binary.new(bin)
+        end
+      else
+        [Binary.new(binary.to_h)]
+      end
     end
   end
 
