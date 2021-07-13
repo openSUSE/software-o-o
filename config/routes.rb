@@ -51,7 +51,7 @@ SoftwareOO::Application.routes.draw do
   get 'distributions/testing', to: redirect('https://get.opensuse.org/testing')
   get 'distributions/legacy', to: redirect('https://get.opensuse.org/legacy')
 
-  get 'api/v0/distributions', to: redirect('https://get.opensuse.org/api/v0/distributions')
+  get 'api/v0/distributions', to: redirect('https://get.opensuse.org/api/v0/distributions.json')
 
   get '421', to: redirect('/distributions/leap')
   get '421/:locale', to: redirect('/distributions/leap?locale=%{locale}')
