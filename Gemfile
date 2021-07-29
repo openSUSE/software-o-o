@@ -36,6 +36,9 @@ gem 'faraday'
 gem 'faraday_middleware'
 gem 'multi_xml'
 
+# nio4r bug: https://github.com/socketry/nio4r/issues/275
+gem 'nio4r', '<= 2.5.4'
+
 # needed to collect translatable strings
 # not needed at production
 group :development do
