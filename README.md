@@ -31,6 +31,7 @@ keys for `secrets.yml`).
 git clone https://github.com/openSUSE/software-o-o.git
 cd software-o-o
 
+bundle config set --local path 'vendor/bundle'
 bundle package
 bundle exec rails s
 ```
