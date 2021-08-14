@@ -70,9 +70,9 @@ pacman -Sy <%= repo_name %>/<%= @package %></pre>
                      case v[:flavor]
                      when 'openSUSE', 'SLE'
                        if @package.nil?
-                         "zypper addrepo #{v[:repo]}#{@project}.repo\nzypper refresh\nzypper install -t pattern #{@pattern}"
+                         "zypper addrepo #{v[:repo]} #{@project}\nzypper refresh\nzypper install -t pattern #{@pattern}"
                        else
-                         "zypper addrepo #{v[:repo]}#{@project}.repo\nzypper refresh\nzypper install #{@package}"
+                         "zypper addrepo #{v[:repo]} {@project}\nzypper refresh\nzypper install #{@package}"
                        end
                      when 'Fedora'
                        version = k.split("_").last
