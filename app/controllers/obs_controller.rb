@@ -45,9 +45,9 @@ class OBSController < ApplicationController
       project: element.elements['project'].text,
       reponame: element.elements['reponame'].text,
       repository: element.elements['repository'].text,
-      dist_id: element.attributes['id'].sub('.', '')
+      dist_id: element.attributes['id']
     }
-    logger.debug "Added Distribution: #{dist[:name]}"
+    logger.debug "Added Distribution: #{dist}"
     dist
   end
 
@@ -56,6 +56,28 @@ class OBSController < ApplicationController
     @search_devel = (cookies[:search_devel] == 'true')
     @search_lang = (cookies[:search_lang] == 'true')
     @search_debug = (cookies[:search_debug] == 'true')
+  end
+
+  def fix_package_baseproject
+    @packages.each do |package|
+      # check if any distribution should be the baseproject
+      # official packages:
+      #   distribution is built from multiple baseproject -> DISTRIBUTION_PROJECTS_OVERRIDE
+      # other packages:
+      #   package.repo uses the distribution's default reponame
+      dist = @distributions.find do |d|
+        projects = DISTRIBUTION_PROJECTS_OVERRIDE.fetch(d[:dist_id], nil)
+        projects&.include?(package.project)
+      end
+
+      if dist
+        logger.debug("Overriding baseproject from #{package.baseproject} to #{dist[:project]}")
+        package.baseproject = dist[:project]
+      else
+        repo = @distributions.find { |d| d[:reponame] == package.repository }
+        package.baseproject = repo[:project] if repo
+      end
+    end
   end
 
   def filter_packages

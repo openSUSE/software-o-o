@@ -13,9 +13,11 @@ class SearchController < OBSController
     end
 
     if ['SUSE:SLE-15-SP3:GA', 'SUSE:SLE-15-SP2:GA', 'SUSE:SLE-15-SP1:GA', 'openSUSE:Leap:15.3'].include?(@baseproject)
-      # These projects chain up to SUSE-SLE-15:GA. If the baseproject is not
-      # overridden, no package can be found by OBS.
-      base = 'SUSE:SLE-15:GA'
+      # search without a baseproject, the baseproject does not map 1:1 for these
+      # correct baseproject is added later on
+      # by not using a baseproject we use the same query that is used when the baseproject is 'ALL'
+      # => hits the same cache
+      base = nil
       @search_project = nil
     end
 
@@ -36,6 +38,7 @@ class SearchController < OBSController
       render('find') && return
     end
 
+    fix_package_baseproject
     filter_packages
 
     # sort by package name length

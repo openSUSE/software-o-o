@@ -37,17 +37,7 @@ class PackageController < OBSController
 
       filter_packages
 
-      @packages.each do |package|
-        # Backports chains up to the toolchain module for newer GCC,
-        # SLE 15 SPs and Leap 15.3 chains up to SUSE:SLE-15:GA
-        # => Baseproject is wrong and needs to be overriden
-        if @distributions.find { |dist| dist[:project] == package.project }
-          package.baseproject = package.project
-        else
-          repo = @distributions.find { |dist| dist[:reponame] == package.repository }
-          package.baseproject = repo[:project] if repo
-        end
-      end
+      fix_package_baseproject
 
       @official_projects = @distributions.map { |d| d[:project] }
       # get extra distributions that are not in the default distribution list
