@@ -58,24 +58,39 @@ class OBSController < ApplicationController
     @search_debug = (cookies[:search_debug] == 'true')
   end
 
-  def fix_package_baseproject
+  def fix_package_projects
+    # Due to Leap 15.3's release model, there is no 1:1 distribution <>
+    # baseproject relation anymore.
+    # official packages:
+    #   DISTRIBUTION_PROJECTS_OVERRIDE contains valid baseprojects
+    #   -> treat as if it was from the distribution's main project, but save the
+    #      link to the real project for the generation of the download page
+    # other packages:
+    #   package.repo uses the distribution's default reponame
+    #   -> only "fix" the baseproject for grouping purposes
     @packages.each do |package|
-      # check if any distribution should be the baseproject
-      # official packages:
-      #   distribution is built from multiple baseproject -> DISTRIBUTION_PROJECTS_OVERRIDE
-      # other packages:
-      #   package.repo uses the distribution's default reponame
       dist = @distributions.find do |d|
         projects = DISTRIBUTION_PROJECTS_OVERRIDE.fetch(d[:dist_id], nil)
         projects&.include?(package.project)
       end
 
       if dist
-        logger.debug("Overriding baseproject from #{package.baseproject} to #{dist[:project]}")
+        logger.debug("Match in override hash, changing #{package.baseproject} to #{dist[:project]}")
+        package.realproject = package.project
         package.baseproject = dist[:project]
+        package.project = dist[:project]
       else
         repo = @distributions.find { |d| d[:reponame] == package.repository }
-        package.baseproject = repo[:project] if repo
+        if repo
+          package.baseproject = repo[:project]
+        # one off exception for Leap 15.3, which switched it's default
+        # repository name from openSUSE_Leap_15.3 to 15.3
+        elsif package.repository == 'openSUSE_Leap_15.3'
+          leap15_3 = @distributions.find { |d| d[:dist_id] == '19032' }
+          next unless leap15_3
+
+          package.baseproject = leap15_3[:project]
+        end
       end
     end
   end

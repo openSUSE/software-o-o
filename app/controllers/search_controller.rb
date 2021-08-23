@@ -38,7 +38,7 @@ class SearchController < OBSController
       render('find') && return
     end
 
-    fix_package_baseproject
+    fix_package_projects
     filter_packages
 
     # sort by package name length

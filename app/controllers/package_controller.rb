@@ -37,7 +37,7 @@ class PackageController < OBSController
 
       filter_packages
 
-      fix_package_baseproject
+      fix_package_projects
 
       @official_projects = @distributions.map { |d| d[:project] }
       # get extra distributions that are not in the default distribution list

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# maps a distro_id to an Array of project names that could be the baseproject
 DISTRIBUTION_PROJECTS_OVERRIDE = {
   # Leap 15.3
   '19032' => ['SUSE:SLE-15:GA', 'SUSE:SLE-15:Update', 'SUSE:SLE-15-SP1:GA',
