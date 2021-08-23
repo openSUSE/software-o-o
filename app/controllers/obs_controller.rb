@@ -87,10 +87,10 @@ class OBSController < ApplicationController
         # one off exception for Leap 15.3, which switched it's default
         # repository name from openSUSE_Leap_15.3 to 15.3
         elsif package.repository == 'openSUSE_Leap_15.3'
-          leap15_3 = @distributions.find { |d| d[:dist_id] == '19032' }
-          next unless leap15_3
+          leap153 = @distributions.find { |d| d[:dist_id] == '19032' }
+          next unless leap153
 
-          package.baseproject = leap15_3[:project]
+          package.baseproject = leap153[:project]
         end
       end
     end
