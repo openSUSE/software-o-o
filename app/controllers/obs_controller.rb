@@ -82,6 +82,7 @@ class OBSController < ApplicationController
       else
         repo = @distributions.find { |d| d[:reponame] == package.repository }
         if repo
+          package.realproject = package.project
           package.baseproject = repo[:project]
         # one off exception for Leap 15.3, which switched it's default
         # repository name from openSUSE_Leap_15.3 to 15.3
