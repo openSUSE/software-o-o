@@ -13,7 +13,7 @@ class PackageControllerTest < ActionDispatch::IntegrationTest
   def test_thumbnail_unknown_package_returns_default_asset
     FileUtils.rm_f UNKNOWN_PACKAGE_THUMBNAIL
     VCR.use_cassette('default') do
-      get '/package/thumbnail/SupperFancyBrowser.png'
+      get '/package/thumbnail/SupperFancyBrowser.png?baseproject=ALL'
       assert_response :redirect
       assert_match %r{/assets/default-screenshots/package(.*).png}, @response.redirect_url
     end
@@ -24,7 +24,7 @@ class PackageControllerTest < ActionDispatch::IntegrationTest
     FileUtils.cp PKG_4PANE_THUMBNAIL_RESIZED, PKG_4PANE_THUMBNAIL
 
     VCR.use_cassette('default') do
-      get '/package/thumbnail/4pane.png'
+      get '/package/thumbnail/4pane.png?baseproject=ALL'
       assert_redirected_to '/images/thumbnails/4pane.png'
     end
   ensure
@@ -34,7 +34,7 @@ class PackageControllerTest < ActionDispatch::IntegrationTest
   def test_thumbnail_not_downloaded_downloads_it
     FileUtils.rm_f PKG_4PANE_THUMBNAIL
     VCR.use_cassette('default') do
-      get '/package/thumbnail/4pane.png'
+      get '/package/thumbnail/4pane.png?baseproject=ALL'
       assert_redirected_to '/images/thumbnails/4pane.png'
       assert File.exist?(PKG_4PANE_THUMBNAIL)
     end
@@ -47,7 +47,7 @@ class PackageControllerTest < ActionDispatch::IntegrationTest
       stub_request(:any, 'http://www.4Pane.co.uk/4Pane624x351.png')
         .to_return(body: '', status: 404)
       FileUtils.rm_f PKG_4PANE_THUMBNAIL
-      get '/package/thumbnail/4pane.png'
+      get '/package/thumbnail/4pane.png?baseproject=ALL'
       assert_response :redirect
       assert_match %r{/assets/default-screenshots/package(.*).png}, @response.redirect_url
       assert !File.exist?(PKG_4PANE_THUMBNAIL)
@@ -56,14 +56,14 @@ class PackageControllerTest < ActionDispatch::IntegrationTest
 
   def test_known_screenshot_redirects_to_original
     VCR.use_cassette('default') do
-      get '/package/screenshot/4pane.png'
+      get '/package/screenshot/4pane.png?baseproject=ALL'
       assert_redirected_to 'http://www.4Pane.co.uk/4Pane624x351.png'
     end
   end
 
   def test_unknown_screenshot_is404
     VCR.use_cassette('default') do
-      get '/package/screenshot/paralapapiricoipi.png'
+      get '/package/screenshot/paralapapiricoipi.png?baseproject=ALL'
       assert_equal 404, status
     end
   end

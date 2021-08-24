@@ -2,7 +2,7 @@
 
 class PackageController < OBSController
   before_action :set_search_options, only: %i[show categories]
-  before_action :prepare_appdata, :set_categories, only: %i[show explore category thumbnail screenshot]
+  before_action :prepare_appdata, :set_categories
 
   skip_before_action :set_language, only: %i[thumbnail screenshot]
 
