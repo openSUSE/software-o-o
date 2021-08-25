@@ -18,6 +18,7 @@ class PackageController < OBSController
       @packages = OBS.search_published_binary("\"#{@pkgname}\"")
       # only show rpms
       @packages.select! { |p| p.type != 'ymp' && p.quality != 'Private' }
+      fix_package_projects
       @default_project_name = @distributions.find { |d| d[:project] == @baseproject }[:name]
       default_update_projects = ["#{@baseproject}:Update", "#{@baseproject}:NonFree:Update"]
       default_release_projects = [@baseproject, "#{@baseproject}:NonFree"]
@@ -36,8 +37,6 @@ class PackageController < OBSController
       @thumbnail = url_for controller: :package, action: :thumbnail, package: @pkgname, only_path: true
 
       filter_packages
-
-      fix_package_projects
 
       @official_projects = @distributions.map { |d| d[:project] }
       # get extra distributions that are not in the default distribution list
