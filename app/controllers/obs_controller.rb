@@ -45,9 +45,9 @@ class OBSController < ApplicationController
       project: element.elements['project'].text,
       reponame: element.elements['reponame'].text,
       repository: element.elements['repository'].text,
-      dist_id: element.attributes['id'].sub('.', '')
+      dist_id: element.attributes['id']
     }
-    logger.debug "Added Distribution: #{dist[:name]}"
+    logger.debug "Added Distribution: #{dist}"
     dist
   end
 
@@ -56,6 +56,44 @@ class OBSController < ApplicationController
     @search_devel = (cookies[:search_devel] == 'true')
     @search_lang = (cookies[:search_lang] == 'true')
     @search_debug = (cookies[:search_debug] == 'true')
+  end
+
+  def fix_package_projects
+    # Due to Leap 15.3's release model, there is no 1:1 distribution <>
+    # baseproject relation anymore.
+    # official packages:
+    #   DISTRIBUTION_PROJECTS_OVERRIDE contains valid baseprojects
+    #   -> treat as if it was from the distribution's main project, but save the
+    #      link to the real project for the generation of the download page
+    # other packages:
+    #   package.repo uses the distribution's default reponame
+    #   -> only "fix" the baseproject for grouping purposes
+    @packages.each do |package|
+      dist = @distributions.find do |d|
+        projects = DISTRIBUTION_PROJECTS_OVERRIDE.fetch(d[:dist_id], nil)
+        projects&.include?(package.project)
+      end
+
+      if dist
+        logger.debug("Match in override hash, changing #{package.baseproject} to #{dist[:project]}")
+        package.realproject = package.project
+        package.baseproject = dist[:project]
+        package.project = dist[:project]
+      else
+        repo = @distributions.find { |d| d[:reponame] == package.repository }
+        if repo
+          package.realproject = package.project
+          package.baseproject = repo[:project]
+        # one off exception for Leap 15.3, which switched it's default
+        # repository name from openSUSE_Leap_15.3 to 15.3
+        elsif package.repository == 'openSUSE_Leap_15.3'
+          leap153 = @distributions.find { |d| d[:dist_id] == '19032' }
+          next unless leap153
+
+          package.baseproject = leap153[:project]
+        end
+      end
+    end
   end
 
   def filter_packages
@@ -107,5 +145,9 @@ class OBSController < ApplicationController
   def update_baseproject_cookie(project)
     cookies.delete :baseproject
     cookies.permanent[:baseproject] = project
+  end
+
+  def baseproject_not_canonical?
+    ['SUSE:SLE-15-SP3:GA', 'SUSE:SLE-15-SP2:GA', 'SUSE:SLE-15-SP1:GA', 'openSUSE:Leap:15.3'].include?(@baseproject)
   end
 end
