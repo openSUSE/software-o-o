@@ -50,7 +50,8 @@
           <a class="btn btn-sm btn-primary" href="<%= url %>"><span class="typcn typcn-flash-outline"></span> <%= _("1 Click Install") %></a>
         <% end %>
 
-        <%= link_to download_package_path(project: result.first, package: @pkgname), class: 'btn btn-sm btn-secondary' do %>
+        <% project = result.last.first.fetch("realproject", result.first) %>
+        <%= link_to download_package_path(project: project, package: @pkgname), class: 'btn btn-sm btn-secondary' do %>
           <span class="typcn typcn-download-outline"></span>
           <%= _('Expert Download') %>
         <% end %>
