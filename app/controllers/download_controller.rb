@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DownloadController < ApplicationController
+class DownloadController < OBSController
   before_action :set_colors, :hide_search_box
 
   # display documentation
@@ -58,7 +58,7 @@ class DownloadController < ApplicationController
               repo: "https://download.opensuse.org/repositories/#{@project}/#{distro}/",
               package: {}
             }
-            data[distro][:flavor] = set_distro_flavor e.attributes['baseproject']
+            data[distro][:flavor] = set_distro_flavor get_project(distro, e.attributes['baseproject'])
             case e.attributes['baseproject']
             when /^(DISCONTINUED:)?openSUSE:/, /^(DISCONTINUED:)?SUSE:SLE-/
               data[distro][:ymp] = "https://software.opensuse.org/ymp/#{@project}/#{distro}/#{@package}.ymp"
@@ -102,7 +102,7 @@ class DownloadController < ApplicationController
             repo: "https://download.opensuse.org/repositories/#{@project}/#{distro}/",
             package: {}
           }
-          data[distro][:flavor] = set_distro_flavor e.attributes['baseproject']
+          data[distro][:flavor] = set_distro_flavor get_project(distro, e.attributes['baseproject'])
           case e.attributes['baseproject']
           when /^(DISCONTINUED:)?openSUSE:/, /^(DISCONTINUED:)?SUSE:SLE-/
             data[distro][:ymp] = "https://download.opensuse.org/repositories/#{e.attributes['filepath']}"
@@ -145,6 +145,17 @@ class DownloadController < ApplicationController
       # needed for rails < 3.0 to support JSONP
       format.json { render_json @data.to_json }
     end
+  end
+
+  def get_project(distro, baseproject)
+    project = baseproject
+    unless @distributions.nil?
+      distribution = @distributions.find { |d| d[:reponame] == distro }
+      unless distribution.nil?
+        project = distribution[:project]
+      end
+    end
+    project
   end
 
   def set_distro_flavor(distro)
