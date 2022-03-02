@@ -39,7 +39,7 @@
                   </a>
                   <div class="collapse" id="manual<%= flavor %>" aria-labelledby="manual<%= flavor %>">
                   <% @data.select {|k,v| v.has_key?(:repo) && !k.nil? && v[:flavor] == flavor}.sort.reverse.each do |k,v| %>
-                  <% secure_apt_url = v[:flavor] == "Debian" ? "https://wiki.debian.org/SecureApt" : "https://help.ubuntu.com/community/SecureApt" %>
+                  <% secure_apt_url = ['Debian', 'Raspbian'].include?(v[:flavor]) ? "https://wiki.debian.org/SecureApt" : "https://help.ubuntu.com/community/SecureApt" %>
                   <% if v[:flavor] == "Arch" %>
                   <% repo_name = @project.gsub(":", "_") + "_" + k %>
                   <h5><%= _("For <strong>Arch Linux</strong>, edit /etc/pacman.conf and add the following (note that the order of repositories in pacman.conf is important, since pacman always downloads the first found package):") %></h5>
@@ -56,7 +56,7 @@ pacman-key --add - &lt;&lt;&lt; "${key}"
 pacman-key --lsign-key "${fingerprint}"
 
 pacman -Sy <%= repo_name %>/<%= @package %></pre>
-                  <% elsif v[:flavor] == "Ubuntu" or v[:flavor] == "Debian" %>
+                  <% elsif ['Debian', 'Raspbian', 'Ubuntu'].include?(v[:flavor]) %>
                   <h5><%= (_("For <strong>%s</strong> run the following:") % k.gsub('_', '&nbsp;').html_safe).html_safe %></h5>
                   <h6><%= (_("Keep in mind that the owner of the key may distribute updates, packages and repositories that your system will trust (<a href=\"%s\">more information</a>).") % secure_apt_url).html_safe %></h6>
                   <pre><%=
