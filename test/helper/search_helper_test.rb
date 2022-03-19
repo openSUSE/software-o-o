@@ -3,8 +3,8 @@
 require 'test_helper'
 
 class SearchHelperTest < ActionView::TestCase
+  Package = Struct.new(:name, :project)
   test 'trust level should be accurate' do
-    Package = Struct.new(:name, :project)
     assert_equal 3, trust_level(Package.new('foo', 'openSUSE:Factory'), 'openSUSE:Factory')
     assert_equal 3, trust_level(Package.new('foo', 'openSUSE:Factory:Update'), 'openSUSE:Factory')
     assert_equal 3, trust_level(Package.new('foo', 'openSUSE:Factory:NonFree'), 'openSUSE:Factory')
