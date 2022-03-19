@@ -151,9 +151,7 @@ class DownloadController < ObsController
     project = baseproject
     unless @distributions.nil?
       distribution = @distributions.find { |d| d[:reponame] == distro }
-      unless distribution.nil?
-        project = distribution[:project]
-      end
+      project = distribution[:project] unless distribution.nil?
     end
     project
   end
