@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DownloadController < OBSController
+class DownloadController < ObsController
   before_action :set_colors, :hide_search_box
 
   # display documentation

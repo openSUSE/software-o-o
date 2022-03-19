@@ -3,7 +3,10 @@
 source 'https://rubygems.org'
 
 gem 'nokogiri'
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 7.0'
+
+# Bug with psych breaks YAML loading, revert for now
+gem 'psych', '< 4'
 
 # For appdata redirections (https -> http)
 gem 'open_uri_redirections'
@@ -12,21 +15,18 @@ gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 
-gem 'fast_gettext', '>= 0.7.0'
-gem 'gettext_i18n_rails', '>= 0.4.3'
+gem 'fast_gettext', '>= 2.2.0'
+gem 'gettext_i18n_rails', '>= 1.8.1'
 
 # rails-i18n provides translations for ActiveRecord
 # validation error messages
 gem 'rails-i18n'
 
-# Generate html based on markdown in views
-gem 'redcarpet', '~> 3.5.1'
-
 gem 'dalli'
 gem 'hashie'
 gem 'mini_magick'
 gem 'minitest'
-gem 'xmlhash', '>= 1.2.2'
+gem 'xmlhash', '>= 1.3.7'
 
 gem 'prometheus_exporter'
 gem 'puma_worker_killer'
@@ -42,7 +42,7 @@ group :development do
   gem 'byebug'
   # no need to load the gem via require
   # we only need the rake tasks
-  gem 'gettext', '>= 1.9.3', require: false
+  gem 'gettext', '>= 3.4.2', require: false
   gem 'solargraph'
   gem 'web-console'
 end

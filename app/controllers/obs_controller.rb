@@ -2,10 +2,10 @@
 
 require 'api_connect'
 
-class OBSError < StandardError; end
+class ObsError < StandardError; end
 
 # Handle connection to OBS
-class OBSController < ApplicationController
+class ObsController < ApplicationController
   before_action :set_distributions
   before_action :set_releases_parameters
   before_action :set_baseproject
@@ -16,7 +16,7 @@ class OBSController < ApplicationController
     @distributions = Rails.cache.fetch('distributions', expires_in: 120.minutes) do
       load_distributions
     end
-  rescue OBSError
+  rescue ObsError
     @distributions = nil
     @hide_search_box = true
     flash[:error] = 'Connection to OBS is unavailable. Functionality of this site is limited.'
@@ -34,7 +34,7 @@ class OBSController < ApplicationController
       loaded_distros.unshift({ name: 'ALL Distributions', project: 'ALL' })
     rescue Exception => e
       logger.error "Error while loading distributions: #{e}"
-      raise OBSError.new, _('OBS Backend not available')
+      raise ObsError.new, _('OBS Backend not available')
     end
     loaded_distros
   end
