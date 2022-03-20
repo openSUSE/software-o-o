@@ -178,6 +178,8 @@ class DownloadController < OBSController
       'Mageia'
     when /^(DISCONTINUED:)?Debian:/
       'Debian'
+    when /^(DISCONTINUED:)?Raspbian:/
+      'Raspbian'
     when /^(DISCONTINUED:)?Ubuntu:/
       'Ubuntu'
     when /^Univention:/
