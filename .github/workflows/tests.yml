@@ -1,32 +1,51 @@
-name: Ruby CI
+name: Test Suite
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
   pull_request:
+    branches: [ master ]
   workflow_dispatch:
 
 jobs:
-  test:
-
+  setup:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        ruby-version: [2.7, 2.6, 2.5]
-
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Ruby ${{ matrix.ruby-version }}
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ${{ matrix.ruby-version }}
-      - name: Install dependencies
-        run: bundle install
-      - name: Lint
-        run: bundle exec rake rubocop
+          ruby-version: 3.1
+          bundler-cache: true
+  linter:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1
+          bundler-cache: true
+      - name: Run linter
+        run: bundle exec rubocop
+  unit:
+    needs: linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1
+          bundler-cache: true
       - name: Run unit tests
         run: bundle exec rake test
+  system:
+    needs: linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1
+          bundler-cache: true
       - name: Run system tests
         run: bundle exec rake test:system
