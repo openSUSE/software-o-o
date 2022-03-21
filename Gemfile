@@ -26,10 +26,16 @@ gem 'dalli'
 gem 'hashie'
 gem 'mini_magick'
 gem 'minitest'
+gem 'nokogiri'
 gem 'xmlhash', '>= 1.2.2'
 
+gem 'matrix'
 gem 'prometheus_exporter'
 gem 'puma_worker_killer'
+
+# FIXME: for selenium-webdriver, rexml isn't in the default set of Ruby 3.1 anymore
+# see https://github.com/SeleniumHQ/selenium/commit/526fd9d0de60a53746ffa982feab985fed09a278
+gem 'rexml'
 
 # HTTP client library for OBS Client
 gem 'faraday'
