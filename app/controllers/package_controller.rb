@@ -92,7 +92,7 @@ class PackageController < ObsController
       next if app[:screenshots].blank?
 
       app[:screenshots].each do |image_url|
-        return redirect_to image_url if type == :screenshot && image_url
+        return redirect_to(image_url, allow_other_host: true) if type == :screenshot && image_url
         next if image_url.blank?
 
         path = begin
