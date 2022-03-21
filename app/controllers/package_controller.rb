@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PackageController < OBSController
+class PackageController < ObsController
   before_action :set_search_options, only: %i[show categories]
   before_action :prepare_appdata, :set_categories
 
