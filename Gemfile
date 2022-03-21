@@ -2,16 +2,23 @@
 
 source 'https://rubygems.org'
 
-gem 'nokogiri'
-gem 'rails', '~> 5.2'
+# as framework
+gem 'rails', '~> 7.0'
+# as asset pipeline
+gem 'sprockets-rails'
+# as application server
+gem 'puma'
 
-# For appdata redirections (https -> http)
+# for appdata redirections (https -> http)
 gem 'open_uri_redirections'
-# Use SCSS for stylesheets
+
+# for stylesheets
 gem 'sassc-rails'
-# Use Uglifier as compressor for JavaScript assets
+
+# as compressor for JavaScript assets
 gem 'uglifier'
 
+# for translations
 gem 'fast_gettext', '>= 0.7.0'
 gem 'gettext_i18n_rails', '>= 0.4.3'
 
@@ -51,10 +58,6 @@ group :development do
   gem 'gettext', '>= 1.9.3', require: false
   gem 'solargraph'
   gem 'web-console'
-end
-
-group :production do
-  gem 'puma'
 end
 
 group :test do
