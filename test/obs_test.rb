@@ -19,9 +19,9 @@ class OBSTest < ActiveSupport::TestCase
 
   test 'search binaries data structure' do
     VCR.use_cassette('search binaries data structure') do
-      binaries = OBS.search_published_binary('vcpkg', baseproject: 'openSUSE:Factory')
+      binaries = OBS.search_published_binary('rarcrack', baseproject: 'openSUSE:Factory')
 
-      assert_equal 2, binaries.size
+      assert_equal 4, binaries.size
     end
   end
 
@@ -40,11 +40,11 @@ class OBSTest < ActiveSupport::TestCase
         'project' => 'home:dmacvicar',
         'repository' => 'openSUSE_Tumbleweed',
         'arch' => 'x86_64',
-        'filename' => 'vcpkg-0.0+git.1524688133.90be0d9b-9.40.x86_64.rpm'
+        'filename' => 'rarcrack-0.2-1.117.x86_64.rpm'
       )
       fileinfo = OBS.search_published_binary_fileinfo(binary)
 
-      assert_equal 'C++ library manager for Linux, macOS and Windows', fileinfo.summary
+      assert_equal 'If you forget your password for compressed archive (rar, 7z, zip), this program is the solution.', fileinfo.summary
     end
   end
 end
