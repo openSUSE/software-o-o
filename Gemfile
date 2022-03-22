@@ -52,7 +52,6 @@ gem 'multi_xml'
 # needed to collect translatable strings
 # not needed at production
 group :development do
-  gem 'byebug'
   # no need to load the gem via require
   # we only need the rake tasks
   gem 'gettext', '>= 1.9.3', require: false
@@ -73,6 +72,6 @@ group :test do
   gem 'webmock'
 end
 
-# Debugging gems
-# rbtrace does not install successfully in Docker and needs to be manually enabled
-# gem 'rbtrace', require: false
+group :development, :test do
+  gem 'byebug'
+end
