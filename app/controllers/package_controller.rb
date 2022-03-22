@@ -98,7 +98,7 @@ class PackageController < ObsController
         path = begin
           screenshot = Screenshot.new(pkgname, image_url)
           screenshot.thumbnail_path(fetch: true)
-        rescue StandardError => e
+        rescue OpenURI::HTTPError => e
           Rails.logger.error "Error retrieving #{image_url}: #{e}"
           next
         end
