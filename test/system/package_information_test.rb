@@ -3,8 +3,8 @@
 require File.expand_path('../test_helper', __dir__)
 
 class PackageInformationTest < ActionDispatch::SystemTestCase
-  def test_package_information
-    VCR.use_cassette('default') do
+  test 'package information' do
+    VCR.use_cassette('package information') do
       # Check that package information is displayed
       visit '/package/pidgin?baseproject=ALL'
       page.assert_text 'Multiprotocol Instant Messaging Client'

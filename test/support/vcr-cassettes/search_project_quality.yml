@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.opensuse.org/source/home:dmacvicar/_attribute/OBS:QualityCategory
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <API HTTP AUTH>
+      User-Agent:
+      - software.o.o
+      X-Username:
+      - "<API USERNAME>"
+      X-Opensuse-Data:
+      - TEST
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Mar 2022 16:52:31 GMT
+      Server:
+      - Apache/2.4.51 (Linux/SUSE)
+      Strict-Transport-Security:
+      - max-age=31536000
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept,Accept-Encoding
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Opensuse-Runtimes:
+      - '{"view":0.09768316522240639,"db":5.217104917392135,"backend":0}'
+      X-Request-Id:
+      - d9617ded-cbca-4863-8402-32012bcdc0fa
+      X-Opensuse-Apiversion:
+      - 2.11~alpha.20220322T101623.7ee4a21ab6
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '0.017737'
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger(R) 6.0.12
+      Etag:
+      - W/"0e24bee84aa20db33b3870002d68970e"
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/xml; charset=utf-8
+      Set-Cookie:
+      - openSUSE_session=05def4e825de1785158543453fbdd207; path=/; Max-Age=86400;
+        Secure; HttpOnly; domain=.opensuse.org
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: "<attributes/>\n"
+  recorded_at: Tue, 22 Mar 2022 16:52:32 GMT
+recorded_with: VCR 6.1.0

@@ -3,8 +3,8 @@
 require File.expand_path('../test_helper', __dir__)
 
 class AppdataTest < ActiveSupport::TestCase
-  test 'Tumbleweed Appdata can be parsed' do
-    VCR.use_cassette('default') do
+  test 'tumbleweed appdata can be parsed' do
+    VCR.use_cassette('tumbleweed appdata can be parsed') do
       appdata = Appdata.new('tumbleweed').data
       pkg_list = appdata[:apps].map { |p| p[:pkgname] }.uniq
 
@@ -15,8 +15,8 @@ class AppdataTest < ActiveSupport::TestCase
     end
   end
 
-  test 'Leap 15.2 Appdata can be parsed' do
-    VCR.use_cassette('default') do
+  test 'leap 15.2 appdata can be parsed' do
+    VCR.use_cassette('leap 15.2 appdata can be parsed') do
       appdata = Appdata.new('leap/15.2').data
       pkg_list = appdata[:apps].map { |p| p[:pkgname] }.uniq
 
@@ -27,8 +27,8 @@ class AppdataTest < ActiveSupport::TestCase
     end
   end
 
-  test 'Missing appdata should not raise anything' do
-    VCR.use_cassette('default') do
+  test 'missing appdata should not raise anything' do
+    VCR.use_cassette('missing appdata should not raise anything') do
       stub_request(:get, %r{https://download.opensuse.org/tumbleweed/repo/(non-)?oss/repodata/(.*)-appdata.xml.gz})
         .to_return(status: 404, body: '', headers: {})
       appdata = Appdata.new('tumbleweed').data

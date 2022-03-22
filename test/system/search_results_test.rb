@@ -7,8 +7,8 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
     Capybara.reset_session!
   end
 
-  def test_default_searches
-    VCR.use_cassette('default') do
+  test 'default searches' do
+    VCR.use_cassette('default searches') do
       visit '/explore'
       # There is no need to click on settings. If cookies are fresh, they will auto popup
       # if this ever changes, uncomment the next line
@@ -22,9 +22,8 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
     end
   end
 
-  def test_non_existing_packages
-    #    VCR.use_cassette('search_paralapapiricoipi_openSUSE_Leap_15.1') do
-    VCR.use_cassette('default') do
+  test 'non existing packages' do
+    VCR.use_cassette('non existing packages') do
       visit '/explore'
       # There is no need to click on settings. If cookies are fresh, they will auto popup
       # if this ever changes, uncomment the next line
@@ -40,8 +39,8 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
     end
   end
 
-  def test_only_version_query
-    VCR.use_cassette('default') do
+  test 'only version query' do
+    VCR.use_cassette('only version query') do
       visit '/explore'
       # There is no need to click on settings. If cookies are fresh, they will auto popup
       # if this ever changes, uncomment the next line
@@ -57,8 +56,8 @@ class SearchResultsTest < ActionDispatch::SystemTestCase
     end
   end
 
-  def test_empty_query
-    VCR.use_cassette('default') do
+  test 'empty query' do
+    VCR.use_cassette('empty query') do
       visit '/explore'
       # There is no need to click on settings. If cookies are fresh, they will auto popup
       # if this ever changes, uncomment the next line
