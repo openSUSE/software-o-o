@@ -7,62 +7,64 @@ require 'fileutils'
 
 class PackageControllerTest < ActionDispatch::IntegrationTest
   UNKNOWN_PACKAGE_THUMBNAIL = Rails.root.join('public', 'images', 'thumbnails', 'SuperFancyBrowser.png')
-  PKG_4PANE_THUMBNAIL = Rails.root.join('public', 'images', 'thumbnails', '4pane.png')
-  PKG_4PANE_THUMBNAIL_RESIZED = Rails.root.join('test', 'support', '4Pane-600.png')
+  PKG_THUMBNAIL = Rails.root.join('public', 'images', 'thumbnails', 'armagetron.png')
+  PKG_THUMBNAIL_RESIZED = Rails.root.join('test', 'support', '4Pane-600.png')
 
-  def test_thumbnail_unknown_package_returns_default_asset
+  setup do
+    FileUtils.rm_f PKG_THUMBNAIL
+  end
+
+  teardown do
+    FileUtils.rm_f PKG_THUMBNAIL
+  end
+
+  test 'thumbnail unknown package returns default asset' do
     FileUtils.rm_f UNKNOWN_PACKAGE_THUMBNAIL
-    VCR.use_cassette('default') do
+    VCR.use_cassette('thumbnail unknown package returns default asset') do
       get '/package/thumbnail/SupperFancyBrowser.png?baseproject=ALL'
       assert_response :redirect
       assert_match %r{/assets/default-screenshots/package(.*).png}, @response.redirect_url
     end
   end
 
-  def test_thumbnail_downloaded_uses_it
-    FileUtils.rm_f PKG_4PANE_THUMBNAIL
-    FileUtils.cp PKG_4PANE_THUMBNAIL_RESIZED, PKG_4PANE_THUMBNAIL
+  test 'thumbnail downloaded uses it' do
+    FileUtils.cp PKG_THUMBNAIL_RESIZED, PKG_THUMBNAIL
 
-    VCR.use_cassette('default') do
-      get '/package/thumbnail/4pane.png?baseproject=ALL'
-      assert_redirected_to '/images/thumbnails/4pane.png'
+    VCR.use_cassette('thumbnail downloaded uses it') do
+      get '/package/thumbnail/armagetron.png?baseproject=ALL'
+      assert_redirected_to '/images/thumbnails/armagetron.png'
     end
-  ensure
-    FileUtils.rm_f PKG_4PANE_THUMBNAIL
   end
 
-  def test_thumbnail_not_downloaded_downloads_it
-    FileUtils.rm_f PKG_4PANE_THUMBNAIL
-    VCR.use_cassette('default') do
-      get '/package/thumbnail/4pane.png?baseproject=ALL'
-      assert_redirected_to '/images/thumbnails/4pane.png'
-      assert File.exist?(PKG_4PANE_THUMBNAIL)
+  test 'thumbnail not downloaded downloads it' do
+    VCR.use_cassette('thumbnail not downloaded downloads it') do
+      get '/package/thumbnail/armagetron.png?baseproject=ALL'
+      assert_redirected_to '/images/thumbnails/armagetron.png'
+      assert File.exist?(PKG_THUMBNAIL)
     end
-  ensure
-    FileUtils.rm_f PKG_4PANE_THUMBNAIL
   end
 
-  def test_thumbnail_failed_download_uses_default_image
-    VCR.use_cassette('default') do
-      stub_request(:any, 'http://www.4Pane.co.uk/4Pane624x351.png')
-        .to_return(body: '', status: 404)
-      FileUtils.rm_f PKG_4PANE_THUMBNAIL
-      get '/package/thumbnail/4pane.png?baseproject=ALL'
+  test 'thumbnail failed download uses default image' do
+    stub_request(:any, /armagetronad\.org/)
+      .to_return(body: '', status: 404)
+
+    VCR.use_cassette('thumbnail failed download uses default image') do
+      get '/package/thumbnail/armagetron.png?baseproject=ALL'
       assert_response :redirect
       assert_match %r{/assets/default-screenshots/package(.*).png}, @response.redirect_url
-      assert !File.exist?(PKG_4PANE_THUMBNAIL)
+      assert !File.exist?(PKG_THUMBNAIL)
     end
   end
 
-  def test_known_screenshot_redirects_to_original
-    VCR.use_cassette('default') do
-      get '/package/screenshot/4pane.png?baseproject=ALL'
-      assert_redirected_to 'http://www.4Pane.co.uk/4Pane624x351.png'
+  test 'known screenshot redirects to original' do
+    VCR.use_cassette('known screenshot redirects to original') do
+      get '/package/screenshot/armagetron.png?baseproject=ALL'
+      assert_redirected_to 'http://armagetronad.org/screenshots/screenshot_2.png'
     end
   end
 
-  def test_unknown_screenshot_is404
-    VCR.use_cassette('default') do
+  test 'unknown screenshot is 404' do
+    VCR.use_cassette('unknown screenshot is 404') do
       get '/package/screenshot/paralapapiricoipi.png?baseproject=ALL'
       assert_equal 404, status
     end

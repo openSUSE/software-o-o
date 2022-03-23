@@ -1,49 +1,43 @@
-workers Integer(ENV['WEB_CONCURRENCY'] || 2)
-threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 5)
-threads threads_count, threads_count
+# Puma can serve each request in a thread from an internal thread pool.
+# The `threads` method setting takes two numbers: a minimum and maximum.
+# Any libraries that use thread pools should be configured to match
+# the maximum value specified for Puma. Default is set to 5 threads for minimum
+# and maximum; this matches the default thread size of Active Record.
+#
+max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
+min_threads_count = ENV.fetch("RAILS_MIN_THREADS") { max_threads_count }
+threads min_threads_count, max_threads_count
 
-preload_app!
+# Specifies the `worker_timeout` threshold that Puma will use to wait before
+# terminating a worker in development environments.
+#
+worker_timeout 3600 if ENV.fetch("RAILS_ENV", "development") == "development"
 
-rack_env = ENV['RACK_ENV'] || 'development'
+# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
+#
+port ENV.fetch("PORT") { 3000 }
 
-rackup      DefaultRackup
-port        ENV['PORT']     || 3000
-environment rack_env
+# Specifies the `environment` that Puma will run in.
+#
+environment ENV.fetch("RAILS_ENV") { "development" }
 
-ram_total = File.foreach('/proc/meminfo')
-              .map {|line| line.match(/MemTotal:\s+(\d+)/)&.captures&.first }
-              .compact.first&.to_i
+# Specifies the `pidfile` that Puma will use.
+pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
-before_fork do
-  require 'puma_worker_killer'
-  PumaWorkerKiller.config do |config|
-    if ram_total
-      config.ram = ram_total / 1024 # mb
-      config.frequency = 5 # seconds
-      config.percent_usage = 0.90
-    end
-    config.rolling_restart_frequency = 12 * 3600 # 12 hours
-    # setting this to true will log lines like:
-    # PumaWorkerKiller: Consuming 54.34765625 mb with master and 2 workers.
-    config.reaper_status_logs = rack_env == 'production' ? true : false
-  end
-  PumaWorkerKiller.start
-end
+# Specifies the number of `workers` to boot in clustered mode.
+# Workers are forked web server processes. If using threads and workers together
+# the concurrency of the application would be max `threads` * `workers`.
+# Workers do not work on JRuby or Windows (both of which do not support
+# processes).
+#
+# workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 
-on_worker_boot do
-  if ENV['SOFTWARE_O_O_RBTRACE']
-    # Trace objects to generate heap dump in production
-    puts "Enabling rbtrace and object allocation tracing"
-    require 'rbtrace'
-    require 'objspace'
-    ObjectSpace.trace_object_allocations_start
-  end
-end
+# Use the `preload_app!` method when specifying a `workers` number.
+# This directive tells Puma to first boot the application and load code
+# before forking the application. This takes advantage of Copy On Write
+# process behavior so workers use less memory.
+#
+# preload_app!
 
-# Instrumentation only when explicitly enabled or when in production
-if ENV['INSTRUMENTATION'] == 'true' || ENV['RACK_ENV'] == 'production'
-  after_worker_fork do
-    require 'prometheus_exporter/instrumentation'
-    PrometheusExporter::Instrumentation::Process.start(type:"web")
-  end
-end
+# Allow puma to be restarted by `bin/rails restart` command.
+plugin :tmp_restart

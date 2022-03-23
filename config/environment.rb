@@ -1,11 +1,12 @@
-# Load the rails application
-require File.expand_path('../application', __FILE__)
+# Load the Rails application.
+require_relative "application"
+
 GettextI18nRails.translations_are_html_safe = true
 
-SoftwareOO::Application.configure do
+Rails.application.configure do
   # OBS API access
   config.x = Hashie::Mash.new(config_for(:options))
 end
 
-# Initialize the rails application
-SoftwareOO::Application.initialize!
+# Initialize the Rails application.
+Rails.application.initialize!

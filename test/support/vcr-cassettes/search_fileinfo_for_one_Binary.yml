@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.opensuse.org/published/home:dmacvicar/openSUSE_Tumbleweed/x86_64/rarcrack-0.2-1.117.x86_64.rpm?view=fileinfo
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <API HTTP AUTH>
+      User-Agent:
+      - software.o.o
+      X-Username:
+      - "<API USERNAME>"
+      X-Opensuse-Data:
+      - TEST
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 22 Mar 2022 16:56:29 GMT
+      Server:
+      - Apache/2.4.51 (Linux/SUSE)
+      Strict-Transport-Security:
+      - max-age=31536000
+      Cache-Control:
+      - no-cache
+      - private, no-transform
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Opensuse-Runtimes:
+      - '{"view":null,"db":4.434776958078146,"backend":0}'
+      X-Request-Id:
+      - ff6bc1b3-e7df-4b8a-9103-642a12be544b
+      X-Opensuse-Apiversion:
+      - 2.11~alpha.20220322T101623.7ee4a21ab6
+      X-Download-Options:
+      - noopen
+      X-Runtime:
+      - '0.018614'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger(R) 6.0.12
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '1294'
+      Set-Cookie:
+      - openSUSE_session=88414c2209e4045937e0b2f6fe4e35c5; path=/; Max-Age=86400;
+        Secure; HttpOnly; domain=.opensuse.org
+    body:
+      encoding: UTF-8
+      string: |
+        <fileinfo filename="rarcrack-0.2-1.117.x86_64.rpm">
+          <name>rarcrack</name>
+          <version>0.2</version>
+          <release>1.117</release>
+          <arch>x86_64</arch>
+          <summary>If you forget your password for compressed archive (rar, 7z, zip), this program is the solution.</summary>
+          <description>This program uses a brute force algorithm to guess your encrypted compressed file's password. If you forget your encrypted file password, this program is the solution. This program can crack zip,7z and rar file passwords.
+
+        Authors:
+        --------
+            David Zoltan Kedves &lt;kedazo@gmail.com&gt;</description>
+          <size>16623</size>
+          <mtime>1646170968</mtime>
+          <provides>rarcrack = 0.2-1.117</provides>
+          <provides>rarcrack(x86-64) = 0.2-1.117</provides>
+          <requires>libc.so.6()(64bit)</requires>
+          <requires>libc.so.6(GLIBC_2.2.5)(64bit)</requires>
+          <requires>libc.so.6(GLIBC_2.34)(64bit)</requires>
+          <requires>libc.so.6(GLIBC_2.7)(64bit)</requires>
+          <requires>libxml2.so.2()(64bit)</requires>
+          <requires>libxml2.so.2(LIBXML2_2.4.30)(64bit)</requires>
+          <requires>rpmlib(CompressedFileNames) &lt;= 3.0.4-1</requires>
+          <requires>rpmlib(FileDigests) &lt;= 4.6.0-1</requires>
+          <requires>rpmlib(PayloadFilesHavePrefix) &lt;= 4.0-1</requires>
+          <requires>rpmlib(PayloadIsZstd) &lt;= 5.4.18-1</requires>
+        </fileinfo>
+  recorded_at: Tue, 22 Mar 2022 16:56:29 GMT
+recorded_with: VCR 6.1.0

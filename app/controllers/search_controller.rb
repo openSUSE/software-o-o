@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SearchController < OBSController
+class SearchController < ObsController
   before_action :set_search_options
   before_action :prepare_appdata
 

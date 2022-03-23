@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PackageController < OBSController
+class PackageController < ObsController
   before_action :set_search_options, only: %i[show categories]
   before_action :prepare_appdata, :set_categories
 
@@ -92,13 +92,13 @@ class PackageController < OBSController
       next if app[:screenshots].blank?
 
       app[:screenshots].each do |image_url|
-        return redirect_to image_url if type == :screenshot && image_url
+        return redirect_to(image_url, allow_other_host: true) if type == :screenshot && image_url
         next if image_url.blank?
 
         path = begin
           screenshot = Screenshot.new(pkgname, image_url)
           screenshot.thumbnail_path(fetch: true)
-        rescue StandardError => e
+        rescue OpenURI::HTTPError => e
           Rails.logger.error "Error retrieving #{image_url}: #{e}"
           next
         end
