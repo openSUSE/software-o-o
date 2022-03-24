@@ -15,8 +15,8 @@ gem 'open_uri_redirections'
 # for stylesheets
 gem 'sassc-rails'
 
-# as compressor for JavaScript assets
-gem 'uglifier'
+# as javascript asset compressor
+gem 'terser'
 
 # for translations
 gem 'fast_gettext', '>= 0.7.0'
