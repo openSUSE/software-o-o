@@ -1,0 +1,19 @@
+version: "2.1"
+services:
+  memcached:
+    image: registry.opensuse.org/opensuse/memcached:latest
+  software:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      args:
+        CONTAINER_USERID: 1000
+    command: bundle exec rails s -b 0.0.0.0
+    volumes:
+      - .:/software
+    ports:
+      - "3000:3000"
+    depends_on:
+      - memcached
+    environment:
+      - MEMCACHED_HOST="memcached:11211"

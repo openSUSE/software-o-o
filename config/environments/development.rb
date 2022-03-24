@@ -17,7 +17,9 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
-  config.cache_store = :memory_store
+  memcached_host = ENV['MEMCACHED_HOST'] || 'localhost:11211'
+  config.cache_store = :mem_cache_store, memcached_host, {namespace: 'software-dev', compress: true}
+
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join("tmp/caching-dev.txt").exist?
