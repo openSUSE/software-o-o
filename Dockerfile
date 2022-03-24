@@ -8,6 +8,7 @@ RUN zypper -n ar -f \
     zypper -n install --no-recommends timezone glibc-locale sudo \
                                       vim git-core \
                                       gcc gcc-c++ make \
+                                      MozillaFirefox \
                                       nodejs16 ruby3.1-devel \
                                       libxml2-devel libxslt-devel
 
