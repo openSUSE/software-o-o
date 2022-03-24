@@ -29,6 +29,9 @@ gem 'rails-i18n'
 # Generate html based on markdown in views
 gem 'redcarpet', '~> 3.5.1'
 
+# for logging
+gem 'lograge'
+
 gem 'dalli'
 gem 'hashie'
 gem 'mini_magick'
