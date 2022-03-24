@@ -23,16 +23,17 @@ gem 'terser'
 # for translations
 gem 'fast_gettext', '>= 0.7.0'
 gem 'gettext_i18n_rails', '>= 0.4.3'
-
-# rails-i18n provides translations for ActiveRecord
-# validation error messages
 gem 'rails-i18n'
 
-# Generate html based on markdown in views
+# for markdown in views
 gem 'redcarpet', '~> 3.5.1'
 
 # for logging
 gem 'lograge'
+
+# as error catcher
+gem 'sentry-rails'
+gem 'sentry-ruby'
 
 gem 'dalli'
 gem 'hashie'
@@ -42,7 +43,6 @@ gem 'nokogiri'
 gem 'xmlhash', '>= 1.2.2'
 
 gem 'matrix'
-gem 'prometheus_exporter'
 gem 'puma_worker_killer'
 
 # FIXME: for selenium-webdriver, rexml isn't in the default set of Ruby 3.1 anymore
