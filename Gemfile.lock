@@ -140,6 +140,11 @@ GEM
     io-like (0.3.1)
     io-wait (0.2.1)
     locale (2.1.3)
+    lograge (0.11.2)
+      actionpack (>= 4)
+      activesupport (>= 4)
+      railties (>= 4)
+      request_store (~> 1.0)
     loofah (2.15.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -150,7 +155,6 @@ GEM
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.0)
     minitest (5.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
@@ -171,7 +175,6 @@ GEM
       timeout
     nio4r (2.5.8)
     nokogiri (1.13.3)
-      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     open_uri_redirections (0.2.1)
     parallel (1.21.0)
@@ -226,6 +229,8 @@ GEM
     rake (13.0.6)
     redcarpet (3.5.1)
     regexp_parser (2.2.1)
+    request_store (1.5.1)
+      rack (>= 1.4)
     rexml (3.2.5)
     rubocop (1.22.0)
       parallel (~> 1.10)
@@ -310,6 +315,7 @@ DEPENDENCIES
   gettext (>= 1.9.3)
   gettext_i18n_rails (>= 0.4.3)
   hashie
+  lograge
   matrix
   mini_magick
   minitest
