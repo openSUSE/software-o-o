@@ -1,6 +1,6 @@
 # software.opensuse.org
 
-[![Build Status](https://travis-ci.com/openSUSE/software-o-o.svg?branch=master)](https://travis-ci.com/openSUSE/software-o-o)[![Gitter chat](https://badges.gitter.im/openSUSE/software-o-o.png)](https://gitter.im/openSUSE/software-o-o)
+![Build Status](https://github.com/openSUSE/software-o-o/actions/workflows/tests.yml/badge.svg?event=push)
 
 Ruby on Rails application powering
 [https://software.opensuse.org](https://software.opensuse.org)
