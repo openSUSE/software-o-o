@@ -37,6 +37,8 @@ USER software
 WORKDIR /software
 
 # Setup bundler
+# We always want to build for our platform instead of using precompiled gems
+ENV BUNDLE_FORCE_RUBY_PLATFORM=true
 RUN bundle config build.nokogiri --use-system-libraries
 
 # Refresh our bundle
