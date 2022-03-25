@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-require 'ostruct'
 
 class SearchHelperTest < ActionView::TestCase
   package = Struct.new(:name, :project)
