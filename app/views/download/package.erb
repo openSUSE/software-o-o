@@ -27,7 +27,7 @@
                   <% @data.select {|k,v| v.has_key?(:ymp) && v[:flavor] == flavor}.sort.reverse.each do |k,v|%>
                   <div class="text-center col">
                      <a href="<%= v[:ymp] %>"><button class="mb-3 mr-3 w-100 btn btn-primary">
-                     <span class="typcn typcn-lg typcn-download"></span>
+                     <%= icon "download" %>
                      <span><%= k.gsub('_', '&nbsp;').html_safe %></span>
                      </button></a>
                   </div>
@@ -111,7 +111,7 @@ pacman -Sy <%= repo_name %>/<%= @package %></pre>
                      <p><%= (_("Packages for %s:") % [("<strong>" + k.gsub('_', '&nbsp;') + "</strong>").html_safe]).html_safe %></p>
                      <% v[:package].sort.each do |k,v| %>
                      <a href="<%= v %>"><button class="mb-3 mr-3 w-100 btn btn-primary">
-                     <span class="typcn typcn-lg typcn-download"></span>
+                     <%= icon "download" %>
                      <span><%= k %></span>
                      </button></a>
                      <% end %>

@@ -118,14 +118,14 @@ class PackageController < ObsController
   # See https://specifications.freedesktop.org/menu-spec/menu-spec-latest.html
   def set_categories
     @main_sections = [
-      { name: _('Games'), id: 'Games', icon: 'puzzle-outline', categories: ['Game'] },
-      { name: _('Development'), id: 'Development', icon: 'code-outline', categories: ['Development'] },
-      { name: _('Education & Science'), id: 'Education', icon: 'globe-outline', categories: %w[Education Science] },
-      { name: _('Multimedia'), id: 'Multimedia', icon: 'notes-outline', categories: %w[AudioVideo Audio Video] },
-      { name: _('Graphics'), id: 'Graphics', icon: 'brush', categories: ['Graphics'] },
-      { name: _('Office & Productivity'), id: 'Office', icon: 'document', categories: ['Office'] },
-      { name: _('Network'), id: 'Network', icon: 'world-outline', categories: ['Network'] },
-      { name: _('System & Utility'), id: 'Tools', icon: 'spanner-outline', categories: %w[Settings System Utility] }
+      { name: _('Games'), id: 'Games', icon: 'games', categories: ['Game'] },
+      { name: _('Development'), id: 'Development', icon: 'code', categories: ['Development'] },
+      { name: _('Education & Science'), id: 'Education', icon: 'education', categories: %w[Education Science] },
+      { name: _('Multimedia'), id: 'Multimedia', icon: 'multimedia', categories: %w[AudioVideo Audio Video] },
+      { name: _('Graphics'), id: 'Graphics', icon: 'graphics', categories: ['Graphics'] },
+      { name: _('Office & Productivity'), id: 'Office', icon: 'office', categories: ['Office'] },
+      { name: _('Network'), id: 'Network', icon: 'network', categories: ['Network'] },
+      { name: _('System & Utility'), id: 'Tools', icon: 'utils', categories: %w[Settings System Utility] }
     ]
   end
 end

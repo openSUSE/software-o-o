@@ -36,9 +36,9 @@
 
   <div id="categories" class="row">
     <% @main_sections.each do |section| %>
-      <div class="col-6 col-md-4 col-lg-3 my-3">
-          <span class="typcn typcn-lg typcn-<%= section[:icon] %>"></span>
-          <%= link_to section[:name], {:controller => :package, :action => :category, :category => section[:id]}, :class => 'text-body' %>
+      <div class="col-6 col-md-4 col-lg-3 my-3 d-flex align-items-center">
+          <%= icon section[:icon], "1.5em" %>
+          <%= link_to section[:name], {:controller => :package, :action => :category, :category => section[:id]}, :class => 'text-body ml-2' %>
       </div>
     <% end %>
   </div><!-- /#categories -->

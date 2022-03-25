@@ -57,12 +57,12 @@
             </div>
             <% end %>
             <a id="one-click-button" class="btn btn-lg btn-primary" href="<%= url %>">
-              <span class="typcn typcn-flash-outline"></span>
+              <%= icon "oci" %>
               <%= _("Direct Install") %>
             </a>
 
             <%= link_to download_package_path(project: @default_package.project, package: @pkgname), class: 'btn btn-lg btn-secondary' do %>
-              <span class="typcn typcn-download-outline"></span>
+              <%= icon "download" %>
               <%= _('Expert Download') %>
             <% end %>
           <% end -%>
