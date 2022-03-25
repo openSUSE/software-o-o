@@ -5,7 +5,7 @@ class DownloadController < ObsController
 
   # display documentation
   def doc
-    @build_service= true
+    @build_service = true
   end
 
   def appliance
@@ -138,7 +138,7 @@ class DownloadController < ObsController
 
   def render_page(page_template)
     @box_title = @page_title
-    @build_service= true
+    @build_service = true
     respond_to do |format|
       format.html { render page_template, layout: 'application' }
       format.iframe do
