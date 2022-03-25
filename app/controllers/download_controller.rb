@@ -143,7 +143,7 @@ class DownloadController < ObsController
         render page_template, layout: 'iframe.html'
       end
       # needed for rails < 3.0 to support JSONP
-      format.json { render_json @data.to_json }
+      format.json { render json: @data.to_json }
     end
   end
 
