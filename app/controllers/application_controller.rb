@@ -10,7 +10,6 @@ require 'json'
 class ApplicationController < ActionController::Base
   before_action :validate_configuration
   before_action :set_language
-  before_action :set_external_urls
 
   helper :all # include all helpers, all the time
   require 'rexml/document'
@@ -154,26 +153,5 @@ class ApplicationController < ActionController::Base
     Rails.cache.fetch("appdata/leap#{version}", expires_in: 12.hours) do
       Appdata.new("leap/#{version}").data
     end
-  end
-
-  # set wiki and forum urls, which are different for each language
-  def set_external_urls
-    @wiki_url = case @lang
-                when 'zh_CN'
-                  'https://zh.opensuse.org/'
-                when 'zh_TW'
-                  'https://zh-tw.opensuse.org/'
-                when 'pt_BR'
-                  'https://pt.opensuse.org/'
-                else
-                  "https://#{@lang}.opensuse.org/"
-                end
-
-    @forum_url =  case @lang
-                  when 'zh_CN'
-                    'https://forum.suse.org.cn/'
-                  else
-                    'https://forums.opensuse.org/'
-                  end
   end
 end
