@@ -8,6 +8,8 @@ gem 'rails', '~> 7.0'
 gem 'sprockets-rails'
 # as application server
 gem 'puma'
+# as templating engine
+gem "haml-rails", "~> 2.0"
 
 # for appdata redirections (https -> http)
 gem 'open_uri_redirections'
