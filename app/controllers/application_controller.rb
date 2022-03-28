@@ -89,23 +89,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # special version of render json with JSONP capabilities (only needed for rails < 3.0)
-  def render_json(json, options = {})
-    callback = params[:callback]
-    variable = params[:variable]
-    response = if callback && variable
-                 "var #{variable} = #{json};\n#{callback}(#{variable});"
-               elsif variable
-                 "var #{variable} = #{json};"
-               elsif callback
-                 "#{callback}(#{json});"
-               else
-                 json
-               end
-
-    render({ content_type: 'application/javascript', body: response }.merge(options))
-  end
-
   def valid_package_name?(name)
     name =~ /^[[:alnum:]][-+~\w.:@]*$/
   end
