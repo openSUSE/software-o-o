@@ -4,7 +4,9 @@ class DownloadController < ObsController
   before_action :set_colors, :hide_search_box
 
   # display documentation
-  def doc; end
+  def doc
+    @build_service = true
+  end
 
   def appliance
     @project = params[:project]
@@ -136,11 +138,12 @@ class DownloadController < ObsController
 
   def render_page(page_template)
     @box_title = @page_title
+    @build_service = true
     respond_to do |format|
-      format.html { render page_template, layout: 'download' }
+      format.html { render page_template, layout: 'application' }
       format.iframe do
         response.headers.except! 'X-Frame-Options'
-        render page_template, layout: 'iframe.html'
+        render page_template
       end
       # needed for rails < 3.0 to support JSONP
       format.json { render_json @data.to_json }

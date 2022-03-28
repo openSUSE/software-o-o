@@ -1,0 +1,31 @@
+%nav.navbar.noprint.navbar-expand-md.sticky-top
+  - homepage = build_service == true ? "https://build.opensuse.org" : "/"
+  = link_to homepage, class: "navbar-brand" do
+    = image_tag "chameleon/logo/favicon.svg", class: "d-inline-block align-top", alt: "openSUSE", title: "openSUSE", width: "30", height: "30"
+    .navbar-title
+      - if build_service == true
+        = _("Build Service")
+      - else
+        = _("Software")
+
+  %button.navbar-toggler{ type: "button", data: { toggle: "collapse", target: "#navbar-collapse" } }
+    = icon "navbar_toggle"
+
+  .collapse.navbar-collapse#navbar-collapse
+    %ul.nav.navbar-nav.mr-auto.flex-md-shrink-0
+      - if build_service == true
+        %li.nav-item
+          = link_to "Embed instructions", { controller: "download", action: "doc" }, class: "nav-link"
+      %li.nav-item.dropdown
+        = link_to "#", class: "nav-link dropdown-toggle", id: "locale-menu-link", role: "button", "data-toggle": "dropdown", "aria": { "haspopup": "true", "expanded": "false" } do
+          = icon "navbar_locale"
+          %span.selected-language= LANGUAGE_NAMES[@lang]
+          %span.caret
+        .dropdown-menu.dropdown-menu-right
+          - LANGUAGES.sort.each do |lang|
+            = link_to LANGUAGE_NAMES[lang], params.permit.merge(locale: lang), class: "dropdown-item" 
+
+  %button.navbar-toggler.megamenu-toggler{ type: "button", data: { toggle: "collapse", target: "#megamenu" } }
+    = icon "megamenu_toggle"
+
+#megamenu.megamenu.collapse

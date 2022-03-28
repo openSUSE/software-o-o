@@ -65,4 +65,8 @@ module ApplicationHelper
       description_package
     end
   end
+
+  def icon(name, size = nil)
+    render(partial: "icons/#{name}", formats: :svg, locals: { size: size })
+  end
 end
