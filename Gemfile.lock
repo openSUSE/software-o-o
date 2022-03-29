@@ -143,6 +143,12 @@ GEM
       haml (>= 4.0.6, < 6.0)
       html2haml (>= 1.0.1)
       railties (>= 5.1)
+    haml_lint (0.40.0)
+      haml (>= 4.0, < 5.3)
+      parallel (~> 1.10)
+      rainbow
+      rubocop (>= 0.50.0)
+      sysexits (~> 1.1)
     hashdiff (1.0.1)
     hashie (5.0.0)
     html2haml (2.2.0)
@@ -284,7 +290,6 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
-    sexp_processor (4.16.0)
     sentry-rails (5.1.1)
       railties (>= 5.0)
       sentry-ruby-core (~> 5.1.1)
@@ -293,6 +298,7 @@ GEM
       sentry-ruby-core (= 5.1.1)
     sentry-ruby-core (5.1.1)
       concurrent-ruby
+    sexp_processor (4.16.0)
     singleton (0.1.1)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
@@ -302,6 +308,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     strscan (3.0.1)
+    sysexits (1.2.0)
     temple (0.8.2)
     terser (1.1.8)
       execjs (>= 0.3.0, < 3)
@@ -341,6 +348,7 @@ DEPENDENCIES
   gettext (>= 1.9.3)
   gettext_i18n_rails (>= 0.4.3)
   haml-rails (~> 2.0)
+  haml_lint
   hashie
   lograge
   matrix

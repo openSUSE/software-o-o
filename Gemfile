@@ -73,6 +73,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'vcr'
   gem 'webmock'
+  gem 'haml_lint', require: false
 end
 
 group :development, :test do
