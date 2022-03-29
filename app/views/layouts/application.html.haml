@@ -1,30 +1,36 @@
 !!! 5
 %html
   %head{ lang: @lang }
-    %meta{ charset: "utf-8" }
-    %meta{ "http-equiv": "X-UA-Compatible", content: "IE=edge" }
-    %meta{ name: "viewport", content: "width=device-width, initial-scale=1" }
+    %meta{ charset: 'utf-8' }
+    %meta{ 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' }
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
     %title= @page_title || _('openSUSE Software')
-    %meta{ "http-equiv": "Content-Type", content: "text/html; charset=utf-8" }
-    %meta{ "http-equiv": "Content-Script-Type", content: "text/javascript" }
-    %meta{ "http-equiv": "Content-Style-Type", content: "text/css" }
+    %meta{ 'http-equiv': 'Content-Type', content: 'text/html; charset=utf-8' }
+    %meta{ 'http-equiv': 'Content-Script-Type', content: 'text/javascript' }
+    %meta{ 'http-equiv': 'Content-Style-Type', content: 'text/css' }
 
-    %link{ rel: "search", type: "application/opensearchdescription+xml", title: "openSUSE Software", href: "/search_software.xml" }
-    %link{ href: "https://software.opensuse.org/favicon.ico", rel: "shortcut icon" }
+    %link{ rel: 'search', type: 'application/opensearchdescription+xml',
+           title: 'openSUSE Software', href: '/search_software.xml' }
+    %link{ href: 'https://software.opensuse.org/favicon.ico',
+           rel: 'shortcut icon' }
 
-    = stylesheet_link_tag "application"
-    = javascript_include_tag "application"
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
   %body
-    = render partial: "layouts/navbar", locals: { hidesearchbox: @hide_search_box, build_service: @build_service }
+    = render partial: 'layouts/navbar',
+             locals: { hidesearchbox: @hide_search_box,
+                       build_service: @build_service,
+                       current_language: @lang }
 
     - unless flash.blank?
-      = render(partial: "layouts/flash", object: flash)
+      = render(partial: 'layouts/flash', object: flash)
 
-    %main#content.page-content.flex-fill
+    %main.page-content.flex-fill#content
       - unless @hide_search_box
-        = render partial: 'search/find_form', locals: { baseproject: @baseproject }
+        = render partial: 'search/find_form',
+                 locals: { baseproject: @baseproject }
 
-      #search_result_container
+      #search-result-container
         = yield
 
-    = render partial: "layouts/footer"
+    = render partial: 'layouts/footer'

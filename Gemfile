@@ -66,6 +66,7 @@ group :test do
   gem 'capybara'
   gem 'faker'
   gem 'geckodriver-bin', '~> 0.28.0'
+  gem 'haml_lint', require: false
   gem 'rubocop'
   gem 'rubocop-minitest'
   gem 'rubocop-performance'
@@ -73,7 +74,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'vcr'
   gem 'webmock'
-  gem 'haml_lint', require: false
 end
 
 group :development, :test do

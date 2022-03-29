@@ -4,7 +4,9 @@
       .footer-copyright
         &copy; 2011&ndash;
         = Time.new.year
-        = _("openSUSE contributors")
+        = _('openSUSE contributors')
       .list-inline
-        = link_to _("Source Code"), "https://github.com/openSUSE/news-o-o", class: "list-inline-item"
-        = link_to _("License"), "https://github.com/openSUSE/news-o-o/blob/master/LICENSE", class: "list-inline-item"
+        - github_link = 'https://github.com/openSUSE/news-o-o'
+        = link_to _('Source Code'), github_link, class: 'list-inline-item'
+        = link_to _('License'), "#{github_link}/blob/master/LICENSE",
+                  class: 'list-inline-item'
