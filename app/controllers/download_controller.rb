@@ -78,46 +78,6 @@ class DownloadController < ObsController
     render_page :package
   end
 
-  def pattern
-    @project = params[:project]
-    @pattern = params[:pattern]
-
-    cache_key = "soo_download_#{@project}_#{@pattern}"
-    @data = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
-      # api_result = ApiConnect::get("/search/published/pattern/id?match=project='#{@project}'+and+filename='#{@pattern}.ymp'")
-      # TODO: workaround - the line above does not return a thing - see https://lists.opensuse.org/opensuse-buildservice/2011-07/msg00088.html
-      # so we search for all files of the project and filter for *.ymp below
-      api_result = ApiConnect.get("/search/published/pattern/id?match=project='#{@project}'")
-      xpath = '/collection/pattern'
-      # logger.debug doc
-
-      if api_result
-        doc = REXML::Document.new api_result.body
-        data = {}
-        doc.elements.each(xpath) do |e|
-          next if e.attributes['filename'] != "#{@pattern}.ymp"
-
-          distro = e.attributes['repository']
-          next if data.key?(distro)
-
-          data[distro] = {
-            repo: "https://download.opensuse.org/repositories/#{@project}/#{distro}/",
-            package: {}
-          }
-          data[distro][:flavor] = set_distro_flavor get_project(distro, e.attributes['baseproject'])
-          case e.attributes['baseproject']
-          when /^(DISCONTINUED:)?openSUSE:/, /^(DISCONTINUED:)?SUSE:SLE-/
-            data[distro][:ymp] = "https://download.opensuse.org/repositories/#{e.attributes['filepath']}"
-          end
-        end
-        data
-      end
-    end
-    set_flavors
-    @page_title = format(_('Install pattern %s / %s'), @project, @pattern)
-    render_page :package
-  end
-
   def ymp_with_arch_and_version
     path = "/published/#{params[:project]}/#{params[:repository]}/#{params[:arch]}/#{params[:binary]}?view=ymp"
     res = Rails.cache.fetch("ymp_#{path}", expires_in: 1.hour) do

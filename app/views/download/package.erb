@@ -3,12 +3,11 @@
 <div class="container" id="content">
 <div class="soo_download_#{@project}_#{@package}">
    <% if @data.blank? %>
-   <h1 class="my-5"><%= _("No data for %s / %s") % [ @project, @package.nil? ? @pattern : @package] %></h1>
+   <h1 class="my-5"><%= _("No data for %s / %s") % [ @project, @package] %></h1>
    <% else %>
    <% unless @flavors.blank? %>
      <h1 class="font-weight-normal">
-       <% package = @package.nil? ? @pattern : @package %>
-       <%= _("<b>#{package}</b> from <b>#{project_url(@project)}</b> project") %></h1>
+       <%= _("<b>#{@package}</b> from <b>#{project_url(@project)}</b> project") %></h1>
    <h2 class="my-4"><%= _("Select Your Operating System") %></h2>
    <div class="row py-3">
       <% @flavors.each do |flavor| %>
@@ -69,11 +68,7 @@ pacman -Sy <%= repo_name %>/<%= @package %></pre>
                   <pre><%=
                      case v[:flavor]
                      when 'openSUSE', 'SLE'
-                       if @package.nil?
-                         "zypper addrepo #{v[:repo]}#{@project}.repo\nzypper refresh\nzypper install -t pattern #{@pattern}"
-                       else
                          "zypper addrepo #{v[:repo]}#{@project}.repo\nzypper refresh\nzypper install #{@package}"
-                       end
                      when 'Fedora'
                        version = k.split("_").last
                        if version == "Rawhide" or Integer(version) >= 22
@@ -128,7 +123,7 @@ pacman -Sy <%= repo_name %>/<%= @package %></pre>
    </div>
 </div>
 <% else %>
-<p><%= _("No downloads found for %s in project %s") % [ @package.nil? ? @pattern : @package, @project] %>.</p>
+<p><%= _("No downloads found for %s in project %s") % [ @package, @project] %>.</p>
 <% end %>
 <% end %>
 </div>
