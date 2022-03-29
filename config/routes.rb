@@ -23,10 +23,9 @@ Rails.application.routes.draw  do
   namespace 'download' do
     get 'appliance', constraints: ->(request) { request.params[:project].present? }
     get 'package', constraints: ->(request) { request.params[:project].present? && request.params[:package].present? }
-    get 'pattern', constraints: ->(request) { request.params[:project].present? && request.params[:pattern].present? }
 
     # Show documentation if contraints are not met
-    %w(doc appliance package pattern).each do |path|
+    %w(doc appliance package).each do |path|
       get path, action: :doc
     end
   end
