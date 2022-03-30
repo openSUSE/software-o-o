@@ -49,7 +49,7 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  memcached_host = ENV["MEMCACHE_SERVERS"] || "localhost:11211"
+  memcached_host = ENV["MEMCACHED_HOST"] || "localhost:11211"
   config.cache_store = :mem_cache_store, memcached_host, {namespace: 'software', compress: true}
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
