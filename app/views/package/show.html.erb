@@ -51,15 +51,12 @@
             </ul>
             <% if @appid && @baseproject != "ALL" %>
             <div>
-                <a id="appstream-button" class="btn" href="appstream://<%= @appid %>">
-                    <img class="typcn" src="<%= image_path('appstream-button1.svg') %>" width="177" height="51" alt="AppStream" />
+                <a id="appstream-button" class="btn btn-lg btn-primary" href="appstream://<%= @appid %>">
+                  <%= icon "oci" %>
+                  <%= _("Appstream Install") %>
                 </a>
             </div>
             <% end %>
-            <a id="one-click-button" class="btn btn-lg btn-primary" href="<%= url %>">
-              <%= icon "oci" %>
-              <%= _("Direct Install") %>
-            </a>
 
             <%= link_to download_package_path(project: @default_package.project, package: @pkgname), class: 'btn btn-lg btn-secondary' do %>
               <%= icon "download" %>
