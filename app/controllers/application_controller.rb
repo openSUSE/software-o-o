@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     @message = exception.message
     layout = request.xhr? ? false : 'application'
     logger.error exception.backtrace.join("\n") unless EXCEPTIONS_TO_IGNORE.include? exception
-    render template: 'error', formats: [:html], layout:, status: 400
+    render template: 'error', formats: [:html], layout: layout, status: 400
   end
 
   def validate_configuration
@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
 
     if config.api_username.blank? && config.opensuse_cookie.blank?
       @message = _('The authentication to the OBS API has not been configured correctly.')
-      render template: 'error', formats: [:html], layout:, status: 503
+      render template: 'error', formats: [:html], layout: layout, status: 503
     end
   end
 

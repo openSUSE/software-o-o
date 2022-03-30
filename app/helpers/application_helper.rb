@@ -67,6 +67,6 @@ module ApplicationHelper
   end
 
   def icon(name, size = nil)
-    render(partial: "icons/#{name}", formats: :svg, locals: { size: })
+    render(partial: "icons/#{name}", formats: :svg, locals: { size: size })
   end
 end

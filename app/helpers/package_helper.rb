@@ -32,7 +32,7 @@ module PackageHelper
 
   # Returns the screenshot thumbnail url for a given package object/hash
   def screenshot_thumb_url(package)
-    url_for controller: :package, action: :thumbnail, package:, protocol: 'https'
+    url_for controller: :package, action: :thumbnail, package: package, protocol: 'https'
   end
 
   def project_url(project)
