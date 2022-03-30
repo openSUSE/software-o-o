@@ -41,7 +41,7 @@ class PackageController < ObsController
       @official_projects = @distributions.map { |d| d[:project] }
       # get extra distributions that are not in the default distribution list
       @extra_packages = @packages.reject { |p| @distributions.map { |d| d[:project] }.include? p.baseproject }
-      @extra_dists = @extra_packages.map(&:baseproject).compact.uniq.map { |d| { project: d } }
+      @extra_dists = @extra_packages.filter_map(&:baseproject).uniq.map { |d| { project: d } }
     rescue OBSError
       @hide_search_box = true
       flash.now[:error] = _('Connection to OBS is unavailable. Functionality of this site is limited.')
