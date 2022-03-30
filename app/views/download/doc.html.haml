@@ -1,0 +1,57 @@
+- @page_title = "OBS Download page"
+
+.container.my-4
+  %h1= _("Using OBS download pages")
+  %p
+    = _("Welcome to the OBS download page. This page offers a simple way to show your users the latest builds of your packages and appliances by either embedding its output as an iframe in your project homepage, or by creating a download page for you.")
+  %h2= _("Creating a download page for a package")
+  %p
+    = _("Just create a link to:")
+    %pre
+      https://software.opensuse.org/download/package?project=
+      %b>= _("projectname")
+      &amp;package=
+      %b>= _("packagename")
+    = _("Example:")
+    - package_link = url_for(controller: :download, action: :package, project: "openSUSE:Tools", package: "osc", only_path: false)
+    = link_to nil, package_link
+  %p
+    = _("To embed this page as an iframe in the download section of your project homepage, you can use this code:")
+    %pre
+      &lt;iframe src="https://software.opensuse.org/download/package.iframe?project=
+      %b>= _("projectname")
+      package=
+      %b>= _("packagename")
+      "&gt;&lt;/iframe&gt;
+    = _("Which will result in an output like this:")
+    %iframe{src: url_for(controller: :download, action: :package, project: "openSUSE:Tools", package: "osc", format: "iframe", protocol: "https"), width: "100%", height: "700px", frameBorder: 0}
+  %h2 Creating a download page for an appliance
+  %p
+    = _("If your OBS project is building appliances, you can also link to those with:")
+    %pre
+      https://software.opensuse.org/download/appliance?project=
+      %b>= _("projectname")
+  %p
+    = _("To embed an iframe showing the appliances of your project, use this code:")
+    %pre
+      &lt;iframe src="https://software.opensuse.org/download/appliance.iframe?project=
+      %b>= _("projectname")
+      "&gt;&lt;/iframe&gt;
+  %p
+    = _("Which will result in an output like this:")
+    %iframe{src: url_for(controller: :download, action: :appliance, project: "OBS:Server:2.10", format: "iframe", protocol: "https"), width: "100%", height: "700px", frameBorder: 0}
+  %h2= _("Advanced options")
+  %h3= _("JSON output")
+  %p
+    = _("You can also request the data in json format by using .json as output format, for example:")
+    = link_to nil, controller: :download, action: :package, format: :json, project: "openSUSE:Tools", package: "osc", only_path: false
+  %h3= _("Theming")
+  %p
+    = _("To customize the theming of the download page, you have multiple options to change the colors.")
+    :markdown
+      #{_("Use the parameters **bcolor** (background), **fcolor** (foreground), **acolor** (links) and **hcolor** (hover) to set the different colors.")}
+  %p
+    = _("Example:")
+    - custom_iframe = url_for(controller: :download, action: :appliance, format: :iframe, project: "OBS:Server:2.10", fcolor: "ffffff", hcolor: "35b9ab", acolor: "73ba25", bcolor: "173f4f", only_path: false)
+    %pre= custom_iframe
+    %iframe{src: custom_iframe, width: "100%", height: "700px", frameBorder: 0}
