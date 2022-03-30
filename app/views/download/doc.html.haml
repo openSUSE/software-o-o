@@ -3,10 +3,10 @@
 .container.my-4
   %h1= _('Using OBS download pages')
   %p
-    = _(['Welcome to the OBS download page. This page offers a simple way to',
-      'show your users the latest builds of your packages and appliances by',
-      'either embedding its output as an iframe in your project homepage, or',
-      'by creating a download page for you.'].join(' '))
+    = _('Welcome to the OBS download page. This page offers a simple way to |
+         show your users the latest builds of your packages and appliances by |
+         either embedding its output as an iframe in your project homepage, or |
+         by creating a download page for you.') |
   %h2= _('Creating a download page for a package')
   %p
     = _('Just create a link to:')
@@ -21,8 +21,8 @@
                              only_path: false)
     = link_to nil, package_link
   %p
-    = _(['To embed this page as an iframe in the download section of your',
-         'project homepage, you can use this code:'].join(' '))
+    = _('To embed this page as an iframe in the download section of your |
+         project homepage, you can use this code:') |
     %pre
       &lt;iframe src='https://software.opensuse.org/download/package.iframe
       %span> ?project=
@@ -37,14 +37,14 @@
              width: '100%', height: '700px', frameBorder: 0 }
   %h2 Creating a download page for an appliance
   %p
-    = _(['If your OBS project is building appliances, you can also link to',
-        'those with:'].join(' '))
+    = _('If your OBS project is building appliances, you can also link to |
+         those with:') |
     %pre
       https://software.opensuse.org/download/appliance?project=
       %b>= _('projectname')
   %p
-    = _(['To embed an iframe showing the appliances of your project, use this',
-        'code:'].join(' '))
+    = _('To embed an iframe showing the appliances of your project, use this |
+         code:') |
     %pre
       &lt;iframe src='https://software.opensuse.org/download/appliance.iframe
       %span> ?project=
@@ -59,18 +59,19 @@
   %h2= _('Advanced options')
   %h3= _('JSON output')
   %p
-    = _(['You can also request the data in json format by using .json as',
-         'output format, for example:'].join(' '))
+    = _('You can also request the data in json format by using .json as |
+         output format, for example:') |
     = link_to nil, controller: :download, action: :package, format: :json,
                    project: 'openSUSE:Tools', package: 'osc', only_path: false
   %h3= _('Theming')
   %p
-    = _(['To customize the theming of the download page, you have multiple',
-         'options to change the colors.'].join(' '))
+    = _('To customize the theming of the download page, you have multiple |
+        options to change the colors.') |
+    - params = _('Use the parameters **bcolor** (background), **fcolor** |
+                  (foreground), **acolor** (links) and **hcolor** (hover) to |
+                  set the different colors.') |
     :markdown
-      #{_(['Use the parameters **bcolor** (background), **fcolor**',
-         '(foreground), **acolor** (links) and **hcolor** (hover) to set',
-         'the different colors.'].join(' '))}
+      #{params}
   %p
     = _('Example:')
     - custom_iframe = url_for(controller: :download, action: :appliance,
