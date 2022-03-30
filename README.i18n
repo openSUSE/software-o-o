@@ -1,15 +1,17 @@
-== How to update the translations for software.o.o:
+# How to update the translations for software.o.o:
 
-The translation files are stored in the i18n repo on berlios: 
+The translation files are commited from [openSUSE Weblate instance](https://l10n.opensuse.org).
+You can take part in translating software-o-o there.
 
-svn co https://svn.opensuse.org/svn/opensuse-i18n/trunk/lcn/
-export MY_LCN_CHECKOUT=<path to lcn files>
-cd $MY_LCN_CHECKOUT && ./configure
+If there are new strings in the software-o-o code, use: 
+```sh
+bundler exec rails updatepo
+```
 
-If there are new strings in the software.o.o code, use: 
-> rake updatepo
-to update the pot file in the lcn checkout.
+# MO files
 
-To update the .mo files in software.o.o with those from the lcn repo (only those without fuzzy translations will be copied): 
-> rake makemo
-and use git add for new files
+The .mo files are created as part of the build in OBS, as follows (only those without fuzzy translations will be copied): 
+```sh
+bundler exec rails makemo
+```
+You don't need to perform this step as part of the development.

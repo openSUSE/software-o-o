@@ -52,7 +52,9 @@ end
 desc 'Invokes msgmerge to update pot/po files'
 task :updatepo do
   backup_po_files
+  system("mv #{POT_FILE} #{POT_FILE}.bak")
   Rake::Task['gettext:find'].invoke
   restore_po_files
+  system("rm #{POT_FILE}.bak")
   msgmerge_po_files
 end
