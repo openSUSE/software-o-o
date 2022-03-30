@@ -61,6 +61,12 @@ Rails.application.configure do
 
   # Use lograge as logger
   config.lograge.enabled = true
+  config.lograge.custom_options = lambda do |event|
+    exceptions = ['controller', 'action', 'format', 'id']
+    {
+      params: event.payload[:params].except(*exceptions)
+    }
+  end
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
