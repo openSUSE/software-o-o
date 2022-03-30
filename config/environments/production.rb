@@ -49,7 +49,7 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  memcached_host = ENV["MEMCACHE_SERVERS"] || "localhost:11211"
+  memcached_host = ENV["MEMCACHED_HOST"] || "localhost:11211"
   config.cache_store = :mem_cache_store, memcached_host, {namespace: 'software', compress: true}
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
@@ -61,6 +61,12 @@ Rails.application.configure do
 
   # Use lograge as logger
   config.lograge.enabled = true
+  config.lograge.custom_options = lambda do |event|
+    exceptions = ['controller', 'action', 'format', 'id']
+    {
+      params: event.payload[:params].except(*exceptions)
+    }
+  end
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
