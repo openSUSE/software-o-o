@@ -21,8 +21,8 @@ gem 'sassc-rails'
 gem 'terser'
 
 # for translations
-gem 'fast_gettext', '>= 0.7.0'
-gem 'gettext_i18n_rails', '>= 0.4.3'
+gem 'fast_gettext', '>= 2.2.0'
+gem 'gettext_i18n_rails', '>= 1.8.1'
 gem 'rails-i18n'
 
 # for markdown in views
@@ -59,7 +59,8 @@ gem 'multi_xml'
 group :development do
   # no need to load the gem via require
   # we only need the rake tasks
-  gem 'gettext', '>= 1.9.3', require: false
+  gem 'gettext', '>= 3.4.2', require: false
+  gem 'ruby_parser', require: false
 end
 
 group :test do
