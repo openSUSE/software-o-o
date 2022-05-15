@@ -1,6 +1,6 @@
 # Contributing to this project
 
-We are open for all types of contributions from anyone. Tell us about our [issues/ideas](https://github.com/openSUSE/osem/issues/new), propose code changes via [pull requests](https://help.github.com/articles/using-pull-requests) or contribute artwork and documentation.
+We are open for all types of contributions from anyone. Tell us about our [issues/ideas](https://github.com/openSUSE/software-o-o/issues/new), propose code changes via [pull requests](https://help.github.com/articles/using-pull-requests) or contribute artwork and documentation.
 
 We welcome all new developers and are also prepared to mentor you through your first contributions! All maintainers are seasoned developers and have participated in mentoring programs, such as [GSoC](https://summerofcode.withgoogle.com/) and [RGSoC](https://railsgirlssummerofcode.org/).
 
