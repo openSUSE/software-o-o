@@ -5,8 +5,6 @@ Rails.application.routes.draw  do
   resources :search, only: [:index] do
   end
 
-  get 'images.xml', to: 'images#images'
-
   controller :package do
     get 'package/:package', action: :show, constraints: { package: /[-+~\w\.:\@]+/ }
     get 'package/thumbnail/:package.png', action: :thumbnail, constraints: { package: /[-+~\w\.:\@]+/ }
