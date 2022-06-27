@@ -4,7 +4,6 @@ Rails.application.routes.draw  do
 
   resources :search, only: [:index] do
   end
-  get 'find', to: 'search#find', :format => false
 
   get 'images.xml', to: 'images#images'
 
