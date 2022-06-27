@@ -4,6 +4,14 @@
 
 Ruby on Rails application powering [https://software.opensuse.org](https://software.opensuse.org)
 
+# What, how why?
+
+This application has three different workflows:
+
+1. View a package and download it
+1. Browse categories of [AppStream](https://www.freedesktop.org/wiki/Distributions/AppStream/) data from distributions to get to a package
+1. Search for binary packages published by OBS to get to a package
+
 ## Contribute
 
 We hope you'll get involved.
