@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SearchController < ObsController
+class SearchController < ApplicationController
   before_action :set_search_options
   before_action :prepare_appdata
 
@@ -68,8 +68,12 @@ class SearchController < ObsController
     else
       render('find') && return
     end
+    # rubocop:enable Style/GuardClause
   end
-  # rubocop:enable Style/GuardClause
 
-  def find; end
+  private
+
+  def baseproject_not_canonical?
+    ['SUSE:SLE-15-SP3:GA', 'SUSE:SLE-15-SP2:GA', 'SUSE:SLE-15-SP1:GA', 'openSUSE:Leap:15.3'].include?(@baseproject)
+  end
 end
