@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PackageController < ObsController
+class PackageController < ApplicationController
   before_action :set_search_options, only: %i[show categories]
   before_action :prepare_appdata, :set_categories
 
@@ -85,6 +85,10 @@ class PackageController < ObsController
   end
 
   private
+
+  def valid_package_name?(name)
+    name =~ /^[[:alnum:]][-+~\w.:@]*$/
+  end
 
   def image(pkgname, type)
     @appdata[:apps].each do |app|
