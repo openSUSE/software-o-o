@@ -1,16 +1,17 @@
-FROM registry.opensuse.org/opensuse/leap:15.3
+FROM registry.opensuse.org/opensuse/leap:15.4
 ARG CONTAINER_USERID
 
 # Install our requirements
 RUN zypper -n ar -f \
-    https://download.opensuse.org/repositories/devel:/languages:/ruby/openSUSE_Leap_15.3/devel:languages:ruby.repo; \
+    https://download.opensuse.org/repositories/devel:/languages:/ruby/15.4/devel:languages:ruby.repo; \
     zypper -n --gpg-auto-import-keys refresh; \
     zypper -n install --no-recommends timezone glibc-locale sudo \
                                       vim git-core \
                                       gcc gcc-c++ make \
                                       MozillaFirefox \
                                       nodejs16 ruby3.1-devel \
-                                      libxml2-devel libxslt-devel
+                                      libxml2-devel libxslt-devel \
+                                      ImageMagick
 
 # Setup ruby in PATH & sudo
 RUN echo 'install: --no-format-executable' >> /etc/gemrc; \
