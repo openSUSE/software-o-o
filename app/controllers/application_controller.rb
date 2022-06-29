@@ -76,7 +76,7 @@ class ApplicationController < ActionController::Base
 
     # look for most current release
     versions = load_releases
-    unless versions.empty?
+    unless versions.blank?
       if versions[0]['state'] == 'Stable'
         @stable_version = versions[0]['version'].to_s
         @legacy_release = versions[1]['version'].to_s
