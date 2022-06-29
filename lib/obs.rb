@@ -180,17 +180,29 @@ module OBS
   def self.add_binary_relevance(binary, query)
     quoted_query = Regexp.quote(query)
     binary.relevance = 0
+    # name matches exact
     binary.relevance += 15 if /^#{quoted_query}$/i.match?(binary.name)
+    # name starts with query
     binary.relevance += 5 if /^#{quoted_query}/i.match?(binary.name)
+    # project is in the openSUSE namespace
     binary.relevance += 15 if /^openSUSE:/i.match?(binary.project)
+    # project name has an exact match for the query
     binary.relevance += 5 if /^#{quoted_query}$/i.match?(binary.project)
+    # project name starts with query
     binary.relevance += 2 if /^#{quoted_query}/i.match?(binary.project)
+    # project name includes unstable
     binary.relevance -= 5 if /unstable/i.match?(binary.project)
+    # project name includes home
     binary.relevance -= 10 if /^home:/.match?(binary.project)
+    # project name includes openSUSE:Maintenance
     binary.relevance -= 20 if /^openSUSE:Maintenance/i.match?(binary.project)
+    # name ends with -debugsource
     binary.relevance -= 10 if /-debugsource$/.match?(binary.name)
+    # name ends with -debuginfo
     binary.relevance -= 10 if /-debuginfo$/.match?(binary.name)
+    # name includes -devel
     binary.relevance -= 3 if /-devel/i.match?(binary.name)
+    # name ends with -doc
     binary.relevance -= 3 if /-doc$/.match?(binary.name)
     binary
   end
