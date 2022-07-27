@@ -1,8 +1,28 @@
-workflow:
+testbuild:
   steps:
-    - branch_package:
+    - link_package:
         source_project: openSUSE:infrastructure:software.opensuse.org
         source_package: software_opensuse_org
         target_project: openSUSE:infrastructure:software.opensuse.org:CI
+    - configure_repositories:
+        project: openSUSE:infrastructure:software.opensuse.org:CI
+        repositories:
+          - name: 15.4
+            paths:
+              - target_project: openSUSE:infrastructure:software.opensuse.org
+                target_repository: 15.4
+            architectures:
+              - x86_64
   filters:
     event: pull_request
+
+rebuild:
+  steps:
+    - trigger_services:
+        project: openSUSE:infrastructure:software.opensuse.org
+        package: software_opensuse_org
+  filters:
+    event: push
+    branches:
+      only:
+        - master
