@@ -65,13 +65,13 @@
                    project: 'openSUSE:Tools', package: 'osc', only_path: false
   %h3= _('Theming')
   %p
-    = _('To customize the theming of the download page, you have multiple |
-        options to change the colors.') |
-    - params = _('Use the parameters **bcolor** (background), **fcolor** |
-                  (foreground), **acolor** (links) and **hcolor** (hover) to |
-                  set the different colors.') |
-    :markdown
-      #{params}
+    = _('To customize the theming of the download page, you have multiple options to change the colors.')
+    %span
+      - params = _('Use the parameters **bcolor** (background), **fcolor** |
+                    (foreground), **acolor** (links) and **hcolor** (hover) to |
+                    set the different colors.') |
+      :markdown
+        #{params}
   %p
     = _('Example:')
     - custom_iframe = url_for(controller: :download, action: :appliance,
