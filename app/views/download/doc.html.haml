@@ -64,12 +64,12 @@
     = link_to nil, controller: :download, action: :package, format: :json,
                    project: 'openSUSE:Tools', package: 'osc', only_path: false
   %h3= _('Theming')
+  - params = _('Use the parameters **bcolor** (background), **fcolor** |
+                (foreground), **acolor** (links) and **hcolor** (hover) to |
+                set the different colors.') |
   %p
     = _('To customize the theming of the download page, you have multiple |
         options to change the colors.') |
-    - params = _('Use the parameters **bcolor** (background), **fcolor** |
-                  (foreground), **acolor** (links) and **hcolor** (hover) to |
-                  set the different colors.') |
     :markdown
       #{params}
   %p
