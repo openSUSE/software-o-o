@@ -26,7 +26,7 @@ class ScreenshotTest < ActiveSupport::TestCase
       image = MiniMagick::Image.open(thumbnail_full_path)
       assert_equal 600, image.width
     ensure
-      FileUtils.rm_f thumbnail_full_path if File.exist?(thumbnail_full_path)
+      FileUtils.rm_f thumbnail_full_path
     end
   end
 end
