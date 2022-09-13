@@ -129,7 +129,7 @@ class DownloadController < ApplicationController
       'SLE'
     when /^(DISCONTINUED:)?Fedora:/
       'Fedora'
-    when /^(DISCONTINUED:)?RedHat:RHEL-/
+    when /^(DISCONTINUED:)?(RedHat:RHEL-|AlmaLinux:|RockyLinux:)/
       'RHEL'
     when /^(DISCONTINUED:)?ScientificLinux:/
       'SL'
