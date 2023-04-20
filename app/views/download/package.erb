@@ -59,9 +59,11 @@ pacman -Sy <%= repo_name %>/<%= @package %></pre>
                   <h5><%= (_("For <strong>%s</strong> run the following:") % k.gsub('_', '&nbsp;').html_safe).html_safe %></h5>
                   <h6><%= (_("Keep in mind that the owner of the key may distribute updates, packages and repositories that your system will trust (<a href=\"%s\">more information</a>).") % secure_apt_url).html_safe %></h6>
                   <pre><%=
+                     package_names = v.fetch(:package, {}).keys.collect { |name| name.slice(0, name.index('_')) }.sort.uniq
+                     install_cmds = package_names.collect { |name| "sudo apt install #{name}" }.join("\n")
                      # don't use apt-add-repository wrapper for Ubuntu for now, because it adds source repo which we don't provide
                      #        "apt-add-repository deb #{v[:repo]} /\napt-get update\napt-get install #{@package}"
-                     "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' | sudo tee /etc/apt/sources.list.d/#{@project}.list\ncurl -fsSL #{v[:repo]}Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/#{@project.gsub(':', '_')}.gpg > /dev/null\nsudo apt update\nsudo apt install #{@package}"
+                     "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' | sudo tee /etc/apt/sources.list.d/#{@project}.list\ncurl -fsSL #{v[:repo]}Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/#{@project.gsub(':', '_')}.gpg > /dev/null\nsudo apt update\n#{install_cmds}"
                      %></pre>
                   <% else %>
                   <h5><%= (_("For <strong>%s</strong> run the following as <strong>root</strong>:") % k.gsub('_', '&nbsp;').html_safe).html_safe %></h5>

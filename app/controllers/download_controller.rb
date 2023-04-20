@@ -48,12 +48,12 @@ class DownloadController < ApplicationController
 
     cache_key = "soo_download_#{@project}_#{@package}"
     @data = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
-      api_result = ApiConnect.get("/search/published/binary/id?match=project='#{escaped_prj}'+and+name='#{escaped_pkg}'")
+      api_result = ApiConnect.get("/search/published/binary/id?match=project='#{escaped_prj}'+and+package='#{escaped_pkg}'")
       xpath = '/collection/binary'
       if api_result
         doc = REXML::Document.new api_result.body
         data = {}
-        doc.elements.each(xpath) do |e|
+        get_packages(REXML::XPath.match(doc, xpath)).each do |e|
           distro = e.attributes['repository']
           unless data.key?(distro)
             data[distro] = {
@@ -119,6 +119,18 @@ class DownloadController < ApplicationController
       end
     end
     project
+  end
+
+  def get_packages(binary_list)
+    # find packages that match the OBS package name
+    packages = binary_list.find_all { |e| e.attributes['name'] == @package }
+    # add packages from repositories without a matching package name
+    # only repositories with exactly one package are added
+    repos = packages.to_h { |e| [e.attributes['repository'], true] }
+    other_packages = binary_list.find_all { |e| !repos.key?(e.attributes['repository']) }
+    package_count = Hash.new(0)
+    other_packages.each { |e| package_count[e.attributes['repository']] += 1 }
+    packages.concat(other_packages.find_all { |e| package_count[e.attributes['repository']] == 1 })
   end
 
   def set_distro_flavor(distro)
