@@ -81,13 +81,16 @@ class ApplicationController < ActionController::Base
         if repo
           package.realproject = package.project
           package.baseproject = repo[:project]
-        # one off exception for Leap 15.3, which switched it's default
-        # repository name from openSUSE_Leap_15.3 to 15.3
-        elsif package.repository == 'openSUSE_Leap_15.3'
-          leap153 = @distributions.find { |d| d[:dist_id] == '20043' }
-          next unless leap153
+        elsif package.repository == 'openSUSE_Leap_15.4'
+          leap154 = @distributions.find { |d| d[:dist_id] == '23178' }
+          next unless leap154
 
-          package.baseproject = leap153[:project]
+          package.baseproject = leap154[:project]
+        elsif package.repository == 'openSUSE_Leap_15.5'
+          leap155 = @distributions.find { |d| d[:dist_id] == '23175' }
+          next unless leap155
+
+          package.baseproject = leap155[:project]
         end
       end
     end
