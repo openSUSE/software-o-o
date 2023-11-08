@@ -1,7 +1,7 @@
-- unless flash.blank?
+- if flash.present?
   .container#flash-messages
     - %w[success error warn note notice info].each do |flash_type|
-      - if flash[flash_type] && !flash[flash_type].empty?
+      - if flash[flash_type].present?
         :ruby
           states = {
             error: 'alert alert-danger',

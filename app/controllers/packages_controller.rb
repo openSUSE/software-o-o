@@ -1,6 +1,6 @@
 class PackagesController < ApplicationController
   before_action :set_distribution
-  before_action :set_package, only: %i[show update]
+  before_action :set_package, only: :show
 
   def show; end
 
