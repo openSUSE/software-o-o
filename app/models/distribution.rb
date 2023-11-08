@@ -8,7 +8,7 @@ class Distribution < ApplicationRecord
   validates :name, :obs_repo_names, presence: true
 
   def sync
-    repositories.where(updateinfo: false).each(&:sync)
-    repositories.where(updateinfo: true).each(&:sync)
+    repositories.where(updateinfo: false).find_each(&:sync)
+    repositories.where(updateinfo: true).find_each(&:sync)
   end
 end

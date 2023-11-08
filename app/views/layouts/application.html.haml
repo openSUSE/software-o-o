@@ -22,7 +22,7 @@
                        build_service: @build_service,
                        current_language: @lang }
 
-    - unless flash.blank?
+    - if flash.present?
       = render(partial: 'layouts/flash', object: flash)
 
     %main.page-content.flex-fill#content

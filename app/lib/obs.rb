@@ -77,20 +77,20 @@ module OBS
 
     words = query.split.reject { |part| part.match(/^[0-9_.-]+$/) }
     versrel = query.split.select { |part| part.match(/^[0-9_.-]+$/) }
-    Rails.logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
+    Rails.logger.debug { "splitted words and versrel: #{words.inspect} #{versrel.inspect}" }
     raise InvalidSearchTerm, 'Please provide a valid search term' if words.blank? && versrel.blank?
     raise InvalidSearchTerm, 'The package name is required when searching for a version' if words.blank? && versrel.present?
 
     xpath_items = []
-    xpath_items << "@project = '#{project}' " unless project.blank?
+    xpath_items << "@project = '#{project}' " if project.present?
     substring_words = words.reject { |word| word.match(/^".+"$/) }.map { |word| "'#{word.gsub(/['"()]/, '')}'" }.join(', ')
-    xpath_items << "contains-ic(@name, #{substring_words})" unless substring_words.blank?
+    xpath_items << "contains-ic(@name, #{substring_words})" if substring_words.present?
     words.select { |word| word.match(/^".+"$/) }.map { |word| word.delete('"') }.each do |word|
       xpath_items << "@name = '#{word.gsub(/['"()]/, '')}' "
     end
-    xpath_items << "path/project='#{baseproject}'" unless baseproject.blank?
-    xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" if !exclude_filter.blank? && project.blank?
-    xpath_items << versrel.map { |part| "starts-with(@versrel,'#{part}')" }.join(' and ') unless versrel.blank?
+    xpath_items << "path/project='#{baseproject}'" if baseproject.present?
+    xpath_items << "not(contains-ic(@project, '#{exclude_filter}'))" if exclude_filter.present? && project.blank?
+    xpath_items << versrel.map { |part| "starts-with(@versrel,'#{part}')" }.join(' and ') if versrel.present?
     if exclude_debug
       xpath_items << "not(contains-ic(@name, '-debuginfo')) and not(contains-ic(@name, '-debugsource')) " \
                      "and not(contains-ic(@name, '-devel')) and not(contains-ic(@name, '-lang'))"
