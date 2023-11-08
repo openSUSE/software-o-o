@@ -39,7 +39,7 @@ jobs:
       - name: Run linter
         run: bundle exec haml-lint app/views/
   unit:
-    needs: linter
+    needs: [linter, haml-linter]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -50,7 +50,7 @@ jobs:
       - name: Run unit tests
         run: bundle exec rake test
   system:
-    needs: linter
+    needs: [linter, haml-linter]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
