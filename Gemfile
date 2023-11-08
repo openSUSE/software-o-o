@@ -10,6 +10,8 @@ gem 'sprockets-rails'
 gem 'puma'
 # as templating engine
 gem 'haml-rails', '~> 2.0'
+# as database
+gem 'pg'
 
 # for appdata redirections (https -> http)
 gem 'open_uri_redirections'
