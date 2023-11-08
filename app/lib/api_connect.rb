@@ -19,23 +19,19 @@ class ApiConnect
       request['x-username'] = config.api_username
       # if you know the cookie, you can bypass login - useful in production ;)
       request['X-opensuse_data'] = config.opensuse_cookie if config.opensuse_cookie
-      unless config.api_username.blank? || config.api_password.blank?
-        request.basic_auth config.api_username, config.api_password
-      end
+      request.basic_auth config.api_username, config.api_password unless config.api_username.blank? || config.api_password.blank?
       http.read_timeout = 15
       response = http.request(request)
       case response
       when Net::HTTPSuccess then response
       when Net::HTTPRedirection
-        if limit
-          get(response['location'], limit - 1)
-        else
-          raise Error, 'Recursive redirect'
-        end
+        raise Error, 'Recursive redirect' unless limit
+
+        get(response['location'], limit - 1)
       else
         raise Error, "Response was: #{response} #{response.body}"
       end
-    rescue Exception => e
+    rescue StandardError => e
       raise Error, "Error connecting to #{uri_str}: #{e}"
     end
   end
