@@ -1,0 +1,23 @@
+.container
+  .row
+    .col-md-12
+      .py-3#search-result
+        - if @packages.blank?
+          #search-result-error
+            .alert.alert-warning#msg
+            = _('No packages found matching your search. ')
+            - unless @search_devel
+              %br/
+              = _("You could try to extend your search to development packages or search for another base distribution (currently #{@distribution}).")
+        - else
+          .row#search-result-list
+            - @packages.each do |package|
+              .col-sm-6.col-md-4
+                .package-card.card.mb-4
+                  %a.card-img-top{ href: distribution_package_path(@distribution.name, package.name), style: 'background-image: url(https://software.opensuse.org/assets/default-screenshots/package-2df257d0952fd1c381027c9d7b97b6f0cb7acac30729d1fa7d3afc4bb59d621f.png)' }
+                  .card-body
+                    %h4.card-title
+                    = link_to(distribution_package_path(distribution_name: @distribution.name, name: package.name)) do
+                      = highlight(package.name, params[:q])
+                    %p.card-text
+                      = highlight(package.summary, params[:q])

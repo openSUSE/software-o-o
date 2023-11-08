@@ -27,7 +27,7 @@
 
     %main.page-content.flex-fill#content
       - unless @hide_search_box
-        = render partial: 'search/find_form',
+        = render partial: 'layouts/search_form',
                  locals: { baseproject: @baseproject }
 
       #search-result-container
