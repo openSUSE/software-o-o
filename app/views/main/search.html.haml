@@ -1,0 +1,38 @@
+.container
+  .row
+    .col-md-12
+      .py-3#search-result
+        - if @packages.blank?
+          #search-result-error
+            .alert.alert-warning#msg
+            = _('No packages found matching your search. ')
+        - else
+          .row#search-result-list
+            - @packages.each do |package|
+              .col-sm-6.col-md-4
+                .package-card.card.mb-4
+                  %a.card-img-top{ href: distribution_package_path(@distribution.name, package.name), style: 'background-image: url(https://software.opensuse.org/assets/default-screenshots/package-2df257d0952fd1c381027c9d7b97b6f0cb7acac30729d1fa7d3afc4bb59d621f.png)' }
+                  .card-body
+                    %h4.card-title
+                    = link_to(distribution_package_path(distribution_name: @distribution.name, name: package.name)) do
+                      = highlight(package.name, params[:q])
+                    %p.card-text
+                      = highlight(package.summary, params[:q])
+      %p.lead
+        = _('Not what you are looking for?')
+      %p
+        %button.btn.btn-primary{ 'data-target' => '#obs-danger-modal', 'data-toggle' => 'modal', type: 'button' }
+          = _("Extend your search to packages build for #{@distribution.name} on OBS")
+        .modal.fade#obs-danger-modal{ 'aria-hidden' => 'true', 'aria-labelledby' => 'obs-danger-modal-label', tabindex: '-1' }
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %h5.modal-title#obs-danger-modal-label
+                  There be dragons!
+                %button.close{ 'aria-label' => 'Close', 'data-dismiss' => 'modal', type: 'button' }
+                  %span{ 'aria-hidden' => 'true' } ×
+              .modal-body
+                = _('You are entering dangerous territory. There are lots of unmaintained, unreviewed, insecure, thoughtless packages on OBS that can easily trash your installation')
+              .modal-footer
+                %button.btn.btn-secondary{ 'data-dismiss' => 'modal', type: 'button' } Take me out of here
+                %button.btn.btn-danger{ type: 'button' } Search OBS

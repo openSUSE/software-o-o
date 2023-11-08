@@ -1,0 +1,15 @@
+.search-box.py-5
+  .container
+    = form_tag(search_path, method: :get) do
+      .row
+        .col-md
+          .row.m-0.input-group
+            .col-md-auto.p-0.input-group-prepend
+              = select_tag 'distribution', options_for_select(Distribution.all.map { |distribution| [distribution.name, distribution.name] }, @distribution), :class => 'btn custom-select'
+            .col.py-3.p-0.p-md-0.input-group-append
+              = text_field_tag 'q', @query, :id => 'search-form', :class => 'form-control', :placeholder => _('Search packages...'), :autocomplete => 'off', :autofocus => true, :size => '60'
+        .col-md-auto.btn-group.d-flex
+          %button.btn.btn-primary.ml-auto.d-flex.align-items-center#search-button{ type: 'submit' }
+            = icon 'search'
+            %span.ml-1= _('Search')
+
