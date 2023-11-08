@@ -4,17 +4,24 @@ source 'https://rubygems.org'
 
 # as framework
 gem 'rails', '~> 7.0'
+
 # as asset pipeline
 gem 'sprockets-rails'
+
 # as application server
 gem 'puma'
+
 # as templating engine
 gem 'haml-rails', '~> 2.0'
+
 # as database
 gem 'pg'
 
-# for appdata redirections (https -> http)
-gem 'open_uri_redirections'
+# as logger
+gem 'lograge'
+
+# as scheduler
+gem 'clockwork'
 
 # for stylesheets
 gem 'sassc-rails'
@@ -26,12 +33,6 @@ gem 'terser'
 gem 'fast_gettext', '>= 2.2.0'
 gem 'gettext_i18n_rails', '>= 1.8.1'
 gem 'rails-i18n'
-
-# for markdown in views
-gem 'redcarpet', '~> 3.5.1'
-
-# for logging
-gem 'lograge'
 
 # as error catcher
 gem 'sentry-rails'
@@ -51,10 +52,18 @@ gem 'puma_worker_killer'
 # see https://github.com/SeleniumHQ/selenium/commit/526fd9d0de60a53746ffa982feab985fed09a278
 gem 'rexml'
 
-# HTTP client library for OBS Client
+# as HTTP client library
 gem 'faraday'
-gem 'faraday_middleware'
-gem 'multi_xml'
+gem 'faraday-decode_xml'
+gem 'faraday-follow_redirects'
+gem 'faraday-gzip'
+gem 'faraday-http-cache'
+gem 'faraday-mashify'
+gem 'faraday-retry'
+
+# as ActiveJob backend
+gem 'daemons'
+gem 'delayed_job_active_record', '~> 4.1'
 
 # needed to collect translatable strings
 # not needed at production
@@ -62,6 +71,8 @@ group :development do
   # no need to load the gem via require
   # we only need the rake tasks
   gem 'gettext', '>= 3.4.2', require: false
+  # as debugger
+  gem 'pry'
   gem 'ruby_parser', require: false
 end
 
