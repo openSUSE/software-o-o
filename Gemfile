@@ -41,6 +41,9 @@ gem 'sentry-ruby'
 # for versioning
 gem 'paper_trail'
 
+# for setting environment variables
+gem 'dotenv-rails'
+
 gem 'dalli'
 gem 'hashie'
 gem 'mini_magick'

@@ -1,8 +1,8 @@
 defaults: &defaults
   api_host: https://api.opensuse.org
   web_host: https://build.opensuse.org
-  api_username: <%= ENV['API_USERNAME'] %>
-  api_password: <%= ENV['API_PASSWORD'] %>
+  api_username: <%= ENV['SOFTWARE_OBS_API_USERNAME'] %>
+  api_password: <%= ENV['SOFTWARE_OBS_API_PASSWORD'] %>
   relative_url_root:
 development:
   <<: *defaults
@@ -12,7 +12,4 @@ test:
 production:
   <<: *defaults
   relative_url_root:
-  api_username: <%= ENV['API_USERNAME'] %>
-  api_password: <%= ENV['API_PASSWORD'] %>
-  use_static: software.o.o
-  opensuse_cookie: <%= ENV['OPENSUSE_COOKIE'] %>
+  opensuse_cookie: <%= ENV['SOFTWARE_OPENSUSE_COOKIE'] %>

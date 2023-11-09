@@ -12,6 +12,15 @@ diff.diff
 # Bundler config
 /.bundle
 
+# docker-compose override file
+docker-compose.override.yml
+
+# dotenv files
+.env
+.env.production
+.env.development
+.env.test
+
 # Static files in public
 public/111
 public/112
@@ -37,9 +46,3 @@ public/package
 locale/*/software.edit.po
 locale/*/software.po.time_stamp
 
-# Local databases
-/db/*.sqlite3
-/db/*.db
-
-.byebug_history
-docker-compose.override.yml

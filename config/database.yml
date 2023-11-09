@@ -1,4 +1,4 @@
-default: &default
+defaults: &defaults
   adapter: postgresql
   encoding: utf8
   pool: 5
@@ -10,15 +10,16 @@ default: &default
   database: <%= ENV.fetch('SOFTWARE_DB_NAME', 'postgres') %>
 
 development:
-  <<: *default
+  <<: *defaults
   database: software_development
 
 test:
-  <<: *default
+  <<: *defaults
   database: software_test
 
 production:
-  adapter: postgresql
-  encoding: utf8
-  pool: 5
-  timeout: 5000
+  <<: *defaults
+  # no defaults for host/port as we might want to connect through a socket
+  host: <%= ENV.fetch('SOFTWARE_DB_HOST', nil) %>
+  port: <%= ENV.fetch('SOFTWARE_DB_PORT', nil)  %>
+  database: software_production
