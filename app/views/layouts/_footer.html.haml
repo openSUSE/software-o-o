@@ -3,7 +3,7 @@
     .d-flex.justify-content-between
       .footer-copyright
         &copy; 2011&ndash;
-        = Time.new.year
+        = Time.zone.now.year
         = _('openSUSE contributors')
       .list-inline
         - github_link = 'https://github.com/openSUSE/software-o-o'

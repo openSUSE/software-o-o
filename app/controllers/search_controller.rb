@@ -56,7 +56,7 @@ class SearchController < ApplicationController
         (a[:summary].match(/#{Regexp.quote(@search_term)}/i) ||
           a[:name].match(/#{Regexp.quote(@search_term)}/i))
       end
-      @packagenames += appdata_hits.map { |a| a[:pkgname] }
+      @packagenames += appdata_hits.pluck(:pkgname)
     end
     @packagenames = @packagenames.uniq
 

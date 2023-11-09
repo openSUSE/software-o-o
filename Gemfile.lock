@@ -93,6 +93,10 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (4.1.0)
+    clockwork (3.0.2)
+      activesupport
+      tzinfo
+    coderay (1.1.3)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crack (0.4.5)
@@ -100,37 +104,37 @@ GEM
     crass (1.0.6)
     dalli (3.2.6)
     date (3.3.3)
+    delayed_job (4.1.11)
+      activesupport (>= 3.0, < 8.0)
+    delayed_job_active_record (4.1.8)
+      activerecord (>= 3.0, < 8.0)
+      delayed_job (>= 3.0, < 5)
     drb (2.1.1)
       ruby2_keywords
     erubi (1.12.0)
     execjs (2.9.1)
     faker (3.2.1)
       i18n (>= 1.8.11, < 2)
-    faraday (1.10.2)
-      faraday-em_http (~> 1.0)
-      faraday-em_synchrony (~> 1.0)
-      faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0)
-      faraday-multipart (~> 1.0)
-      faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.0)
-      faraday-patron (~> 1.0)
-      faraday-rack (~> 1.0)
-      faraday-retry (~> 1.0)
+    faraday (2.7.11)
+      base64
+      faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
-    faraday-em_http (1.0.0)
-    faraday-em_synchrony (1.0.0)
-    faraday-excon (1.1.0)
-    faraday-httpclient (1.0.1)
-    faraday-multipart (1.0.4)
-      multipart-post (~> 2)
-    faraday-net_http (1.0.1)
-    faraday-net_http_persistent (1.2.0)
-    faraday-patron (1.0.0)
-    faraday-rack (1.0.0)
-    faraday-retry (1.0.3)
-    faraday_middleware (1.2.0)
-      faraday (~> 1.0)
+    faraday-decode_xml (0.2.1)
+      faraday (< 3.0)
+      multi_xml (< 1.0)
+    faraday-follow_redirects (0.3.0)
+      faraday (>= 1, < 3)
+    faraday-gzip (2.0.0)
+      faraday (>= 1.0)
+      zlib (~> 3.0)
+    faraday-http-cache (2.5.0)
+      faraday (>= 0.8)
+    faraday-mashify (0.1.1)
+      faraday (~> 2.0)
+      hashie
+    faraday-net_http (3.0.2)
+    faraday-retry (2.2.0)
+      faraday (~> 2.0)
     fast_gettext (2.3.0)
     ffi (1.15.5)
     forwardable (1.3.3)
@@ -188,12 +192,12 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    method_source (1.0.0)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.4)
     minitest (5.20.0)
     multi_xml (0.6.0)
-    multipart-post (2.2.3)
     mutex_m (0.1.2)
     net-imap (0.4.1)
       date
@@ -208,14 +212,20 @@ GEM
     nokogiri (1.15.4)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    open_uri_redirections (0.2.1)
+    paper_trail (15.1.0)
+      activerecord (>= 6.1)
+      request_store (~> 1.4)
     parallel (1.22.1)
     parser (3.1.2.1)
       ast (~> 2.4.1)
+    pg (1.4.1)
     pkg-config (1.5.1)
     prime (0.1.2)
       forwardable
       singleton
+    pry (0.14.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     psych (5.1.1.1)
       stringio
     public_suffix (5.0.3)
@@ -269,7 +279,6 @@ GEM
     rake (13.0.6)
     rdoc (6.5.0)
       psych (>= 4.0.0)
-    redcarpet (3.5.1)
     regexp_parser (2.8.1)
     reline (0.3.9)
       io-console (~> 0.5)
@@ -356,6 +365,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.12)
+    zlib (3.0.0)
 
 PLATFORMS
   ruby
@@ -363,10 +373,17 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
+  clockwork
   dalli
+  delayed_job_active_record (~> 4.1)
   faker
   faraday
-  faraday_middleware
+  faraday-decode_xml
+  faraday-follow_redirects
+  faraday-gzip
+  faraday-http-cache
+  faraday-mashify
+  faraday-retry
   fast_gettext (>= 2.2.0)
   geckodriver-bin (~> 0.28.0)
   gettext (>= 3.4.2)
@@ -378,14 +395,14 @@ DEPENDENCIES
   matrix
   mini_magick
   minitest
-  multi_xml
   nokogiri
-  open_uri_redirections
+  paper_trail
+  pg
+  pry
   puma
   puma_worker_killer
   rails (~> 7.0)
   rails-i18n
-  redcarpet (~> 3.5.1)
   rexml
   rubocop
   rubocop-minitest
@@ -403,4 +420,4 @@ DEPENDENCIES
   xmlhash (>= 1.2.2)
 
 BUNDLED WITH
-   2.3.7
+   2.3.26

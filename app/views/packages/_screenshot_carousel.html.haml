@@ -1,0 +1,17 @@
+- if @package.screenshots.any?
+  .carousel.slide#carousel-example-indicators{ 'data-ride' => 'carousel' }
+    %ol.carousel-indicators
+      %li.active{ 'data-slide-to' => '0', 'data-target' => '#carousel-example-indicators' }
+      %li{ 'data-slide-to' => '1', 'data-target' => '#carousel-example-indicators' }
+      %li{ 'data-slide-to' => '2', 'data-target' => '#carousel-example-indicators' }
+    .carousel-inner
+      - @package.screenshots.each_with_index do |screenshot, index|
+        - if index.zero?
+          .carousel-item.active
+            %img.img-fluid{ alt: '...', src: url_for(screenshot).to_s }/
+        - else
+          .carousel-item
+            %img.img-fluid{ alt: '...', src: url_for(screenshot).to_s }/
+- else
+  %img.img-fluid{ alt: '...', src: 'https://software.opensuse.org/assets/default-screenshots/package-2df257d0952fd1c381027c9d7b97b6f0cb7acac30729d1fa7d3afc4bb59d621f.png' }/
+

@@ -1,0 +1,33 @@
+%body
+  %header.my-5
+    .container
+      .row
+        .col-md-6
+          = render partial: 'screenshot_carousel'
+        .col-md-6
+          %h1
+            = @package.title
+          - categories = @package.categories.pluck(:name).join(',')
+          - if categories
+            %p
+              = @package.categories.pluck(:name).join(',')
+          %p
+            %strong
+              = @package.summary
+          %p
+            = @package.description
+          %ul.list-inline
+            %li.list-inline-item
+              = _('Version')
+              = @package.release
+          - if @package.appstream?
+            .appstream-install
+              %a.btn.btn-lg.btn-primary#appstream-button{ href: "appstream://#{@package.name}" }
+                = icon 'oci'
+                = _('Appstream Install')
+          - else
+            .zypper-install
+              %code
+                zypper in #{@package.name}
+
+
