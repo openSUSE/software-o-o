@@ -1,13 +1,13 @@
 default: &default
   adapter: postgresql
   encoding: utf8
+  pool: 5
+  timeout: 5000
   host: <%= ENV.fetch('SOFTWARE_DB_HOST', 'database') %>
   port: <%= ENV.fetch('SOFTWARE_DB_PORT', '5432')  %>
   username: <%= ENV.fetch('SOFTWARE_DB_USER', 'postgres') %>
   password: <%= ENV.fetch('SOFTWARE_DB_PASSWORD', 'mysecretpassword') %>
   database: <%= ENV.fetch('SOFTWARE_DB_NAME', 'postgres') %>
-  pool: 5
-  timeout: 5000
 
 development:
   <<: *default
@@ -18,4 +18,7 @@ test:
   database: software_test
 
 production:
-  adapter: pg
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  timeout: 5000
