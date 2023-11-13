@@ -68,14 +68,15 @@ gem 'delayed_job_active_record', '~> 4.1'
 # for setting environment variables
 gem 'dotenv-rails'
 
+# as debugger
+gem 'pry'
+
 # needed to collect translatable strings
 # not needed at production
 group :development do
   # no need to load the gem via require
   # we only need the rake tasks
   gem 'gettext', '>= 3.4.2', require: false
-  # as debugger
-  gem 'pry'
   gem 'ruby_parser', require: false
 end
 
