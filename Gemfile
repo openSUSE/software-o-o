@@ -65,6 +65,9 @@ gem 'faraday-retry'
 gem 'daemons'
 gem 'delayed_job_active_record', '~> 4.1'
 
+# for setting environment variables
+gem 'dotenv-rails'
+
 # needed to collect translatable strings
 # not needed at production
 group :development do
