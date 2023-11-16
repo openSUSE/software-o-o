@@ -159,7 +159,7 @@ class DownloadController < ApplicationController
   def set_flavors
     return head :forbidden unless @data
 
-    @flavors = @data.values.collect { |i| i[:flavor] }.uniq.sort_by(&:downcase)
+    @flavors = @data.values.pluck(:flavor).uniq.sort_by(&:downcase)
   end
 
   def get_image_type(filename)

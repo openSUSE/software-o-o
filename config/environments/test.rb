@@ -47,4 +47,7 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+
+  # Store files in tmp/storage
+  config.active_storage.service = :test
 end

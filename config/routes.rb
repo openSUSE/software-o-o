@@ -1,20 +1,15 @@
 Rails.application.routes.draw  do
+  CONS = {
+    name: %r{[^/]*},
+    distribution_name: %r{[^/]*}
+  }.freeze
 
-  root to: 'package#explore'
 
-  resources :search, only: [:index] do
-  end
+  root to: 'main#index'
+  get '/search' => 'main#search', as: :search
 
-  controller :package do
-    get 'package/:package', action: :show, constraints: { package: /[-+~\w\.:\@]+/ }
-    get 'package/thumbnail/:package.png', action: :thumbnail, constraints: { package: /[-+~\w\.:\@]+/ }
-    get 'package/screenshot/:package.png', action: :screenshot, constraints: { package: /[-+~\w\.:\@]+/ }
-
-    get 'explore', action: :explore
-    get 'packages', action: :explore
-    get 'appstore', action: :explore
-    get 'packages/:category', action: :category, constraints: { category: /[\w\-\.: ]+/ }
-    get 'appstore/:category', action: :category, constraints: { category: /[\w\-\.: ]+/ }
+  resources :distributions, only: [], param: :name do
+    resources :packages, only: :show, param: :name, constraints: CONS
   end
 
   namespace 'download' do
@@ -69,7 +64,4 @@ Rails.application.routes.draw  do
   get 'developer', to: redirect('/distributions/testing')
   get 'developer/:locale', to: redirect('/distributions/testing?locale=%{locale}')
   get '/promodvd', to: redirect('/distributions')
-
-  # catch all other params as locales...
-  get '/:locale', to: 'package#explore'
 end

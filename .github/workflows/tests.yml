@@ -16,7 +16,7 @@ jobs:
         with:
           ruby-version: 3.1
           bundler-cache: true
-  linter:
+  rubocop:
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -25,9 +25,9 @@ jobs:
         with:
           ruby-version: 3.1
           bundler-cache: true
-      - name: Run linter
+      - name: Run rubocop
         run: bundle exec rubocop
-  haml-linter:
+  haml-lint:
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -36,27 +36,21 @@ jobs:
         with:
           ruby-version: 3.1
           bundler-cache: true
-      - name: Run linter
+      - name: Run haml-lint
         run: bundle exec haml-lint app/views/
-  unit:
-    needs: [linter, haml-linter]
+  tests:
+    needs: [rubocop, haml-lint]
     runs-on: ubuntu-latest
     steps:
+      - uses: dentarg/postgres@v1
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.1
           bundler-cache: true
-      - name: Run unit tests
-        run: bundle exec rake test
-  system:
-    needs: [linter, haml-linter]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.1
-          bundler-cache: true
-      - name: Run system tests
-        run: bundle exec rake test:system
+      - name: Run tests
+        run: |
+          bundle exec rake db:setup
+          bundle exec rails test -vp
+        env:
+          DATABASE_URL: "${{ env.POSTGRES_URL }}"
