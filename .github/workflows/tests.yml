@@ -1,4 +1,6 @@
 name: Test Suite
+env:
+  BUNDLE_BUILD__NOKOGIRI: "--use-system-libraries"
 
 on:
   push:
@@ -12,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install libxml dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install libxslt1-dev
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.1
