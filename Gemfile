@@ -71,6 +71,7 @@ group :test do
   gem 'rubocop-minitest'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
+  gem 'rubocop-capybara'
   gem 'selenium-webdriver'
   gem 'vcr'
   gem 'webmock'
@@ -79,3 +80,4 @@ end
 group :development, :test do
   gem 'byebug'
 end
+
