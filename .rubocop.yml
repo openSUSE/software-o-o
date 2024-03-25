@@ -1,7 +1,12 @@
 
 inherit_from: .rubocop_todo.yml
 
-require: rubocop-performance
+require:
+ - rubocop-performance
+ - rubocop-capybara
+ - rubocop-minitest
+ - rubocop-rails
+
 
 AllCops:
   TargetRubyVersion: 3.1
@@ -18,3 +23,7 @@ AllCops:
 
 Style/HashSyntax:
   EnforcedShorthandSyntax: either
+
+Style/Documentation:
+  Enabled: false
+
