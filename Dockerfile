@@ -11,7 +11,8 @@ RUN zypper -n ar -f \
                                       MozillaFirefox \
                                       nodejs16 ruby3.1-devel \
                                       libxml2-devel libxslt-devel \
-                                      ImageMagick
+                                      ImageMagick \
+                                      libyaml-devel
 
 # Setup ruby in PATH & sudo
 RUN echo 'install: --no-format-executable' >> /etc/gemrc; \
