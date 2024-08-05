@@ -47,7 +47,7 @@ Server = <%= v[:repo].gsub(/(\w):(\w)/, '\1:/\2') %>$arch
 </pre>
                   <h5><%= _("Then run the following as <strong>root</strong>") %></h5>
                   <pre>
-key=$(curl -fsSL <%= "#{v[:repo]}$(uname -m)/#{repo_name}.key" %>)
+key=$(curl -fsSL <%= "#{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')$(uname -m)/#{repo_name}.key" %>)
 fingerprint=$(gpg --quiet --with-colons --import-options show-only --import --fingerprint &lt;&lt;&lt; "${key}" | awk -F: '$1 == "fpr" { print $10 }')
 
 pacman-key --init
@@ -60,32 +60,32 @@ pacman -Sy <%= repo_name %>/<%= @package %></pre>
                   <h6><%= (_("Keep in mind that the owner of the key may distribute updates, packages and repositories that your system will trust (<a href=\"%s\">more information</a>).") % secure_apt_url).html_safe %></h6>
                   <pre><%=
                      # don't use apt-add-repository wrapper for Ubuntu for now, because it adds source repo which we don't provide
-                     #        "apt-add-repository deb #{v[:repo]} /\napt-get update\napt-get install #{@package}"
-                     "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' | sudo tee /etc/apt/sources.list.d/#{@project}.list\ncurl -fsSL #{v[:repo]}Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/#{@project.gsub(':', '_')}.gpg > /dev/null\nsudo apt update\nsudo apt install #{@package}"
+                     #        "apt-add-repository deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')} /\napt-get update\napt-get install #{@package}"
+                     "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' | sudo tee /etc/apt/sources.list.d/#{@project}.list\ncurl -fsSL #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')}Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/#{@project.gsub(':', '_')}.gpg > /dev/null\nsudo apt update\nsudo apt install #{@package}"
                      %></pre>
                   <% else %>
                   <h5><%= (_("For <strong>%s</strong> run the following as <strong>root</strong>:") % k.gsub('_', '&nbsp;').html_safe).html_safe %></h5>
                   <pre><%=
                      case v[:flavor]
                      when 'openSUSE', 'SLE'
-                         "zypper addrepo #{v[:repo]}#{@project}.repo\nzypper refresh\nzypper install #{@package}"
+                         "zypper addrepo #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')}#{@project}.repo\nzypper refresh\nzypper install #{@package}"
                      when 'Fedora'
                        version = k.split("_").last
                        if version == "Rawhide" or Integer(version) >= 22
-                         "dnf config-manager --add-repo #{v[:repo]}#{@project}.repo\ndnf install #{@package}"
+                         "dnf config-manager --add-repo #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')}#{@project}.repo\ndnf install #{@package}"
                        else
-                         "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
+                         "cd /etc/yum.repos.d/\nwget #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')}#{@project}.repo\nyum install #{@package}"
                        end
                      when 'CentOS', 'RHEL', 'SL'
-                       "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
+                       "cd /etc/yum.repos.d/\nwget #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')}#{@project}.repo\nyum install #{@package}"
                      when 'Univention'
-                       "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@project}.list\nwget -nv #{v[:repo]}Release.key -O Release.key\napt-key add - < Release.key\napt-get update\napt-get install #{@package}"
+                       "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@project}.list\nwget -nv #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')}Release.key -O Release.key\napt-key add - < Release.key\napt-get update\napt-get install #{@package}"
                      when 'Mageia', 'Mandriva'
                        version = k.split("_").last
                        if version == "Cauldron" or Integer(version) >= 6
-                         "dnf config-manager --add-repo #{v[:repo]}#{@project}.repo\ndnf install #{@package}"
+                         "dnf config-manager --add-repo #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')}#{@project}.repo\ndnf install #{@package}"
                        else
-                         "urpmi.addmedia #{@project} #{v[:repo]}\nurpmi.update -a\nurpmi #{@package}"
+                         "urpmi.addmedia #{@project} #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')}\nurpmi.update -a\nurpmi #{@package}"
                        end
                      else
                        '?'
