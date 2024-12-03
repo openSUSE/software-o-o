@@ -71,7 +71,9 @@ pacman -Sy <%= repo_name %>/<%= @package %></pre>
                          "zypper addrepo #{v[:repo]}#{@project}.repo\nzypper refresh\nzypper install #{@package}"
                      when 'Fedora'
                        version = k.split("_").last
-                       if version == "Rawhide" or Integer(version) >= 22
+                       if version == "Rawhide" or Integer(version) >= 41
+                         "dnf config-manager addrepo --from-repofile=#{v[:repo]}#{@project}.repo\ndnf install #{@package}"
+                       elsif Integer(version) >= 22
                          "dnf config-manager --add-repo #{v[:repo]}#{@project}.repo\ndnf install #{@package}"
                        else
                          "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
