@@ -63,7 +63,7 @@ class PackageController < ApplicationController
     mapping = @main_sections.select { |s| s[:id].casecmp(@category).zero? }
     categories = (mapping.blank? ? [@category] : mapping.first[:categories])
 
-    app_pkgs = @appdata[:apps].reject { |app| (app[:categories].map(&:downcase) & categories.map(&:downcase)).blank? }
+    app_pkgs = @appdata[:apps].select { |app| app[:categories].map(&:downcase).intersect?(categories.map(&:downcase)) }
     package_names_unsorted = app_pkgs.map { |p| p[:pkgname] }.uniq
     @packagenames = package_names_unsorted.sort_by { |x| @appdata[:apps].find { |a| a[:pkgname] == x }[:name] }
 
