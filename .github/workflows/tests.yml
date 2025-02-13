@@ -8,51 +8,41 @@ on:
   pull_request:
     branches: [ master, staging ]
   workflow_dispatch:
-
 jobs:
-  setup:
+  linter:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install libxml dependencies
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Run linter
+        run: |
+          bundle exec rubocop
+          bundle exec haml-lint app/views/
+  unit:
+    needs: linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install libxslt1-dev
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-  linter:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - name: Run linter
-        run: bundle exec rubocop
-  haml-linter:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - name: Run linter
-        run: bundle exec haml-lint app/views/
-  unit:
-    needs: [linter, haml-linter]
-    runs-on: ubuntu-latest
-    steps:
+          sudo apt-get install imagemagick
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
       - name: Run unit tests
-        run: bundle exec rake test
+        run: bundle exec rake test -v
+      - name: Upload Suite Artifacts
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-unit
+          path: |
+            log/
   system:
-    needs: [linter, haml-linter]
+    needs: linter
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -60,4 +50,13 @@ jobs:
         with:
           bundler-cache: true
       - name: Run system tests
-        run: bundle exec rake test:system
+        run: bundle exec rake test:system -v
+      - name: Upload Suite Artifacts
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-system
+          path: |
+            log/
+            tmp/capybara
+
