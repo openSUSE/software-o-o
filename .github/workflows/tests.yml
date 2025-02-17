@@ -12,6 +12,10 @@ jobs:
   linter:
     runs-on: ubuntu-latest
     steps:
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install libxslt1-dev
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
