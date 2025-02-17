@@ -2,6 +2,8 @@
 
 source 'https://rubygems.org'
 
+ruby '~> 3.3'
+
 # as framework
 gem 'rails', '~> 7.0'
 # as asset pipeline
