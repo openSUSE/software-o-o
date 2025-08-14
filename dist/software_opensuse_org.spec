@@ -154,7 +154,6 @@ fi
 # FIXME: log files belong to /var/log
 %ghost %{basedir}/log/production.log
 %config(noreplace) %{basedir}/config/options.yml
-%config(noreplace) %{basedir}/config/secrets.yml
 
 %files apache2
 %defattr(-,root,root)
