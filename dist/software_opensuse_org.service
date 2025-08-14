@@ -1,0 +1,16 @@
+[Unit]
+Description=The software.opensuse.org app
+Wants=apache2.service
+Before=apache2.service
+
+[Service]
+User=soorun
+# add SECRET_KEY_BASE="something" to this file.
+# Can be generated with "bundle exec rails secret"
+EnvironmentFile=/etc/software_opensuse_org.conf
+WorkingDirectory=~
+ExecStart=/usr/bin/bundle exec puma -e production
+
+[Install]
+WantedBy=multi-user.target
+
