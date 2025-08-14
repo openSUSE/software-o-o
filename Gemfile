@@ -1,11 +1,20 @@
 # frozen_string_literal: true
 
+def next?
+  File.basename(__FILE__) == 'Gemfile.next'
+end
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '~> 3.3'
 
 # as framework
-gem 'rails', '~> 7.0'
+if next?
+  gem 'rails', '~> 7.2'
+else
+  gem 'rails', '~> 7.0'
+end
 # as asset pipeline
 gem 'sprockets-rails'
 # as application server
@@ -81,5 +90,6 @@ end
 
 group :development, :test do
   gem 'byebug'
+  gem 'next_rails'
 end
 
