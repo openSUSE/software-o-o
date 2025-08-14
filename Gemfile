@@ -11,9 +11,9 @@ ruby '~> 3.3'
 
 # as framework
 if next?
-  gem 'rails', '~> 7.2'
+  gem 'rails', '~> 8.0'
 else
-  gem 'rails', '~> 7.0'
+  gem 'rails', '~> 7.2'
 end
 # as asset pipeline
 gem 'sprockets-rails'
