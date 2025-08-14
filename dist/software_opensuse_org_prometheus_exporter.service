@@ -1,0 +1,11 @@
+[Unit]
+Description=The prometheus exporter for the software.opensuse.org app
+
+[Service]
+User=soorun
+WorkingDirectory=~
+ExecStart=/usr/bin/bundle exec prometheus_exporter
+
+[Install]
+WantedBy=multi-user.target
+

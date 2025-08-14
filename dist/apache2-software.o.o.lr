@@ -1,0 +1,16 @@
+/var/log/apache2/software.opensuse.org-*.log {
+    compress
+    dateext
+    maxage 365
+    rotate 99
+    size=+1024k
+    notifempty
+    missingok
+    create 644 root root
+    sharedscripts
+    postrotate
+     systemctl reload apache2.service
+     sleep 60
+    endscript
+}
+
