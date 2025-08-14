@@ -63,4 +63,32 @@ jobs:
           path: |
             log/
             tmp/capybara
+  next-rails:
+    if: contains(github.head_ref, 'next-rails')
+    needs: linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install imagemagick
+      - name: Sets env vars for next-rails
+        run: |
+          echo "BUNDLE_GEMFILE=Gemfile.next" >> $GITHUB_ENV
+          echo "BUNDLE_CACHE_PATH=vendor/cache.next" >> $GITHUB_ENV
+          echo "BUNDLE_AUTO_INSTALL=true" >> $GITHUB_ENV
+      - name: Run tests against next Rails version
+        run: bundle exec rake test -v
+      - name: Upload Suite Artifacts
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-system
+          path: |
+            log/
+            tmp/capybara
 
