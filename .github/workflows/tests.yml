@@ -40,7 +40,7 @@ jobs:
         run: bundle exec rake test -v
       - name: Upload Suite Artifacts
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: logs-unit
           path: |
@@ -57,7 +57,7 @@ jobs:
         run: bundle exec rake test:system -v
       - name: Upload Suite Artifacts
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: logs-system
           path: |
@@ -85,7 +85,7 @@ jobs:
         run: bundle exec rake test -v
       - name: Upload Suite Artifacts
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: logs-system
           path: |
