@@ -47,6 +47,12 @@ gem 'dotenv-rails'
 # for logging
 gem 'lograge'
 
+# as scheduler
+gem 'clockwork'
+
+# as ActiveJob backend
+gem 'delayed_job_active_record'
+
 # as error catcher
 gem 'sentry-rails'
 gem 'sentry-ruby'
