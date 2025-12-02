@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'faraday'
-
 # HTTP OBS client for searches
 module OBS
   # Error class for unsupported search terms
@@ -81,9 +79,7 @@ module OBS
     versrel = query.split.select { |part| part.match(/^[0-9_.-]+$/) }
     Rails.logger.debug "splitted words and versrel: #{words.inspect} #{versrel.inspect}"
     raise InvalidSearchTerm, 'Please provide a valid search term' if words.blank? && versrel.blank?
-    if words.blank? && versrel.present?
-      raise InvalidSearchTerm, 'The package name is required when searching for a version'
-    end
+    raise InvalidSearchTerm, 'The package name is required when searching for a version' if words.blank? && versrel.present?
 
     xpath_items = []
     xpath_items << "@project = '#{project}' " unless project.blank?
@@ -120,13 +116,9 @@ module OBS
     yield(@configuration) if block_given?
 
     self.client = Faraday.new(@configuration.api_host) do |conn|
-      conn.basic_auth @configuration.api_username, @configuration.api_password
-      conn.request :url_encoded
-      conn.response :logger, Rails.logger, headers: false
+      conn.request :authorization, :basic, @configuration.api_username, @configuration.api_password
       conn.response :mashify, mash_class: Response
-      conn.response :raise_error
-      conn.use FaradayMiddleware::ParseXml, content_type: /\bxml$/
-      conn.adapter @configuration.adapter
+      conn.response :xml
 
       conn.headers['User-Agent'] = 'software.o.o'
       conn.headers['X-Username'] = @configuration.api_username
@@ -140,11 +132,7 @@ module OBS
 
   # HTTP client configuration wrapper
   class Configuration
-    attr_accessor :api_host, :api_username, :api_password, :opensuse_cookie, :adapter
-
-    def initialize
-      @adapter = Faraday.default_adapter
-    end
+    attr_accessor :api_host, :api_username, :api_password, :opensuse_cookie
   end
 
   # Searches for published binaries

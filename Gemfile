@@ -60,10 +60,15 @@ gem 'puma_worker_killer'
 # see https://github.com/SeleniumHQ/selenium/commit/526fd9d0de60a53746ffa982feab985fed09a278
 gem 'rexml'
 
-# HTTP client library for OBS Client
+# as HTTP client library
 gem 'faraday'
-gem 'faraday_middleware'
-gem 'multi_xml'
+gem 'faraday-net_http'
+gem 'faraday-decode_xml'
+gem 'faraday-follow_redirects'
+gem 'faraday-gzip'
+gem 'faraday-http-cache'
+gem 'faraday-mashify'
+gem 'faraday-retry'
 
 # needed to collect translatable strings
 # not needed at production
