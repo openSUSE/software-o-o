@@ -44,6 +44,8 @@ BuildRequires:  nodejs
 BuildRequires:  gettext-tools
 # TZInfo::DataSourceNotFound & rake makemo
 BuildRequires:  timezone
+# for building zlib
+BuildRequires:  valgrind-client-headers
 
 #
 PreReq:         /usr/sbin/groupadd /usr/sbin/useradd
