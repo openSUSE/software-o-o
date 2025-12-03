@@ -39,6 +39,9 @@ gem 'rails-i18n'
 # for markdown in views
 gem 'redcarpet', '~> 3.5.1'
 
+# for setting environment variables
+gem 'dotenv-rails'
+
 # for logging
 gem 'lograge'
 
