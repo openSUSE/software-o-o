@@ -181,7 +181,9 @@ class Repository < ApplicationRecord
     raise "Could not fetch #{full_url.join('/')}" unless response.success?
 
     filepath = Rails.root.join('tmp', 'file-cache', "#{id}-#{filename}")
-    File.binwrite(filepath, uncompress_gzip(response.body))
+    File.binwrite(filepath, uncompress_gzip(response.body)) if filename.end_with?('.gz')
+    File.binwrite(filepath, Zstd.decompress(response.body)) if filename.end_with?('.zst')
+
     repodata_files.attach(io: File.open(filepath), filename: filename, content_type: response.headers['content-type'])
     File.delete(filepath)
 

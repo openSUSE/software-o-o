@@ -81,6 +81,10 @@ gem 'faraday-http-cache'
 gem 'faraday-mashify'
 gem 'faraday-retry'
 
+# for uncompressing files
+gem 'zlib'
+gem 'zstd-ruby'
+
 # needed to collect translatable strings
 # not needed at production
 group :development do
