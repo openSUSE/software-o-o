@@ -15,15 +15,6 @@ RUN chown -R software /software
 USER software
 WORKDIR /software
 
-# Setup bundler
-# We always want to build for our platform instead of using precompiled gems
-ENV BUNDLE_FORCE_RUBY_PLATFORM=true
-ENV NOKOGIRI_USE_SYSTEM_LIBRARIES=1
-
-# Refresh our bundle
-RUN bundle config set --local path 'vendor/bundle'; \
-    bundle install --jobs=3 --retry=3
-
 # Run our command
 CMD ["rails", "server", "-b", "0.0.0.0"]
 
