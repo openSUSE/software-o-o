@@ -2,6 +2,11 @@ version: "2.1"
 services:
   memcached:
     image: registry.opensuse.org/opensuse/memcached:latest
+  database:
+    image: registry.opensuse.org/opensuse/postgres:latest
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_PASSWORD: mysecretpassword
   software:
     build:
       dockerfile: Dockerfile
@@ -15,5 +20,6 @@ services:
       - "3000:3000"
     depends_on:
       - memcached
+      - database
     environment:
       - MEMCACHED_HOST="memcached:11211"

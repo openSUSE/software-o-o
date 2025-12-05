@@ -36,8 +36,11 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - uses: dentarg/postgres@v1
       - name: Run unit tests
-        run: bundle exec rake test -v
+        run: |
+          bundle exec rake db:setup
+          bundle exec rake test -v
       - name: Upload Suite Artifacts
         if: ${{ failure() }}
         uses: actions/upload-artifact@v5
@@ -53,8 +56,11 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - uses: dentarg/postgres@v1
       - name: Run system tests
-        run: bundle exec rake test:system -v
+        run: |
+          bundle exec rake db:setup
+          bundle exec rake test:system -v
       - name: Upload Suite Artifacts
         if: ${{ failure() }}
         uses: actions/upload-artifact@v5
@@ -72,6 +78,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - uses: dentarg/postgres@v1
       - name: Install dependencies
         run: |
           sudo apt-get update
@@ -82,7 +89,9 @@ jobs:
           echo "BUNDLE_CACHE_PATH=vendor/cache.next" >> $GITHUB_ENV
           echo "BUNDLE_AUTO_INSTALL=true" >> $GITHUB_ENV
       - name: Run tests against next Rails version
-        run: bundle exec rake test -v
+        run: |
+          bundle exec rake db:setup
+          bundle exec rake test -v
       - name: Upload Suite Artifacts
         if: ${{ failure() }}
         uses: actions/upload-artifact@v5
