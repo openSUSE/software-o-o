@@ -50,7 +50,6 @@ Server = <%= v[:repo].gsub(/(\w):(\w)/, '\1:/\2') %>$arch
 key=$(curl -fsSL <%= "#{v[:repo]}$(uname -m)/#{repo_name}.key" %>)
 fingerprint=$(gpg --quiet --with-colons --import-options show-only --import --fingerprint &lt;&lt;&lt; "${key}" | awk -F: '$1 == "fpr" { print $10 }')
 
-pacman-key --init
 pacman-key --add - &lt;&lt;&lt; "${key}"
 pacman-key --lsign-key "${fingerprint}"
 
