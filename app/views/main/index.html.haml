@@ -1,0 +1,33 @@
+.container
+  .row
+    .col-md-12
+      .carousel.slide.mb-5#featuredApps{ 'data-ride' => 'carousel' }
+        %ol.carousel-indicators
+          %li.active{"data-slide-to" => "0", "data-target" => "#featuredApps"}
+          %li{"data-slide-to" => "1", "data-target" => "#featuredApps"}
+          %li{"data-slide-to" => "2", "data-target" => "#featuredApps"}
+          %li{"data-slide-to" => "3", "data-target" => "#featuredApps"}
+          %li{"data-slide-to" => "4", "data-target" => "#featuredApps"}
+        .carousel-inner
+          - @packages.each_with_index do |package, index|
+            - active = index.zero? ? 'active' : nil
+            %div{class: "carousel-item #{active}"}
+              %img{ width: '100%', height: '500px', 'object-fit': 'cover', 'object-position': 'center', alt: '...', src: url_for(package.screenshots.first).to_s }/
+              .carousel-caption
+                %h1= package.title
+                %p= package.summary
+                %p
+                  %a.btn.btn-primary{:href => "#{distribution_package_path(@distribution.name, package.name)}", role: 'button'}
+                    Learn more
+        %a.carousel-control-prev{"data-slide" => "prev", :href => "#featuredApps", :role => "button"}
+          %span.carousel-control-prev-icon.text-body{"aria-hidden" => "true"}
+          %span.sr-only Previous
+        %a.carousel-control-next{"data-slide" => "next", :href => "#featuredApps", :role => "button"}
+          %span.carousel-control-next-icon.text-body{"aria-hidden" => "true"}
+          %span.sr-only Next
+  #categories.row
+    - @categories.each do |category|
+      .col-6.col-md-4.col-lg-3.my-3.d-flex.align-items-center
+        = link_to(distribution_category_path(@distribution.name, category.name), class: 'text-body ml-2') do
+          %i{class: "fa #{category.icon}"}
+          = category.name

@@ -1,0 +1,28 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *defaults
+  host: database
+  username: postgres
+  password: mysecretpassword
+  database: software_development
+
+test:
+  <<: *defaults
+  host: database
+  username: postgres
+  password: mysecretpassword
+  database: software_test
+
+production:
+  <<: *defaults
+  # host: <%= ENV.fetch('SOFTWARE_DB_HOST', 'database') %>
+  # port: <%= ENV.fetch('SOFTWARE_DB_PORT', '5432')  %>
+  username: <%= ENV.fetch('SOFTWARE_DB_USER', 'postgres') %>
+  password: <%= ENV.fetch('SOFTWARE_DB_PASSWORD', 'mysecretpassword') %>
+  database: <%= ENV.fetch('SOFTWARE_DB_NAME', 'postgres') %>
+
