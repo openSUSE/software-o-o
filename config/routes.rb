@@ -1,20 +1,16 @@
 Rails.application.routes.draw  do
+  CONS = {
+    name: /[^\/]+/,
+    distribution_name: /[^\/]+/
+  }.freeze
 
-  root to: 'package#explore'
 
-  resources :search, only: [:index] do
-  end
+  root to: 'main#index'
 
-  controller :package do
-    get 'package/:package', action: :show, constraints: { package: /[-+~\w\.:\@]+/ }
-    get 'package/thumbnail/:package.png', action: :thumbnail, constraints: { package: /[-+~\w\.:\@]+/ }
-    get 'package/screenshot/:package.png', action: :screenshot, constraints: { package: /[-+~\w\.:\@]+/ }
-
-    get 'explore', action: :explore
-    get 'packages', action: :explore
-    get 'appstore', action: :explore
-    get 'packages/:category', action: :category, constraints: { category: /[\w\-\.: ]+/ }
-    get 'appstore/:category', action: :category, constraints: { category: /[\w\-\.: ]+/ }
+  resources :search, only: :index
+  resources :distributions, only: :show, param: :name, constraints: CONS do
+    resources :packages, only: :show, param: :name, constraints: CONS
+    resources :categories, only: :show, param: :name, constraints: CONS
   end
 
   namespace 'download' do
@@ -26,6 +22,7 @@ Rails.application.routes.draw  do
       get path, action: :doc
     end
   end
+
   get 'ymp/:project/:repository/:package.ymp', to: 'download#ymp_without_arch_and_version',
       :constraints => { :project => /[\w\-\.:\+]+/, :repository => /[\w\-\.:\+]+/, :package => /[-+\w\.:\@]+/ }
   get 'ymp/:project/:repository/:arch/:binary.ymp', to: 'download#ymp_with_arch_and_version',
@@ -69,7 +66,4 @@ Rails.application.routes.draw  do
   get 'developer', to: redirect('/distributions/testing')
   get 'developer/:locale', to: redirect('/distributions/testing?locale=%{locale}')
   get '/promodvd', to: redirect('/distributions')
-
-  # catch all other params as locales...
-  get '/:locale', to: 'package#explore'
 end
