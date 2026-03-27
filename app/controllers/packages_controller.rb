@@ -1,0 +1,14 @@
+# frozen_string_literal: true
+
+class PackagesController < ApplicationController
+  before_action :set_distribution
+  before_action :set_package, only: %i[show]
+
+  def show; end
+
+  private
+
+  def set_package
+    @package = @distribution.packages.find_by!(name: params[:name])
+  end
+end
