@@ -73,4 +73,7 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  # Store files in storage/
+  config.active_storage.service = :local
 end

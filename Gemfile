@@ -21,6 +21,8 @@ gem 'sprockets-rails'
 gem 'puma'
 # as templating engine
 gem 'haml-rails', '~> 2.0'
+# as database
+gem 'pg'
 
 # for appdata redirections (https -> http)
 gem 'open_uri_redirections'
@@ -44,6 +46,12 @@ gem 'dotenv-rails'
 
 # for logging
 gem 'lograge'
+
+# as scheduler
+gem 'clockwork'
+
+# as ActiveJob backend
+gem 'delayed_job_active_record'
 
 # as error catcher
 gem 'sentry-rails'
@@ -72,6 +80,10 @@ gem 'faraday-gzip'
 gem 'faraday-http-cache'
 gem 'faraday-mashify'
 gem 'faraday-retry'
+
+# for uncompressing files
+gem 'zlib'
+gem 'zstd-ruby'
 
 # needed to collect translatable strings
 # not needed at production
