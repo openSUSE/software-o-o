@@ -68,7 +68,15 @@ pacman -Sy <%= repo_name %>/<%= @package %></pre>
                   <pre><%=
                      case v[:flavor]
                      when 'openSUSE', 'SLE'
-                         "zypper addrepo #{v[:repo]}#{@project}.repo\nzypper refresh\nzypper install #{@package}"
+                       if @project != "openSUSE:Factory" && @project != "openSUSE:Tumbleweed" && !@project.start_with?("openSUSE:Leap:") && !@project.start_with?("openSUSE:Backports:") && !@project.start_with?("SUSE:SLE-15-")
+
+                         "zypper addrepo #{v[:repo]}#{@project}.repo\nzypper refresh\n"
+                       end
+                       if @package.nil?
+                         "zypper install -t pattern #{@pattern}\n"
+                       else
+                         "zypper install #{@package}\n"
+                       end
                      when 'Fedora'
                        version = k.split("_").last
                        if version == "Rawhide" or Integer(version) >= 41
