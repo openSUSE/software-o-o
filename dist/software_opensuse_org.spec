@@ -142,18 +142,12 @@ fi
 
 %files -f %{name}.lang
 %defattr(-,root,root)
-%dir /srv/www/vhosts/
-%dir /srv/www/vhosts/opensuse.org/
-%dir /srv/www/vhosts/opensuse.org/software/
+/srv/www/vhosts/
 %{_unitdir}/software_opensuse_org.service
-%defattr(-,root,%{run_as_group})
-%{basedir}
-%defattr(-,%{run_as_user},%{run_as_group})
-%dir %{basedir}/log/
-%dir %{basedir}/tmp/
-%dir %{basedir}/tmp/pids
-%dir %{basedir}/public/images/thumbnails
-# FIXME: log files belong to /var/log
+%dir %attr(-,%{run_as_user},%{run_as_group}) %{basedir}/log/
+%dir %attr(-,%{run_as_user},%{run_as_group}) %{basedir}/tmp/
+%dir %attr(-,%{run_as_user},%{run_as_group}) %{basedir}/tmp/pids/
+%dir %attr(-,%{run_as_user},%{run_as_group}) %{basedir}/public/images/thumbnails
 %ghost %{basedir}/log/production.log
 %config(noreplace) %{basedir}/config/options.yml
 
