@@ -168,3 +168,6 @@ fi
 %dir %{_sysconfdir}/logrotate.d
 %{_sysconfdir}/logrotate.d/apache2-software.o.o.lr
 
+%changelog
+* Fri Jun 12 2026 Henne Vogelsang <hvogel@opensuse.org>
+- Make source_date_epoch_from_changelog happy...
