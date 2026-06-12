@@ -168,6 +168,3 @@ fi
 %dir %{_sysconfdir}/logrotate.d
 %{_sysconfdir}/logrotate.d/apache2-software.o.o.lr
 
-
-%changelog
-
