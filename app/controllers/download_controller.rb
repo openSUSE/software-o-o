@@ -113,7 +113,8 @@ class DownloadController < ApplicationController
   def get_project(distro, baseproject)
     project = baseproject
     unless @distributions.nil?
-      distribution = @distributions.find { |d| d[:reponame] == distro }
+      # On OBS "Ubuntu" is sometimes recorded as "xUbuntu"
+      distribution = @distributions.find { |d| [distro, "x#{distro}"].include?(d[:reponame]) }
       unless distribution.nil?
         project = distribution[:project]
       end
