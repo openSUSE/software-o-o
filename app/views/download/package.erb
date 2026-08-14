@@ -61,7 +61,7 @@ pacman -Sy <%= repo_name %>/<%= @package %></pre>
                   <pre><%=
                      # don't use apt-add-repository wrapper for Ubuntu for now, because it adds source repo which we don't provide
                      #        "apt-add-repository deb #{v[:repo]} /\napt-get update\napt-get install #{@package}"
-                     "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' | sudo tee /etc/apt/sources.list.d/#{@project}.list\ncurl -fsSL #{v[:repo]}Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/#{@project.gsub(':', '_')}.gpg > /dev/null\nsudo apt update\nsudo apt install #{@package}"
+                     "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')} /' | sudo tee /etc/apt/sources.list.d/#{@project}.list\ncurl -fsSL #{v[:repo]}Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/#{@project.gsub(':', '_')}.gpg > /dev/null\nsudo apt update\nsudo apt install #{@package}"
                      %></pre>
                   <% else %>
                   <h5><%= (_("For <strong>%s</strong> run the following as <strong>root</strong>:") % k.gsub('_', '&nbsp;').html_safe).html_safe %></h5>
@@ -81,7 +81,7 @@ pacman -Sy <%= repo_name %>/<%= @package %></pre>
                      when 'CentOS', 'RHEL', 'SL'
                        "cd /etc/yum.repos.d/\nwget #{v[:repo]}#{@project}.repo\nyum install #{@package}"
                      when 'Univention'
-                       "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2').gsub(/^https/, 'http')} /' > /etc/apt/sources.list.d/#{@project}.list\nwget -nv #{v[:repo]}Release.key -O Release.key\napt-key add - < Release.key\napt-get update\napt-get install #{@package}"
+                       "echo 'deb #{v[:repo].gsub(/(\w):(\w)/, '\1:/\2')} /' > /etc/apt/sources.list.d/#{@project}.list\nwget -nv #{v[:repo]}Release.key -O Release.key\napt-key add - < Release.key\napt-get update\napt-get install #{@package}"
                      when 'Mageia', 'Mandriva'
                        version = k.split("_").last
                        if version == "Cauldron" or Integer(version) >= 6
