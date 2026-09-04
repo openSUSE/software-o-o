@@ -3,7 +3,7 @@
 %define run_as_user   soorun
 %define run_as_group  soorun
 
-%define soo_ruby_suffix ruby3.4
+%define ruby_version 3.4
 
 #
 Name:           software_opensuse_org
@@ -14,14 +14,11 @@ License:        GPL-2.0
 Group:          Productivity/Networking/Web/Utilities
 Url:            http://software.opensuse.org
 Source:         software-o-o-%{version}.tar.xz
-Source1:        software_opensuse_org.service
-Source2:        vhost-software_opensuse_org.conf
-Source4:        apache2-software.o.o.lr
 # memcache is required for session data
 Requires:       memcached
 Conflicts:      memcached < 1.4
 
-Requires:       %{soo_ruby_suffix}
+Requires:       ruby%{ruby_version}
 Requires:       ImageMagick
 # rubygem uglifier needs some js runtime
 Requires:       nodejs
@@ -29,11 +26,12 @@ BuildRequires:  xz
 BuildRequires:  fdupes
 BuildRequires:  systemd-rpm-macros
 # needed by native extensions
-BuildRequires:  %{soo_ruby_suffix}-devel
+BuildRequires:  ruby%{ruby_version}-devel
 BuildRequires:  libxml2-devel
 BuildRequires:  libxslt-devel
 BuildRequires:  libsass-devel
 BuildRequires:  libyaml-devel
+BuildRequires:  libffi-devel
 BuildRequires:  glibc-devel
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
@@ -63,6 +61,7 @@ For more information about software.o.o, see https://github.com/openSUSE/softwar
 Summary:        Exposes software.opensuse.org via apache vhost
 Requires:       apache2-prefork
 Requires:       %{name}
+Requires:       logrotate
 BuildArch:      noarch
 %description    apache2
 Exposes software.opensuse.org service as an apache virtual host
@@ -71,53 +70,12 @@ Exposes software.opensuse.org service as an apache virtual host
 %autosetup -n software-o-o-%{version} -p1
 
 %build
-gem="gem.%{soo_ruby_suffix}"
-bundle="bundle.%{soo_ruby_suffix}"
-$bundle config build.nokogiri --use-system-libraries
-$bundle config build.sassc --disable-march-tune-native
-$bundle config set --local path 'vendor/bundle'
-$bundle install --jobs=4 --retry=3 --local
-# generate mo files
-$bundle exec rake makemo
-$bundle exec rake --trace assets:precompile RAILS_ENV=production RAILS_GROUPS=assets
-$bundle exec rake --trace tmp:clear RAILS_ENV=production
-#
+make RUBY_VERSION=%{ruby_version}
+
 %install
-mkdir -p %{buildroot}%{_unitdir}/
-install -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/
-mkdir -p %{buildroot}%{_sysconfdir}/apache2/vhosts.d
-install -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/apache2/vhosts.d
-# apache logs
-mkdir -p %{buildroot}%{_localstatedir}/log/apache2
-touch %{buildroot}%{_localstatedir}/log/apache2/software.opensuse.org-access.log
-touch %{buildroot}%{_localstatedir}/log/apache2/software.opensuse.org-error.log
-mkdir -p %{buildroot}%{_sysconfdir}/logrotate.d
-install -m 644 %{SOURCE4} %{buildroot}%{_sysconfdir}/logrotate.d
-
-# just in case, force specific ruby version
-sed -i -e 's,/usr/bin/bundle,/usr/bin/bundle.%{soo_ruby_suffix},' %{buildroot}%{_unitdir}/software_opensuse_org.service
-install -dD -m 0750 %{buildroot}%{basedir}
-cp -a * .bundle %{buildroot}%{basedir}
-find %{buildroot}%{basedir} -name '*.[cha]' -print0 | xargs -0 rm
-install -d -m 0750 %{buildroot}%{basedir}/tmp
-install -d -m 0750 %{buildroot}%{basedir}/tmp/pids
-install -d -m 0750 %{buildroot}%{basedir}/log
-install -d -m 0755 %{buildroot}%{basedir}/public/images/thumbnails
-# permissions clean up
-chmod -R o=   %{buildroot}%{basedir}
-chmod    o+X  %{buildroot}%{basedir}
-chmod -R o+rX %{buildroot}%{basedir}/public/
-chmod -R o+rX public/assets/*
-rm -rf tmp/*
-#
-find %{buildroot}%{basedir} -name .gitignore | xargs rm -f
-# rbtrace
-find %{buildroot}%{basedir} -name msgpack.pc | xargs rm -f
-# backup files
-find %{buildroot}%{basedir} -name \*~ | xargs rm -f
-
-%find_lang %{name} --all-name
+%make_install
 %fdupes -s %{buildroot}
+%find_lang software
 
 %pre
 /usr/sbin/groupadd -r %{run_as_group} &>/dev/null || :
@@ -140,21 +98,52 @@ fi
 %restart_on_update memcached software_opensuse_org
 %service_del_postun software_opensuse_org.service
 
-%files -f %{name}.lang
+%files -f software.lang
 %defattr(-,root,root)
+%dir /srv/www
 %dir /srv/www/vhosts/
 %dir /srv/www/vhosts/opensuse.org/
 %dir /srv/www/vhosts/opensuse.org/software/
+%dir /srv/www/vhosts/opensuse.org/software/current
+%dir /srv/www/vhosts/opensuse.org/software/current/locale
+%dir /srv/www/vhosts/opensuse.org/software/current/locale/*
+%dir /srv/www/vhosts/opensuse.org/software/current/locale/*/*
 %{_unitdir}/software_opensuse_org.service
 %defattr(-,root,%{run_as_group})
-%{basedir}
+%{basedir}/.bundle
+%{basedir}/Gemfile
+%{basedir}/Gemfile.lock
+%{basedir}/Makefile
+%{basedir}/README.i18n
+%{basedir}/Rakefile
+%{basedir}/config.ru
+%{basedir}/app
+%{basedir}/bin
+%dir %{basedir}/config
+%{basedir}/config/application.rb
+%{basedir}/config//boot.rb
+%{basedir}/config/environment.rb
+%{basedir}/config/puma.rb
+%{basedir}/config/routes.rb
+%{basedir}/config/environments
+%{basedir}/config/initializers
+%{basedir}/config/locales
+%{basedir}/lib
+%dir %{basedir}/public
+%{basedir}/public/404.html
+%{basedir}/public/500.html
+%{basedir}/public/favicon.ico
+%{basedir}/public/robots.txt
+%{basedir}/public/search_software.xml
+%{basedir}/public/assets
+%{basedir}/vendor
 %defattr(-,%{run_as_user},%{run_as_group})
 %dir %{basedir}/log/
 %dir %{basedir}/tmp/
 %dir %{basedir}/tmp/pids
-%dir %{basedir}/public/images/thumbnails
-# FIXME: log files belong to /var/log
-%ghost %{basedir}/log/production.log
+%dir %{basedir}/public/images
+%ghost %attr(0644,%{run_as_user},%{run_as_group}) %{basedir}/log/production.log
+%config(noreplace) %{basedir}/config/default_searches.yml
 %config(noreplace) %{basedir}/config/options.yml
 
 %files apache2
@@ -163,8 +152,8 @@ fi
 %dir %{_sysconfdir}/apache2/vhosts.d
 %config(noreplace) %{_sysconfdir}/apache2/vhosts.d/vhost-software_opensuse_org.conf
 %dir %{_localstatedir}/log/apache2
-%ghost %{_localstatedir}/log/apache2/software.opensuse.org-access.log
-%ghost %{_localstatedir}/log/apache2/software.opensuse.org-error.log
+%ghost %attr(0644,root,root) %{_localstatedir}/log/apache2/software.opensuse.org-access.log
+%ghost %attr(0644,root,root) %{_localstatedir}/log/apache2/software.opensuse.org-error.log
 %dir %{_sysconfdir}/logrotate.d
-%{_sysconfdir}/logrotate.d/apache2-software.o.o.lr
+%{_sysconfdir}/logrotate.d/%{name}-apache2
 
