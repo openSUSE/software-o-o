@@ -34,6 +34,27 @@ class OBSTest < ActiveSupport::TestCase
     end
   end
 
+  test 'add fileinfo to binary without published fileinfo data' do
+    binary = OBS::Binary.new(
+      'project' => 'home:test',
+      'repository' => 'openSUSE_Tumbleweed',
+      'arch' => 'x86_64',
+      'filename' => 'poetry-1.0-1.1.x86_64.rpm'
+    )
+    url = %r{/published/home:test/openSUSE_Tumbleweed/x86_64/poetry-1\.0-1\.1\.x86_64\.rpm}
+
+    ['<fileinfo/>', '<status code="ok"/>', ''].each do |body|
+      Rails.cache.clear
+      WebMock.stub_request(:get, url)
+             .to_return(body: body, headers: { 'Content-Type' => 'application/xml' })
+
+      result = OBS.add_fileinfo_to_binary(binary)
+
+      assert_same binary, result
+      assert_nil result.description
+    end
+  end
+
   test 'search fileinfo for one Binary' do
     VCR.use_cassette('search fileinfo for one Binary') do
       binary = OBS::Binary.new(
