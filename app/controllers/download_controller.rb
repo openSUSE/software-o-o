@@ -113,8 +113,15 @@ class DownloadController < ApplicationController
   def get_project(distro, baseproject)
     project = baseproject
     unless @distributions.nil?
-      # On OBS "Ubuntu" is sometimes recorded as "xUbuntu"
-      distribution = @distributions.find { |d| [distro, "x#{distro}"].include?(d[:reponame]) }
+      # On OBS "Ubuntu" is sometimes recorded as "xUbuntu",
+      # and Leap repos can be named "openSUSE_Leap_15.x" while reponame in distributions is "15.x"
+      candidate_names = [
+        distro,
+        "x#{distro}",
+        distro.to_s.sub(/^openSUSE_Leap_/, ''),
+        distro.to_s.sub(/^openSUSE_/, '')
+      ]
+      distribution = @distributions.find { |d| candidate_names.include?(d[:reponame]) }
       unless distribution.nil?
         project = distribution[:project]
       end
@@ -124,7 +131,7 @@ class DownloadController < ApplicationController
 
   def set_distro_flavor(distro)
     case distro
-    when /^(DISCONTINUED:)?openSUSE:/
+    when /^(DISCONTINUED:)?openSUSE(:|_|$)/, /^(\d+\.\d+)$/
       'openSUSE'
     when /^(DISCONTINUED:)?SUSE:SLE-/
       'SLE'
