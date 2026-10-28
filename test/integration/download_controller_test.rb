@@ -21,15 +21,13 @@ class DownloadControllerTest < ActionDispatch::IntegrationTest
 
   test 'detects openSUSE flavor for Leap distributions' do
     controller = DownloadController.new
-    # Test set_distro_flavor with various Leap project/repository formats
-    assert_equal 'openSUSE', controller.send(:set_distro_flavor, 'openSUSE:Leap:15.5')
-    assert_equal 'openSUSE', controller.send(:set_distro_flavor, 'openSUSE:Leap:15.6')
-    assert_equal 'openSUSE', controller.send(:set_distro_flavor, 'openSUSE:Leap:16.0')
-    assert_equal 'openSUSE', controller.send(:set_distro_flavor, 'openSUSE_Leap_15.5')
-    assert_equal 'openSUSE', controller.send(:set_distro_flavor, 'openSUSE_Leap_15.6')
-    assert_equal 'openSUSE', controller.send(:set_distro_flavor, 'openSUSE_Leap_16.0')
-    assert_equal 'openSUSE', controller.send(:set_distro_flavor, '15.5')
-    assert_equal 'openSUSE', controller.send(:set_distro_flavor, '15.6')
-    assert_equal 'openSUSE', controller.send(:set_distro_flavor, '16.0')
+    leap_distros = %w[
+      openSUSE:Leap:15.5 openSUSE:Leap:15.6 openSUSE:Leap:16.0
+      openSUSE_Leap_15.5 openSUSE_Leap_15.6 openSUSE_Leap_16.0
+      15.5 15.6 16.0
+    ]
+    leap_distros.each do |distro|
+      assert_equal 'openSUSE', controller.send(:set_distro_flavor, distro)
+    end
   end
 end
