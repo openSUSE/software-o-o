@@ -74,6 +74,6 @@ class SearchController < ApplicationController
   private
 
   def baseproject_not_canonical?
-    ['openSUSE:Leap:15.5', 'openSUSE:Leap:15.4'].include?(@baseproject)
+    ['openSUSE:Leap:16.0', 'openSUSE:Leap:15.6', 'openSUSE:Leap:15.5', 'openSUSE:Leap:15.4'].include?(@baseproject)
   end
 end
