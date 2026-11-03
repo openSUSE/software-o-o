@@ -223,6 +223,9 @@ module OBS
       # Not every binary has published fileinfo. Skip if that is the case
       raise unless e.response[:status] == 404
     else
+      # OBS may answer with an empty <fileinfo/> or another document entirely
+      return binary if fileinfo.blank?
+
       binary.description = fileinfo.description if fileinfo.description.present?
       binary.summary = fileinfo.summary if fileinfo.summary.present?
       # .size is a built-in method and has to be accessed via #[]
