@@ -81,16 +81,12 @@ class ApplicationController < ActionController::Base
         if repo
           package.realproject = package.project
           package.baseproject = repo[:project]
-        elsif package.repository == 'openSUSE_Leap_15.4'
-          leap154 = @distributions.find { |d| d[:dist_id] == '23178' }
-          next unless leap154
+        elsif package.repository =~ /^openSUSE_Leap_(\d+\.\d+)/
+          version = Regexp.last_match(1)
+          leap_dist = @distributions.find { |d| d[:reponame] == version || d[:project] == "openSUSE:Leap:#{version}" }
+          next unless leap_dist
 
-          package.baseproject = leap154[:project]
-        elsif package.repository == 'openSUSE_Leap_15.5'
-          leap155 = @distributions.find { |d| d[:dist_id] == '23175' }
-          next unless leap155
-
-          package.baseproject = leap155[:project]
+          package.baseproject = leap_dist[:project]
         end
       end
     end

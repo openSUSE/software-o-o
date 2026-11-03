@@ -18,4 +18,16 @@ class DownloadControllerTest < ActionDispatch::IntegrationTest
       assert_match %r{#{repo_link}/openSUSE:/Tools/(.*)/#{package_name}}, package_link
     end
   end
+
+  test 'detects openSUSE flavor for Leap distributions' do
+    controller = DownloadController.new
+    leap_distros = %w[
+      openSUSE:Leap:15.5 openSUSE:Leap:15.6 openSUSE:Leap:16.0
+      openSUSE_Leap_15.5 openSUSE_Leap_15.6 openSUSE_Leap_16.0
+      15.5 15.6 16.0
+    ]
+    leap_distros.each do |distro|
+      assert_equal 'openSUSE', controller.send(:set_distro_flavor, distro)
+    end
+  end
 end
