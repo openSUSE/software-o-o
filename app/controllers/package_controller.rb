@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PackageController < ApplicationController
-  before_action :set_search_options, only: %i[show categories]
+  before_action :set_search_options, only: :show
   before_action :prepare_appdata, :set_categories
 
   skip_before_action :set_language, only: %i[thumbnail screenshot]
