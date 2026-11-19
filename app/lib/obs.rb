@@ -44,6 +44,7 @@ module OBS
   class Collection < Hashie::Mash
     include Hashie::Extensions::Mash::SymbolizeKeys
     include Hashie::Extensions::Coercion
+
     coerce_key :binary, Binary
     coerce_key :matches, Integer
 
@@ -59,6 +60,7 @@ module OBS
   class Response < Hashie::Mash
     include Hashie::Extensions::Mash::SymbolizeKeys
     include Hashie::Extensions::Coercion
+
     coerce_key :collection, Collection
   end
 

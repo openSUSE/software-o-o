@@ -3,7 +3,6 @@
 def next?
   File.basename(__FILE__) == 'Gemfile.next'
 end
-# frozen_string_literal: true
 
 source 'https://rubygems.org'
 
@@ -91,6 +90,7 @@ group :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-capybara'
+  gem 'rubocop-i18n'
   gem 'selenium-webdriver'
   gem 'vcr'
   gem 'webmock'
