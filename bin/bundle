@@ -1,4 +1,4 @@
-#!/usr/bin/ruby.ruby3.3
+#!/usr/bin/env ruby
 # frozen_string_literal: true
 
 #
@@ -41,7 +41,7 @@ m = Module.new do
     gemfile = ENV["BUNDLE_GEMFILE"]
     return gemfile if gemfile && !gemfile.empty?
 
-    File.expand_path("../Gemfile", __dir__)
+    File.expand_path("../Gemfile.next", __dir__)
   end
 
   def lockfile
