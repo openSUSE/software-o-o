@@ -3,7 +3,6 @@
 def next?
   File.basename(__FILE__) == 'Gemfile.next'
 end
-# frozen_string_literal: true
 
 source 'https://rubygems.org'
 
@@ -11,9 +10,9 @@ ruby '~> 3.3'
 
 # as framework
 if next?
-  gem 'rails', '~> 8.0'
+  gem 'rails', '~> 8.1'
 else
-  gem 'rails', '~> 7.2'
+  gem 'rails', '~> 8.0'
 end
 # as asset pipeline
 gem 'sprockets-rails'
@@ -91,6 +90,7 @@ group :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-capybara'
+  gem 'rubocop-i18n'
   gem 'selenium-webdriver'
   gem 'vcr'
   gem 'webmock'

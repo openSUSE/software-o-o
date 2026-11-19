@@ -130,8 +130,13 @@ fi
 %{basedir}/config/locales
 %{basedir}/lib
 %dir %{basedir}/public
+%{basedir}/public/400.html
 %{basedir}/public/404.html
+%{basedir}/public/406-unsupported-browser.html
+%{basedir}/public/422.html
 %{basedir}/public/500.html
+%{basedir}/public/icon.png
+%{basedir}/public/icon.svg
 %{basedir}/public/favicon.ico
 %{basedir}/public/robots.txt
 %{basedir}/public/search_software.xml

@@ -1,15 +1,14 @@
 
 inherit_from: .rubocop_todo.yml
 
-require:
+plugins:
  - rubocop-performance
  - rubocop-capybara
  - rubocop-minitest
  - rubocop-rails
-
+ - rubocop-i18n
 
 AllCops:
-  TargetRubyVersion: 3.1
   NewCops: enable
   Exclude:
     - 'bin/*'
