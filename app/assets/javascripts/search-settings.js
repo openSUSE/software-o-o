@@ -5,10 +5,10 @@
  * - Clicking Cancel or x button do nothing.
  */
 $(function() {
-  var $settings_modal = $("#search-settings");
-  var $project_dropdown = $("#baseproject");
-  var $ok = $settings_modal.find(".ok-button");
-  var $cancel = $settings_modal.find(".cancel-button");
+  let $settings_modal = $("#search-settings");
+  let $project_dropdown = $("#baseproject");
+  let $ok = $settings_modal.find(".ok-button");
+  let $cancel = $settings_modal.find(".cancel-button");
 
   function set_cookie(name, value) {
     console.log("Setting cookie: " + name + " = " + value);
@@ -19,8 +19,8 @@ $(function() {
     /*
      * See https://stackoverflow.com/a/41542008 for editing query string
      */
-    var value = $project_dropdown.val();
-    var query_params = new URLSearchParams(window.location.search);
+    let value = $project_dropdown.val();
+    let query_params = new URLSearchParams(window.location.search);
 
     set_cookie("baseproject", value);
     if (query_params.has("baseproject")) query_params.set("baseproject", value);
@@ -30,10 +30,10 @@ $(function() {
   });
 
   $ok.click(function() {
-    var settings = [ "search_devel", "search_lang", "search_debug" ];
-    for (var i = 0; i < Object.keys(settings).length; i++) {
+    let settings = [ "search_devel", "search_lang", "search_debug" ];
+    for (let i = 0; i < Object.keys(settings).length; i++) {
       setting = settings[i];
-      var value = $settings_modal.find('[name="'+ setting +'"]').prop("checked");
+      let value = $settings_modal.find('[name="'+ setting +'"]').prop("checked");
       set_cookie(setting, value);
     }
     location.reload();
